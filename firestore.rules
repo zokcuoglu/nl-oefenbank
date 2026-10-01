@@ -1,0 +1,34 @@
+rules_version = '2';
+// Security rules for the Lezen Oefenbank.
+// Paste this into Firebase Console > Firestore Database > Rules, then Publish.
+//
+// Idea: every signed-in person has their own folder users/{uid}.
+// Nobody can read or write another person's folder. Everything else is closed.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: is the request coming from the owner of this folder?
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // User profile: name and exam date
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      // Finished practice rounds. Results are only added, never edited,
+      // so a round cannot be changed afterwards. Size limit stops misuse.
+      match /attempts/{attemptId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid) && request.resource.data.answers.size() <= 50;
+        allow delete: if isOwner(uid);
+        allow update: if false;
+      }
+    }
+
+    // Default: everything else is denied
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
