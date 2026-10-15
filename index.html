@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="theme-color" content="#C8551B">
 <title>NL Oefenbank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +60,7 @@ function card(m) {
     days !== null ? `<span class="chip accent num">sınava ${days} gün</span>` : "",
     last ? `<span class="chip num">son: ${fmtDate(last.finished_at)} · ${last.score}/${last.total}</span>` : (m.status === "ready" ? `<span class="chip">başlanmadı</span>` : "")
   ].join("");
-  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
+  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
   return m.status === "ready"
     ? `<a class="panel card" href="${ROOT}${m.href}">${inner}</a>`
     : `<article class="panel card soon">${inner}</article>`;
@@ -80,6 +83,8 @@ app.innerHTML = `
     <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "NT2 sınav alıştırmaların ve çocuk bölümü aşağıda. Sınav tarihlerini profil sayfasından girebilirsin."}</p></section>
   ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)}</span></div>
     <section class="cards">${cat.modules.filter(m => m.area === "nt2").map(card).join("")}</section>`}
+  ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.media.title)}</h2><span class="muted">${esc(cat.areas.media.desc)}</span></div>
+    <section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`}
   <div class="area-head"><h2>${esc(cat.areas.kids.title)}</h2><span class="muted">${esc(cat.areas.kids.desc)}</span></div>
   ${kidsSection()}`;
 </script>

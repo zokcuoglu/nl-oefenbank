@@ -1,5 +1,6 @@
 # Sends the site's e-mails (see scripts/mailer.py).
 #   every hour      : "hesabın onaylandı" mails + queued announcements
+#   every day 06:05 UTC: daily news item (08:05 summer / 07:05 winter in Amsterdam)
 #   Sunday 16:00 UTC: weekly summaries (18:00 summer / 17:00 winter in Amsterdam)
 #   manual run      : Actions > Mailer > Run workflow (dry run by default: prints, sends nothing)
 name: Mailer
@@ -8,12 +9,13 @@ on:
   schedule:
     - cron: "17 * * * *"
     - cron: "0 16 * * 0"
+    - cron: "5 6 * * *"
   workflow_dispatch:
     inputs:
       mode:
-        description: "hourly = onay + duyuru, weekly = haftalık özet"
+        description: "hourly = onay + duyuru, daily = günlük haber, weekly = haftalık özet"
         type: choice
-        options: [hourly, weekly]
+        options: [hourly, daily, weekly]
         default: hourly
       dry_run:
         description: "Sadece göster, gönderme"
@@ -37,9 +39,10 @@ jobs:
       - name: Run mailer
         env:
           # Scheduled runs: pick the mode from the cron line; manual runs: from the form
-          MODE: ${{ github.event_name == 'schedule' && (github.event.schedule == '0 16 * * 0' && 'weekly' || 'hourly') || inputs.mode }}
+          MODE: ${{ github.event_name == 'schedule' && (github.event.schedule == '0 16 * * 0' && 'weekly' || github.event.schedule == '5 6 * * *' && 'daily' || 'hourly') || inputs.mode }}
           DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '--dry-run' || '' }}
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NEWS_EXTRA_RECIPIENTS: ${{ secrets.NEWS_EXTRA_RECIPIENTS }}
         run: python scripts/mailer.py --mode "$MODE" $DRY

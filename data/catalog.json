@@ -1,16 +1,83 @@
 {
   "_about": "List of exercises shown on the home page. area: nt2 (adults only) or kids (everyone). status: ready or soon.",
   "areas": {
-    "nt2": { "title": "NT2 sınavları", "desc": "Staatsexamen NT2 ve inburgering hazırlığı." },
-    "kids": { "title": "Çocuk bölümü", "desc": "Okul alıştırmaları. Dokümanlar geldikçe yeni testler eklenecek." }
+    "nt2": {
+      "title": "NT2 sınavları",
+      "desc": "Staatsexamen NT2 ve inburgering hazırlığı."
+    },
+    "kids": {
+      "title": "Çocuk bölümü",
+      "desc": "Okul alıştırmaları. Dokümanlar geldikçe yeni testler eklenecek."
+    },
+    "media": {
+      "title": "Lezen en kijken in niveaus",
+      "desc": "Her gün kısa bir video ve aynı haber A1'den C1'e beş seviyede."
+    }
   },
-  "groups": { "groep4": "Groep 4", "groep5": "Groep 5", "groep6": "Groep 6" },
+  "groups": {
+    "groep4": "Groep 4",
+    "groep5": "Groep 5",
+    "groep6": "Groep 6"
+  },
   "modules": [
-    { "id": "lezen", "area": "nt2", "title": "Lezen I (B1)", "desc": "Resmi sınavlarda en sık geçen 302 kelime ve 17 soru kalıbı.", "href": "lezen/", "exam": true, "status": "ready" },
-    { "id": "knm", "area": "nt2", "title": "KNM", "desc": "Kennis van de Nederlandse Maatschappij soru bankası. Taşınıyor.", "exam": true, "status": "soon" },
-    { "id": "spreken", "area": "nt2", "title": "Spreken", "desc": "Konuşma alıştırması. Yeniden tasarlanacak.", "exam": true, "status": "soon" },
-    { "id": "luisteren", "area": "nt2", "title": "Luisteren", "desc": "Dinleme alıştırması.", "exam": true, "status": "soon" },
-    { "id": "schrijven", "area": "nt2", "title": "Schrijven", "desc": "Yazma alıştırması.", "exam": true, "status": "soon" },
-    { "id": "g5-eer-oor-eur", "area": "kids", "group": "groep5", "title": "Woorden met eer · oor · eur", "desc": "4 test, 72 cümle. Doğru kelimeyi 3 seçenekten seç.", "href": "kids/g5/eer-oor-eur.html", "status": "ready" }
+    {
+      "id": "lezen",
+      "area": "nt2",
+      "title": "Lezen I (B1)",
+      "desc": "Resmi sınavlarda en sık geçen 302 kelime ve 17 soru kalıbı.",
+      "href": "lezen/",
+      "exam": true,
+      "status": "ready"
+    },
+    {
+      "id": "nieuws",
+      "area": "media",
+      "title": "Dagelijks Nieuws",
+      "desc": "Video + beş seviyede metin, günlük deyimler, gramer ve quiz. E-postayla da gelir.",
+      "href": "nieuws/",
+      "status": "ready"
+    },
+    {
+      "id": "knm",
+      "area": "nt2",
+      "title": "KNM",
+      "desc": "1000+ soru, 7 tema, kelime soruları ve 40 soruluk deneme sınavı.",
+      "exam": true,
+      "status": "ready",
+      "href": "knm/"
+    },
+    {
+      "id": "spreken",
+      "area": "nt2",
+      "title": "Spreken",
+      "desc": "Konuşma alıştırması. Yeniden tasarlanacak.",
+      "exam": true,
+      "status": "soon"
+    },
+    {
+      "id": "luisteren",
+      "area": "nt2",
+      "title": "Luisteren",
+      "desc": "Dinleme alıştırması.",
+      "exam": true,
+      "status": "soon"
+    },
+    {
+      "id": "schrijven",
+      "area": "nt2",
+      "title": "Schrijven",
+      "desc": "Yazma alıştırması.",
+      "exam": true,
+      "status": "soon"
+    },
+    {
+      "id": "g5-eer-oor-eur",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Woorden met eer · oor · eur",
+      "desc": "4 test, 72 cümle. Doğru kelimeyi 3 seçenekten seç.",
+      "href": "kids/g5/eer-oor-eur.html",
+      "status": "ready"
+    }
   ]
 }

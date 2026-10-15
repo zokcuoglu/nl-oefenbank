@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="theme-color" content="#C8551B">
 <title>Yönetim · NL Oefenbank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,11 +95,12 @@ function render() {
     <section class="panel"><div class="sectionhead"><h3>Duyuru gönder</h3><span class="muted">onaylı herkese e-posta, en geç bir saat içinde</span></div>
       <div class="formgrid" style="grid-template-columns:1fr">
         <div class="field"><label for="n-subj">Konu</label><input class="input" id="n-subj" maxlength="120" placeholder="Örn. Yeni: Groep 5 kelime testi"></div>
+        <div class="field"><label for="n-aud">Kime</label><select class="input" id="n-aud"><option value="all">Herkes</option><option value="adult">Sadece yetişkinler</option><option value="child">Sadece çocuklar</option></select></div>
         <div class="field"><label for="n-body">Mesaj</label><textarea class="input" id="n-body" rows="5" maxlength="4000"></textarea></div>
       </div>
       <div class="row" style="margin-top:10px"><button class="btn primary" id="n-send">Duyuruyu kuyruğa ekle</button><span id="n-msg"></span></div>
       ${newsErr ? `<div class="notice" style="margin-top:12px">Duyurular okunamadı (${esc(newsErr)}). Güvenlik kurallarını güncelle.</div>` : ""}
-      ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)}</td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
+      ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)} <span class="muted" style="font-size:13px">· ${esc({ all: "herkes", adult: "yetişkinler", child: "çocuklar" }[n.audience || "all"])}</span></td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
     </section>`;
 }
 
@@ -116,7 +120,7 @@ async function queueNews() {
   const subject = document.getElementById("n-subj").value.trim(), body = document.getElementById("n-body").value.trim(), msg = document.getElementById("n-msg");
   if (!subject || !body) { msg.innerHTML = `<span class="err-msg">Konu ve mesaj gerekli.</span>`; return; }
   try {
-    await addDoc(collection(db, "announcements"), { subject, body, created_at: new Date().toISOString(), created_by: user.uid, sent_at: null });
+    await addDoc(collection(db, "announcements"), { subject, body, audience: document.getElementById("n-aud").value, created_at: new Date().toISOString(), created_by: user.uid, sent_at: null });
     msg.innerHTML = `<span class="ok-msg">Kuyruğa eklendi.</span>`; load();
   } catch (err) { msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
 }

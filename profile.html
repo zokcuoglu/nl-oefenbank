@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="theme-color" content="#C8551B">
 <title>Profil · NL Oefenbank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +58,8 @@ app.innerHTML = `
       <div class="field"><label>E-posta</label><span>${esc(user.email || "")}</span></div>
       <div class="field"><label>Hesap tipi</label><span>${esc(TYPES[profile.type] || "-")}</span></div>
       <div class="field"><label>Rol</label><span>${esc(ROLES[roleOf(profile)])}</span></div>
-      <div class="field"><label for="p-weekly">E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-weekly" ${profile.email_weekly === false ? "" : "checked"}> Haftalık özet gönder</label></div>
+      <div class="field"><label for="p-weekly">E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-weekly" ${profile.email_weekly === false ? "" : "checked"}> Haftalık özet gönder</label>
+        ${isChild ? "" : `<label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-daily" ${profile.email_daily ? "checked" : ""}> Günlük haber e-postası</label>`}</div>
       ${isChild ? `<div class="field"><label for="p-groep">Okul grubu</label><select class="input" id="p-groep"><option value="">Seç</option>${Object.entries(cat.groups).map(([k, v]) => `<option value="${k}" ${profile.groep === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></div>` : ""}
     </div>
     <p class="muted" style="font-size:13px;margin:12px 0 0">Hesap tipi ve rol sadece admin tarafından değiştirilebilir.</p>
@@ -74,6 +78,7 @@ app.innerHTML = `
 document.getElementById("save").onclick = async () => {
   const msg = document.getElementById("msg");
   const data = { name: document.getElementById("p-name").value.trim(), email_weekly: document.getElementById("p-weekly").checked };
+  if (!isChild) data.email_daily = document.getElementById("p-daily").checked;
   if (isChild) data.groep = document.getElementById("p-groep").value || null;
   else data.exams = Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null]));
   try { await updateProfile(user.uid, data); msg.innerHTML = `<span class="ok-msg">Kaydedildi.</span>`; }

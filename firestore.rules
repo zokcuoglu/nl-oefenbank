@@ -11,6 +11,7 @@ rules_version = '2';
 // parent_uid : a child's linked parent account; only admin sets it
 // welcome_sent_at : set by the mailer job (service account, not bound by these rules)
 // announcements/*  : written by admin, sent by the mailer job
+// nieuws_sent/{date}: daily news log, written by the mailer job, read by approved users
 // The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -74,9 +75,16 @@ service cloud.firestore {
       allow create: if isAdmin()
         && request.resource.data.subject is string && request.resource.data.subject.size() <= 120
         && request.resource.data.body is string && request.resource.data.body.size() <= 4000
-        && request.resource.data.sent_at == null;
+        && request.resource.data.sent_at == null
+        && request.resource.data.get('audience', 'all') in ['all', 'adult', 'child'];
       allow delete: if isAdmin();
       allow update: if false;
+    }
+
+    // Daily news log: which item was mailed on which day
+    match /nieuws_sent/{date} {
+      allow read: if signedIn() && isApproved(request.auth.uid);
+      allow write: if false;
     }
 
     // Everything else is closed

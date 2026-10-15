@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#C8551B">
 <title>Lezen Oefenbank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -293,10 +296,18 @@ async function boot() {
 }
 
 // First and latest result per question id across all attempts
+// Review gaps in days after 0,1,2,3,4,5+ correct answers in a row (Leitner-style spaced repetition)
+const GAPS = [0, 1, 3, 7, 14, 30];
 function answerIndex() {
   const first = {}, last = {};
   [...S.attempts].sort((a, b) => (a.finished_at || "").localeCompare(b.finished_at || ""))
-    .forEach(a => (a.answers || []).forEach(x => { if (!(x.qid in first)) first[x.qid] = x.correct; last[x.qid] = { correct: x.correct, at: a.finished_at || "" }; }));
+    .forEach(a => (a.answers || []).forEach(x => {
+      if (!(x.qid in first)) first[x.qid] = x.correct;
+      const streak = x.correct ? ((last[x.qid]?.streak) || 0) + 1 : 0;
+      last[x.qid] = { correct: x.correct, at: a.finished_at || "", streak };
+    }));
+  // When each question is due again (ISO time); wrong answers are due immediately
+  Object.values(last).forEach(v => { const t = new Date(v.at || 0); t.setDate(t.getDate() + GAPS[Math.min(v.streak, GAPS.length - 1)]); v.due = t.toISOString(); });
   return { first, last };
 }
 // Word status from its questions: unseen / learning (last answer wrong somewhere) / known
@@ -305,17 +316,20 @@ function wordStatus(w, last) {
   if (!ids.length) return "new";
   return ids.every(id => last[id].correct) ? "known" : "weak";
 }
-// Pick n question ids: unseen first (words seen in more exams first), then wrong, then oldest correct.
+// Pick n question ids. Order: a few wrong ones, unseen (words seen in more exams first),
+// the rest of the wrong ones, correct ones whose review date has come, then the rest by review date.
 // One question per word per round.
 function pick(pool, n) {
   const { last } = answerIndex();
+  const now = new Date().toISOString();
   const prio = id => { const w = S.WI[id.split(":").slice(1).join(":")]; return w ? w.y * 1000 + w.n : 0; };
   const unseen = pool.filter(q => !last[q]);
   const tiers = [3, 2, 1, 0].map(y => shuffle(unseen.filter(id => Math.floor(prio(id) / 1000) === y)));
   const wrong = shuffle(pool.filter(q => last[q] && !last[q].correct));
-  const right = pool.filter(q => last[q] && last[q].correct).sort((a, b) => last[a].at.localeCompare(last[b].at));
+  const right = pool.filter(q => last[q] && last[q].correct).sort((a, b) => last[a].due.localeCompare(last[b].due));
+  const due = right.filter(q => last[q].due <= now), later = right.filter(q => last[q].due > now);
   const out = [], used = new Set();
-  for (const id of [...wrong.slice(0, Math.ceil(n / 3)), ...tiers.flat(), ...wrong, ...right]) {
+  for (const id of [...wrong.slice(0, Math.ceil(n / 3)), ...due.slice(0, Math.ceil(n / 3)), ...tiers.flat(), ...wrong, ...due, ...later]) {
     const wk = id.split(":").slice(1).join(":"); if (out.includes(id) || used.has(wk)) continue;
     used.add(wk); out.push(id); if (out.length === n) break;
   }
@@ -397,7 +411,7 @@ function vHome() {
       <div class="sectionhead"><div><span class="eyebrow">Sınav · ${esc(S.config.exam_date || "tarih girilmedi")}</span> <button class="btn ghost" data-act="editdate" style="padding:2px 8px;font-size:12px">değiştir</button>
         <div class="countdown" style="margin-top:6px"><span class="big num">${days ?? "–"}</span><span class="muted">gün kaldı</span></div></div>
         <div class="row"><button class="btn primary" data-act="quick">Hızlı 10</button>${wrongN ? `<button class="btn" data-act="wrong">Yanlışlarım (${wrongN})</button>` : ""}</div></div>
-      <p class="muted" style="margin:0;max-width:62ch">Önce 3 sınavda da çıkan kelimeler gelir, sonra yanlış yaptıkların. Bir kelime, sorduğu tüm soru tiplerinde son cevabın doğruysa "öğrenildi" sayılır.</p>
+      <p class="muted" style="margin:0;max-width:62ch">${(() => { const n = Object.values(last).filter(v => v.correct && v.due <= new Date().toISOString()).length; return n ? `<b style="color:var(--accent)">Bugün tekrar zamanı gelen ${n} soru var.</b> ` : ""; })()}Önce 3 sınavda da çıkan kelimeler gelir, sonra yanlış yaptıkların. Doğru bildiğin sorular 1, 3, 7, 14 ve 30 gün arayla tekrar sorulur. Bir kelime, sorduğu tüm soru tiplerinde son cevabın doğruysa "öğrenildi" sayılır.</p>
     </section>
     <section class="kpis">
       <div class="panel kpi"><div class="eyebrow">Öğrenilen kelime</div><div class="v num" style="color:var(--${tone(pct(known, S.words.length))})">${known}<span class="muted" style="font-size:16px"> / ${S.words.length}</span></div><div class="muted num">${weak} kelimede yanlış var</div></div>
@@ -470,6 +484,7 @@ function whyHtml(q, right) {
   if (q.pat) return `<div class="why"><b>${head}</b> ${esc(q.pat.p)} = ${esc(q.pat.tr)}<span class="ex muted">${esc(q.pat.tip)}</span></div>`;
   const w = q.word;
   return `<div class="why"><b>${head}</b> <span class="lid">${isNoun(w) ? esc(w.lid) + " " : ""}</span><b style="color:var(--ink)">${esc(w.w)}</b> = ${esc(w.tr)}
+    <button class="btn ghost" style="padding:1px 8px;font-size:12px" data-act="speak" data-t="${esc((isNoun(w) ? w.lid + " " : "") + w.w + ". " + w.nl)}">Sesli</button>
     <span class="ex">${esc(w.nl)}</span><span class="ex muted">${esc(w.trs)}</span></div>`;
 }
 
@@ -574,6 +589,7 @@ app.addEventListener("click", e => {
     case "core": start("core", "Her yıl çıkanlar" + typeLabel(), pick(poolCore(), 10)); break;
     case "wrong": start("wrong", "Yanlışlarım", shuffle(poolWrong()).slice(0, 20)); break;
     case "pat": start("pat", "Soru kalıpları", shuffle(poolPat()).slice(0, 10)); break;
+    case "speak": if ("speechSynthesis" in window) { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(el.dataset.t); u.lang = "nl-NL"; u.rate = 0.9; speechSynthesis.speak(u); } break;
     case "qtype": S.qType = el.dataset.f; savePrefs(); render(); break;
     case "opt": choose(el.dataset.q, el.dataset.o); break;
     case "prev": r.idx = Math.max(0, r.idx - 1); saveDraft(); render(); break;

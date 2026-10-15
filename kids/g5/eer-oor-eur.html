@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/icon-180.png">
+<meta name="theme-color" content="#C8551B">
 <title>Eer Oor Eur Woordtest</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@500;600;700&display=swap">
@@ -136,6 +139,7 @@ setTimeout(function () {
       <div class="opts" id="qOpts"></div>
       <div class="after">
         <span class="fb" id="qFb"></span>
+        <button class="btn ghost" id="sayBtn" hidden aria-label="Zin voorlezen">🔊 Luister</button>
         <button class="btn" id="nextBtn" hidden>Volgende →</button>
       </div>
     </div>
@@ -320,7 +324,7 @@ function renderQ(){
   $("qOpts").innerHTML = q.shown.map((o,i)=>`<button class="opt" data-o="${esc(o)}"><span class="k">${i+1}</span>${esc(o)}</button>`).join("");
   document.querySelectorAll(".opt").forEach(b => b.onclick = () => pick(b.dataset.o));
   $("qFb").textContent = ""; $("qFb").className = "fb";
-  $("nextBtn").hidden = true;
+  $("nextBtn").hidden = true; $("sayBtn").hidden = true;
   S.qStart = Date.now();
 }
 
@@ -339,6 +343,7 @@ function pick(choice){
   $("qFb").className = "fb " + (ok ? "ok" : "no");
   $("nextBtn").textContent = S.idx === S.items.length-1 ? "Klaar! Bekijk uitslag" : "Volgende →";
   $("nextBtn").hidden = false; $("nextBtn").focus();
+  $("sayBtn").hidden = !("speechSynthesis" in window);
 }
 
 function next(){
@@ -353,6 +358,10 @@ document.addEventListener("keydown", e => {
   if (e.key === "Enter" && S && S.log[S.idx] && document.activeElement !== $("nextBtn")) next();
 });
 $("nextBtn").onclick = next;
+$("sayBtn").onclick = () => {
+  const q = S.items[S.idx]; speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(q.s.replace("___", q.a)); u.lang = "nl-NL"; u.rate = 0.85; speechSynthesis.speak(u);
+};
 $("quitBtn").onclick = () => { clearInterval(tick); renderMenu(); show("menu"); };
 
 // ---------------------------------------------------------------

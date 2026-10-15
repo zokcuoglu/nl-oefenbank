@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lezen en kijken · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+/* Level colours (CEFR A1 -> C1), light and dark */
+:root{ --a1:#2E7D4F; --a2:#1F6FB0; --b1:#B07A10; --b2:#B8462F; --c1:#7A3E9D; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --a1:#6CC08F; --a2:#7FB3E6; --b1:#E0B064; --b2:#EE9177; --c1:#C39BE0; } }
+:root[data-theme="dark"]{ --a1:#6CC08F; --a2:#7FB3E6; --b1:#E0B064; --b2:#EE9177; --c1:#C39BE0; }
+.lvl-chip{font-family:var(--mono);font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;border:1.5px solid currentColor}
+.levelbox{border-left:4px solid var(--lc);padding:4px 0 4px 16px;margin-top:6px}
+.levelbox p{margin:0 0 10px;max-width:68ch;line-height:1.7}
+.levelbox strong{background:var(--accent-soft);border-radius:3px;padding:0 2px}
+.gloss{font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line);margin-top:8px;padding-top:8px}
+.video{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:10px;overflow:hidden;background:var(--sunk)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.idiom{display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.idiom:last-child{border-bottom:0}
+.idiom b{font-family:var(--display);font-size:17px}
+.dword{padding:10px 0;border-bottom:1px dashed var(--line)} .dword:last-child{border-bottom:0}
+.grammar .gh{font-weight:600;color:var(--blue);margin:14px 0 6px}
+.grammar .gx{background:var(--blue-soft);border-radius:6px;padding:6px 10px;margin:4px 0;font-size:14.5px}
+.newsrow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.newsrow:hover b{color:var(--accent)}
+.newsrow img{width:96px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+@media (max-width:480px){.newsrow img{width:72px}}
+main a:not(.btn):not(.newsrow){color:var(--blue)}
+details.ans summary{cursor:pointer;font-weight:600;color:var(--blue)}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <span lang="nl">Lezen en kijken in niveaus</span></small><h1>Dagelijks Nieuws</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Daily news section: archive of mailed items + one item page with video, A1-C1 texts,
+// words, idioms, grammar, questions and a quiz. Quiz rounds are saved as attempts (module "nieuws").
+import { gate, userBox, esc, db, isAdmin, saveAttempt, loadAttempts } from "../js/core.js";
+import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const app = document.getElementById("app");
+const LEVELS = ["a1", "a2", "b1", "b2", "c1"];
+const QUIZ_CATS = { woorden: "Woorden", grammatica: "Grammatica", lezen: "Lezen" };
+const PREF = "nieuws-level";
+const S = { items: [], byId: {}, sent: [], attempts: [], level: "b1", qlevel: "b1", qcat: "lezen", answered: {}, showAll: false };
+try { const l = localStorage.getItem(PREF); if (l) S.level = l; } catch (e) {}
+
+// Content comes from our own data file; only <strong> is kept as markup
+const rich = t => esc(t || "").replace(/&lt;(\/?)strong&gt;/g, "<$1strong>");
+const paras = t => (t || "").split(/\n\s*\n/).map(p => `<p>${rich(p).replace(/\n/g, "<br>")}</p>`).join("");
+const plain = t => (t || "").replace(/<[^>]+>/g, "");
+const fmtDate = d => { try { return new Date(d + "T12:00:00").toLocaleDateString("tr-TR", { day: "numeric", month: "long" }); } catch (e) { return d; } };
+const ytId = u => ((u || "").match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/) || [])[1];
+const pipeRows = (raw, n) => (raw || "").split("\n").filter(l => l.trim()).map(l => { const c = l.split("|").map(x => x.trim()); while (c.length < n) c.push(""); return c; });
+
+const { user, profile } = await gate({ area: "nt2", title: "Dagelijks Nieuws" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+
+try {
+  const data = await (await fetch("../data/nieuws.json", { cache: "no-cache" })).json();
+  S.items = data.items; S.byId = Object.fromEntries(S.items.map(i => [i.id, i]));
+} catch (e) { app.innerHTML = `<div class="notice">Haberler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+// Mail log (newest first): which item went out on which day
+try {
+  const snap = await getDocs(query(collection(db, "nieuws_sent"), orderBy("date", "desc"), limit(120)));
+  S.sent = snap.docs.map(d => d.data()).filter(x => S.byId[x.item_id]);
+} catch (e) { console.warn("nieuws_sent", e); }
+S.attempts = await loadAttempts(user.uid, "nieuws").catch(() => []);
+
+// Quiz progress per item: best score per level+category
+function quizDone(id) {
+  const best = {};
+  S.attempts.filter(a => a.test === id).forEach(a => { const k = a.level + "/" + a.cat; best[k] = Math.max(best[k] || 0, a.score / a.total); });
+  return best;
+}
+
+// ---------- List view ----------
+function vList() {
+  const list = S.sent.length && !S.showAll ? S.sent.map(x => ({ item: S.byId[x.item_id], date: x.date })) : S.items.map(item => ({ item, date: null }));
+  const today = S.sent[0];
+  const row = ({ item, date }) => {
+    const done = Object.keys(quizDone(item.id)).length;
+    return `<a class="newsrow" href="?id=${encodeURIComponent(item.id)}">
+      ${item.afbeelding_url ? `<img src="${esc(item.afbeelding_url)}" alt="" loading="lazy">` : "<span></span>"}
+      <span style="min-width:0"><b>${esc(item.titel)}</b><br><span class="muted" style="font-size:13px">${esc(item.bron || "")}${date ? " · " + esc(fmtDate(date)) : ""}</span></span>
+      ${done ? `<span class="chip ok">${done} quiz</span>` : `<span class="chip">yeni</span>`}</a>`;
+  };
+  return `
+    ${today ? `<section class="panel"><span class="eyebrow">Bugünün haberi · ${esc(fmtDate(today.date))}</span>
+      <h2 style="margin-top:4px">${esc(S.byId[today.item_id].titel)}</h2>
+      <p class="muted" style="margin:6px 0 12px;max-width:62ch">E-postada gelen haberin aynısı. Burada videoyu izleyip quiz'i çözebilirsin; sonuçların kaydedilir.</p>
+      <a class="btn primary" style="text-decoration:none" href="?id=${encodeURIComponent(today.item_id)}">Habere git</a></section>` :
+      `<section class="panel"><span class="eyebrow" lang="nl">Lezen en kijken</span><h2 style="margin-top:4px">Her gün bir haber, beş seviyede</h2>
+      <p class="muted" style="margin:6px 0 0;max-width:62ch">Kısa bir video, aynı haberin A1'den C1'e beş seviyesi, kelimeler, deyimler, gramer ve quiz. Günlük e-postaya profil sayfasından abone olabilirsin.</p></section>`}
+    <section class="panel"><div class="sectionhead"><h3>${S.sent.length && !S.showAll ? "Gönderilen haberler" : "Tüm haberler"}</h3>
+      ${S.sent.length && isAdmin(profile) ? `<button class="btn ghost" data-act="all">${S.showAll ? "Sadece gönderilenler" : "Tümünü göster (admin)"}</button>` : ""}</div>
+      ${list.map(row).join("")}</section>`;
+}
+
+// ---------- Item view ----------
+function levelSeg() {
+  return `<div class="seg" role="group" aria-label="Seviye">${[...LEVELS, "all"].map(l =>
+    `<button class="${S.level === l ? "on" : ""}" data-act="level" data-l="${l}" aria-pressed="${S.level === l}">${l === "all" ? "Hepsi" : l.toUpperCase()}</button>`).join("")}</div>`;
+}
+function levelBox(item, l) {
+  return `<div class="levelbox" style="--lc:var(--${l})">
+    <div class="row" style="margin-bottom:6px"><span class="lvl-chip" style="color:var(--${l})">${l.toUpperCase()}</span>
+      <button class="btn ghost" style="padding:2px 10px;font-size:13px" data-act="speak" data-l="${l}">Sesli oku</button></div>
+    ${paras(item[l])}${item.gloss?.[l] ? `<div class="gloss">${rich(item.gloss[l])}</div>` : ""}</div>`;
+}
+function detailBox(item, key, title) {
+  const rows = pipeRows(item[key], 6); if (!rows.length) return "";
+  return `<section class="panel"><span class="eyebrow">${title}</span>${rows.map(c => `<div class="dword"><b>${esc(c[0])}</b> <span class="muted">· ${esc(c[1])}</span>
+    <div style="font-size:14px">daha basit: ${esc(c[2])}${c[3] ? " · " + esc(c[3]) : ""}</div>
+    <div style="font-size:14px;margin-top:4px"><i>${esc(c[4])}</i><br><span class="muted">${esc(c[5])}</span></div></div>`).join("")}</section>`;
+}
+function grammar(raw) {
+  return (raw || "").split("\n").map(t => t.trim()).filter(Boolean).map(t =>
+    /^\d+\)/.test(t) ? `<p class="gh">${esc(t)}</p>` : t.startsWith("•") ? `<div class="gx">${esc(t.slice(1).trim())}</div>` : `<p style="margin:4px 0">${esc(t)}</p>`).join("");
+}
+function quiz(item) {
+  if (!item.quiz) return "";
+  const levels = ["a2", "b1", "b2", "c1"].filter(l => item.quiz[l]);
+  if (!levels.includes(S.qlevel)) S.qlevel = levels[0];
+  const cats = Object.keys(QUIZ_CATS).filter(c => item.quiz[S.qlevel]?.[c]);
+  if (!cats.includes(S.qcat)) S.qcat = cats[0];
+  const qs = item.quiz[S.qlevel][S.qcat] || [];
+  const key = S.qlevel + "/" + S.qcat, best = quizDone(item.id);
+  const ans = S.answered[key] || {};
+  const score = qs.filter((q, i) => ans[i] === q.juist).length;
+  return `<section class="panel" id="quiz"><div class="sectionhead"><h3>Quiz</h3><span class="muted">sonuçlar kaydedilir</span></div>
+    <div class="row" style="margin-bottom:8px"><div class="seg">${levels.map(l => `<button class="${l === S.qlevel ? "on" : ""}" data-act="qlevel" data-l="${l}">${l.toUpperCase()}</button>`).join("")}</div>
+      <div class="seg">${cats.map(c => `<button class="${c === S.qcat ? "on" : ""}" data-act="qcat" data-c="${c}">${QUIZ_CATS[c]}${best[S.qlevel + "/" + c] !== undefined ? " ✓" : ""}</button>`).join("")}</div></div>
+    ${qs.map((q, i) => { const a = ans[i];
+      return `<div style="padding:12px 0;border-bottom:1px dashed var(--line)"><p class="qtext" style="font-size:16px">${i + 1}. ${rich(q.vraag)}</p>
+        <div class="opts" style="margin-top:10px">${q.opties.map((o, k) => {
+          const cls = a === undefined ? "" : k === q.juist ? "right" : k === a ? "wrongpick" : "";
+          return `<button class="opt ${cls}" data-act="ans" data-i="${i}" data-k="${k}" ${a !== undefined ? "disabled" : ""}><span class="mark">${"ABCD"[k]}</span><span>${rich(o)}</span></button>`; }).join("")}</div>
+        ${a !== undefined && q.uitleg ? `<div class="why">${rich(q.uitleg)}</div>` : ""}</div>`; }).join("")}
+    <p class="num" style="margin:12px 0 0"><b>${score} / ${qs.length}</b>${Object.keys(ans).length === qs.length ? (score === qs.length ? " · Perfect!" : " · Kaydedildi") : ""}</p></section>`;
+}
+function vItem(item) {
+  const vid = ytId(item.video_url);
+  const sentOn = S.sent.find(x => x.item_id === item.id);
+  const vocab = pipeRows(item.woordenschat, 5);
+  const levels = S.level === "all" ? LEVELS : [S.level];
+  const details = { b1: ["b1_woorden", "B1 kelimeleri yakından"], b2: ["b2_woorden", "B2 kelimeleri yakından"], c1: ["c1_woorden", "C1 kelime ve deyimleri yakından"] };
+  return `<p style="margin:0"><a href="./">← Tüm haberler</a></p>
+    <section class="panel"><span class="eyebrow" lang="nl">${esc(item.bron || "")}${sentOn ? " · " + esc(fmtDate(sentOn.date)) : ""}</span>
+      <h2 style="margin:4px 0 12px">${esc(item.titel)}</h2>
+      ${vid ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${vid}${item.video_start ? "?start=" + item.video_start : ""}" title="${esc(item.video_titel || item.titel)}" allowfullscreen loading="lazy"></iframe></div>` : ""}
+    </section>
+    <section class="panel"><div class="sectionhead"><h3>Metin</h3>${levelSeg()}</div>${levels.map(l => levelBox(item, l)).join("")}</section>
+    ${(item.uitdrukkingen || []).length ? `<section class="panel"><span class="eyebrow">Günlük konuşmada duyacağın deyimler</span>
+      ${item.uitdrukkingen.map(u => `<div class="idiom"><b>${esc(u.nl)}</b><span>${esc(u.tr)}</span>${u.uitleg ? `<span class="muted" style="font-size:14px">${esc(u.uitleg)}</span>` : ""}
+        ${u.voorbeeld ? `<span style="font-size:14px"><i>${esc(u.voorbeeld)}</i>${u.voorbeeld_tr ? `<br><span class="muted">${esc(u.voorbeeld_tr)}</span>` : ""}</span>` : ""}</div>`).join("")}</section>` : ""}
+    ${vocab.length ? `<section class="panel"><span class="eyebrow" lang="nl">Woordenschat</span><div class="tablewrap" style="margin-top:8px"><table>
+      <thead><tr><th>Kelime</th><th>Tür</th><th>Anlamı (NL)</th><th>Örnek</th><th>Türkçe</th></tr></thead>
+      <tbody>${vocab.map(c => `<tr><td><b>${esc(c[0])}</b></td><td class="muted">${esc(c[1])}</td><td>${esc(c[2])}</td><td><i>${esc(c[3])}</i></td><td>${esc(c[4])}</td></tr>`).join("")}</tbody></table></div></section>` : ""}
+    ${(S.level === "all" ? ["b1", "b2", "c1"] : details[S.level] ? [S.level] : []).map(l => detailBox(item, details[l][0], details[l][1])).join("")}
+    ${item.grammatica ? `<section class="panel grammar"><span class="eyebrow" lang="nl">Grammatica</span>${grammar(item.grammatica)}</section>` : ""}
+    ${item.vragen ? `<section class="panel"><span class="eyebrow" lang="nl">Vragen</span><div style="margin-top:8px">${paras(item.vragen)}</div>
+      <details class="ans"><summary>Antwoorden</summary><div style="margin-top:8px">${paras(item.antwoorden)}</div></details></section>` : ""}
+    ${quiz(item)}`;
+}
+
+function render() {
+  const id = new URLSearchParams(location.search).get("id");
+  const item = id && S.byId[id];
+  app.innerHTML = item ? vItem(item) : vList();
+}
+
+// Save a quiz set as soon as all its questions are answered
+async function maybeSave(item, key) {
+  const qs = item.quiz[S.qlevel][S.qcat], ans = S.answered[key];
+  if (Object.keys(ans).length !== qs.length) return;
+  const answers = qs.map((q, i) => ({ qid: `${item.id}:${key}:${i}`, chosen: String(ans[i]), correct: ans[i] === q.juist }));
+  const now = new Date().toISOString();
+  const attempt = { kind: "quiz", test: item.id, level: S.qlevel, cat: S.qcat, title: item.titel, started_at: now, finished_at: now,
+    duration_s: 0, score: answers.filter(a => a.correct).length, total: answers.length, answers };
+  try { await saveAttempt(user.uid, "nieuws", attempt); S.attempts.unshift(attempt); render(); } catch (e) { console.warn(e); }
+}
+
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const item = S.byId[new URLSearchParams(location.search).get("id")];
+  switch (el.dataset.act) {
+    case "all": S.showAll = !S.showAll; render(); break;
+    case "level": S.level = el.dataset.l; try { localStorage.setItem(PREF, S.level); } catch (e) {} render(); break;
+    case "qlevel": S.qlevel = el.dataset.l; render(); document.getElementById("quiz")?.scrollIntoView(); break;
+    case "qcat": S.qcat = el.dataset.c; render(); document.getElementById("quiz")?.scrollIntoView(); break;
+    case "ans": { const key = S.qlevel + "/" + S.qcat; (S.answered[key] = S.answered[key] || {})[+el.dataset.i] = +el.dataset.k;
+      const y = window.scrollY; render(); window.scrollTo(0, y); maybeSave(item, key); break; }
+    case "speak": {
+      // Browser's own Dutch voice; stops if pressed again
+      if (!("speechSynthesis" in window)) break;
+      if (speechSynthesis.speaking) { speechSynthesis.cancel(); break; }
+      const u = new SpeechSynthesisUtterance(plain(item[el.dataset.l])); u.lang = "nl-NL"; u.rate = el.dataset.l.startsWith("a") ? 0.85 : 0.95;
+      speechSynthesis.speak(u); break; }
+  }
+});
+render();
+</script>
+</body>
+</html>
