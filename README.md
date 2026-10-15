@@ -29,7 +29,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `css/site.css` | Shared design for home, profile and admin |
 | `data/catalog.json` | List of exercises shown on the home page (add new ones here) |
 | `lezen/` + `data/lezen-bank.json` | NT2 Lezen I (B1) word practice |
-| `kids/g4/eer-oor-eur.html` | Groep 4 spelling test |
+| `kids/g5/eer-oor-eur.html` | Groep 5 spelling test |
 | `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules |
 
 ## E-mail
