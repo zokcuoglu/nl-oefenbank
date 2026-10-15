@@ -21,7 +21,7 @@
 <script type="module">
 // Admin screen: list every account and change its type and role.
 // The page is hidden from non-admins, and firestore.rules also refuse their writes.
-import { gate, userBox, esc, db, TYPES, ROLES, roleOf } from "./js/core.js";
+import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf } from "./js/core.js";
 import { collection, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -39,7 +39,9 @@ let users = [];
 async function load() {
   try {
     const snap = await getDocs(collection(db, "users"));
-    users = snap.docs.map(d => ({ uid: d.id, ...d.data() })).sort((a, b) => (b.last_active || "").localeCompare(a.last_active || ""));
+    // Pending accounts first, then most recently active
+    const rank = u => statusOf(u) === "pending" ? 0 : 1;
+    users = snap.docs.map(d => ({ uid: d.id, ...d.data() })).sort((a, b) => rank(a) - rank(b) || (b.last_active || "").localeCompare(a.last_active || ""));
     render();
   } catch (e) { app.innerHTML = `<div class="notice">Kullanıcılar okunamadı: <b>${esc(e.code || e.message)}</b></div>`; }
 }
@@ -52,15 +54,17 @@ function render() {
   const count = r => users.filter(u => roleOf(u) === r).length;
   app.innerHTML = `
     <section class="kpis">
+      <div class="panel kpi"><div class="eyebrow">Onay bekleyen</div><div class="v num" style="color:var(--${users.some(u => statusOf(u) === "pending") ? "accent" : "ink"})">${users.filter(u => statusOf(u) === "pending").length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Hesap</div><div class="v num">${users.length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Çocuk</div><div class="v num">${users.filter(u => u.type === "child").length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Öğretmen</div><div class="v num">${count("teacher")}</div></div>
     </section>
     <section class="panel"><span class="eyebrow">Roller</span>
       <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></section>
-    <section class="panel"><div class="sectionhead"><h3>Hesaplar</h3><span class="muted">değiştirip satırdaki Kaydet'e bas</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Tip</th><th>Rol</th><th>Son giriş</th><th></th></tr></thead><tbody>
+    <section class="panel"><div class="sectionhead"><h3>Hesaplar</h3><span class="muted">yeni gelenleri "Onaylı" yap, satırdaki Kaydet'e bas</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Son giriş</th><th></th></tr></thead><tbody>
       ${users.map((u, i) => `<tr><td><b>${esc(u.name || "-")}</b><br><span class="muted" style="font-size:13px">${esc(u.email || u.uid)}</span></td>
+        <td>${sel("s" + i, STATUSES, statusOf(u))}</td>
         <td>${sel("t" + i, { "": "Seçilmedi", ...TYPES }, u.type || "")}</td>
         <td>${sel("r" + i, ROLES, roleOf(u))}</td>
         <td class="num muted">${fmtDate(u.last_active)}</td>
@@ -72,9 +76,9 @@ function render() {
 app.addEventListener("click", async e => {
   const b = e.target.closest("button[data-i]"); if (!b) return;
   const i = +b.dataset.i, u = users[i], msg = document.getElementById("m" + i);
-  const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value;
+  const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value, status = document.getElementById("s" + i).value;
   if (u.uid === user.uid && role !== "admin") { msg.innerHTML = `<span class="err-msg">Kendi admin rolünü buradan kaldıramazsın.</span>`; return; }
-  try { await updateDoc(doc(db, "users", u.uid), { type, role }); Object.assign(u, { type, role }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
+  try { await updateDoc(doc(db, "users", u.uid), { type, role, status }); Object.assign(u, { type, role, status }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
   catch (err) { msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
 });
 

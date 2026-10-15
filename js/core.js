@@ -35,8 +35,11 @@ export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;"
 
 export const userRef = uid => doc(db, "users", uid);
 export const attemptsCol = uid => collection(db, "users", uid, "attempts");
+export const STATUSES = { pending: "Onay bekliyor", approved: "Onaylı", blocked: "Engelli" };
 export const roleOf = p => p?.role || "member";
 export const isAdmin = p => roleOf(p) === "admin";
+// New accounts start as "pending" until an admin approves them; admins are always in
+export const statusOf = p => isAdmin(p) ? "approved" : (p?.status || "pending");
 
 // Save one finished round. `module` says which exercise it belongs to.
 export async function saveAttempt(uid, module, attempt) {
@@ -124,10 +127,15 @@ export function gate({ area = "any", title = "NT2 Oefenbank" } = {}) {
         let profile = snap.exists() ? snap.data() : null;
         if (!profile) {
           // First visit: create the document with the safe defaults the rules allow
-          profile = { name: user.displayName || "", email: user.email || "", photo: user.photoURL || "", role: "member", created_at: new Date().toISOString() };
+          profile = { name: user.displayName || "", email: user.email || "", photo: user.photoURL || "", role: "member", status: "pending", created_at: new Date().toISOString() };
           await setDoc(ref, profile);
         }
         if (!profile.type) profile = await askType(user, profile);
+        // Not approved yet (or blocked): stop here and show a waiting screen
+        if (statusOf(profile) !== "approved") {
+          updateProfile(user.uid, { name: profile.name || user.displayName || "", email: user.email || "", photo: user.photoURL || "", last_active: new Date().toISOString() }).catch(() => {});
+          showWaiting(user, profile); return;
+        }
         // Child accounts only see the kids area
         if (area === "nt2" && profile.type === "child") { location.href = ROOT; return; }
         if (area === "admin" && !isAdmin(profile)) { overlay(`<span class="eb">Yönetim</span><h2>Bu sayfa sadece admin için</h2><p>Hesabına admin rolü verilmemiş.</p><button class="pri" onclick="location.href='${ROOT}'">Ana sayfaya dön</button>`); return; }
@@ -149,6 +157,16 @@ function showLogin(title) {
   g.querySelector("#g-login").onclick = () => googleLogin().catch(e => {
     g.querySelector("#g-err").innerHTML = `<p class="err">Giriş yapılamadı: ${esc(e.code || e.message)}</p>`;
   });
+}
+
+function showWaiting(user, profile) {
+  const blocked = statusOf(profile) === "blocked";
+  overlay(`<span class="eb">${blocked ? "Erişim kapalı" : "Onay bekleniyor"}</span>
+    <h2>${blocked ? "Bu hesabın erişimi kapatıldı" : "Hesabın henüz onaylanmadı"}</h2>
+    <p>${blocked ? "Bir yanlışlık olduğunu düşünüyorsan Zana'ya yaz." : "Kaydın alındı. Zana onayladıktan sonra siteye girebilirsin. Onaylandığını öğrenince bu sayfayı yenile."}</p>
+    <p style="font-size:13px">${esc(user.email || "")}</p>
+    ${blocked ? "" : `<button class="pri" onclick="location.reload()">Tekrar kontrol et</button>`}
+    <button data-core="logout">Çıkış yap</button>`);
 }
 
 // First-time question: who uses this account? Stored once; later only admin can change it.

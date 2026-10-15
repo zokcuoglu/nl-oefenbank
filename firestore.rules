@@ -7,6 +7,7 @@ rules_version = '2';
 //
 // type ("adult" | "child") : chosen once by the user, after that only admin changes it
 // role ("member" | "teacher" | "admin") : only admin changes it, nobody can give it to themselves
+// status ("pending" | "approved" | "blocked") : new accounts are pending; only admin approves
 // The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -23,31 +24,39 @@ service cloud.firestore {
 
     function validType(t) { return t in ['adult', 'child']; }
     function validRole(r) { return r in ['member', 'teacher', 'admin']; }
+    function validStatus(s) { return s in ['pending', 'approved', 'blocked']; }
+    // Approved = admin set status "approved" (admins always count as approved)
+    function isApproved(uid) {
+      return isAdmin()
+        || get(/databases/$(database)/documents/users/$(uid)).data.get('status', '') == 'approved';
+    }
     function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
 
     match /users/{uid} {
       allow read: if isOwner(uid) || isAdmin();
 
-      // New profile: always starts as a normal member; type may be chosen right away
+      // New profile: always starts as a normal, not yet approved member
       allow create: if isOwner(uid)
         && request.resource.data.get('role', 'member') == 'member'
+        && request.resource.data.get('status', 'pending') == 'pending'
         && (request.resource.data.get('type', null) == null || validType(request.resource.data.type));
 
-      // Owner edits: never the role; type only once (when it was still empty)
+      // Owner edits: never role or status; type only once (when it was still empty)
       allow update: if (isOwner(uid)
-          && !changed().hasAny(['role'])
+          && !changed().hasAny(['role', 'status'])
           && (!changed().hasAny(['type'])
               || (resource.data.get('type', null) == null && validType(request.resource.data.type))))
         || (isAdmin()
           && validRole(request.resource.data.get('role', 'member'))
+          && validStatus(request.resource.data.get('status', 'pending'))
           && (request.resource.data.get('type', null) == null || validType(request.resource.data.type)));
 
       allow delete: if isAdmin();
 
-      // Finished rounds: owner only. Added, never edited. Size limit stops misuse.
+      // Finished rounds: owner only, and only after approval. Added, never edited.
       match /attempts/{attemptId} {
         allow read: if isOwner(uid);
-        allow create: if isOwner(uid)
+        allow create: if isOwner(uid) && isApproved(uid)
           && request.resource.data.answers is list
           && request.resource.data.answers.size() <= 50;
         allow delete: if isOwner(uid);
