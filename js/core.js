@@ -23,6 +23,7 @@ const firebaseConfig = {
   appId: "1:574362574093:web:615c5761f2f29fc9cba444"
 };
 export const fb = initializeApp(firebaseConfig);
+window.__coreReady = true; // seen by the page watchdog
 export const auth = getAuth(fb);
 export const db = getFirestore(fb);
 
@@ -116,7 +117,7 @@ async function googleLogin() {
  * area: "nt2" (adults only), "kids" (everyone), "any" (everyone), "admin" (admin only)
  * Resolves with { user, profile }.
  */
-export function gate({ area = "any", title = "NT2 Oefenbank" } = {}) {
+export function gate({ area = "any", title = "NL Oefenbank" } = {}) {
   overlay(`<p>Yükleniyor…</p>`);
   return new Promise(resolve => {
     onAuthStateChanged(auth, async user => {
