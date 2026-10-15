@@ -73,6 +73,10 @@ export function userBox(user, profile) {
 }
 document.addEventListener("click", e => { if (e.target.closest("[data-core='logout']")) logout(); });
 
+// Icons for the first-login choice
+const ICON_CHILD = `<svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="14" width="24" height="28" rx="6"/><path d="M18 14v-3a6 6 0 0 1 12 0v3"/><path d="M12 26h24"/><rect x="20" y="26" width="8" height="6" rx="1.5"/></svg>`;
+const ICON_ADULT = `<svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="15" r="7"/><path d="M10 42c0-8 6-14 14-14s14 6 14 14"/></svg>`;
+
 // ---------- Gate overlay (works on any page, has its own styles) ----------
 const GATE_CSS = `
 #gate{position:fixed;inset:0;z-index:100;background:var(--ground,var(--paper,#F2F4F7));color:var(--ink,#142033);display:grid;place-items:center;padding:16px;overflow:auto;font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif}
@@ -83,7 +87,10 @@ const GATE_CSS = `
 #gate button{font:inherit;cursor:pointer;border-radius:8px;padding:10px 14px;border:1px solid var(--line,#D3DAE3);background:var(--surface,#fff);color:inherit;text-align:left}
 #gate button.pri{background:#C8551B;border-color:#C8551B;color:#fff;text-align:center;font-weight:600}
 #gate button:hover{border-color:#C8551B}
-#gate .choice b{display:block;font-size:16px}
+#gate .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#gate .tile{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 10px;text-align:center;border-width:2px;border-radius:12px}
+#gate .tile span{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;font-size:19px;font-weight:600}
+#gate .tile svg{color:#C8551B}
 #gate .err{background:#F6E0DE;color:#B3403A;border-radius:8px;padding:10px 12px}
 @media (prefers-color-scheme:dark){#gate .err{background:#3A1E1C;color:#E58A83}}
 .ub{display:inline-flex;align-items:center;gap:8px;font-size:13px;flex-wrap:wrap}
@@ -173,10 +180,11 @@ function showWaiting(user, profile) {
 // First-time question: who uses this account? Stored once; later only admin can change it.
 function askType(user, profile) {
   return new Promise(resolve => {
-    const g = overlay(`<span class="eb">İlk giriş</span><h2>Bu hesabı kim kullanacak?</h2>
-      <p>Bu seçimi sonra sadece admin değiştirebilir.</p>
-      <button class="choice" data-t="adult"><b>Yetişkin</b>NT2 sınavları (Lezen, KNM, …) ve çocuk alıştırmaları</button>
-      <button class="choice" data-t="child"><b>Öğrenci (çocuk)</b>Sadece okul alıştırmaları (Groep 4, 5, 6)</button>
+    const g = overlay(`<span class="eb">İlk giriş</span><h2>Sen kimsin?</h2>
+      <div class="tiles">
+        <button class="tile" data-t="child">${ICON_CHILD}<span>Öğrenci</span></button>
+        <button class="tile" data-t="adult">${ICON_ADULT}<span>Yetişkin</span></button>
+      </div>
       <div id="g-err"></div>`);
     g.querySelectorAll("[data-t]").forEach(b => b.onclick = async () => {
       try { await updateProfile(user.uid, { type: b.dataset.t }); resolve({ ...profile, type: b.dataset.t }); }
