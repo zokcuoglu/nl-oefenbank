@@ -32,6 +32,14 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `kids/g4/eer-oor-eur.html` | Groep 4 spelling test |
 | `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules |
 
+## E-mail
+
+`scripts/mailer.py` runs in GitHub Actions (`.github/workflows/mailer.yml`):
+every hour it sends "account approved" mails and queued announcements (admin screen),
+every Sunday it sends weekly summaries (children: also to the linked parent).
+It needs three repository secrets: `FIREBASE_SERVICE_ACCOUNT`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`.
+A manual run (Actions > Mailer > Run workflow) is a dry run by default.
+
 ## Adding a kids exercise
 
 1. Put the page under `kids/<groep>/`.

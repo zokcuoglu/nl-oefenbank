@@ -32,7 +32,7 @@ setTimeout(function () {
 // Admin screen: list every account and change its type and role.
 // The page is hidden from non-admins, and firestore.rules also refuse their writes.
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf } from "./js/core.js";
-import { collection, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { collection, getDocs, doc, updateDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
 const { user, profile } = await gate({ area: "admin" });
@@ -44,7 +44,7 @@ const ROLE_HELP = {
   teacher: "Üye haklarına ek olarak sınıf açar ve sınıfındakilerin özetini görür (sınıf özelliği yakında).",
   admin: "Her şeyi görür, bu ekrandan tip ve rol atar."
 };
-let users = [];
+let users = [], news = [];
 
 async function load() {
   try {
@@ -52,6 +52,9 @@ async function load() {
     // Pending accounts first, then most recently active
     const rank = u => statusOf(u) === "pending" ? 0 : 1;
     users = snap.docs.map(d => ({ uid: d.id, ...d.data() })).sort((a, b) => rank(a) - rank(b) || (b.last_active || "").localeCompare(a.last_active || ""));
+    // Last announcements (sent by the mailer job, see scripts/mailer.py)
+    const ns = await getDocs(query(collection(db, "announcements"), orderBy("created_at", "desc"), limit(10)));
+    news = ns.docs.map(d => ({ id: d.id, ...d.data() }));
     render();
   } catch (e) { app.innerHTML = `<div class="notice">Kullanıcılar okunamadı: <b>${esc(e.code || e.message)}</b></div>`; }
 }
@@ -62,6 +65,8 @@ function sel(id, opts, val) {
 
 function render() {
   const count = r => users.filter(u => roleOf(u) === r).length;
+  // Children can be linked to an adult account; the weekly summary also goes to that parent
+  const parentOpts = { "": "Yok", ...Object.fromEntries(users.filter(u => u.type === "adult").map(u => [u.uid, u.name || u.email || u.uid])) };
   app.innerHTML = `
     <section class="kpis">
       <div class="panel kpi"><div class="eyebrow">Onay bekleyen</div><div class="v num" style="color:var(--${users.some(u => statusOf(u) === "pending") ? "accent" : "ink"})">${users.filter(u => statusOf(u) === "pending").length}</div></div>
@@ -72,25 +77,46 @@ function render() {
     <section class="panel"><span class="eyebrow">Roller</span>
       <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></section>
     <section class="panel"><div class="sectionhead"><h3>Hesaplar</h3><span class="muted">yeni gelenleri "Onaylı" yap, satırdaki Kaydet'e bas</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Son giriş</th><th></th></tr></thead><tbody>
+      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Veli</th><th>Son giriş</th><th></th></tr></thead><tbody>
       ${users.map((u, i) => `<tr><td><b>${esc(u.name || "-")}</b><br><span class="muted" style="font-size:13px">${esc(u.email || u.uid)}</span></td>
         <td>${sel("s" + i, STATUSES, statusOf(u))}</td>
         <td>${sel("t" + i, { "": "Seçilmedi", ...TYPES }, u.type || "")}</td>
         <td>${sel("r" + i, ROLES, roleOf(u))}</td>
+        <td>${u.type === "child" ? sel("p" + i, parentOpts, u.parent_uid || "") : `<span class="muted">-</span>`}</td>
         <td class="num muted">${fmtDate(u.last_active)}</td>
         <td><button class="btn" data-i="${i}">Kaydet</button> <span id="m${i}"></span></td></tr>`).join("")}
       </tbody></table></div>
-      <p class="muted" style="font-size:13px;margin:10px 0 0">Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>`;
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider. Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>
+    <section class="panel"><div class="sectionhead"><h3>Duyuru gönder</h3><span class="muted">onaylı herkese e-posta, en geç bir saat içinde</span></div>
+      <div class="formgrid" style="grid-template-columns:1fr">
+        <div class="field"><label for="n-subj">Konu</label><input class="input" id="n-subj" maxlength="120" placeholder="Örn. Yeni: Groep 5 kelime testi"></div>
+        <div class="field"><label for="n-body">Mesaj</label><textarea class="input" id="n-body" rows="5" maxlength="4000"></textarea></div>
+      </div>
+      <div class="row" style="margin-top:10px"><button class="btn primary" id="n-send">Duyuruyu kuyruğa ekle</button><span id="n-msg"></span></div>
+      ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)}</td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
+    </section>`;
 }
 
 app.addEventListener("click", async e => {
+  if (e.target.id === "n-send") return queueNews();
   const b = e.target.closest("button[data-i]"); if (!b) return;
   const i = +b.dataset.i, u = users[i], msg = document.getElementById("m" + i);
   const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value, status = document.getElementById("s" + i).value;
+  const pSel = document.getElementById("p" + i), parent_uid = pSel ? (pSel.value || null) : (u.parent_uid || null);
   if (u.uid === user.uid && role !== "admin") { msg.innerHTML = `<span class="err-msg">Kendi admin rolünü buradan kaldıramazsın.</span>`; return; }
-  try { await updateDoc(doc(db, "users", u.uid), { type, role, status }); Object.assign(u, { type, role, status }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
+  try { await updateDoc(doc(db, "users", u.uid), { type, role, status, parent_uid }); Object.assign(u, { type, role, status, parent_uid }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
   catch (err) { msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
 });
+
+// Announcement: stored with sent_at null; the mailer job sends it and fills sent_at
+async function queueNews() {
+  const subject = document.getElementById("n-subj").value.trim(), body = document.getElementById("n-body").value.trim(), msg = document.getElementById("n-msg");
+  if (!subject || !body) { msg.innerHTML = `<span class="err-msg">Konu ve mesaj gerekli.</span>`; return; }
+  try {
+    await addDoc(collection(db, "announcements"), { subject, body, created_at: new Date().toISOString(), created_by: user.uid, sent_at: null });
+    msg.innerHTML = `<span class="ok-msg">Kuyruğa eklendi.</span>`; load();
+  } catch (err) { msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
+}
 
 load();
 </script>

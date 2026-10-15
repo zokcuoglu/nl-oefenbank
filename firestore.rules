@@ -8,6 +8,9 @@ rules_version = '2';
 // type ("adult" | "child") : chosen once by the user, after that only admin changes it
 // role ("member" | "teacher" | "admin") : only admin changes it, nobody can give it to themselves
 // status ("pending" | "approved" | "blocked") : new accounts are pending; only admin approves
+// parent_uid : a child's linked parent account; only admin sets it
+// welcome_sent_at : set by the mailer job (service account, not bound by these rules)
+// announcements/*  : written by admin, sent by the mailer job
 // The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -41,14 +44,15 @@ service cloud.firestore {
         && request.resource.data.get('status', 'pending') == 'pending'
         && (request.resource.data.get('type', null) == null || validType(request.resource.data.type));
 
-      // Owner edits: never role or status; type only once (when it was still empty)
+      // Owner edits: never role, status, parent link or mail flags; type only once (when it was still empty)
       allow update: if (isOwner(uid)
-          && !changed().hasAny(['role', 'status'])
+          && !changed().hasAny(['role', 'status', 'parent_uid', 'welcome_sent_at'])
           && (!changed().hasAny(['type'])
               || (resource.data.get('type', null) == null && validType(request.resource.data.type))))
         || (isAdmin()
           && validRole(request.resource.data.get('role', 'member'))
           && validStatus(request.resource.data.get('status', 'pending'))
+          && (request.resource.data.get('parent_uid', null) == null || request.resource.data.parent_uid is string)
           && (request.resource.data.get('type', null) == null || validType(request.resource.data.type)));
 
       allow delete: if isAdmin();
@@ -62,6 +66,17 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
         allow update: if false;
       }
+    }
+
+    // Announcements: only admins write and read them; the mailer job sends them
+    match /announcements/{id} {
+      allow read: if isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.subject is string && request.resource.data.subject.size() <= 120
+        && request.resource.data.body is string && request.resource.data.body.size() <= 4000
+        && request.resource.data.sent_at == null;
+      allow delete: if isAdmin();
+      allow update: if false;
     }
 
     // Everything else is closed

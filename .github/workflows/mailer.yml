@@ -1,0 +1,45 @@
+# Sends the site's e-mails (see scripts/mailer.py).
+#   every hour      : "hesabın onaylandı" mails + queued announcements
+#   Sunday 16:00 UTC: weekly summaries (18:00 summer / 17:00 winter in Amsterdam)
+#   manual run      : Actions > Mailer > Run workflow (dry run by default: prints, sends nothing)
+name: Mailer
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+    - cron: "0 16 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "hourly = onay + duyuru, weekly = haftalık özet"
+        type: choice
+        options: [hourly, weekly]
+        default: hourly
+      dry_run:
+        description: "Sadece göster, gönderme"
+        type: boolean
+        default: true
+
+concurrency:
+  group: mailer
+  cancel-in-progress: false
+
+jobs:
+  mail:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install firebase-admin
+      - name: Run mailer
+        env:
+          # Scheduled runs: pick the mode from the cron line; manual runs: from the form
+          MODE: ${{ github.event_name == 'schedule' && (github.event.schedule == '0 16 * * 0' && 'weekly' || 'hourly') || inputs.mode }}
+          DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '--dry-run' || '' }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python scripts/mailer.py --mode "$MODE" $DRY
