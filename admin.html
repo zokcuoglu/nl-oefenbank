@@ -44,7 +44,7 @@ const ROLE_HELP = {
   teacher: "Üye haklarına ek olarak sınıf açar ve sınıfındakilerin özetini görür (sınıf özelliği yakında).",
   admin: "Her şeyi görür, bu ekrandan tip ve rol atar."
 };
-let users = [], news = [];
+let users = [], news = [], newsErr = "";
 
 async function load() {
   try {
@@ -52,11 +52,13 @@ async function load() {
     // Pending accounts first, then most recently active
     const rank = u => statusOf(u) === "pending" ? 0 : 1;
     users = snap.docs.map(d => ({ uid: d.id, ...d.data() })).sort((a, b) => rank(a) - rank(b) || (b.last_active || "").localeCompare(a.last_active || ""));
-    // Last announcements (sent by the mailer job, see scripts/mailer.py)
+  } catch (e) { app.innerHTML = `<div class="notice">Kullanıcılar okunamadı: <b>${esc(e.code || e.message)}</b>. Firebase'deki güvenlik kuralları güncel olmayabilir: repo'daki firestore.rules dosyasını yapıştırıp Publish'e bas.</div>`; return; }
+  // Last announcements (sent by the mailer job, see scripts/mailer.py); a failure here only hides the list
+  try {
     const ns = await getDocs(query(collection(db, "announcements"), orderBy("created_at", "desc"), limit(10)));
-    news = ns.docs.map(d => ({ id: d.id, ...d.data() }));
-    render();
-  } catch (e) { app.innerHTML = `<div class="notice">Kullanıcılar okunamadı: <b>${esc(e.code || e.message)}</b></div>`; }
+    news = ns.docs.map(d => ({ id: d.id, ...d.data() })); newsErr = "";
+  } catch (e) { news = []; newsErr = e.code || e.message; }
+  render();
 }
 
 function sel(id, opts, val) {
@@ -93,6 +95,7 @@ function render() {
         <div class="field"><label for="n-body">Mesaj</label><textarea class="input" id="n-body" rows="5" maxlength="4000"></textarea></div>
       </div>
       <div class="row" style="margin-top:10px"><button class="btn primary" id="n-send">Duyuruyu kuyruğa ekle</button><span id="n-msg"></span></div>
+      ${newsErr ? `<div class="notice" style="margin-top:12px">Duyurular okunamadı (${esc(newsErr)}). Güvenlik kurallarını güncelle.</div>` : ""}
       ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)}</td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
     </section>`;
 }
