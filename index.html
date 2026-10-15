@@ -3,640 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Lezen Oefenbank</title>
+<title>NT2 Oefenbank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-/* Same design system as KNM Oefenbank: sticky tab bar, panels on a cool grey ground, orange accent */
-:root{
-  --ground:#F2F4F7; --surface:#FFFFFF; --sunk:#E6EAF0; --line:#D3DAE3;
-  --ink:#142033; --muted:#566377; --accent:#C8551B; --accent-ink:#FFFFFF; --accent-soft:#FBE7DB;
-  --blue:#1F4E8C; --blue-soft:#DCE6F4;
-  --ok:#2E7D4F; --ok-soft:#DDF0E4; --bad:#B3403A; --bad-soft:#F6E0DE; --warn:#9A6410; --warn-soft:#F7ECD6;
-  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --ground:#0F141B; --surface:#161D27; --sunk:#1D2632; --line:#2B3747;
-    --ink:#E4E9F0; --muted:#95A2B4; --accent:#F08A4B; --accent-ink:#1A0E06; --accent-soft:#3A2416;
-    --blue:#7FA8E0; --blue-soft:#1B2A40;
-    --ok:#6CC08F; --ok-soft:#173226; --bad:#E58A83; --bad-soft:#3A1E1C; --warn:#E0B064; --warn-soft:#352914;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --ground:#0F141B; --surface:#161D27; --sunk:#1D2632; --line:#2B3747;
-  --ink:#E4E9F0; --muted:#95A2B4; --accent:#F08A4B; --accent-ink:#1A0E06; --accent-soft:#3A2416;
-  --blue:#7FA8E0; --blue-soft:#1B2A40;
-  --ok:#6CC08F; --ok-soft:#173226; --bad:#E58A83; --bad-soft:#3A1E1C; --warn:#E0B064; --warn-soft:#352914;
-}
-*{box-sizing:border-box}
-body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--body);padding-inline:16px;padding-block:0 48px}
-.wrap{max-width:860px;margin:0 auto}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
-h1{font-size:22px} h2{font-size:20px} h3{font-size:16px}
-button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,label:focus-within,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.muted{color:var(--muted)} .num{font-variant-numeric:tabular-nums}
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);margin-inline:-16px;padding:12px 16px 0}
-.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px}
-.brand{display:flex;flex-direction:column;gap:2px;padding-bottom:10px}
-.brand small{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.tabs{display:flex;gap:2px;overflow-x:auto;max-width:100%}
-.tab{background:none;border:0;border-bottom:3px solid transparent;padding:8px 10px 9px;color:var(--muted);font-weight:500;white-space:nowrap}
-.tab[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
-main{padding-top:24px;display:flex;flex-direction:column;gap:18px}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;min-width:0}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.chip{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);white-space:nowrap}
-.chip.accent{background:var(--accent-soft);color:var(--accent)} .chip.blue{background:var(--blue-soft);color:var(--blue)}
-.chip.ok{background:var(--ok-soft);color:var(--ok)} .chip.bad{background:var(--bad-soft);color:var(--bad)} .chip.warn{background:var(--warn-soft);color:var(--warn)}
-.btn{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:8px;font-weight:500}
-.btn:hover{border-color:var(--accent)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.btn.ghost{background:none}
-.btn:disabled{opacity:.45;cursor:default}
-.notice{padding:12px 14px;border-radius:8px;background:var(--warn-soft);color:var(--warn)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{display:flex;flex-direction:column;gap:8px}
-.card p{margin:0;color:var(--muted);font-size:14px}
-.card .row:last-child{margin-top:auto}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.kpi .v{font-family:var(--display);font-size:28px;font-weight:700}
-.countdown{display:flex;align-items:baseline;gap:10px}
-.countdown .big{font-family:var(--display);font-size:44px;font-weight:700;line-height:1;color:var(--accent)}
-.runhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
-.progress{height:4px;background:var(--sunk);border-radius:2px;overflow:hidden}
-.progress i{display:block;height:100%;background:var(--accent);transition:width .2s}
-.qtext{font-size:17px;font-weight:500;margin:0;max-width:68ch}
-.qword{font-family:var(--display);font-size:26px;font-weight:700}
-.qtr{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:68ch;border-left:2px solid var(--line);padding-left:10px}
-.blank{display:inline-block;min-width:5ch;border-bottom:2px solid var(--accent);color:transparent}
-.opts{display:flex;flex-direction:column;gap:8px;margin-top:18px}
-.opt{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer;background:var(--surface);text-align:left;width:100%}
-.opt:hover{border-color:var(--accent)}
-.opt .mark{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--muted)}
-.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
-.opt.sel .mark{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.opt.right{border-color:var(--ok);background:var(--ok-soft)} .opt.right .mark{background:var(--ok);border-color:var(--ok);color:var(--surface)}
-.opt.wrongpick{border-color:var(--bad);background:var(--bad-soft)} .opt.wrongpick .mark{background:var(--bad);border-color:var(--bad);color:var(--surface)}
-.opt[disabled]{cursor:default}
-.why{margin-top:14px;padding:12px 14px;border-radius:8px;background:var(--blue-soft);color:var(--ink);font-size:14.5px}
-.why b{color:var(--blue)}
-.why .ex{display:block;margin-top:6px}
-.runnav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:20px}
-.grid{display:flex;flex-wrap:wrap;gap:6px}
-.cell{width:34px;height:34px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:12px}
-.cell.done{background:var(--sunk)} .cell.cur{border-color:var(--accent);border-width:2px}
-.cell.g{background:var(--ok-soft);color:var(--ok)} .cell.r{background:var(--bad-soft);color:var(--bad)}
-.confirm{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.scorebox{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between}
-.scorebig{font-family:var(--display);font-size:44px;font-weight:700;line-height:1}
-.tablewrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:14px}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:11px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
-td.r,th.r{text-align:right}
-.bar{position:relative;height:8px;background:var(--sunk);border-radius:4px;min-width:80px}
-.bar i{position:absolute;inset:0 auto 0 0;border-radius:4px}
-.review{display:flex;flex-direction:column;gap:12px}
-.rq{border-left:4px solid var(--line)} .rq.good{border-left-color:var(--ok)} .rq.wrong{border-left-color:var(--bad)}
-.rq summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start}
-.rq summary::-webkit-details-marker{display:none}
-.rq .n{font-family:var(--mono);color:var(--muted);font-size:12px;padding-top:3px}
-.ropts{display:flex;flex-direction:column;gap:6px;margin-top:10px}
-.ropt{padding:8px 10px;border-radius:6px;display:grid;grid-template-columns:22px 1fr auto;gap:8px;font-size:14px}
-.ropt.c{background:var(--ok-soft)} .ropt.x{background:var(--bad-soft)}
-.ropt .l{font-family:var(--mono);font-weight:600}
-.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
-.seg button{border:0;border-right:1px solid var(--line);background:none;padding:6px 12px;font-size:13px;color:var(--muted)}
-.seg button:last-child{border-right:0} .seg button.on{background:var(--accent);color:var(--accent-ink)}
-.switch{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);cursor:pointer}
-.sectionhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:12px}
-.hist td{cursor:pointer} .hist tr:hover td{background:var(--sunk)}
-.search{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px 10px;font:inherit;min-width:0;flex:1 1 180px}
-select.search{flex:0 1 180px}
-.yrs{display:inline-flex;gap:2px;vertical-align:middle}
-.yrs i{width:7px;height:12px;border-radius:2px;background:var(--sunk)} .yrs i.on{background:var(--accent)}
-.lid{font-family:var(--mono);font-size:12px;color:var(--blue)}
-.who{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);padding-bottom:10px}
-.who img{width:26px;height:26px;border-radius:50%}
-.login{max-width:460px;margin:40px auto;display:flex;flex-direction:column;gap:14px}
-.gbtn{display:inline-flex;align-items:center;gap:10px;justify-content:center}
-.date{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px 10px;font:inherit}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
-
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <div class="brand">
-      <small>Staatsexamen NT2 · Lezen I (B1)</small>
-      <h1>Lezen Oefenbank</h1>
-    </div>
-    <div class="who" id="who" hidden></div>
-    <nav class="tabs" role="tablist" id="tabs" hidden>
-      <button class="tab" role="tab" data-view="home">Özet</button>
-      <button class="tab" role="tab" data-view="quick">Hızlı 10</button>
-      <button class="tab" role="tab" data-view="topics">Konular</button>
-      <button class="tab" role="tab" data-view="words">Kelime listesi</button>
-      <button class="tab" role="tab" data-view="patterns">Soru kalıpları</button>
-      <button class="tab" role="tab" data-view="stats">İstatistik</button>
-      <button class="tab" role="tab" data-view="history">Geçmiş</button>
-    </nav>
+    <div class="brand"><small>Hollandaca çalışma</small><h1>NT2 Oefenbank</h1></div>
+    <div class="navlinks" id="ub"></div>
   </div>
 </header>
 <div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
 
 <script type="module">
-// Firebase SDK from Google's CDN (no build step needed for GitHub Pages)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+// Home page: shows the exercise catalog filtered by account type.
+// Adults see NT2 + kids; child accounts see only the kids area.
+import { gate, userBox, esc, loadAllAttempts, ROOT } from "./js/core.js";
 
-// Public web config (not a secret: access is controlled by firestore.rules)
-const firebaseConfig = {
-  apiKey: "AIzaSyAdTzM00PphCzTBinqL_KjyAJGwJgevH4k",
-  authDomain: "nt2-lezen.firebaseapp.com",
-  projectId: "nt2-lezen",
-  storageBucket: "nt2-lezen.firebasestorage.app",
-  messagingSenderId: "574362574093",
-  appId: "1:574362574093:web:615c5761f2f29fc9cba444"
-};
-const fb = initializeApp(firebaseConfig);
-const auth = getAuth(fb);
-const fdb = getFirestore(fb);
-
-// ---------- State ----------
-// Word data and patterns live in the artifact db (seeded by Claude from the exam frequency CSV).
-// Questions are NOT stored: they are generated from the word list with a seeded random,
-// so the same question id always shows the same options (needed for review and history).
-const S = {
-  user: null, dbState: "loading", dbError: "", unsub: null,
-  config: { exam_date: null, topics: {} },
-  vchunks: {}, words: [], WI: {},        // word docs, flat word list, word index by key
-  patterns: [],
-  attempts: [],
-  view: "home", run: null, resultId: null, filter: "all",
-  qType: "all", wq: "", wTopic: "all",
-  showTr: true, instant: true,
-};
 const app = document.getElementById("app");
-const DRAFT_KEY = "lezen-draft", PREF_KEY = "lezen-prefs";
-try { const p = JSON.parse(localStorage.getItem(PREF_KEY) || "{}"); if ("showTr" in p) S.showTr = p.showTr; if ("instant" in p) S.instant = p.instant; if (p.qType) S.qType = p.qType; } catch (e) {}
-const savePrefs = () => { try { localStorage.setItem(PREF_KEY, JSON.stringify({ showTr: S.showTr, instant: S.instant, qType: S.qType })); } catch (e) {} };
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); } catch (e) { return ""; } };
+const daysTo = d => d ? Math.max(0, Math.round((new Date(d + "T00:00:00") - new Date(new Date().toDateString())) / 86400000)) : null;
 
-// ---------- Helpers ----------
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const pct = (a, b) => b ? Math.round(100 * a / b) : 0;
-const tone = p => p >= 80 ? "ok" : p >= 65 ? "warn" : "bad";
-const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
-const fmtDate = iso => { try { return new Date(iso).toLocaleString("tr-TR", {day:"2-digit", month:"short", hour:"2-digit", minute:"2-digit"}); } catch (e) { return iso; } };
-const fmtDur = s => `${Math.floor(s / 60)} dk ${String(s % 60).padStart(2, "0")} sn`;
-const topicName = t => S.config.topics?.[t]?.tr || t;
-const topicIds = () => Object.keys(S.config.topics || {}).sort((a, b) => (S.config.topics[a].order ?? 99) - (S.config.topics[b].order ?? 99));
-const yrs = n => `<span class="yrs" title="${n}/3 sınavda">${[1,2,3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
+const { user, profile } = await gate({ area: "any" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
 
-// Seeded random so a question id always produces the same options
-function hash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
-function rng(seed) { let a = seed; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-const sshuffle = (arr, r) => arr.map(v => [r(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+let cat;
+try { cat = await (await fetch("data/catalog.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Liste yüklenemedi: ${esc(e.message)}</div>`; throw e; }
 
-function saveDraft() { try { S.run ? localStorage.setItem(DRAFT_KEY, JSON.stringify(S.run)) : localStorage.removeItem(DRAFT_KEY); } catch (e) {} }
-function loadDraft() { try { const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); return d && d.qids ? d : null; } catch (e) { return null; } }
+// Last activity per module, from this user's own attempts (one read for all)
+const attempts = await loadAllAttempts(user.uid).catch(() => []);
+const lastBy = {};
+attempts.forEach(a => { if (!lastBy[a.module]) lastBy[a.module] = a; });
 
-// ---------- Question generation ----------
-const Q_TYPES = { nltr: "Anlamı (NL → TR)", trnl: "Hollandacası (TR → NL)", invul: "Boşluk doldur", lid: "de / het" };
-const isNoun = w => ["de", "het"].includes(w.lid);
-// Group words so wrong options look plausible: nouns with nouns, verbs with verbs
-const posGroup = w => (w.lid || "").startsWith("de") || w.lid === "het" ? "noun" : (w.konu === "fiil" || /en$/.test(w.w)) ? "verb" : "other";
-// Match the first letter's case to the correct answer, so capitals never give the answer away
-const capFirst = (s, like) => { const up = like && like[0] === like[0].toUpperCase() && like[0] !== like[0].toLowerCase(); return (up ? s[0].toUpperCase() : s[0].toLowerCase()) + s.slice(1); };
-
-// Two wrong options: same topic and same word group first, then the whole list
-function distractors(w, field, r, n = 2) {
-  const val = x => field === "vorm" ? x.vorm : x[field];
-  const okCand = x => x.key !== w.key && val(x) && val(x).toLowerCase() !== val(w).toLowerCase();
-  const near = sshuffle(S.words.filter(x => okCand(x) && x.konu === w.konu && posGroup(x) === posGroup(w)), r);
-  const wide = sshuffle(S.words.filter(x => okCand(x) && posGroup(x) === posGroup(w)), r);
-  const out = [], seen = new Set([val(w).toLowerCase()]);
-  for (const x of [...near, ...wide]) { const v = val(x).toLowerCase(); if (!seen.has(v)) { seen.add(v); out.push(x); } if (out.length === n) break; }
-  return out;
-}
-function makeOpts(correct, wrongs, r) {
-  const all = sshuffle([{ t: correct, ok: true }, ...wrongs.map(t => ({ t, ok: false }))], r);
-  const opts = {}; let key = "";
-  all.forEach((o, i) => { const k = "ABC"[i]; opts[k] = o.t; if (o.ok) key = k; });
-  return { opts, key };
-}
-const qCache = {};
-function getQ(qid) {
-  if (qCache[qid]) return qCache[qid];
-  const [type, ...rest] = qid.split(":"); const id = rest.join(":");
-  let q = null;
-  if (type === "pat") {
-    const p = S.patterns[+id]; if (!p) return null; const r = rng(hash(qid));
-    const wr = sshuffle(S.patterns.filter((_, i) => i !== +id), r).slice(0, 2).map(x => x.tr);
-    q = { type, theme: "kalip", head: "Bu soru kalıbı ne demek?", big: p.p, ...makeOpts(p.tr, wr, r), pat: p };
-  } else {
-    const w = S.WI[id]; if (!w) return null; const r = rng(hash(qid));
-    if (type === "nltr") q = { head: "Bu kelime ne demek?", big: w.w, ...makeOpts(w.tr, distractors(w, "tr", r).map(x => x.tr), r) };
-    if (type === "trnl") q = { head: "Hollandacası hangisi?", big: w.tr, ...makeOpts(w.w, distractors(w, "w", r).map(x => x.w), r) };
-    if (type === "invul") {
-      const re = new RegExp(`(^|[^A-Za-zÀ-ÿ])(${w.vorm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})(?![A-Za-zÀ-ÿ])`, "i");
-      const m = w.nl.match(re); const vorm = m ? m[2] : w.vorm;
-      const sent = esc(w.nl).replace(new RegExp(`(^|[^A-Za-zÀ-ÿ])(${esc(vorm).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})(?![A-Za-zÀ-ÿ])`), `$1<span class="blank">${esc(vorm)}</span>`);
-      q = { head: "Boşluğa hangisi gelir?", sentHtml: sent, ...makeOpts(vorm, distractors(w, "vorm", r).map(x => capFirst(x.vorm, vorm)), r) };
-    }
-    if (type === "lid") q = { head: "Artikeli hangisi?", big: w.w, opts: { A: "de", B: "het" }, key: w.lid === "de" ? "A" : "B" };
-    if (!q) return null;
-    q = { type, theme: w.konu, word: w, ...q };
-  }
-  qCache[qid] = q; return q;
-}
-// All question ids for a word (fill-in needs a form, de/het only for nouns)
-const qidsForWord = w => Object.keys(Q_TYPES).filter(t => (t !== "lid" || isNoun(w)) && (t !== "invul" || w.vorm)).map(t => `${t}:${w.key}`);
-const typeOk = qid => S.qType === "all" || qid.startsWith(S.qType + ":");
-
-function rebuildWords() {
-  const words = [];
-  Object.values(S.vchunks).forEach(c => (c.words || []).forEach(w => words.push({ ...w, key: w.w })));
-  words.sort((a, b) => b.y - a.y || b.n - a.n);
-  S.words = words; S.WI = Object.fromEntries(words.map(w => [w.key, w]));
-  Object.keys(qCache).forEach(k => delete qCache[k]);
+function card(m) {
+  const last = lastBy[m.id];
+  const days = m.exam ? daysTo(profile.exams?.[m.id] || (m.id === "lezen" ? profile.exam_date : null)) : null;
+  const chips = [
+    m.status === "soon" ? `<span class="chip">yakında</span>` : "",
+    days !== null ? `<span class="chip accent num">sınava ${days} gün</span>` : "",
+    last ? `<span class="chip num">son: ${fmtDate(last.finished_at)} · ${last.score}/${last.total}</span>` : (m.status === "ready" ? `<span class="chip">başlanmadı</span>` : "")
+  ].join("");
+  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
+  return m.status === "ready"
+    ? `<a class="panel card" href="${ROOT}${m.href}">${inner}</a>`
+    : `<article class="panel card soon">${inner}</article>`;
 }
 
-// ---------- Data ----------
-// Word bank is a static file in the repo, the same for everyone.
-async function loadBank() {
-  const r = await fetch("data/bank.json", { cache: "no-cache" });
-  if (!r.ok) throw new Error("bank.json " + r.status);
-  const b = await r.json();
-  S.config.topics = b.topics; S.patterns = b.patterns || [];
-  S.vchunks = { all: { words: b.words } }; rebuildWords();
-}
-// Each user only reads/writes users/{uid} (enforced by firestore.rules).
-async function loadUser(u) {
-  const ref = doc(fdb, "users", u.uid);
-  const snap = await getDoc(ref);
-  if (!snap.exists()) await setDoc(ref, { name: u.displayName || "", created_at: new Date().toISOString(), exam_date: null });
-  S.config.exam_date = snap.exists() ? (snap.data().exam_date || null) : null;
-  S.unsub = onSnapshot(collection(fdb, "users", u.uid, "attempts"), q => {
-    S.attempts = q.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.finished_at || "").localeCompare(a.finished_at || "")); render();
-  }, e => { S.dbState = "error"; S.dbError = e.code || String(e); render(); });
-}
-async function saveExamDate(v) {
-  await setDoc(doc(fdb, "users", S.user.uid), { exam_date: v || null }, { merge: true });
-  S.config.exam_date = v || null; render();
-}
-async function login() {
-  const p = new GoogleAuthProvider();
-  try { await signInWithPopup(auth, p); }
-  catch (e) {
-    // Some phones block popups: fall back to a full-page redirect
-    if (["auth/popup-blocked", "auth/operation-not-supported-in-this-environment"].includes(e.code)) return signInWithRedirect(auth, p);
-    if (e.code !== "auth/popup-closed-by-user") { S.dbError = e.code || String(e); render(); }
-  }
-}
-function boot() {
-  render();
-  const bankP = loadBank().catch(e => { S.dbState = "error"; S.dbError = String(e.message || e); render(); });
-  onAuthStateChanged(auth, async u => {
-    if (S.unsub) { S.unsub(); S.unsub = null; }
-    S.user = u; S.attempts = [];
-    if (!u) { S.dbState = "signedout"; S.run = null; render(); return; }
-    try { await bankP; await loadUser(u); S.dbState = "ok"; }
-    catch (e) { S.dbState = "error"; S.dbError = e.code || String(e.message || e); }
-    render();
-  });
+function kidsSection() {
+  const groups = Object.keys(cat.groups);
+  // A child's own groep comes first
+  if (profile.groep && groups.includes(profile.groep)) groups.sort((a, b) => (b === profile.groep) - (a === profile.groep));
+  return groups.map(g => {
+    const ms = cat.modules.filter(m => m.area === "kids" && m.group === g);
+    return `<section><div class="area-head"><h3>${esc(cat.groups[g])}${g === profile.groep ? ` <span class="chip accent">senin grubun</span>` : ""}</h3></div>
+      <div class="cards" style="margin-top:12px">${ms.length ? ms.map(card).join("") : `<article class="panel card soon"><p>Henüz test yok. Okul dokümanları geldikçe eklenecek.</p></article>`}</div></section>`;
+  }).join("");
 }
 
-// First and latest result per question id across all attempts
-function answerIndex() {
-  const first = {}, last = {};
-  [...S.attempts].sort((a, b) => (a.finished_at || "").localeCompare(b.finished_at || ""))
-    .forEach(a => (a.answers || []).forEach(x => { if (!(x.qid in first)) first[x.qid] = x.correct; last[x.qid] = { correct: x.correct, at: a.finished_at || "" }; }));
-  return { first, last };
-}
-// Word status from its questions: unseen / learning (last answer wrong somewhere) / known
-function wordStatus(w, last) {
-  const ids = qidsForWord(w).filter(id => last[id]);
-  if (!ids.length) return "new";
-  return ids.every(id => last[id].correct) ? "known" : "weak";
-}
-// Pick n question ids: unseen first (words seen in more exams first), then wrong, then oldest correct.
-// One question per word per round.
-function pick(pool, n) {
-  const { last } = answerIndex();
-  const prio = id => { const w = S.WI[id.split(":").slice(1).join(":")]; return w ? w.y * 1000 + w.n : 0; };
-  const unseen = pool.filter(q => !last[q]);
-  const tiers = [3, 2, 1, 0].map(y => shuffle(unseen.filter(id => Math.floor(prio(id) / 1000) === y)));
-  const wrong = shuffle(pool.filter(q => last[q] && !last[q].correct));
-  const right = pool.filter(q => last[q] && last[q].correct).sort((a, b) => last[a].at.localeCompare(last[b].at));
-  const out = [], used = new Set();
-  for (const id of [...wrong.slice(0, Math.ceil(n / 3)), ...tiers.flat(), ...wrong, ...right]) {
-    const wk = id.split(":").slice(1).join(":"); if (out.includes(id) || used.has(wk)) continue;
-    used.add(wk); out.push(id); if (out.length === n) break;
-  }
-  return shuffle(out);
-}
-const poolWords = ws => ws.flatMap(qidsForWord).filter(typeOk);
-const poolAll = () => poolWords(S.words);
-const poolTopic = t => poolWords(S.words.filter(w => w.konu === t));
-const poolCore = () => poolWords(S.words.filter(w => w.y === 3));
-const poolPat = () => S.patterns.map((_, i) => `pat:${i}`);
-const poolWrong = () => { const { last } = answerIndex(); return Object.keys(last).filter(id => !last[id].correct && getQ(id)); };
-
-// ---------- Actions ----------
-function go(view) { S.view = view; if (view !== "result") S.filter = "all"; render(); window.scrollTo(0, 0); }
-function start(kind, title, qids) {
-  if (!qids.length) return;
-  S.run = { kind, title, qids, idx: 0, answers: {}, startedAt: new Date().toISOString(), confirm: false };
-  saveDraft(); go("run");
-}
-function choose(qid, letter) {
-  const r = S.run; if (r.answers[qid] && S.instant) return;
-  r.answers[qid] = letter; r.confirm = false; saveDraft(); render();
-}
-async function finish() {
-  const r = S.run;
-  const answers = r.qids.map(qid => { const q = getQ(qid) || {}; const chosen = r.answers[qid] || null;
-    return { qid, chosen, correct: !!chosen && chosen === q.key, theme: q.theme || null }; });
-  const score = answers.filter(a => a.correct).length, done = new Date();
-  const attempt = { kind: r.kind, title: r.title, started_at: r.startedAt, finished_at: done.toISOString(),
-    duration_s: Math.round((done - new Date(r.startedAt)) / 1000), score, total: answers.length, answers };
-  try {
-    const ref = await addDoc(collection(fdb, "users", S.user.uid, "attempts"), attempt);
-    S.run = null; saveDraft(); S.resultId = ref.id;
-    S.attempts = [{ id: ref.id, ...attempt }, ...S.attempts.filter(a => a.id !== ref.id)];
-    go("result");
-  } catch (e) { r.saveError = "Sonuç kaydedilemedi (" + (e.code || "hata") + "). Cevapların bu tarayıcıda duruyor, tekrar dene."; render(); }
-}
-
-// ---------- Views ----------
-const tabOf = v => ({ run: S.run ? ({ quick: "quick", topic: "topics", core: "topics", wrong: "topics", pat: "patterns" }[S.run.kind] || "home") : "home", result: "history" }[v] || v);
-function render() {
-  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === tabOf(S.view) ? "true" : "false"));
-  const signedIn = S.dbState === "ok" && S.user;
-  document.getElementById("tabs").hidden = !signedIn;
-  const who = document.getElementById("who"); who.hidden = !S.user;
-  if (S.user) who.innerHTML = `${S.user.photoURL ? `<img src="${esc(S.user.photoURL)}" alt="">` : ""}<span>${esc(S.user.displayName || S.user.email || "")}</span><button class="btn ghost" data-act="logout" style="padding:4px 10px">Çıkış</button>`;
-  if (S.dbState === "signedout") { app.innerHTML = vLogin(); return; }
-  if (S.dbState === "error") { app.innerHTML = `<div class="notice">Bir sorun oluştu: <b>${esc(S.dbError)}</b>. Sayfayı yenile; devam ederse bu mesajı Zana'ya gönder.</div>`; return; }
-  if (signedIn && !S.config.exam_date && S.view !== "run") { app.innerHTML = vSetup(); return; }
-  if (S.dbState === "loading" || (!S.words.length && S.view !== "run")) { app.innerHTML = `<section class="panel"><span class="eyebrow">Kelime bankası</span><h2 style="margin-top:4px">Kelimeler yükleniyor…</h2><p class="muted">2023, 2024 ve 2025 Lezen I sınavlarından çıkarılan 302 kelime ve 17 soru kalıbı burada görünecek.</p></section>`; return; }
-  app.innerHTML = ({ home: vHome, quick: vQuick, topics: vTopics, words: vWords, patterns: vPatterns, run: vRun, result: vResult, stats: vStats, history: vHistory }[S.view] || vHome)();
-}
-
-function vLogin() {
-  return `<section class="panel login"><span class="eyebrow">Staatsexamen NT2 · Lezen I</span>
-    <h2>Lezen Oefenbank</h2>
-    <p class="muted" style="margin:0">2023, 2024 ve 2025 resmi sınavlarında en sık geçen 302 kelime ve 17 soru kalıbı. Sonuçların ve sınav tarihin sadece senin hesabında saklanır.</p>
-    <button class="btn primary gbtn" data-act="login">Google ile giriş yap</button>
-    ${S.dbError ? `<div class="notice">Giriş yapılamadı: ${esc(S.dbError)}</div>` : ""}</section>`;
-}
-function vSetup() {
-  return `<section class="panel login"><span class="eyebrow">İlk ayar</span><h2>Sınavın ne zaman?</h2>
-    <p class="muted" style="margin:0">Geri sayım ve hedefler bu tarihe göre gösterilir. Sonra Özet sayfasından değiştirebilirsin.</p>
-    <label for="examdate" class="muted">Lezen sınav tarihi</label><input id="examdate" class="date" type="date">
-    <button class="btn primary" data-act="savedate">Kaydet</button></section>`;
-}
-
-function barRow(label, ok, n) {
-  const p = pct(ok, n);
-  return `<tr><td>${label}</td><td class="r num">${n ? `${ok}/${n}` : "–"}</td>
-    <td style="width:34%"><div class="row" style="flex-wrap:nowrap"><div class="bar" style="flex:1"><i style="width:${n ? p : 0}%;background:var(--${tone(p)})"></i></div><span class="num" style="width:40px;text-align:right">${n ? p + "%" : ""}</span></div></td></tr>`;
-}
-const typeSeg = () => `<div class="seg" role="group">${[["all", "Hepsi"], ...Object.entries(Q_TYPES)].map(([k, l]) =>
-  `<button class="${S.qType === k ? "on" : ""}" data-act="qtype" data-f="${k}" aria-pressed="${S.qType === k}">${l}</button>`).join("")}</div>`;
-
-function vHome() {
-  const { last } = answerIndex();
-  const st = S.words.map(w => wordStatus(w, last));
-  const known = st.filter(s => s === "known").length, weak = st.filter(s => s === "weak").length, seen = known + weak;
-  const core = S.words.filter(w => w.y === 3); const coreKnown = core.filter(w => wordStatus(w, last) === "known").length;
-  const days = S.config.exam_date ? Math.max(0, Math.round((new Date(S.config.exam_date + "T00:00:00") - new Date(new Date().toDateString())) / 86400000)) : null;
-  const wrongN = poolWrong().length;
-  const rows = topicIds().map(t => { const ws = S.words.filter(w => w.konu === t); const k = ws.filter(w => wordStatus(w, last) === "known").length;
-    const s = ws.filter(w => wordStatus(w, last) !== "new").length;
-    return barRow(`${esc(topicName(t))} <span class="muted">· ${ws.length} kelime, ${s} görüldü</span>`, k, ws.length); }).join("");
-  return `<section class="panel">
-      <div class="sectionhead"><div><span class="eyebrow">Sınav · ${esc(S.config.exam_date || "tarih girilmedi")}</span> <button class="btn ghost" data-act="editdate" style="padding:2px 8px;font-size:12px">değiştir</button>
-        <div class="countdown" style="margin-top:6px"><span class="big num">${days ?? "–"}</span><span class="muted">gün kaldı</span></div></div>
-        <div class="row"><button class="btn primary" data-act="quick">Hızlı 10</button>${wrongN ? `<button class="btn" data-act="wrong">Yanlışlarım (${wrongN})</button>` : ""}</div></div>
-      <p class="muted" style="margin:0;max-width:62ch">Önce 3 sınavda da çıkan kelimeler gelir, sonra yanlış yaptıkların. Bir kelime, sorduğu tüm soru tiplerinde son cevabın doğruysa "öğrenildi" sayılır.</p>
-    </section>
-    <section class="kpis">
-      <div class="panel kpi"><div class="eyebrow">Öğrenilen kelime</div><div class="v num" style="color:var(--${tone(pct(known, S.words.length))})">${known}<span class="muted" style="font-size:16px"> / ${S.words.length}</span></div><div class="muted num">${weak} kelimede yanlış var</div></div>
-      <div class="panel kpi"><div class="eyebrow">Her yıl çıkanlar</div><div class="v num">${coreKnown}<span class="muted" style="font-size:16px"> / ${core.length}</span></div><div class="muted">3 sınavda da geçen kelimeler</div></div>
-      <div class="panel kpi"><div class="eyebrow">Görülen</div><div class="v num">${seen}<span class="muted" style="font-size:16px"> / ${S.words.length}</span></div><div class="muted">en az bir soru çözüldü</div></div>
-    </section>
-    <section class="panel"><div class="sectionhead"><h3>Konular</h3><span class="muted">öğrenilen kelime</span></div>
-      <div class="tablewrap"><table><tbody>${rows}</tbody></table></div></section>`;
-}
-
-function vQuick() {
-  const pool = poolAll(); const { last } = answerIndex();
-  const unseen = pool.filter(q => !last[q]).length;
-  const recent = S.attempts.filter(a => a.kind === "quick").slice(0, 8);
-  return `<section class="panel"><span class="eyebrow">Hızlı 10</span><h2 style="margin-top:4px">10 soru, birkaç dakika</h2>
-      <p class="muted" style="max-width:62ch">Tüm konulardan karışık, her kelimeden bir soru. Soru tipini aşağıdan seçebilirsin.</p>
-      <div class="row" style="margin-bottom:12px">${typeSeg()}</div>
-      <div class="row"><span class="chip num">havuz ${pool.length}</span><span class="chip accent num">görülmemiş ${unseen}</span><button class="btn primary" data-act="quick">Başla</button></div></section>
-    ${recent.length ? `<section class="panel"><div class="sectionhead"><h3>Son hızlı turlar</h3></div><div class="tablewrap"><table class="hist"><tbody>
-      ${recent.map(a => `<tr data-act="open" data-id="${a.id}" tabindex="0"><td class="num">${fmtDate(a.finished_at)}</td><td class="r"><span class="chip ${tone(pct(a.score, a.total))} num">${a.score}/${a.total}</span></td></tr>`).join("")}</tbody></table></div></section>` : ""}`;
-}
-
-function vTopics() {
-  const { last } = answerIndex(); const wrongN = poolWrong().length;
-  const core = S.words.filter(w => w.y === 3); const ck = core.filter(w => wordStatus(w, last) === "known").length;
-  return `<section class="panel"><span class="eyebrow">Konu testi</span>
-      <p style="margin:6px 0 12px;max-width:62ch">Her konudan 10 soru. Soru tipi seçimi bütün testler için geçerli.</p>${typeSeg()}</section>
-    <section class="cards">
-      <article class="panel card"><span class="eyebrow">Öncelik</span><h3>Her yıl çıkanlar</h3><p>2023, 2024 ve 2025 sınavlarının hepsinde geçen kelimeler.</p>
-        <div class="row"><span class="chip num">${core.length} kelime</span><span class="chip ${tone(pct(ck, core.length))} num">${ck} öğrenildi</span>
-        <button class="btn primary" data-act="core" style="margin-left:auto">10 soru</button></div></article>
-      ${topicIds().map(t => { const ws = S.words.filter(w => w.konu === t); const k = ws.filter(w => wordStatus(w, last) === "known").length; const p = poolTopic(t);
-      return `<article class="panel card"><span class="eyebrow">${esc(S.config.topics[t]?.nl || "")}</span><h3>${esc(topicName(t))}</h3><p>${esc(S.config.topics[t]?.desc || "")}</p>
-        <div class="row"><span class="chip num">${ws.length} kelime</span>${k ? `<span class="chip ${tone(pct(k, ws.length))} num">${k} öğrenildi</span>` : ""}
-        <button class="btn primary" data-act="topic" data-t="${t}" ${p.length ? "" : "disabled"} style="margin-left:auto">10 soru</button></div></article>`; }).join("")}
-      ${wrongN ? `<article class="panel card"><span class="eyebrow">Tekrar</span><h3>Yanlışlarım</h3><p>Son seferde yanlış yaptığın sorular. Doğru yaptıkça buradan düşer.</p>
-        <div class="row"><span class="chip bad num">${wrongN} soru</span><button class="btn" data-act="wrong" style="margin-left:auto">Başla</button></div></article>` : ""}
-    </section>`;
-}
-
-function vWords() {
-  const { last } = answerIndex();
-  const q = S.wq.trim().toLowerCase();
-  const list = S.words.filter(w => (S.wTopic === "all" || w.konu === S.wTopic) && (!q || w.w.toLowerCase().includes(q) || w.tr.toLowerCase().includes(q)));
-  const badge = s => s === "known" ? `<span class="chip ok">öğrenildi</span>` : s === "weak" ? `<span class="chip bad">tekrar</span>` : "";
-  return `<section class="panel"><span class="eyebrow">Kelime listesi</span><h2 style="margin-top:4px">${S.words.length} kelime, sınavdaki sıklığa göre</h2>
-      <p class="muted" style="max-width:62ch">Turuncu çubuklar kelimenin kaç sınavda geçtiğini, sayı toplam kaç kez geçtiğini gösterir. Örnek cümleler sınavdan alınmadı, aynı bağlamda yeniden yazıldı.</p>
-      <div class="row"><input id="wsearch" class="search" type="search" placeholder="Kelime veya Türkçe ara" value="${esc(S.wq)}" aria-label="Kelime ara">
-        <select id="wtopic" class="search" aria-label="Konu"><option value="all">Tüm konular</option>${topicIds().map(t => `<option value="${t}" ${S.wTopic === t ? "selected" : ""}>${esc(topicName(t))}</option>`).join("")}</select></div></section>
-    <section class="panel"><div class="tablewrap"><table><thead><tr><th>Kelime</th><th>Türkçe</th><th class="r">Sınav</th><th>Örnek</th></tr></thead><tbody>
-      ${list.map(w => `<tr><td><span class="lid">${isNoun(w) || w.lid.startsWith("de") ? esc(w.lid) + " " : ""}</span><b>${esc(w.w)}</b><div style="margin-top:4px">${badge(wordStatus(w, last))}</div></td><td>${esc(w.tr)}</td>
-        <td class="r num" style="white-space:nowrap">${yrs(w.y)} <span class="muted">${w.n}</span></td><td><span>${esc(w.nl)}</span><br><span class="muted">${esc(w.trs)}</span></td></tr>`).join("") || `<tr><td colspan="4" class="muted">Bu aramada kelime yok.</td></tr>`}
-    </tbody></table></div></section>`;
-}
-
-function vPatterns() {
-  return `<section class="panel"><span class="eyebrow">Soru kalıpları</span><h2 style="margin-top:4px">Sınavda sık gelen soru tipleri</h2>
-      <p class="muted" style="max-width:62ch">Soruyu okuyunca cevabı metnin neresinde arayacağını bilmek zaman kazandırır. 110 dakikada 6 metin ve 35-36 soru var.</p>
-      <div class="row"><span class="chip num">${S.patterns.length} kalıp</span><button class="btn primary" data-act="pat" ${S.patterns.length >= 3 ? "" : "disabled"}>Kalıpları test et</button></div></section>
-    <section class="panel"><div class="tablewrap"><table><thead><tr><th>Kalıp</th><th>Türkçe</th><th>Cevabı nerede ararsın</th></tr></thead><tbody>
-      ${S.patterns.map(p => `<tr><td><b>${esc(p.p)}</b></td><td>${esc(p.tr)}</td><td class="muted">${esc(p.tip)}</td></tr>`).join("")}</tbody></table></div></section>`;
-}
-
-function qBody(q) {
-  if (q.sentHtml) return `<p class="qtext">${q.sentHtml}</p>${S.showTr && q.word ? `<p class="qtr">${esc(q.word.trs)}</p>` : ""}`;
-  return `<div class="qword">${q.type === "lid" ? "___ " : ""}${esc(q.big)}</div>`;
-}
-function whyHtml(q, right) {
-  const head = right ? "Doğru." : `Yanlış. Doğru cevap ${esc(q.key)}.`;
-  if (q.pat) return `<div class="why"><b>${head}</b> ${esc(q.pat.p)} = ${esc(q.pat.tr)}<span class="ex muted">${esc(q.pat.tip)}</span></div>`;
-  const w = q.word;
-  return `<div class="why"><b>${head}</b> <span class="lid">${isNoun(w) ? esc(w.lid) + " " : ""}</span><b style="color:var(--ink)">${esc(w.w)}</b> = ${esc(w.tr)}
-    <span class="ex">${esc(w.nl)}</span><span class="ex muted">${esc(w.trs)}</span></div>`;
-}
-
-function vRun() {
-  const r = S.run; if (!r) return vHome();
-  const qid = r.qids[r.idx]; const q = getQ(qid);
-  if (!q) return `<p class="muted">Soru yükleniyor…</p>`;
-  const chosen = r.answers[qid]; const reveal = S.instant && !!chosen;
-  const answered = r.qids.filter(id => r.answers[id]).length; const unanswered = r.qids.length - answered;
-  return `<section class="panel" aria-live="polite">
-    <div class="runhead"><span class="eyebrow">${esc(r.title)}</span>
-      <div class="row"><label class="switch"><input type="checkbox" id="tr-toggle" ${S.showTr ? "checked" : ""}> Türkçe cümle</label>
-      <label class="switch"><input type="checkbox" id="instant-toggle" ${S.instant ? "checked" : ""}> Cevabı hemen göster</label></div></div>
-    <div class="progress" style="margin:10px 0 18px"><i style="width:${pct(answered, r.qids.length)}%"></i></div>
-    <div class="row" style="margin-bottom:10px"><span class="chip num">Vraag ${r.idx + 1} / ${r.qids.length}</span><span class="chip blue">${esc(q.pat ? "Soru kalıbı" : topicName(q.theme))}</span>${q.word ? `<span class="chip">${yrs(q.word.y)}</span>` : ""}</div>
-    <p class="muted" style="margin:0 0 6px">${esc(q.head)}</p>
-    ${qBody(q)}
-    <div class="opts">${Object.entries(q.opts).map(([k, v]) => {
-      let cls = chosen === k ? "sel" : "";
-      if (reveal) cls = q.key === k ? "right" : (chosen === k ? "wrongpick" : "");
-      return `<button class="opt ${cls}" data-act="opt" data-q="${esc(qid)}" data-o="${k}" ${reveal ? "disabled" : ""}><span class="mark">${k}</span><span>${esc(v)}</span></button>`; }).join("")}</div>
-    ${reveal ? whyHtml(q, chosen === q.key) : ""}
-    <div class="runnav">
-      <button class="btn" data-act="prev" ${r.idx === 0 ? "disabled" : ""}>← Önceki</button>
-      <div class="row">${r.idx < r.qids.length - 1 ? `<button class="btn primary" data-act="next">Sonraki →</button>` : ""}
-      <button class="btn ${r.idx === r.qids.length - 1 ? "primary" : ""}" data-act="finish">Bitir</button></div>
-    </div>
-    ${r.confirm ? `<div class="notice confirm" style="margin-top:14px"><span>${unanswered} soru boş. Yine de bitirmek istiyor musun?</span><span class="row"><button class="btn" data-act="cancel-finish">Geri dön</button><button class="btn primary" data-act="finish-now">Bitir ve kaydet</button></span></div>` : ""}
-    ${r.saveError ? `<div class="notice" style="margin-top:14px">${esc(r.saveError)}</div>` : ""}
-  </section>
-  <section class="panel"><div class="sectionhead"><h3>Sorular</h3><span class="muted num">${answered}/${r.qids.length} cevaplandı</span></div>
-    <div class="grid">${r.qids.map((id, i) => { const a = r.answers[id]; let c = a ? "done" : "";
-      if (a && S.instant) c = a === (getQ(id) || {}).key ? "g" : "r";
-      return `<button class="cell ${c} ${i === r.idx ? "cur" : ""}" data-act="jump" data-i="${i}" aria-label="Soru ${i + 1}">${i + 1}</button>`; }).join("")}</div>
-    <div class="row" style="margin-top:14px"><button class="btn ghost" data-act="abandon">Çık (cevaplar silinir)</button></div></section>`;
-}
-
-function qLabel(q) { return q.sentHtml ? q.sentHtml : `${q.type === "lid" ? "___ " : ""}<b>${esc(q.big)}</b> <span class="muted">· ${esc(q.pat ? "kalıp" : Q_TYPES[q.type])}</span>`; }
-function reviewItem(ans, i) {
-  const q = getQ(ans.qid); if (!q) return "";
-  return `<details class="panel rq ${ans.correct ? "good" : "wrong"}" ${ans.correct ? "" : "open"}>
-    <summary><span class="n num">${i + 1}.</span><span>${qLabel(q)}</span><span class="chip ${ans.correct ? "ok" : "bad"}">${ans.correct ? "Doğru" : ans.chosen ? "Yanlış" : "Boş"}</span></summary>
-    <div style="margin-top:10px">
-      <div class="ropts">${Object.entries(q.opts).map(([k, v]) => { const c = q.key === k, p = ans.chosen === k;
-        return `<div class="ropt ${c ? "c" : p ? "x" : ""}"><span class="l">${k}</span><span>${esc(v)}</span><span>${c ? `<span class="chip ok">doğru</span>` : p ? `<span class="chip bad">seçtin</span>` : ""}</span></div>`; }).join("")}</div>
-      ${whyHtml(q, ans.correct)}
-    </div></details>`;
-}
-
-function vResult() {
-  const a = S.attempts.find(x => x.id === S.resultId); if (!a) return `<p class="muted">Sonuç yükleniyor…</p>`;
-  const p = pct(a.score, a.total);
-  const byT = {}; (a.answers || []).forEach(x => { const t = x.theme || "?"; byT[t] = byT[t] || { ok: 0, n: 0 }; byT[t].n++; if (x.correct) byT[t].ok++; });
-  const list = a.answers.map((x, i) => ({ ...x, i })).filter(x => S.filter === "all" || (S.filter === "wrong" ? !x.correct : x.correct));
-  const cnt = { all: a.answers.length, wrong: a.answers.filter(x => !x.correct).length, right: a.answers.filter(x => x.correct).length };
-  const again = { quick: `<button class="btn primary" data-act="quick">Yeni 10 soru</button>`, pat: `<button class="btn" data-act="go" data-view="patterns">Kalıplara dön</button>` }[a.kind] || `<button class="btn" data-act="go" data-view="topics">Konulara dön</button>`;
-  return `<section class="panel"><span class="eyebrow">${esc(a.title)} · ${fmtDate(a.finished_at)}</span>
-      <div class="scorebox" style="margin-top:10px"><div><div class="scorebig num" style="color:var(--${tone(p)})">${p}%</div><div class="muted num">${a.score} / ${a.total} doğru · ${fmtDur(a.duration_s || 0)}</div></div><div class="row">${again}</div></div></section>
-    ${Object.keys(byT).length > 1 ? `<section class="panel"><div class="sectionhead"><h3>Konu kırılımı</h3></div><div class="tablewrap"><table><tbody>${Object.keys(byT).sort().map(t => barRow(esc(t === "kalip" ? "Soru kalıbı" : topicName(t)), byT[t].ok, byT[t].n)).join("")}</tbody></table></div></section>` : ""}
-    <section><div class="sectionhead"><h2>Cevaplar</h2>
-      <div class="seg" role="group">${[["all", "Hepsi"], ["wrong", "Yanlışlar"], ["right", "Doğrular"]].map(([k, l]) => `<button class="${S.filter === k ? "on" : ""}" data-act="filter" data-f="${k}" aria-pressed="${S.filter === k}">${l} <span class="num">${cnt[k]}</span></button>`).join("")}</div></div>
-      <div class="review">${list.map(x => reviewItem(x, x.i)).join("") || `<p class="muted">Bu filtrede soru yok.</p>`}</div></section>`;
-}
-
-function vStats() {
-  if (!S.attempts.length) return `<section class="panel"><h2>İstatistik</h2><p class="muted">İlk turu bitirince konu ve soru tipi bazında başarın burada görünecek.</p><button class="btn primary" data-act="quick">Hızlı 10 başlat</button></section>`;
-  const all = S.attempts.flatMap(a => a.answers || []); const ok = all.filter(a => a.correct).length;
-  const byT = {}, byType = {};
-  all.forEach(x => { const t = x.theme || "?"; byT[t] = byT[t] || { ok: 0, n: 0 }; byT[t].n++; if (x.correct) byT[t].ok++;
-    const ty = x.qid.split(":")[0]; byType[ty] = byType[ty] || { ok: 0, n: 0 }; byType[ty].n++; if (x.correct) byType[ty].ok++; });
-  const miss = {}; all.forEach(a => { const wk = a.qid.startsWith("pat:") ? a.qid : a.qid.split(":").slice(1).join(":"); miss[wk] = miss[wk] || { w: 0, n: 0 }; miss[wk].n++; if (!a.correct) miss[wk].w++; });
-  const worst = Object.entries(miss).filter(([k, v]) => v.w && S.WI[k]).sort((a, b) => b[1].w - a[1].w).slice(0, 12);
-  const typeName = t => t === "pat" ? "Soru kalıbı" : Q_TYPES[t] || t;
-  return `<section class="kpis">
-      <div class="panel kpi"><div class="eyebrow">Genel başarı</div><div class="v num" style="color:var(--${tone(pct(ok, all.length))})">${pct(ok, all.length)}%</div><div class="muted num">${ok}/${all.length} cevap</div></div>
-      <div class="panel kpi"><div class="eyebrow">Tamamlanan tur</div><div class="v num">${S.attempts.length}</div></div></section>
-    <section class="panel"><div class="sectionhead"><h3>Soru tipi</h3><span class="muted">tüm cevaplar</span></div><div class="tablewrap"><table><tbody>${Object.keys(byType).map(t => barRow(esc(typeName(t)), byType[t].ok, byType[t].n)).join("")}</tbody></table></div></section>
-    <section class="panel"><div class="sectionhead"><h3>Konu</h3><span class="muted">tüm cevaplar</span></div><div class="tablewrap"><table><tbody>${Object.keys(byT).sort().map(t => barRow(esc(t === "kalip" ? "Soru kalıbı" : topicName(t)), byT[t].ok, byT[t].n)).join("")}</tbody></table></div></section>
-    <section class="panel"><div class="sectionhead"><h3>En çok yanlış yapılan kelimeler</h3></div>${worst.length ? `<div class="tablewrap"><table><tbody>${worst.map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td class="muted">${esc(S.WI[k].tr)}</td><td class="r num">${v.w}/${v.n}</td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">Yanlış yok.</p>`}</section>`;
-}
-
-function vHistory() {
-  if (!S.attempts.length) return `<section class="panel"><h2>Geçmiş</h2><p class="muted">Henüz tamamlanmış tur yok.</p></section>`;
-  return `<section class="panel"><div class="sectionhead"><h2>Geçmiş</h2><span class="muted">Satıra tıkla, cevapları gör</span></div><div class="tablewrap"><table class="hist"><tbody>
-    ${S.attempts.map(a => `<tr data-act="open" data-id="${a.id}" tabindex="0"><td class="num">${fmtDate(a.finished_at)}</td><td>${esc(a.title)}</td><td class="r num muted">${fmtDur(a.duration_s || 0)}</td><td class="r"><span class="chip ${tone(pct(a.score, a.total))} num">${a.score}/${a.total}</span></td></tr>`).join("")}</tbody></table></div></section>`;
-}
-
-// ---------- Events ----------
-document.querySelector(".tabs").addEventListener("click", e => {
-  const b = e.target.closest(".tab"); if (!b) return;
-  if (S.run && b.dataset.view === tabOf("run")) { go("run"); return; }
-  go(b.dataset.view);
-});
-const typeLabel = () => S.qType === "all" ? "" : ` · ${Q_TYPES[S.qType]}`;
-app.addEventListener("click", e => {
-  const el = e.target.closest("[data-act]"); if (!el) return; const r = S.run;
-  switch (el.dataset.act) {
-    case "login": S.dbError = ""; login(); break;
-    case "logout": signOut(auth); break;
-    case "editdate": S.config.exam_date = null; render(); break;
-    case "savedate": { const v = document.getElementById("examdate").value; if (v) saveExamDate(v); break; }
-    case "quick": start("quick", "Hızlı 10" + typeLabel(), pick(poolAll(), 10)); break;
-    case "topic": start("topic", topicName(el.dataset.t) + typeLabel(), pick(poolTopic(el.dataset.t), 10)); break;
-    case "core": start("core", "Her yıl çıkanlar" + typeLabel(), pick(poolCore(), 10)); break;
-    case "wrong": start("wrong", "Yanlışlarım", shuffle(poolWrong()).slice(0, 20)); break;
-    case "pat": start("pat", "Soru kalıpları", shuffle(poolPat()).slice(0, 10)); break;
-    case "qtype": S.qType = el.dataset.f; savePrefs(); render(); break;
-    case "opt": choose(el.dataset.q, el.dataset.o); break;
-    case "prev": r.idx = Math.max(0, r.idx - 1); saveDraft(); render(); break;
-    case "next": r.idx = Math.min(r.qids.length - 1, r.idx + 1); saveDraft(); render(); window.scrollTo(0, 0); break;
-    case "jump": r.idx = +el.dataset.i; saveDraft(); render(); break;
-    case "finish": if (r.qids.some(id => !r.answers[id])) { r.confirm = true; render(); } else finish(); break;
-    case "finish-now": finish(); break;
-    case "cancel-finish": r.confirm = false; render(); break;
-    case "abandon": S.run = null; saveDraft(); go("home"); break;
-    case "go": go(el.dataset.view); break;
-    case "open": S.resultId = el.dataset.id; go("result"); break;
-    case "filter": S.filter = el.dataset.f; render(); break;
-  }
-});
-app.addEventListener("change", e => {
-  if (e.target.id === "tr-toggle") { S.showTr = e.target.checked; savePrefs(); render(); }
-  if (e.target.id === "instant-toggle") { S.instant = e.target.checked; savePrefs(); render(); }
-  if (e.target.id === "wtopic") { S.wTopic = e.target.value; render(); }
-});
-// Search: re-render but keep the cursor in the box
-app.addEventListener("input", e => {
-  if (e.target.id !== "wsearch") return; S.wq = e.target.value; const pos = e.target.selectionStart;
-  render(); const box = document.getElementById("wsearch"); if (box) { box.focus(); box.setSelectionRange(pos, pos); }
-});
-app.addEventListener("keydown", e => { const row = e.target.closest("tr[data-act='open']"); if (row && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); S.resultId = row.dataset.id; go("result"); } });
-document.getElementById("who").addEventListener("click", e => { if (e.target.closest("[data-act='logout']")) signOut(auth); });
-(function () { const d = loadDraft(); if (d) { S.run = d; S.view = "run"; } })();
-boot();
+const isChild = profile.type === "child";
+app.innerHTML = `
+  <section class="panel"><span class="eyebrow">Hoş geldin</span><h2 style="margin-top:4px">${esc(profile.name || user.displayName || "")}</h2>
+    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "NT2 sınav alıştırmaların ve çocuk bölümü aşağıda. Sınav tarihlerini profil sayfasından girebilirsin."}</p></section>
+  ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)}</span></div>
+    <section class="cards">${cat.modules.filter(m => m.area === "nt2").map(card).join("")}</section>`}
+  <div class="area-head"><h2>${esc(cat.areas.kids.title)}</h2><span class="muted">${esc(cat.areas.kids.desc)}</span></div>
+  ${kidsSection()}`;
 </script>
 </body>
 </html>

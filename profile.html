@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Profil · NT2 Oefenbank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="./">← Ana sayfa</a></small><h1>Profil</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Profile: own name, groep (children), exam dates (adults) and progress per exercise.
+// Type and role are shown read-only: only an admin can change them.
+import { gate, userBox, esc, updateProfile, loadAllAttempts, TYPES, ROLES, roleOf } from "./js/core.js";
+
+const app = document.getElementById("app");
+const { user, profile } = await gate({ area: "any" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+
+const cat = await (await fetch("data/catalog.json", { cache: "no-cache" })).json();
+const attempts = await loadAllAttempts(user.uid).catch(() => []);
+const isChild = profile.type === "child";
+const examMods = cat.modules.filter(m => m.area === "nt2" && m.exam);
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short", year: "numeric" }); } catch (e) { return ""; } };
+
+// Progress per module: rounds, average score, last round
+const stats = {};
+attempts.forEach(a => { const s = stats[a.module] = stats[a.module] || { n: 0, ok: 0, tot: 0, last: a.finished_at }; s.n++; s.ok += a.score || 0; s.tot += a.total || 0; });
+const titleOf = id => cat.modules.find(m => m.id === id)?.title || id;
+
+app.innerHTML = `
+  <section class="panel"><span class="eyebrow">Hesap</span>
+    <div class="formgrid" style="margin-top:10px">
+      <div class="field"><label for="p-name">Görünen ad</label><input class="input" id="p-name" value="${esc(profile.name || user.displayName || "")}"></div>
+      <div class="field"><label>E-posta</label><span>${esc(user.email || "")}</span></div>
+      <div class="field"><label>Hesap tipi</label><span>${esc(TYPES[profile.type] || "-")}</span></div>
+      <div class="field"><label>Rol</label><span>${esc(ROLES[roleOf(profile)])}</span></div>
+      ${isChild ? `<div class="field"><label for="p-groep">Okul grubu</label><select class="input" id="p-groep"><option value="">Seç</option>${Object.entries(cat.groups).map(([k, v]) => `<option value="${k}" ${profile.groep === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></div>` : ""}
+    </div>
+    <p class="muted" style="font-size:13px;margin:12px 0 0">Hesap tipi ve rol sadece admin tarafından değiştirilebilir.</p>
+  </section>
+  ${isChild ? "" : `<section class="panel"><span class="eyebrow">Sınav tarihleri</span>
+    <p class="muted" style="margin:6px 0 12px">Geri sayım ana sayfada ve ilgili alıştırmada görünür. Boş bırakabilirsin.</p>
+    <div class="formgrid">${examMods.map(m => `<div class="field"><label for="d-${m.id}">${esc(m.title)}</label>
+      <input class="input" type="date" id="d-${m.id}" value="${esc(profile.exams?.[m.id] || (m.id === "lezen" ? profile.exam_date || "" : ""))}"></div>`).join("")}</div></section>`}
+  <div class="row"><button class="btn primary" id="save">Kaydet</button><span id="msg"></span></div>
+  <section class="panel"><div class="sectionhead"><h3>İlerleme</h3><span class="muted">tüm alıştırmalar</span></div>
+    ${Object.keys(stats).length ? `<div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th class="r">Ortalama</th><th class="r">Son</th></tr></thead><tbody>
+      ${Object.entries(stats).map(([id, s]) => `<tr><td>${esc(titleOf(id))}</td><td class="r num">${s.n}</td><td class="r num">%${s.tot ? Math.round(100 * s.ok / s.tot) : 0}</td><td class="r num muted">${fmtDate(s.last)}</td></tr>`).join("")}
+      </tbody></table></div>` : `<p class="muted">Henüz bitirilmiş tur yok.</p>`}</section>
+  <section class="panel"><span class="eyebrow">Sınıflar</span><p class="muted" style="margin:6px 0 0">Sınıf özelliği yakında eklenecek. Sınıf arkadaşların ilerleme özetini burada göreceksin.</p></section>`;
+
+document.getElementById("save").onclick = async () => {
+  const msg = document.getElementById("msg");
+  const data = { name: document.getElementById("p-name").value.trim() };
+  if (isChild) data.groep = document.getElementById("p-groep").value || null;
+  else data.exams = Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null]));
+  try { await updateProfile(user.uid, data); msg.innerHTML = `<span class="ok-msg">Kaydedildi.</span>`; }
+  catch (e) { msg.innerHTML = `<span class="err-msg">Kaydedilemedi: ${esc(e.code || e.message)}</span>`; }
+};
+</script>
+</body>
+</html>

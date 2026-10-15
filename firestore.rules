@@ -1,32 +1,61 @@
 rules_version = '2';
-// Security rules for the Lezen Oefenbank.
-// Paste this into Firebase Console > Firestore Database > Rules, then Publish.
+// Security rules for the NT2 Oefenbank.
+// Paste into Firebase Console > Firestore Database > Rules, then Publish.
 //
-// Idea: every signed-in person has their own folder users/{uid}.
-// Nobody can read or write another person's folder. Everything else is closed.
+// users/{uid}             profile: name, email, photo, type, role, groep, exams, dates
+// users/{uid}/attempts/*  finished practice rounds
+//
+// type ("adult" | "child") : chosen once by the user, after that only admin changes it
+// role ("member" | "teacher" | "admin") : only admin changes it, nobody can give it to themselves
+// The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Helper: is the request coming from the owner of this folder?
-    function isOwner(uid) {
-      return request.auth != null && request.auth.uid == uid;
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+
+    // Admin = the caller's own profile says role "admin"
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('role', '') == 'admin';
     }
 
-    // User profile: name and exam date
-    match /users/{uid} {
-      allow read, write: if isOwner(uid);
+    function validType(t) { return t in ['adult', 'child']; }
+    function validRole(r) { return r in ['member', 'teacher', 'admin']; }
+    function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
 
-      // Finished practice rounds. Results are only added, never edited,
-      // so a round cannot be changed afterwards. Size limit stops misuse.
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+
+      // New profile: always starts as a normal member; type may be chosen right away
+      allow create: if isOwner(uid)
+        && request.resource.data.get('role', 'member') == 'member'
+        && (request.resource.data.get('type', null) == null || validType(request.resource.data.type));
+
+      // Owner edits: never the role; type only once (when it was still empty)
+      allow update: if (isOwner(uid)
+          && !changed().hasAny(['role'])
+          && (!changed().hasAny(['type'])
+              || (resource.data.get('type', null) == null && validType(request.resource.data.type))))
+        || (isAdmin()
+          && validRole(request.resource.data.get('role', 'member'))
+          && (request.resource.data.get('type', null) == null || validType(request.resource.data.type)));
+
+      allow delete: if isAdmin();
+
+      // Finished rounds: owner only. Added, never edited. Size limit stops misuse.
       match /attempts/{attemptId} {
         allow read: if isOwner(uid);
-        allow create: if isOwner(uid) && request.resource.data.answers.size() <= 50;
+        allow create: if isOwner(uid)
+          && request.resource.data.answers is list
+          && request.resource.data.answers.size() <= 50;
         allow delete: if isOwner(uid);
         allow update: if false;
       }
     }
 
-    // Default: everything else is denied
+    // Everything else is closed
     match /{document=**} {
       allow read, write: if false;
     }

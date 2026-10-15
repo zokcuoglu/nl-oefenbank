@@ -1,0 +1,16 @@
+{
+  "_about": "List of exercises shown on the home page. area: nt2 (adults only) or kids (everyone). status: ready or soon.",
+  "areas": {
+    "nt2": { "title": "NT2 sınavları", "desc": "Staatsexamen NT2 ve inburgering hazırlığı." },
+    "kids": { "title": "Çocuk bölümü", "desc": "Okul alıştırmaları. Dokümanlar geldikçe yeni testler eklenecek." }
+  },
+  "groups": { "groep4": "Groep 4", "groep5": "Groep 5", "groep6": "Groep 6" },
+  "modules": [
+    { "id": "lezen", "area": "nt2", "title": "Lezen I (B1)", "desc": "Resmi sınavlarda en sık geçen 302 kelime ve 17 soru kalıbı.", "href": "lezen/", "exam": true, "status": "ready" },
+    { "id": "knm", "area": "nt2", "title": "KNM", "desc": "Kennis van de Nederlandse Maatschappij soru bankası. Taşınıyor.", "exam": true, "status": "soon" },
+    { "id": "spreken", "area": "nt2", "title": "Spreken", "desc": "Konuşma alıştırması. Yeniden tasarlanacak.", "exam": true, "status": "soon" },
+    { "id": "luisteren", "area": "nt2", "title": "Luisteren", "desc": "Dinleme alıştırması.", "exam": true, "status": "soon" },
+    { "id": "schrijven", "area": "nt2", "title": "Schrijven", "desc": "Yazma alıştırması.", "exam": true, "status": "soon" },
+    { "id": "g4-eer-oor-eur", "area": "kids", "group": "groep4", "title": "Woorden met eer · oor · eur", "desc": "4 test, 72 cümle. Doğru kelimeyi 3 seçenekten seç.", "href": "kids/g4/eer-oor-eur.html", "status": "ready" }
+  ]
+}

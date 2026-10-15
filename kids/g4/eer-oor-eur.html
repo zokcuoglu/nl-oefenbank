@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eer Oor Eur Woordtest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a worksheet; menu -> quiz -> results, one screen at a time */
+:root{
+  --paper:#eef3fb;      /* bluish worksheet paper, like the school sheet */
+  --card:#ffffff;
+  --ink:#1d2a4d;        /* pen ink blue */
+  --muted:#5b6788;
+  --line:#c9d4ea;
+  --accent:#ffd84d;     /* highlighter yellow */
+  --accent-ink:#1d2a4d;
+  --good:#1f8a4c; --good-bg:#e1f5e8;
+  --bad:#c4372e;  --bad-bg:#fde6e3;
+  --f-display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Andika","Verdana",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121a2e;--card:#1b2540;--ink:#e6ecfa;--muted:#9aa6c4;--line:#2e3a5c;
+  --accent:#f5cf3a;--accent-ink:#1d2a4d;--good:#5fd18e;--good-bg:#173a28;--bad:#ff8077;--bad-bg:#45201d;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121a2e;--card:#1b2540;--ink:#e6ecfa;--muted:#9aa6c4;--line:#2e3a5c;
+  --accent:#f5cf3a;--accent-ink:#1d2a4d;--good:#5fd18e;--good-bg:#173a28;--bad:#ff8077;--bad-bg:#45201d;color-scheme:dark}
+
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:24px 48px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,6vw,40px);font-weight:700;letter-spacing:.01em}
+h1 mark{background:linear-gradient(transparent 55%,var(--accent) 55%);color:inherit;padding:0 .1em}
+.sub{color:var(--muted);margin:.25rem 0 0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* Menu: test cards */
+.tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:24px}
+.tcard{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:18px;text-align:left;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s}
+.tcard:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tcard h3{font-size:21px}
+.level{display:flex;gap:4px;align-items:center;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.dots{display:inline-flex;gap:3px}.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--ink)}
+.tcard p{margin:0;color:var(--muted);font-size:15px}
+.best{font-size:14px;font-variant-numeric:tabular-nums}
+
+/* Quiz */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.chip{font-family:var(--f-display);font-weight:600;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-variant-numeric:tabular-nums}
+.progress{height:8px;background:var(--line);border-radius:99px;margin:14px 0 22px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);width:0;transition:width .25s}
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:28px 20px}
+.sentence{font-size:clamp(22px,5vw,30px);line-height:1.6;margin:0 0 24px;text-align:center}
+.blank{display:inline-block;min-width:4.5em;border-bottom:3px dashed var(--muted);padding:0 .2em;font-weight:700}
+.blank.ok{color:var(--good);border-color:var(--good)}.blank.no{color:var(--bad);border-color:var(--bad)}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt{background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:14px 8px;font-family:var(--f-body);font-size:22px;font-weight:700;position:relative}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt .k{position:absolute;top:4px;left:8px;font-size:11px;color:var(--muted);font-weight:400}
+.opt.ok{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.opt.no{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.opt:disabled{cursor:default}
+.after{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;min-height:52px;flex-wrap:wrap}
+.fb{font-family:var(--f-display);font-weight:600;font-size:20px}
+.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.btn{background:var(--accent);color:var(--accent-ink);border:none;border-radius:12px;padding:12px 22px;font-family:var(--f-display);font-weight:600;font-size:18px}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.link{background:none;border:none;color:var(--muted);text-decoration:underline;padding:0}
+
+/* Results */
+.summary{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;flex:1 1 140px}
+.stat b{display:block;font-family:var(--f-display);font-size:30px;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:14px}
+.seg{display:inline-flex;border:2px solid var(--line);border-radius:12px;overflow:hidden;margin:6px 0 16px}
+.seg button{background:var(--card);border:none;padding:8px 14px;font-size:15px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.rbox{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.rbox.no{border-color:var(--bad)}
+.rtop{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.word{font-family:var(--f-display);font-weight:700;font-size:22px}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em}
+.tag.ok{background:var(--good-bg);color:var(--good)}.tag.no{background:var(--bad-bg);color:var(--bad)}
+.rs{margin:0}.rs u{text-decoration:none;font-weight:700;background:linear-gradient(transparent 60%,var(--accent) 60%);color:var(--ink)}
+.chosen{font-size:14px;color:var(--bad)}
+.tr{margin:0}.tr strong{font-family:var(--f-display)}
+.ex{margin:0;padding-left:10px;border-left:3px solid var(--line);font-size:15px}
+.ex em{color:var(--muted)}
+.tip{margin:0;font-size:14px;background:var(--paper);border-radius:8px;padding:6px 10px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.empty{color:var(--muted)}
+/* Site bar: back to home + signed-in user */
+.sitebar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;font-size:15px}
+.sitebar a{color:var(--ink)}
+.saveerr{color:var(--bad);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="sitebar"><a href="../../">← Ana sayfa</a><span id="ub"></span></div>
+  <!-- MENU SCREEN -->
+  <section id="menu">
+    <h1>Woorden met <mark>eer · oor · eur</mark></h1>
+    <p class="sub">Kies een test. Kies steeds het goede woord uit 3. De klok loopt mee.</p>
+    <div class="tests" id="testList"></div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quiz" hidden>
+    <div class="bar">
+      <button class="link" id="quitBtn">← Stoppen</button>
+      <span class="chip" id="qName"></span>
+      <span class="chip" id="qCount"></span>
+      <span class="chip" id="qTime">⏱ 0:00</span>
+    </div>
+    <div class="progress"><span id="qProg"></span></div>
+    <div class="qcard">
+      <p class="sentence" id="qSentence"></p>
+      <div class="opts" id="qOpts"></div>
+      <div class="after">
+        <span class="fb" id="qFb"></span>
+        <button class="btn" id="nextBtn" hidden>Volgende →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT SCREEN (Turkish explanations for the parent) -->
+  <section id="result" hidden>
+    <h1 id="rTitle"></h1>
+    <div class="summary">
+      <div class="stat"><b id="rScore"></b><span>Doğru / Goed</span></div>
+      <div class="stat"><b id="rTime"></b><span>Toplam süre / Tijd</span></div>
+      <div class="stat"><b id="rAvg"></b><span>Soru başına / Per vraag</span></div>
+    </div>
+    <div class="seg" role="group" aria-label="Filtre">
+      <button id="fAll" aria-pressed="true">Hepsi</button>
+      <button id="fWrong" aria-pressed="false">Sadece yanlışlar</button>
+    </div>
+    <div class="rgrid" id="rGrid"></div>
+    <div class="actions">
+      <button class="btn" id="retryWrong">Yanlışları tekrar çöz</button>
+      <button class="btn ghost" id="retryAll">Testi baştan</button>
+      <button class="btn ghost" id="toMenu">Menüye dön</button>
+    </div>
+  </section>
+</div>
+
+<script type="module">
+// Login and saving come from the shared site core
+import { gate, userBox, saveAttempt, loadAttempts } from "../../js/core.js";
+const MODULE = "g4-eer-oor-eur";
+// ---------------------------------------------------------------
+// DATA
+// Each item: [sentence with ___, correct, wrong1, wrong2,
+//             Turkish meaning, Dutch example, Turkish example, optional tip]
+// Kept as plain arrays so new tests can be added (or moved to another site) easily.
+// ---------------------------------------------------------------
+const TESTS = [
+ { id:"blad", name:"Het werkblad", level:1, desc:"De 18 zinnen van het school-werkblad.", items:[
+  ["De ___ in de klas is goed.","sfeer","koorts","zeur","atmosfer, ortam","Op het feest was een leuke sfeer.","Partide güzel bir ortam vardı."],
+  ["Ik lig met ___ op bed.","koorts","sfeer","zeur","ateş (hastalıkta)","Mijn broertje heeft hoge koorts.","Kardeşimin yüksek ateşi var."],
+  ["Stijn, ___ niet zo!","zeur","sfeer","koorts","mızmızlanmak, sızlanmak (zeuren)","Hij zeurt de hele dag om snoep.","Bütün gün şeker için mızmızlanıyor."],
+  ["Ik ___ het niet goed.","keur","weer","speer","onaylamak (goedkeuren)","De juf keurt het plan goed.","Öğretmen planı onaylıyor.","'goed' + 'keuren' birlikte: onaylamak."],
+  ["Het is lekker ___, we gaan zwemmen.","weer","keur","speer","hava (durumu)","Wat voor weer is het morgen?","Yarın hava nasıl olacak?"],
+  ["De man gooit de ___ ver weg.","speer","weer","keur","mızrak, cirit","Bij atletiek gooien ze met een speer.","Atletizmde cirit atarlar."],
+  ["Sanne ___ het plaatje.","kleurt","voornaam","smeer","boyuyor (kleuren)","Ik kleur de zon geel.","Güneşi sarıya boyuyorum.","Sanne tek kişi → kök + t: kleurt."],
+  ["Maura, ___ jij je goed in?","smeer","kleurt","voornaam","(krem) sürmek (insmeren)","Smeer je in met zonnebrand.","Güneş kremi sür.","'jij' fiilden sonra gelince -t düşer: smeer jij."],
+  ["Wat is jouw ___?","voornaam","kleurt","smeer","ad, ön ad","Mijn voornaam is Sanne.","Benim adım Sanne."],
+  ["Ik ___ mij vandaag niet.","scheer","deuren","geurt","tıraş olmak (zich scheren)","Papa scheert zich elke ochtend.","Babam her sabah tıraş olur."],
+  ["Ik sluit de ___ van de klas.","deuren","scheer","geurt","kapılar (deur = kapı)","Doe de deur dicht, het tocht!","Kapıyı kapat, cereyan yapıyor!"],
+  ["De roos ___ lekker.","geurt","scheer","deuren","güzel kokuyor (geuren)","Het brood geurt heerlijk.","Ekmek harika kokuyor."],
+  ["Ik ___ dat ik niets heb gedaan.","zweer","eerst","poort","yemin etmek (zweren)","Ik zweer dat het waar is.","Yemin ederim, doğru."],
+  ["De ___ staat nog open!","poort","zweer","eerst","büyük kapı, bahçe kapısı","De poort van de school gaat om acht uur open.","Okulun kapısı saat sekizde açılır."],
+  ["Ik moet ___ naar zwemles.","eerst","zweer","poort","önce","Eerst eten, dan spelen.","Önce yemek, sonra oyun."],
+  ["Mama houdt niet van dit ___ fratsen.","soort","vroor","kleuren","tür, çeşit","Wat voor soort hond is dat?","Bu ne tür bir köpek?"],
+  ["Ik hou van alle ___.","kleuren","vroor","soort","renkler (kleur = renk)","Mijn lievelingskleur is blauw.","En sevdiğim renk mavi."],
+  ["Het ___ vannacht buiten.","vroor","soort","kleuren","dondu, don oldu (vriezen)","Het vroor zo hard dat de sloot dicht lag.","O kadar dondu ki hendek buz tuttu.","vriezen düzensiz fiil: geçmişi vroor."]
+ ]},
+ { id:"m", name:"Makkelijk", level:1, desc:"Nieuwe woorden, kort en simpel.", items:[
+  ["Ik eet een sappige ___.","peer","beer","meer","armut","Deze peer is zacht en zoet.","Bu armut yumuşak ve tatlı."],
+  ["In het bos woont een grote bruine ___.","beer","peer","veer","ayı","De beer slaapt in de winter.","Ayı kışın uyur."],
+  ["We gaan zwemmen in het ___.","meer","peer","beer","göl","Het meer is diep en blauw.","Göl derin ve mavi."],
+  ["Op de grond ligt een ___ van een vogel.","veer","meer","peer","tüy","De kip verliest een veer.","Tavuk bir tüy kaybediyor."],
+  ["Ik doe de ___ op slot.","deur","geur","kleur","kapı","Er wordt op de deur geklopt.","Kapı çalınıyor."],
+  ["Welke ___ heeft jouw fiets?","kleur","deur","geur","renk","De kleur van de lucht is blauw.","Gökyüzünün rengi mavi."],
+  ["Ik ruik een lekkere ___ uit de keuken.","geur","deur","kleur","koku","De geur van koekjes maakt me blij.","Kurabiye kokusu beni mutlu ediyor."],
+  ["Ik hoor het met mijn ___.","oor","door","koor","kulak","Hij fluistert in mijn oor.","Kulağıma fısıldıyor."],
+  ["Wij zingen samen in het ___.","koor","oor","spoor","koro","Het koor zingt op het schoolfeest.","Koro okul şenliğinde şarkı söylüyor."],
+  ["De trein rijdt over het ___.","spoor","koor","oor","tren rayı","Niet op het spoor lopen!","Raylarda yürüme!"],
+  ["Die meneer met de hoed is een echte ___.","heer","meer","beer","beyefendi","Dames en heren, welkom!","Bayanlar ve baylar, hoş geldiniz!"],
+  ["Ik loop ___ het park naar huis.","door","voor","oor","içinden, -den geçerek","We fietsen door het bos.","Ormanın içinden bisikletle geçiyoruz."],
+  ["De bal ligt ___ het huis.","voor","door","oor","önünde","De auto staat voor de deur.","Araba kapının önünde duruyor."],
+  ["Nu is het mijn ___ om te gooien.","beurt","deur","geur","sıra (oyunda)","Wie is er aan de beurt?","Sıra kimde?"],
+  ["Ik heb het al drie ___ gezegd!","keer","meer","peer","kez, defa","Ik ga twee keer per week zwemmen.","Haftada iki kez yüzmeye gidiyorum."],
+  ["Ik ___ een vogel fluiten.","hoor","oor","koor","duymak (horen)","Hoor jij de bel?","Zili duyuyor musun?"],
+  ["Mijn broek heeft een ___.","scheur","deur","geur","yırtık","Er zit een scheur in het papier.","Kağıtta bir yırtık var."],
+  ["Ik ___ hoe ik moet fietsen.","leer","peer","beer","öğrenmek (leren)","Op school leer ik lezen.","Okulda okumayı öğreniyorum."]
+ ]},
+ { id:"g", name:"Gemiddeld", level:2, desc:"Werkwoorden, meervoud en woorden met twee betekenissen.", items:[
+  ["Hij ___ het papier kapot.","scheurt","kleurt","geurt","yırtıyor (scheuren)","Scheur de bladzijde niet uit het boek.","Sayfayı kitaptan koparma."],
+  ["De juf ___ ons hoe we moeten rekenen.","leert","keert","veert","öğretiyor (leren = hem öğrenmek hem öğretmek)","Papa leert mij zwemmen.","Babam bana yüzmeyi öğretiyor."],
+  ["___ jij de vogels zingen?","Hoor","Spoor","Boor","duymak (horen)","Hoor jij de regen op het dak?","Çatıdaki yağmuru duyuyor musun?","Soru cümlesinde 'jij' fiilden sonra → -t yok: Hoor jij."],
+  ["Dit boek ___ bij mij.","hoort","spoort","boort","ait olmak (horen bij)","Die jas hoort bij Tim.","O mont Tim'e ait."],
+  ["Papa ___ een gat in de muur.","boort","hoort","spoort","delik açıyor, matkapla deliyor (boren)","De tandarts boort in mijn kies.","Diş hekimi azı dişimi deliyor."],
+  ["___ de zandloper om, dan begint het spel.","Keer","Leer","Veer","ters çevirmek (omkeren)","Keer je bord om als je klaar bent.","Bitirince tabağını ters çevir."],
+  ["De ___ van de bus rijdt heel netjes.","chauffeur","directeur","monteur","şoför","De chauffeur stopt bij de halte.","Şoför durakta duruyor."],
+  ["De ___ van de school heeft een eigen kamer.","directeur","chauffeur","monteur","müdür","De directeur houdt een toespraak.","Müdür bir konuşma yapıyor."],
+  ["De ___ maakt de kapotte auto.","monteur","directeur","chauffeur","tamirci","De monteur repareert de wasmachine.","Tamirci çamaşır makinesini tamir ediyor."],
+  ["Deze vogel heeft mooie ___.","veren","meren","peren","tüyler (veer → veren)","Een pauw heeft prachtige veren.","Tavus kuşunun muhteşem tüyleri var."],
+  ["Op de markt koop ik een kilo ___.","peren","veren","meren","armutlar (peer → peren)","Oma bakt een taart met peren.","Büyükannem armutlu pasta yapıyor."],
+  ["In Nederland zijn veel ___ om in te zwemmen.","meren","peren","veren","göller (meer → meren)","In de zomer zwemmen we in de meren.","Yazın göllerde yüzüyoruz."],
+  ["De dames en ___ gaan dansen.","heren","meren","beren","baylar (heer → heren)","Het toilet voor heren is links.","Erkekler tuvaleti solda."],
+  ["In de dierentuin slapen de ___ in een grot.","beren","heren","peren","ayılar (beer → beren)","Beren eten graag honing.","Ayılar balı sever."],
+  ["De bloemen ___ heerlijk in de tuin.","geuren","kleuren","scheuren","kokmak, çoğul (geuren)","Verse kruiden geuren lekker.","Taze otlar güzel kokar."],
+  ["Wij ___ samen een kleurplaat.","kleuren","geuren","scheuren","boyamak, çoğul (kleuren)","De kinderen kleuren de herfstbladeren.","Çocuklar sonbahar yapraklarını boyuyor."],
+  ["Morgen gaan we ___ naar het strand.","weer","meer","peer","tekrar, yine (weer = hava da demek!)","Kom je morgen weer spelen?","Yarın yine oynamaya gelir misin?"],
+  ["Ik moet nog ___ huiswerk maken dan jij.","meer","peer","beer","daha fazla (meer = göl de demek!)","Mag ik nog meer limonade?","Biraz daha limonata alabilir miyim?"]
+ ]},
+ { id:"z", name:"Moeilijk", level:3, desc:"Spelling: -d of -t, verleden tijd, ee of e.", items:[
+  ["Gisteren ___ het zo hard dat het ijs dik was.","vroor","vriest","bevroren","dondu (vriezen, geçmiş)","Het vroor vannacht min vijf graden.","Bu gece eksi beş derece dondu.","vriezen düzensiz: vriest (şimdi) → vroor (geçmiş)."],
+  ["Ik heb het nieuws op de radio ___.","gehoord","gehoort","hoorde","duydum (horen, -miş hali)","Heb je dat liedje al gehoord?","O şarkıyı duydun mu?","'t kofschip: kök 'hoor', son harf r → 't kofschip'te yok → -d: gehoord."],
+  ["Gisteren ___ ik een gek geluid.","hoorde","hoorden","hoordt","duydum (horen, geçmiş)","Ik hoorde de wekker niet.","Alarmı duymadım.","Tek kişi (ik) geçmiş: kök + de. Çoğulda -den."],
+  ["Wij ___ vorige week een tekening.","kleurden","kleurde","kleurt","boyadık (kleuren, geçmiş)","De kinderen kleurden de hele middag.","Çocuklar bütün öğleden sonra boyama yaptı.","'wij' çoğul → geçmişte -den."],
+  ["Het meisje ___ haar jurk aan een spijker.","scheurde","scheurden","scheurt","yırttı (scheuren, geçmiş)","Ik scheurde mijn broek bij het klimmen.","Tırmanırken pantolonumu yırttım.","'Gisteren' yoksa da 'het meisje' tek kişi; burada geçmiş anlatılıyor → -de."],
+  ["Het is een grote ___ om de prijs te winnen.","eer","meer","keer","onur, şeref","Het is een eer om jou te ontmoeten.","Seninle tanışmak bir onur."],
+  ["De dief liet een ___ achter in de modder.","spoor","koor","boor","iz (spoor = ray da demek!)","In de sneeuw zien we sporen van een vos.","Karda bir tilkinin izlerini görüyoruz."],
+  ["Na de vakantie ___ we terug naar huis.","keerden","keerde","keert","geri döndük (terugkeren)","De vogels keren in de lente terug.","Kuşlar ilkbaharda geri döner.","'we' çoğul → geçmişte -den."],
+  ["Het ___ maakte een harde knal en het ging regenen.","onweer","onweert","oneer","gök gürültülü fırtına","Bij onweer blijven we binnen.","Fırtınada içeride kalırız."],
+  ["De lamp is kapot, we hebben een nieuwe ___ nodig.","peer","meer","beer","ampul (peer = armut da demek!)","Draai een nieuwe peer in de lamp.","Lambaya yeni bir ampul tak."],
+  ["Voor de toets moet je goed ___.","leren","leeren","lerren","öğrenmek","Wij leren vandaag de tafel van zes.","Bugün altılar çarpım tablosunu öğreniyoruz.","Açık hece: le-ren. Hece e ile bitince tek e yazılır."],
+  ["In de winkel kopen we drie ___.","peren","peeren","perren","armutlar","Deze peren zijn nog hard.","Bu armutlar hâlâ sert.","Açık hece: pe-ren → tek e, tek r."],
+  ["De ___ gaan om acht uur open.","deuren","deurren","dueren","kapılar","Alle deuren in de school zijn blauw.","Okuldaki tüm kapılar mavi.","'eu' sesi hep e-u sırasıyla yazılır, r çift olmaz."],
+  ["De timmerman ___ een gat in de plank.","boorde","boorden","boordt","deldi (boren, geçmiş)","De tandarts boorde een gaatje in mijn tand.","Diş hekimi dişime küçük bir delik açtı.","Tek kişi geçmiş: kök 'boor' + de."],
+  ["Hij heeft de hele dag ___ om een ijsje.","gezeurd","gezeurt","gezeur","mızmızlandı (zeuren, -miş hali)","Je hebt lang genoeg gezeurd!","Yeterince mızmızlandın!","'t kofschip: kök 'zeur' r ile biter → -d."],
+  ["Papa ___ zich voor het feest.","scheerde","scheerden","scheerdt","tıraş oldu (zich scheren, geçmiş)","Opa scheerde zich elke ochtend.","Dedem her sabah tıraş olurdu.","Tek kişi geçmiş: kök 'scheer' + de."],
+  ["Ik ___ je niet, praat eens harder!","hoor","hoort","hoord","duymak (horen)","Ik hoor je niet goed.","Seni iyi duyamıyorum.","'ik' ile şimdiki zaman: sadece kök, -t yok."],
+  ["De ouders hebben het schoolreisje ___.","goedgekeurd","goedgekeurt","goedkeuren","onayladılar (goedkeuren, -miş hali)","De directeur heeft het plan goedgekeurd.","Müdür planı onayladı.","'t kofschip: kök 'keur' r ile biter → -d."]
+ ]}
+];
+
+// ---------------------------------------------------------------
+// HELPERS
+// ---------------------------------------------------------------
+const $ = id => document.getElementById(id);
+// Fisher-Yates shuffle: new order every time so the child cannot memorise positions
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const fmt = ms => { const s=Math.round(ms/1000); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); };
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const toObj = r => ({s:r[0],a:r[1],opts:[r[1],r[2],r[3]],tr:r[4],exNL:r[5],exTR:r[6],tip:r[7]||""});
+
+// Saved rounds of this user for this exercise (filled after login)
+let ATTEMPTS = [];
+// Best full run per test: most correct, then fastest
+function bestOf(testId) {
+  return ATTEMPTS.filter(a => a.test === testId && a.kind === "full")
+    .reduce((b, a) => !b || a.score > b.score || (a.score === b.score && a.duration_ms < b.duration_ms) ? a : b, null);
+}
+
+function show(id){ ["menu","quiz","result"].forEach(x => $(x).hidden = x!==id); window.scrollTo(0,0); }
+
+// ---------------------------------------------------------------
+// MENU
+// ---------------------------------------------------------------
+function renderMenu(){
+  $("testList").innerHTML = TESTS.map(t => {
+    const best = bestOf(t.id);
+    const dots = [1,2,3].map(n=>`<i class="${n<=t.level?'on':''}"></i>`).join("");
+    return `<button class="tcard" data-id="${t.id}">
+      <span class="level"><span class="dots">${dots}</span>${t.items.length} vragen</span>
+      <h3>${t.name}</h3><p>${t.desc}</p>
+      <span class="best">${best ? `Beste: ${best.score}/${best.total} in ${fmt(best.duration_ms)}` : "Nog niet gedaan"}</span>
+    </button>`;
+  }).join("");
+  document.querySelectorAll(".tcard").forEach(b => b.onclick = () => {
+    const t = TESTS.find(x => x.id===b.dataset.id);
+    startTest(t, t.items.map(toObj), true);
+  });
+}
+
+// ---------------------------------------------------------------
+// QUIZ
+// ---------------------------------------------------------------
+let S = null;   // current run state
+let tick = null;
+
+function startTest(test, items, full){
+  S = { test, full, items: shuffle(items), idx:0, log:[], t0: Date.now() };
+  $("qName").textContent = test.name;
+  clearInterval(tick);
+  tick = setInterval(() => $("qTime").textContent = "⏱ " + fmt(Date.now()-S.t0), 500);
+  $("qTime").textContent = "⏱ 0:00";
+  show("quiz");
+  renderQ();
+}
+
+function renderQ(){
+  const q = S.items[S.idx];
+  $("qCount").textContent = (S.idx+1) + " / " + S.items.length;
+  $("qProg").style.width = (S.idx / S.items.length * 100) + "%";
+  const [pre, post] = q.s.split("___");
+  $("qSentence").innerHTML = esc(pre) + '<span class="blank" id="blank">&nbsp;</span>' + esc(post);
+  q.shown = shuffle(q.opts);
+  $("qOpts").innerHTML = q.shown.map((o,i)=>`<button class="opt" data-o="${esc(o)}"><span class="k">${i+1}</span>${esc(o)}</button>`).join("");
+  document.querySelectorAll(".opt").forEach(b => b.onclick = () => pick(b.dataset.o));
+  $("qFb").textContent = ""; $("qFb").className = "fb";
+  $("nextBtn").hidden = true;
+  S.qStart = Date.now();
+}
+
+function pick(choice){
+  const q = S.items[S.idx];
+  if (S.log[S.idx]) return;                       // already answered
+  const ok = choice === q.a;
+  S.log[S.idx] = { q, choice, ok, ms: Date.now()-S.qStart };
+  document.querySelectorAll(".opt").forEach(b => {
+    b.disabled = true;
+    if (b.dataset.o === q.a) b.classList.add("ok");
+    else if (b.dataset.o === choice) b.classList.add("no");
+  });
+  const bl = $("blank"); bl.textContent = q.a; bl.classList.add(ok ? "ok" : "no");
+  $("qFb").textContent = ok ? "Goed zo! ✓" : "Helaas, het is: " + q.a;
+  $("qFb").className = "fb " + (ok ? "ok" : "no");
+  $("nextBtn").textContent = S.idx === S.items.length-1 ? "Klaar! Bekijk uitslag" : "Volgende →";
+  $("nextBtn").hidden = false; $("nextBtn").focus();
+}
+
+function next(){
+  if (!S.log[S.idx]) return;
+  if (S.idx < S.items.length-1){ S.idx++; renderQ(); } else finish();
+}
+
+// Keyboard: 1/2/3 to choose, Enter for next (handy on a laptop)
+document.addEventListener("keydown", e => {
+  if ($("quiz").hidden) return;
+  if (["1","2","3"].includes(e.key) && S && !S.log[S.idx]) pick(S.items[S.idx].shown[+e.key-1]);
+  if (e.key === "Enter" && S && S.log[S.idx] && document.activeElement !== $("nextBtn")) next();
+});
+$("nextBtn").onclick = next;
+$("quitBtn").onclick = () => { clearInterval(tick); renderMenu(); show("menu"); };
+
+// ---------------------------------------------------------------
+// RESULTS
+// ---------------------------------------------------------------
+let filter = "all";
+
+function finish(){
+  clearInterval(tick);
+  const ms = Date.now() - S.t0;
+  const score = S.log.filter(l=>l.ok).length, total = S.log.length;
+  S.ms = ms;
+  // Save the round; only full runs count for "best score", retries are stored as kind "retry"
+  const now = new Date();
+  const attempt = { kind: S.full ? "full" : "retry", test: S.test.id, title: S.test.name,
+    started_at: new Date(S.t0).toISOString(), finished_at: now.toISOString(),
+    duration_s: Math.round(ms/1000), duration_ms: ms, score, total,
+    answers: S.log.map(l => ({ qid: S.test.id + ":" + l.q.a, chosen: l.choice, correct: l.ok })) };
+  ATTEMPTS.unshift(attempt);
+  saveAttempt(USER.uid, MODULE, attempt).catch(e => {
+    $("rTitle").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${e.code || "hata"}).</p>`);
+  });
+  $("rTitle").textContent = S.test.name + (S.full ? "" : " · tekrar") + (score===total ? " — Alles goed! 🎉" : "");
+  $("rScore").textContent = score + "/" + total;
+  $("rTime").textContent = fmt(ms);
+  $("rAvg").textContent = (ms/total/1000).toFixed(1) + " sn";
+  $("retryWrong").hidden = score===total;
+  setFilter("all");
+  show("result");
+}
+
+function setFilter(f){
+  filter = f;
+  $("fAll").setAttribute("aria-pressed", f==="all");
+  $("fWrong").setAttribute("aria-pressed", f==="wrong");
+  const rows = S.log.filter(l => f==="all" || !l.ok);
+  $("rGrid").innerHTML = rows.length ? rows.map(l => {
+    const [pre, post] = l.q.s.split("___");
+    return `<article class="rbox ${l.ok?'':'no'}">
+      <div class="rtop"><span class="word">${esc(l.q.a)}</span><span class="tag ${l.ok?'ok':'no'}">${l.ok?'Doğru':'Yanlış'}</span></div>
+      <p class="rs">${esc(pre)}<u>${esc(l.q.a)}</u>${esc(post)}</p>
+      ${l.ok ? "" : `<span class="chosen">Seçilen: ${esc(l.choice)}</span>`}
+      <p class="tr"><strong>Anlamı:</strong> ${esc(l.q.tr)}</p>
+      <p class="ex">${esc(l.q.exNL)}<br><em>${esc(l.q.exTR)}</em></p>
+      ${l.q.tip ? `<p class="tip">💡 ${esc(l.q.tip)}</p>` : ""}
+    </article>`;
+  }).join("") : `<p class="empty">Hiç yanlış yok. Harika!</p>`;
+}
+
+$("fAll").onclick = () => setFilter("all");
+$("fWrong").onclick = () => setFilter("wrong");
+$("retryWrong").onclick = () => startTest(S.test, S.log.filter(l=>!l.ok).map(l=>l.q), false);
+$("retryAll").onclick = () => startTest(S.test, S.test.items.map(toObj), true);
+$("toMenu").onclick = () => { renderMenu(); show("menu"); };
+
+// Start: wait for login, then load this user's saved rounds
+const { user: USER, profile } = await gate({ area: "kids", title: "eer · oor · eur" });
+$("ub").innerHTML = userBox(USER, profile);
+ATTEMPTS = await loadAttempts(USER.uid, MODULE).catch(() => []);
+renderMenu();
+</script>
+</body>
+</html>
