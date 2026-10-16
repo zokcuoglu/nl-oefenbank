@@ -39,7 +39,7 @@ NOTE_NEWS = "Bu duyuru NL Oefenbank üyelerine gönderildi."
 # Site colours (light theme) for the HTML template; inline styles because mail clients drop <style>
 C = {"ground": "#F2F4F7", "surface": "#FFFFFF", "line": "#D3DAE3", "ink": "#142033", "muted": "#566377",
      "accent": "#C8551B", "blue": "#1F4E8C", "blue_soft": "#DCE6F4",
-     "a1": "#2E7D4F", "a2": "#1F6FB0", "b1": "#B07A10", "b2": "#B8462F", "c1": "#7A3E9D"}
+     "a0": "#0E7C7B", "a1": "#2E7D4F", "a2": "#1F6FB0", "b1": "#B07A10", "b2": "#B8462F", "c1": "#7A3E9D"}
 FONT = "'Segoe UI',Arial,Helvetica,sans-serif"
 
 
@@ -208,6 +208,12 @@ def load_news():
     return json.loads((ROOT / "data" / "nieuws.json").read_text(encoding="utf-8"))["items"]
 
 
+def toets_for(item):
+    """The mixed test that opens together with this item (tests cover 1-3, 1-4, ...), or None."""
+    data = json.loads((ROOT / "data" / "nieuws.json").read_text(encoding="utf-8"))
+    return next((t for t in data.get("toetsen", []) if t.get("tot") == item.get("nr")), None)
+
+
 def pick_news(items, sent_log):
     """Next item: the first one never sent (file order); after a full round, the one sent longest ago."""
     last = {}
@@ -286,12 +292,21 @@ def news_html(item, date_str):
             f'Sonuçların kaydedilir; her 3 haberden sonra karma bir sınav açılır.</p>') if n_q else ""
 
     nr = f"#{item['nr']} " if item.get("nr") else ""
-    inner = (f'<p style="color:{C["muted"]};margin:-8px 0 12px">{esc(date_str)} · {esc(item.get("bron", ""))} · video {esc(item.get("niveau_video", ""))} · metin A1 → C1</p>'
-             + video + "".join(levelbox(l) for l in ["a1", "a2", "b1", "b2", "c1"]) + idioms + vocab + grammar + quiz
+    toets = toets_for(item)
+    if toets:
+        turl = f"{SITE}nieuws/?toets={toets['id']}"
+        quiz += (f'<div style="border:2px dashed {C["line"]};border-radius:10px;padding:12px 14px;margin:16px 0">'
+                 f'<b>Yeni karma sınav açıldı: {esc(toets["titel"])}</b><br>'
+                 f'<span style="color:{C["muted"]};font-size:14px">20 soru; bu ana kadarki bütün haberlerden.</span>'
+                 + button(turl, "Sınava başla") + '</div>')
+    inner = (f'<p style="color:{C["muted"]};margin:-8px 0 12px">{esc(date_str)} · {esc(item.get("bron", ""))} · video {esc(item.get("niveau_video", ""))} · metin A0 → C1</p>'
+             + video + "".join(levelbox(l) for l in ["a0", "a1", "a2", "b1", "b2", "c1"]) + idioms + vocab + grammar + quiz
              + button(url, "Sitede aç: quiz"))
     plain = (f"{nr}{item['titel']} ({date_str})\n\nVideo: {item.get('video_url', '')}\n\n"
-             + "\n\n".join(f"[{l.upper()}]\n{re.sub(r'<[^>]+>', '', item.get(l) or '')}" for l in ["a1", "a2", "b1", "b2", "c1"])
-             + f"\n\nQuiz: {url}\n\n--\nNL Oefenbank · {SITE}\n{NOTE_NEWS_MAIL}")
+             + "\n\n".join(f"[{l.upper()}]\n{re.sub(r'<[^>]+>', '', item.get(l) or '')}" for l in ["a0", "a1", "a2", "b1", "b2", "c1"])
+             + f"\n\nQuiz: {url}"
+             + (f"\nYeni karma sınav: {toets['titel']} – {SITE}nieuws/?toets={toets['id']}" if toets else "")
+             + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_NEWS_MAIL}")
     return plain, html_wrap(f"{nr}{item['titel']}", inner, NOTE_NEWS_MAIL)
 
 

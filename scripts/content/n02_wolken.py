@@ -13,6 +13,14 @@ ITEM = {
     "niveau_video": "B1",
     "niveau_uitleg": "Doğal bir söyleşi: 'nou', 'eigenlijk', 'hè' gibi konuşma dili kelimeleri çok. 'Condensatie' ve 'weerkaatsen' gibi bilimsel kelimeler basitçe açıklanıyor. B1 metni videoya en yakın olanı.",
 
+    # A0: absolute beginner – very short present-tense sentences, only the most common words
+    "a0": """Kijk omhoog. Dat is een <strong>wolk</strong>.
+
+Een wolk is wit. Een wolk is van <strong>water</strong>: heel kleine <strong>druppels</strong>.
+
+Soms is een wolk grijs. Dan <strong>regent</strong> het.""",
+    "gloss_a0": "kijken = bakmak • omhoog = yukarı • de wolk = bulut • wit = beyaz • het water = su • klein = küçük • de druppel = damla • soms = bazen • grijs = gri • regenen = yağmur yağmak",
+
     "a1": """Wat is een <strong>wolk</strong>? De presentator gaat naar het KNMI. Daar werken mensen die alles weten over het <strong>weer</strong>.
 
 In de lucht zit water. Dat water zie je niet. Als de lucht koud wordt, maakt het water kleine <strong>druppels</strong>. Veel druppels samen zijn een wolk.

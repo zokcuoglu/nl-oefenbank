@@ -15,6 +15,16 @@ ITEM = {
     "niveau_video": "A2–B1",
     "niveau_uitleg": "Spiker yavaş ve açık konuşuyor (A2). Para konusu ve rakamlar (schulden, 3 miljoen, 100.000 bezoekers) ile müdürün söyledikleri ('overheden zijn betrokken geweest', 'totstandkoming') daha zor; o kısımlar B1–B2.",
 
+    # A0: absolute beginner – very short present-tense sentences, only the most common words
+    "a0": """Dit is een <strong>zeehond</strong>. Een zeehond woont in de zee.
+
+Soms is een zeehond <strong>ziek</strong>. Dan gaat hij naar het zeehondencentrum. Daar helpen ze de zeehond.
+
+Maar het centrum heeft te weinig <strong>geld</strong>.
+
+Misschien gaat het centrum <strong>dicht</strong>.""",
+    "gloss_a0": "de zeehond = fok • wonen = yaşamak • de zee = deniz • soms = bazen • ziek = hasta • het centrum = merkez • helpen = yardım etmek • het geld = para • te weinig = çok az, yetersiz • misschien = belki • dicht = kapalı",
+
     "a1": """In Nederland is een bekende plek voor <strong>zeehonden</strong>: het zeehondencentrum.
 
 Daar zorgen ze voor jonge zeehonden. Die zijn alleen op het <strong>strand</strong> gevonden. Ook <strong>zieke</strong> zeehonden komen daar.

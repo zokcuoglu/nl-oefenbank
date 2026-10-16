@@ -52,7 +52,7 @@ let users = [], news = [], newsErr = "";
 // Mail schedule (Firestore settings/mail, read by scripts/mailer.py). weekday: 1 = Monday ... 7 = Sunday
 const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 } };
 const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
-let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null;
+let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null, sentNews = [], weeklyLog = [], logErr = "";
 // Statistics: attempts of every account, the catalog, and the news items
 let stats = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] };
 
@@ -72,8 +72,8 @@ async function load() {
     const snap = await getDoc(doc(db, "settings", "mail"));
     const saved = snap.exists() ? snap.data() : {};
     sched = { news: { ...DEFAULT_SCHED.news, ...(saved.news || {}) }, weekly: { ...DEFAULT_SCHED.weekly, ...(saved.weekly || {}) } }; schedErr = "";
-    const ls = await getDocs(query(collection(db, "nieuws_sent"), orderBy("date", "desc"), limit(1)));
-    lastNews = ls.docs[0]?.data() || null;
+    const ls = await getDocs(query(collection(db, "nieuws_sent"), orderBy("date", "desc"), limit(30)));
+    sentNews = ls.docs.map(d => d.data()); lastNews = sentNews[0] || null;
   } catch (e) { schedErr = e.code || e.message; }
   try {
     [cat, nieuws] = await Promise.all([fetch("data/catalog.json", { cache: "no-cache" }).then(r => r.json()), fetch("data/nieuws.json", { cache: "no-cache" }).then(r => r.json())]);
@@ -81,7 +81,29 @@ async function load() {
     const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
     stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); statsErr = "";
   } catch (e) { statsErr = e.code || e.message; }
+  // Weekly summary log (written by the mailer job); a failure here only hides those rows
+  try { weeklyLog = (await getDocs(collection(db, "mail_log"))).docs.map(d => d.data()); logErr = ""; } catch (e) { weeklyLog = []; logErr = e.code || e.message; }
   render();
+}
+
+// ---------- sent mails: news, weekly summaries and announcements, newest first ----------
+function sentHtml() {
+  const itemOf = id => nieuws.items.find(i => i.id === id);
+  const active = users.filter(u => statusOf(u) === "approved");
+  const rows = [
+    ...sentNews.map(n => { const it = itemOf(n.item_id);
+      return { date: n.date, kind: "Haber", what: it ? `#${it.nr} ${it.titel}` : (n.titel || n.item_id), to: n.recipients || 0,
+        // After the mail: how many people opened the item and did its quiz
+        effect: `${active.filter(u => u.seen?.["nieuws:" + n.item_id]).length} açtı · ${active.filter(u => stats[u.uid]?.byTest["nieuws/" + n.item_id]).length} quiz çözdü` }; }),
+    ...weeklyLog.filter(w => w.job === "weekly").map(w => ({ date: w.date, kind: "Haftalık özet", what: "Herkese kendi özeti", to: w.mails || 0, effect: "" })),
+    ...news.filter(n => n.sent_at).map(n => ({ date: (n.sent_at || "").slice(0, 10), kind: "Duyuru", what: n.subject, to: n.recipients || 0, effect: "" })),
+  ].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  return `<section class="panel"><div class="sectionhead"><h3>Gönderilen e-postalar</h3><span class="muted">yeniden eskiye</span></div>
+    ${logErr ? `<div class="notice" style="margin-bottom:10px">Haftalık özet kaydı okunamadı (${esc(logErr)}). Güvenlik kurallarını güncelle.</div>` : ""}
+    ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Tarih</th><th>Tür</th><th>İçerik</th><th class="r">Kişi</th><th>Sonra</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td class="num muted">${esc(r.date)}</td><td>${esc(r.kind)}</td><td lang="nl">${esc(r.what)}</td><td class="r num">${r.to}</td><td class="muted" style="font-size:13px">${esc(r.effect)}</td></tr>`).join("")}
+      </tbody></table></div>` : `<p class="muted">Henüz e-posta gönderilmedi. İlk haber, zamanlamaya göre gidecek.</p>`}
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Test e-postaları (GitHub Actions → Mailer → mode: test) burada görünmez; hiçbir yere kaydedilmez.</p></section>`;
 }
 
 // ---------- statistics ----------
@@ -183,6 +205,7 @@ function render() {
       <p class="muted" style="font-size:13px;margin:10px 0 0">Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider. Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>
     ${statsHtml()}
     ${schedHtml()}
+    ${sentHtml()}
     <section class="panel"><div class="sectionhead"><h3>Duyuru gönder</h3><span class="muted">onaylı herkese e-posta, en geç bir saat içinde</span></div>
       <div class="formgrid" style="grid-template-columns:1fr">
         <div class="field"><label for="n-subj">Konu</label><input class="input" id="n-subj" maxlength="120" placeholder="Örn. Yeni: Groep 5 kelime testi"></div>

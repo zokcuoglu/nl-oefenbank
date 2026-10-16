@@ -14,6 +14,16 @@ ITEM = {
     "niveau_video": "B1",
     "niveau_uitleg": "Çocuklar için bir program, ama doğal ve hızlı bir konuşma var: 'nou', 'eh', 'hartstikke', 'wegwezen' gibi günlük dil ve yarım cümleler. Tavsiyeler basit (A2), konuşmanın kendisi B1.",
 
+    # A0: absolute beginner – very short present-tense sentences, only the most common words
+    "a0": """Dit is een <strong>wolf</strong>. Een wolf woont in het <strong>bos</strong>.
+
+Een wolf kan <strong>bijten</strong>.
+
+Zie je een wolf? Ren niet weg! Blijf staan. Kijk boos. Zeg: 'Weg!'
+
+Loop met een groep.""",
+    "gloss_a0": "de wolf = kurt • wonen = yaşamak • het bos = orman • bijten = ısırmak • zien = görmek • wegrennen = kaçmak • blijven staan = olduğu yerde durmak • kijken = bakmak • boos = kızgın • weg! = git! • lopen = yürümek • de groep = grup",
+
     "a1": """Een kind wandelt graag in het <strong>bos</strong>. Het kind vraagt: 'Wat moet ik doen als ik een <strong>wolf</strong> zie?'
 
 In Nederland wonen weer wolven. Ze wonen in een groep.

@@ -58,6 +58,16 @@ if (!isChild && st.byModule.nieuws) {
 }
 const newsRows = Object.values(st.byTest).filter(t => t.module === "nieuws").sort((a, b) => b.last.localeCompare(a.last));
 const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
+// News quizzes: best score per level filter (A2, B1, B2, Hepsi), each in its level colour; tests have one score
+const QLEVELS = [["A2", "A2", "a2"], ["B1", "B1", "b1"], ["B2", "B2", "b2"], ["all", "Hepsi", "c1"]];
+const levelChips = test => {
+  const tries = attempts.filter(a => a.module === "nieuws" && a.test === test && a.total);
+  const groups = test.startsWith("toets") ? [["all", "en iyi", "ink"]] : QLEVELS;
+  return `<span class="scores" style="justify-content:flex-end">${groups.map(([lv, label, col]) => {
+    const t = test.startsWith("toets") ? tries : tries.filter(a => (a.level || "all") === lv); if (!t.length) return "";
+    const b = Math.round(100 * Math.max(...t.map(a => a.score / a.total)));
+    return `<span class="lvlscore num" style="--lc:var(--${col});--tone:var(--${tone(b)})">${label} <b>%${b}</b></span>`; }).join("")}</span>`;
+};
 const statsHtml = st.rounds ? `
     <section class="kpis">
       <div class="panel kpi"><div class="eyebrow">Toplam tur</div><div class="v num">${st.rounds}</div></div>
@@ -72,9 +82,9 @@ const statsHtml = st.rounds ? `
         <td><span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span></td><td class="r num muted">${fmtDate(m.last)}</td></tr>`; }).join("")}
       </tbody></table></div></section>
     ${newsRows.length ? `<section class="panel"><div class="sectionhead"><h3 lang="nl">Nieuws in niveaus</h3><span class="muted">quiz ve sınavlar</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Haber / sınav</th><th class="r">Deneme</th><th class="r">En iyi</th><th class="r">Son</th></tr></thead><tbody>
+      <div class="tablewrap"><table><thead><tr><th>Haber / sınav</th><th class="r">Deneme</th><th class="r">En iyi (seviyeye göre)</th><th class="r">Son</th></tr></thead><tbody>
       ${newsRows.map(t => `<tr><td><a href="nieuws/?${t.test.startsWith("toets") ? "toets" : "id"}=${encodeURIComponent(t.test)}" lang="nl">${esc(newsTitle[t.test] || t.test)}</a></td><td class="r num">${t.rounds}</td>
-        <td class="r"><span class="chip ${tone(Math.round(100 * t.best))} num">%${Math.round(100 * t.best)}</span></td><td class="r num muted">%${Math.round(100 * t.lastPct)}</td></tr>`).join("")}
+        <td class="r">${levelChips(t.test)}</td><td class="r num muted">%${Math.round(100 * t.lastPct)}</td></tr>`).join("")}
       </tbody></table></div></section>` : ""}` :
   `<section class="panel"><span class="eyebrow">İstatistik</span><p class="muted" style="margin:6px 0 0">Henüz bitirilmiş tur yok. İlk turu bitirince burada toplam, doğruluk, günlük aktivite ve alıştırma bazında sonuçların görünecek.</p></section>`;
 

@@ -1,13 +1,14 @@
-"""Mixed test after every three news items.
-Each test has 20 questions with a fixed spread (see build_nieuws.py): its own mixed questions below,
-questions from its three items and, from test 2 on, review questions from earlier items."""
+"""Mixed tests: one after news 3 (covers 1-3), then one after every new item (1-4, 1-5, 1-6 ...).
+Each test has 20 questions with a fixed spread (see build_nieuws.py). 'tot' = number of the newest item it covers.
+Test 1: all questions from items 1-3 plus its own mixed questions. Later tests: most questions from the newest item,
+the rest review from all earlier items (own mixed questions, if any, join the review pool)."""
 
 TOETSEN = [
     {
         "id": "toets-1",
         "nr": 1,
+        "tot": 3,
         "titel": "Toets 1 · Nieuws 1–3",
-        "items": ["kroket", "wolken", "gluten"],
         "extra": [
             {"id": "m1", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "In welke video krijgt iets twee lagen om het knapperig te maken?",
              "opties": ["De kroket: eiwit en paneermeel", "De wolken: water en ijs", "De gluten: kneden en wassen"], "juist": 0,
@@ -32,11 +33,13 @@ TOETSEN = [
              "uitleg": "Laagdrempelig = iedereen kan er makkelijk naartoe."},
         ],
     },
+    {"id": "toets-2", "nr": 2, "tot": 4, "titel": "Toets 2 · Nieuws 1–4", "extra": []},
+    {"id": "toets-3", "nr": 3, "tot": 5, "titel": "Toets 3 · Nieuws 1–5", "extra": []},
     {
-        "id": "toets-2",
-        "nr": 2,
-        "titel": "Toets 2 · Nieuws 4–6",
-        "items": ["albertheijn", "wolf", "pieterburen"],
+        "id": "toets-4",
+        "nr": 4,
+        "tot": 6,
+        "titel": "Toets 4 · Nieuws 1–6",
         "extra": [
             {"id": "t2m1", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Welke twee berichten komen uit hetzelfde NOS Journaal in Makkelijke Taal?",
              "opties": ["Albert Heijn en het zeehondencentrum", "Albert Heijn en de wolf", "De wolf en het zeehondencentrum"], "juist": 0,

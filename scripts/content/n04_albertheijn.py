@@ -14,6 +14,18 @@ ITEM = {
     "niveau_video": "A2–B1",
     "niveau_uitleg": "NOS Journaal in Makkelijke Taal yavaş ve kısa cümlelerle konuşuyor (A2). Röportajlardaki müşteriler ve muhabir ise hızlı, günlük dille konuşuyor ('mazzel', 'zo erg is dat niet', 'gerommeld'); o kısımlar B1.",
 
+    # A0: absolute beginner – very short present-tense sentences, only the most common words
+    "a0": """Albert Heijn is een <strong>supermarkt</strong>.
+
+De <strong>computers</strong> werken niet. Er komt weinig eten.
+
+Veel schappen zijn <strong>leeg</strong>. Er is geen fruit.
+
+Een vrouw heeft druiven. Ze is blij.
+
+Een man zegt: 'Het is niet erg.'""",
+    "gloss_a0": "de supermarkt = süpermarket • de computer = bilgisayar • werken = çalışmak • weinig = az • het eten = yiyecek • het schap = raf • leeg = boş • het fruit = meyve • de druif = üzüm • blij = mutlu • niet erg = önemli değil",
+
     "a1": """Albert Heijn is een grote <strong>supermarkt</strong> in Nederland. Er zijn heel veel winkels van Albert Heijn.
 
 Nu is er een probleem. De <strong>computers</strong> werken niet goed. Daarom komen er weinig spullen naar de winkels.

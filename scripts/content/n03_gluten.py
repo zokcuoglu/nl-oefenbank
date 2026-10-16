@@ -13,6 +13,16 @@ ITEM = {
     "niveau_video": "B1",
     "niveau_uitleg": "Fırıncının anlatımı B1 düzeyinde; 'eiwit', 'zetmeel', 'gliadine' gibi birkaç kelime B2. Konuşmada çok sayıda küçültme eki (balletje, kuiltje, ballonnetje) var.",
 
+    # A0: absolute beginner – very short present-tense sentences, only the most common words
+    "a0": """Dit is <strong>brood</strong>. Brood is van meel en water.
+
+De <strong>bakker</strong> maakt brood. Hij <strong>kneedt</strong> het <strong>deeg</strong>.
+
+In het deeg zitten <strong>gluten</strong>. Gluten maken het deeg sterk.
+
+Brood is zacht en <strong>luchtig</strong>. Lekker!""",
+    "gloss_a0": "het brood = ekmek • het meel = un • de bakker = fırıncı • maken = yapmak • kneden = yoğurmak • het deeg = hamur • zitten in = içinde olmak • de gluten = glüten • sterk = güçlü • zacht = yumuşak • luchtig = kabarık",
+
     "a1": """In brood, pasta, koekjes en pizza zitten <strong>gluten</strong>. Je ziet ze niet, maar ze zijn er wel.
 
 De presentator gaat naar een <strong>bakker</strong>. De bakker heet Sander. Zijn bakkerij bakt elke dag 400 broden!

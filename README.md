@@ -46,18 +46,19 @@ schedule on the admin screen says so (Firestore `settings/mail`, default Monday 
 - weekly summaries (children: also to the linked parent; logged in `mail_log/weekly-{date}`)
 
 Secrets: `FIREBASE_SERVICE_ACCOUNT`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`. If one is missing the run stops with a warning instead of failing.
-Manual run (Actions > Mailer > Run workflow): `hourly`, or `news` / `weekly` to send now regardless of the schedule; dry run by default.
+Manual run (Actions > Mailer > Run workflow): `test` sends preview mails to one address only (default the sending Gmail) and writes nothing; `hourly`, or `news` / `weekly` to send to everyone now regardless of the schedule (dry run by default).
 
 ### News items
 Edit `scripts/content/nNN_*.py`, then run `python3 scripts/content/build_nieuws.py`. Each item: `id`, `nr`, `titel`, `bron`,
-`video_url`, `afbeelding_url`, `niveau_video` + `niveau_uitleg`, `a1`…`c1` (`<strong>` allowed) + `gloss_{level}`,
+`video_url`, `afbeelding_url`, `niveau_video` + `niveau_uitleg`, `a0`…`c1` (`<strong>` allowed) + `gloss_{level}` (the words the text uses, in dictionary form; the page also shows these words at a lower level),
 `uitdrukkingen` `{nl, niveau, tr, uitleg, voorbeeld, voorbeeld_tr}`, `woordenschat` (lines `woord | soort | betekenis | voorbeeld | turks | niveau`),
 `grammatica`, `toets` (questions `{id, type mc|tf|gap, niveau, cat, vraag, opties, juist, uitleg}`; the page shuffles the options).
 Items are mailed in `nr` order. The old items are kept in `data/nieuws-v1.json` and are not used.
 Item quizzes always have 18 questions (5 begrip, 4 woorden, 5 uitdrukkingen, 4 grammatica); the builder checks this.
-Mixed tests (`toetsen.py`, one after every three items) always have 20 questions (6/5/5/4). Test 1: all from items 1–3.
-Later tests: 14 from their three items (including the test's own mixed questions) and 6 review questions from earlier
-items, where the page picks questions the user answered wrong last time first. Optional `video_start`/`video_end`
+Mixed tests (`toetsen.py`) always have 20 questions (6/5/5/4): Test 1 covers news 1–3 (all from those items),
+then one test per new item covering 1–4, 1–5, 1–6 …: 12 from the newest item and 8 review questions from all earlier
+items, where the page picks questions the user answered wrong last time first. A test opens with its newest item.
+Optional `video_start`/`video_end`
 (seconds) show only part of a video.
 
 ## Adding a kids exercise

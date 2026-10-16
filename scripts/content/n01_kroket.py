@@ -13,6 +13,16 @@ ITEM = {
     "niveau_video": "A2–B1",
     "niveau_uitleg": "Video sade ve somut bir dille anlatılıyor; ama 'wordt gemaakt' gibi edilgen yapılar ve fabrika kelimeleri (ketel, trechter, paneermeel) B1 düzeyinde. B1 metni videoya en yakın olanı.",
 
+    # A0: absolute beginner – very short present-tense sentences, only the most common words
+    "a0": """Dit is een <strong>kroket</strong>. Een kroket is een snack.
+
+De kroket is warm. Binnen is hij <strong>zacht</strong>. Buiten is hij bruin.
+
+Ze maken kroketten in een <strong>fabriek</strong>. De fabriek is heel groot.
+
+De kroket is <strong>lekker</strong>!""",
+    "gloss_a0": "de kroket = kroket • de snack = atıştırmalık • warm = sıcak • binnen = içeride • zacht = yumuşak • buiten = dışarıda • bruin = kahverengi • maken = yapmak • de fabriek = fabrika • groot = büyük • lekker = lezzetli",
+
     "a1": """Een <strong>kroket</strong> is een snack. Veel Nederlanders vinden een kroket heel lekker.
 
 In deze video zijn we in een grote <strong>fabriek</strong>. Daar maken ze elke dag heel veel kroketten.

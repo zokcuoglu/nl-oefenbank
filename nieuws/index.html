@@ -12,9 +12,6 @@
 <link rel="stylesheet" href="../css/site.css">
 <style>
 /* Level colours (CEFR A1 -> C1), light and dark */
-:root{ --a1:#2E7D4F; --a2:#1F6FB0; --b1:#B07A10; --b2:#B8462F; --c1:#7A3E9D; }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --a1:#6CC08F; --a2:#7FB3E6; --b1:#E0B064; --b2:#EE9177; --c1:#C39BE0; } }
-:root[data-theme="dark"]{ --a1:#6CC08F; --a2:#7FB3E6; --b1:#E0B064; --b2:#EE9177; --c1:#C39BE0; }
 .lvl-chip{font-family:var(--mono);font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;border:1.5px solid currentColor}
 .levelbox{border-left:4px solid var(--lc);padding:4px 0 4px 16px;margin-top:6px}
 .levelbox p{margin:0 0 10px;max-width:68ch;line-height:1.7}
@@ -45,6 +42,7 @@ main a:not(.btn):not(.newsrow){color:var(--blue)}
 .bigscore{font-family:var(--display);font-size:46px;font-weight:700;line-height:1}
 .catrow{display:grid;grid-template-columns:9em 1fr 3.5em;gap:10px;align-items:center;font-size:14px}
 .toetscard{border:2px dashed var(--line)}
+.toetsrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;margin:2px 0 6px;border:2px dashed var(--line);border-radius:10px;color:inherit;text-decoration:none}
 .lvlfilter .seg button{font-family:var(--mono)}
 details.ans summary{cursor:pointer;font-weight:600;color:var(--blue)}
 </style>
@@ -75,9 +73,9 @@ import { gate, userBox, esc, db, isAdmin, saveAttempt, loadAttempts, markSeen } 
 import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
-const LEVELS = ["a1", "a2", "b1", "b2", "c1"];
+const LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1"];
 const CATS = { begrip: "Begrip", woorden: "Woorden", uitdrukkingen: "Uitdrukkingen", grammatica: "Grammatica" };
-const RANK = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5 };
+const RANK = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5 };
 const PREF = "nieuws-level";
 const S = { items: [], byId: {}, toetsen: [], sent: [], attempts: [], level: "b1", showAll: false, quiz: null };
 try { const l = localStorage.getItem(PREF); if (LEVELS.includes(l) || l === "all") S.level = l; } catch (e) {}
@@ -121,26 +119,38 @@ const best = test => S.attempts.filter(a => a.test === test).reduce((b, a) => Ma
 function vList() {
   const visible = S.items.filter(i => published(i.id));
   const latest = S.sent.length ? S.byId[S.sent[0].item_id] : visible[visible.length - 1];
-  const row = item => { const b = best(item.id);
-    return `<a class="newsrow" href="?id=${encodeURIComponent(item.id)}">
+  const tone = p => `var(--${p >= .8 ? "ok" : p >= .6 ? "warn" : "bad"})`;
+  // Best score per quiz level (the level filter chosen when starting), each in its own level colour
+  const QLEVELS = [["A2", "A2", "a2"], ["B1", "B1", "b1"], ["B2", "B2", "b2"], ["all", "Hepsi", "c1"]];
+  const scores = item => {
+    const tries = S.attempts.filter(a => a.test === item.id && a.total);
+    const chips = QLEVELS.map(([lv, label, col]) => {
+      const t = tries.filter(a => (a.level || "all") === lv); if (!t.length) return "";
+      const b = Math.max(...t.map(a => a.score / a.total));
+      return `<span class="lvlscore num" style="--lc:var(--${col});--tone:${tone(b)}" title="${label} seviyesine kadar: en iyi %${Math.round(b * 100)}, ${t.length} deneme">${label} <b>%${Math.round(b * 100)}</b></span>`;
+    }).join("");
+    return `<span class="scores">${chips || `<span class="chip">yeni</span>`}</span>`;
+  };
+  const row = item => `<a class="newsrow" href="?id=${encodeURIComponent(item.id)}">
       ${item.afbeelding_url ? `<img src="${esc(item.afbeelding_url)}" alt="" loading="lazy">` : "<span></span>"}
       <span style="min-width:0"><span class="muted num" style="font-family:var(--mono);font-size:12px">#${item.nr}</span> <b lang="nl">${esc(item.titel)}</b><br>
         <span class="muted" style="font-size:13px">${esc(item.bron || "")} · video ${esc(item.niveau_video || "")}${sentDate(item.id) ? " · " + esc(fmtDate(sentDate(item.id))) : ""}</span></span>
-      ${b >= 0 ? `<span class="chip ${b >= .8 ? "ok" : b >= .6 ? "warn" : "bad"} num">quiz %${Math.round(b * 100)}</span>` : `<span class="chip">yeni</span>`}</a>`; };
-  const toets = t => { const open = t.items.every(id => published(id)); const b = best(t.id);
-    return `<article class="panel card toetscard"><span class="eyebrow">Karma sınav</span><h3 lang="nl">${esc(t.titel)}</h3>
-      <p>${t.items.map(id => `#${S.byId[id]?.nr} ${esc(S.byId[id]?.titel || id)}`).join(" · ")}</p>
-      <div class="row">${b >= 0 ? `<span class="chip ok num">en iyi %${Math.round(b * 100)}</span>` : ""}
-        ${open ? `<a class="btn primary" style="margin-left:auto;text-decoration:none" href="?toets=${encodeURIComponent(t.id)}">Sınava başla</a>` : `<span class="chip" style="margin-left:auto">3 haber yayınlanınca açılır</span>`}</div></article>`; };
+      ${scores(item)}</a>`;
+  // A mixed test sits right under the newest item it covers and opens when that item is published
+  const toets = t => { const b = best(t.id);
+    return `<a class="toetsrow" href="?toets=${encodeURIComponent(t.id)}"><span class="eyebrow" style="margin:0">Karma sınav</span>
+      <b lang="nl">${esc(t.titel)}</b><span class="muted" style="font-size:13px">20 soru</span>
+      <span style="margin-left:auto">${b >= 0 ? `<span class="lvlscore num" style="--lc:var(--ink);--tone:${tone(b)}">en iyi <b>%${Math.round(b * 100)}</b></span>` : `<span class="btn primary" style="padding:4px 12px">Sınava başla</span>`}</span></a>`; };
+  const toetsAfter = item => S.toetsen.filter(t => t.tot === item.nr).map(toets).join("");
   return `
     ${latest ? `<section class="panel"><span class="eyebrow">${S.sent.length ? "Bu haftanın haberi" : "Son haber"}${S.sent.length ? " · " + esc(fmtDate(S.sent[0].date)) : ""}</span>
       <h2 style="margin-top:4px" lang="nl">#${latest.nr} ${esc(latest.titel)}</h2>
-      <p class="muted" style="margin:6px 0 12px;max-width:62ch">Kısa bir video, aynı haber A1'den C1'e beş seviyede, günlük deyimler, kelimeler, gramer ve quiz. Her 3 haberden sonra karma bir sınav gelir.</p>
+      <p class="muted" style="margin:6px 0 12px;max-width:62ch">Kısa bir video, aynı haber A0'dan C1'e altı seviyede, günlük deyimler, kelimeler, gramer ve quiz. 3. haberden itibaren her yeni haberle birlikte, o ana kadarki bütün haberleri kapsayan bir karma sınav açılır.</p>
       <a class="btn primary" style="text-decoration:none" href="?id=${encodeURIComponent(latest.id)}">Habere git</a></section>` : ""}
     <section class="panel"><div class="sectionhead"><h3>Haberler</h3>
       ${S.sent.length && isAdmin(profile) ? `<button class="btn ghost" data-act="all">${S.showAll ? "Sadece yayınlananlar" : "Tümünü göster (admin)"}</button>` : ""}</div>
-      ${visible.map(row).join("") || `<p class="muted">Henüz yayınlanan haber yok.</p>`}</section>
-    ${S.toetsen.length ? `<section class="cards">${S.toetsen.map(toets).join("")}</section>` : ""}`;
+      ${visible.map(i => row(i) + toetsAfter(i)).join("") || `<p class="muted">Henüz yayınlanan haber yok.</p>`}
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Renkli etiketler: quiz'i hangi seviyeye kadar çözdüğün ve o seviyedeki en iyi sonucun.</p></section>`;
 }
 
 // ---------- Item ----------
@@ -161,8 +171,13 @@ function grammar(raw) {
 function vItem(item) {
   const vid = ytId(item.video_url);
   const upTo = S.level === "all" ? 5 : RANK[S.level.toUpperCase()];
-  const idioms = (item.uitdrukkingen || []).filter(u => RANK[u.niveau] <= upTo);
-  const vocab = pipeRows(item.woordenschat, 6).filter(c => !c[5] || RANK[c[5]] <= upTo);
+  // A word or idiom is shown when its level is not above the chosen one, or when the chosen level's text uses it
+  // (the text's word line under it lists those words in dictionary form, e.g. 'kneden = yoğurmak')
+  const norm = t => (t || "").toLowerCase().replace(/\(.*?\)/g, "").replace(/^(de|het|een)\s+/, "").replace(/[!?.…]/g, "").replace(/\s+/g, " ").trim();
+  const used = S.level === "all" ? [] : (item.gloss?.[S.level] || "").split("•").map(x => norm(x.split("=")[0])).filter(Boolean);
+  const inText = w => { const n = norm(w); return used.includes(n) || used.some(k => k.length >= 6 && (n.includes(k) || k.includes(n))); };
+  const idioms = (item.uitdrukkingen || []).filter(u => RANK[u.niveau] <= upTo || inText(u.nl));
+  const vocab = pipeRows(item.woordenschat, 6).filter(c => !c[5] || RANK[c[5]] <= upTo || inText(c[0]));
   const idx = S.items.indexOf(item), prev = S.items[idx - 1], next = S.items[idx + 1];
   return `<p style="margin:0" class="row"><a href="./">← Tüm haberler</a>
       ${prev && published(prev.id) ? `<a href="?id=${prev.id}" style="margin-left:auto">‹ #${prev.nr}</a>` : ""}${next && published(next.id) ? `<a href="?id=${next.id}">#${next.nr} ›</a>` : ""}</p>
@@ -174,7 +189,7 @@ function vItem(item) {
     </section>
     <section class="panel"><div class="sectionhead"><h3>Metin</h3>${levelSeg()}</div>
       ${(S.level === "all" ? LEVELS : [S.level]).map(l => levelBox(item, l)).join("")}</section>
-    ${idioms.length ? `<section class="panel"><div class="sectionhead"><h3>Günlük deyimler</h3><span class="muted">${S.level === "all" ? "tümü" : "seçtiğin seviyeye kadar"}</span></div>
+    ${idioms.length ? `<section class="panel"><div class="sectionhead"><h3>Günlük deyimler</h3><span class="muted">${S.level === "all" ? "tümü" : "bu seviyeye kadar + metinde geçenler"}</span></div>
       ${idioms.map(u => `<div class="idiom"><div class="row">${lvlChip(u.niveau)} <b lang="nl">${esc(u.nl)}</b>
           <button class="btn ghost" style="padding:1px 8px;font-size:12px;margin-left:auto" data-act="say" data-t="${esc(u.voorbeeld || u.nl)}">Sesli</button></div>
         <span>${esc(u.tr)}</span><span class="muted" style="font-size:14px">${esc(u.uitleg || "")}</span>
@@ -211,7 +226,7 @@ function vQuiz() {
     const o = z.toets.opbouw, nNew = Object.values(o.nieuw).reduce((a, b) => a + b, 0), nRev = Object.values(o.herhaling).reduce((a, b) => a + b, 0);
     const tries = S.attempts.filter(a => a.test === z.test);
     return `<div class="sectionhead"><h3>${esc(z.title)}</h3>${b >= 0 ? `<span class="chip ok num">en iyi %${Math.round(b * 100)}</span>` : ""}</div>
-      <p style="margin:0 0 8px;max-width:62ch"><b class="num">${nNew + nRev} soru</b>: ${nNew} soru bu üç haberden${nRev ? `, ${nRev} soru önceki haberlerden tekrar (önce daha önce yanlış yaptıkların gelir)` : ""}.</p>
+      <p style="margin:0 0 8px;max-width:62ch"><b class="num">${nNew + nRev} soru</b>: ${nRev ? `${nNew} soru en yeni haberden (#${z.toets.tot}), ${nRev} soru önceki haberlerden tekrar (önce en son yanlış yaptıkların gelir)` : `hepsi haber 1–${z.toets.tot}'ten`}.</p>
       <p class="muted" style="margin:0 0 14px;max-width:62ch">Her sınav aynı sayıda ve aynı dağılımda sorudan oluşur (6 anlama, 5 kelime, 5 deyim, 4 gramer), böylece sonuçlarını karşılaştırabilirsin. Her denemede farklı bir seçki gelir.${tries.length ? ` Şimdiye kadar ${tries.length} deneme.` : ""}</p>
       <button class="btn primary" data-act="qstart">Sınava başla</button>`;
   }
@@ -279,25 +294,24 @@ function pickByQuota(cands, quota, prefer = () => false) {
 }
 function toetsPool(t) {
   const tag = (q, item, extra) => ({ ...q, item, uid: (item || t.id) + ":" + q.id, ...extra });
-  // New part: the test's own mixed questions first, then the three items' questions spread evenly
-  const own = t.extra.map(q => tag(q, null));
+  const own = t.extra.map(q => tag(q, null, t.extra_in === "herhaling" ? { herhaling: true } : {}));
+  // Main part: test 1 = items 1-3 (taking turns per category) + own mixed questions; later tests = the newest item
   const fromItems = t.items.flatMap(id => (S.byId[id]?.toets || []).map(q => tag(q, id)));
-  // Rank inside each item and category, so the three items take turns (1st of each item, then 2nd, ...)
   const rank = new Map();
   for (const id of t.items) for (const cat of Object.keys(CATS))
     shuffle(fromItems.filter(q => q.item === id && q.cat === cat)).forEach((q, i) => rank.set(q.uid, i));
   const spread = q => q.item ? -rank.get(q.uid) : 1000;  // own mixed questions first
-  const nieuw = pickByQuota([...own, ...fromItems], t.opbouw.nieuw, spread);
-  // Review part: earlier items, questions this user got wrong first
+  const nieuw = pickByQuota([...(t.extra_in === "nieuw" ? own : []), ...fromItems], t.opbouw.nieuw, spread);
+  // Review part: all earlier items; questions this user got wrong last time first, then the test's own mixed questions
   const wrong = wrongQids();
   const old = (t.vorige || []).flatMap(id => (S.byId[id]?.toets || []).map(q => tag(q, id, { herhaling: true })));
-  const herhaling = pickByQuota(old, t.opbouw.herhaling, q => wrong.has(q.uid));
+  const herhaling = pickByQuota([...old, ...(t.extra_in === "herhaling" ? own : [])], t.opbouw.herhaling, q => wrong.has(q.uid) ? 1 : 0);
   return [...nieuw, ...herhaling];
 }
 function vToets(t) {
   return `<p style="margin:0"><a href="./">← Tüm haberler</a></p>
     <section class="panel"><span class="eyebrow">Karma sınav</span><h2 style="margin:4px 0 8px" lang="nl">${esc(t.titel)}</h2>
-      <p class="muted" style="margin:0;max-width:62ch">Haberler: ${t.items.map(id => `#${S.byId[id]?.nr} ${esc(S.byId[id]?.titel || id)}`).join(" · ")}</p></section>
+      <p class="muted" style="margin:0;max-width:62ch">Kapsadığı haberler: ${S.items.filter(i => i.nr <= t.tot).map(i => `#${i.nr} ${esc(i.titel)}`).join(" · ")}</p></section>
     <section class="panel" id="quiz">${vQuiz()}</section>`;
 }
 
@@ -308,7 +322,7 @@ function render() {
   const key = item ? "nieuws:" + item.id : t ? "nieuws:" + t.id : "";
   if (key && !seenNow.has(key)) { seenNow.add(key); markSeen(user.uid, key); }
   if (item && published(item.id)) { if (S.quiz?.test !== item.id) newQuiz(item.id, `Quiz #${item.nr}`, item.toets.map(q => ({ ...q, uid: q.id }))); app.innerHTML = vItem(item); }
-  else if (t) { if (S.quiz?.test !== t.id) newQuiz(t.id, t.titel, toetsPool(t), t); app.innerHTML = vToets(t); }
+  else if (t && published(S.items.find(i => i.nr === t.tot)?.id)) { if (S.quiz?.test !== t.id) newQuiz(t.id, t.titel, toetsPool(t), t); app.innerHTML = vToets(t); }
   else { S.quiz = null; app.innerHTML = vList(); }
 }
 const keepQuizInView = () => document.getElementById("quiz")?.scrollIntoView({ block: "nearest" });
@@ -319,7 +333,7 @@ app.addEventListener("click", e => {
   switch (el.dataset.act) {
     case "all": S.showAll = !S.showAll; render(); break;
     case "level": S.level = el.dataset.l; try { localStorage.setItem(PREF, S.level); } catch (e) {} { const y = scrollY; render(); scrollTo(0, y); } break;
-    case "speak": speak(plain(item[el.dataset.l]), el.dataset.l.startsWith("a") ? 0.85 : 0.95); break;
+    case "speak": speak(plain(item[el.dataset.l]), el.dataset.l === "a0" ? 0.75 : el.dataset.l.startsWith("a") ? 0.85 : 0.95); break;
     case "say": speak(el.dataset.t, 0.9); break;
     case "qfilter": z.filter = el.dataset.f; render(); keepQuizInView(); break;
     case "qstart": startQuiz(); render(); keepQuizInView(); break;
