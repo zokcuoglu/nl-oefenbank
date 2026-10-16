@@ -7,6 +7,8 @@ The workflow runs this every hour (--mode hourly). Each run:
   3. the weekly summary, when the schedule says so (default: Sunday 18:00); logged in mail_log/weekly-{date}
 The schedule lives in Firestore settings/mail and is edited on the admin page.
 Manual runs can force one job: --mode news or --mode weekly (ignores the schedule).
+--mode test sends a preview of the next news mail, a sample weekly summary and a sample welcome mail to one
+address (TEST_TO, default: the sending address). It writes nothing, so the real schedule is not affected.
 
 Secrets (GitHub > Settings > Secrets and variables > Actions)
   FIREBASE_SERVICE_ACCOUNT : JSON key of a Firebase service account (reads/writes Firestore)
@@ -398,6 +400,32 @@ def where_gte(col, field, value):
         return col.where(field, ">=", value)
 
 
+# ---------- test: preview mails to one address ----------
+
+def run_test(db, sender, now, to):
+    """Send the mails people would get, to one address only. Nothing is written to Firestore."""
+    sent = [d.to_dict() for d in db.collection("nieuws_sent").stream()]
+    item = pick_news(load_news(), sent)
+    plain, html_body = news_html(item, now.astimezone(AMS).strftime("%d-%m-%Y"))
+    sender.send(to, f"[TEST] 🇳🇱 Nieuws #{item.get('nr', '')}: {item['titel']}", plain, html_body=html_body)
+
+    # Weekly summary: the first admin's real numbers of the last 7 days, as an example
+    users = [(d.id, d.to_dict()) for d in db.collection("users").stream()]
+    uid, u = next(((i, x) for i, x in users if x.get("role") == "admin"), (None, {"name": "Test"}))
+    att = []
+    if uid:
+        cutoff = iso(now - dt.timedelta(days=7))
+        att = [d.to_dict() for d in where_gte(db.collection("users").document(uid).collection("attempts"), "finished_at", cutoff).stream()]
+    summary = weekly_text(u, att, module_titles(), now.astimezone(AMS).date())
+    send_simple(sender, to, "[TEST] NL Oefenbank: haftalık özetin", "Haftalık özetin",
+                f"Merhaba {first_name(u)},\n\n{summary}", NOTE_WEEKLY, link=SITE, link_label="Çalışmaya devam et")
+
+    text = (f"Merhaba {first_name(u)},\n\nNL Oefenbank hesabın onaylandı. Artık siteye girip alıştırmalara başlayabilirsin.\n\n"
+            "Haftada bir, o haftanın kısa bir özetini e-postayla alacaksın.")
+    send_simple(sender, to, "[TEST] NL Oefenbank: hesabın onaylandı", "Hesabın onaylandı", text, NOTE_WEEKLY, link=SITE, link_label="Siteye git")
+    print(f"test: 3 preview mails sent (next news item: #{item.get('nr')} {item['id']})")
+
+
 # ---------- entry point ----------
 
 def run_scheduled(db, sender, now, dry_run=False):
@@ -423,11 +451,13 @@ def env_or_stop(names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["hourly", "news", "weekly"], required=True,
-                    help="hourly = scheduled run; news/weekly = send that job now, ignoring the schedule")
+    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "test"], required=True,
+                    help="hourly = scheduled run; news/weekly = send that job now, ignoring the schedule; test = previews to one address")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
+    if args.mode == "test":
+        args.dry_run = False  # a test always sends, but only to the test address
     env_or_stop(["FIREBASE_SERVICE_ACCOUNT"] + ([] if args.dry_run else ["GMAIL_USER", "GMAIL_APP_PASSWORD"]))
     try:
         info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
@@ -445,6 +475,8 @@ def main():
     now = dt.datetime.now(dt.timezone.utc)
     if args.mode == "hourly":
         run_scheduled(db, sender, now, dry_run=args.dry_run)
+    elif args.mode == "test":
+        run_test(db, sender, now, os.environ.get("TEST_TO", "").strip() or os.environ["GMAIL_USER"].strip())
     elif args.mode == "news":
         run_news(db, sender, now, dry_run=args.dry_run, force=True)
     else:

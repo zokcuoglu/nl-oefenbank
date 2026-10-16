@@ -2,6 +2,7 @@
 #   every hour : approval mails + queued announcements, and the news / weekly summary
 #                when the schedule on the admin page says so (Firestore settings/mail)
 #   manual run : Actions > Mailer > Run workflow (dry run by default: prints, sends nothing)
+#                mode "test": preview mails to one address only (default: the sending Gmail), writes nothing
 name: Mailer
 
 on:
@@ -10,12 +11,16 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "hourly = normal run (schedule decides), news = haberi şimdi gönder, weekly = özeti şimdi gönder"
+        description: "test = örnek e-postaları sadece test adresine gönder; hourly = normal çalışma; news / weekly = herkese şimdi gönder"
         type: choice
-        options: [hourly, news, weekly]
-        default: hourly
+        options: [test, hourly, news, weekly]
+        default: test
+      test_to:
+        description: "Test e-postası nereye gitsin? Boş bırak = nloefenbank@gmail.com (repo herkese açık; buraya yazılan adres loglarda görünebilir)"
+        type: string
+        default: ""
       dry_run:
-        description: "Sadece göster, gönderme"
+        description: "Sadece göster, gönderme (test modunda dikkate alınmaz)"
         type: boolean
         default: true
 
@@ -40,4 +45,5 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TEST_TO: ${{ inputs.test_to }}
         run: python scripts/mailer.py --mode "$MODE" $DRY
