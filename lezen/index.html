@@ -161,6 +161,7 @@ setTimeout(function () {
       <button class="tab" role="tab" data-view="topics">Konular</button>
       <button class="tab" role="tab" data-view="words">Kelime listesi</button>
       <button class="tab" role="tab" data-view="patterns">Soru kalıpları</button>
+      <a class="tab" href="teksten.html" style="text-decoration:none" lang="nl">Teksten ↗</a>
       <button class="tab" role="tab" data-view="stats">İstatistik</button>
       <button class="tab" role="tab" data-view="history">Geçmiş</button>
     </nav>
@@ -574,7 +575,7 @@ function vHistory() {
 
 // ---------- Events ----------
 document.querySelector(".tabs").addEventListener("click", e => {
-  const b = e.target.closest(".tab"); if (!b) return;
+  const b = e.target.closest(".tab"); if (!b || !b.dataset.view) return;  // the Teksten link is a normal page link
   if (S.run && b.dataset.view === tabOf("run")) { go("run"); return; }
   go(b.dataset.view);
 });

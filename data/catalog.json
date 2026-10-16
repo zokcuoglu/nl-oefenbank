@@ -30,6 +30,14 @@
       "status": "ready"
     },
     {
+      "id": "lezen-teksten",
+      "area": "nt2",
+      "title": "Lezen I · Teksten",
+      "desc": "Sınav tarzında okuma metinleri ve sorular; 110 dakikalık deneme sınavı.",
+      "href": "lezen/teksten.html",
+      "status": "ready"
+    },
+    {
       "id": "nieuws",
       "area": "media",
       "title": "Nieuws in niveaus",

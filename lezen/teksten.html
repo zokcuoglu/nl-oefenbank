@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lezen · Teksten · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+/* Reading view: text left, questions right (one column on phones), like paper booklet + screen in the exam */
+.reader{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.reader{grid-template-columns:1fr}}
+.textcol{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto}
+@media (max-width:900px){.textcol{position:static;max-height:none}}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;font-size:16.5px;line-height:1.7}
+.paper h2{font-size:21px;margin:0 0 10px} .paper h3{font-size:16.5px;margin:18px 0 4px}
+.paper p{margin:0 0 12px} .paper table{margin:6px 0 14px;font-size:15px}
+.paper .kop{font-size:14px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;line-height:1.6}
+.paper mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 2px;box-shadow:0 0 0 2px var(--warn-soft)}
+.paper mark.flash{outline:2px solid var(--accent)} .paper tr.hl td{background:var(--warn-soft)}
+.qblock{border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;background:var(--surface)}
+.qblock .qn{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.qblock .q{font-weight:600;margin:4px 0 10px}
+.qblock .opts{display:flex;flex-direction:column;gap:6px}
+.qblock.ok{border-color:var(--ok)} .qblock.no{border-color:var(--bad)}
+.timerbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--ground);padding:8px 0}
+.timer{font-family:var(--mono);font-size:18px;font-weight:600}
+.timer.low{color:var(--bad)}
+.textcard{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.textcard:hover b{color:var(--accent)}
+.textcard .nr{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--muted);width:2ch;text-align:right}
+.examtabs{display:flex;gap:6px;flex-wrap:wrap}
+.examtabs button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 12px;font-family:var(--mono);font-size:13px}
+.examtabs button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.examtabs button .cnt{color:inherit;opacity:.75}
+</style>
+<script>
+// Watchdog: if the login module has not loaded after 10 s (network block, old cache), explain it on screen
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <a href="./">Lezen I (B1)</a></small><h1>Lezen · <span lang="nl">Teksten</span></h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Exam-style reading practice: one text with its questions, or a full practice exam (all texts, 110 minutes).
+// All questions are visible at once and can be changed until "Bitir", like in the real exam.
+// Rounds are saved as attempts (module "lezen-teksten"; test = text id or "proefexamen").
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+import { pct } from "../js/stats.js";
+
+const app = document.getElementById("app");
+const EXAM_MIN = 110;
+const S = { data: null, attempts: [], run: null, timer: null };
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const params = () => new URLSearchParams(location.search);
+const mmss = s => `${Math.floor(s / 60)}:${String(Math.max(0, s) % 60).padStart(2, "0")}`;
+const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
+
+const { user, profile } = await gate({ area: "nt2", title: "Lezen · Teksten", seen: "lezen-teksten" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+try { S.data = await (await fetch("../data/lezen-teksten.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Metinler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+S.attempts = await loadAttempts(user.uid, "lezen-teksten").catch(() => []);
+const byId = Object.fromEntries(S.data.teksten.map(t => [t.id, t]));
+// Question patterns from the Lezen word bank: { p: Dutch pattern, tr: Turkish, tip: where to look for the answer }
+const patternName = n => S.data.patronen[n - 1]?.p || "";
+const patternTip = n => S.data.patronen[n - 1]?.tip || "";
+
+// ---------- Text rendering (headings, paragraphs, lists, tables); 'marks' = sentences to highlight ----------
+function renderText(t, marks = []) {
+  const hl = s => { let h = esc(s); marks.forEach((m, i) => { const e = esc(m.text); if (e && h.includes(e)) h = h.replace(e, `<mark id="m-${m.id}">${e}</mark>`); }); return h; };
+  const blocks = t.tekst.split(/\n\s*\n/).map(b => {
+    const lines = b.split("\n");
+    if (b.startsWith("## ")) { const h = b.slice(3); return `<h3 ${marks.some(m => m.text === h) ? `id="m-${marks.find(m => m.text === h).id}" style="background:var(--warn-soft);display:inline-block;padding:0 4px;border-radius:4px"` : ""}>${esc(h)}</h3>`; }
+    if (lines.every(l => l.includes(" | "))) {
+      const rows = lines.map(l => ({ raw: l, cells: l.split(" | ") }));
+      return `<div class="tablewrap"><table><thead><tr>${rows[0].cells.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${rows.slice(1).map(r => {
+        const m = marks.find(x => x.text === r.raw); return `<tr ${m ? `class="hl" id="m-${m.id}"` : ""}>${r.cells.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`; }).join("")}</tbody></table></div>`;
+    }
+    if (lines.every(l => l.startsWith("- "))) return `<ul>${lines.map(l => `<li>${hl(l.slice(2))}</li>`).join("")}</ul>`;
+    return `<p>${lines.map(hl).join("<br>")}</p>`;
+  }).join("");
+  return `<article class="paper" lang="nl">${t.kop ? `<div class="kop">${t.kop.map(esc).join("<br>")}</div>` : ""}<h2>${esc(t.titel)}</h2>${blocks}</article>`;
+}
+
+// ---------- List ----------
+function bestOf(test) { const t = S.attempts.filter(a => a.test === test && a.total); return t.length ? { best: Math.max(...t.map(a => Math.round(100 * a.score / a.total))), n: t.length, last: t[0].finished_at } : null; }
+function vList() {
+  const exam = bestOf("proefexamen");
+  // Accuracy per question pattern over all answers: which kind of question needs practice
+  const byPat = {};
+  S.attempts.forEach(a => (a.answers || []).forEach(x => { if (!x.patroon) return; const v = byPat[x.patroon] = byPat[x.patroon] || { ok: 0, n: 0 }; v.n++; if (x.correct) v.ok++; }));
+  const pats = Object.entries(byPat).sort((a, b) => pct(a[1].ok, a[1].n) - pct(b[1].ok, b[1].n));
+  return `
+    <section class="panel"><span class="eyebrow">Sınav gibi okuma</span>
+      <h2 style="margin:4px 0 8px">Metin + sorular</h2>
+      <p class="muted" style="margin:0;max-width:66ch">Sınavda (Programma I, Lezen) 110 dakikada yaklaşık 6 metin ve 36 çoktan seçmeli soru var: metinler kâğıtta, sorular bilgisayarda. Burada da metin solda, sorular sağda; bütün soruları görür, istediğin kadar değiştirir, sonunda "Bitir"e basarsın. Metinler sınav tarzında yazılmış alıştırma metinleridir; kişi, kurum ve yer adları uydurmadır.</p></section>
+    <section class="panel"><div class="sectionhead"><h3>Metinler</h3><span class="muted">metin başına ~${S.data.teksten[0]?.minuten || 18} dakika</span></div>
+      ${S.data.teksten.map(t => { const b = bestOf(t.id);
+        return `<a class="textcard" href="?t=${encodeURIComponent(t.id)}"><span class="nr">${t.nr}</span>
+          <span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${esc(t.soort)} · ${esc(t.onderwerp)} · ${t.woorden} kelime · ${t.vragen.length} soru</span></span>
+          ${b ? `<span class="chip ${tone(b.best)} num" title="${b.n} deneme, son: ${fmtDate(b.last)}">en iyi %${b.best}</span>` : `<span class="chip">yeni</span>`}</a>`; }).join("")}</section>
+    <section class="panel toetscard" style="border:2px dashed var(--line)"><span class="eyebrow">Deneme sınavı</span>
+      <h3 style="margin:4px 0 6px" lang="nl">Proefexamen Lezen I</h3>
+      <p class="muted" style="margin:0 0 12px">${S.data.teksten.length} metin, ${S.data.teksten.reduce((n, t) => n + t.vragen.length, 0)} soru, ${EXAM_MIN} dakika. Süre bitince sınav kendiliğinden biter.</p>
+      <div class="row">${exam ? `<span class="chip ${tone(exam.best)} num">en iyi %${exam.best} · ${exam.n} deneme</span>` : ""}<a class="btn primary" style="margin-left:auto;text-decoration:none" href="?examen=1">Deneme sınavına başla</a></div></section>
+    ${pats.length ? `<section class="panel"><div class="sectionhead"><h3>Soru tiplerine göre</h3><span class="muted">en zayıf olan üstte</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px">${pats.map(([p, v]) => { const q = pct(v.ok, v.n); return `<div class="catrow" style="grid-template-columns:minmax(0,1fr) 120px 5em"><span lang="nl" style="font-size:13.5px">${esc(patternName(+p))}</span><div class="bar"><i style="width:${q}%;background:var(--${tone(q)})"></i></div><span class="num r">%${q} <span class="muted">(${v.n})</span></span></div>`; }).join("")}</div>
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Bu kalıpların ipuçları için Lezen sayfasındaki <a href="./">Soru kalıpları</a> sekmesine bak.</p></section>` : ""}`;
+}
+
+// ---------- Run (one text or the whole exam) ----------
+// S.run = { test, texts:[id], cur, order:{qid:[option idx]}, ans:{qid:idx}, started, limit (s), done, saved }
+function startRun(test, ids, limitMin) {
+  const order = {};
+  ids.forEach(id => byId[id].vragen.forEach(q => order[id + ":" + q.id] = shuffle([0, 1, 2])));
+  S.run = { test, texts: ids, cur: 0, order, ans: {}, started: Date.now(), limit: limitMin ? limitMin * 60 : 0, timerOn: !!limitMin && test === "proefexamen", done: false, saved: false };
+  tick();
+}
+function left() { const r = S.run; return r.limit - Math.floor((Date.now() - r.started) / 1000); }
+function tick() {
+  clearInterval(S.timer);
+  S.timer = setInterval(() => {
+    const r = S.run; if (!r || r.done || !r.timerOn) return;
+    const el = document.getElementById("timer"), s = left();
+    if (el) { el.textContent = mmss(s); el.classList.toggle("low", s <= 300); }
+    if (s <= 0 && r.test === "proefexamen") finish(true);   // exam: time is up
+  }, 1000);
+}
+function vRun() {
+  const r = S.run, t = byId[r.texts[r.cur]], exam = r.test === "proefexamen";
+  const all = r.texts.flatMap(id => byId[id].vragen.map(q => id + ":" + q.id));
+  const answered = all.filter(k => k in r.ans).length;
+  const marks = r.done ? t.vragen.map(q => ({ id: t.id + "-" + q.id, text: q.bewijs })) : [];
+  let qnr = r.texts.slice(0, r.cur).reduce((n, id) => n + byId[id].vragen.length, 0);
+  const qhtml = t.vragen.map(q => {
+    const key = t.id + ":" + q.id, a = r.ans[key], ok = a === q.juist; qnr++;
+    return `<div class="qblock ${r.done ? (ok ? "ok" : "no") : ""}" id="q-${key}">
+      <span class="qn">${qnr}</span><div class="q" lang="nl">${esc(q.vraag)}</div>
+      <div class="opts">${r.order[key].map((oi, k) => {
+        const cls = r.done ? (oi === q.juist ? "right" : oi === a ? "wrongpick" : "") : (a === oi ? "sel" : "");
+        return `<button class="opt ${cls}" data-act="ans" data-k="${key}" data-o="${oi}" ${r.done ? "disabled" : ""}><span class="mark">${"ABC"[k]}</span><span lang="nl">${esc(q.opties[oi])}</span></button>`; }).join("")}</div>
+      ${r.done ? `<div class="why"><b>${ok ? "Doğru." : a === undefined ? "Boş bıraktın." : "Yanlış."}</b> ${esc(q.uitleg)}
+        <span class="ex"><a href="#m-${t.id}-${q.id}" data-act="show" data-m="m-${t.id}-${q.id}">Metinde göster</a></span>
+        <span class="ex muted" style="font-size:13.5px">Soru kalıbı: <i lang="nl">${esc(patternName(q.patroon))}</i> · İpucu: ${esc(patternTip(q.patroon))}</span></div>` : ""}</div>`;
+  }).join("");
+  const res = r.done ? (() => { const ok = all.filter(k => r.ans[k] === byId[k.split(":")[0]].vragen.find(q => q.id === k.split(":")[1]).juist).length, p = pct(ok, all.length);
+    return `<section class="panel"><div class="row" style="gap:18px;align-items:flex-end"><div class="bigscore num" style="font-size:44px;font-weight:700;color:var(--${tone(p)})">%${p}</div>
+      <div class="muted num">${ok} / ${all.length} doğru · ${mmss(r.used)} dakika${r.timeout ? " · süre doldu" : ""} · ${r.saved ? "kaydedildi" : "kaydediliyor…"}</div>
+      <div style="margin-left:auto" class="row"><a class="btn" href="./teksten.html" style="text-decoration:none">Metinlere dön</a><button class="btn primary" data-act="again">Tekrar çöz</button></div></div>
+      <p class="muted" style="margin:10px 0 0;font-size:14px">Her sorunun altında açıklama var; "Metinde göster" cevabın geçtiği cümleyi metinde sarıyla gösterir.</p></section>`; })() : "";
+  return `
+    <div class="timerbar">
+      ${exam ? `<div class="examtabs">${r.texts.map((id, i) => { const n = byId[id].vragen.filter(q => (id + ":" + q.id) in r.ans).length;
+        return `<button class="${i === r.cur ? "on" : ""}" data-act="text" data-i="${i}">Tekst ${i + 1} <span class="cnt">${n}/${byId[id].vragen.length}</span></button>`; }).join("")}</div>` : `<a href="./teksten.html">← Metinler</a>`}
+      <span style="margin-left:auto" class="row">
+        ${r.done ? "" : r.timerOn ? `<span class="timer num" id="timer">${mmss(left())}</span>` : `<button class="btn ghost" data-act="timer">⏱ ${t.minuten} dk süre tut</button>`}
+        ${r.done ? "" : `<span class="muted num" style="font-size:13px">${answered}/${all.length}</span><button class="btn primary" data-act="finish">Bitir</button>`}</span>
+    </div>
+    <div id="finishmsg"></div>
+    ${res}
+    <div class="reader">
+      <div class="textcol">${renderText(t, marks)}</div>
+      <div>${qhtml}
+        ${exam && r.cur < r.texts.length - 1 ? `<button class="btn" data-act="text" data-i="${r.cur + 1}">Sonraki metin →</button>` : ""}</div>
+    </div>`;
+}
+async function finish(timeout = false) {
+  const r = S.run; if (r.done) return;
+  r.done = true; r.timeout = timeout; r.used = Math.floor((Date.now() - r.started) / 1000); clearInterval(S.timer);
+  render(); scrollTo(0, 0);
+  const answers = r.texts.flatMap(id => byId[id].vragen.map(q => { const k = id + ":" + q.id; return { qid: k, chosen: k in r.ans ? String(r.ans[k]) : "", correct: r.ans[k] === q.juist, patroon: q.patroon }; }));
+  const attempt = { kind: r.test === "proefexamen" ? "examen" : "tekst", test: r.test, title: r.test === "proefexamen" ? "Proefexamen Lezen I" : byId[r.test].titel,
+    started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: r.used, timed: r.timerOn,
+    score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
+  try { await saveAttempt(user.uid, "lezen-teksten", attempt); S.attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
+  render();
+}
+
+// ---------- Render & events ----------
+function render() {
+  const p = params();
+  if (S.run) { app.innerHTML = vRun(); return; }
+  if (p.get("examen")) { startRun("proefexamen", S.data.teksten.map(t => t.id), EXAM_MIN); app.innerHTML = vRun(); return; }
+  if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], 0); app.innerHTML = vRun(); return; }
+  app.innerHTML = vList();
+}
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const r = S.run;
+  switch (el.dataset.act) {
+    case "ans": r.ans[el.dataset.k] = +el.dataset.o; { const y = scrollY; render(); scrollTo(0, y); } break;
+    case "text": r.cur = +el.dataset.i; render(); scrollTo(0, 0); break;
+    case "timer": r.started = Date.now(); r.limit = byId[r.texts[0]].minuten * 60; r.timerOn = true; tick(); render(); break;
+    case "finish": {
+      const total = r.texts.reduce((n, id) => n + byId[id].vragen.length, 0), open = total - Object.keys(r.ans).length;
+      const box = document.getElementById("finishmsg");
+      if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} soru boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
+      finish(); break; }
+    case "again": { const test = r.test; S.run = null; if (test === "proefexamen") startRun(test, S.data.teksten.map(t => t.id), EXAM_MIN); else startRun(test, [test], 0); render(); scrollTo(0, 0); break; }
+    case "show": { e.preventDefault(); const m = document.getElementById(el.dataset.m); if (m) { m.scrollIntoView({ behavior: "smooth", block: "center" }); m.classList.add("flash"); setTimeout(() => m.classList.remove("flash"), 1500); } break; }
+  }
+});
+addEventListener("popstate", () => { S.run = null; render(); });
+render();
+</script>
+</body>
+</html>

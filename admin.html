@@ -54,7 +54,7 @@ const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { 
 const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
 let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null, sentNews = [], weeklyLog = [], logErr = "";
 // Statistics: attempts of every account, the catalog, and the news items
-let stats = {}, rawAtt = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] };
+let stats = {}, rawAtt = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] }, teksten = { teksten: [] };
 
 async function load() {
   try {
@@ -76,7 +76,7 @@ async function load() {
     sentNews = ls.docs.map(d => d.data()); lastNews = sentNews[0] || null;
   } catch (e) { schedErr = e.code || e.message; }
   try {
-    [cat, nieuws] = await Promise.all([fetch("data/catalog.json", { cache: "no-cache" }).then(r => r.json()), fetch("data/nieuws.json", { cache: "no-cache" }).then(r => r.json())]);
+    [cat, nieuws, teksten] = await Promise.all(["catalog", "nieuws", "lezen-teksten"].map(f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => r.json())));
     // One read of each account's attempts (fine for a small group)
     const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
     stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); rawAtt = Object.fromEntries(users.map((u, i) => [u.uid, all[i]])); statsErr = "";
@@ -114,6 +114,10 @@ function questionLabel(module, qid) {
     const [src, id] = qid.split(":"), it = nieuws.items.find(i => i.id === src), t = (nieuws.toetsen || []).find(x => x.id === src);
     const q = (it?.toets || t?.extra || []).find(x => x.id === id);
     return q ? `${it ? "#" + it.nr : t.titel} · ${q.vraag.replace(/<[^>]+>/g, "")}` : qid;
+  }
+  if (module === "lezen-teksten") {
+    const [tid, id] = qid.split(":"), t = teksten.teksten.find(x => x.id === tid), q = t?.vragen.find(x => x.id === id);
+    return q ? `Tekst ${t.nr} · ${q.vraag}` : qid;
   }
   if (module === "lezen") { const [type, ...rest] = qid.split(":"); return `${LEZEN_TYPES[type] || type}: ${rest.join(":")}`; }
   return qid;

@@ -29,6 +29,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `css/site.css` | Shared design for home, profile and admin |
 | `data/catalog.json` | List of exercises shown on the home page (add new ones here) |
 | `lezen/` + `data/lezen-bank.json` | NT2 Lezen I (B1) word practice |
+| `lezen/teksten.html` + `data/lezen-teksten.json` | Exam-style reading texts with questions and a 110-minute practice exam; source in `scripts/content/lezen/` (`build_teksten.py`) |
 | `kids/g5/eer-oor-eur.html` | Groep 5 spelling test |
 | `knm/` + `data/knm.json` | KNM question bank (moved from the KNM artifact) |
 | `nieuws/` + `data/nieuws.json` | Nieuws in niveaus (v1): numbered video items, text at A1-C1, idioms, words, quiz; a mixed test after every 3 items |
