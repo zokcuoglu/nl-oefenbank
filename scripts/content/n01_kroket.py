@@ -35,14 +35,14 @@ Op de productielijn maken machines kleine worstjes van de ragout. Ze krijgen een
 Robots doen de kroketten in doosjes. Dat gaat zó snel: <strong>voor je het weet</strong> is de doos vol!""",
     "gloss_a2": "de vulling = iç dolgu • de ketel = kazan • vloeibaar = sıvı, akışkan • de koelcel = soğuk hava odası • stevig = sıkı, katı • het paneermeel = galeta unu • voor je het weet = bir bakmışsın, göz açıp kapayıncaya kadar",
 
-    "b1": """In deze aflevering bezoekt de presentator de grootste krokettenfabriek ter wereld. Daar ontdekt hij stap voor stap hoe een kroket wordt gemaakt.
+    "b1": """In deze aflevering bezoekt de presentator de grootste krokettenfabriek ter wereld, omdat hij wil weten hoe een kroket eigenlijk wordt gemaakt.
 
-De vulling van een kroket heet ragout. Het begint in de kruidenkamer. Het recept is natuurlijk geheim: de fabriek <strong>doet</strong> het niet <strong>uit de doeken</strong>. De kruiden worden in een enorme ketel met kokend water gemengd. Zo <strong>ontstaat</strong> bouillon. Daarnaast maken ze een papje van vet en bloem, de roux. In een grote <strong>trechter</strong> worden de roux, de bouillon en het vlees goed gemengd. Dan heb je ragout.
+De vulling van een kroket heet ragout. Alles begint in de kruidenkamer, maar welke kruiden er precies in gaan, blijft geheim: de fabriek <strong>doet</strong> het recept niet <strong>uit de doeken</strong>. Nadat de kruiden in een enorme ketel met kokend water zijn gemengd, <strong>ontstaat</strong> er bouillon. Daarnaast maken ze een papje van vet en bloem, dat roux heet. In een grote <strong>trechter</strong> worden de roux, de bouillon en het vlees gemengd tot ragout.
 
-De warme ragout is nog te vloeibaar. Daarom wordt hij een dag gekoeld, zodat hij stevig wordt. Daarna wordt hij in kleine worstjes <strong>geperst</strong>. Die krijgen twee keer een laagje eiwit en paneermeel. Dat maakt ze extra knapperig.
+Omdat de warme ragout nog te vloeibaar is, wordt hij eerst een dag gekoeld. Daarna is hij stevig genoeg om in kleine worstjes te worden <strong>geperst</strong>. Die krijgen twee keer een laagje eiwit en paneermeel, zodat ze extra knapperig worden.
 
-Ten slotte gaan de kroketten de vriezer in. Grijpers stoppen ze <strong>razendsnel</strong> in doosjes. Elke week worden de kroketten getest in de <strong>proefkeuken</strong>. Het oordeel van de presentator? 'Keilekker!'""",
-    "gloss_b1": "stap voor stap = adım adım • iets uit de doeken doen = bir şeyi ayrıntısıyla anlatmak, sırrını açmak • ontstaan = oluşmak • de trechter = huni • persen = preslemek, sıkıştırmak • razendsnel = şimşek gibi hızlı • de proefkeuken = deneme mutfağı • het oordeel = görüş, karar",
+Ten slotte gaan de kroketten de vriezer in, en daarna stoppen grijpers ze <strong>razendsnel</strong> in doosjes. Toch is er nog werk voor mensen: elke week worden de kroketten getest in de <strong>proefkeuken</strong>, zodat de smaak goed blijft. En het oordeel van de presentator? 'Keilekker!'""",
+    "gloss_b1": "iets uit de doeken doen = bir şeyi ayrıntısıyla anlatmak, sırrını açmak • nadat = -dıktan sonra • ontstaan = oluşmak • de trechter = huni • persen = preslemek, sıkıştırmak • zodat = böylece, -sın diye • razendsnel = şimşek gibi hızlı • de proefkeuken = deneme mutfağı • het oordeel = görüş, karar",
 
     "b2": """Wie wel eens <strong>uit de muur</strong> heeft gegeten, weet dat de kroket in Nederland een begrip is: goedkoop, overal te koop – kortom, een <strong>laagdrempelige</strong> snack. Maar hoe wordt zo'n kroket eigenlijk op grote schaal geproduceerd? Een kijkje in de grootste krokettenfabriek ter wereld geeft antwoord.
 
@@ -81,6 +81,9 @@ Opvallend genoeg blijft de laatste controle mensenwerk: in de proefkeuken wordt 
         {"nl": "het geheim van de smid", "niveau": "B2", "tr": "ustanın sırrı, işin püf noktası",
          "uitleg": "Birinin bir şeyi nasıl bu kadar iyi yaptığını söylememesi; 'bu benim sırrım' demek.",
          "voorbeeld": "Hoe ze zo snel leert? Dat is het geheim van de smid.", "voorbeeld_tr": "Nasıl bu kadar hızlı öğreniyor? Orası onun sırrı."},
+        {"nl": "van de band rollen", "niveau": "C1", "tr": "üretim bandından çıkmak, seri üretilmek",
+         "uitleg": "Fabrikada bantta seri halinde üretilmek. Bazen mecazi olarak: 'birbirinin aynı, seri üretim gibi'.",
+         "voorbeeld": "Elke minuut rollen er honderden kroketten van de band.", "voorbeeld_tr": "Her dakika banttan yüzlerce kroket çıkıyor."},
         {"nl": "zich niet in de kaart laten kijken", "niveau": "C1", "tr": "kozlarını göstermemek, planını belli etmemek",
          "uitleg": "İskambil oyunundan gelir: elindeki kartları kimseye göstermemek.",
          "voorbeeld": "De directeur laat zich niet in de kaart kijken over de nieuwe plannen.", "voorbeeld_tr": "Müdür yeni planlar hakkında hiçbir şey belli etmiyor."},
@@ -95,8 +98,10 @@ Opvallend genoeg blijft de laatste controle mensenwerk: in de proefkeuken wordt 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau
     "woordenschat": """de kroket | zn | gefrituurde snack met ragout en een korst van paneermeel | Ik neem een broodje kroket. | kroket | A1
 de fabriek | zn | groot gebouw waar producten met machines worden gemaakt | Mijn oom werkt in een fabriek. | fabrika | A1
+geheim | bn | wat niemand mag weten | Het recept is geheim. | gizli | A1
 knapperig | bn | lekker krokant, het kraakt als je bijt | Vers brood heeft een knapperige korst. | çıtır | A1
 de vulling | zn | wat binnenin iets zit | De vulling van de kroket is warm. | iç dolgu | A2
+de ragout | zn | dikke, warme vulling van vlees en saus | In een kroket zit ragout. | ragu (kroketin içi) | A2
 de ketel | zn | grote pan of bak om iets in te koken | Het water kookt in de ketel. | kazan | A2
 de bouillon | zn | dunne soep van water met kruiden of vlees | Ik maak soep van bouillon. | et/sebze suyu | A2
 vloeibaar | bn | zo zacht dat het stroomt, zoals water | Warme honing is vloeibaar. | sıvı, akışkan | A2
@@ -106,9 +111,11 @@ de trechter | zn | wijde bak die onderaan smal wordt | Giet de olie via een trec
 persen | ww | hard ergens op drukken om het een vorm te geven | De machine perst de ragout in staafjes. | preslemek | B1
 het paneermeel | zn | fijn gemalen droog brood | Rol de schnitzel door het paneermeel. | galeta unu | B1
 de proefkeuken | zn | keuken waar recepten getest worden | In de proefkeuken proeven ze elke week. | deneme mutfağı | B1
+razendsnel | bn | heel erg snel | De robot pakt de kroketten razendsnel in. | şimşek hızıyla | B1
 het etmaal | zn | 24 uur | De ragout koelt een etmaal af. | 24 saat, bir gün bir gece | B2
 kenmerkend | bn | typisch voor iets | Die geur is kenmerkend voor een bakkerij. | karakteristik | B2
 op grote schaal | uitdr | in grote hoeveelheden | Kroketten worden op grote schaal gemaakt. | büyük ölçekte | B2
+angstvallig | bw | heel voorzichtig, uit angst dat er iets misgaat | Hij houdt het recept angstvallig geheim. | titizlikle, kaygıyla | B2
 vertrouwelijk | bn | geheim, niet voor iedereen bestemd | Dit recept is vertrouwelijk. | gizli | C1
 hanteren | ww | met iets werken, iets vasthouden of gebruiken | Die massa is te heet om te hanteren. | ele almak, işlemek | C1
 het erfgoed | zn | wat van vroeger is overgebleven en bewaard wordt | Molens zijn Nederlands erfgoed. | miras | C1""",
@@ -125,7 +132,12 @@ Na deze woorden komt meteen het werkwoord (inversie).
 • Eerst maken ze bouillon.
 • Daarna wordt de ragout gekoeld.
 • Vervolgens krijgen de kroketten een laagje eiwit.
-• Ten slotte gaan ze de vriezer in.""",
+• Ten slotte gaan ze de vriezer in.
+3) Bijzinnen met omdat – nadat – zodat: het werkwoord gaat naar het einde
+• De ragout moet afkoelen, omdat hij te vloeibaar is.
+• Nadat de kruiden zijn gemengd, ontstaat er bouillon.
+• Ze krijgen twee lagen paneermeel, zodat ze extra knapperig worden.
+Begint de zin met de bijzin? Dan komt in de hoofdzin het werkwoord meteen daarna: 'Nadat …, ontstaat er bouillon.'""",
 
     # type: mc (meerkeuze), tf (waar/niet waar), gap (invullen); cat: begrip, woorden, uitdrukkingen, grammatica
     "toets": [
@@ -134,9 +146,6 @@ Na deze woorden komt meteen het werkwoord (inversie).
         {"id": "k2", "type": "mc", "niveau": "A2", "cat": "begrip", "vraag": "Waarom moet de ragout een dag in de koelcel?",
          "opties": ["Om stevig te worden", "Om lekkerder te ruiken", "Om de kruiden te mengen"], "juist": 0,
          "uitleg": "De warme ragout is te vloeibaar. Door af te koelen wordt hij stevig en kun je er kroketten van maken."},
-        {"id": "k3", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Wat is roux?",
-         "opties": ["Een papje van vet en bloem", "Een soort dunne soep", "De korst van de kroket"], "juist": 0,
-         "uitleg": "Bouillon is de dunne soep; roux is vet gemengd met bloem."},
         {"id": "k4", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Waarom krijgen de kroketten twee keer eiwit en paneermeel?",
          "opties": ["Zodat ze extra knapperig worden", "Zodat ze sneller bevriezen", "Zodat ze minder zout zijn"], "juist": 0,
          "uitleg": "Het eiwit laat het paneermeel plakken; een tweede laag maakt de korst nog knapperiger."},
@@ -171,7 +180,11 @@ Na deze woorden komt meteen het werkwoord (inversie).
         {"id": "k17", "type": "mc", "niveau": "B1", "cat": "grammatica", "vraag": "Welke zin is goed?",
          "opties": ["Daarna wordt de ragout gekoeld.", "Daarna de ragout wordt gekoeld.", "Daarna de ragout gekoeld wordt."], "juist": 0,
          "uitleg": "Na 'daarna' komt het werkwoord direct: daarna + wordt + onderwerp."},
-        {"id": "k18", "type": "mc", "niveau": "A2", "cat": "uitdrukkingen", "vraag": "Wat betekent 'keilekker'?",
-         "opties": ["heel erg lekker", "een beetje lekker", "niet lekker"], "juist": 0, "uitleg": "'Kei-' maakt een woord sterker in spreektaal."},
+        {"id": "k19", "type": "mc", "niveau": "B1", "cat": "grammatica", "vraag": "Welke zin is goed?",
+         "opties": ["De ragout moet afkoelen, omdat hij te vloeibaar is.", "De ragout moet afkoelen, omdat hij is te vloeibaar.", "De ragout moet afkoelen, omdat is hij te vloeibaar."], "juist": 0,
+         "uitleg": "Na 'omdat' komt een bijzin: het werkwoord (is) staat aan het einde."},
+        {"id": "k20", "type": "gap", "niveau": "B1", "cat": "grammatica", "vraag": "Nadat de kruiden zijn gemengd, ___ er bouillon.",
+         "opties": ["ontstaat", "er ontstaat", "ontstaan is"], "juist": 0,
+         "uitleg": "De zin begint met een bijzin; daarna komt in de hoofdzin meteen het werkwoord: '…, ontstaat er bouillon.'"},
     ],
 }

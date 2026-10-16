@@ -1,4 +1,6 @@
-"""Mixed test after every three news items."""
+"""Mixed test after every three news items.
+Each test has 20 questions with a fixed spread (see build_nieuws.py): its own mixed questions below,
+questions from its three items and, from test 2 on, review questions from earlier items."""
 
 TOETSEN = [
     {
@@ -6,7 +8,6 @@ TOETSEN = [
         "nr": 1,
         "titel": "Toets 1 · Nieuws 1–3",
         "items": ["kroket", "wolken", "gluten"],
-        "per_item": 4,  # random questions taken from each item's own quiz
         "extra": [
             {"id": "m1", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "In welke video krijgt iets twee lagen om het knapperig te maken?",
              "opties": ["De kroket: eiwit en paneermeel", "De wolken: water en ijs", "De gluten: kneden en wassen"], "juist": 0,
@@ -29,6 +30,32 @@ TOETSEN = [
             {"id": "m7", "type": "gap", "niveau": "B1", "cat": "woorden", "vraag": "Een taalcafé zonder inschrijving is heel ___.",
              "opties": ["laagdrempelig", "verzadigd", "vertrouwelijk"], "juist": 0,
              "uitleg": "Laagdrempelig = iedereen kan er makkelijk naartoe."},
+        ],
+    },
+    {
+        "id": "toets-2",
+        "nr": 2,
+        "titel": "Toets 2 · Nieuws 4–6",
+        "items": ["albertheijn", "wolf", "pieterburen"],
+        "extra": [
+            {"id": "t2m1", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Welke twee berichten komen uit hetzelfde NOS Journaal in Makkelijke Taal?",
+             "opties": ["Albert Heijn en het zeehondencentrum", "Albert Heijn en de wolf", "De wolf en het zeehondencentrum"], "juist": 0,
+             "uitleg": "Beide berichten komen uit het NOS Journaal in Makkelijke Taal van 13 oktober. De wolf komt uit 'Vragen van kinderen'."},
+            {"id": "t2m2", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "In welk bericht wordt iets uitgezet om erger te voorkomen?",
+             "opties": ["Albert Heijn: computersystemen gaan uit, zodat klantgegevens niet gestolen worden", "Het zeehondencentrum: de verwarming gaat uit om geld te besparen", "De wolf: wandelaars zetten hun telefoon uit"], "juist": 0,
+             "uitleg": "Albert Heijn zette uit voorzorg systemen uit. De andere twee staan niet in de berichten."},
+            {"id": "t2m3", "type": "gap", "niveau": "B1", "cat": "uitdrukkingen", "vraag": "Of het zeehondencentrum open blijft? Dat is nog ___ kijken.",
+             "opties": ["koffiedik", "hazenpad", "zijden draad"], "juist": 0,
+             "uitleg": "Het is koffiedik kijken = niemand weet het (uit nieuws 4)."},
+            {"id": "t2m4", "type": "mc", "niveau": "B2", "cat": "uitdrukkingen", "vraag": "Welke uitdrukking heeft NIETS met geldproblemen te maken?",
+             "opties": ["het hazenpad kiezen", "de eindjes aan elkaar knopen", "het water staat iemand tot aan de lippen"], "juist": 0,
+             "uitleg": "Het hazenpad kiezen = snel wegrennen (nieuws 5). De andere twee gaan over geldzorgen (nieuws 6)."},
+            {"id": "t2m5", "type": "gap", "niveau": "B1", "cat": "grammatica", "vraag": "Er waren minder bezoekers dan gehoopt. ___ is er nu een grote schuld.",
+             "opties": ["Daardoor", "Doordat", "Omdat"], "juist": 0,
+             "uitleg": "Een nieuwe hoofdzin met het gevolg begint met 'daardoor' (werkwoord meteen erna). Doordat/omdat beginnen een bijzin."},
+            {"id": "t2m6", "type": "mc", "niveau": "B1", "cat": "woorden", "vraag": "Welk woord hoort NIET bij de andere twee?",
+             "opties": ["de roedel", "de schuld", "de donateur"], "juist": 0,
+             "uitleg": "Schuld en donateur gaan over geld (nieuws 6); een roedel is een groep wolven (nieuws 5)."},
         ],
     }
 ]

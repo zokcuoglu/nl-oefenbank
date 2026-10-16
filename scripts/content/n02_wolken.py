@@ -68,12 +68,15 @@ Vliegtuigpassagiers ervaren dit verschil <strong>aan den lijve</strong>: na een 
         {"nl": "het regent pijpenstelen", "niveau": "B1", "tr": "bardaktan boşanırcasına yağıyor",
          "uitleg": "Çok şiddetli yağmur. Kelimesi kelimesine: 'pipo sapları yağıyor'.",
          "voorbeeld": "Neem een paraplu mee, het regent pijpenstelen!", "voorbeeld_tr": "Şemsiye al, bardaktan boşanırcasına yağıyor!"},
-        {"nl": "met het blote oog", "niveau": "B2", "tr": "çıplak gözle",
+        {"nl": "met het blote oog", "niveau": "B1", "tr": "çıplak gözle",
          "uitleg": "Gözlük, dürbün ya da mikroskop olmadan.",
          "voorbeeld": "Bacteriën kun je niet met het blote oog zien.", "voorbeeld_tr": "Bakterileri çıplak gözle göremezsin."},
         {"nl": "zonneklaar", "niveau": "B2", "tr": "apaçık, gün gibi ortada",
          "uitleg": "'Güneş gibi açık'. Bir şeyin hiç şüphe bırakmayacak kadar net olması.",
          "voorbeeld": "Het is zonneklaar dat hij gelijk heeft.", "voorbeeld_tr": "Haklı olduğu gün gibi ortada."},
+        {"nl": "iets biedt uitkomst", "niveau": "B2", "tr": "bir şey çözüm getirir, imdada yetişir",
+         "uitleg": "Bir soruna çare olmak. Biraz resmî; haberlerde ve yazı dilinde sık geçer.",
+         "voorbeeld": "Bij lange wachttijden biedt een online afspraak uitkomst.", "voorbeeld_tr": "Uzun bekleme sürelerinde online randevu çözüm oluyor."},
         {"nl": "er is geen wolkje aan de lucht", "niveau": "B2", "tr": "her şey yolunda, hiçbir sorun yok",
          "uitleg": "Kelimesi kelimesine 'gökte tek bulut yok'; mecazi anlamda sorun, kavga ya da endişe olmaması.",
          "voorbeeld": "Na de ruzie was er weer geen wolkje aan de lucht.", "voorbeeld_tr": "Kavgadan sonra yine her şey yolundaydı."},
@@ -92,6 +95,7 @@ Vliegtuigpassagiers ervaren dit verschil <strong>aan den lijve</strong>: na een 
 de druppel | zn | heel klein beetje water in een rond vormpje | Er valt een druppel op mijn hand. | damla | A1
 het weer | zn | hoe het buiten is: zon, regen, wind, temperatuur | Hoe is het weer morgen? | hava durumu | A1
 onzichtbaar | bn | je kunt het niet zien | Lucht is onzichtbaar. | görünmez | A2
+de meteoroloog | zn | iemand die het weer bestudeert en voorspelt | De meteoroloog verwacht morgen regen. | meteorolog | A2
 de waterdamp | zn | water als gas in de lucht | In de badkamer zit veel waterdamp. | su buharı | A2
 afkoelen | ww | kouder worden | Laat de thee even afkoelen. | soğumak | A2
 het proefje | zn | klein experiment | We doen een proefje met ijs. | küçük deney | A2
@@ -124,12 +128,6 @@ In het gesprek hoor je veel kleine woordjes. Ze veranderen de betekenis niet, ma
     "toets": [
         {"id": "w1", "type": "tf", "niveau": "A1", "cat": "begrip", "vraag": "Wolken bestaan uit kleine waterdruppels.",
          "opties": ["Waar", "Niet waar"], "juist": 0, "uitleg": "Klopt: veel kleine druppels samen vormen een wolk."},
-        {"id": "w2", "type": "mc", "niveau": "A2", "cat": "begrip", "vraag": "Waar gaat de presentator naartoe?",
-         "opties": ["Naar het KNMI", "Naar een bakker", "Naar een vliegveld"], "juist": 0,
-         "uitleg": "Het KNMI is het Koninklijk Nederlands Meteorologisch Instituut: daar weten ze alles over het weer."},
-        {"id": "w3", "type": "mc", "niveau": "A2", "cat": "begrip", "vraag": "Wat is waterdamp?",
-         "opties": ["Kleine, onzichtbare waterdeeltjes in de lucht", "IJs in de wolken", "Regen die valt"], "juist": 0,
-         "uitleg": "Waterdamp = water als gas. Je kunt het niet zien."},
         {"id": "w4", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Wanneer ontstaan er druppels?",
          "opties": ["Als de waterdamp koudere lucht raakt", "Als de zon heel warm schijnt", "Als het hard waait"], "juist": 0,
          "uitleg": "Door de kou klonteren de deeltjes samen: dat heet condensatie."},
@@ -164,5 +162,11 @@ In het gesprek hoor je veel kleine woordjes. Ze veranderen de betekenis niet, ma
          "uitleg": "In de bijzin met 'als' staat het werkwoord aan het einde (afkoelt); daarna volgt meteen het werkwoord van de hoofdzin (ontstaan)."},
         {"id": "w18", "type": "gap", "niveau": "B2", "cat": "grammatica", "vraag": "Hoe dikker de wolk, ___ grijzer de onderkant.",
          "opties": ["hoe", "dan", "als"], "juist": 0, "uitleg": "Vaste combinatie: hoe …, hoe …"},
+        {"id": "w19", "type": "gap", "niveau": "B1", "cat": "grammatica", "vraag": "Als de waterdamp koudere lucht raakt, ___ er druppels.",
+         "opties": ["ontstaan", "er ontstaan", "ontstaat"], "juist": 0,
+         "uitleg": "De zin begint met een als-bijzin, dus het werkwoord komt meteen daarna. Meervoud (druppels) → ontstaan."},
+        {"id": "w20", "type": "mc", "niveau": "A2", "cat": "grammatica", "vraag": "'Je ziet een waas eromheen, hè?' Wat betekent 'hè' aan het einde?",
+         "opties": ["toch?", "nee!", "misschien"], "juist": 0,
+         "uitleg": "Met 'hè?' aan het einde vraag je of de ander het met je eens is, net als 'toch?'."},
     ],
 }

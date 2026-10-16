@@ -234,7 +234,11 @@ def news_html(item, date_str):
         sep = "&" if "?" in item["video_url"] else "?"
         vurl = item["video_url"] + (f"{sep}t={item['video_start']}s" if item.get("video_start") else "")
         thumb = f'<a href="{esc(vurl)}"><img src="{esc(item.get("afbeelding_url", ""))}" alt="video" style="width:100%;border-radius:8px;display:block"></a>' if item.get("afbeelding_url") else ""
-        video = thumb + button(vurl, f"▶ Videoyu izle ({item.get('bron') or 'YouTube'})")
+        part = ""
+        if item.get("video_end"):
+            mm = lambda x: f"{x // 60}:{x % 60:02d}"
+            part = f'<p style="color:{C["muted"]};font-size:14px;margin:0 0 8px">Bu haber videonun {mm(item.get("video_start", 0))}–{mm(item["video_end"])} arasındaki kısmı.</p>'
+        video = thumb + button(vurl, f"▶ Videoyu izle ({item.get('bron') or 'YouTube'})") + part
 
     def levelbox(l):
         paras = "".join(f'<p style="margin:0 0 10px;line-height:1.65">{rich(p).replace(chr(10), "<br>")}</p>' for p in re.split(r"\n\s*\n", item.get(l) or "") if p.strip())

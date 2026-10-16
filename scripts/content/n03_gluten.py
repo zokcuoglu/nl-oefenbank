@@ -70,9 +70,9 @@ De bakker <strong>zet de kroon op</strong> de demonstratie door deze massa als e
         {"nl": "gebakken lucht", "niveau": "B1", "tr": "boş laf, içi boş vaat",
          "uitleg": "Kelimesi kelimesine 'pişmiş hava'. Kulağa hoş gelen ama içinde hiçbir şey olmayan sözler. Videoda şaka olarak gerçek anlamıyla kullanılıyor.",
          "voorbeeld": "Zijn verkiezingsbeloftes waren gebakken lucht.", "voorbeeld_tr": "Seçim vaatleri boş laftı."},
-        {"nl": "als warme broodjes over de toonbank gaan", "niveau": "B1", "tr": "kapış kapış satılmak",
-         "uitleg": "Sıcak ekmek gibi hızlı satılmak; çok popüler bir ürün için.",
-         "voorbeeld": "De nieuwe telefoons gingen als warme broodjes over de toonbank.", "voorbeeld_tr": "Yeni telefonlar kapış kapış satıldı."},
+        {"nl": "met het blote oog", "niveau": "B1", "tr": "çıplak gözle",
+         "uitleg": "Mikroskop, dürbün ya da gözlük olmadan, sadece kendi gözünle. Bkz. haber #2.",
+         "voorbeeld": "Bacteriën kun je niet met het blote oog zien.", "voorbeeld_tr": "Bakterileri çıplak gözle göremezsin."},
         {"nl": "het kwartje valt", "niveau": "B2", "tr": "jeton düşüyor, birden anlamak",
          "uitleg": "'Kwartje' eski bir bozuk paraydı; otomata atılan para düşünce makine çalışırdı. Birinin sonunda bir şeyi anlaması.",
          "voorbeeld": "Na drie keer uitleggen viel eindelijk het kwartje.", "voorbeeld_tr": "Üç kez anlattıktan sonra sonunda jeton düştü."},
@@ -85,15 +85,19 @@ De bakker <strong>zet de kroon op</strong> de demonstratie door deze massa als e
         {"nl": "stof doen opwaaien", "niveau": "C1", "tr": "ortalığı karıştırmak, çok tartışma yaratmak",
          "uitleg": "Kelimesi kelimesine 'toz kaldırmak'. Bir haberin ya da kararın çok tepki çekmesi.",
          "voorbeeld": "Het nieuwe plan van de gemeente deed veel stof opwaaien.", "voorbeeld_tr": "Belediyenin yeni planı ortalığı epey karıştırdı."},
-        {"nl": "zoete broodjes bakken", "niveau": "C1", "tr": "yaranmaya çalışmak, alttan almak",
-         "uitleg": "Bir hatadan sonra ya da bir şey istediğinde birine karşı çok tatlı davranmak.",
-         "voorbeeld": "Na zijn fout moest hij zoete broodjes bakken bij zijn baas.", "voorbeeld_tr": "Hatasından sonra patronuna yaranmaya çalışmak zorunda kaldı."},
+        {"nl": "de kroon op iets zetten", "niveau": "C1", "tr": "bir şeyi taçlandırmak, en güzel son noktayı koymak",
+         "uitleg": "Zaten iyi giden bir şeye en etkileyici kısmı eklemek. Bazen ironik: 'olumsuz bir şeyin üstüne bir de bu'.",
+         "voorbeeld": "Met een doelpunt in de laatste minuut zette hij de kroon op zijn werk.", "voorbeeld_tr": "Son dakika golüyle emeğini taçlandırdı."},
+        {"nl": "holle frasen", "niveau": "C1", "tr": "içi boş laflar",
+         "uitleg": "Kulağa güzel gelen ama hiçbir şey söylemeyen cümleler. 'Gebakken lucht'ın daha resmî/yazı dilindeki karşılığı.",
+         "voorbeeld": "De toespraak zat vol holle frasen.", "voorbeeld_tr": "Konuşma içi boş laflarla doluydu."},
         {"nl": "zich lelijk vergissen", "niveau": "C1", "tr": "fena halde yanılmak",
          "uitleg": "'Lelijk' burada 'çirkin' değil, 'çok, fena' anlamında.",
          "voorbeeld": "Als je denkt dat dit makkelijk is, vergis je je lelijk.", "voorbeeld_tr": "Bunun kolay olduğunu sanıyorsan fena yanılıyorsun."},
     ],
 
     "woordenschat": """het brood | zn | gebakken voedsel van meel, water en gist | Ik eet brood met kaas. | ekmek | A1
+de gluten | zn (mv) | eiwitten uit graan die deeg taai en rekbaar maken | In brood zitten gluten. | glüten | A1
 het deeg | zn | mengsel van meel en water voordat het gebakken is | Het deeg moet even rusten. | hamur | A1
 luchtig | bn | met veel lucht erin, licht | Deze cake is heel luchtig. | kabarık, hafif | A1
 kneden | ww | deeg steeds met je handen drukken en vouwen | Kneed het deeg tien minuten. | yoğurmak | A2
@@ -106,6 +110,7 @@ het zetmeel | zn | stof in graan en aardappels die energie geeft | Aardappels be
 het kuiltje | zn | kleine holte, klein gat | Maak een kuiltje in de bloem. | küçük çukur | B1
 rijzen | ww | groter worden door gas (van deeg) | Laat het deeg een uur rijzen. | kabarmak | B2
 de wrijving | zn | het langs elkaar bewegen en drukken | Door wrijving worden je handen warm. | sürtünme | B2
+veelbesproken | bn | waar veel mensen over praten | Gluten zijn een veelbesproken onderwerp. | çok konuşulan | B2
 mijden | ww | proberen iets niet te doen of te gebruiken | Hij mijdt suiker. | kaçınmak | B2
 achter de schermen | uitdr | op de plek waar het publiek niet komt | We kijken achter de schermen van de bakkerij. | perde arkasında | B2
 ambachtelijk | bn | met de hand en op de traditionele manier gemaakt | Dit is ambachtelijk brood. | zanaatkâr usulü | C1
@@ -127,10 +132,6 @@ In het gesprek hoor je veel verkleinwoorden. Ze maken iets klein, maar ook vrien
     "toets": [
         {"id": "g1", "type": "tf", "niveau": "A1", "cat": "begrip", "vraag": "Gluten zitten in brood.",
          "opties": ["Waar", "Niet waar"], "juist": 0, "uitleg": "Klopt: gluten zitten in brood, pasta, koekjes, cake en pizza."},
-        {"id": "g2", "type": "mc", "niveau": "A2", "cat": "begrip", "vraag": "Hoeveel broden bakt de bakkerij ongeveer per dag?",
-         "opties": ["400", "40", "4000"], "juist": 0, "uitleg": "'Wij bakken hier elke dag zo'n 400 broden.'"},
-        {"id": "g3", "type": "mc", "niveau": "A2", "cat": "begrip", "vraag": "In welk graan zitten gluten volgens de bakker?",
-         "opties": ["Tarwe", "Rijst", "Mais"], "juist": 0, "uitleg": "De bakker noemt tarwe, rogge, spelt en gerst. Rijst en mais noemt hij niet."},
         {"id": "g4", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Wanneer worden de eiwitten echt gluten?",
          "opties": ["Als ze in aanraking komen met water", "Als ze in de oven gaan", "Als ze afkoelen"], "juist": 0,
          "uitleg": "Met water veranderen de eiwitten van vorm en kleven ze aan elkaar."},
@@ -157,8 +158,8 @@ In het gesprek hoor je veel verkleinwoorden. Ze maken iets klein, maar ook vrien
         {"id": "g13", "type": "mc", "niveau": "B1", "cat": "uitdrukkingen", "vraag": "'Zijn beloftes waren gebakken lucht.' Wat betekent dat?",
          "opties": ["Het waren lege woorden", "Het was heel lekker", "Hij had echt gebakken"], "juist": 0,
          "uitleg": "Gebakken lucht = mooie woorden zonder inhoud."},
-        {"id": "g14", "type": "gap", "niveau": "B1", "cat": "uitdrukkingen", "vraag": "De nieuwe telefoons gingen als warme ___ over de toonbank.",
-         "opties": ["broodjes", "kroketten", "ballonnen"], "juist": 0, "uitleg": "Als warme broodjes over de toonbank gaan = heel snel verkocht worden."},
+        {"id": "g21", "type": "gap", "niveau": "B1", "cat": "uitdrukkingen", "vraag": "Gluten zijn zo klein dat je ze niet met het blote ___ kunt zien.",
+         "opties": ["oog", "hand", "hoofd"], "juist": 0, "uitleg": "Met het blote oog = zonder microscoop of bril, alleen met je eigen ogen."},
         {"id": "g15", "type": "mc", "niveau": "B2", "cat": "uitdrukkingen", "vraag": "'Na drie keer uitleggen viel eindelijk het kwartje.' Wat gebeurde er?",
          "opties": ["Hij begreep het eindelijk", "Hij verloor geld", "Hij viel"], "juist": 0, "uitleg": "Het kwartje valt = iemand begrijpt het eindelijk."},
         {"id": "g16", "type": "gap", "niveau": "C1", "cat": "uitdrukkingen", "vraag": "Het nieuwe plan van de gemeente deed veel ___ opwaaien.",
@@ -167,5 +168,11 @@ In het gesprek hoor je veel verkleinwoorden. Ze maken iets klein, maar ook vrien
          "opties": ["het balletje", "het baltje", "het balje"], "juist": 0, "uitleg": "Korte klank + l → -etje: balletje."},
         {"id": "g18", "type": "gap", "niveau": "B1", "cat": "grammatica", "vraag": "Ze bakken elke dag ___ 400 broden. (= ongeveer)",
          "opties": ["zo'n", "zulke", "zoals"], "juist": 0, "uitleg": "Zo'n + getal = ongeveer."},
+        {"id": "g19", "type": "gap", "niveau": "B1", "cat": "grammatica", "vraag": "Echte gluten worden het pas ___ de eiwitten in aanraking komen met water.",
+         "opties": ["als", "dan", "toen"], "juist": 0,
+         "uitleg": "Pas als = alleen op dat moment, niet eerder. 'Als' begint een bijzin: het werkwoord (komen) staat achteraan."},
+        {"id": "g20", "type": "mc", "niveau": "A2", "cat": "grammatica", "vraag": "Wat is het verkleinwoord van 'de ballon'?",
+         "opties": ["het ballonnetje", "het ballontje", "het ballonetje"], "juist": 0,
+         "uitleg": "Korte klank + n aan het einde (ballon) → -netje: ballonnetje."},
     ],
 }

@@ -93,6 +93,9 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const lvlChip = l => `<span class="lvl-chip" style="color:var(--${l.toLowerCase()})">${esc(l.toUpperCase())}</span>`;
 const speak = (text, rate = 0.95) => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = "nl-NL"; u.rate = rate; speechSynthesis.speak(u); };
 const params = () => new URLSearchParams(location.search);
+// Part of a longer video: start/end in seconds (YouTube embed parameters)
+const mmss = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;
+const clipParams = it => { const q = [it.video_start && "start=" + it.video_start, it.video_end && "end=" + it.video_end].filter(Boolean); return q.length ? "?" + q.join("&") : ""; };
 
 const { user, profile } = await gate({ area: "nt2", title: "Nieuws in niveaus", seen: "nieuws" });
 document.getElementById("ub").innerHTML = userBox(user, profile);
@@ -166,7 +169,8 @@ function vItem(item) {
     <section class="panel"><span class="eyebrow" lang="nl">#${item.nr} · ${esc(item.bron || "")}${sentDate(item.id) ? " · " + esc(fmtDate(sentDate(item.id))) : ""}</span>
       <h2 style="margin:4px 0 8px" lang="nl">${esc(item.titel)}</h2>
       <p class="muted" style="margin:0 0 12px;font-size:14px">Video seviyesi: <b>${esc(item.niveau_video || "")}</b>. ${esc(item.niveau_uitleg || "")}</p>
-      ${vid ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${vid}${item.video_start ? "?start=" + item.video_start : ""}" title="${esc(item.titel)}" allowfullscreen loading="lazy"></iframe></div>` : ""}
+      ${vid ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${vid}${clipParams(item)}" title="${esc(item.titel)}" allowfullscreen loading="lazy"></iframe></div>` : ""}
+      ${item.video_end ? `<p class="muted" style="margin:8px 0 0;font-size:13px">Bu haber videonun sadece bir bölümü: <span class="num">${mmss(item.video_start || 0)}–${mmss(item.video_end)}</span>. Video o kısımda başlar ve durur.</p>` : ""}
     </section>
     <section class="panel"><div class="sectionhead"><h3>Metin</h3>${levelSeg()}</div>
       ${(S.level === "all" ? LEVELS : [S.level]).map(l => levelBox(item, l)).join("")}</section>
@@ -184,7 +188,8 @@ function vItem(item) {
 
 // ---------- Quiz engine (one question at a time) ----------
 // S.quiz = { test, title, pool, filter, qs:[{q, order}], idx, ans:{}, done, saved }
-function newQuiz(test, title, pool) { S.quiz = { test, title, pool, filter: S.quiz?.test === test ? S.quiz.filter : "all", qs: null }; }
+// toets: a mixed-test object (fixed 20 questions, no level filter, new selection on every start)
+function newQuiz(test, title, pool, toets = null) { S.quiz = { test, title, pool, toets, filter: S.quiz?.test === test ? S.quiz.filter : "all", qs: null }; }
 function startQuiz(onlyIds) {
   const z = S.quiz; const max = z.filter === "all" ? 5 : RANK[z.filter];
   let qs = z.pool.filter(q => RANK[q.niveau] <= max && (!onlyIds || onlyIds.includes(q.uid)));
@@ -202,6 +207,14 @@ function qText(x, answered) {
 function vQuiz() {
   const z = S.quiz; if (!z) return "";
   const b = best(z.test);
+  if (!z.qs && z.toets) {
+    const o = z.toets.opbouw, nNew = Object.values(o.nieuw).reduce((a, b) => a + b, 0), nRev = Object.values(o.herhaling).reduce((a, b) => a + b, 0);
+    const tries = S.attempts.filter(a => a.test === z.test);
+    return `<div class="sectionhead"><h3>${esc(z.title)}</h3>${b >= 0 ? `<span class="chip ok num">en iyi %${Math.round(b * 100)}</span>` : ""}</div>
+      <p style="margin:0 0 8px;max-width:62ch"><b class="num">${nNew + nRev} soru</b>: ${nNew} soru bu üç haberden${nRev ? `, ${nRev} soru önceki haberlerden tekrar (önce daha önce yanlış yaptıkların gelir)` : ""}.</p>
+      <p class="muted" style="margin:0 0 14px;max-width:62ch">Her sınav aynı sayıda ve aynı dağılımda sorudan oluşur (6 anlama, 5 kelime, 5 deyim, 4 gramer), böylece sonuçlarını karşılaştırabilirsin. Her denemede farklı bir seçki gelir.${tries.length ? ` Şimdiye kadar ${tries.length} deneme.` : ""}</p>
+      <button class="btn primary" data-act="qstart">Sınava başla</button>`;
+  }
   if (!z.qs) {
     const count = f => z.pool.filter(q => RANK[q.niveau] <= (f === "all" ? 5 : RANK[f])).length;
     return `<div class="sectionhead"><h3>${esc(z.title)}</h3>${b >= 0 ? `<span class="chip ok num">en iyi %${Math.round(b * 100)}</span>` : ""}</div>
@@ -227,7 +240,7 @@ function vQuiz() {
   return `<div class="qcard" aria-live="polite">
     <div class="qfoot"><span class="eyebrow" lang="nl">${esc(z.title)}</span><span class="streak">${z.streak >= 3 ? `${z.streak} doğru üst üste` : ""}</span></div>
     <div class="progress"><i style="width:${Math.round(100 * z.idx / z.qs.length)}%"></i></div>
-    <div class="qmeta"><span class="chip num">${z.idx + 1} / ${z.qs.length}</span>${lvlChip(x.q.niveau)}<span class="chip blue">${CATS[x.q.cat]}</span>${x.q.item ? `<span class="chip">#${S.byId[x.q.item]?.nr}</span>` : ""}</div>
+    <div class="qmeta"><span class="chip num">${z.idx + 1} / ${z.qs.length}</span>${lvlChip(x.q.niveau)}<span class="chip blue">${CATS[x.q.cat]}</span>${x.q.item ? `<span class="chip">#${S.byId[x.q.item]?.nr}</span>` : ""}${x.q.herhaling ? `<span class="chip warn">tekrar</span>` : ""}</div>
     <p class="qq" lang="nl">${qText(x, answered)}</p>
     <div class="opts" style="margin-top:4px">${x.order.map((oi, k) => {
       const cls = !answered ? "" : oi === x.q.juist ? "right" : oi === a ? "wrongpick" : "";
@@ -247,14 +260,44 @@ async function finishQuiz() {
 }
 
 // ---------- Mixed test ----------
+// Questions whose most recent answer (item quiz or test) was wrong; qid = "<item or test id>:<question id>"
+function wrongQids() {
+  const last = {};
+  for (const a of S.attempts) for (const x of a.answers || []) if (!(x.qid in last)) last[x.qid] = x.correct;  // attempts are newest first
+  return new Set(Object.keys(last).filter(k => last[k] === false));
+}
+// Take `quota` questions per category from `cands`; preferred ones (e.g. earlier mistakes) first, the rest at random.
+// Categories that run short are filled up from what is left, so the total always stays the same.
+function pickByQuota(cands, quota, prefer = () => false) {
+  const left = shuffle(cands).sort((a, b) => prefer(b) - prefer(a)), out = [];
+  let short = 0;
+  for (const [cat, n] of Object.entries(quota)) {
+    const got = left.filter(q => q.cat === cat).slice(0, n);
+    got.forEach(q => left.splice(left.indexOf(q), 1)); out.push(...got); short += n - got.length;
+  }
+  return [...out, ...left.slice(0, short)];
+}
 function toetsPool(t) {
-  const fromItems = t.items.flatMap(id => shuffle((S.byId[id]?.toets || []).map(q => ({ ...q, item: id, uid: id + ":" + q.id }))).slice(0, t.per_item || 4));
-  return [...t.extra.map(q => ({ ...q, uid: t.id + ":" + q.id })), ...fromItems];
+  const tag = (q, item, extra) => ({ ...q, item, uid: (item || t.id) + ":" + q.id, ...extra });
+  // New part: the test's own mixed questions first, then the three items' questions spread evenly
+  const own = t.extra.map(q => tag(q, null));
+  const fromItems = t.items.flatMap(id => (S.byId[id]?.toets || []).map(q => tag(q, id)));
+  // Rank inside each item and category, so the three items take turns (1st of each item, then 2nd, ...)
+  const rank = new Map();
+  for (const id of t.items) for (const cat of Object.keys(CATS))
+    shuffle(fromItems.filter(q => q.item === id && q.cat === cat)).forEach((q, i) => rank.set(q.uid, i));
+  const spread = q => q.item ? -rank.get(q.uid) : 1000;  // own mixed questions first
+  const nieuw = pickByQuota([...own, ...fromItems], t.opbouw.nieuw, spread);
+  // Review part: earlier items, questions this user got wrong first
+  const wrong = wrongQids();
+  const old = (t.vorige || []).flatMap(id => (S.byId[id]?.toets || []).map(q => tag(q, id, { herhaling: true })));
+  const herhaling = pickByQuota(old, t.opbouw.herhaling, q => wrong.has(q.uid));
+  return [...nieuw, ...herhaling];
 }
 function vToets(t) {
   return `<p style="margin:0"><a href="./">← Tüm haberler</a></p>
     <section class="panel"><span class="eyebrow">Karma sınav</span><h2 style="margin:4px 0 8px" lang="nl">${esc(t.titel)}</h2>
-      <p class="muted" style="margin:0;max-width:62ch">Üç haberin hepsinden sorular: içerik, kelimeler, deyimler ve gramer. Her denemede haber sorularından farklı bir seçki gelir.</p></section>
+      <p class="muted" style="margin:0;max-width:62ch">Haberler: ${t.items.map(id => `#${S.byId[id]?.nr} ${esc(S.byId[id]?.titel || id)}`).join(" · ")}</p></section>
     <section class="panel" id="quiz">${vQuiz()}</section>`;
 }
 
@@ -265,7 +308,7 @@ function render() {
   const key = item ? "nieuws:" + item.id : t ? "nieuws:" + t.id : "";
   if (key && !seenNow.has(key)) { seenNow.add(key); markSeen(user.uid, key); }
   if (item && published(item.id)) { if (S.quiz?.test !== item.id) newQuiz(item.id, `Quiz #${item.nr}`, item.toets.map(q => ({ ...q, uid: q.id }))); app.innerHTML = vItem(item); }
-  else if (t) { if (S.quiz?.test !== t.id) newQuiz(t.id, t.titel, toetsPool(t)); app.innerHTML = vToets(t); }
+  else if (t) { if (S.quiz?.test !== t.id) newQuiz(t.id, t.titel, toetsPool(t), t); app.innerHTML = vToets(t); }
   else { S.quiz = null; app.innerHTML = vList(); }
 }
 const keepQuizInView = () => document.getElementById("quiz")?.scrollIntoView({ block: "nearest" });
@@ -284,7 +327,7 @@ app.addEventListener("click", e => {
       const y = scrollY; render(); scrollTo(0, y); document.getElementById("qnext")?.focus({ preventScroll: true }); break; }
     case "qnext": if (z.idx < z.qs.length - 1) { z.idx++; render(); keepQuizInView(); } else finishQuiz(); break;
     case "qretry": { const ids = z.qs.filter((x, i) => z.ans[i] !== x.q.juist).map(x => x.q.uid); startQuiz(ids); render(); keepQuizInView(); break; }
-    case "qreset": z.qs = null; render(); keepQuizInView(); break;
+    case "qreset": z.qs = null; if (z.toets) z.pool = toetsPool(z.toets); render(); keepQuizInView(); break;
   }
 });
 // Keyboard: 1-4 to answer, Enter for next

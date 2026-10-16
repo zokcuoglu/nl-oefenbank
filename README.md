@@ -54,6 +54,11 @@ Edit `scripts/content/nNN_*.py`, then run `python3 scripts/content/build_nieuws.
 `uitdrukkingen` `{nl, niveau, tr, uitleg, voorbeeld, voorbeeld_tr}`, `woordenschat` (lines `woord | soort | betekenis | voorbeeld | turks | niveau`),
 `grammatica`, `toets` (questions `{id, type mc|tf|gap, niveau, cat, vraag, opties, juist, uitleg}`; the page shuffles the options).
 Items are mailed in `nr` order. The old items are kept in `data/nieuws-v1.json` and are not used.
+Item quizzes always have 18 questions (5 begrip, 4 woorden, 5 uitdrukkingen, 4 grammatica); the builder checks this.
+Mixed tests (`toetsen.py`, one after every three items) always have 20 questions (6/5/5/4). Test 1: all from items 1–3.
+Later tests: 14 from their three items (including the test's own mixed questions) and 6 review questions from earlier
+items, where the page picks questions the user answered wrong last time first. Optional `video_start`/`video_end`
+(seconds) show only part of a video.
 
 ## Adding a kids exercise
 
