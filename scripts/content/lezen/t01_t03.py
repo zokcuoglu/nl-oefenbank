@@ -32,6 +32,14 @@ U vraagt de vergunning aan via de website van de gemeente. U logt in met uw Digi
 
 Krijgt u bezoek met de auto? Dan kunt u een bezoekersvergunning aanvragen. Uw bezoek kan daarmee maximaal 40 uur per maand parkeren voor € 0,50 per uur. U meldt uw bezoek aan via de app of de website.
 
+## Laden van een elektrische auto
+
+Heeft u een elektrische auto en geen eigen oprit? Dan kunt u bij de gemeente een openbare laadpaal in uw straat aanvragen. De gemeente plaatst een laadpaal als er binnen 250 meter van uw huis nog geen laadpaal is. U betaalt alleen voor de stroom die u gebruikt. Een parkeervergunning blijft wel nodig, ook als u bij een laadpaal staat.
+
+## Mensen met een beperking
+
+Kunt u door een ziekte of handicap niet ver lopen? Dan kunt u een gehandicaptenparkeerkaart aanvragen. Met deze kaart mag u in het centrum gratis parkeren. In sommige gevallen kan de gemeente ook een eigen parkeerplaats bij uw huis maken. Hiervoor is eerst een medisch onderzoek nodig.
+
 ## Veranderingen
 
 Heeft u een andere auto gekocht? Geef het nieuwe kenteken dan uiterlijk binnen twee weken door. Dit is gratis. Gaat u verhuizen, ook binnen Rijnstad? Dan vervalt uw vergunning op de dag van de verhuizing en moet u een nieuwe vergunning aanvragen. Parkeert u zonder geldige vergunning, dan kunt u een boete krijgen.""",
@@ -83,9 +91,17 @@ De examentraining is niet verplicht, maar wij raden hem iedereen aan die dit jaa
 
 De training bestaat uit zes lessen van twee uur, op zaterdagochtend van 10.00 tot 12.00 uur. Om een certificaat te krijgen, moet u minimaal vijf lessen aanwezig zijn. Bent u ziek of kunt u een keer niet komen? Meld dit dan vóór 9.00 uur bij uw docent. U kunt een gemiste les niet inhalen, maar u krijgt het lesmateriaal wel per e-mail.
 
+## Wat doe je in de training?
+
+In de training oefen je met examens van vorige jaren. Je leert hoe je je tijd goed verdeelt en hoe je de vragen snel kunt beantwoorden. Na elke les bespreekt je docent welke fouten veel voorkomen. Ook oefen je voor het examen Spreken: in kleine groepjes en met opnames van jezelf. De laatste les is een proefexamen onder echte examenomstandigheden. Daarna hoor je hoe je ervoor staat.
+
 ## Kosten
 
 De training kost € 90. Voor cursisten die nu al een cursus bij ons volgen, is de prijs € 60. Werkt u? Vraag dan aan uw werkgever of hij de kosten wil betalen. Veel werkgevers vergoeden een taalcursus.
+
+## Het examen zelf
+
+Het staatsexamen zelf vindt niet bij ons plaats. U meldt zich daarvoor zelf aan. Doe dat op tijd, want de plaatsen zijn vaak snel vol. Wij kunnen u helaas niet aanmelden.
 
 ## Vragen?
 

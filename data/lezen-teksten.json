@@ -89,443 +89,98 @@
  ],
  "teksten": [
   {
-   "id": "parkeren",
-   "titel": "Parkeervergunning voor bewoners",
-   "soort": "Website gemeente",
-   "domein": "overig",
-   "tekstsoort": "instructief",
-   "inleiding": "Deze tekst komt van de website van de gemeente Rijnstad. De tekst gaat over parkeren in het centrum.",
-   "tekst": "Woont u in het centrum van Rijnstad en heeft u een auto? Dan mag u in uw straat alleen parkeren met een parkeervergunning. Op deze pagina leest u hoe u een vergunning aanvraagt en wat het kost.\n\n## Wie kan een vergunning aanvragen?\n\nU kunt een vergunning aanvragen als u ingeschreven staat op een adres in het vergunninggebied. De auto moet op uw naam staan. Rijdt u in een auto van uw werkgever of in een leaseauto? Dan stuurt u een verklaring van uw werkgever of het leasebedrijf mee. Hierin staat dat u de auto ook privé mag gebruiken.\n\n## Wat kost het?\n\nPer adres krijgt u maximaal twee vergunningen. De eerste vergunning kost € 65 per jaar. Voor een tweede vergunning betaalt u € 130 per jaar.\n\n## Hoe vraagt u de vergunning aan?\n\nU vraagt de vergunning aan via de website van de gemeente. U logt in met uw DigiD. Binnen vijf werkdagen ontvangt u bericht of u de vergunning krijgt. Heeft u geen DigiD? Maak dan een afspraak bij de balie in het stadhuis. Neem een geldig identiteitsbewijs en uw kentekenbewijs mee.\n\n## Bezoek\n\nKrijgt u bezoek met de auto? Dan kunt u een bezoekersvergunning aanvragen. Uw bezoek kan daarmee maximaal 40 uur per maand parkeren voor € 0,50 per uur. U meldt uw bezoek aan via de app of de website.\n\n## Veranderingen\n\nHeeft u een andere auto gekocht? Geef het nieuwe kenteken dan uiterlijk binnen twee weken door. Dit is gratis. Gaat u verhuizen, ook binnen Rijnstad? Dan vervalt uw vergunning op de dag van de verhuizing en moet u een nieuwe vergunning aanvragen. Parkeert u zonder geldige vergunning, dan kunt u een boete krijgen.",
-   "vragen": [
-    {
-     "id": "p1",
-     "patroon": 15,
-     "vraag": "Voor wie is deze tekst vooral bedoeld?",
-     "opties": [
-      "Bewoners van het centrum met een auto",
-      "Mensen die op bezoek komen in Rijnstad",
-      "Werkgevers met leaseauto's"
-     ],
-     "uitleg": "Metin ilk cümlede okura hitap ediyor: merkezde oturan ve arabası olanlar. Ziyaretçiler ve işverenler sadece yan konular.",
-     "bewijs": "Woont u in het centrum van Rijnstad en heeft u een auto?",
-     "juist": 0
-    },
-    {
-     "id": "p2",
-     "patroon": 8,
-     "vraag": "Sara rijdt in een leaseauto van haar werk. Wanneer kan zij een vergunning krijgen?",
-     "opties": [
-      "Als zij een verklaring van haar werkgever of het leasebedrijf meestuurt",
-      "Als haar werkgever de vergunning betaalt",
-      "Als zij de auto alleen voor haar werk gebruikt"
-     ],
-     "uitleg": "Leaseauto için işverenden ya da leasing şirketinden bir yazı (verklaring) gerekiyor. C şıkkı tam tersi: yazıda arabayı özel kullanım için de kullanabildiği yazmalı.",
-     "bewijs": "Dan stuurt u een verklaring van uw werkgever of het leasebedrijf mee.",
-     "juist": 0
-    },
-    {
-     "id": "p3",
-     "patroon": 14,
-     "vraag": "De familie De Vries heeft twee auto's. Hoeveel betalen zij per jaar voor twee vergunningen?",
-     "opties": [
-      "€ 195",
-      "€ 65",
-      "€ 130"
-     ],
-     "uitleg": "İlk izin 65 €, ikinci izin 130 €: toplam 195 €. Rakam sorularında iki bilgiyi toplamak gerekebilir.",
-     "bewijs": "De eerste vergunning kost € 65 per jaar. Voor een tweede vergunning betaalt u € 130 per jaar.",
-     "juist": 0
-    },
-    {
-     "id": "p4",
-     "patroon": 13,
-     "vraag": "Meneer Ahmadi heeft geen DigiD. Wat moet hij doen?",
-     "opties": [
-      "Een afspraak maken bij de balie in het stadhuis",
-      "De vergunning via de app aanvragen",
-      "Een brief sturen met zijn kentekenbewijs"
-     ],
-     "uitleg": "'Heeft u geen DigiD? Maak dan …' kalıbı: soru + 'dan' ile ne yapılacağı söyleniyor.",
-     "bewijs": "Heeft u geen DigiD? Maak dan een afspraak bij de balie in het stadhuis.",
-     "juist": 0
-    },
-    {
-     "id": "p5",
-     "patroon": 7,
-     "vraag": "Wat gebeurt er als u binnen Rijnstad verhuist?",
-     "opties": [
-      "Uw vergunning stopt en u moet een nieuwe aanvragen",
-      "U neemt uw vergunning mee naar het nieuwe adres",
-      "U geeft binnen twee weken uw nieuwe adres door"
-     ],
-     "uitleg": "'vervalt' = geçersiz olur, biter. 'Binnen twee weken' yeni plaka içindi, taşınma için değil: tuzak şık.",
-     "bewijs": "Dan vervalt uw vergunning op de dag van de verhuizing en moet u een nieuwe vergunning aanvragen.",
-     "juist": 0
-    },
-    {
-     "id": "p6",
-     "patroon": 17,
-     "vraag": "Welke bewering is juist volgens de tekst?",
-     "opties": [
-      "Bezoek mag maximaal 40 uur per maand parkeren",
-      "Een nieuw kenteken doorgeven kost geld",
-      "U hoort binnen twee weken of u een vergunning krijgt"
-     ],
-     "uitleg": "Her şıkkı metinde kontrol et: plaka değişikliği ücretsiz ('Dit is gratis'), cevap 5 iş günü içinde geliyor. Sadece A doğru.",
-     "bewijs": "Uw bezoek kan daarmee maximaal 40 uur per maand parkeren voor € 0,50 per uur.",
-     "juist": 0
-    }
-   ],
-   "nr": 1,
-   "woorden": 273,
-   "minuten": 18
-  },
-  {
-   "id": "examentraining",
-   "titel": "Belangrijke informatie over de examentraining",
-   "soort": "E-mail",
-   "domein": "educatie",
-   "tekstsoort": "instructief",
-   "inleiding": "Deze e-mail is gestuurd door een taalcentrum aan zijn cursisten.",
-   "kop": [
-    "Van: Taalcentrum De Brug",
-    "Aan: cursisten Nederlands B1",
-    "Onderwerp: Belangrijke informatie over de examentraining"
-   ],
-   "tekst": "Beste cursist,\n\nOver vier weken start de examentraining voor het Staatsexamen NT2. In deze e-mail leest u wat u moet weten.\n\n## Aanmelden\n\nDe examentraining is niet verplicht, maar wij raden hem iedereen aan die dit jaar examen doet. U meldt zich aan via het formulier op onze website. Doe dit uiterlijk vrijdag 6 november. Er zijn maximaal 14 plaatsen per groep. Zodra een groep vol is, komt u op een wachtlijst.\n\n## Lessen en aanwezigheid\n\nDe training bestaat uit zes lessen van twee uur, op zaterdagochtend van 10.00 tot 12.00 uur. Om een certificaat te krijgen, moet u minimaal vijf lessen aanwezig zijn. Bent u ziek of kunt u een keer niet komen? Meld dit dan vóór 9.00 uur bij uw docent. U kunt een gemiste les niet inhalen, maar u krijgt het lesmateriaal wel per e-mail.\n\n## Kosten\n\nDe training kost € 90. Voor cursisten die nu al een cursus bij ons volgen, is de prijs € 60. Werkt u? Vraag dan aan uw werkgever of hij de kosten wil betalen. Veel werkgevers vergoeden een taalcursus.\n\n## Vragen?\n\nHeeft u vragen over de training of over het examen zelf? Mevrouw Van Dijk, onze coördinator examens, is bereikbaar op maandag en woensdag tussen 13.00 en 16.00 uur. Voor vragen over betalen kunt u terecht bij de receptie.\n\nMet vriendelijke groet,\nTeam Taalcentrum De Brug",
-   "vragen": [
-    {
-     "id": "e1",
-     "patroon": 1,
-     "vraag": "Wat is het belangrijkste doel van deze e-mail?",
-     "opties": [
-      "Cursisten informeren over de examentraining",
-      "Cursisten uitnodigen voor het staatsexamen",
-      "Cursisten vertellen dat de training verplicht is"
-     ],
-     "uitleg": "Giriş paragrafı amacı söylüyor: bilmeniz gerekenleri anlatmak (informeren). Eğitim zorunlu değil, C yanlış.",
-     "bewijs": "In deze e-mail leest u wat u moet weten.",
-     "juist": 0
-    },
-    {
-     "id": "e2",
-     "patroon": 8,
-     "vraag": "Wanneer moet u zich uiterlijk aanmelden?",
-     "opties": [
-      "Op vrijdag 6 november",
-      "Over vier weken",
-      "Zodra de groep vol is"
-     ],
-     "uitleg": "'uiterlijk' = en geç. 'Over vier weken' eğitimin başladığı zaman, kayıt tarihi değil.",
-     "bewijs": "Doe dit uiterlijk vrijdag 6 november.",
-     "juist": 0
-    },
-    {
-     "id": "e3",
-     "patroon": 13,
-     "vraag": "Wat moet u doen om een certificaat te krijgen?",
-     "opties": [
-      "Minimaal vijf van de zes lessen aanwezig zijn",
-      "Alle zes lessen volgen en het lesmateriaal lezen",
-      "De gemiste lessen inhalen"
-     ],
-     "uitleg": "'minimaal vijf lessen' = en az beş ders. Kaçırılan ders telafi edilemiyor, C yanlış.",
-     "bewijs": "Om een certificaat te krijgen, moet u minimaal vijf lessen aanwezig zijn.",
-     "juist": 0
-    },
-    {
-     "id": "e4",
-     "patroon": 14,
-     "vraag": "Ali volgt nu de cursus B1 bij Taalcentrum De Brug. Hoeveel kost de examentraining voor hem?",
-     "opties": [
-      "€ 60",
-      "€ 90",
-      "Niets, zijn werkgever betaalt"
-     ],
-     "uitleg": "Ali zaten kursiyer, indirimli fiyat 60 €. İşverenin ödeyip ödemeyeceği metinde kesin değil, sadece 'sor' deniyor.",
-     "bewijs": "Voor cursisten die nu al een cursus bij ons volgen, is de prijs € 60.",
-     "juist": 0
-    },
-    {
-     "id": "e5",
-     "patroon": 9,
-     "vraag": "Bij wie kunt u terecht met een vraag over betalen?",
-     "opties": [
-      "Bij de receptie",
-      "Bij mevrouw Van Dijk",
-      "Bij uw docent"
-     ],
-     "uitleg": "Mevrouw Van Dijk eğitim ve sınav soruları için; ödeme soruları için resepsiyon.",
-     "bewijs": "Voor vragen over betalen kunt u terecht bij de receptie.",
-     "juist": 0
-    },
-    {
-     "id": "e6",
-     "patroon": 7,
-     "vraag": "Wat gebeurt er als u een les mist?",
-     "opties": [
-      "U krijgt het lesmateriaal per e-mail",
-      "U kunt de les in een andere week inhalen",
-      "U krijgt geen certificaat"
-     ],
-     "uitleg": "Ders telafi edilmiyor ama materyal e-postayla geliyor. Bir ders kaçırmak sertifikayı engellemez (en az 5/6).",
-     "bewijs": "U kunt een gemiste les niet inhalen, maar u krijgt het lesmateriaal wel per e-mail.",
-     "juist": 0
-    }
-   ],
-   "nr": 2,
-   "woorden": 224,
-   "minuten": 18
-  },
-  {
-   "id": "ziekmelden",
-   "titel": "Ziek? Zo meld je je af",
-   "soort": "Personeelsinformatie",
+   "id": "kinderopvang",
+   "titel": "Werken in de kinderopvang: iets voor jou?",
+   "soort": "Website",
    "domein": "werk",
-   "tekstsoort": "descriptief",
-   "inleiding": "Deze tekst komt uit de personeelsinformatie van een zorgcentrum. De tekst gaat over de regels bij ziekte.",
-   "tekst": "Iedereen is weleens ziek. Om goed voor onze cliënten te kunnen zorgen, moeten we snel weten wie er niet komt. Daarom gelden bij zorgcentrum De Linde de volgende regels.\n\n## Ziek melden\n\nBen je ziek? Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst begint, naar je leidinggevende. Een sms of WhatsApp is niet genoeg: we willen je spreken. Je leidinggevende vraagt hoe het met je gaat en hoe lang je denkt dat je ziek blijft. Je hoeft niet te vertellen wat je precies hebt.\n\n## Tijdens je ziekte\n\nBlijf bereikbaar op je telefoonnummer en je huisadres. Ga je tijdens je ziekte ergens anders logeren, bijvoorbeeld bij familie? Geef dan het adres door aan je leidinggevende. Ben je langer dan een week ziek, dan neemt je leidinggevende contact met je op om samen te bespreken hoe het gaat.\n\n## Ziek tijdens je vakantie\n\nWord je ziek tijdens je vakantie? Meld je dan op dezelfde manier ziek bij je leidinggevende, ook als je in het buitenland bent. Stuur daarna een verklaring van een arts waarin staat hoe lang je ziek bent geweest. De dagen dat je ziek was, gelden dan niet als vakantiedagen. Zonder verklaring van een arts worden je vakantiedagen wel van je saldo afgehaald.\n\n## De bedrijfsarts\n\nBen je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts. De bedrijfsarts geeft advies over je herstel en over werk dat je misschien al wel kunt doen. Alleen de bedrijfsarts mag weten wat je ziekte is. Hij vertelt je leidinggevende alleen wat je wel en niet kunt. Ben je het niet eens met het advies van de bedrijfsarts? Dan mag je een tweede mening vragen aan een andere bedrijfsarts. De kosten daarvan betaalt De Linde.\n\n## Gedeeltelijk werken\n\nSoms kun je al een deel van je werk doen, terwijl je nog niet helemaal beter bent. Je kunt bijvoorbeeld eerst een paar uur per dag werken, of alleen taken doen die niet zwaar zijn. Dit heet 'aangepast werk'. Je leidinggevende en de bedrijfsarts bespreken samen met jou wat mogelijk is. Voor de uren dat je aangepast werk doet, krijg je gewoon je salaris.\n\n## Beter melden\n\nBen je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voordat je weer gaat werken. Zo kan je leidinggevende het rooster op tijd aanpassen.\n\n## Vragen\n\nHeb je vragen over je rechten en plichten bij ziekte? Kijk dan in het personeelshandboek of neem contact op met Personeelszaken.",
+   "tekstsoort": "persuasief",
+   "inleiding": "Deze tekst komt van de website van een organisatie voor kinderopvang. De organisatie zoekt nieuwe medewerkers.",
+   "tekst": "Ben je geduldig, vrolijk en vind je het leuk om met kinderen te werken? Dan is een baan in de kinderopvang misschien iets voor jou. Bij Kinderopvang Zonnebloem werken ruim 300 pedagogisch medewerkers op 25 locaties in de regio. En we zoeken nog meer collega's. Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen.\n\n## Wat doe je als pedagogisch medewerker?\n\nAls pedagogisch medewerker zorg je samen met een collega voor een groep van maximaal twaalf kinderen. Je speelt met de kinderen, leest voor, gaat met ze naar buiten en helpt ze met eten en drinken. Maar je doet meer dan alleen oppassen. Je let goed op hoe elk kind zich ontwikkelt. Merk je dat een kind achterloopt met praten of dat het niet lekker in zijn vel zit? Dan bespreek je dat met je collega's en met de ouders. Zo help je kinderen om zich zo goed mogelijk te ontwikkelen.\n\n## Waarom kiezen voor Zonnebloem?\n\n'Geen dag is hetzelfde,' vertelt Samira (34), die vijf jaar geleden bij Zonnebloem begon. 'Eerst werkte ik op een kantoor. Ik verdiende goed, maar ik miste het contact met mensen. Nu ga ik elke ochtend met plezier naar mijn werk. Als een kind voor het eerst zelf loopt of een nieuw woord zegt, ben ik erbij. Dat is echt bijzonder.'\n\nBij Zonnebloem krijg je na één jaar een vast contract, als je goed functioneert. Je kiest zelf of je 24, 28 of 32 uur per week werkt. Heb je zelf kinderen? Dan krijg je 50 procent korting op de opvang bij een van onze locaties. Daarnaast mag je elk jaar gratis een cursus volgen, bijvoorbeeld over EHBO bij kinderen of over taalontwikkeling.\n\n## Nog geen diploma?\n\nJe hebt een mbo-diploma Pedagogisch Medewerker nodig om bij ons te werken. Heb je dat nog niet? Geen probleem. In onze leerwerkopleiding werk je drie dagen per week op een groep en ga je één dag per week naar school. Wij betalen je opleiding en je krijgt vanaf de eerste dag salaris. Na twee jaar heb je je diploma. Je moet wel minimaal 18 jaar zijn en Nederlands spreken op minimaal B1-niveau.\n\n## Kom kennismaken\n\nTwijfel je nog? Kom dan een dagje meelopen op een van onze locaties. Zo zie je zelf hoe het werk eruitziet en kun je al je vragen stellen. Meld je aan via het formulier op deze website. Je hoort binnen een week van ons. Wij kijken uit naar je komst!",
    "vragen": [
     {
-     "id": "z2",
-     "patroon": 13,
-     "vraag": "Wat moet je doen als je ziek bent?",
-     "opties": [
-      "Uiterlijk een uur voor je dienst je leidinggevende bellen",
-      "Een WhatsApp sturen naar je leidinggevende",
-      "Je ziek melden bij Personeelszaken"
-     ],
-     "uitleg": "Telefon etmek gerekiyor; mesaj yetmiyor ('niet genoeg'). Personeelszaken sadece haklarınla ilgili sorular için.",
-     "bewijs": "Een sms of WhatsApp is niet genoeg: we willen je spreken.",
-     "juist": 0
-    },
-    {
-     "id": "z3",
-     "patroon": 12,
-     "vraag": "Welke regel geldt volgens de tekst?",
-     "opties": [
-      "Je hoeft niet te vertellen welke ziekte je hebt",
-      "Je moet thuis blijven tijdens je ziekte",
-      "Je moet na een week naar de bedrijfsarts"
-     ],
-     "uitleg": "Hastalığını söylemek zorunda değilsin. Başka yerde kalabilirsin (adresi bildirmek şartıyla); işyeri doktoru 4 hafta sonra.",
-     "bewijs": "Je hoeft niet te vertellen wat je precies hebt.",
-     "juist": 0
-    },
-    {
-     "id": "z4",
-     "patroon": 8,
-     "vraag": "Wanneer krijg je een afspraak met de bedrijfsarts?",
-     "opties": [
-      "Als je na vier weken nog niet beter bent",
-      "Als je langer dan een week ziek bent",
-      "Als je je weer beter meldt"
-     ],
-     "uitleg": "Bir haftadan sonra yönetici arıyor; işyeri doktoru dört haftadan sonra. İki süreyi karıştırma.",
-     "bewijs": "Ben je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts.",
-     "juist": 0
-    },
-    {
-     "id": "z5",
-     "patroon": 5,
-     "vraag": "Wat wordt in de tekst bedoeld met 'je beter melden'?",
-     "opties": [
-      "Laten weten dat je weer kunt werken",
-      "Een betere melding doen dan de eerste keer",
-      "De bedrijfsarts vertellen hoe je je voelt"
-     ],
-     "uitleg": "'beter' burada 'daha iyi' değil, 'iyileşmiş'. Kendini iyileşmiş olarak bildirmek = işe dönebileceğini haber vermek.",
-     "bewijs": "Ben je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voordat je weer gaat werken.",
-     "juist": 0
-    },
-    {
-     "id": "z6",
-     "patroon": 6,
-     "vraag": "Wie mag weten wat je ziekte is, volgens de tekst?",
-     "opties": [
-      "Alleen de bedrijfsarts",
-      "Je leidinggevende",
-      "Personeelszaken"
-     ],
-     "uitleg": "'Alleen' kelimesine dikkat: sadece işyeri doktoru. Yönetici sadece neyi yapıp yapamayacağını öğrenir.",
-     "bewijs": "Alleen de bedrijfsarts mag weten wat je ziekte is.",
-     "juist": 0
-    }
-   ],
-   "nr": 3,
-   "woorden": 406,
-   "minuten": 18
-  },
-  {
-   "id": "sportschool",
-   "titel": "Kies het abonnement dat bij jou past",
-   "soort": "Website sportschool",
-   "domein": "overig",
-   "tekstsoort": "descriptief",
-   "inleiding": "Deze tekst komt van de website van een sportschool. De tekst gaat over de abonnementen en de regels.",
-   "tekst": "Bij sportschool FitPunt kun je sporten wanneer het jou uitkomt. We hebben drie abonnementen.\n\nAbonnement | Wanneer sporten | Prijs per maand\nBasis | maandag tot en met vrijdag, tot 16.00 uur | € 22,50\nFlex | elke dag, de hele dag | € 29,95\nStudent | elke dag, de hele dag | € 19,95\n\nHet Student-abonnement is alleen geldig met een studentenkaart van een mbo, hbo of universiteit. Bij alle abonnementen mag je gratis meedoen aan de groepslessen, zoals yoga en spinning. Voor een groepsles moet je je wel van tevoren aanmelden via de app.\n\n## Inschrijven\n\nJe schrijft je in bij de balie of online. Je betaalt eenmalig € 15 inschrijfkosten. Schrijf je je in de maand september in? Dan betaal je geen inschrijfkosten. Een abonnement loopt minimaal twaalf maanden. Daarna kun je elke maand opzeggen.\n\n## Opzeggen en pauzeren\n\nWil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt een opzegtermijn van één maand. Ben je langer dan een maand ziek of ga je op reis? Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets. Vraag dit minimaal een week van tevoren aan bij de balie.\n\n## Huisregels\n\nOm het voor iedereen prettig te houden, gelden bij FitPunt een paar regels. Neem altijd een handdoek mee en leg die op de toestellen. Draag schone sportschoenen: buitenschoenen zijn in de zalen niet toegestaan. Maak de toestellen na gebruik schoon met de doekjes die overal klaarliggen. Kinderen onder de 16 jaar mogen alleen sporten onder begeleiding van een volwassene.\n\n## Neem een vriend mee\n\nWil je samen met een vriend of vriendin sporten? Met elk abonnement mag je één keer per maand gratis iemand meenemen. Je vriend moet zich wel eerst bij de balie melden met een geldig identiteitsbewijs. Besluit je vriend daarna lid te worden, dan krijg jij een maand gratis sporten.",
-   "vragen": [
-    {
-     "id": "s1",
-     "patroon": 11,
-     "vraag": "Fatma werkt van 8.00 tot 16.00 uur en wil na haar werk of in het weekend sporten. Ze studeert niet. Welk abonnement past bij haar?",
-     "opties": [
-      "Flex",
-      "Basis",
-      "Student"
-     ],
-     "uitleg": "Basis sadece hafta içi 16.00'ya kadar; Student için öğrenci kartı gerekiyor. Akşam ve hafta sonu için tek seçenek Flex.",
-     "bewijs": "Flex | elke dag, de hele dag | € 29,95",
-     "juist": 0
-    },
-    {
-     "id": "s2",
-     "patroon": 13,
-     "vraag": "Wat moet je doen om aan een groepsles mee te doen?",
-     "opties": [
-      "Je van tevoren aanmelden via de app",
-      "Extra betalen bij de balie",
-      "Een Flex-abonnement nemen"
-     ],
-     "uitleg": "Grup dersleri bütün abonelerde ücretsiz, ama uygulamadan önceden kayıt gerekiyor.",
-     "bewijs": "Voor een groepsles moet je je wel van tevoren aanmelden via de app.",
-     "juist": 0
-    },
-    {
-     "id": "s3",
-     "patroon": 14,
-     "vraag": "Hoeveel inschrijfkosten betaal je als je je in september inschrijft?",
-     "opties": [
-      "Niets",
-      "€ 15",
-      "€ 19,95"
-     ],
-     "uitleg": "Normalde 15 € ama eylülde kayıt olursan kayıt ücreti yok.",
-     "bewijs": "Schrijf je je in de maand september in? Dan betaal je geen inschrijfkosten.",
-     "juist": 0
-    },
-    {
-     "id": "s4",
-     "patroon": 8,
-     "vraag": "Wanneer kun je je abonnement opzeggen?",
-     "opties": [
-      "Na de eerste twaalf maanden, elke maand",
-      "Na één maand",
-      "Op elk moment, via de app"
-     ],
-     "uitleg": "Abonelik en az 12 ay sürüyor ('minimaal'); ondan sonra her ay iptal edilebilir. 'Bir ay' iptal için bildirim süresi.",
-     "bewijs": "Een abonnement loopt minimaal twaalf maanden. Daarna kun je elke maand opzeggen.",
-     "juist": 0
-    },
-    {
-     "id": "s5",
-     "patroon": 7,
-     "vraag": "Karim gaat twee maanden op reis. Wat kan hij doen?",
-     "opties": [
-      "Zijn abonnement pauzeren; hij betaalt dan niets",
-      "Zijn abonnement opzeggen en later gratis opnieuw beginnen",
-      "Zijn abonnement omzetten naar Basis"
-     ],
-     "uitleg": "Seyahat ya da uzun hastalıkta en fazla üç ay dondurulabiliyor ve o sürede ödeme yok.",
-     "bewijs": "Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets.",
-     "juist": 0
-    }
-   ],
-   "nr": 4,
-   "woorden": 303,
-   "minuten": 18
-  },
-  {
-   "id": "omscholing",
-   "titel": "Op je vijftigste nog een nieuw vak leren",
-   "soort": "Tijdschriftartikel",
-   "domein": "educatie",
-   "tekstsoort": "beschouwend",
-   "inleiding": "Deze tekst komt uit een tijdschrift over werk en opleiding. De tekst gaat over omscholing: iets nieuws leren om ander werk te kunnen doen.",
-   "tekst": "Marja Bakker (54) werkte dertig jaar als secretaresse bij een verzekeraar. Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was. 'Wie neemt er nu iemand van boven de vijftig aan?' Inmiddels werkt ze als doktersassistent in een huisartsenpraktijk. 'Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.'\n\nMarja is niet de enige. Steeds meer mensen kiezen op latere leeftijd voor omscholing. Volgens onderzoek van een opleidingsinstituut is het aantal cursisten boven de vijftig in vijf jaar bijna verdubbeld. Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.\n\nToch is de stap niet voor iedereen makkelijk. Een opleiding kost tijd en geld, en niet iedereen kan een paar jaar met minder inkomen leven. Ook twijfelen veel oudere werknemers aan zichzelf. 'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand. Ouderen leren misschien iets langzamer, maar ze hebben veel ervaring. Ze weten hoe je met mensen omgaat en hoe je problemen oplost.'\n\nWerkgevers spelen hierbij een belangrijke rol. Sommige bedrijven betalen het cursusgeld als een werknemer zich wil laten omscholen, ook als het nieuwe beroep buiten het bedrijf ligt. 'Dat lijkt vreemd,' zegt De Graaf, 'want dan verlies je een medewerker. Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.'\n\nHoe begin je zo'n omscholing? De Graaf adviseert om eerst goed na te denken over wat je wilt en kunt. 'Kijk niet alleen naar wat je vroeger hebt gedaan, maar vooral naar wat je leuk vindt en waar je goed in bent. Praat met mensen die het werk al doen, of loop een dag mee.' Daarna is het belangrijk om te kijken naar de praktische kant. Hoe lang duurt de opleiding? Kun je ernaast blijven werken? En wie betaalt? 'Soms betaalt de werkgever, soms is er een regeling van de overheid. Vraag het in elk geval na voordat je begint.'\n\nOok Marja moest goed rekenen. Ze volgde haar opleiding in de avonduren en werkte overdag nog drie dagen per week als oproepkracht. 'Het was zwaar, zeker in het begin. Ik had al dertig jaar niet meer in de schoolbanken gezeten. Maar mijn klasgenoten, die vaak twintig jaar jonger waren, hielpen me met de computer. En ik hielp hen met plannen en met het contact met patiënten. Zo leerden we van elkaar.'\n\nVolgens De Graaf is het belangrijkste dat mensen niet te lang wachten. 'Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen. Hoe eerder je begint, hoe meer keuze je hebt.'\n\nMarja is in elk geval tevreden. 'Ik ben elke avond moe, maar gelukkig. Mijn kinderen zeggen dat ik er tien jaar jonger uitzie.'",
-   "vragen": [
-    {
-     "id": "o1",
+     "id": "k1",
      "patroon": 1,
      "vraag": "Wat is het belangrijkste doel van deze tekst?",
      "opties": [
-      "Laten zien dat omscholing ook op latere leeftijd mogelijk en zinvol is",
-      "Werkgevers overtuigen om meer ouderen aan te nemen",
-      "Uitleggen hoe je doktersassistent wordt"
+      "Mensen overhalen om bij Zonnebloem te gaan werken",
+      "Ouders informeren over de opvang van hun kinderen",
+      "Uitleggen hoe kinderen zich ontwikkelen"
      ],
-     "uitleg": "Bütün paragraflar aynı fikri destekliyor: 50'den sonra da meslek değiştirmek mümkün ve faydalı. B ve C metinde sadece küçük ayrıntılar.",
-     "bewijs": "Steeds meer mensen kiezen op latere leeftijd voor omscholing.",
+     "uitleg": "İkna eden (persuasief) bir metin: okuru doğrudan 'je' diye çağırıyor, avantajları sayıyor ve sonunda 'Kom kennismaken' diyor. Amaç okuru işe başvurmaya ikna etmek.",
+     "bewijs": "Dan is een baan in de kinderopvang misschien iets voor jou.",
      "juist": 0
     },
     {
-     "id": "o2",
+     "id": "k2",
+     "patroon": 6,
+     "vraag": "Waarom zoekt Zonnebloem nieuwe medewerkers, volgens de tekst?",
+     "opties": [
+      "Steeds meer ouders werken allebei, waardoor er meer vraag naar opvang is",
+      "Veel medewerkers stoppen met hun werk",
+      "Zonnebloem opent 25 nieuwe locaties"
+     ],
+     "uitleg": "'Want … en daardoor …' cümlesi sebebi veriyor. 25 lokasyon zaten var, yeni açılmıyor.",
+     "bewijs": "Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen.",
+     "juist": 0
+    },
+    {
+     "id": "k3",
+     "patroon": 13,
+     "vraag": "Een pedagogisch medewerker merkt dat een kind niet lekker in zijn vel zit. Wat doet zij?",
+     "opties": [
+      "Ze bespreekt het met haar collega's en met de ouders",
+      "Ze zet het kind in een andere groep",
+      "Ze vraagt de ouders om met het kind naar de dokter te gaan"
+     ],
+     "uitleg": "'niet lekker in zijn vel zitten' = kendini iyi hissetmemek. Metin tam bu durumu soruyor ve 'Dan bespreek je dat…' diye cevap veriyor.",
+     "bewijs": "Dan bespreek je dat met je collega's en met de ouders.",
+     "juist": 0
+    },
+    {
+     "id": "k4",
      "patroon": 2,
-     "vraag": "Wat wil de schrijver met het voorbeeld van Marja duidelijk maken?",
+     "vraag": "Waarom vertelt de schrijver over Samira?",
      "opties": [
-      "Dat je ook na je vijftigste nog een nieuw beroep kunt leren",
-      "Dat secretaresses vaak hun baan verliezen",
-      "Dat werken in de zorg zwaar is"
+      "Om te laten zien dat het werk veel voldoening geeft",
+      "Om te laten zien dat je in de kinderopvang goed verdient",
+      "Om uit te leggen hoe je van kantoorwerk overstapt naar de kinderopvang"
      ],
-     "uitleg": "Örneğin hemen arkasındaki cümle cevabı veriyor: 'Marja is niet de enige' = birçok kişi geç yaşta yeniden eğitim alıyor.",
-     "bewijs": "Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.",
+     "uitleg": "Samira ofiste iyi kazanıyormuş ama insanlarla teması özlemiş; şimdi işine severek gidiyor. Örnek, işin tatmin edici olduğunu göstermek için.",
+     "bewijs": "Nu ga ik elke ochtend met plezier naar mijn werk.",
      "juist": 0
     },
     {
-     "id": "o3",
-     "patroon": 6,
-     "vraag": "Waardoor kiezen steeds meer ouderen voor omscholing, volgens de tekst?",
+     "id": "k5",
+     "patroon": 11,
+     "vraag": "Tom (25) heeft geen diploma, maar wil graag in de kinderopvang werken. Hij spreekt Nederlands op A2-niveau. Wat geldt voor hem?",
      "opties": [
-      "Er verdwijnen banen, terwijl er in andere sectoren veel mensen nodig zijn",
-      "Ouderen leren tegenwoordig sneller",
-      "Opleidingen zijn goedkoper geworden"
+      "Hij moet eerst beter Nederlands leren voordat hij de leerwerkopleiding kan doen",
+      "Hij kan meteen met de leerwerkopleiding beginnen",
+      "Hij kan zonder diploma als pedagogisch medewerker werken",
+      "Hij moet de leerwerkopleiding zelf betalen"
      ],
-     "uitleg": "'Dat komt deels doordat …' = sebep cümlesi. Metin opleidingen ucuzladı demiyor; tersine 'tijd en geld' kostuyor.",
-     "bewijs": "Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.",
+     "uitleg": "Kişinin şartlarını metindeki koşullarla tek tek karşılaştır: yaşı uygun (18+), ama Hollandacası A2; en az B1 gerekiyor. Eğitim Zonnebloem tarafından ödeniyor.",
+     "bewijs": "Je moet wel minimaal 18 jaar zijn en Nederlands spreken op minimaal B1-niveau.",
      "juist": 0
     },
     {
-     "id": "o4",
-     "patroon": 5,
-     "vraag": "Wat wordt in alinea 3 bedoeld met 'een misverstand'?",
+     "id": "k6",
+     "patroon": 17,
+     "vraag": "Welke bewering over werken bij Zonnebloem is juist?",
      "opties": [
-      "Het idee dat ouderen niet meer goed kunnen leren, klopt niet",
-      "Ouderen begrijpen de lessen vaak verkeerd",
-      "Opleidingen leggen de stof niet duidelijk uit"
+      "Je mag elk jaar gratis een cursus volgen",
+      "Je krijgt meteen een vast contract",
+      "Je werkt altijd 32 uur per week"
      ],
-     "uitleg": "'misverstand' = yanlış anlama, yanlış düşünce. Önceki cümleye bak: 'Ze denken dat ze niet meer goed kunnen leren.' Bu düşünce yanlış.",
-     "bewijs": "'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand.",
-     "juist": 0
-    },
-    {
-     "id": "o5",
-     "patroon": 6,
-     "vraag": "Waarom betalen sommige werkgevers het cursusgeld, volgens De Graaf?",
-     "opties": [
-      "Tevreden werknemers zijn minder vaak ziek en het geeft de werkgever een goede naam",
-      "Ze willen zo de werknemer in het bedrijf houden",
-      "Het is verplicht voor werknemers boven de vijftig"
-     ],
-     "uitleg": "Yeni meslek şirket dışında olsa bile ödüyorlar; yani amaç çalışanı tutmak değil. İki sebep: daha az hastalık ve iyi itibar.",
-     "bewijs": "Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.",
-     "juist": 0
-    },
-    {
-     "id": "o6",
-     "patroon": 3,
-     "vraag": "Wat is het belangrijkste advies van De Graaf?",
-     "opties": [
-      "Vraag op tijd advies als je werk verandert",
-      "Wacht met omscholing tot je zeker weet dat je baan verdwijnt",
-      "Kies altijd voor een beroep in de zorg"
-     ],
-     "uitleg": "'het belangrijkste' kelimesi soruda ve metinde aynı: sonuç cümlesi 'Hoe eerder je begint, hoe meer keuze je hebt.'",
-     "bewijs": "Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen.",
+     "uitleg": "Kalıcı sözleşme bir yıl sonra ve şartlı; saatleri kendin seçiyorsun (24, 28 veya 32). Sadece A doğru.",
+     "bewijs": "Daarnaast mag je elk jaar gratis een cursus volgen, bijvoorbeeld over EHBO bij kinderen of over taalontwikkeling.",
      "juist": 0
     }
    ],
-   "nr": 5,
-   "woorden": 481,
-   "minuten": 18
+   "woorden": 412,
+   "minuten": 18,
+   "examen": "examen-1",
+   "nr": 1
   },
   {
    "id": "buurtbemiddeling",
@@ -615,102 +270,263 @@
      "juist": 0
     }
    ],
-   "nr": 6,
    "woorden": 369,
-   "minuten": 18
+   "minuten": 18,
+   "examen": "examen-1",
+   "nr": 2
   },
   {
-   "id": "kinderopvang",
-   "titel": "Werken in de kinderopvang: iets voor jou?",
-   "soort": "Website",
-   "domein": "werk",
-   "tekstsoort": "persuasief",
-   "inleiding": "Deze tekst komt van de website van een organisatie voor kinderopvang. De organisatie zoekt nieuwe medewerkers.",
-   "tekst": "Ben je geduldig, vrolijk en vind je het leuk om met kinderen te werken? Dan is een baan in de kinderopvang misschien iets voor jou. Bij Kinderopvang Zonnebloem werken ruim 300 pedagogisch medewerkers op 25 locaties in de regio. En we zoeken nog meer collega's. Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen.\n\n## Wat doe je als pedagogisch medewerker?\n\nAls pedagogisch medewerker zorg je samen met een collega voor een groep van maximaal twaalf kinderen. Je speelt met de kinderen, leest voor, gaat met ze naar buiten en helpt ze met eten en drinken. Maar je doet meer dan alleen oppassen. Je let goed op hoe elk kind zich ontwikkelt. Merk je dat een kind achterloopt met praten of dat het niet lekker in zijn vel zit? Dan bespreek je dat met je collega's en met de ouders. Zo help je kinderen om zich zo goed mogelijk te ontwikkelen.\n\n## Waarom kiezen voor Zonnebloem?\n\n'Geen dag is hetzelfde,' vertelt Samira (34), die vijf jaar geleden bij Zonnebloem begon. 'Eerst werkte ik op een kantoor. Ik verdiende goed, maar ik miste het contact met mensen. Nu ga ik elke ochtend met plezier naar mijn werk. Als een kind voor het eerst zelf loopt of een nieuw woord zegt, ben ik erbij. Dat is echt bijzonder.'\n\nBij Zonnebloem krijg je na één jaar een vast contract, als je goed functioneert. Je kiest zelf of je 24, 28 of 32 uur per week werkt. Heb je zelf kinderen? Dan krijg je 50 procent korting op de opvang bij een van onze locaties. Daarnaast mag je elk jaar gratis een cursus volgen, bijvoorbeeld over EHBO bij kinderen of over taalontwikkeling.\n\n## Nog geen diploma?\n\nJe hebt een mbo-diploma Pedagogisch Medewerker nodig om bij ons te werken. Heb je dat nog niet? Geen probleem. In onze leerwerkopleiding werk je drie dagen per week op een groep en ga je één dag per week naar school. Wij betalen je opleiding en je krijgt vanaf de eerste dag salaris. Na twee jaar heb je je diploma. Je moet wel minimaal 18 jaar zijn en Nederlands spreken op minimaal B1-niveau.\n\n## Kom kennismaken\n\nTwijfel je nog? Kom dan een dagje meelopen op een van onze locaties. Zo zie je zelf hoe het werk eruitziet en kun je al je vragen stellen. Meld je aan via het formulier op deze website. Je hoort binnen een week van ons. Wij kijken uit naar je komst!",
+   "id": "omscholing",
+   "titel": "Op je vijftigste nog een nieuw vak leren",
+   "soort": "Tijdschriftartikel",
+   "domein": "educatie",
+   "tekstsoort": "beschouwend",
+   "inleiding": "Deze tekst komt uit een tijdschrift over werk en opleiding. De tekst gaat over omscholing: iets nieuws leren om ander werk te kunnen doen.",
+   "tekst": "Marja Bakker (54) werkte dertig jaar als secretaresse bij een verzekeraar. Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was. 'Wie neemt er nu iemand van boven de vijftig aan?' Inmiddels werkt ze als doktersassistent in een huisartsenpraktijk. 'Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.'\n\nMarja is niet de enige. Steeds meer mensen kiezen op latere leeftijd voor omscholing. Volgens onderzoek van een opleidingsinstituut is het aantal cursisten boven de vijftig in vijf jaar bijna verdubbeld. Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.\n\nToch is de stap niet voor iedereen makkelijk. Een opleiding kost tijd en geld, en niet iedereen kan een paar jaar met minder inkomen leven. Ook twijfelen veel oudere werknemers aan zichzelf. 'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand. Ouderen leren misschien iets langzamer, maar ze hebben veel ervaring. Ze weten hoe je met mensen omgaat en hoe je problemen oplost.'\n\nWerkgevers spelen hierbij een belangrijke rol. Sommige bedrijven betalen het cursusgeld als een werknemer zich wil laten omscholen, ook als het nieuwe beroep buiten het bedrijf ligt. 'Dat lijkt vreemd,' zegt De Graaf, 'want dan verlies je een medewerker. Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.'\n\nHoe begin je zo'n omscholing? De Graaf adviseert om eerst goed na te denken over wat je wilt en kunt. 'Kijk niet alleen naar wat je vroeger hebt gedaan, maar vooral naar wat je leuk vindt en waar je goed in bent. Praat met mensen die het werk al doen, of loop een dag mee.' Daarna is het belangrijk om te kijken naar de praktische kant. Hoe lang duurt de opleiding? Kun je ernaast blijven werken? En wie betaalt? 'Soms betaalt de werkgever, soms is er een regeling van de overheid. Vraag het in elk geval na voordat je begint.'\n\nOok Marja moest goed rekenen. Ze volgde haar opleiding in de avonduren en werkte overdag nog drie dagen per week als oproepkracht. 'Het was zwaar, zeker in het begin. Ik had al dertig jaar niet meer in de schoolbanken gezeten. Maar mijn klasgenoten, die vaak twintig jaar jonger waren, hielpen me met de computer. En ik hielp hen met plannen en met het contact met patiënten. Zo leerden we van elkaar.'\n\nVolgens De Graaf is het belangrijkste dat mensen niet te lang wachten. 'Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen. Hoe eerder je begint, hoe meer keuze je hebt.'\n\nMarja is in elk geval tevreden. 'Ik ben elke avond moe, maar gelukkig. Mijn kinderen zeggen dat ik er tien jaar jonger uitzie.'",
    "vragen": [
     {
-     "id": "k1",
+     "id": "o1",
      "patroon": 1,
      "vraag": "Wat is het belangrijkste doel van deze tekst?",
      "opties": [
-      "Mensen overhalen om bij Zonnebloem te gaan werken",
-      "Ouders informeren over de opvang van hun kinderen",
-      "Uitleggen hoe kinderen zich ontwikkelen"
+      "Laten zien dat omscholing ook op latere leeftijd mogelijk en zinvol is",
+      "Werkgevers overtuigen om meer ouderen aan te nemen",
+      "Uitleggen hoe je doktersassistent wordt"
      ],
-     "uitleg": "İkna eden (persuasief) bir metin: okuru doğrudan 'je' diye çağırıyor, avantajları sayıyor ve sonunda 'Kom kennismaken' diyor. Amaç okuru işe başvurmaya ikna etmek.",
-     "bewijs": "Dan is een baan in de kinderopvang misschien iets voor jou.",
+     "uitleg": "Bütün paragraflar aynı fikri destekliyor: 50'den sonra da meslek değiştirmek mümkün ve faydalı. B ve C metinde sadece küçük ayrıntılar.",
+     "bewijs": "Steeds meer mensen kiezen op latere leeftijd voor omscholing.",
      "juist": 0
     },
     {
-     "id": "k2",
-     "patroon": 6,
-     "vraag": "Waarom zoekt Zonnebloem nieuwe medewerkers, volgens de tekst?",
-     "opties": [
-      "Steeds meer ouders werken allebei, waardoor er meer vraag naar opvang is",
-      "Veel medewerkers stoppen met hun werk",
-      "Zonnebloem opent 25 nieuwe locaties"
-     ],
-     "uitleg": "'Want … en daardoor …' cümlesi sebebi veriyor. 25 lokasyon zaten var, yeni açılmıyor.",
-     "bewijs": "Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen.",
-     "juist": 0
-    },
-    {
-     "id": "k3",
-     "patroon": 13,
-     "vraag": "Een pedagogisch medewerker merkt dat een kind niet lekker in zijn vel zit. Wat doet zij?",
-     "opties": [
-      "Ze bespreekt het met haar collega's en met de ouders",
-      "Ze zet het kind in een andere groep",
-      "Ze vraagt de ouders om met het kind naar de dokter te gaan"
-     ],
-     "uitleg": "'niet lekker in zijn vel zitten' = kendini iyi hissetmemek. Metin tam bu durumu soruyor ve 'Dan bespreek je dat…' diye cevap veriyor.",
-     "bewijs": "Dan bespreek je dat met je collega's en met de ouders.",
-     "juist": 0
-    },
-    {
-     "id": "k4",
+     "id": "o2",
      "patroon": 2,
-     "vraag": "Waarom vertelt de schrijver over Samira?",
+     "vraag": "Wat wil de schrijver met het voorbeeld van Marja duidelijk maken?",
      "opties": [
-      "Om te laten zien dat het werk veel voldoening geeft",
-      "Om te laten zien dat je in de kinderopvang goed verdient",
-      "Om uit te leggen hoe je van kantoorwerk overstapt naar de kinderopvang"
+      "Dat je ook na je vijftigste nog een nieuw beroep kunt leren",
+      "Dat secretaresses vaak hun baan verliezen",
+      "Dat werken in de zorg zwaar is"
      ],
-     "uitleg": "Samira ofiste iyi kazanıyormuş ama insanlarla teması özlemiş; şimdi işine severek gidiyor. Örnek, işin tatmin edici olduğunu göstermek için.",
-     "bewijs": "Nu ga ik elke ochtend met plezier naar mijn werk.",
+     "uitleg": "Örneğin hemen arkasındaki cümle cevabı veriyor: 'Marja is niet de enige' = birçok kişi geç yaşta yeniden eğitim alıyor.",
+     "bewijs": "Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.",
      "juist": 0
     },
     {
-     "id": "k5",
-     "patroon": 11,
-     "vraag": "Tom (25) heeft geen diploma, maar wil graag in de kinderopvang werken. Hij spreekt Nederlands op A2-niveau. Wat geldt voor hem?",
+     "id": "o3",
+     "patroon": 6,
+     "vraag": "Waardoor kiezen steeds meer ouderen voor omscholing, volgens de tekst?",
      "opties": [
-      "Hij moet eerst beter Nederlands leren voordat hij de leerwerkopleiding kan doen",
-      "Hij kan meteen met de leerwerkopleiding beginnen",
-      "Hij kan zonder diploma als pedagogisch medewerker werken",
-      "Hij moet de leerwerkopleiding zelf betalen"
+      "Er verdwijnen banen, terwijl er in andere sectoren veel mensen nodig zijn",
+      "Ouderen leren tegenwoordig sneller",
+      "Opleidingen zijn goedkoper geworden"
      ],
-     "uitleg": "Kişinin şartlarını metindeki koşullarla tek tek karşılaştır: yaşı uygun (18+), ama Hollandacası A2; en az B1 gerekiyor. Eğitim Zonnebloem tarafından ödeniyor.",
-     "bewijs": "Je moet wel minimaal 18 jaar zijn en Nederlands spreken op minimaal B1-niveau.",
+     "uitleg": "'Dat komt deels doordat …' = sebep cümlesi. Metin opleidingen ucuzladı demiyor; tersine 'tijd en geld' kostuyor.",
+     "bewijs": "Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.",
      "juist": 0
     },
     {
-     "id": "k6",
-     "patroon": 17,
-     "vraag": "Welke bewering over werken bij Zonnebloem is juist?",
+     "id": "o4",
+     "patroon": 5,
+     "vraag": "Wat wordt in alinea 3 bedoeld met 'een misverstand'?",
      "opties": [
-      "Je mag elk jaar gratis een cursus volgen",
-      "Je krijgt meteen een vast contract",
-      "Je werkt altijd 32 uur per week"
+      "Het idee dat ouderen niet meer goed kunnen leren, klopt niet",
+      "Ouderen begrijpen de lessen vaak verkeerd",
+      "Opleidingen leggen de stof niet duidelijk uit"
      ],
-     "uitleg": "Kalıcı sözleşme bir yıl sonra ve şartlı; saatleri kendin seçiyorsun (24, 28 veya 32). Sadece A doğru.",
-     "bewijs": "Daarnaast mag je elk jaar gratis een cursus volgen, bijvoorbeeld over EHBO bij kinderen of over taalontwikkeling.",
+     "uitleg": "'misverstand' = yanlış anlama, yanlış düşünce. Önceki cümleye bak: 'Ze denken dat ze niet meer goed kunnen leren.' Bu düşünce yanlış.",
+     "bewijs": "'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand.",
+     "juist": 0
+    },
+    {
+     "id": "o5",
+     "patroon": 6,
+     "vraag": "Waarom betalen sommige werkgevers het cursusgeld, volgens De Graaf?",
+     "opties": [
+      "Tevreden werknemers zijn minder vaak ziek en het geeft de werkgever een goede naam",
+      "Ze willen zo de werknemer in het bedrijf houden",
+      "Het is verplicht voor werknemers boven de vijftig"
+     ],
+     "uitleg": "Yeni meslek şirket dışında olsa bile ödüyorlar; yani amaç çalışanı tutmak değil. İki sebep: daha az hastalık ve iyi itibar.",
+     "bewijs": "Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.",
+     "juist": 0
+    },
+    {
+     "id": "o6",
+     "patroon": 3,
+     "vraag": "Wat is het belangrijkste advies van De Graaf?",
+     "opties": [
+      "Vraag op tijd advies als je werk verandert",
+      "Wacht met omscholing tot je zeker weet dat je baan verdwijnt",
+      "Kies altijd voor een beroep in de zorg"
+     ],
+     "uitleg": "'het belangrijkste' kelimesi soruda ve metinde aynı: sonuç cümlesi 'Hoe eerder je begint, hoe meer keuze je hebt.'",
+     "bewijs": "Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen.",
      "juist": 0
     }
    ],
-   "nr": 7,
-   "woorden": 412,
-   "minuten": 18
+   "woorden": 481,
+   "minuten": 18,
+   "examen": "examen-1",
+   "nr": 3
+  },
+  {
+   "id": "ziekmelden",
+   "titel": "Ziek? Zo meld je je af",
+   "soort": "Personeelsinformatie",
+   "domein": "werk",
+   "tekstsoort": "descriptief",
+   "inleiding": "Deze tekst komt uit de personeelsinformatie van een zorgcentrum. De tekst gaat over de regels bij ziekte.",
+   "tekst": "Iedereen is weleens ziek. Om goed voor onze cliënten te kunnen zorgen, moeten we snel weten wie er niet komt. Daarom gelden bij zorgcentrum De Linde de volgende regels.\n\n## Ziek melden\n\nBen je ziek? Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst begint, naar je leidinggevende. Een sms of WhatsApp is niet genoeg: we willen je spreken. Je leidinggevende vraagt hoe het met je gaat en hoe lang je denkt dat je ziek blijft. Je hoeft niet te vertellen wat je precies hebt.\n\n## Tijdens je ziekte\n\nBlijf bereikbaar op je telefoonnummer en je huisadres. Ga je tijdens je ziekte ergens anders logeren, bijvoorbeeld bij familie? Geef dan het adres door aan je leidinggevende. Ben je langer dan een week ziek, dan neemt je leidinggevende contact met je op om samen te bespreken hoe het gaat.\n\n## Ziek tijdens je vakantie\n\nWord je ziek tijdens je vakantie? Meld je dan op dezelfde manier ziek bij je leidinggevende, ook als je in het buitenland bent. Stuur daarna een verklaring van een arts waarin staat hoe lang je ziek bent geweest. De dagen dat je ziek was, gelden dan niet als vakantiedagen. Zonder verklaring van een arts worden je vakantiedagen wel van je saldo afgehaald.\n\n## De bedrijfsarts\n\nBen je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts. De bedrijfsarts geeft advies over je herstel en over werk dat je misschien al wel kunt doen. Alleen de bedrijfsarts mag weten wat je ziekte is. Hij vertelt je leidinggevende alleen wat je wel en niet kunt. Ben je het niet eens met het advies van de bedrijfsarts? Dan mag je een tweede mening vragen aan een andere bedrijfsarts. De kosten daarvan betaalt De Linde.\n\n## Gedeeltelijk werken\n\nSoms kun je al een deel van je werk doen, terwijl je nog niet helemaal beter bent. Je kunt bijvoorbeeld eerst een paar uur per dag werken, of alleen taken doen die niet zwaar zijn. Dit heet 'aangepast werk'. Je leidinggevende en de bedrijfsarts bespreken samen met jou wat mogelijk is. Voor de uren dat je aangepast werk doet, krijg je gewoon je salaris.\n\n## Beter melden\n\nBen je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voordat je weer gaat werken. Zo kan je leidinggevende het rooster op tijd aanpassen.\n\n## Vragen\n\nHeb je vragen over je rechten en plichten bij ziekte? Kijk dan in het personeelshandboek of neem contact op met Personeelszaken.",
+   "vragen": [
+    {
+     "id": "z2",
+     "patroon": 13,
+     "vraag": "Wat moet je doen als je ziek bent?",
+     "opties": [
+      "Uiterlijk een uur voor je dienst je leidinggevende bellen",
+      "Een WhatsApp sturen naar je leidinggevende",
+      "Je ziek melden bij Personeelszaken"
+     ],
+     "uitleg": "Telefon etmek gerekiyor; mesaj yetmiyor ('niet genoeg'). Personeelszaken sadece haklarınla ilgili sorular için.",
+     "bewijs": "Een sms of WhatsApp is niet genoeg: we willen je spreken.",
+     "juist": 0
+    },
+    {
+     "id": "z3",
+     "patroon": 12,
+     "vraag": "Welke regel geldt volgens de tekst?",
+     "opties": [
+      "Je hoeft niet te vertellen welke ziekte je hebt",
+      "Je moet thuis blijven tijdens je ziekte",
+      "Je moet na een week naar de bedrijfsarts"
+     ],
+     "uitleg": "Hastalığını söylemek zorunda değilsin. Başka yerde kalabilirsin (adresi bildirmek şartıyla); işyeri doktoru 4 hafta sonra.",
+     "bewijs": "Je hoeft niet te vertellen wat je precies hebt.",
+     "juist": 0
+    },
+    {
+     "id": "z4",
+     "patroon": 8,
+     "vraag": "Wanneer krijg je een afspraak met de bedrijfsarts?",
+     "opties": [
+      "Als je na vier weken nog niet beter bent",
+      "Als je langer dan een week ziek bent",
+      "Als je je weer beter meldt"
+     ],
+     "uitleg": "Bir haftadan sonra yönetici arıyor; işyeri doktoru dört haftadan sonra. İki süreyi karıştırma.",
+     "bewijs": "Ben je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts.",
+     "juist": 0
+    },
+    {
+     "id": "z5",
+     "patroon": 5,
+     "vraag": "Wat wordt in de tekst bedoeld met 'je beter melden'?",
+     "opties": [
+      "Laten weten dat je weer kunt werken",
+      "Een betere melding doen dan de eerste keer",
+      "De bedrijfsarts vertellen hoe je je voelt"
+     ],
+     "uitleg": "'beter' burada 'daha iyi' değil, 'iyileşmiş'. Kendini iyileşmiş olarak bildirmek = işe dönebileceğini haber vermek.",
+     "bewijs": "Ben je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voordat je weer gaat werken.",
+     "juist": 0
+    },
+    {
+     "id": "z6",
+     "patroon": 6,
+     "vraag": "Wie mag weten wat je ziekte is, volgens de tekst?",
+     "opties": [
+      "Alleen de bedrijfsarts",
+      "Je leidinggevende",
+      "Personeelszaken"
+     ],
+     "uitleg": "'Alleen' kelimesine dikkat: sadece işyeri doktoru. Yönetici sadece neyi yapıp yapamayacağını öğrenir.",
+     "bewijs": "Alleen de bedrijfsarts mag weten wat je ziekte is.",
+     "juist": 0
+    }
+   ],
+   "woorden": 406,
+   "minuten": 18,
+   "examen": "examen-1",
+   "nr": 4
+  },
+  {
+   "id": "sportschool",
+   "titel": "Kies het abonnement dat bij jou past",
+   "soort": "Website sportschool",
+   "domein": "overig",
+   "tekstsoort": "descriptief",
+   "inleiding": "Deze tekst komt van de website van een sportschool. De tekst gaat over de abonnementen en de regels.",
+   "tekst": "Bij sportschool FitPunt kun je sporten wanneer het jou uitkomt. We hebben drie abonnementen.\n\nAbonnement | Wanneer sporten | Prijs per maand\nBasis | maandag tot en met vrijdag, tot 16.00 uur | € 22,50\nFlex | elke dag, de hele dag | € 29,95\nStudent | elke dag, de hele dag | € 19,95\n\nHet Student-abonnement is alleen geldig met een studentenkaart van een mbo, hbo of universiteit. Bij alle abonnementen mag je gratis meedoen aan de groepslessen, zoals yoga en spinning. Voor een groepsles moet je je wel van tevoren aanmelden via de app.\n\n## Inschrijven\n\nJe schrijft je in bij de balie of online. Je betaalt eenmalig € 15 inschrijfkosten. Schrijf je je in de maand september in? Dan betaal je geen inschrijfkosten. Een abonnement loopt minimaal twaalf maanden. Daarna kun je elke maand opzeggen.\n\n## Opzeggen en pauzeren\n\nWil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt een opzegtermijn van één maand. Ben je langer dan een maand ziek of ga je op reis? Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets. Vraag dit minimaal een week van tevoren aan bij de balie.\n\n## Huisregels\n\nOm het voor iedereen prettig te houden, gelden bij FitPunt een paar regels. Neem altijd een handdoek mee en leg die op de toestellen. Draag schone sportschoenen: buitenschoenen zijn in de zalen niet toegestaan. Maak de toestellen na gebruik schoon met de doekjes die overal klaarliggen. Kinderen onder de 16 jaar mogen alleen sporten onder begeleiding van een volwassene.\n\n## Neem een vriend mee\n\nWil je samen met een vriend of vriendin sporten? Met elk abonnement mag je één keer per maand gratis iemand meenemen. Je vriend moet zich wel eerst bij de balie melden met een geldig identiteitsbewijs. Besluit je vriend daarna lid te worden, dan krijg jij een maand gratis sporten.",
+   "vragen": [
+    {
+     "id": "s1",
+     "patroon": 11,
+     "vraag": "Fatma werkt van 8.00 tot 16.00 uur en wil na haar werk of in het weekend sporten. Ze studeert niet. Welk abonnement past bij haar?",
+     "opties": [
+      "Flex",
+      "Basis",
+      "Student"
+     ],
+     "uitleg": "Basis sadece hafta içi 16.00'ya kadar; Student için öğrenci kartı gerekiyor. Akşam ve hafta sonu için tek seçenek Flex.",
+     "bewijs": "Flex | elke dag, de hele dag | € 29,95",
+     "juist": 0
+    },
+    {
+     "id": "s2",
+     "patroon": 13,
+     "vraag": "Wat moet je doen om aan een groepsles mee te doen?",
+     "opties": [
+      "Je van tevoren aanmelden via de app",
+      "Extra betalen bij de balie",
+      "Een Flex-abonnement nemen"
+     ],
+     "uitleg": "Grup dersleri bütün abonelerde ücretsiz, ama uygulamadan önceden kayıt gerekiyor.",
+     "bewijs": "Voor een groepsles moet je je wel van tevoren aanmelden via de app.",
+     "juist": 0
+    },
+    {
+     "id": "s3",
+     "patroon": 14,
+     "vraag": "Hoeveel inschrijfkosten betaal je als je je in september inschrijft?",
+     "opties": [
+      "Niets",
+      "€ 15",
+      "€ 19,95"
+     ],
+     "uitleg": "Normalde 15 € ama eylülde kayıt olursan kayıt ücreti yok.",
+     "bewijs": "Schrijf je je in de maand september in? Dan betaal je geen inschrijfkosten.",
+     "juist": 0
+    },
+    {
+     "id": "s4",
+     "patroon": 8,
+     "vraag": "Wanneer kun je je abonnement opzeggen?",
+     "opties": [
+      "Na de eerste twaalf maanden, elke maand",
+      "Na één maand",
+      "Op elk moment, via de app"
+     ],
+     "uitleg": "Abonelik en az 12 ay sürüyor ('minimaal'); ondan sonra her ay iptal edilebilir. 'Bir ay' iptal için bildirim süresi.",
+     "bewijs": "Een abonnement loopt minimaal twaalf maanden. Daarna kun je elke maand opzeggen.",
+     "juist": 0
+    },
+    {
+     "id": "s5",
+     "patroon": 7,
+     "vraag": "Karim gaat twee maanden op reis. Wat kan hij doen?",
+     "opties": [
+      "Zijn abonnement pauzeren; hij betaalt dan niets",
+      "Zijn abonnement opzeggen en later gratis opnieuw beginnen",
+      "Zijn abonnement omzetten naar Basis"
+     ],
+     "uitleg": "Seyahat ya da uzun hastalıkta en fazla üç ay dondurulabiliyor ve o sürede ödeme yok.",
+     "bewijs": "Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets.",
+     "juist": 0
+    }
+   ],
+   "woorden": 303,
+   "minuten": 18,
+   "examen": "examen-1",
+   "nr": 5
   },
   {
    "id": "studiegids",
@@ -815,59 +631,632 @@
      "juist": 0
     }
    ],
-   "nr": 8,
    "woorden": 762,
-   "minuten": 18
+   "minuten": 18,
+   "examen": "examen-1",
+   "nr": 6
+  },
+  {
+   "id": "thuiswerken",
+   "titel": "Thuiswerken: vrijheid of eenzaamheid?",
+   "soort": "Tijdschriftartikel",
+   "domein": "werk",
+   "tekstsoort": "beschouwend",
+   "inleiding": "Deze tekst komt uit een tijdschrift over werk. De tekst gaat over thuiswerken: werken vanuit je eigen huis in plaats van op kantoor.",
+   "tekst": "Sinds een paar jaar werken veel meer Nederlanders een deel van de week thuis. Voor sommigen is dat een droom: geen file, geen lange reistijd en meer tijd voor het gezin. Voor anderen is het juist moeilijk. Zij missen hun collega's en merken dat werk en privé door elkaar gaan lopen. Is thuiswerken nu goed of slecht? Het antwoord is minder eenvoudig dan het lijkt.\n\n## De voordelen\n\nWie thuiswerkt, bespaart vaak veel tijd. Ingrid de Wit (41), beleidsmedewerker bij een gemeente, werkte vroeger elke dag op kantoor. 'Ik zat elke dag twee uur in de auto. Nu werk ik drie dagen thuis en heb ik die tijd voor mezelf. Ik ga 's ochtends hardlopen en ik haal de kinderen zelf van school.' Ook kan ze zich thuis beter concentreren, zegt ze. 'Op kantoor werd ik steeds gestoord. Thuis kan ik rustig een rapport schrijven.'\n\nWerkgevers zien ook voordelen. Ze hebben minder kantoorruimte nodig en kunnen medewerkers aannemen die ver weg wonen. Bovendien zijn thuiswerkers volgens sommige onderzoeken minder vaak ziek.\n\n## De nadelen\n\nToch is niet iedereen positief. Arbeidspsycholoog Mark Visser waarschuwt voor de nadelen. 'Thuiswerkers werken vaak langer dan ze zouden moeten. De laptop staat op de keukentafel, dus je kijkt 's avonds nog even naar je mail. Zo ben je nooit echt vrij.' Daarnaast ziet hij dat vooral jonge werknemers last hebben van eenzaamheid. 'Wie net begint, leert veel van collega's. Je ziet hoe zij problemen oplossen en je kunt even iets vragen bij het koffieapparaat. Thuis mis je dat.'\n\nOok de werkplek zelf is niet altijd goed. Niet iedereen heeft een aparte werkkamer. 'Veel mensen werken aan een te lage tafel of op de bank,' zegt Visser. 'Dat geeft na een tijd rug- en nekklachten.'\n\n## Een goede balans\n\nVolgens Visser is de oplossing niet om thuiswerken te verbieden, maar om goede afspraken te maken. 'Spreek met je team af op welke dagen iedereen op kantoor is. Zo zie je elkaar regelmatig. En zorg thuis voor een vaste werkplek en vaste werktijden. Klap na je werk je laptop dicht.' Werkgevers kunnen daarbij helpen, bijvoorbeeld door een goede bureaustoel te betalen of een vergoeding voor de internetkosten te geven.\n\nIngrid herkent dat. 'In het begin werkte ik thuis tot laat in de avond. Nu heb ik met mezelf afgesproken: om half zes is het klaar. En op dinsdag en donderdag ga ik naar kantoor, want dan zijn mijn collega's er ook. Die dagen zijn eigenlijk het gezelligst van de week.'",
+   "vragen": [
+    {
+     "id": "w1",
+     "patroon": 3,
+     "vraag": "Wat is de belangrijkste conclusie van de tekst?",
+     "opties": [
+      "Thuiswerken gaat goed als je er duidelijke afspraken over maakt",
+      "Thuiswerken is slecht voor je gezondheid",
+      "Werkgevers moeten thuiswerken verbieden"
+     ],
+     "uitleg": "Son bölüm ('Een goede balans') sonucu veriyor: yasaklamak değil, iyi anlaşmalar yapmak. B sadece bir dezavantaj, C metinde açıkça reddediliyor.",
+     "bewijs": "Volgens Visser is de oplossing niet om thuiswerken te verbieden, maar om goede afspraken te maken.",
+     "juist": 0
+    },
+    {
+     "id": "w2",
+     "patroon": 6,
+     "vraag": "Waarom vindt Ingrid thuiswerken prettig, volgens de tekst?",
+     "opties": [
+      "Ze reist minder en kan zich thuis beter concentreren",
+      "Ze verdient meer geld",
+      "Ze ziet haar collega's vaker"
+     ],
+     "uitleg": "İki sebep: yolda geçen iki saat kazanıyor ve evde daha iyi odaklanıyor.",
+     "bewijs": "Thuis kan ik rustig een rapport schrijven.",
+     "juist": 0
+    },
+    {
+     "id": "w3",
+     "patroon": 5,
+     "vraag": "Wat bedoelt Visser met 'Zo ben je nooit echt vrij'?",
+     "opties": [
+      "Thuiswerkers blijven ook in hun vrije tijd met hun werk bezig",
+      "Thuiswerkers mogen hun werktijden niet zelf kiezen",
+      "Thuiswerkers moeten vaker naar kantoor"
+     ],
+     "uitleg": "Önceki cümle açıklıyor: laptop mutfak masasında, akşam yine e-postaya bakıyorsun. Yani iş ile serbest zaman ayrılmıyor.",
+     "bewijs": "De laptop staat op de keukentafel, dus je kijkt 's avonds nog even naar je mail.",
+     "juist": 0
+    },
+    {
+     "id": "w4",
+     "patroon": 4,
+     "vraag": "Wat staat er in de tekst over jonge werknemers?",
+     "opties": [
+      "Ze missen het leren van collega's als ze thuiswerken",
+      "Ze werken het liefst thuis",
+      "Ze hebben vaker last van hun rug"
+     ],
+     "uitleg": "Genç çalışanlar yalnızlıktan şikâyetçi; yeni başlayan biri iş arkadaşlarından çok şey öğreniyor ve evde bunu kaçırıyor.",
+     "bewijs": "Daarnaast ziet hij dat vooral jonge werknemers last hebben van eenzaamheid.",
+     "juist": 0
+    },
+    {
+     "id": "w5",
+     "patroon": 13,
+     "vraag": "Wat kan een werkgever volgens de tekst doen om thuiswerkers te helpen?",
+     "opties": [
+      "Een goede bureaustoel betalen",
+      "Thuiswerken op dinsdag en donderdag verbieden",
+      "Iedere werknemer een tweede laptop geven"
+     ],
+     "uitleg": "'Werkgevers kunnen daarbij helpen, bijvoorbeeld…' cümlesi iki örnek veriyor: büro sandalyesi ve internet masrafı.",
+     "bewijs": "Werkgevers kunnen daarbij helpen, bijvoorbeeld door een goede bureaustoel te betalen of een vergoeding voor de internetkosten te geven.",
+     "juist": 0
+    },
+    {
+     "id": "w6",
+     "patroon": 2,
+     "vraag": "Waarom vertelt de schrijver aan het einde nog een keer over Ingrid?",
+     "opties": [
+      "Om te laten zien hoe het advies van Visser in de praktijk werkt",
+      "Om te laten zien dat Ingrid liever op kantoor werkt",
+      "Om te laten zien dat thuiswerken niet voor iedereen geschikt is"
+     ],
+     "uitleg": "Ingrid tam Visser'in önerdiği şeyi yapıyor: sabit bitiş saati ve ekiple aynı ofis günleri. Örnek, tavsiyenin işe yaradığını gösteriyor.",
+     "bewijs": "Nu heb ik met mezelf afgesproken: om half zes is het klaar.",
+     "juist": 0
+    }
+   ],
+   "woorden": 418,
+   "minuten": 18,
+   "examen": "examen-2",
+   "nr": 1
+  },
+  {
+   "id": "parkeren",
+   "titel": "Parkeervergunning voor bewoners",
+   "soort": "Website gemeente",
+   "domein": "overig",
+   "tekstsoort": "instructief",
+   "inleiding": "Deze tekst komt van de website van de gemeente Rijnstad. De tekst gaat over parkeren in het centrum.",
+   "tekst": "Woont u in het centrum van Rijnstad en heeft u een auto? Dan mag u in uw straat alleen parkeren met een parkeervergunning. Op deze pagina leest u hoe u een vergunning aanvraagt en wat het kost.\n\n## Wie kan een vergunning aanvragen?\n\nU kunt een vergunning aanvragen als u ingeschreven staat op een adres in het vergunninggebied. De auto moet op uw naam staan. Rijdt u in een auto van uw werkgever of in een leaseauto? Dan stuurt u een verklaring van uw werkgever of het leasebedrijf mee. Hierin staat dat u de auto ook privé mag gebruiken.\n\n## Wat kost het?\n\nPer adres krijgt u maximaal twee vergunningen. De eerste vergunning kost € 65 per jaar. Voor een tweede vergunning betaalt u € 130 per jaar.\n\n## Hoe vraagt u de vergunning aan?\n\nU vraagt de vergunning aan via de website van de gemeente. U logt in met uw DigiD. Binnen vijf werkdagen ontvangt u bericht of u de vergunning krijgt. Heeft u geen DigiD? Maak dan een afspraak bij de balie in het stadhuis. Neem een geldig identiteitsbewijs en uw kentekenbewijs mee.\n\n## Bezoek\n\nKrijgt u bezoek met de auto? Dan kunt u een bezoekersvergunning aanvragen. Uw bezoek kan daarmee maximaal 40 uur per maand parkeren voor € 0,50 per uur. U meldt uw bezoek aan via de app of de website.\n\n## Laden van een elektrische auto\n\nHeeft u een elektrische auto en geen eigen oprit? Dan kunt u bij de gemeente een openbare laadpaal in uw straat aanvragen. De gemeente plaatst een laadpaal als er binnen 250 meter van uw huis nog geen laadpaal is. U betaalt alleen voor de stroom die u gebruikt. Een parkeervergunning blijft wel nodig, ook als u bij een laadpaal staat.\n\n## Mensen met een beperking\n\nKunt u door een ziekte of handicap niet ver lopen? Dan kunt u een gehandicaptenparkeerkaart aanvragen. Met deze kaart mag u in het centrum gratis parkeren. In sommige gevallen kan de gemeente ook een eigen parkeerplaats bij uw huis maken. Hiervoor is eerst een medisch onderzoek nodig.\n\n## Veranderingen\n\nHeeft u een andere auto gekocht? Geef het nieuwe kenteken dan uiterlijk binnen twee weken door. Dit is gratis. Gaat u verhuizen, ook binnen Rijnstad? Dan vervalt uw vergunning op de dag van de verhuizing en moet u een nieuwe vergunning aanvragen. Parkeert u zonder geldige vergunning, dan kunt u een boete krijgen.",
+   "vragen": [
+    {
+     "id": "p1",
+     "patroon": 15,
+     "vraag": "Voor wie is deze tekst vooral bedoeld?",
+     "opties": [
+      "Bewoners van het centrum met een auto",
+      "Mensen die op bezoek komen in Rijnstad",
+      "Werkgevers met leaseauto's"
+     ],
+     "uitleg": "Metin ilk cümlede okura hitap ediyor: merkezde oturan ve arabası olanlar. Ziyaretçiler ve işverenler sadece yan konular.",
+     "bewijs": "Woont u in het centrum van Rijnstad en heeft u een auto?",
+     "juist": 0
+    },
+    {
+     "id": "p2",
+     "patroon": 8,
+     "vraag": "Sara rijdt in een leaseauto van haar werk. Wanneer kan zij een vergunning krijgen?",
+     "opties": [
+      "Als zij een verklaring van haar werkgever of het leasebedrijf meestuurt",
+      "Als haar werkgever de vergunning betaalt",
+      "Als zij de auto alleen voor haar werk gebruikt"
+     ],
+     "uitleg": "Leaseauto için işverenden ya da leasing şirketinden bir yazı (verklaring) gerekiyor. C şıkkı tam tersi: yazıda arabayı özel kullanım için de kullanabildiği yazmalı.",
+     "bewijs": "Dan stuurt u een verklaring van uw werkgever of het leasebedrijf mee.",
+     "juist": 0
+    },
+    {
+     "id": "p3",
+     "patroon": 14,
+     "vraag": "De familie De Vries heeft twee auto's. Hoeveel betalen zij per jaar voor twee vergunningen?",
+     "opties": [
+      "€ 195",
+      "€ 65",
+      "€ 130"
+     ],
+     "uitleg": "İlk izin 65 €, ikinci izin 130 €: toplam 195 €. Rakam sorularında iki bilgiyi toplamak gerekebilir.",
+     "bewijs": "De eerste vergunning kost € 65 per jaar. Voor een tweede vergunning betaalt u € 130 per jaar.",
+     "juist": 0
+    },
+    {
+     "id": "p4",
+     "patroon": 13,
+     "vraag": "Meneer Ahmadi heeft geen DigiD. Wat moet hij doen?",
+     "opties": [
+      "Een afspraak maken bij de balie in het stadhuis",
+      "De vergunning via de app aanvragen",
+      "Een brief sturen met zijn kentekenbewijs"
+     ],
+     "uitleg": "'Heeft u geen DigiD? Maak dan …' kalıbı: soru + 'dan' ile ne yapılacağı söyleniyor.",
+     "bewijs": "Heeft u geen DigiD? Maak dan een afspraak bij de balie in het stadhuis.",
+     "juist": 0
+    },
+    {
+     "id": "p5",
+     "patroon": 7,
+     "vraag": "Wat gebeurt er als u binnen Rijnstad verhuist?",
+     "opties": [
+      "Uw vergunning stopt en u moet een nieuwe aanvragen",
+      "U neemt uw vergunning mee naar het nieuwe adres",
+      "U geeft binnen twee weken uw nieuwe adres door"
+     ],
+     "uitleg": "'vervalt' = geçersiz olur, biter. 'Binnen twee weken' yeni plaka içindi, taşınma için değil: tuzak şık.",
+     "bewijs": "Dan vervalt uw vergunning op de dag van de verhuizing en moet u een nieuwe vergunning aanvragen.",
+     "juist": 0
+    },
+    {
+     "id": "p6",
+     "patroon": 17,
+     "vraag": "Welke bewering is juist volgens de tekst?",
+     "opties": [
+      "Bezoek mag maximaal 40 uur per maand parkeren",
+      "Een nieuw kenteken doorgeven kost geld",
+      "U hoort binnen twee weken of u een vergunning krijgt"
+     ],
+     "uitleg": "Her şıkkı metinde kontrol et: plaka değişikliği ücretsiz ('Dit is gratis'), cevap 5 iş günü içinde geliyor. Sadece A doğru.",
+     "bewijs": "Uw bezoek kan daarmee maximaal 40 uur per maand parkeren voor € 0,50 per uur.",
+     "juist": 0
+    }
+   ],
+   "woorden": 389,
+   "minuten": 18,
+   "examen": "examen-2",
+   "nr": 2
+  },
+  {
+   "id": "opendag",
+   "titel": "Open dag ROC Rijnstad: ontdek jouw toekomst!",
+   "soort": "Website",
+   "domein": "educatie",
+   "tekstsoort": "persuasief",
+   "inleiding": "Deze tekst komt van de website van een mbo-school. De school nodigt mensen uit voor een open dag.",
+   "tekst": "Weet je nog niet wat je na de middelbare school wilt doen? Of wil je na een paar jaar werken toch nog een diploma halen? Kom dan naar de open dag van ROC Rijnstad op zaterdag 21 november. Je bent van harte welkom tussen 10.00 en 15.00 uur op onze locatie aan de Stationsweg.\n\n## Meer dan 120 opleidingen\n\nBij ROC Rijnstad kun je kiezen uit meer dan 120 mbo-opleidingen, van kok tot verpleegkundige en van ICT'er tot automonteur. Tijdens de open dag kun je bij elke opleiding een kijkje nemen. Docenten en studenten vertellen je wat je leert, hoe de lessen eruitzien en welk werk je later kunt doen. Je kunt ook zelf aan de slag: in de keuken een gerecht maken, in de werkplaats een band verwisselen of in het oefenlokaal een bloeddruk meten.\n\n## Leren én werken\n\nWil je liever niet de hele week op school zitten? Kies dan voor een BBL-opleiding. Je werkt dan vier dagen per week bij een leerbedrijf en gaat één dag per week naar school. Je verdient dus al salaris terwijl je leert. 'Voor mij was dat de beste keuze,' zegt Kevin (23), die de opleiding tot elektricien volgt. 'Ik heb twee kinderen, dus ik kon niet zonder inkomen. Nu werk ik bij een installatiebedrijf en over een jaar heb ik mijn diploma. Mijn baas wil me daarna graag houden.' Heb je nog geen leerbedrijf? Onze medewerkers van het Leerbanenpunt helpen je er een te vinden.\n\n## Voor volwassenen\n\nBen je ouder dan 27? Ook dan kun je bij ons terecht. Speciaal voor volwassenen hebben we verkorte opleidingen, vaak in de avond. Heb je al werkervaring? Dan kun je soms vrijstelling krijgen voor een deel van de opleiding, zodat je sneller klaar bent. Vraag tijdens de open dag naar de mogelijkheden bij de stand 'Volwassenenonderwijs'.\n\n## Nederlands nog niet goed genoeg?\n\nOm een mbo-opleiding te kunnen volgen, moet je Nederlands minimaal op niveau B1 zijn. Is dat nog niet zo? Dan kun je eerst een schakeljaar volgen. In dat jaar leer je vooral Nederlands en maak je kennis met verschillende beroepen.\n\n## Kom langs!\n\nVoor de open dag hoef je je niet aan te melden. Je kunt gewoon binnenlopen. Wil je een persoonlijk gesprek met een studieadviseur? Plan dit dan vooraf via onze website, want de plekken zijn beperkt. Neem gerust je ouders, partner of een vriend mee. Wij zien je graag op 21 november!",
+   "vragen": [
+    {
+     "id": "r1",
+     "patroon": 1,
+     "vraag": "Wat is het belangrijkste doel van deze tekst?",
+     "opties": [
+      "Mensen overhalen om naar de open dag te komen",
+      "Uitleggen hoe je een leerbedrijf vindt",
+      "Informeren over de kosten van een mbo-opleiding"
+     ],
+     "uitleg": "Metin okuru doğrudan davet ediyor ('Kom dan…', 'Kom langs!') ve okulun avantajlarını sayıyor: ikna edici (persuasief) bir metin.",
+     "bewijs": "Kom dan naar de open dag van ROC Rijnstad op zaterdag 21 november.",
+     "juist": 0
+    },
+    {
+     "id": "r2",
+     "patroon": 11,
+     "vraag": "Mohammed (30) werkt overdag als kok en wil zijn baan houden. Hij wil nu ook een diploma halen. Welke mogelijkheid past het best bij hem?",
+     "opties": [
+      "Een verkorte opleiding in de avond, misschien met vrijstelling",
+      "Een schakeljaar Nederlands",
+      "Een gewone opleiding overdag op school",
+      "Een BBL-opleiding bij een ander bedrijf"
+     ],
+     "uitleg": "Kişinin şartları: 27'den büyük, gündüz çalışıyor, iş deneyimi var. Yetişkinlere akşam kısa eğitim ve deneyim için muafiyet sunuluyor.",
+     "bewijs": "Dan kun je soms vrijstelling krijgen voor een deel van de opleiding, zodat je sneller klaar bent.",
+     "juist": 0
+    },
+    {
+     "id": "r3",
+     "patroon": 2,
+     "vraag": "Waarom vertelt de schrijver over Kevin?",
+     "opties": [
+      "Om te laten zien dat je bij BBL kunt leren en tegelijk geld kunt verdienen",
+      "Om te laten zien dat elektricien een goed beroep is",
+      "Om te laten zien dat je met kinderen moeilijk kunt studeren"
+     ],
+     "uitleg": "Kevin örneği BBL bölümünde ve hemen önceki cümleyi destekliyor: öğrenirken maaş alıyorsun.",
+     "bewijs": "Je verdient dus al salaris terwijl je leert.",
+     "juist": 0
+    },
+    {
+     "id": "r4",
+     "patroon": 13,
+     "vraag": "Wat moet je doen als je op de open dag met een studieadviseur wilt praten?",
+     "opties": [
+      "Vooraf een gesprek plannen via de website",
+      "Je aanmelden voor de open dag",
+      "Naar de stand 'Volwassenenonderwijs' gaan"
+     ],
+     "uitleg": "Açık güne kayıt gerekmiyor, ama danışmanla görüşme için önceden web sitesinden randevu almak lazım.",
+     "bewijs": "Plan dit dan vooraf via onze website, want de plekken zijn beperkt.",
+     "juist": 0
+    },
+    {
+     "id": "r5",
+     "patroon": 8,
+     "vraag": "Wanneer kun je een mbo-opleiding volgen, volgens de tekst?",
+     "opties": [
+      "Als je Nederlands minimaal op niveau B1 is",
+      "Als je ouder bent dan 27",
+      "Als je eerst een schakeljaar hebt gedaan"
+     ],
+     "uitleg": "Koşul cümlesi: 'Om … te kunnen volgen, moet je …'. Schakeljaar sadece B1 olmayanlar için bir yol, şart değil.",
+     "bewijs": "Om een mbo-opleiding te kunnen volgen, moet je Nederlands minimaal op niveau B1 zijn.",
+     "juist": 0
+    }
+   ],
+   "woorden": 402,
+   "minuten": 18,
+   "examen": "examen-2",
+   "nr": 3
+  },
+  {
+   "id": "verlof",
+   "titel": "Vakantie en verlof",
+   "soort": "Personeelsgids",
+   "domein": "werk",
+   "tekstsoort": "descriptief",
+   "inleiding": "Deze tekst komt uit de personeelsgids van een transportbedrijf. De tekst gaat over vakantie en verlof: tijd dat je niet hoeft te werken.",
+   "tekst": "Iedere medewerker van Transportbedrijf Van Leeuwen heeft recht op vakantie. Bij een volledige werkweek van 38 uur heb je recht op 25 vakantiedagen per jaar. Werk je minder uren, dan krijg je naar verhouding minder dagen. Werk je bijvoorbeeld 19 uur per week, dan heb je recht op 12,5 dag.\n\n## Vakantie aanvragen\n\nVraag je vakantie altijd aan via het personeelsportaal. Voor de zomervakantie (juni tot en met augustus) moet je dat uiterlijk 1 februari doen. Andere vakanties vraag je minimaal vier weken van tevoren aan. Je leidinggevende laat binnen twee weken weten of je vakantie is goedgekeurd.\n\nIn de zomer mogen maximaal drie medewerkers per afdeling tegelijk op vakantie. Willen meer mensen in dezelfde weken weg? Dan gaat de medewerker voor die vorig jaar niet in die periode op vakantie kon. Zo komt iedereen een keer aan de beurt.\n\n## Niet opgenomen dagen\n\nProbeer je vakantiedagen in het jaar zelf op te nemen. Rust is belangrijk, ook voor je gezondheid. Dagen die je niet opneemt, kun je meenemen naar het volgende jaar. Ze vervallen wel als je ze niet binnen zes maanden na het einde van het jaar opneemt. Vakantiedagen worden niet uitbetaald, behalve als je uit dienst gaat.\n\n## Bijzonder verlof\n\nSoms heb je vrij nodig om een andere reden dan vakantie. Daarvoor bestaat bijzonder verlof. Je hoeft hiervoor geen vakantiedagen te gebruiken en je krijgt gewoon je salaris. Je krijgt bijzonder verlof in de volgende situaties:\n- bij je eigen huwelijk: twee dagen\n- bij de geboorte van je kind (voor de partner): vijf dagen\n- bij het overlijden van je partner, kind of ouder: vier dagen\n- bij een verhuizing: één dag per jaar\n\nBijzonder verlof vraag je zo snel mogelijk aan bij je leidinggevende. Bij een verhuizing doe je dat minimaal twee weken van tevoren.\n\n## Huisarts en tandarts\n\nProbeer afspraken met de huisarts of tandarts zoveel mogelijk buiten je werktijd te plannen. Lukt dat niet, dan mag je ervoor weg. Je moet de uren dan wel later inhalen of er vakantie-uren voor gebruiken. Voor een bezoek aan de bedrijfsarts geldt dit niet: dat valt altijd onder werktijd.\n\n## Ouderschapsverlof\n\nHeb je kinderen jonger dan acht jaar? Dan kun je ouderschapsverlof opnemen. Je werkt dan een tijd minder uren om voor je kinderen te zorgen. Hoeveel uur je kunt opnemen en of je daarvoor betaald krijgt, hangt af van je situatie. Personeelszaken legt je graag uit wat de mogelijkheden zijn. Maak hiervoor een afspraak via het personeelsportaal.",
+   "vragen": [
+    {
+     "id": "l1",
+     "patroon": 14,
+     "vraag": "Anouk werkt 19 uur per week. Op hoeveel vakantiedagen heeft zij per jaar recht?",
+     "opties": [
+      "12,5",
+      "19",
+      "25"
+     ],
+     "uitleg": "Metin tam bu örneği veriyor: haftada 19 saat = 12,5 gün. 25 gün tam zamanlı (38 saat) çalışanlar için.",
+     "bewijs": "Werk je bijvoorbeeld 19 uur per week, dan heb je recht op 12,5 dag.",
+     "juist": 0
+    },
+    {
+     "id": "l2",
+     "patroon": 8,
+     "vraag": "Wanneer moet je je zomervakantie uiterlijk aanvragen?",
+     "opties": [
+      "Op 1 februari",
+      "Vier weken van tevoren",
+      "Twee weken van tevoren"
+     ],
+     "uitleg": "Yaz tatili için özel kural: en geç 1 şubat. 'Dört hafta önceden' diğer tatiller için.",
+     "bewijs": "Voor de zomervakantie (juni tot en met augustus) moet je dat uiterlijk 1 februari doen.",
+     "juist": 0
+    },
+    {
+     "id": "l3",
+     "patroon": 10,
+     "vraag": "Te veel medewerkers van één afdeling willen in dezelfde zomerweken op vakantie. Wie gaat voor?",
+     "opties": [
+      "De medewerker die vorig jaar in die periode niet weg kon",
+      "De medewerker die de vakantie het eerst heeft aangevraagd",
+      "De medewerker die het langst bij het bedrijf werkt"
+     ],
+     "uitleg": "'Dan gaat de medewerker voor die …' cümlesi kimin öncelikli olduğunu söylüyor. Diğer iki kural metinde yok.",
+     "bewijs": "Dan gaat de medewerker voor die vorig jaar niet in die periode op vakantie kon.",
+     "juist": 0
+    },
+    {
+     "id": "l4",
+     "patroon": 7,
+     "vraag": "Wat gebeurt er met vakantiedagen die je in een jaar niet opneemt?",
+     "opties": [
+      "Je kunt ze meenemen, maar ze vervallen als je ze niet binnen zes maanden opneemt",
+      "Ze vervallen aan het einde van het jaar",
+      "Ze worden aan het einde van het jaar uitbetaald"
+     ],
+     "uitleg": "Kullanılmayan günler bir sonraki yıla geçiyor ama altı ay içinde kullanılmazsa siliniyor. Para olarak ödenmiyor (işten ayrılma hariç).",
+     "bewijs": "Ze vervallen wel als je ze niet binnen zes maanden na het einde van het jaar opneemt.",
+     "juist": 0
+    },
+    {
+     "id": "l5",
+     "patroon": 12,
+     "vraag": "Welke regel geldt voor een afspraak bij de tandarts onder werktijd?",
+     "opties": [
+      "Je moet de uren inhalen of er vakantie-uren voor gebruiken",
+      "Je krijgt er bijzonder verlof voor",
+      "Het valt altijd onder werktijd"
+     ],
+     "uitleg": "Diş hekimi için gidebilirsin ama saatleri telafi etmen ya da tatil saati kullanman gerekiyor. 'Her zaman çalışma saati' sadece işyeri doktoru için.",
+     "bewijs": "Je moet de uren dan wel later inhalen of er vakantie-uren voor gebruiken.",
+     "juist": 0
+    },
+    {
+     "id": "l6",
+     "patroon": 6,
+     "vraag": "Sander gaat volgende maand verhuizen. Wat geldt voor hem, volgens de tekst?",
+     "opties": [
+      "Hij krijgt één dag bijzonder verlof als hij het minimaal twee weken van tevoren aanvraagt",
+      "Hij moet er een vakantiedag voor gebruiken",
+      "Hij krijgt vier dagen bijzonder verlof"
+     ],
+     "uitleg": "Taşınma için yılda bir gün özel izin; en az iki hafta önceden istenmeli. Dört gün, bir yakının ölümü için.",
+     "bewijs": "Bij een verhuizing doe je dat minimaal twee weken van tevoren.",
+     "juist": 0
+    }
+   ],
+   "woorden": 408,
+   "minuten": 18,
+   "examen": "examen-2",
+   "nr": 4
+  },
+  {
+   "id": "examentraining",
+   "titel": "Belangrijke informatie over de examentraining",
+   "soort": "E-mail",
+   "domein": "educatie",
+   "tekstsoort": "instructief",
+   "inleiding": "Deze e-mail is gestuurd door een taalcentrum aan zijn cursisten.",
+   "kop": [
+    "Van: Taalcentrum De Brug",
+    "Aan: cursisten Nederlands B1",
+    "Onderwerp: Belangrijke informatie over de examentraining"
+   ],
+   "tekst": "Beste cursist,\n\nOver vier weken start de examentraining voor het Staatsexamen NT2. In deze e-mail leest u wat u moet weten.\n\n## Aanmelden\n\nDe examentraining is niet verplicht, maar wij raden hem iedereen aan die dit jaar examen doet. U meldt zich aan via het formulier op onze website. Doe dit uiterlijk vrijdag 6 november. Er zijn maximaal 14 plaatsen per groep. Zodra een groep vol is, komt u op een wachtlijst.\n\n## Lessen en aanwezigheid\n\nDe training bestaat uit zes lessen van twee uur, op zaterdagochtend van 10.00 tot 12.00 uur. Om een certificaat te krijgen, moet u minimaal vijf lessen aanwezig zijn. Bent u ziek of kunt u een keer niet komen? Meld dit dan vóór 9.00 uur bij uw docent. U kunt een gemiste les niet inhalen, maar u krijgt het lesmateriaal wel per e-mail.\n\n## Wat doe je in de training?\n\nIn de training oefen je met examens van vorige jaren. Je leert hoe je je tijd goed verdeelt en hoe je de vragen snel kunt beantwoorden. Na elke les bespreekt je docent welke fouten veel voorkomen. Ook oefen je voor het examen Spreken: in kleine groepjes en met opnames van jezelf. De laatste les is een proefexamen onder echte examenomstandigheden. Daarna hoor je hoe je ervoor staat.\n\n## Kosten\n\nDe training kost € 90. Voor cursisten die nu al een cursus bij ons volgen, is de prijs € 60. Werkt u? Vraag dan aan uw werkgever of hij de kosten wil betalen. Veel werkgevers vergoeden een taalcursus.\n\n## Het examen zelf\n\nHet staatsexamen zelf vindt niet bij ons plaats. U meldt zich daarvoor zelf aan. Doe dat op tijd, want de plaatsen zijn vaak snel vol. Wij kunnen u helaas niet aanmelden.\n\n## Vragen?\n\nHeeft u vragen over de training of over het examen zelf? Mevrouw Van Dijk, onze coördinator examens, is bereikbaar op maandag en woensdag tussen 13.00 en 16.00 uur. Voor vragen over betalen kunt u terecht bij de receptie.\n\nMet vriendelijke groet,\nTeam Taalcentrum De Brug",
+   "vragen": [
+    {
+     "id": "e1",
+     "patroon": 1,
+     "vraag": "Wat is het belangrijkste doel van deze e-mail?",
+     "opties": [
+      "Cursisten informeren over de examentraining",
+      "Cursisten uitnodigen voor het staatsexamen",
+      "Cursisten vertellen dat de training verplicht is"
+     ],
+     "uitleg": "Giriş paragrafı amacı söylüyor: bilmeniz gerekenleri anlatmak (informeren). Eğitim zorunlu değil, C yanlış.",
+     "bewijs": "In deze e-mail leest u wat u moet weten.",
+     "juist": 0
+    },
+    {
+     "id": "e2",
+     "patroon": 8,
+     "vraag": "Wanneer moet u zich uiterlijk aanmelden?",
+     "opties": [
+      "Op vrijdag 6 november",
+      "Over vier weken",
+      "Zodra de groep vol is"
+     ],
+     "uitleg": "'uiterlijk' = en geç. 'Over vier weken' eğitimin başladığı zaman, kayıt tarihi değil.",
+     "bewijs": "Doe dit uiterlijk vrijdag 6 november.",
+     "juist": 0
+    },
+    {
+     "id": "e3",
+     "patroon": 13,
+     "vraag": "Wat moet u doen om een certificaat te krijgen?",
+     "opties": [
+      "Minimaal vijf van de zes lessen aanwezig zijn",
+      "Alle zes lessen volgen en het lesmateriaal lezen",
+      "De gemiste lessen inhalen"
+     ],
+     "uitleg": "'minimaal vijf lessen' = en az beş ders. Kaçırılan ders telafi edilemiyor, C yanlış.",
+     "bewijs": "Om een certificaat te krijgen, moet u minimaal vijf lessen aanwezig zijn.",
+     "juist": 0
+    },
+    {
+     "id": "e4",
+     "patroon": 14,
+     "vraag": "Ali volgt nu de cursus B1 bij Taalcentrum De Brug. Hoeveel kost de examentraining voor hem?",
+     "opties": [
+      "€ 60",
+      "€ 90",
+      "Niets, zijn werkgever betaalt"
+     ],
+     "uitleg": "Ali zaten kursiyer, indirimli fiyat 60 €. İşverenin ödeyip ödemeyeceği metinde kesin değil, sadece 'sor' deniyor.",
+     "bewijs": "Voor cursisten die nu al een cursus bij ons volgen, is de prijs € 60.",
+     "juist": 0
+    },
+    {
+     "id": "e5",
+     "patroon": 9,
+     "vraag": "Bij wie kunt u terecht met een vraag over betalen?",
+     "opties": [
+      "Bij de receptie",
+      "Bij mevrouw Van Dijk",
+      "Bij uw docent"
+     ],
+     "uitleg": "Mevrouw Van Dijk eğitim ve sınav soruları için; ödeme soruları için resepsiyon.",
+     "bewijs": "Voor vragen over betalen kunt u terecht bij de receptie.",
+     "juist": 0
+    },
+    {
+     "id": "e6",
+     "patroon": 7,
+     "vraag": "Wat gebeurt er als u een les mist?",
+     "opties": [
+      "U krijgt het lesmateriaal per e-mail",
+      "U kunt de les in een andere week inhalen",
+      "U krijgt geen certificaat"
+     ],
+     "uitleg": "Ders telafi edilmiyor ama materyal e-postayla geliyor. Bir ders kaçırmak sertifikayı engellemez (en az 5/6).",
+     "bewijs": "U kunt een gemiste les niet inhalen, maar u krijgt het lesmateriaal wel per e-mail.",
+     "juist": 0
+    }
+   ],
+   "woorden": 331,
+   "minuten": 18,
+   "examen": "examen-2",
+   "nr": 5
+  },
+  {
+   "id": "huurders",
+   "titel": "Informatie voor huurders",
+   "soort": "Website",
+   "domein": "overig",
+   "tekstsoort": "instructief",
+   "zoektekst": true,
+   "inleiding": "Deze tekst komt van de website van woningstichting Rijnwonen. Lees eerst de vraag. Zoek het antwoord in de tekst.",
+   "tekst": "Welkom bij Rijnwonen. Op deze pagina leest u wat u moet weten over het huren van een woning bij ons: van huur betalen tot reparaties en van huisdieren tot verhuizen.\n\n## Huur betalen\n\nDe huur moet uiterlijk op de eerste dag van de maand op onze rekening staan. De makkelijkste manier is automatische incasso: wij schrijven de huur dan elke maand rond de 28e van uw rekening af. U kunt ook zelf maandelijks overmaken. Vermeld dan altijd uw huurdersnummer.\n\nHeeft u moeite om de huur te betalen? Wacht dan niet, maar neem zo snel mogelijk contact op met onze afdeling Huurincasso. Samen zoeken we naar een oplossing, bijvoorbeeld een betalingsregeling. Hoe eerder u belt, hoe meer we kunnen doen. Betaalt u twee maanden geen huur, dan geven wij uw dossier door aan een incassobureau. Daarvoor betaalt u extra kosten.\n\n## Huurverhoging\n\nElk jaar op 1 juli kan uw huur omhooggaan. U krijgt hierover uiterlijk twee maanden van tevoren een brief. Bent u het niet eens met de huurverhoging? Dan kunt u bezwaar maken. Stuur uw bezwaar vóór 1 juli per brief of via het klantportaal.\n\n## Reparaties\n\nIs er iets kapot in uw woning? Wie de reparatie betaalt, hangt af van wat er kapot is.\n\nRijnwonen betaalt en regelt onder andere:\n- reparaties aan het dak, de gevel en de dakgoten\n- lekkages van leidingen in de muur of de vloer\n- de cv-ketel en de mechanische ventilatie\n- kapotte kozijnen en buitendeuren\n\nU betaalt en regelt zelf onder andere:\n- kleine reparaties, zoals een lekkende kraan of een kapot stopcontact\n- het vervangen van lampen en van batterijen van rookmelders\n- het ontstoppen van de afvoer van gootsteen, douche en wc\n- schade die u of uw bezoek zelf heeft veroorzaakt\n\nWilt u de kleine reparaties niet zelf doen? Neem dan een onderhoudsabonnement. Voor € 4,50 per maand voeren wij deze reparaties voor u uit.\n\nEen reparatie meldt u via het klantportaal of telefonisch op werkdagen tussen 8.30 en 17.00 uur. Bij spoed buiten kantooruren, zoals een grote lekkage of een cv-ketel die in de winter niet werkt, belt u het storingsnummer. Dit nummer is 24 uur per dag bereikbaar.\n\n## Zelf veranderingen aanbrengen\n\nU mag uw woning naar uw eigen smaak inrichten. Voor kleine veranderingen, zoals schilderen, behangen of een nieuwe vloer, heeft u geen toestemming nodig. Voor grotere veranderingen wel. Denk aan het plaatsen van een nieuwe keuken, het weghalen van een muur of het plaatsen van een dakkapel. Vraag hiervoor vooraf schriftelijk toestemming aan via het klantportaal. Binnen vier weken hoort u of u de verandering mag uitvoeren. Bij uw vertrek moet u sommige veranderingen weer ongedaan maken. Dat staat in de brief waarin u toestemming krijgt.\n\n## Huisdieren\n\nHuisdieren zijn toegestaan, zolang ze geen overlast veroorzaken voor uw buren. In appartementengebouwen moeten honden in de gemeenschappelijke ruimtes, zoals de lift en het trappenhuis, altijd aangelijnd zijn. Het houden van meer dan twee honden of katten in een appartement is niet toegestaan.\n\n## Overlast\n\nHeeft u last van uw buren? Praat er dan eerst zelf met hen over. Vaak weten buren niet dat ze overlast veroorzaken. Komt u er samen niet uit? Dan kunt u gratis gebruikmaken van buurtbemiddeling. Rijnwonen kan u daarvoor aanmelden. Is er sprake van ernstige overlast, zoals bedreiging, meld dit dan direct bij de politie en daarna bij ons.\n\n## Huur opzeggen\n\nGaat u verhuizen? Zeg uw huurcontract dan op via het klantportaal of per brief. De opzegtermijn is één maand. U kunt op elke dag van de maand opzeggen. Ongeveer twee weken voor het einde van de huur komt een medewerker bij u langs voor een voorinspectie. Hij vertelt u dan wat u nog moet herstellen of weghalen. Op de laatste dag van de huur levert u alle sleutels in bij de eindinspectie.\n\n## Contact\n\n- Klantportaal: 24 uur per dag, voor reparaties, vragen en het aanpassen van uw gegevens\n- Klantenservice: op werkdagen van 8.30 tot 17.00 uur\n- Storingsnummer: 24 uur per dag, alleen voor spoed buiten kantooruren\n- Kantoor aan de Marktstraat: alleen op afspraak",
+   "vragen": [
+    {
+     "id": "h1",
+     "patroon": 6,
+     "vraag": "De kraan in de keuken van Ilse lekt. Wie moet de reparatie regelen, volgens de tekst?",
+     "opties": [
+      "Ilse zelf, behalve als ze een onderhoudsabonnement heeft",
+      "Rijnwonen, want het is een lekkage",
+      "Het storingsnummer, want het is spoed"
+     ],
+     "uitleg": "Önce soruyu oku, sonra 'Reparaties' başlığındaki iki listeye bak: sızdıran musluk kiracının listesinde. Duvar içindeki boru sızıntısı ise Rijnwonen'in işi.",
+     "bewijs": "kleine reparaties, zoals een lekkende kraan of een kapot stopcontact",
+     "juist": 0
+    },
+    {
+     "id": "h2",
+     "patroon": 13,
+     "vraag": "Omar wil de muur tussen de keuken en de woonkamer weghalen. Wat moet hij doen?",
+     "opties": [
+      "Vooraf schriftelijk toestemming vragen via het klantportaal",
+      "Niets, hij mag zijn woning zelf inrichten",
+      "Het eerst aan zijn buren laten weten"
+     ],
+     "uitleg": "Duvar kaldırmak 'büyük değişiklik'; önceden yazılı izin gerekiyor. Boya, duvar kâğıdı gibi küçük değişiklikler için izin gerekmiyor.",
+     "bewijs": "Vraag hiervoor vooraf schriftelijk toestemming aan via het klantportaal.",
+     "juist": 0
+    },
+    {
+     "id": "h3",
+     "patroon": 14,
+     "vraag": "Hoeveel kost het onderhoudsabonnement per jaar?",
+     "opties": [
+      "€ 54",
+      "€ 4,50",
+      "€ 45",
+      "€ 50"
+     ],
+     "uitleg": "Metin aylık fiyat veriyor: 4,50 € × 12 ay = 54 €. Soru 'yıllık' diye soruyor; hesap yapmayı unutma.",
+     "bewijs": "Voor € 4,50 per maand voeren wij deze reparaties voor u uit.",
+     "juist": 0
+    },
+    {
+     "id": "h4",
+     "patroon": 9,
+     "vraag": "Op een zondagavond in januari doet de cv-ketel het niet. Waar kan de huurder terecht?",
+     "opties": [
+      "Bij het storingsnummer",
+      "Bij de klantenservice",
+      "Bij het kantoor aan de Marktstraat"
+     ],
+     "uitleg": "Kış ve mesai dışı = acil durum. Müşteri hizmetleri sadece hafta içi; ofis sadece randevuyla.",
+     "bewijs": "Bij spoed buiten kantooruren, zoals een grote lekkage of een cv-ketel die in de winter niet werkt, belt u het storingsnummer.",
+     "juist": 0
+    },
+    {
+     "id": "h5",
+     "patroon": 7,
+     "vraag": "Wat gebeurt er als een huurder twee maanden geen huur betaalt?",
+     "opties": [
+      "Het dossier gaat naar een incassobureau en de huurder betaalt extra kosten",
+      "De huurder moet de woning meteen verlaten",
+      "Rijnwonen maakt automatisch een betalingsregeling"
+     ],
+     "uitleg": "İki ay ödenmezse dosya tahsilat bürosuna gidiyor ve ek masraf çıkıyor. Ödeme planı ancak kiracı kendisi erken ararsa.",
+     "bewijs": "Betaalt u twee maanden geen huur, dan geven wij uw dossier door aan een incassobureau.",
+     "juist": 0
+    },
+    {
+     "id": "h6",
+     "patroon": 12,
+     "vraag": "Welke regel geldt voor honden in een appartementengebouw?",
+     "opties": [
+      "In de lift en het trappenhuis moeten ze aangelijnd zijn",
+      "Honden zijn niet toegestaan",
+      "Je mag maximaal één hond hebben"
+     ],
+     "uitleg": "Evcil hayvanlara izin var; ortak alanlarda köpek tasmalı olmalı. Daire başına en fazla iki köpek veya kedi.",
+     "bewijs": "In appartementengebouwen moeten honden in de gemeenschappelijke ruimtes, zoals de lift en het trappenhuis, altijd aangelijnd zijn.",
+     "juist": 0
+    }
+   ],
+   "woorden": 673,
+   "minuten": 18,
+   "examen": "examen-2",
+   "nr": 6
   }
  ],
- "examen": {
-  "teksten": [
-   "kinderopvang",
-   "buurtbemiddeling",
-   "omscholing",
-   "ziekmelden",
-   "sportschool",
-   "studiegids"
-  ],
-  "minuten": 110,
-  "score": [
-   295,
-   345,
-   369,
-   384,
-   395,
-   404,
-   412,
-   419,
-   426,
-   431,
-   437,
-   442,
-   447,
-   452,
-   456,
-   461,
-   465,
-   469,
-   473,
-   477,
-   482,
-   486,
-   490,
-   495,
-   500,
-   505,
-   510,
-   516,
-   522,
-   529,
-   537,
-   547,
-   559,
-   574,
-   598,
-   649
-  ],
-  "geslaagd": 24
- }
+ "examens": [
+  {
+   "id": "examen-1",
+   "titel": "Proefexamen 1",
+   "teksten": [
+    "kinderopvang",
+    "buurtbemiddeling",
+    "omscholing",
+    "ziekmelden",
+    "sportschool",
+    "studiegids"
+   ],
+   "minuten": 110,
+   "vragen": 35
+  },
+  {
+   "id": "examen-2",
+   "titel": "Proefexamen 2",
+   "teksten": [
+    "thuiswerken",
+    "parkeren",
+    "opendag",
+    "verlof",
+    "examentraining",
+    "huurders"
+   ],
+   "minuten": 110,
+   "vragen": 35
+  }
+ ],
+ "score": [
+  295,
+  345,
+  369,
+  384,
+  395,
+  404,
+  412,
+  419,
+  426,
+  431,
+  437,
+  442,
+  447,
+  452,
+  456,
+  461,
+  465,
+  469,
+  473,
+  477,
+  482,
+  486,
+  490,
+  495,
+  500,
+  505,
+  510,
+  516,
+  522,
+  529,
+  537,
+  547,
+  559,
+  574,
+  598,
+  649
+ ],
+ "geslaagd": 24
 }

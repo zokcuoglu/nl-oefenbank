@@ -117,7 +117,7 @@ function questionLabel(module, qid) {
   }
   if (module === "lezen-teksten") {
     const [tid, id] = qid.split(":"), t = teksten.teksten.find(x => x.id === tid), q = t?.vragen.find(x => x.id === id);
-    return q ? `Tekst ${t.nr} · ${q.vraag}` : qid;
+    return q ? `${t.titel} · ${q.vraag}` : qid;
   }
   if (module === "lezen") { const [type, ...rest] = qid.split(":"); return `${LEZEN_TYPES[type] || type}: ${rest.join(":")}`; }
   return qid;

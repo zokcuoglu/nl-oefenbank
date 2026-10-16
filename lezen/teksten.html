@@ -64,7 +64,8 @@ setTimeout(function () {
 <script type="module">
 // Exam-style reading practice: one text with its questions, or a full practice exam (all texts, 110 minutes).
 // All questions are visible at once and can be changed until "Bitir", like in the real exam.
-// Rounds are saved as attempts (module "lezen-teksten"; test = text id or "proefexamen").
+// Texts are grouped in practice exams of 6 texts / 35 questions, like the official booklets.
+// Rounds are saved as attempts (module "lezen-teksten"; test = text id or exam id, e.g. "examen-1").
 import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
 import { pct } from "../js/stats.js";
 
@@ -80,12 +81,13 @@ const { user, profile } = await gate({ area: "nt2", title: "Lezen · Teksten", s
 document.getElementById("ub").innerHTML = userBox(user, profile);
 try { S.data = await (await fetch("../data/lezen-teksten.json", { cache: "no-cache" })).json(); }
 catch (e) { app.innerHTML = `<div class="notice">Metinler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
-S.attempts = await loadAttempts(user.uid, "lezen-teksten").catch(() => []);
+S.attempts = (await loadAttempts(user.uid, "lezen-teksten").catch(() => [])).map(a => a.test === "proefexamen" ? { ...a, test: "examen-1" } : a);
 const byId = Object.fromEntries(S.data.teksten.map(t => [t.id, t]));
 // Question patterns from the Lezen word bank: { p: Dutch pattern, tr: Turkish, tip: where to look for the answer }
-const examQ = () => S.data.examen.teksten.reduce((n, id) => n + byId[id].vragen.length, 0);
+const examById = Object.fromEntries(S.data.examens.map(e => [e.id, e]));
+const isExam = test => !!examById[test];
 // Converted exam score (500 = pass) from the official 2025 table; only an estimate for our own texts
-const examScore = ok => S.data.examen.score[Math.min(ok, S.data.examen.score.length - 1)];
+const examScore = ok => S.data.score[Math.min(ok, S.data.score.length - 1)];
 const patternName = n => S.data.patronen[n - 1]?.p || "";
 const patternTip = n => S.data.patronen[n - 1]?.tip || "";
 
@@ -115,25 +117,26 @@ function renderText(t, marks = []) {
 // ---------- List ----------
 function bestOf(test) { const t = S.attempts.filter(a => a.test === test && a.total); return t.length ? { best: Math.max(...t.map(a => Math.round(100 * a.score / a.total))), n: t.length, last: t[0].finished_at } : null; }
 function vList() {
-  const exam = bestOf("proefexamen");
   // Accuracy per question pattern over all answers: which kind of question needs practice
   const byPat = {};
   S.attempts.forEach(a => (a.answers || []).forEach(x => { if (!x.patroon) return; const v = byPat[x.patroon] = byPat[x.patroon] || { ok: 0, n: 0 }; v.n++; if (x.correct) v.ok++; }));
   const pats = Object.entries(byPat).sort((a, b) => pct(a[1].ok, a[1].n) - pct(b[1].ok, b[1].n));
+  const textRow = t => { const b = bestOf(t.id);
+    return `<a class="textcard" href="?t=${encodeURIComponent(t.id)}"><span class="nr">${t.nr}</span>
+      <span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${esc(t.soort)} · ${t.woorden} kelime · ${t.vragen.length} soru${t.zoektekst ? " · arama metni" : ""}</span>
+      <br><span class="chip dom" lang="nl">${esc(t.domein)}</span> <span class="chip dom" lang="nl">${esc(t.tekstsoort)}</span></span>
+      ${b ? `<span class="chip ${tone(b.best)} num" title="${b.n} deneme, son: ${fmtDate(b.last)}">en iyi %${b.best}</span>` : `<span class="chip">yeni</span>`}</a>`; };
+  const examCard = e => { const b = bestOf(e.id), tries = S.attempts.filter(a => a.test === e.id && a.total), bestOk = tries.length ? Math.max(...tries.map(a => a.score)) : null;
+    return `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3><span class="muted">${e.teksten.length} metin · ${e.vragen} soru · ${e.minuten} dakika</span></div>
+      <div class="row" style="margin-bottom:6px">${b ? `<span class="chip ${bestOk >= S.data.geslaagd ? "ok" : "bad"} num">en iyi: ${bestOk}/${e.vragen} doğru · tahmini puan ${examScore(bestOk)}</span><span class="muted" style="font-size:13px">${b.n} deneme</span>` : `<span class="muted" style="font-size:14px">Henüz tam sınav olarak çözülmedi.</span>`}
+        <a class="btn primary" style="margin-left:auto;text-decoration:none" href="?examen=${encodeURIComponent(e.id)}">Tam sınav (${e.minuten} dk)</a></div>
+      ${e.teksten.map(id => textRow(byId[id])).join("")}
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Metinleri tek tek de çözebilirsin (metne tıkla); tam sınav süreli ve hepsi birlikte.</p></section>`; };
   return `
     <section class="panel"><span class="eyebrow">Sınav gibi okuma</span>
-      <h2 style="margin:4px 0 8px">Metin + sorular</h2>
-      <p class="muted" style="margin:0;max-width:66ch">Sınavda (Programma I, Lezen) 110 dakikada yaklaşık 6 metin ve 36 çoktan seçmeli soru var: metinler kâğıtta, sorular bilgisayarda. Burada da metin solda, sorular sağda; bütün soruları görür, istediğin kadar değiştirir, sonunda "Bitir"e basarsın. Metinler sınav tarzında yazılmış alıştırma metinleridir; kişi, kurum ve yer adları uydurmadır.</p></section>
-    <section class="panel"><div class="sectionhead"><h3>Metinler</h3><span class="muted">metin başına ~${S.data.teksten[0]?.minuten || 18} dakika</span></div>
-      ${S.data.teksten.map(t => { const b = bestOf(t.id);
-        return `<a class="textcard" href="?t=${encodeURIComponent(t.id)}"><span class="nr">${t.nr}</span>
-          <span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${esc(t.soort)} · ${t.woorden} kelime · ${t.vragen.length} soru${t.zoektekst ? " · arama metni" : ""}</span>
-          <br><span class="chip dom" lang="nl">${esc(t.domein)}</span> <span class="chip dom" lang="nl">${esc(t.tekstsoort)}</span>${S.data.examen.teksten.includes(t.id) ? ` <span class="chip blue">deneme sınavında</span>` : ""}</span>
-          ${b ? `<span class="chip ${tone(b.best)} num" title="${b.n} deneme, son: ${fmtDate(b.last)}">en iyi %${b.best}</span>` : `<span class="chip">yeni</span>`}</a>`; }).join("")}</section>
-    <section class="panel toetscard" style="border:2px dashed var(--line)"><span class="eyebrow">Deneme sınavı</span>
-      <h3 style="margin:4px 0 6px" lang="nl">Proefexamen Lezen I</h3>
-      <p class="muted" style="margin:0 0 12px;max-width:66ch">Resmî örnek sınavlar (2023–2025) gibi kuruldu: ${S.data.examen.teksten.length} metin, ${examQ()} soru, ${S.data.examen.minuten} dakika. Her alandan (werk, educatie, overig) iki metin; farklı metin türleri; son metin uzun bir arama metni (önce soruyu oku, sonra cevabı ara). Her soru 1 puan; sonuçta resmî 2025 tablosuyla tahmini sınav puanını görürsün (500 = geçer, ${S.data.examen.geslaagd} doğru). Süre bitince sınav kendiliğinden biter.</p>
-      <div class="row">${exam ? `<span class="chip ${tone(exam.best)} num">en iyi %${exam.best} · ${exam.n} deneme</span>` : ""}<a class="btn primary" style="margin-left:auto;text-decoration:none" href="?examen=1">Deneme sınavına başla</a></div></section>
+      <h2 style="margin:4px 0 8px">Deneme sınavları</h2>
+      <p class="muted" style="margin:0;max-width:68ch">Her deneme sınavı resmî örnek sınavlar (2023–2025) gibi kuruldu: 6 metin, 35 soru, 110 dakika. Her alandan (werk, educatie, overig) iki metin, farklı metin türleri; son metin uzun bir arama metni (önce soruyu oku, sonra cevabı ara). Her soru 1 puan; sonuçta resmî 2025 tablosuyla tahmini sınav puanı (${S.data.geslaagd} doğru = 500 = geçer). Metin solda, sorular sağda; bütün soruları görür, değiştirir, sonunda "Bitir"e basarsın. Metinler sınav tarzında yazılmış alıştırma metinleridir; kişi, kurum ve yer adları uydurmadır.</p></section>
+    ${S.data.examens.map(examCard).join("")}
     ${pats.length ? `<section class="panel"><div class="sectionhead"><h3>Soru tiplerine göre</h3><span class="muted">en zayıf olan üstte</span></div>
       <div style="display:flex;flex-direction:column;gap:6px">${pats.map(([p, v]) => { const q = pct(v.ok, v.n); return `<div class="catrow" style="grid-template-columns:minmax(0,1fr) 120px 5em"><span lang="nl" style="font-size:13.5px">${esc(patternName(+p))}</span><div class="bar"><i style="width:${q}%;background:var(--${tone(q)})"></i></div><span class="num r">%${q} <span class="muted">(${v.n})</span></span></div>`; }).join("")}</div>
       <p class="muted" style="font-size:13px;margin:10px 0 0">Bu kalıpların ipuçları için Lezen sayfasındaki <a href="./">Soru kalıpları</a> sekmesine bak.</p></section>` : ""}`;
@@ -144,7 +147,7 @@ function vList() {
 function startRun(test, ids, limitMin) {
   const order = {};
   ids.forEach(id => byId[id].vragen.forEach(q => order[id + ":" + q.id] = shuffle(q.opties.map((_, i) => i))));
-  S.run = { test, texts: ids, cur: 0, order, ans: {}, started: Date.now(), limit: limitMin ? limitMin * 60 : 0, timerOn: !!limitMin && test === "proefexamen", done: false, saved: false };
+  S.run = { test, texts: ids, cur: 0, order, ans: {}, started: Date.now(), limit: limitMin ? limitMin * 60 : 0, timerOn: !!limitMin && isExam(test), done: false, saved: false };
   tick();
 }
 function left() { const r = S.run; return r.limit - Math.floor((Date.now() - r.started) / 1000); }
@@ -154,11 +157,11 @@ function tick() {
     const r = S.run; if (!r || r.done || !r.timerOn) return;
     const el = document.getElementById("timer"), s = left();
     if (el) { el.textContent = mmss(s); el.classList.toggle("low", s <= 300); }
-    if (s <= 0 && r.test === "proefexamen") finish(true);   // exam: time is up
+    if (s <= 0 && isExam(r.test)) finish(true);   // exam: time is up
   }, 1000);
 }
 function vRun() {
-  const r = S.run, t = byId[r.texts[r.cur]], exam = r.test === "proefexamen";
+  const r = S.run, t = byId[r.texts[r.cur]], exam = isExam(r.test);
   const all = r.texts.flatMap(id => byId[id].vragen.map(q => id + ":" + q.id));
   const answered = all.filter(k => k in r.ans).length;
   const marks = r.done ? t.vragen.map(q => ({ id: t.id + "-" + q.id, text: q.bewijs })) : [];
@@ -177,9 +180,9 @@ function vRun() {
   const res = r.done ? (() => { const ok = all.filter(k => r.ans[k] === byId[k.split(":")[0]].vragen.find(q => q.id === k.split(":")[1]).juist).length, p = pct(ok, all.length);
     return `<section class="panel"><div class="row" style="gap:18px;align-items:flex-end"><div class="bigscore num" style="font-size:44px;font-weight:700;color:var(--${tone(p)})">%${p}</div>
       <div class="muted num">${ok} / ${all.length} doğru · ${mmss(r.used)} dakika${r.timeout ? " · süre doldu" : ""} · ${r.saved ? "kaydedildi" : "kaydediliyor…"}</div>
-      ${r.test === "proefexamen" ? `<div><span class="chip ${ok >= S.data.examen.geslaagd ? "ok" : "bad"} num" style="font-size:15px">tahmini puan ${examScore(ok)} · ${ok >= S.data.examen.geslaagd ? "geçer" : `geçmek için ${S.data.examen.geslaagd - ok} doğru daha`}</span></div>` : ""}
+      ${isExam(r.test) ? `<div><span class="chip ${ok >= S.data.geslaagd ? "ok" : "bad"} num" style="font-size:15px">tahmini puan ${examScore(ok)} · ${ok >= S.data.geslaagd ? "geçer" : `geçmek için ${S.data.geslaagd - ok} doğru daha`}</span></div>` : ""}
       <div style="margin-left:auto" class="row"><a class="btn" href="./teksten.html" style="text-decoration:none">Metinlere dön</a><button class="btn primary" data-act="again">Tekrar çöz</button></div></div>
-      <p class="muted" style="margin:10px 0 0;font-size:14px">Her sorunun altında açıklama var; "Metinde göster" cevabın geçtiği cümleyi metinde sarıyla gösterir.${r.test === "proefexamen" ? " Tahmini puan resmî 2025 örnek sınavının tablosuyla hesaplandı (24 doğru = 500 = geçer); kendi metinlerimizde bu sadece bir tahmindir." : ""}</p></section>`; })() : "";
+      <p class="muted" style="margin:10px 0 0;font-size:14px">Her sorunun altında açıklama var; "Metinde göster" cevabın geçtiği cümleyi metinde sarıyla gösterir.${isExam(r.test) ? " Tahmini puan resmî 2025 örnek sınavının tablosuyla hesaplandı (24 doğru = 500 = geçer); kendi metinlerimizde bu sadece bir tahmindir." : ""}</p></section>`; })() : "";
   return `
     <div class="timerbar">
       ${exam ? `<div class="examtabs">${r.texts.map((id, i) => { const n = byId[id].vragen.filter(q => (id + ":" + q.id) in r.ans).length;
@@ -201,7 +204,7 @@ async function finish(timeout = false) {
   r.done = true; r.timeout = timeout; r.used = Math.floor((Date.now() - r.started) / 1000); clearInterval(S.timer);
   render(); scrollTo(0, 0);
   const answers = r.texts.flatMap(id => byId[id].vragen.map(q => { const k = id + ":" + q.id; return { qid: k, chosen: k in r.ans ? String(r.ans[k]) : "", correct: r.ans[k] === q.juist, patroon: q.patroon }; }));
-  const attempt = { kind: r.test === "proefexamen" ? "examen" : "tekst", test: r.test, title: r.test === "proefexamen" ? "Proefexamen Lezen I" : byId[r.test].titel,
+  const attempt = { kind: isExam(r.test) ? "examen" : "tekst", test: r.test, title: isExam(r.test) ? examById[r.test].titel : byId[r.test].titel,
     started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: r.used, timed: r.timerOn,
     score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
   try { await saveAttempt(user.uid, "lezen-teksten", attempt); S.attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
@@ -212,7 +215,9 @@ async function finish(timeout = false) {
 function render() {
   const p = params();
   if (S.run) { app.innerHTML = vRun(); return; }
-  if (p.get("examen")) { startRun("proefexamen", S.data.examen.teksten, S.data.examen.minuten); app.innerHTML = vRun(); return; }
+  // ?examen=examen-2 (old links ?examen=1 open exam 1)
+  const ex = examById[p.get("examen")] || (p.get("examen") ? S.data.examens[0] : null);
+  if (ex) { startRun(ex.id, ex.teksten, ex.minuten); app.innerHTML = vRun(); return; }
   if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], 0); app.innerHTML = vRun(); return; }
   app.innerHTML = vList();
 }
@@ -228,7 +233,7 @@ app.addEventListener("click", e => {
       const box = document.getElementById("finishmsg");
       if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} soru boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
       finish(); break; }
-    case "again": { const test = r.test; S.run = null; if (test === "proefexamen") startRun(test, S.data.examen.teksten, S.data.examen.minuten); else startRun(test, [test], 0); render(); scrollTo(0, 0); break; }
+    case "again": { const test = r.test; S.run = null; if (isExam(test)) startRun(test, examById[test].teksten, examById[test].minuten); else startRun(test, [test], 0); render(); scrollTo(0, 0); break; }
     case "show": { e.preventDefault(); const m = document.getElementById(el.dataset.m); if (m) { m.scrollIntoView({ behavior: "smooth", block: "center" }); m.classList.add("flash"); setTimeout(() => m.classList.remove("flash"), 1500); } break; }
   }
 });
