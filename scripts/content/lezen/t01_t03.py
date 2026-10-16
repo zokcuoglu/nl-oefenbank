@@ -11,7 +11,9 @@ T01 = {
     "id": "parkeren",
     "titel": "Parkeervergunning voor bewoners",
     "soort": "Website gemeente",
-    "onderwerp": "Informatie voor het publiek",
+    "domein": "overig",
+    "tekstsoort": "instructief",
+    "inleiding": "Deze tekst komt van de website van de gemeente Rijnstad. De tekst gaat over parkeren in het centrum.",
     "tekst": """Woont u in het centrum van Rijnstad en heeft u een auto? Dan mag u in uw straat alleen parkeren met een parkeervergunning. Op deze pagina leest u hoe u een vergunning aanvraagt en wat het kost.
 
 ## Wie kan een vergunning aanvragen?
@@ -65,7 +67,9 @@ T02 = {
     "id": "examentraining",
     "titel": "Belangrijke informatie over de examentraining",
     "soort": "E-mail",
-    "onderwerp": "Opleiding",
+    "domein": "educatie",
+    "tekstsoort": "instructief",
+    "inleiding": "Deze e-mail is gestuurd door een taalcentrum aan zijn cursisten.",
     "kop": ["Van: Taalcentrum De Brug", "Aan: cursisten Nederlands B1", "Onderwerp: Belangrijke informatie over de examentraining"],
     "tekst": """Beste cursist,
 
@@ -121,7 +125,9 @@ T03 = {
     "id": "ziekmelden",
     "titel": "Ziek? Zo meld je je af",
     "soort": "Personeelsinformatie",
-    "onderwerp": "Werk",
+    "domein": "werk",
+    "tekstsoort": "descriptief",
+    "inleiding": "Deze tekst komt uit de personeelsinformatie van een zorgcentrum. De tekst gaat over de regels bij ziekte.",
     "tekst": """Iedereen is weleens ziek. Om goed voor onze cliënten te kunnen zorgen, moeten we snel weten wie er niet komt. Daarom gelden bij zorgcentrum De Linde de volgende regels.
 
 ## Ziek melden
@@ -132,9 +138,17 @@ Ben je ziek? Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst 
 
 Blijf bereikbaar op je telefoonnummer en je huisadres. Ga je tijdens je ziekte ergens anders logeren, bijvoorbeeld bij familie? Geef dan het adres door aan je leidinggevende. Ben je langer dan een week ziek, dan neemt je leidinggevende contact met je op om samen te bespreken hoe het gaat.
 
+## Ziek tijdens je vakantie
+
+Word je ziek tijdens je vakantie? Meld je dan op dezelfde manier ziek bij je leidinggevende, ook als je in het buitenland bent. Stuur daarna een verklaring van een arts waarin staat hoe lang je ziek bent geweest. De dagen dat je ziek was, gelden dan niet als vakantiedagen. Zonder verklaring van een arts worden je vakantiedagen wel van je saldo afgehaald.
+
 ## De bedrijfsarts
 
-Ben je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts. De bedrijfsarts geeft advies over je herstel en over werk dat je misschien al wel kunt doen. Alleen de bedrijfsarts mag weten wat je ziekte is. Hij vertelt je leidinggevende alleen wat je wel en niet kunt.
+Ben je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts. De bedrijfsarts geeft advies over je herstel en over werk dat je misschien al wel kunt doen. Alleen de bedrijfsarts mag weten wat je ziekte is. Hij vertelt je leidinggevende alleen wat je wel en niet kunt. Ben je het niet eens met het advies van de bedrijfsarts? Dan mag je een tweede mening vragen aan een andere bedrijfsarts. De kosten daarvan betaalt De Linde.
+
+## Gedeeltelijk werken
+
+Soms kun je al een deel van je werk doen, terwijl je nog niet helemaal beter bent. Je kunt bijvoorbeeld eerst een paar uur per dag werken, of alleen taken doen die niet zwaar zijn. Dit heet 'aangepast werk'. Je leidinggevende en de bedrijfsarts bespreken samen met jou wat mogelijk is. Voor de uren dat je aangepast werk doet, krijg je gewoon je salaris.
 
 ## Beter melden
 
@@ -144,10 +158,6 @@ Ben je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voo
 
 Heb je vragen over je rechten en plichten bij ziekte? Kijk dan in het personeelshandboek of neem contact op met Personeelszaken.""",
     "vragen": [
-        {"id": "z1", "patroon": 15, "vraag": "Voor wie is deze tekst bedoeld?",
-         "opties": ["Medewerkers van De Linde", "Cliënten van De Linde", "Bedrijfsartsen"],
-         "uitleg": "Metin 'je' diye çalışanlara hitap ediyor: vardiya (dienst), yönetici (leidinggevende), personel el kitabı.",
-         "bewijs": "Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst begint, naar je leidinggevende."},
         {"id": "z2", "patroon": 13, "vraag": "Wat moet je doen als je ziek bent?",
          "opties": ["Uiterlijk een uur voor je dienst je leidinggevende bellen", "Een WhatsApp sturen naar je leidinggevende", "Je ziek melden bij Personeelszaken"],
          "uitleg": "Telefon etmek gerekiyor; mesaj yetmiyor ('niet genoeg'). Personeelszaken sadece haklarınla ilgili sorular için.",

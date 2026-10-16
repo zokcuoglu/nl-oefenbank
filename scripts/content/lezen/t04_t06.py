@@ -4,7 +4,9 @@ T04 = {
     "id": "sportschool",
     "titel": "Kies het abonnement dat bij jou past",
     "soort": "Website sportschool",
-    "onderwerp": "Dagelijks leven",
+    "domein": "overig",
+    "tekstsoort": "descriptief",
+    "inleiding": "Deze tekst komt van de website van een sportschool. De tekst gaat over de abonnementen en de regels.",
     "tekst": """Bij sportschool FitPunt kun je sporten wanneer het jou uitkomt. We hebben drie abonnementen.
 
 Abonnement | Wanneer sporten | Prijs per maand
@@ -20,7 +22,15 @@ Je schrijft je in bij de balie of online. Je betaalt eenmalig € 15 inschrijfko
 
 ## Opzeggen en pauzeren
 
-Wil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt een opzegtermijn van één maand. Ben je langer dan een maand ziek of ga je op reis? Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets. Vraag dit minimaal een week van tevoren aan bij de balie.""",
+Wil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt een opzegtermijn van één maand. Ben je langer dan een maand ziek of ga je op reis? Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets. Vraag dit minimaal een week van tevoren aan bij de balie.
+
+## Huisregels
+
+Om het voor iedereen prettig te houden, gelden bij FitPunt een paar regels. Neem altijd een handdoek mee en leg die op de toestellen. Draag schone sportschoenen: buitenschoenen zijn in de zalen niet toegestaan. Maak de toestellen na gebruik schoon met de doekjes die overal klaarliggen. Kinderen onder de 16 jaar mogen alleen sporten onder begeleiding van een volwassene.
+
+## Neem een vriend mee
+
+Wil je samen met een vriend of vriendin sporten? Met elk abonnement mag je één keer per maand gratis iemand meenemen. Je vriend moet zich wel eerst bij de balie melden met een geldig identiteitsbewijs. Besluit je vriend daarna lid te worden, dan krijg jij een maand gratis sporten.""",
     "vragen": [
         {"id": "s1", "patroon": 11, "vraag": "Fatma werkt van 8.00 tot 16.00 uur en wil na haar werk of in het weekend sporten. Ze studeert niet. Welk abonnement past bij haar?",
          "opties": ["Flex", "Basis", "Student"],
@@ -42,10 +52,6 @@ Wil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt ee
          "opties": ["Zijn abonnement pauzeren; hij betaalt dan niets", "Zijn abonnement opzeggen en later gratis opnieuw beginnen", "Zijn abonnement omzetten naar Basis"],
          "uitleg": "Seyahat ya da uzun hastalıkta en fazla üç ay dondurulabiliyor ve o sürede ödeme yok.",
          "bewijs": "Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets."},
-        {"id": "s6", "patroon": 16, "vraag": "Waar staat informatie over pauzeren?",
-         "opties": ["Onder 'Opzeggen en pauzeren'", "Onder 'Inschrijven'", "In de tabel met de abonnementen"],
-         "uitleg": "Bu tür sorularda bütün metni okumana gerek yok: ara başlıklara bak.",
-         "bewijs": "Opzeggen en pauzeren"},
     ],
 }
 
@@ -53,7 +59,9 @@ T05 = {
     "id": "omscholing",
     "titel": "Op je vijftigste nog een nieuw vak leren",
     "soort": "Tijdschriftartikel",
-    "onderwerp": "Werk en opleiding",
+    "domein": "educatie",
+    "tekstsoort": "beschouwend",
+    "inleiding": "Deze tekst komt uit een tijdschrift over werk en opleiding. De tekst gaat over omscholing: iets nieuws leren om ander werk te kunnen doen.",
     "tekst": """Marja Bakker (54) werkte dertig jaar als secretaresse bij een verzekeraar. Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was. 'Wie neemt er nu iemand van boven de vijftig aan?' Inmiddels werkt ze als doktersassistent in een huisartsenpraktijk. 'Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.'
 
 Marja is niet de enige. Steeds meer mensen kiezen op latere leeftijd voor omscholing. Volgens onderzoek van een opleidingsinstituut is het aantal cursisten boven de vijftig in vijf jaar bijna verdubbeld. Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.
@@ -61,6 +69,10 @@ Marja is niet de enige. Steeds meer mensen kiezen op latere leeftijd voor omscho
 Toch is de stap niet voor iedereen makkelijk. Een opleiding kost tijd en geld, en niet iedereen kan een paar jaar met minder inkomen leven. Ook twijfelen veel oudere werknemers aan zichzelf. 'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand. Ouderen leren misschien iets langzamer, maar ze hebben veel ervaring. Ze weten hoe je met mensen omgaat en hoe je problemen oplost.'
 
 Werkgevers spelen hierbij een belangrijke rol. Sommige bedrijven betalen het cursusgeld als een werknemer zich wil laten omscholen, ook als het nieuwe beroep buiten het bedrijf ligt. 'Dat lijkt vreemd,' zegt De Graaf, 'want dan verlies je een medewerker. Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.'
+
+Hoe begin je zo'n omscholing? De Graaf adviseert om eerst goed na te denken over wat je wilt en kunt. 'Kijk niet alleen naar wat je vroeger hebt gedaan, maar vooral naar wat je leuk vindt en waar je goed in bent. Praat met mensen die het werk al doen, of loop een dag mee.' Daarna is het belangrijk om te kijken naar de praktische kant. Hoe lang duurt de opleiding? Kun je ernaast blijven werken? En wie betaalt? 'Soms betaalt de werkgever, soms is er een regeling van de overheid. Vraag het in elk geval na voordat je begint.'
+
+Ook Marja moest goed rekenen. Ze volgde haar opleiding in de avonduren en werkte overdag nog drie dagen per week als oproepkracht. 'Het was zwaar, zeker in het begin. Ik had al dertig jaar niet meer in de schoolbanken gezeten. Maar mijn klasgenoten, die vaak twintig jaar jonger waren, hielpen me met de computer. En ik hielp hen met plannen en met het contact met patiënten. Zo leerden we van elkaar.'
 
 Volgens De Graaf is het belangrijkste dat mensen niet te lang wachten. 'Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen. Hoe eerder je begint, hoe meer keuze je hebt.'
 
@@ -97,8 +109,12 @@ T06 = {
     "id": "buurtbemiddeling",
     "titel": "Problemen met de buren? Buurtbemiddeling helpt",
     "soort": "Folder",
-    "onderwerp": "Informatie voor het publiek",
+    "domein": "overig",
+    "tekstsoort": "instructief",
+    "inleiding": "Deze tekst komt uit een folder van Buurtbemiddeling. De tekst gaat over problemen met buren.",
     "tekst": """Harde muziek, een blaffende hond of een schutting op de verkeerde plek: problemen met de buren kunnen veel stress geven. Vaak is een gesprek de beste oplossing. Maar wat als dat niet lukt? Dan kan Buurtbemiddeling Rijnstad helpen.
+
+Uit onderzoek blijkt dat bijna de helft van de Nederlanders zich weleens ergert aan de buren. Toch praten veel mensen er niet over. Ze zijn bang dat de ruzie dan groter wordt, of ze weten niet hoe ze moeten beginnen. Het gevolg is dat de ergernis steeds groter wordt. Soms durven mensen niet meer naar buiten als de buurman in de tuin staat.
 
 ## Wat doet Buurtbemiddeling?
 
@@ -114,7 +130,11 @@ Buurtbemiddeling is gratis. De gemeente betaalt de kosten. Meedoen is vrijwillig
 
 ## Hoe meldt u zich aan?
 
-Bel ons op werkdagen tussen 9.00 en 17.00 uur, of vul het formulier op onze website in. Binnen twee weken neemt een bemiddelaar contact met u op. Alles wat u vertelt, blijft tussen u en de bemiddelaars.""",
+Bel ons op werkdagen tussen 9.00 en 17.00 uur, of vul het formulier op onze website in. Binnen twee weken neemt een bemiddelaar contact met u op. Alles wat u vertelt, blijft tussen u en de bemiddelaars.
+
+## Een voorbeeld
+
+Familie Bos ergerde zich al maanden aan de hond van de buren, die elke dag urenlang blafte. 'We hebben het één keer gezegd, maar toen werd de buurman boos,' vertelt mevrouw Bos. 'Daarna zeiden we niets meer tegen elkaar.' Via Buurtbemiddeling kwamen de buren toch met elkaar in gesprek. Het bleek dat de buurman niet wist hoe vaak de hond blafte, omdat hij overdag werkte. Nu brengt hij de hond twee dagen per week naar een hondenoppas. 'We groeten elkaar weer,' zegt mevrouw Bos. 'Dat had ik nooit verwacht.'""",
     "vragen": [
         {"id": "b1", "patroon": 9, "vraag": "Uw buurman bedreigt u. Bij wie kunt u terecht?",
          "opties": ["Bij de politie", "Bij Buurtbemiddeling", "Bij de woningcorporatie"],

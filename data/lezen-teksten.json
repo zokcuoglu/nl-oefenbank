@@ -92,7 +92,9 @@
    "id": "parkeren",
    "titel": "Parkeervergunning voor bewoners",
    "soort": "Website gemeente",
-   "onderwerp": "Informatie voor het publiek",
+   "domein": "overig",
+   "tekstsoort": "instructief",
+   "inleiding": "Deze tekst komt van de website van de gemeente Rijnstad. De tekst gaat over parkeren in het centrum.",
    "tekst": "Woont u in het centrum van Rijnstad en heeft u een auto? Dan mag u in uw straat alleen parkeren met een parkeervergunning. Op deze pagina leest u hoe u een vergunning aanvraagt en wat het kost.\n\n## Wie kan een vergunning aanvragen?\n\nU kunt een vergunning aanvragen als u ingeschreven staat op een adres in het vergunninggebied. De auto moet op uw naam staan. Rijdt u in een auto van uw werkgever of in een leaseauto? Dan stuurt u een verklaring van uw werkgever of het leasebedrijf mee. Hierin staat dat u de auto ook privé mag gebruiken.\n\n## Wat kost het?\n\nPer adres krijgt u maximaal twee vergunningen. De eerste vergunning kost € 65 per jaar. Voor een tweede vergunning betaalt u € 130 per jaar.\n\n## Hoe vraagt u de vergunning aan?\n\nU vraagt de vergunning aan via de website van de gemeente. U logt in met uw DigiD. Binnen vijf werkdagen ontvangt u bericht of u de vergunning krijgt. Heeft u geen DigiD? Maak dan een afspraak bij de balie in het stadhuis. Neem een geldig identiteitsbewijs en uw kentekenbewijs mee.\n\n## Bezoek\n\nKrijgt u bezoek met de auto? Dan kunt u een bezoekersvergunning aanvragen. Uw bezoek kan daarmee maximaal 40 uur per maand parkeren voor € 0,50 per uur. U meldt uw bezoek aan via de app of de website.\n\n## Veranderingen\n\nHeeft u een andere auto gekocht? Geef het nieuwe kenteken dan uiterlijk binnen twee weken door. Dit is gratis. Gaat u verhuizen, ook binnen Rijnstad? Dan vervalt uw vergunning op de dag van de verhuizing en moet u een nieuwe vergunning aanvragen. Parkeert u zonder geldige vergunning, dan kunt u een boete krijgen.",
    "vragen": [
     {
@@ -182,7 +184,9 @@
    "id": "examentraining",
    "titel": "Belangrijke informatie over de examentraining",
    "soort": "E-mail",
-   "onderwerp": "Opleiding",
+   "domein": "educatie",
+   "tekstsoort": "instructief",
+   "inleiding": "Deze e-mail is gestuurd door een taalcentrum aan zijn cursisten.",
    "kop": [
     "Van: Taalcentrum De Brug",
     "Aan: cursisten Nederlands B1",
@@ -277,22 +281,11 @@
    "id": "ziekmelden",
    "titel": "Ziek? Zo meld je je af",
    "soort": "Personeelsinformatie",
-   "onderwerp": "Werk",
-   "tekst": "Iedereen is weleens ziek. Om goed voor onze cliënten te kunnen zorgen, moeten we snel weten wie er niet komt. Daarom gelden bij zorgcentrum De Linde de volgende regels.\n\n## Ziek melden\n\nBen je ziek? Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst begint, naar je leidinggevende. Een sms of WhatsApp is niet genoeg: we willen je spreken. Je leidinggevende vraagt hoe het met je gaat en hoe lang je denkt dat je ziek blijft. Je hoeft niet te vertellen wat je precies hebt.\n\n## Tijdens je ziekte\n\nBlijf bereikbaar op je telefoonnummer en je huisadres. Ga je tijdens je ziekte ergens anders logeren, bijvoorbeeld bij familie? Geef dan het adres door aan je leidinggevende. Ben je langer dan een week ziek, dan neemt je leidinggevende contact met je op om samen te bespreken hoe het gaat.\n\n## De bedrijfsarts\n\nBen je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts. De bedrijfsarts geeft advies over je herstel en over werk dat je misschien al wel kunt doen. Alleen de bedrijfsarts mag weten wat je ziekte is. Hij vertelt je leidinggevende alleen wat je wel en niet kunt.\n\n## Beter melden\n\nBen je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voordat je weer gaat werken. Zo kan je leidinggevende het rooster op tijd aanpassen.\n\n## Vragen\n\nHeb je vragen over je rechten en plichten bij ziekte? Kijk dan in het personeelshandboek of neem contact op met Personeelszaken.",
+   "domein": "werk",
+   "tekstsoort": "descriptief",
+   "inleiding": "Deze tekst komt uit de personeelsinformatie van een zorgcentrum. De tekst gaat over de regels bij ziekte.",
+   "tekst": "Iedereen is weleens ziek. Om goed voor onze cliënten te kunnen zorgen, moeten we snel weten wie er niet komt. Daarom gelden bij zorgcentrum De Linde de volgende regels.\n\n## Ziek melden\n\nBen je ziek? Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst begint, naar je leidinggevende. Een sms of WhatsApp is niet genoeg: we willen je spreken. Je leidinggevende vraagt hoe het met je gaat en hoe lang je denkt dat je ziek blijft. Je hoeft niet te vertellen wat je precies hebt.\n\n## Tijdens je ziekte\n\nBlijf bereikbaar op je telefoonnummer en je huisadres. Ga je tijdens je ziekte ergens anders logeren, bijvoorbeeld bij familie? Geef dan het adres door aan je leidinggevende. Ben je langer dan een week ziek, dan neemt je leidinggevende contact met je op om samen te bespreken hoe het gaat.\n\n## Ziek tijdens je vakantie\n\nWord je ziek tijdens je vakantie? Meld je dan op dezelfde manier ziek bij je leidinggevende, ook als je in het buitenland bent. Stuur daarna een verklaring van een arts waarin staat hoe lang je ziek bent geweest. De dagen dat je ziek was, gelden dan niet als vakantiedagen. Zonder verklaring van een arts worden je vakantiedagen wel van je saldo afgehaald.\n\n## De bedrijfsarts\n\nBen je na vier weken nog niet beter? Dan krijg je een afspraak met de bedrijfsarts. De bedrijfsarts geeft advies over je herstel en over werk dat je misschien al wel kunt doen. Alleen de bedrijfsarts mag weten wat je ziekte is. Hij vertelt je leidinggevende alleen wat je wel en niet kunt. Ben je het niet eens met het advies van de bedrijfsarts? Dan mag je een tweede mening vragen aan een andere bedrijfsarts. De kosten daarvan betaalt De Linde.\n\n## Gedeeltelijk werken\n\nSoms kun je al een deel van je werk doen, terwijl je nog niet helemaal beter bent. Je kunt bijvoorbeeld eerst een paar uur per dag werken, of alleen taken doen die niet zwaar zijn. Dit heet 'aangepast werk'. Je leidinggevende en de bedrijfsarts bespreken samen met jou wat mogelijk is. Voor de uren dat je aangepast werk doet, krijg je gewoon je salaris.\n\n## Beter melden\n\nBen je weer beter? Meld je dan beter bij je leidinggevende, uiterlijk de dag voordat je weer gaat werken. Zo kan je leidinggevende het rooster op tijd aanpassen.\n\n## Vragen\n\nHeb je vragen over je rechten en plichten bij ziekte? Kijk dan in het personeelshandboek of neem contact op met Personeelszaken.",
    "vragen": [
-    {
-     "id": "z1",
-     "patroon": 15,
-     "vraag": "Voor wie is deze tekst bedoeld?",
-     "opties": [
-      "Medewerkers van De Linde",
-      "Cliënten van De Linde",
-      "Bedrijfsartsen"
-     ],
-     "uitleg": "Metin 'je' diye çalışanlara hitap ediyor: vardiya (dienst), yönetici (leidinggevende), personel el kitabı.",
-     "bewijs": "Bel dan zo snel mogelijk, maar uiterlijk een uur voordat je dienst begint, naar je leidinggevende.",
-     "juist": 0
-    },
     {
      "id": "z2",
      "patroon": 13,
@@ -360,15 +353,17 @@
     }
    ],
    "nr": 3,
-   "woorden": 246,
+   "woorden": 406,
    "minuten": 18
   },
   {
    "id": "sportschool",
    "titel": "Kies het abonnement dat bij jou past",
    "soort": "Website sportschool",
-   "onderwerp": "Dagelijks leven",
-   "tekst": "Bij sportschool FitPunt kun je sporten wanneer het jou uitkomt. We hebben drie abonnementen.\n\nAbonnement | Wanneer sporten | Prijs per maand\nBasis | maandag tot en met vrijdag, tot 16.00 uur | € 22,50\nFlex | elke dag, de hele dag | € 29,95\nStudent | elke dag, de hele dag | € 19,95\n\nHet Student-abonnement is alleen geldig met een studentenkaart van een mbo, hbo of universiteit. Bij alle abonnementen mag je gratis meedoen aan de groepslessen, zoals yoga en spinning. Voor een groepsles moet je je wel van tevoren aanmelden via de app.\n\n## Inschrijven\n\nJe schrijft je in bij de balie of online. Je betaalt eenmalig € 15 inschrijfkosten. Schrijf je je in de maand september in? Dan betaal je geen inschrijfkosten. Een abonnement loopt minimaal twaalf maanden. Daarna kun je elke maand opzeggen.\n\n## Opzeggen en pauzeren\n\nWil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt een opzegtermijn van één maand. Ben je langer dan een maand ziek of ga je op reis? Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets. Vraag dit minimaal een week van tevoren aan bij de balie.",
+   "domein": "overig",
+   "tekstsoort": "descriptief",
+   "inleiding": "Deze tekst komt van de website van een sportschool. De tekst gaat over de abonnementen en de regels.",
+   "tekst": "Bij sportschool FitPunt kun je sporten wanneer het jou uitkomt. We hebben drie abonnementen.\n\nAbonnement | Wanneer sporten | Prijs per maand\nBasis | maandag tot en met vrijdag, tot 16.00 uur | € 22,50\nFlex | elke dag, de hele dag | € 29,95\nStudent | elke dag, de hele dag | € 19,95\n\nHet Student-abonnement is alleen geldig met een studentenkaart van een mbo, hbo of universiteit. Bij alle abonnementen mag je gratis meedoen aan de groepslessen, zoals yoga en spinning. Voor een groepsles moet je je wel van tevoren aanmelden via de app.\n\n## Inschrijven\n\nJe schrijft je in bij de balie of online. Je betaalt eenmalig € 15 inschrijfkosten. Schrijf je je in de maand september in? Dan betaal je geen inschrijfkosten. Een abonnement loopt minimaal twaalf maanden. Daarna kun je elke maand opzeggen.\n\n## Opzeggen en pauzeren\n\nWil je stoppen? Zeg je abonnement dan schriftelijk of via de app op. Er geldt een opzegtermijn van één maand. Ben je langer dan een maand ziek of ga je op reis? Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets. Vraag dit minimaal een week van tevoren aan bij de balie.\n\n## Huisregels\n\nOm het voor iedereen prettig te houden, gelden bij FitPunt een paar regels. Neem altijd een handdoek mee en leg die op de toestellen. Draag schone sportschoenen: buitenschoenen zijn in de zalen niet toegestaan. Maak de toestellen na gebruik schoon met de doekjes die overal klaarliggen. Kinderen onder de 16 jaar mogen alleen sporten onder begeleiding van een volwassene.\n\n## Neem een vriend mee\n\nWil je samen met een vriend of vriendin sporten? Met elk abonnement mag je één keer per maand gratis iemand meenemen. Je vriend moet zich wel eerst bij de balie melden met een geldig identiteitsbewijs. Besluit je vriend daarna lid te worden, dan krijg jij een maand gratis sporten.",
    "vragen": [
     {
      "id": "s1",
@@ -434,31 +429,20 @@
      "uitleg": "Seyahat ya da uzun hastalıkta en fazla üç ay dondurulabiliyor ve o sürede ödeme yok.",
      "bewijs": "Dan kun je je abonnement maximaal drie maanden pauzeren. Je betaalt in die tijd niets.",
      "juist": 0
-    },
-    {
-     "id": "s6",
-     "patroon": 16,
-     "vraag": "Waar staat informatie over pauzeren?",
-     "opties": [
-      "Onder 'Opzeggen en pauzeren'",
-      "Onder 'Inschrijven'",
-      "In de tabel met de abonnementen"
-     ],
-     "uitleg": "Bu tür sorularda bütün metni okumana gerek yok: ara başlıklara bak.",
-     "bewijs": "Opzeggen en pauzeren",
-     "juist": 0
     }
    ],
    "nr": 4,
-   "woorden": 190,
+   "woorden": 303,
    "minuten": 18
   },
   {
    "id": "omscholing",
    "titel": "Op je vijftigste nog een nieuw vak leren",
    "soort": "Tijdschriftartikel",
-   "onderwerp": "Werk en opleiding",
-   "tekst": "Marja Bakker (54) werkte dertig jaar als secretaresse bij een verzekeraar. Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was. 'Wie neemt er nu iemand van boven de vijftig aan?' Inmiddels werkt ze als doktersassistent in een huisartsenpraktijk. 'Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.'\n\nMarja is niet de enige. Steeds meer mensen kiezen op latere leeftijd voor omscholing. Volgens onderzoek van een opleidingsinstituut is het aantal cursisten boven de vijftig in vijf jaar bijna verdubbeld. Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.\n\nToch is de stap niet voor iedereen makkelijk. Een opleiding kost tijd en geld, en niet iedereen kan een paar jaar met minder inkomen leven. Ook twijfelen veel oudere werknemers aan zichzelf. 'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand. Ouderen leren misschien iets langzamer, maar ze hebben veel ervaring. Ze weten hoe je met mensen omgaat en hoe je problemen oplost.'\n\nWerkgevers spelen hierbij een belangrijke rol. Sommige bedrijven betalen het cursusgeld als een werknemer zich wil laten omscholen, ook als het nieuwe beroep buiten het bedrijf ligt. 'Dat lijkt vreemd,' zegt De Graaf, 'want dan verlies je een medewerker. Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.'\n\nVolgens De Graaf is het belangrijkste dat mensen niet te lang wachten. 'Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen. Hoe eerder je begint, hoe meer keuze je hebt.'\n\nMarja is in elk geval tevreden. 'Ik ben elke avond moe, maar gelukkig. Mijn kinderen zeggen dat ik er tien jaar jonger uitzie.'",
+   "domein": "educatie",
+   "tekstsoort": "beschouwend",
+   "inleiding": "Deze tekst komt uit een tijdschrift over werk en opleiding. De tekst gaat over omscholing: iets nieuws leren om ander werk te kunnen doen.",
+   "tekst": "Marja Bakker (54) werkte dertig jaar als secretaresse bij een verzekeraar. Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was. 'Wie neemt er nu iemand van boven de vijftig aan?' Inmiddels werkt ze als doktersassistent in een huisartsenpraktijk. 'Ik had nooit gedacht dat ik op mijn leeftijd nog een diploma zou halen.'\n\nMarja is niet de enige. Steeds meer mensen kiezen op latere leeftijd voor omscholing. Volgens onderzoek van een opleidingsinstituut is het aantal cursisten boven de vijftig in vijf jaar bijna verdubbeld. Dat komt deels doordat banen in bijvoorbeeld de administratie verdwijnen, terwijl er in de zorg en het onderwijs juist veel mensen nodig zijn.\n\nToch is de stap niet voor iedereen makkelijk. Een opleiding kost tijd en geld, en niet iedereen kan een paar jaar met minder inkomen leven. Ook twijfelen veel oudere werknemers aan zichzelf. 'Ze denken dat ze niet meer goed kunnen leren,' zegt loopbaanadviseur Peter de Graaf. 'Maar dat is een misverstand. Ouderen leren misschien iets langzamer, maar ze hebben veel ervaring. Ze weten hoe je met mensen omgaat en hoe je problemen oplost.'\n\nWerkgevers spelen hierbij een belangrijke rol. Sommige bedrijven betalen het cursusgeld als een werknemer zich wil laten omscholen, ook als het nieuwe beroep buiten het bedrijf ligt. 'Dat lijkt vreemd,' zegt De Graaf, 'want dan verlies je een medewerker. Maar een werknemer die met plezier werkt, is minder vaak ziek. En mensen praten positief over zo'n werkgever.'\n\nHoe begin je zo'n omscholing? De Graaf adviseert om eerst goed na te denken over wat je wilt en kunt. 'Kijk niet alleen naar wat je vroeger hebt gedaan, maar vooral naar wat je leuk vindt en waar je goed in bent. Praat met mensen die het werk al doen, of loop een dag mee.' Daarna is het belangrijk om te kijken naar de praktische kant. Hoe lang duurt de opleiding? Kun je ernaast blijven werken? En wie betaalt? 'Soms betaalt de werkgever, soms is er een regeling van de overheid. Vraag het in elk geval na voordat je begint.'\n\nOok Marja moest goed rekenen. Ze volgde haar opleiding in de avonduren en werkte overdag nog drie dagen per week als oproepkracht. 'Het was zwaar, zeker in het begin. Ik had al dertig jaar niet meer in de schoolbanken gezeten. Maar mijn klasgenoten, die vaak twintig jaar jonger waren, hielpen me met de computer. En ik hielp hen met plannen en met het contact met patiënten. Zo leerden we van elkaar.'\n\nVolgens De Graaf is het belangrijkste dat mensen niet te lang wachten. 'Wie merkt dat zijn werk verandert of verdwijnt, moet op tijd advies vragen. Hoe eerder je begint, hoe meer keuze je hebt.'\n\nMarja is in elk geval tevreden. 'Ik ben elke avond moe, maar gelukkig. Mijn kinderen zeggen dat ik er tien jaar jonger uitzie.'",
    "vragen": [
     {
      "id": "o1",
@@ -540,15 +524,17 @@
     }
    ],
    "nr": 5,
-   "woorden": 307,
+   "woorden": 481,
    "minuten": 18
   },
   {
    "id": "buurtbemiddeling",
    "titel": "Problemen met de buren? Buurtbemiddeling helpt",
    "soort": "Folder",
-   "onderwerp": "Informatie voor het publiek",
-   "tekst": "Harde muziek, een blaffende hond of een schutting op de verkeerde plek: problemen met de buren kunnen veel stress geven. Vaak is een gesprek de beste oplossing. Maar wat als dat niet lukt? Dan kan Buurtbemiddeling Rijnstad helpen.\n\n## Wat doet Buurtbemiddeling?\n\nTwee getrainde vrijwilligers praten eerst met u en daarna met uw buren. Daarna organiseren zij een gesprek met u allebei, op een neutrale plek, bijvoorbeeld in het buurthuis. De bemiddelaars kiezen geen partij en zeggen niet wie er gelijk heeft. Ze helpen u wel om samen afspraken te maken.\n\n## Wanneer kunt u ons inschakelen?\n\nU kunt ons bellen als u al zelf geprobeerd heeft om met uw buren te praten. Buurtbemiddeling is niet bedoeld voor problemen met geweld of bedreiging. Neem in dat geval direct contact op met de politie. Ook bij problemen met uw huurbaas of woningcorporatie kunnen wij u niet helpen.\n\n## Wat kost het?\n\nBuurtbemiddeling is gratis. De gemeente betaalt de kosten. Meedoen is vrijwillig: als uw buren niet willen, kunnen wij niets doen.\n\n## Hoe meldt u zich aan?\n\nBel ons op werkdagen tussen 9.00 en 17.00 uur, of vul het formulier op onze website in. Binnen twee weken neemt een bemiddelaar contact met u op. Alles wat u vertelt, blijft tussen u en de bemiddelaars.",
+   "domein": "overig",
+   "tekstsoort": "instructief",
+   "inleiding": "Deze tekst komt uit een folder van Buurtbemiddeling. De tekst gaat over problemen met buren.",
+   "tekst": "Harde muziek, een blaffende hond of een schutting op de verkeerde plek: problemen met de buren kunnen veel stress geven. Vaak is een gesprek de beste oplossing. Maar wat als dat niet lukt? Dan kan Buurtbemiddeling Rijnstad helpen.\n\nUit onderzoek blijkt dat bijna de helft van de Nederlanders zich weleens ergert aan de buren. Toch praten veel mensen er niet over. Ze zijn bang dat de ruzie dan groter wordt, of ze weten niet hoe ze moeten beginnen. Het gevolg is dat de ergernis steeds groter wordt. Soms durven mensen niet meer naar buiten als de buurman in de tuin staat.\n\n## Wat doet Buurtbemiddeling?\n\nTwee getrainde vrijwilligers praten eerst met u en daarna met uw buren. Daarna organiseren zij een gesprek met u allebei, op een neutrale plek, bijvoorbeeld in het buurthuis. De bemiddelaars kiezen geen partij en zeggen niet wie er gelijk heeft. Ze helpen u wel om samen afspraken te maken.\n\n## Wanneer kunt u ons inschakelen?\n\nU kunt ons bellen als u al zelf geprobeerd heeft om met uw buren te praten. Buurtbemiddeling is niet bedoeld voor problemen met geweld of bedreiging. Neem in dat geval direct contact op met de politie. Ook bij problemen met uw huurbaas of woningcorporatie kunnen wij u niet helpen.\n\n## Wat kost het?\n\nBuurtbemiddeling is gratis. De gemeente betaalt de kosten. Meedoen is vrijwillig: als uw buren niet willen, kunnen wij niets doen.\n\n## Hoe meldt u zich aan?\n\nBel ons op werkdagen tussen 9.00 en 17.00 uur, of vul het formulier op onze website in. Binnen twee weken neemt een bemiddelaar contact met u op. Alles wat u vertelt, blijft tussen u en de bemiddelaars.\n\n## Een voorbeeld\n\nFamilie Bos ergerde zich al maanden aan de hond van de buren, die elke dag urenlang blafte. 'We hebben het één keer gezegd, maar toen werd de buurman boos,' vertelt mevrouw Bos. 'Daarna zeiden we niets meer tegen elkaar.' Via Buurtbemiddeling kwamen de buren toch met elkaar in gesprek. Het bleek dat de buurman niet wist hoe vaak de hond blafte, omdat hij overdag werkte. Nu brengt hij de hond twee dagen per week naar een hondenoppas. 'We groeten elkaar weer,' zegt mevrouw Bos. 'Dat had ik nooit verwacht.'",
    "vragen": [
     {
      "id": "b1",
@@ -630,8 +616,258 @@
     }
    ],
    "nr": 6,
-   "woorden": 211,
+   "woorden": 369,
+   "minuten": 18
+  },
+  {
+   "id": "kinderopvang",
+   "titel": "Werken in de kinderopvang: iets voor jou?",
+   "soort": "Website",
+   "domein": "werk",
+   "tekstsoort": "persuasief",
+   "inleiding": "Deze tekst komt van de website van een organisatie voor kinderopvang. De organisatie zoekt nieuwe medewerkers.",
+   "tekst": "Ben je geduldig, vrolijk en vind je het leuk om met kinderen te werken? Dan is een baan in de kinderopvang misschien iets voor jou. Bij Kinderopvang Zonnebloem werken ruim 300 pedagogisch medewerkers op 25 locaties in de regio. En we zoeken nog meer collega's. Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen.\n\n## Wat doe je als pedagogisch medewerker?\n\nAls pedagogisch medewerker zorg je samen met een collega voor een groep van maximaal twaalf kinderen. Je speelt met de kinderen, leest voor, gaat met ze naar buiten en helpt ze met eten en drinken. Maar je doet meer dan alleen oppassen. Je let goed op hoe elk kind zich ontwikkelt. Merk je dat een kind achterloopt met praten of dat het niet lekker in zijn vel zit? Dan bespreek je dat met je collega's en met de ouders. Zo help je kinderen om zich zo goed mogelijk te ontwikkelen.\n\n## Waarom kiezen voor Zonnebloem?\n\n'Geen dag is hetzelfde,' vertelt Samira (34), die vijf jaar geleden bij Zonnebloem begon. 'Eerst werkte ik op een kantoor. Ik verdiende goed, maar ik miste het contact met mensen. Nu ga ik elke ochtend met plezier naar mijn werk. Als een kind voor het eerst zelf loopt of een nieuw woord zegt, ben ik erbij. Dat is echt bijzonder.'\n\nBij Zonnebloem krijg je na één jaar een vast contract, als je goed functioneert. Je kiest zelf of je 24, 28 of 32 uur per week werkt. Heb je zelf kinderen? Dan krijg je 50 procent korting op de opvang bij een van onze locaties. Daarnaast mag je elk jaar gratis een cursus volgen, bijvoorbeeld over EHBO bij kinderen of over taalontwikkeling.\n\n## Nog geen diploma?\n\nJe hebt een mbo-diploma Pedagogisch Medewerker nodig om bij ons te werken. Heb je dat nog niet? Geen probleem. In onze leerwerkopleiding werk je drie dagen per week op een groep en ga je één dag per week naar school. Wij betalen je opleiding en je krijgt vanaf de eerste dag salaris. Na twee jaar heb je je diploma. Je moet wel minimaal 18 jaar zijn en Nederlands spreken op minimaal B1-niveau.\n\n## Kom kennismaken\n\nTwijfel je nog? Kom dan een dagje meelopen op een van onze locaties. Zo zie je zelf hoe het werk eruitziet en kun je al je vragen stellen. Meld je aan via het formulier op deze website. Je hoort binnen een week van ons. Wij kijken uit naar je komst!",
+   "vragen": [
+    {
+     "id": "k1",
+     "patroon": 1,
+     "vraag": "Wat is het belangrijkste doel van deze tekst?",
+     "opties": [
+      "Mensen overhalen om bij Zonnebloem te gaan werken",
+      "Ouders informeren over de opvang van hun kinderen",
+      "Uitleggen hoe kinderen zich ontwikkelen"
+     ],
+     "uitleg": "İkna eden (persuasief) bir metin: okuru doğrudan 'je' diye çağırıyor, avantajları sayıyor ve sonunda 'Kom kennismaken' diyor. Amaç okuru işe başvurmaya ikna etmek.",
+     "bewijs": "Dan is een baan in de kinderopvang misschien iets voor jou.",
+     "juist": 0
+    },
+    {
+     "id": "k2",
+     "patroon": 6,
+     "vraag": "Waarom zoekt Zonnebloem nieuwe medewerkers, volgens de tekst?",
+     "opties": [
+      "Steeds meer ouders werken allebei, waardoor er meer vraag naar opvang is",
+      "Veel medewerkers stoppen met hun werk",
+      "Zonnebloem opent 25 nieuwe locaties"
+     ],
+     "uitleg": "'Want … en daardoor …' cümlesi sebebi veriyor. 25 lokasyon zaten var, yeni açılmıyor.",
+     "bewijs": "Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen.",
+     "juist": 0
+    },
+    {
+     "id": "k3",
+     "patroon": 13,
+     "vraag": "Een pedagogisch medewerker merkt dat een kind niet lekker in zijn vel zit. Wat doet zij?",
+     "opties": [
+      "Ze bespreekt het met haar collega's en met de ouders",
+      "Ze zet het kind in een andere groep",
+      "Ze vraagt de ouders om met het kind naar de dokter te gaan"
+     ],
+     "uitleg": "'niet lekker in zijn vel zitten' = kendini iyi hissetmemek. Metin tam bu durumu soruyor ve 'Dan bespreek je dat…' diye cevap veriyor.",
+     "bewijs": "Dan bespreek je dat met je collega's en met de ouders.",
+     "juist": 0
+    },
+    {
+     "id": "k4",
+     "patroon": 2,
+     "vraag": "Waarom vertelt de schrijver over Samira?",
+     "opties": [
+      "Om te laten zien dat het werk veel voldoening geeft",
+      "Om te laten zien dat je in de kinderopvang goed verdient",
+      "Om uit te leggen hoe je van kantoorwerk overstapt naar de kinderopvang"
+     ],
+     "uitleg": "Samira ofiste iyi kazanıyormuş ama insanlarla teması özlemiş; şimdi işine severek gidiyor. Örnek, işin tatmin edici olduğunu göstermek için.",
+     "bewijs": "Nu ga ik elke ochtend met plezier naar mijn werk.",
+     "juist": 0
+    },
+    {
+     "id": "k5",
+     "patroon": 11,
+     "vraag": "Tom (25) heeft geen diploma, maar wil graag in de kinderopvang werken. Hij spreekt Nederlands op A2-niveau. Wat geldt voor hem?",
+     "opties": [
+      "Hij moet eerst beter Nederlands leren voordat hij de leerwerkopleiding kan doen",
+      "Hij kan meteen met de leerwerkopleiding beginnen",
+      "Hij kan zonder diploma als pedagogisch medewerker werken",
+      "Hij moet de leerwerkopleiding zelf betalen"
+     ],
+     "uitleg": "Kişinin şartlarını metindeki koşullarla tek tek karşılaştır: yaşı uygun (18+), ama Hollandacası A2; en az B1 gerekiyor. Eğitim Zonnebloem tarafından ödeniyor.",
+     "bewijs": "Je moet wel minimaal 18 jaar zijn en Nederlands spreken op minimaal B1-niveau.",
+     "juist": 0
+    },
+    {
+     "id": "k6",
+     "patroon": 17,
+     "vraag": "Welke bewering over werken bij Zonnebloem is juist?",
+     "opties": [
+      "Je mag elk jaar gratis een cursus volgen",
+      "Je krijgt meteen een vast contract",
+      "Je werkt altijd 32 uur per week"
+     ],
+     "uitleg": "Kalıcı sözleşme bir yıl sonra ve şartlı; saatleri kendin seçiyorsun (24, 28 veya 32). Sadece A doğru.",
+     "bewijs": "Daarnaast mag je elk jaar gratis een cursus volgen, bijvoorbeeld over EHBO bij kinderen of over taalontwikkeling.",
+     "juist": 0
+    }
+   ],
+   "nr": 7,
+   "woorden": 412,
+   "minuten": 18
+  },
+  {
+   "id": "studiegids",
+   "titel": "Studiegids Taalcentrum De Brug: praktische informatie",
+   "soort": "Website",
+   "domein": "educatie",
+   "tekstsoort": "instructief",
+   "zoektekst": true,
+   "inleiding": "Deze tekst komt van de website van Taalcentrum De Brug. Lees eerst de vraag. Zoek het antwoord in de tekst.",
+   "tekst": "Welkom bij Taalcentrum De Brug! Op deze pagina vind je alle praktische informatie over je cursus. Lees deze informatie goed door. Heb je daarna nog vragen? Kijk dan onder 'Wie helpt je waarmee?' bij wie je terecht kunt.\n\n## Lestijden\n\nOnze lessen worden op drie momenten van de dag gegeven:\n- ochtend: van 9.00 tot 12.00 uur\n- middag: van 13.30 tot 16.30 uur\n- avond: van 19.00 tot 21.30 uur\n\nElke les heeft halverwege een pauze van een kwartier. Kom op tijd. Wie meer dan 15 minuten te laat komt, mag de les pas na de pauze in. Zo worden de andere cursisten niet gestoord. In de schoolvakanties zijn er geen lessen. De vakanties staan in de jaarplanning op onze website.\n\n## Afwezigheid\n\nBen je ziek of kun je om een andere reden niet naar de les komen? Meld dit dan vóór het begin van de les via de app van De Brug. Lukt dat niet, bel dan de receptie. Je docent houdt bij wie er in de les aanwezig is. Om een certificaat te krijgen, moet je minimaal 80 procent van de lessen aanwezig zijn. Ben je drie keer afwezig zonder dat je het hebt gemeld? Dan nodigt de coördinator je uit voor een gesprek.\n\n## Cursusgeld\n\nEen dagcursus (ochtend of middag) duurt twaalf weken en kost € 350. Een avondcursus duurt ook twaalf weken en kost € 290. Je kunt het cursusgeld in één keer betalen of in drie termijnen. Kies je voor betalen in termijnen, dan betaal je € 15 extra administratiekosten. Je ontvangt de factuur per e-mail, uiterlijk een week voor de eerste les.\n\nBetaalt je werkgever je cursus? Dan moet het formulier 'Betaling door werkgever' worden ingevuld. Dit formulier moet zowel door je werkgever als door jezelf worden ondertekend. Lever het formulier vóór de eerste les in bij de administratie. Daarna sturen wij de factuur naar je werkgever. Hebben wij het formulier niet op tijd ontvangen, dan blijf je zelf verantwoordelijk voor de betaling.\n\n## Geld terug\n\nWil je stoppen met je cursus? Of je geld terugkrijgt, hangt af van het moment waarop je stopt:\n- Meld je je af vóór de eerste les, dan krijg je het hele cursusgeld terug, min € 25 administratiekosten.\n- Stop je na de eerste les, maar binnen twee weken na de start van de cursus, dan krijg je de helft van het cursusgeld terug.\n- Stop je later, dan krijg je geen geld terug. Alleen bij ernstige ziekte kan een uitzondering worden gemaakt. Je hebt dan wel een verklaring van een arts nodig.\n\nTerugbetaling gaat niet vanzelf. Je moet het altijd zelf aanvragen met het formulier 'Terugbetaling cursusgeld'. Dit formulier vind je op de website.\n\n## Lesboeken\n\nDe lesboeken zitten niet in de prijs van de cursus. Je bestelt ze zelf via onze webwinkel. Cursisten van De Brug krijgen daar 10 procent korting. Je kunt ook tweedehands boeken kopen van andere cursisten: kijk hiervoor op het prikbord bij de kantine. Let op: werkboeken waarin al geschreven is, kun je in de les niet meer gebruiken.\n\n## Computerlokaal en wifi\n\nIn het computerlokaal (lokaal 0.12) kun je zelfstandig oefenen. Het lokaal is open van maandag tot en met vrijdag van 8.30 tot 17.00 uur. Je logt in met je cursistennummer. Printen kost 10 cent per pagina. Je betaalt met printtegoed, dat je bij de receptie kunt kopen met je pinpas. Voor wifi gebruik je het netwerk 'DeBrug-Gast'. Het wachtwoord krijg je bij de receptie.\n\n## Examens\n\nTijdens de cursus maak je na zes weken en aan het einde van de cursus een toets. Zo weet je hoe je ervoor staat. Wil je daarna het Staatsexamen NT2 doen? Dan moet je je daar zelf voor aanmelden; dat kan niet via De Brug. Twijfel je welk examen het beste bij je past? Maak dan een afspraak met mevrouw Van Dijk, onze coördinator examens. Zij geeft je graag advies.\n\n## Klachten\n\nBen je ergens niet tevreden over? Praat er dan eerst over met je docent. Vaak is het probleem dan snel opgelost. Lukt dat niet, stuur dan binnen vier weken een schriftelijke klacht naar de coördinator. Je krijgt binnen twee weken antwoord. Ben je niet tevreden met dat antwoord, dan kun je je klacht voorleggen aan de klachtencommissie.\n\n## Wie helpt je waarmee?\n\n- Vragen over je rooster of over de lessen: je docent\n- Vragen over betalen en facturen: de administratie (kamer 1.04, maandag tot en met donderdag van 9.00 tot 13.00 uur)\n- Advies over examens of over een vervolgcursus: de coördinator examens\n- Wachtwoord vergeten of printtegoed kopen: de receptie",
+   "vragen": [
+    {
+     "id": "g1",
+     "patroon": 8,
+     "vraag": "Ahmed heeft ochtendles. Hij komt om 9.20 uur binnen. Wanneer mag hij de les in?",
+     "opties": [
+      "Na de pauze",
+      "Meteen",
+      "Pas bij de volgende les"
+     ],
+     "uitleg": "Ders 9.00'da başlıyor; Ahmed 20 dakika geç. 15 dakikadan fazla geç kalan ancak aradan sonra girebiliyor. Önce soruyu oku, sonra 'Lestijden' başlığını bul.",
+     "bewijs": "Wie meer dan 15 minuten te laat komt, mag de les pas na de pauze in.",
+     "juist": 0
+    },
+    {
+     "id": "g2",
+     "patroon": 14,
+     "vraag": "Lena volgt een avondcursus. Ze betaalt het cursusgeld in drie termijnen. Hoeveel betaalt ze in totaal?",
+     "opties": [
+      "€ 305",
+      "€ 290",
+      "€ 350",
+      "€ 365"
+     ],
+     "uitleg": "Akşam kursu 290 €; taksitle ödemede 15 € ek masraf: 290 + 15 = 305 €. 350 € gündüz kursu.",
+     "bewijs": "Kies je voor betalen in termijnen, dan betaal je € 15 extra administratiekosten.",
+     "juist": 0
+    },
+    {
+     "id": "g3",
+     "patroon": 13,
+     "vraag": "De werkgever van Johan wil zijn cursus betalen. Wat moet Johan doen?",
+     "opties": [
+      "Zorgen dat hij en zijn werkgever het formulier ondertekenen en het vóór de eerste les inleveren",
+      "Zijn werkgever vragen de factuur van Johan te betalen",
+      "Eerst zelf betalen en het geld later terugvragen"
+     ],
+     "uitleg": "Formu hem işveren hem de kursiyer imzalamalı ve ilk dersten önce teslim edilmeli; yoksa ödeme sorumluluğu kursiyerde kalıyor.",
+     "bewijs": "Dit formulier moet zowel door je werkgever als door jezelf worden ondertekend.",
+     "juist": 0
+    },
+    {
+     "id": "g4",
+     "patroon": 7,
+     "vraag": "Fatima stopt met haar cursus in de tweede week, na de eerste les. Wat gebeurt er?",
+     "opties": [
+      "Ze krijgt de helft van het cursusgeld terug als ze dat aanvraagt",
+      "Ze krijgt het hele cursusgeld terug, min € 25",
+      "Ze krijgt automatisch de helft van het cursusgeld terug"
+     ],
+     "uitleg": "İlk dersten sonra ve iki hafta içinde: yarısı geri. Ama iade kendiliğinden olmuyor ('gaat niet vanzelf'); C bu yüzden yanlış.",
+     "bewijs": "Stop je na de eerste les, maar binnen twee weken na de start van de cursus, dan krijg je de helft van het cursusgeld terug.",
+     "juist": 0
+    },
+    {
+     "id": "g5",
+     "patroon": 9,
+     "vraag": "Mei Ling wil weten welk staatsexamen het beste bij haar past. Bij wie kan ze terecht?",
+     "opties": [
+      "Bij de coördinator examens",
+      "Bij haar docent",
+      "Bij de administratie"
+     ],
+     "uitleg": "Hem 'Examens' bölümünde hem de 'Wie helpt je waarmee?' listesinde: sınav tavsiyesi = coördinator examens.",
+     "bewijs": "Maak dan een afspraak met mevrouw Van Dijk, onze coördinator examens.",
+     "juist": 0
+    },
+    {
+     "id": "g6",
+     "patroon": 12,
+     "vraag": "Welke regel geldt voor printen in het computerlokaal?",
+     "opties": [
+      "Je betaalt met printtegoed dat je bij de receptie koopt",
+      "Printen is gratis voor cursisten",
+      "Je kunt alleen printen met je pinpas in het lokaal"
+     ],
+     "uitleg": "Sayfa başı 10 sent; ödeme resepsiyondan pinpas ile alınan baskı kredisiyle. Pinpas lokalde değil, resepsiyonda kullanılıyor.",
+     "bewijs": "Je betaalt met printtegoed, dat je bij de receptie kunt kopen met je pinpas.",
+     "juist": 0
+    },
+    {
+     "id": "g7",
+     "patroon": 13,
+     "vraag": "Karel heeft een klacht over zijn docent. Een gesprek met de docent heeft niet geholpen. Wat moet hij nu doen?",
+     "opties": [
+      "Binnen vier weken een schriftelijke klacht sturen naar de coördinator",
+      "Zijn klacht meteen voorleggen aan de klachtencommissie",
+      "Zijn klacht melden bij de receptie"
+     ],
+     "uitleg": "Sıra: önce öğretmen → sonra dört hafta içinde koordinatöre yazılı şikâyet → hâlâ memnun değilse şikâyet komisyonu.",
+     "bewijs": "Lukt dat niet, stuur dan binnen vier weken een schriftelijke klacht naar de coördinator.",
+     "juist": 0
+    }
+   ],
+   "nr": 8,
+   "woorden": 762,
    "minuten": 18
   }
- ]
+ ],
+ "examen": {
+  "teksten": [
+   "kinderopvang",
+   "buurtbemiddeling",
+   "omscholing",
+   "ziekmelden",
+   "sportschool",
+   "studiegids"
+  ],
+  "minuten": 110,
+  "score": [
+   295,
+   345,
+   369,
+   384,
+   395,
+   404,
+   412,
+   419,
+   426,
+   431,
+   437,
+   442,
+   447,
+   452,
+   456,
+   461,
+   465,
+   469,
+   473,
+   477,
+   482,
+   486,
+   490,
+   495,
+   500,
+   505,
+   510,
+   516,
+   522,
+   529,
+   537,
+   547,
+   559,
+   574,
+   598,
+   649
+  ],
+  "geslaagd": 24
+ }
 }
