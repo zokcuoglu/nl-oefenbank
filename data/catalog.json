@@ -11,7 +11,7 @@
     },
     "media": {
       "title": "Lezen en kijken in niveaus",
-      "desc": "Her gün kısa bir video ve aynı haber A1'den C1'e beş seviyede."
+      "desc": "Haftada bir kısa video ve aynı haber A1'den C1'e beş seviyede."
     }
   },
   "groups": {
@@ -32,8 +32,8 @@
     {
       "id": "nieuws",
       "area": "media",
-      "title": "Dagelijks Nieuws",
-      "desc": "Video + beş seviyede metin, günlük deyimler, gramer ve quiz. E-postayla da gelir.",
+      "title": "Nieuws in niveaus",
+      "desc": "Haftada bir kısa video, aynı haber beş seviyede, günlük deyimler, gramer ve quiz. Her 3 haberde bir karma sınav.",
       "href": "nieuws/",
       "status": "ready"
     },

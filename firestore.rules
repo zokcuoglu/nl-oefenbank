@@ -2,8 +2,8 @@ rules_version = '2';
 // Security rules for the NL Oefenbank.
 // Paste into Firebase Console > Firestore Database > Rules, then Publish.
 //
-// users/{uid}             profile: name, email, photo, type, role, groep, exams, dates
-// users/{uid}/attempts/*  finished practice rounds
+// users/{uid}             profile: name, email, photo, type, role, groep, exams, dates, seen{page: time}
+// users/{uid}/attempts/*  finished practice rounds (owner and admin read them; admin for the statistics)
 //
 // type ("adult" | "child") : chosen once by the user, after that only admin changes it
 // role ("member" | "teacher" | "admin") : only admin changes it, nobody can give it to themselves
@@ -11,7 +11,9 @@ rules_version = '2';
 // parent_uid : a child's linked parent account; only admin sets it
 // welcome_sent_at : set by the mailer job (service account, not bound by these rules)
 // announcements/*  : written by admin, sent by the mailer job
-// nieuws_sent/{date}: daily news log, written by the mailer job, read by approved users
+// nieuws_sent/{date}: news mail log, written by the mailer job, read by approved users
+// settings/mail     : mail schedule (day + hour per job), edited on the admin page, read by the mailer job
+// mail_log/*        : weekly summary log, written by the mailer job, read by admin
 // The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -60,7 +62,7 @@ service cloud.firestore {
 
       // Finished rounds: owner only, and only after approval. Added, never edited.
       match /attempts/{attemptId} {
-        allow read: if isOwner(uid);
+        allow read: if isOwner(uid) || isAdmin();
         allow create: if isOwner(uid) && isApproved(uid)
           && request.resource.data.answers is list
           && request.resource.data.answers.size() <= 50;
@@ -81,9 +83,20 @@ service cloud.firestore {
       allow update: if false;
     }
 
-    // Daily news log: which item was mailed on which day
+    // News mail log: which item was mailed on which day
     match /nieuws_sent/{date} {
       allow read: if signedIn() && isApproved(request.auth.uid);
+      allow write: if false;
+    }
+
+    // Site settings (mail schedule): admin only
+    match /settings/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    // Mailer job's own log (weekly summary): admin may read it
+    match /mail_log/{id} {
+      allow read: if isAdmin();
       allow write: if false;
     }
 

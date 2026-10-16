@@ -4,7 +4,7 @@
 // - helpers for the user's profile document and saved attempts
 //
 // Data model (Firestore):
-//   users/{uid}              name, email, photo, type, role, groep, exams{}, created_at, last_active
+//   users/{uid}              name, email, photo, type, role, groep, exams{}, created_at, last_active, seen{module: time}
 //   users/{uid}/attempts/*   one finished practice round (module, score, total, answers, ...)
 // type  = "adult" | "child"            chosen once by the user, later only by admin
 // role  = "member" | "teacher" | "admin"  set only by admin (enforced in firestore.rules)
@@ -58,6 +58,10 @@ export async function loadAllAttempts(uid) {
   const snap = await getDocs(attemptsCol(uid));
   return snap.docs.map(d => ({ id: d.id, ...d.data(), module: d.data().module || "lezen" }))
     .sort((a, b) => (b.finished_at || "").localeCompare(a.finished_at || ""));
+}
+// Record that the user opened something inside a page (e.g. one news item): seen.{key} = now
+export function markSeen(uid, key) {
+  return updateProfile(uid, { seen: { [key]: new Date().toISOString() } }).catch(() => {});
 }
 export async function updateProfile(uid, data) {
   return setDoc(userRef(uid), data, { merge: true });
@@ -122,9 +126,10 @@ async function googleLogin() {
 /**
  * Wait until the visitor is signed in and has a complete profile.
  * area: "nt2" (adults only), "kids" (everyone), "any" (everyone), "admin" (admin only)
+ * seen: module id to record as visited (users/{uid}.seen.{id} = time), e.g. "lezen"
  * Resolves with { user, profile }.
  */
-export function gate({ area = "any", title = "NL Oefenbank" } = {}) {
+export function gate({ area = "any", title = "NL Oefenbank", seen = "" } = {}) {
   overlay(`<p>Yükleniyor…</p>`);
   return new Promise(resolve => {
     onAuthStateChanged(auth, async user => {
@@ -147,8 +152,10 @@ export function gate({ area = "any", title = "NL Oefenbank" } = {}) {
         // Child accounts only see the kids area
         if (area === "nt2" && profile.type === "child") { location.href = ROOT; return; }
         if (area === "admin" && !isAdmin(profile)) { overlay(`<span class="eb">Yönetim</span><h2>Bu sayfa sadece admin için</h2><p>Hesabına admin rolü verilmemiş.</p><button class="pri" onclick="location.href='${ROOT}'">Ana sayfaya dön</button>`); return; }
-        // Keep name/photo fresh and record activity (one small write per page load)
-        updateProfile(user.uid, { name: profile.name || user.displayName || "", email: user.email || "", photo: user.photoURL || "", last_active: new Date().toISOString() }).catch(() => {});
+        // Keep name/photo fresh and record activity (one small write per page load).
+        // seen.{module} = last visit of this page; the admin statistics use it to find pages nobody opens.
+        const now = new Date().toISOString();
+        updateProfile(user.uid, { name: profile.name || user.displayName || "", email: user.email || "", photo: user.photoURL || "", last_active: now, ...(seen ? { seen: { [seen]: now } } : {}) }).catch(() => {});
         closeOverlay();
         resolve({ user, profile });
       } catch (e) {

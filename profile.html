@@ -32,9 +32,10 @@ setTimeout(function () {
 <div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
 
 <script type="module">
-// Profile: own name, groep (children), exam dates (adults) and progress per exercise.
+// Profile: own name, groep (children), exam dates (adults), e-mail choices and own statistics.
 // Type and role are shown read-only: only an admin can change them.
 import { gate, userBox, esc, updateProfile, loadAllAttempts, TYPES, ROLES, roleOf } from "./js/core.js";
+import { summarize, pct, recentRounds, streak, dayBars } from "./js/stats.js";
 
 const app = document.getElementById("app");
 const { user, profile } = await gate({ area: "any" });
@@ -46,10 +47,36 @@ const isChild = profile.type === "child";
 const examMods = cat.modules.filter(m => m.area === "nt2" && m.exam);
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short", year: "numeric" }); } catch (e) { return ""; } };
 
-// Progress per module: rounds, average score, last round
-const stats = {};
-attempts.forEach(a => { const s = stats[a.module] = stats[a.module] || { n: 0, ok: 0, tot: 0, last: a.finished_at }; s.n++; s.ok += a.score || 0; s.tot += a.total || 0; });
+// Own statistics: totals, activity per day, per exercise, and per news item / test
+const st = summarize(attempts);
 const titleOf = id => cat.modules.find(m => m.id === id)?.title || id;
+// News titles come from the news data file (only needed when there are news rounds)
+let newsTitle = {};
+if (!isChild && st.byModule.nieuws) {
+  try { const n = await (await fetch("data/nieuws.json", { cache: "no-cache" })).json();
+    newsTitle = Object.fromEntries([...n.items.map(i => [i.id, `#${i.nr} ${i.titel}`]), ...(n.toetsen || []).map(t => [t.id, t.titel])]); } catch (e) {}
+}
+const newsRows = Object.values(st.byTest).filter(t => t.module === "nieuws").sort((a, b) => b.last.localeCompare(a.last));
+const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
+const statsHtml = st.rounds ? `
+    <section class="kpis">
+      <div class="panel kpi"><div class="eyebrow">Toplam tur</div><div class="v num">${st.rounds}</div></div>
+      <div class="panel kpi"><div class="eyebrow">Doğruluk</div><div class="v num" style="color:var(--${tone(pct(st.ok, st.tot))})">%${pct(st.ok, st.tot)}</div></div>
+      <div class="panel kpi"><div class="eyebrow">Son 7 gün</div><div class="v num">${recentRounds(st, 7)} <small style="font-size:14px" class="muted">tur</small></div></div>
+      <div class="panel kpi"><div class="eyebrow">Seri</div><div class="v num">${streak(st)} <small style="font-size:14px" class="muted">gün</small></div></div>
+    </section>
+    <section class="panel"><div class="sectionhead"><h3>Son 14 gün</h3><span class="muted">günde kaç tur</span></div>${dayBars(st, 14)}</section>
+    <section class="panel"><div class="sectionhead"><h3>Alıştırmalar</h3><span class="muted">${Object.keys(st.byModule).length} alıştırma</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th>Doğruluk</th><th class="r">Son</th></tr></thead><tbody>
+      ${Object.entries(st.byModule).sort((a, b) => b[1].rounds - a[1].rounds).map(([id, m]) => { const p = pct(m.ok, m.tot); return `<tr><td>${esc(titleOf(id))}</td><td class="r num">${m.rounds}</td>
+        <td><span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span></td><td class="r num muted">${fmtDate(m.last)}</td></tr>`; }).join("")}
+      </tbody></table></div></section>
+    ${newsRows.length ? `<section class="panel"><div class="sectionhead"><h3 lang="nl">Nieuws in niveaus</h3><span class="muted">quiz ve sınavlar</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Haber / sınav</th><th class="r">Deneme</th><th class="r">En iyi</th><th class="r">Son</th></tr></thead><tbody>
+      ${newsRows.map(t => `<tr><td><a href="nieuws/?${t.test.startsWith("toets") ? "toets" : "id"}=${encodeURIComponent(t.test)}" lang="nl">${esc(newsTitle[t.test] || t.test)}</a></td><td class="r num">${t.rounds}</td>
+        <td class="r"><span class="chip ${tone(Math.round(100 * t.best))} num">%${Math.round(100 * t.best)}</span></td><td class="r num muted">%${Math.round(100 * t.lastPct)}</td></tr>`).join("")}
+      </tbody></table></div></section>` : ""}` :
+  `<section class="panel"><span class="eyebrow">İstatistik</span><p class="muted" style="margin:6px 0 0">Henüz bitirilmiş tur yok. İlk turu bitirince burada toplam, doğruluk, günlük aktivite ve alıştırma bazında sonuçların görünecek.</p></section>`;
 
 app.innerHTML = `
   <section class="panel"><span class="eyebrow">Hesap</span>
@@ -59,7 +86,7 @@ app.innerHTML = `
       <div class="field"><label>Hesap tipi</label><span>${esc(TYPES[profile.type] || "-")}</span></div>
       <div class="field"><label>Rol</label><span>${esc(ROLES[roleOf(profile)])}</span></div>
       <div class="field"><label for="p-weekly">E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-weekly" ${profile.email_weekly === false ? "" : "checked"}> Haftalık özet gönder</label>
-        ${isChild ? "" : `<label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-daily" ${profile.email_daily ? "checked" : ""}> Günlük haber e-postası</label>`}</div>
+        ${isChild ? "" : `<label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-news" ${(profile.email_news ?? profile.email_daily) ? "checked" : ""}> Haftalık haber e-postası</label>`}</div>
       ${isChild ? `<div class="field"><label for="p-groep">Okul grubu</label><select class="input" id="p-groep"><option value="">Seç</option>${Object.entries(cat.groups).map(([k, v]) => `<option value="${k}" ${profile.groep === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></div>` : ""}
     </div>
     <p class="muted" style="font-size:13px;margin:12px 0 0">Hesap tipi ve rol sadece admin tarafından değiştirilebilir.</p>
@@ -69,16 +96,14 @@ app.innerHTML = `
     <div class="formgrid">${examMods.map(m => `<div class="field"><label for="d-${m.id}">${esc(m.title)}</label>
       <input class="input" type="date" id="d-${m.id}" value="${esc(profile.exams?.[m.id] || (m.id === "lezen" ? profile.exam_date || "" : ""))}"></div>`).join("")}</div></section>`}
   <div class="row"><button class="btn primary" id="save">Kaydet</button><span id="msg"></span></div>
-  <section class="panel"><div class="sectionhead"><h3>İlerleme</h3><span class="muted">tüm alıştırmalar</span></div>
-    ${Object.keys(stats).length ? `<div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th class="r">Ortalama</th><th class="r">Son</th></tr></thead><tbody>
-      ${Object.entries(stats).map(([id, s]) => `<tr><td>${esc(titleOf(id))}</td><td class="r num">${s.n}</td><td class="r num">%${s.tot ? Math.round(100 * s.ok / s.tot) : 0}</td><td class="r num muted">${fmtDate(s.last)}</td></tr>`).join("")}
-      </tbody></table></div>` : `<p class="muted">Henüz bitirilmiş tur yok.</p>`}</section>
+  <h2 style="margin:8px 0 0">İstatistiklerim</h2>
+  ${statsHtml}
   <section class="panel"><span class="eyebrow">Sınıflar</span><p class="muted" style="margin:6px 0 0">Sınıf özelliği yakında eklenecek. Sınıf arkadaşların ilerleme özetini burada göreceksin.</p></section>`;
 
 document.getElementById("save").onclick = async () => {
   const msg = document.getElementById("msg");
   const data = { name: document.getElementById("p-name").value.trim(), email_weekly: document.getElementById("p-weekly").checked };
-  if (!isChild) data.email_daily = document.getElementById("p-daily").checked;
+  if (!isChild) data.email_news = document.getElementById("p-news").checked;
   if (isChild) data.groep = document.getElementById("p-groep").value || null;
   else data.exams = Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null]));
   try { await updateProfile(user.uid, data); msg.innerHTML = `<span class="ok-msg">Kaydedildi.</span>`; }

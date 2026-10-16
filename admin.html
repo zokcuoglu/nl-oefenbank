@@ -32,10 +32,11 @@ setTimeout(function () {
 <div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
 
 <script type="module">
-// Admin screen: list every account and change its type and role.
-// The page is hidden from non-admins, and firestore.rules also refuse their writes.
-import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf } from "./js/core.js";
-import { collection, getDocs, doc, updateDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+// Admin screen: accounts (status, type, role, parent), statistics, mail schedule and announcements.
+// The page is hidden from non-admins, and firestore.rules also refuse their reads and writes.
+import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
+import { summarize, pct, recentRounds } from "./js/stats.js";
+import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
 const { user, profile } = await gate({ area: "admin" });
@@ -48,6 +49,12 @@ const ROLE_HELP = {
   admin: "Her şeyi görür, bu ekrandan tip ve rol atar."
 };
 let users = [], news = [], newsErr = "";
+// Mail schedule (Firestore settings/mail, read by scripts/mailer.py). weekday: 1 = Monday ... 7 = Sunday
+const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 } };
+const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
+let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null;
+// Statistics: attempts of every account, the catalog, and the news items
+let stats = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] };
 
 async function load() {
   try {
@@ -61,7 +68,89 @@ async function load() {
     const ns = await getDocs(query(collection(db, "announcements"), orderBy("created_at", "desc"), limit(10)));
     news = ns.docs.map(d => ({ id: d.id, ...d.data() })); newsErr = "";
   } catch (e) { news = []; newsErr = e.code || e.message; }
+  try {
+    const snap = await getDoc(doc(db, "settings", "mail"));
+    const saved = snap.exists() ? snap.data() : {};
+    sched = { news: { ...DEFAULT_SCHED.news, ...(saved.news || {}) }, weekly: { ...DEFAULT_SCHED.weekly, ...(saved.weekly || {}) } }; schedErr = "";
+    const ls = await getDocs(query(collection(db, "nieuws_sent"), orderBy("date", "desc"), limit(1)));
+    lastNews = ls.docs[0]?.data() || null;
+  } catch (e) { schedErr = e.code || e.message; }
+  try {
+    [cat, nieuws] = await Promise.all([fetch("data/catalog.json", { cache: "no-cache" }).then(r => r.json()), fetch("data/nieuws.json", { cache: "no-cache" }).then(r => r.json())]);
+    // One read of each account's attempts (fine for a small group)
+    const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
+    stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); statsErr = "";
+  } catch (e) { statsErr = e.code || e.message; }
   render();
+}
+
+// ---------- statistics ----------
+function statsHtml() {
+  if (statsErr) return `<section class="panel"><span class="eyebrow">İstatistik</span><div class="notice" style="margin-top:8px">Çalışma kayıtları okunamadı (${esc(statsErr)}). Güvenlik kurallarını güncelle (admin'in attempts okuma izni).</div></section>`;
+  const active = users.filter(u => statusOf(u) === "approved");
+  const daysSince = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : Infinity;
+  const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
+  // Per person: busiest this week first
+  const people = active.map(u => ({ u, s: stats[u.uid] || summarize([]) })).sort((a, b) => recentRounds(b.s, 7) - recentRounds(a.s, 7) || b.s.rounds - a.s.rounds);
+  // Per exercise: rounds, people who solved it, people who opened it (users.seen)
+  const ready = cat.modules.filter(m => m.status === "ready");
+  const modRows = ready.map(m => {
+    const solvers = active.filter(u => stats[u.uid]?.byModule[m.id]);
+    return { m, rounds: solvers.reduce((n, u) => n + stats[u.uid].byModule[m.id].rounds, 0), solvers: solvers.length, openers: active.filter(u => u.seen?.[m.id]).length };
+  }).sort((a, b) => b.rounds - a.rounds);
+  // Per news item and mixed test
+  const newsKeys = [...nieuws.items.map(i => ({ id: i.id, title: `#${i.nr} ${i.titel}` })), ...(nieuws.toetsen || []).map(t => ({ id: t.id, title: t.titel }))];
+  const newsRows = newsKeys.map(k => {
+    const tries = active.map(u => stats[u.uid]?.byTest["nieuws/" + k.id]).filter(Boolean);
+    return { ...k, openers: active.filter(u => u.seen?.["nieuws:" + k.id]).length, solvers: tries.length, rounds: tries.reduce((n, t) => n + t.rounds, 0),
+      best: tries.length ? Math.round(100 * tries.reduce((n, t) => n + t.best, 0) / tries.length) : null };
+  });
+  const status = r => r.rounds ? "" : r.openers ? `<span class="chip warn">açıldı, çözülmedi</span>` : `<span class="chip bad">hiç açılmadı</span>`;
+  const untouched = [...modRows.filter(r => !r.rounds).map(r => r.m.title), ...newsRows.filter(r => !r.rounds).map(r => r.title)];
+  return `
+    <section class="panel"><div class="sectionhead"><h3>Kim ne yaptı</h3><span class="muted">onaylı hesaplar · bu hafta en aktif olan üstte</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th class="r">Son 7 gün</th><th class="r">Toplam tur</th><th>Doğruluk</th><th>En çok</th><th class="r">Son tur</th></tr></thead><tbody>
+      ${people.map(({ u, s }) => { const p = pct(s.ok, s.tot), top = Object.entries(s.byModule).sort((a, b) => b[1].rounds - a[1].rounds)[0], idle = daysSince(s.last);
+        return `<tr><td><b>${esc(u.name || u.email || u.uid)}</b>${u.type === "child" ? ` <span class="chip">çocuk</span>` : ""}</td>
+          <td class="r num"><b>${recentRounds(s, 7)}</b></td><td class="r num">${s.rounds}</td>
+          <td>${s.tot ? `<span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span>` : `<span class="muted">-</span>`}</td>
+          <td>${top ? esc(cat.modules.find(m => m.id === top[0])?.title || top[0]) : `<span class="muted">-</span>`}</td>
+          <td class="r num">${s.last ? `<span class="${idle > 14 ? "chip warn" : "muted"}">${fmtDate(s.last)}${idle > 14 ? ` · ${idle} gün` : ""}</span>` : `<span class="chip bad">hiç</span>`}</td></tr>`; }).join("")}
+      </tbody></table></div></section>
+    <section class="panel"><div class="sectionhead"><h3>Alıştırmalar</h3><span class="muted">en çok çözülen üstte</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th class="r">Çözen</th><th class="r">Açan</th><th></th></tr></thead><tbody>
+      ${modRows.map(r => `<tr><td>${esc(r.m.title)}</td><td class="r num"><b>${r.rounds}</b></td><td class="r num">${r.solvers}</td><td class="r num">${r.openers}</td><td class="r">${status(r)}</td></tr>`).join("")}
+      </tbody></table></div></section>
+    <section class="panel"><div class="sectionhead"><h3 lang="nl">Nieuws in niveaus</h3><span class="muted">haber quiz'leri ve karma sınavlar</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Haber / sınav</th><th class="r">Açan</th><th class="r">Quiz yapan</th><th class="r">Deneme</th><th class="r">Ort. en iyi</th><th></th></tr></thead><tbody>
+      ${newsRows.map(r => `<tr><td lang="nl">${esc(r.title)}</td><td class="r num">${r.openers}</td><td class="r num">${r.solvers}</td><td class="r num">${r.rounds}</td>
+        <td class="r num">${r.best === null ? "-" : `<span class="chip ${tone(r.best)}">%${r.best}</span>`}</td><td class="r">${status(r)}</td></tr>`).join("")}
+      </tbody></table></div>
+      <p class="muted" style="font-size:13px;margin:10px 0 0">"Açan" sayısı bu sürümden itibaren tutuluyor; eski ziyaretler sayılmaz.${untouched.length ? ` Hiç çözülmeyenler: ${untouched.map(esc).join(", ")}.` : ""}</p></section>`;
+}
+
+// ---------- mail schedule ----------
+function schedRow(job, label) {
+  const c = sched[job];
+  return `<tr><td><b>${label}</b></td>
+    <td><label class="switch" style="color:var(--ink)"><input type="checkbox" id="sc-${job}-on" ${c.enabled ? "checked" : ""}> açık</label></td>
+    <td><select class="input" id="sc-${job}-day">${Object.entries(WEEKDAYS).map(([k, v]) => `<option value="${k}" ${+k === +c.weekday ? "selected" : ""}>${v}</option>`).join("")}</select></td>
+    <td><select class="input" id="sc-${job}-hour">${Array.from({ length: 24 }, (_, h) => `<option value="${h}" ${h === +c.hour ? "selected" : ""}>${String(h).padStart(2, "0")}:00</option>`).join("")}</select></td></tr>`;
+}
+function schedHtml() {
+  return `<section class="panel"><div class="sectionhead"><h3>E-posta zamanlaması</h3><span class="muted">Amsterdam saati</span></div>
+    ${schedErr ? `<div class="notice" style="margin-bottom:10px">Ayarlar okunamadı (${esc(schedErr)}). Güvenlik kurallarını güncelle. Şimdilik varsayılanlar gösteriliyor.</div>` : ""}
+    <div class="tablewrap"><table><thead><tr><th>E-posta</th><th>Durum</th><th>Gün</th><th>Saat</th></tr></thead><tbody>
+      ${schedRow("news", "Haber (Nieuws in niveaus)")}${schedRow("weekly", "Haftalık özet")}</tbody></table></div>
+    <div class="row" style="margin-top:10px"><button class="btn primary" id="sc-save">Zamanlamayı kaydet</button><span id="sc-msg"></span></div>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Gönderim seçilen saatten sonraki ilk saatlik çalışmada olur (genelde :17 civarı, GitHub bazen gecikir). Aynı gün ikinci kez gitmez.
+      ${lastNews ? `Son haber: <b>${esc(lastNews.titel || lastNews.item_id)}</b> · ${esc(lastNews.date)} · ${lastNews.recipients || 0} kişi.` : "Henüz haber gönderilmedi."}</p></section>`;
+}
+async function saveSched() {
+  const msg = document.getElementById("sc-msg"), val = job => ({ enabled: document.getElementById(`sc-${job}-on`).checked, weekday: +document.getElementById(`sc-${job}-day`).value, hour: +document.getElementById(`sc-${job}-hour`).value });
+  const next = { news: val("news"), weekly: val("weekly") };
+  try { await setDoc(doc(db, "settings", "mail"), { ...next, updated_at: new Date().toISOString(), updated_by: user.uid }); sched = next; msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
+  catch (e) { msg.innerHTML = `<span class="err-msg">${esc(e.code || e.message)}</span>`; }
 }
 
 function sel(id, opts, val) {
@@ -92,6 +181,8 @@ function render() {
         <td><button class="btn" data-i="${i}">Kaydet</button> <span id="m${i}"></span></td></tr>`).join("")}
       </tbody></table></div>
       <p class="muted" style="font-size:13px;margin:10px 0 0">Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider. Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>
+    ${statsHtml()}
+    ${schedHtml()}
     <section class="panel"><div class="sectionhead"><h3>Duyuru gönder</h3><span class="muted">onaylı herkese e-posta, en geç bir saat içinde</span></div>
       <div class="formgrid" style="grid-template-columns:1fr">
         <div class="field"><label for="n-subj">Konu</label><input class="input" id="n-subj" maxlength="120" placeholder="Örn. Yeni: Groep 5 kelime testi"></div>
@@ -106,6 +197,7 @@ function render() {
 
 app.addEventListener("click", async e => {
   if (e.target.id === "n-send") return queueNews();
+  if (e.target.id === "sc-save") return saveSched();
   const b = e.target.closest("button[data-i]"); if (!b) return;
   const i = +b.dataset.i, u = users[i], msg = document.getElementById("m" + i);
   const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value, status = document.getElementById("s" + i).value;

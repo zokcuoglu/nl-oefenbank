@@ -232,7 +232,7 @@ function rebuildPool() {
 // Question bank is a static file in the repo; rounds are saved per user in Firestore.
 async function boot() {
   render();
-  const { user, profile } = await gate({ area: "nt2", title: "KNM Oefenbank" });
+  const { user, profile } = await gate({ area: "nt2", title: "KNM Oefenbank", seen: "knm" });
   S.user = user;
   document.getElementById("ub").innerHTML = userBox(user, profile);
   try {

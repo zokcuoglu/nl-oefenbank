@@ -418,7 +418,7 @@ $("retryAll").onclick = () => startTest(S.test, S.test.items.map(toObj), true);
 $("toMenu").onclick = () => { renderMenu(); show("menu"); };
 
 // Start: wait for login, then load this user's saved rounds
-const { user: USER, profile } = await gate({ area: "kids", title: "eer · oor · eur" });
+const { user: USER, profile } = await gate({ area: "kids", title: "eer · oor · eur", seen: "g5-eer-oor-eur" });
 $("ub").innerHTML = userBox(USER, profile);
 ATTEMPTS = await loadAttempts(USER.uid, MODULE).catch(() => []);
 renderMenu();

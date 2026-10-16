@@ -1,7 +1,7 @@
 {
   "name": "NL Oefenbank",
   "short_name": "NL Oefenbank",
-  "description": "Hollandaca çalışma: NT2 sınavları, günlük haber, çocuk alıştırmaları",
+  "description": "Hollandaca çalışma: NT2 sınavları, haftalık haber, çocuk alıştırmaları",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
