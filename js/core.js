@@ -30,7 +30,7 @@ export const db = getFirestore(fb);
 // Site root URL, so pages at any depth can link home (core.js lives in /js/)
 export const ROOT = new URL("../", import.meta.url).href;
 
-export const TYPES = { adult: "Yetişkin", child: "Öğrenci (çocuk)" };
+export const TYPES = { adult: "Yetişkin", child: "Öğrenci" };
 export const ROLES = { member: "Üye", teacher: "Öğretmen", admin: "Admin" };
 export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 

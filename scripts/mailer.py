@@ -195,11 +195,25 @@ def load_schedule(db):
     return out
 
 
-def is_due(job_cfg, now):
-    """True on the chosen weekday from the chosen hour on. The job's own log stops a second send
-    that day; '>= hour' means a delayed or skipped hourly run still catches up later that day."""
+CATCH_UP = dt.timedelta(hours=48)
+
+
+def last_slot(job_cfg, now):
+    """Most recent scheduled moment (chosen weekday and hour, Amsterdam time) that is not in the future."""
     local = now.astimezone(AMS)
-    return bool(job_cfg.get("enabled")) and local.isoweekday() == int(job_cfg["weekday"]) and local.hour >= int(job_cfg["hour"])
+    days_back = (local.isoweekday() - int(job_cfg["weekday"])) % 7
+    slot = (local - dt.timedelta(days=days_back)).replace(hour=int(job_cfg["hour"]), minute=0, second=0, microsecond=0)
+    return slot - dt.timedelta(days=7) if slot > local else slot
+
+
+def is_due(job_cfg, now, sent_dates):
+    """Due when the last scheduled moment has passed, nothing was sent since then, and it was at most 48 hours ago.
+    GitHub's hourly schedule sometimes skips hours, so a later run still catches up; the 48-hour limit stops an
+    old, missed slot (e.g. right after changing the schedule) from sending at an odd moment."""
+    if not job_cfg.get("enabled"):
+        return False
+    slot = last_slot(job_cfg, now)
+    return now - slot <= CATCH_UP and not any(d >= slot.date().isoformat() for d in sent_dates)
 
 
 # ---------- news item ----------
@@ -448,9 +462,11 @@ def run_scheduled(db, sender, now, dry_run=False):
     run_hourly(db, sender, now, dry_run=dry_run)
     sched = load_schedule(db)
     print(f"schedule: {sched} | now {now.astimezone(AMS):%a %H:%M} Amsterdam")
-    if is_due(sched["news"], now):
+    news_dates = [d.to_dict().get("date", "") for d in db.collection("nieuws_sent").stream()]
+    weekly_dates = [x.get("date", "") for x in (d.to_dict() for d in db.collection("mail_log").stream()) if x.get("job") == "weekly"]
+    if is_due(sched["news"], now, news_dates):
         run_news(db, sender, now, dry_run=dry_run)
-    if is_due(sched["weekly"], now):
+    if is_due(sched["weekly"], now, weekly_dates):
         run_weekly(db, sender, now, dry_run=dry_run)
 
 

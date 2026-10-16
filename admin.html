@@ -35,7 +35,7 @@ setTimeout(function () {
 // Admin screen: accounts (status, type, role, parent), statistics, mail schedule and announcements.
 // The page is hidden from non-admins, and firestore.rules also refuse their reads and writes.
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
-import { summarize, pct, recentRounds } from "./js/stats.js";
+import { summarize, pct, recentRounds, dayBars, scoreChips } from "./js/stats.js";
 import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -54,7 +54,7 @@ const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { 
 const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
 let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null, sentNews = [], weeklyLog = [], logErr = "";
 // Statistics: attempts of every account, the catalog, and the news items
-let stats = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] };
+let stats = {}, rawAtt = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] };
 
 async function load() {
   try {
@@ -79,7 +79,7 @@ async function load() {
     [cat, nieuws] = await Promise.all([fetch("data/catalog.json", { cache: "no-cache" }).then(r => r.json()), fetch("data/nieuws.json", { cache: "no-cache" }).then(r => r.json())]);
     // One read of each account's attempts (fine for a small group)
     const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
-    stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); statsErr = "";
+    stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); rawAtt = Object.fromEntries(users.map((u, i) => [u.uid, all[i]])); statsErr = "";
   } catch (e) { statsErr = e.code || e.message; }
   // Weekly summary log (written by the mailer job); a failure here only hides those rows
   try { weeklyLog = (await getDocs(collection(db, "mail_log"))).docs.map(d => d.data()); logErr = ""; } catch (e) { weeklyLog = []; logErr = e.code || e.message; }
@@ -107,13 +107,56 @@ function sentHtml() {
 }
 
 // ---------- statistics ----------
+// Readable label for one answered question (qid as saved by each exercise)
+const LEZEN_TYPES = { nltr: "Anlamı", trnl: "Hollandacası", invul: "Boşluk", lid: "de/het", kalip: "Kalıp" };
+function questionLabel(module, qid) {
+  if (module === "nieuws") {
+    const [src, id] = qid.split(":"), it = nieuws.items.find(i => i.id === src), t = (nieuws.toetsen || []).find(x => x.id === src);
+    const q = (it?.toets || t?.extra || []).find(x => x.id === id);
+    return q ? `${it ? "#" + it.nr : t.titel} · ${q.vraag.replace(/<[^>]+>/g, "")}` : qid;
+  }
+  if (module === "lezen") { const [type, ...rest] = qid.split(":"); return `${LEZEN_TYPES[type] || type}: ${rest.join(":")}`; }
+  return qid;
+}
+// Category of a news question (begrip, woorden, ...) by qid
+function newsCat(qid) {
+  const [src, id] = qid.split(":"), it = nieuws.items.find(i => i.id === src), t = (nieuws.toetsen || []).find(x => x.id === src);
+  return (it?.toets || t?.extra || []).find(x => x.id === id)?.cat;
+}
+const CATNAME = { begrip: "Anlama", woorden: "Kelime", uitdrukkingen: "Deyim", grammatica: "Gramer" };
+
 function statsHtml() {
   if (statsErr) return `<section class="panel"><span class="eyebrow">İstatistik</span><div class="notice" style="margin-top:8px">Çalışma kayıtları okunamadı (${esc(statsErr)}). Güvenlik kurallarını güncelle (admin'in attempts okuma izni).</div></section>`;
   const active = users.filter(u => statusOf(u) === "approved");
   const daysSince = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : Infinity;
   const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
-  // Per person: busiest this week first
+  const titleOf = id => cat.modules.find(m => m.id === id)?.title || id;
+  const everyone = summarize(active.flatMap(u => rawAtt[u.uid] || []));
+  // Last 7 days, everyone together
+  const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString();
+  const week = active.flatMap(u => (rawAtt[u.uid] || []).filter(x => (x.finished_at || "") >= weekAgo));
+  const weekOk = week.reduce((n, x) => n + (x.score || 0), 0), weekTot = week.reduce((n, x) => n + (x.total || 0), 0);
+  const activeWeek = active.filter(u => recentRounds(stats[u.uid] || summarize([]), 7) > 0).length;
+  const quiet = active.filter(u => daysSince(stats[u.uid]?.last) > 14);
+
+  // Per person: busiest this week first; a click opens the details row
   const people = active.map(u => ({ u, s: stats[u.uid] || summarize([]) })).sort((a, b) => recentRounds(b.s, 7) - recentRounds(a.s, 7) || b.s.rounds - a.s.rounds);
+  const detail = (u, s) => {
+    const att = rawAtt[u.uid] || [], newsAtt = att.filter(x => x.module === "nieuws");
+    // News quiz answers per category: where is this person weak?
+    const byCat = {};
+    newsAtt.forEach(x => (x.answers || []).forEach(an => { const c = newsCat(an.qid); if (!c) return; const v = byCat[c] = byCat[c] || { ok: 0, n: 0 }; v.n++; if (an.correct) v.ok++; }));
+    const exams = Object.entries(u.exams || {}).filter(([, d]) => d).map(([m, d]) => `${esc(titleOf(m))}: ${esc(d)} (${Math.ceil((new Date(d) - Date.now()) / 864e5)} gün)`);
+    const doneNews = [...nieuws.items.map(i => [i.id, `#${i.nr}`]), ...(nieuws.toetsen || []).map(t => [t.id, t.titel.split(" · ")[0]])].filter(([id]) => newsAtt.some(x => x.test === id));
+    return `<div class="persondetail">
+      <div><span class="eyebrow">Son 14 gün</span>${dayBars(s, 14)}</div>
+      <div><span class="eyebrow">Alıştırmalar</span>${Object.keys(s.byModule).length ? `<table><tbody>${Object.entries(s.byModule).sort((a, b) => b[1].rounds - a[1].rounds).map(([id, m]) => `<tr><td>${esc(titleOf(id))}</td><td class="r num">${m.rounds} tur</td><td class="r num">%${pct(m.ok, m.tot)}</td><td class="r num muted">${fmtDate(m.last)}</td></tr>`).join("")}</tbody></table>` : `<p class="muted">Henüz tur yok.</p>`}</div>
+      ${Object.keys(byCat).length ? `<div><span class="eyebrow">Haber quiz'leri: alanlara göre</span><div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">${Object.entries(byCat).map(([c, v]) => { const p = pct(v.ok, v.n); return `<div class="catrow"><span>${CATNAME[c]}</span><div class="bar"><i style="width:${p}%;background:var(--${tone(p)})"></i></div><span class="num r">%${p} <span class="muted">(${v.n})</span></span></div>`; }).join("")}</div></div>` : ""}
+      ${doneNews.length ? `<div><span class="eyebrow">Haberler (seviyeye göre en iyi, zamanla düşer)</span>${doneNews.map(([id, label]) => `<div class="row" style="justify-content:space-between;margin-top:6px"><span lang="nl">${esc(label)}</span>${scoreChips(newsAtt, id)}</div>`).join("")}</div>` : ""}
+      ${exams.length ? `<div><span class="eyebrow">Sınav tarihleri</span><p style="margin:6px 0 0">${exams.join("<br>")}</p></div>` : ""}
+    </div>`;
+  };
+
   // Per exercise: rounds, people who solved it, people who opened it (users.seen)
   const ready = cat.modules.filter(m => m.status === "ready");
   const modRows = ready.map(m => {
@@ -128,17 +171,38 @@ function statsHtml() {
       best: tries.length ? Math.round(100 * tries.reduce((n, t) => n + t.best, 0) / tries.length) : null };
   });
   const status = r => r.rounds ? "" : r.openers ? `<span class="chip warn">açıldı, çözülmedi</span>` : `<span class="chip bad">hiç açılmadı</span>`;
-  const untouched = [...modRows.filter(r => !r.rounds).map(r => r.m.title), ...newsRows.filter(r => !r.rounds).map(r => r.title)];
+
+  // Hardest questions: wrong share over everyone's answers (at least 2 answers)
+  const q = {};
+  active.forEach(u => (rawAtt[u.uid] || []).forEach(x => (x.answers || []).forEach(an => {
+    const k = (x.module || "lezen") + "|" + an.qid, v = q[k] = q[k] || { module: x.module || "lezen", qid: an.qid, n: 0, wrong: 0, people: new Set() };
+    v.n++; if (!an.correct) v.wrong++; v.people.add(u.uid);
+  })));
+  const hard = Object.values(q).filter(v => v.n >= 2 && v.wrong > 0).sort((a, b) => b.wrong / b.n - a.wrong / a.n || b.wrong - a.wrong).slice(0, 12);
+
   return `
-    <section class="panel"><div class="sectionhead"><h3>Kim ne yaptı</h3><span class="muted">onaylı hesaplar · bu hafta en aktif olan üstte</span></div>
+    <section class="kpis">
+      <div class="panel kpi"><div class="eyebrow">Bu hafta aktif</div><div class="v num">${activeWeek}<small class="muted" style="font-size:15px"> / ${active.length}</small></div></div>
+      <div class="panel kpi"><div class="eyebrow">Bu hafta tur</div><div class="v num">${week.length}</div></div>
+      <div class="panel kpi"><div class="eyebrow">Bu hafta doğruluk</div><div class="v num" style="color:var(--${weekTot ? tone(pct(weekOk, weekTot)) : "ink"})">${weekTot ? "%" + pct(weekOk, weekTot) : "-"}</div></div>
+      <div class="panel kpi"><div class="eyebrow">14+ gündür sessiz</div><div class="v num" style="color:var(--${quiet.length ? "warn" : "ink"})">${quiet.length}</div></div>
+    </section>
+    <section class="panel"><div class="sectionhead"><h3>Son 30 gün</h3><span class="muted">herkesin günlük tur sayısı</span></div>${dayBars(everyone, 30)}
+      ${quiet.length ? `<p class="muted" style="font-size:13px;margin:10px 0 0">14 günden uzun süredir tur çözmeyenler: ${quiet.map(u => esc(u.name || u.email)).join(", ")}</p>` : ""}</section>
+    <section class="panel"><div class="sectionhead"><h3>Kim ne yaptı</h3><span class="muted">bu hafta en aktif olan üstte · ayrıntı için isme tıkla</span></div>
       <div class="tablewrap"><table><thead><tr><th>Kişi</th><th class="r">Son 7 gün</th><th class="r">Toplam tur</th><th>Doğruluk</th><th>En çok</th><th class="r">Son tur</th></tr></thead><tbody>
       ${people.map(({ u, s }) => { const p = pct(s.ok, s.tot), top = Object.entries(s.byModule).sort((a, b) => b[1].rounds - a[1].rounds)[0], idle = daysSince(s.last);
-        return `<tr><td><b>${esc(u.name || u.email || u.uid)}</b>${u.type === "child" ? ` <span class="chip">çocuk</span>` : ""}</td>
+        return `<tr><td><button class="linkbtn" data-person="${esc(u.uid)}" aria-expanded="false">▸ <b>${esc(u.name || u.email || u.uid)}</b></button>${u.type === "child" ? ` <span class="chip">öğrenci</span>` : ""}</td>
           <td class="r num"><b>${recentRounds(s, 7)}</b></td><td class="r num">${s.rounds}</td>
           <td>${s.tot ? `<span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span>` : `<span class="muted">-</span>`}</td>
-          <td>${top ? esc(cat.modules.find(m => m.id === top[0])?.title || top[0]) : `<span class="muted">-</span>`}</td>
-          <td class="r num">${s.last ? `<span class="${idle > 14 ? "chip warn" : "muted"}">${fmtDate(s.last)}${idle > 14 ? ` · ${idle} gün` : ""}</span>` : `<span class="chip bad">hiç</span>`}</td></tr>`; }).join("")}
+          <td>${top ? esc(titleOf(top[0])) : `<span class="muted">-</span>`}</td>
+          <td class="r num">${s.last ? `<span class="${idle > 14 ? "chip warn" : "muted"}">${fmtDate(s.last)}${idle > 14 ? ` · ${idle} gün` : ""}</span>` : `<span class="chip bad">hiç</span>`}</td></tr>
+          <tr id="pd-${esc(u.uid)}" hidden><td colspan="6">${detail(u, s)}</td></tr>`; }).join("")}
       </tbody></table></div></section>
+    <section class="panel"><div class="sectionhead"><h3>En çok yanlış yapılan sorular</h3><span class="muted">herkesin cevapları · en az 2 cevap</span></div>
+      ${hard.length ? `<div class="tablewrap"><table><thead><tr><th>Soru</th><th>Alıştırma</th><th class="r">Yanlış</th><th class="r">Kişi</th></tr></thead><tbody>
+        ${hard.map(v => `<tr><td lang="nl">${esc(questionLabel(v.module, v.qid))}</td><td class="muted">${esc(titleOf(v.module))}</td><td class="r num"><span class="chip ${tone(100 - pct(v.wrong, v.n))}">${v.wrong}/${v.n}</span></td><td class="r num">${v.people.size}</td></tr>`).join("")}
+        </tbody></table></div>` : `<p class="muted">Henüz yeterli cevap yok.</p>`}</section>
     <section class="panel"><div class="sectionhead"><h3>Alıştırmalar</h3><span class="muted">en çok çözülen üstte</span></div>
       <div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th class="r">Çözen</th><th class="r">Açan</th><th></th></tr></thead><tbody>
       ${modRows.map(r => `<tr><td>${esc(r.m.title)}</td><td class="r num"><b>${r.rounds}</b></td><td class="r num">${r.solvers}</td><td class="r num">${r.openers}</td><td class="r">${status(r)}</td></tr>`).join("")}
@@ -148,7 +212,7 @@ function statsHtml() {
       ${newsRows.map(r => `<tr><td lang="nl">${esc(r.title)}</td><td class="r num">${r.openers}</td><td class="r num">${r.solvers}</td><td class="r num">${r.rounds}</td>
         <td class="r num">${r.best === null ? "-" : `<span class="chip ${tone(r.best)}">%${r.best}</span>`}</td><td class="r">${status(r)}</td></tr>`).join("")}
       </tbody></table></div>
-      <p class="muted" style="font-size:13px;margin:10px 0 0">"Açan" sayısı bu sürümden itibaren tutuluyor; eski ziyaretler sayılmaz.${untouched.length ? ` Hiç çözülmeyenler: ${untouched.map(esc).join(", ")}.` : ""}</p></section>`;
+      <p class="muted" style="font-size:13px;margin:10px 0 0">"Açan" sayısı 16 Ekim'den itibaren tutuluyor; eski ziyaretler sayılmaz.</p></section>`;
 }
 
 // ---------- mail schedule ----------
@@ -165,7 +229,7 @@ function schedHtml() {
     <div class="tablewrap"><table><thead><tr><th>E-posta</th><th>Durum</th><th>Gün</th><th>Saat</th></tr></thead><tbody>
       ${schedRow("news", "Haber (Nieuws in niveaus)")}${schedRow("weekly", "Haftalık özet")}</tbody></table></div>
     <div class="row" style="margin-top:10px"><button class="btn primary" id="sc-save">Zamanlamayı kaydet</button><span id="sc-msg"></span></div>
-    <p class="muted" style="font-size:13px;margin:10px 0 0">Gönderim seçilen saatten sonraki ilk saatlik çalışmada olur (genelde :17 civarı, GitHub bazen gecikir). Aynı gün ikinci kez gitmez.
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Gönderim seçilen saatten sonraki ilk çalışmada olur. GitHub bir çalışmayı atlarsa 48 saat içindeki bir sonraki çalışmada gider; iki kez gitmez.
       ${lastNews ? `Son haber: <b>${esc(lastNews.titel || lastNews.item_id)}</b> · ${esc(lastNews.date)} · ${lastNews.recipients || 0} kişi.` : "Henüz haber gönderilmedi."}</p></section>`;
 }
 async function saveSched() {
@@ -187,7 +251,7 @@ function render() {
     <section class="kpis">
       <div class="panel kpi"><div class="eyebrow">Onay bekleyen</div><div class="v num" style="color:var(--${users.some(u => statusOf(u) === "pending") ? "accent" : "ink"})">${users.filter(u => statusOf(u) === "pending").length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Hesap</div><div class="v num">${users.length}</div></div>
-      <div class="panel kpi"><div class="eyebrow">Çocuk</div><div class="v num">${users.filter(u => u.type === "child").length}</div></div>
+      <div class="panel kpi"><div class="eyebrow">Öğrenci</div><div class="v num">${users.filter(u => u.type === "child").length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Öğretmen</div><div class="v num">${count("teacher")}</div></div>
     </section>
     <section class="panel"><span class="eyebrow">Roller</span>
@@ -209,18 +273,22 @@ function render() {
     <section class="panel"><div class="sectionhead"><h3>Duyuru gönder</h3><span class="muted">onaylı herkese e-posta, en geç bir saat içinde</span></div>
       <div class="formgrid" style="grid-template-columns:1fr">
         <div class="field"><label for="n-subj">Konu</label><input class="input" id="n-subj" maxlength="120" placeholder="Örn. Yeni: Groep 5 kelime testi"></div>
-        <div class="field"><label for="n-aud">Kime</label><select class="input" id="n-aud"><option value="all">Herkes</option><option value="adult">Sadece yetişkinler</option><option value="child">Sadece çocuklar</option></select></div>
+        <div class="field"><label for="n-aud">Kime</label><select class="input" id="n-aud"><option value="all">Herkes</option><option value="adult">Sadece yetişkinler</option><option value="child">Sadece öğrenciler</option></select></div>
         <div class="field"><label for="n-body">Mesaj</label><textarea class="input" id="n-body" rows="5" maxlength="4000"></textarea></div>
       </div>
       <div class="row" style="margin-top:10px"><button class="btn primary" id="n-send">Duyuruyu kuyruğa ekle</button><span id="n-msg"></span></div>
       ${newsErr ? `<div class="notice" style="margin-top:12px">Duyurular okunamadı (${esc(newsErr)}). Güvenlik kurallarını güncelle.</div>` : ""}
-      ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)} <span class="muted" style="font-size:13px">· ${esc({ all: "herkes", adult: "yetişkinler", child: "çocuklar" }[n.audience || "all"])}</span></td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
+      ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)} <span class="muted" style="font-size:13px">· ${esc({ all: "herkes", adult: "yetişkinler", child: "öğrenciler" }[n.audience || "all"])}</span></td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
     </section>`;
 }
 
 app.addEventListener("click", async e => {
   if (e.target.id === "n-send") return queueNews();
   if (e.target.id === "sc-save") return saveSched();
+  // Person row: show or hide the details row under it
+  const pb = e.target.closest("[data-person]");
+  if (pb) { const row = document.getElementById("pd-" + pb.dataset.person), open = row.hidden; row.hidden = !open;
+    pb.setAttribute("aria-expanded", String(open)); pb.firstChild.textContent = open ? "▾ " : "▸ "; return; }
   const b = e.target.closest("button[data-i]"); if (!b) return;
   const i = +b.dataset.i, u = users[i], msg = document.getElementById("m" + i);
   const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value, status = document.getElementById("s" + i).value;

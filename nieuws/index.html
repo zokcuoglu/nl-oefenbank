@@ -40,7 +40,6 @@ main a:not(.btn):not(.newsrow){color:var(--blue)}
 .qfoot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
 .streak{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
 .bigscore{font-family:var(--display);font-size:46px;font-weight:700;line-height:1}
-.catrow{display:grid;grid-template-columns:9em 1fr 3.5em;gap:10px;align-items:center;font-size:14px}
 .toetscard{border:2px dashed var(--line)}
 .toetsrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;margin:2px 0 6px;border:2px dashed var(--line);border-radius:10px;color:inherit;text-decoration:none}
 .lvlfilter .seg button{font-family:var(--mono)}
@@ -70,6 +69,7 @@ setTimeout(function () {
 // News in levels (v1): numbered items, each with a video, the same story at A1-C1, idioms, words, grammar
 // and a quiz. After every three items a mixed test ("toets"). Quiz rounds are saved as attempts (module "nieuws").
 import { gate, userBox, esc, db, isAdmin, saveAttempt, loadAttempts, markSeen } from "../js/core.js";
+import { scoreChips } from "../js/stats.js";
 import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -120,27 +120,16 @@ function vList() {
   const visible = S.items.filter(i => published(i.id));
   const latest = S.sent.length ? S.byId[S.sent[0].item_id] : visible[visible.length - 1];
   const tone = p => `var(--${p >= .8 ? "ok" : p >= .6 ? "warn" : "bad"})`;
-  // Best score per quiz level (the level filter chosen when starting), each in its own level colour
-  const QLEVELS = [["A2", "A2", "a2"], ["B1", "B1", "b1"], ["B2", "B2", "b2"], ["all", "Hepsi", "c1"]];
-  const scores = item => {
-    const tries = S.attempts.filter(a => a.test === item.id && a.total);
-    const chips = QLEVELS.map(([lv, label, col]) => {
-      const t = tries.filter(a => (a.level || "all") === lv); if (!t.length) return "";
-      const b = Math.max(...t.map(a => a.score / a.total));
-      return `<span class="lvlscore num" style="--lc:var(--${col});--tone:${tone(b)}" title="${label} seviyesine kadar: en iyi %${Math.round(b * 100)}, ${t.length} deneme">${label} <b>%${Math.round(b * 100)}</b></span>`;
-    }).join("");
-    return `<span class="scores">${chips || `<span class="chip">yeni</span>`}</span>`;
-  };
   const row = item => `<a class="newsrow" href="?id=${encodeURIComponent(item.id)}">
       ${item.afbeelding_url ? `<img src="${esc(item.afbeelding_url)}" alt="" loading="lazy">` : "<span></span>"}
       <span style="min-width:0"><span class="muted num" style="font-family:var(--mono);font-size:12px">#${item.nr}</span> <b lang="nl">${esc(item.titel)}</b><br>
         <span class="muted" style="font-size:13px">${esc(item.bron || "")} · video ${esc(item.niveau_video || "")}${sentDate(item.id) ? " · " + esc(fmtDate(sentDate(item.id))) : ""}</span></span>
-      ${scores(item)}</a>`;
+      ${scoreChips(S.attempts, item.id)}</a>`;
   // A mixed test sits right under the newest item it covers and opens when that item is published
   const toets = t => { const b = best(t.id);
     return `<a class="toetsrow" href="?toets=${encodeURIComponent(t.id)}"><span class="eyebrow" style="margin:0">Karma sınav</span>
       <b lang="nl">${esc(t.titel)}</b><span class="muted" style="font-size:13px">20 soru</span>
-      <span style="margin-left:auto">${b >= 0 ? `<span class="lvlscore num" style="--lc:var(--ink);--tone:${tone(b)}">en iyi <b>%${Math.round(b * 100)}</b></span>` : `<span class="btn primary" style="padding:4px 12px">Sınava başla</span>`}</span></a>`; };
+      <span style="margin-left:auto">${b >= 0 ? scoreChips(S.attempts, t.id) : `<span class="btn primary" style="padding:4px 12px">Sınava başla</span>`}</span></a>`; };
   const toetsAfter = item => S.toetsen.filter(t => t.tot === item.nr).map(toets).join("");
   return `
     ${latest ? `<section class="panel"><span class="eyebrow">${S.sent.length ? "Bu haftanın haberi" : "Son haber"}${S.sent.length ? " · " + esc(fmtDate(S.sent[0].date)) : ""}</span>
@@ -150,7 +139,7 @@ function vList() {
     <section class="panel"><div class="sectionhead"><h3>Haberler</h3>
       ${S.sent.length && isAdmin(profile) ? `<button class="btn ghost" data-act="all">${S.showAll ? "Sadece yayınlananlar" : "Tümünü göster (admin)"}</button>` : ""}</div>
       ${visible.map(i => row(i) + toetsAfter(i)).join("") || `<p class="muted">Henüz yayınlanan haber yok.</p>`}
-      <p class="muted" style="font-size:13px;margin:10px 0 0">Renkli etiketler: quiz'i hangi seviyeye kadar çözdüğün ve o seviyedeki en iyi sonucun.</p></section>`;
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Renkli etiketler: quiz'i hangi seviyeye kadar çözdüğün ve en iyi sonucun. Bir hafta tekrar etmezsen puan yavaş yavaş düşer (↻, kesikli çerçeve; 30 günde yarıya iner). Tekrar çözünce yeniden yükselir.</p></section>`;
 }
 
 // ---------- Item ----------

@@ -80,7 +80,7 @@ function kidsSection() {
 const isChild = profile.type === "child";
 app.innerHTML = `
   <section class="panel"><span class="eyebrow">Hoş geldin</span><h2 style="margin-top:4px">${esc(profile.name || user.displayName || "")}</h2>
-    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "NT2 sınav alıştırmaların ve çocuk bölümü aşağıda. Sınav tarihlerini profil sayfasından girebilirsin."}</p></section>
+    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "NT2 sınav alıştırmaların ve öğrenci bölümü aşağıda. Sınav tarihlerini profil sayfasından girebilirsin."}</p></section>
   ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)}</span></div>
     <section class="cards">${cat.modules.filter(m => m.area === "nt2").map(card).join("")}</section>`}
   ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.media.title)}</h2><span class="muted">${esc(cat.areas.media.desc)}</span></div>
