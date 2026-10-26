@@ -325,8 +325,8 @@ def news_html(item, date_str):
 
 
 def wants_news(u):
-    """Profile checkbox; email_daily is the old name of the same setting."""
-    return bool(u.get("email_news", u.get("email_daily", False)))
+    """Profile checkbox, on by default for adults (like the weekly summary); email_daily is its old name."""
+    return bool(u.get("email_news", u.get("email_daily", True)))
 
 
 def run_news(db, sender, now, dry_run=False, force=False):
