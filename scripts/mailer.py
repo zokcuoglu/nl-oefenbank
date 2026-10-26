@@ -26,6 +26,7 @@ import os
 import re
 import smtplib
 from email.message import EmailMessage
+from email.utils import formatdate, make_msgid
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -111,18 +112,28 @@ class GmailSender:
 
     def __init__(self, user, password):
         self.user, self.password = user, password
+        self.smtp = None
+
+    def _conn(self):
+        # Log in once and reuse the connection: sending one mail per person means many mails per run
+        if self.smtp is None:
+            self.smtp = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+            self.smtp.login(self.user, self.password)
+        return self.smtp
 
     def send(self, to, subject, body, bcc=None, html_body=None):
         msg = EmailMessage()
         msg["From"] = f"NL Oefenbank <{self.user}>"
         msg["To"] = to
         msg["Subject"] = subject
+        msg["Date"] = formatdate(localtime=True)
+        msg["Message-ID"] = make_msgid(domain="nloefenbank")
+        # Gmail shows an "Unsubscribe" link for this; it leads to the profile page where mails can be turned off
+        msg["List-Unsubscribe"] = f"<{SITE}profile.html>, <mailto:{self.user}?subject=unsubscribe>"
         msg.set_content(body)
         if html_body:
             msg.add_alternative(html_body, subtype="html")
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
-            s.login(self.user, self.password)
-            s.send_message(msg, to_addrs=[to] + list(bcc or []))
+        self._conn().send_message(msg, to_addrs=[to] + list(bcc or []))
 
 
 class PrintSender:
@@ -162,6 +173,7 @@ def run_hourly(db, sender, now, dry_run=False):
                 db.collection("users").document(uid).update({"welcome_sent_at": iso(now)})
 
     approved = [u for _, u in users if is_approved(u) and u.get("email")]
+    by_email = {u["email"]: u for u in approved}
     for a in db.collection("announcements").stream():
         n = a.to_dict()
         if n.get("sent_at"):
@@ -171,9 +183,10 @@ def run_hourly(db, sender, now, dry_run=False):
         rec = sorted({u["email"] for u in approved if aud == "all" or u.get("type") == aud or (aud == "adult" and u.get("role") == "admin")})
         if not rec:
             continue
-        # One mail, everyone in BCC so addresses stay private
-        send_simple(sender, sender_address(sender), f"NL Oefenbank: {n.get('subject', '')}", n.get("subject", ""),
-                    n.get("body", ""), NOTE_NEWS, bcc=rec)
+        # One mail per person, addressed to them (a To: own-address + BCC mail looks like bulk mail / spam)
+        for email in rec:
+            send_simple(sender, email, f"NL Oefenbank: {n.get('subject', '')}", n.get("subject", ""),
+                        f"Merhaba {first_name(by_email[email])},\n\n{n.get('body', '')}", NOTE_NEWS)
         if not dry_run:
             db.collection("announcements").document(a.id).update({"sent_at": iso(now), "recipients": len(rec)})
 
@@ -248,7 +261,7 @@ def pipe_rows(raw, n):
     return rows
 
 
-def news_html(item, date_str):
+def news_html(item, date_str, greeting=""):
     """News mail: video, the story at A1-C1, idioms, words, grammar; the quiz is on the site."""
     url = f"{SITE}nieuws/?id={item['id']}"
     video = ""
@@ -313,10 +326,11 @@ def news_html(item, date_str):
                  f'<b>Yeni karma sınav açıldı: {esc(toets["titel"])}</b><br>'
                  f'<span style="color:{C["muted"]};font-size:14px">20 soru; bu ana kadarki bütün haberlerden.</span>'
                  + button(turl, "Sınava başla") + '</div>')
-    inner = (f'<p style="color:{C["muted"]};margin:-8px 0 12px">{esc(date_str)} · {esc(item.get("bron", ""))} · video {esc(item.get("niveau_video", ""))} · metin A0 → C1</p>'
+    inner = ((f'<p style="line-height:1.6">{esc(greeting)}</p>' if greeting else "")
+             + f'<p style="color:{C["muted"]};margin:-8px 0 12px">{esc(date_str)} · {esc(item.get("bron", ""))} · video {esc(item.get("niveau_video", ""))} · metin A0 → C1</p>'
              + video + "".join(levelbox(l) for l in ["a0", "a1", "a2", "b1", "b2", "c1"]) + idioms + vocab + grammar + quiz
              + button(url, "Sitede aç: quiz"))
-    plain = (f"{nr}{item['titel']} ({date_str})\n\nVideo: {item.get('video_url', '')}\n\n"
+    plain = ((f"{greeting}\n\n" if greeting else "") + f"{nr}{item['titel']} ({date_str})\n\nVideo: {item.get('video_url', '')}\n\n"
              + "\n\n".join(f"[{l.upper()}]\n{re.sub(r'<[^>]+>', '', item.get(l) or '')}" for l in ["a0", "a1", "a2", "b1", "b2", "c1"])
              + f"\n\nQuiz: {url}"
              + (f"\nYeni karma sınav: {toets['titel']} – {SITE}nieuws/?toets={toets['id']}" if toets else "")
@@ -341,13 +355,16 @@ def run_news(db, sender, now, dry_run=False, force=False):
     # Manual re-run on the same day: send today's item again, not the next one
     item = next((i for i in items if todays and i["id"] == todays.get("item_id")), None) or pick_news(items, sent)
     users = [d.to_dict() for d in db.collection("users").stream()]
-    rec = {u["email"] for u in users if is_approved(u) and u.get("email") and u.get("type") != "child" and wants_news(u)}
+    subs = {u["email"]: u for u in users if is_approved(u) and u.get("email") and u.get("type") != "child" and wants_news(u)}
+    rec = sorted(subs)
     if not rec:
         print("news: no subscribers")
         return
     date_str = now.astimezone(AMS).strftime("%d-%m-%Y")
-    plain, html_body = news_html(item, date_str)
-    sender.send(sender_address(sender), f"🇳🇱 Nieuws #{item.get('nr', '')}: {item['titel']}", plain, bcc=sorted(rec), html_body=html_body)
+    # One mail per person, addressed to them and starting with their name
+    for email in rec:
+        plain, html_body = news_html(item, date_str, greeting=f"Merhaba {first_name(subs[email])},")
+        sender.send(email, f"🇳🇱 Nieuws #{item.get('nr', '')}: {item['titel']}", plain, html_body=html_body)
     print(f"news: #{item.get('nr')} {item['titel']} -> {len(rec)} recipients")
     if not dry_run:
         log_col.document(today).set({"date": today, "item_id": item["id"], "titel": item["titel"], "sent_at": iso(now), "recipients": len(rec)})
@@ -439,7 +456,7 @@ def run_test(db, sender, now, to):
     """Send the mails people would get, to one address only. Nothing is written to Firestore."""
     sent = [d.to_dict() for d in db.collection("nieuws_sent").stream()]
     item = pick_news(load_news(), sent)
-    plain, html_body = news_html(item, now.astimezone(AMS).strftime("%d-%m-%Y"))
+    plain, html_body = news_html(item, now.astimezone(AMS).strftime("%d-%m-%Y"), greeting="Merhaba Test,")
     sender.send(to, f"[TEST] 🇳🇱 Nieuws #{item.get('nr', '')}: {item['titel']}", plain, html_body=html_body)
 
     # Weekly summary: the first admin's real numbers of the last 7 days, as an example
