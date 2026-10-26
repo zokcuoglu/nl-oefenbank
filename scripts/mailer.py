@@ -336,7 +336,10 @@ def run_news(db, sender, now, dry_run=False, force=False):
     if not force and any(s.get("date") == today for s in sent):
         print(f"news: already sent for {today}")
         return
-    item = pick_news(load_news(), sent)
+    items = load_news()
+    todays = next((x for x in sent if x.get("date") == today), None)
+    # Manual re-run on the same day: send today's item again, not the next one
+    item = next((i for i in items if todays and i["id"] == todays.get("item_id")), None) or pick_news(items, sent)
     users = [d.to_dict() for d in db.collection("users").stream()]
     rec = {u["email"] for u in users if is_approved(u) and u.get("email") and u.get("type") != "child" and wants_news(u)}
     if not rec:
@@ -345,6 +348,7 @@ def run_news(db, sender, now, dry_run=False, force=False):
     date_str = now.astimezone(AMS).strftime("%d-%m-%Y")
     plain, html_body = news_html(item, date_str)
     sender.send(sender_address(sender), f"🇳🇱 Nieuws #{item.get('nr', '')}: {item['titel']}", plain, bcc=sorted(rec), html_body=html_body)
+    print(f"news: #{item.get('nr')} {item['titel']} -> {len(rec)} recipients")
     if not dry_run:
         log_col.document(today).set({"date": today, "item_id": item["id"], "titel": item["titel"], "sent_at": iso(now), "recipients": len(rec)})
 
