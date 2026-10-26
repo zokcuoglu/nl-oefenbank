@@ -96,7 +96,7 @@ def html_wrap(title, inner, note=""):
     {inner}
   </div>
   <p style="font-size:13px;color:{C['muted']};margin:16px 4px 0;line-height:1.5">
-    <a href="{SITE}" style="color:{C['accent']};font-weight:600">NL Oefenbank'a git</a><br>{esc(note)}</p>
+    <a href="{SITE}" style="color:{C['accent']};font-weight:600">NL Oefenbank'a git</a><br>{esc(note)}<br><a href="{SITE}profile.html" style="color:{C['muted']};text-decoration:underline">E-posta ayarları / abonelikten çık</a></p>
 </div></body></html>"""
 
 
@@ -154,7 +154,7 @@ def sender_address(sender):
 def send_simple(sender, to, subject, title, text, note, bcc=None, link=None, link_label=None):
     """One helper for welcome/weekly/announcement mails: same text in plain and HTML form."""
     inner = text_to_html(text) + (button(link, link_label) if link else "")
-    plain = text + (f"\n\n{link_label}: {link}" if link else "") + f"\n\n--\nNL Oefenbank · {SITE}\n{note}"
+    plain = text + (f"\n\n{link_label}: {link}" if link else "") + f"\n\n--\nNL Oefenbank · {SITE}\n{note}\nAbonelikten çık: {SITE}profile.html"
     sender.send(to, subject, plain, bcc=bcc, html_body=html_wrap(title, inner, note))
 
 
@@ -334,7 +334,7 @@ def news_html(item, date_str, greeting=""):
              + "\n\n".join(f"[{l.upper()}]\n{re.sub(r'<[^>]+>', '', item.get(l) or '')}" for l in ["a0", "a1", "a2", "b1", "b2", "c1"])
              + f"\n\nQuiz: {url}"
              + (f"\nYeni karma sınav: {toets['titel']} – {SITE}nieuws/?toets={toets['id']}" if toets else "")
-             + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_NEWS_MAIL}")
+             + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_NEWS_MAIL}\nAbonelikten çık: {SITE}profile.html")
     return plain, html_wrap(f"{nr}{item['titel']}", inner, NOTE_NEWS_MAIL)
 
 
