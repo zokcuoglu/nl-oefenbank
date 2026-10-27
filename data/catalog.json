@@ -94,6 +94,15 @@
       "desc": "4 test, 72 cümle. Doğru kelimeyi 3 seçenekten seç.",
       "href": "kids/g5/eer-oor-eur.html",
       "status": "ready"
+    },
+    {
+      "id": "slimspel-tafels",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Slimspel · Tafels",
+      "desc": "Çarpım tablosu 1–10: 10 soruluk alıştırma ya da 60 saniyede rekor denemesi.",
+      "href": "../slimspel/tafels/",
+      "status": "ready"
     }
   ]
 }
