@@ -125,6 +125,14 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-woordzoeker",
+      "area": "slimspel",
+      "title": "Woordzoeker",
+      "desc": "Günün kelime avı: her gün her seviyeden bir tane, herkes için aynı. Dieren, landen, voetbal ve daha fazlası.",
+      "href": "../slimspel/woordzoeker/",
+      "status": "ready"
+    },
+    {
       "id": "woorden-groep4",
       "area": "kids",
       "group": "groep4",
