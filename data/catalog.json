@@ -58,9 +58,10 @@
       "id": "spreken",
       "area": "nt2",
       "title": "Spreken",
-      "desc": "Konuşma alıştırması. Yeniden tasarlanacak.",
+      "desc": "368 görev, dil eylemine göre filtre, 23 deneme sınavı. Cevabını yaz, yapay zekâ resmî kurallarla puanlasın.",
       "exam": true,
-      "status": "soon"
+      "status": "ready",
+      "href": "spreken/"
     },
     {
       "id": "luisteren",

@@ -76,7 +76,7 @@ const statsHtml = st.rounds ? `
     <section class="panel"><div class="sectionhead"><h3>Alıştırmalar</h3><span class="muted">${Object.keys(st.byModule).length} alıştırma</span></div>
       <div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th>Doğruluk</th><th class="r">Son</th></tr></thead><tbody>
       ${Object.entries(st.byModule).sort((a, b) => b[1].rounds - a[1].rounds).map(([id, m]) => { const p = pct(m.ok, m.tot); return `<tr><td>${esc(titleOf(id))}</td><td class="r num">${m.rounds}</td>
-        <td><span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span></td><td class="r num muted">${fmtDate(m.last)}</td></tr>`; }).join("")}
+        <td>${m.tot ? `<span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span>` : `<span class="muted" title="Bu alıştırmayı yapay zekâ puanlıyor">AI puanlar</span>`}</td><td class="r num muted">${fmtDate(m.last)}</td></tr>`; }).join("")}
       </tbody></table></div></section>
     ${newsRows.length ? `<section class="panel"><div class="sectionhead"><h3 lang="nl">Nieuws in niveaus</h3><span class="muted">quiz ve sınavlar</span></div>
       <div class="tablewrap"><table><thead><tr><th>Haber / sınav</th><th class="r">Deneme</th><th class="r">En iyi (seviyeye göre)</th><th class="r">Son</th></tr></thead><tbody>

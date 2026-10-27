@@ -386,8 +386,12 @@ def weekly_text(u, attempts, titles, today):
         n = sum(s["n"] for s in by_mod.values())
         lines.append(f"Bu hafta {n} tur çözüldü:")
         for m, s in sorted(by_mod.items(), key=lambda kv: -kv[1]["n"]):
-            pct = round(100 * s["ok"] / s["tot"]) if s["tot"] else 0
-            lines.append(f"  • {titles.get(m, m)}: {s['n']} tur, %{pct} doğru")
+            if s["tot"]:
+                pct = round(100 * s["ok"] / s["tot"])
+                lines.append(f"  • {titles.get(m, m)}: {s['n']} tur, %{pct} doğru")
+            else:
+                # Modules without an automatic score (Spreken: the AI scores it) show only the count
+                lines.append(f"  • {titles.get(m, m)}: {s['n']} tur")
     else:
         lines.append("Bu hafta hiç tur çözülmedi. Kısa bir Hızlı 10 bile fark yaratır.")
 

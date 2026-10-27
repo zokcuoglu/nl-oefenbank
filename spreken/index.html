@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Spreken · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+/* Question bank rows */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters select,.filters input{font:inherit;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px 10px;min-width:0}
+.filters input{flex:1 1 180px}
+.qrow{display:grid;grid-template-columns:3.2em minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.qrow:hover b{color:var(--accent)}
+.qrow .nr{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.qrow .meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+/* One task, like the exam screen: situation, the other person's line, picture, answer box */
+.task{display:flex;flex-direction:column;gap:14px}
+.situatie{white-space:pre-line;font-size:16px;line-height:1.65}
+.bubble{background:var(--blue-soft);color:var(--blue);border-radius:12px;padding:10px 14px;font-weight:600;align-self:flex-start;max-width:100%}
+.task img{max-width:100%;max-height:340px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#fff;align-self:flex-start}
+.answer{width:100%;min-height:120px;font:16px/1.6 var(--body);border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);color:var(--ink);resize:vertical}
+.answer:disabled{opacity:.5}
+.prep{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+.prep .sec{font-family:var(--mono);font-size:26px;font-weight:600}
+.hint{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px}
+.hint .ok{color:var(--ok)} .hint .warn{color:var(--warn)}
+.model{border-left:3px solid var(--ok);padding:8px 12px;background:var(--ok-soft);border-radius:0 8px 8px 0;white-space:pre-line}
+.dots{display:flex;flex-wrap:wrap;gap:4px}
+.dots button{width:30px;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:12px;padding:0}
+.dots button.done{background:var(--sunk)} .dots button.on{border-color:var(--accent);outline:2px solid var(--accent)}
+.dots .sep{width:8px}
+.examgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.examgrid a{display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:inherit;text-decoration:none}
+.examgrid a:hover{border-color:var(--accent)}
+.examgrid b{font-family:var(--display);font-size:17px}
+.copybox{width:100%;min-height:160px;font:12.5px/1.5 var(--mono);border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--sunk);color:var(--ink)}
+.rule h3{margin:14px 0 6px} .rule p{margin:0 0 8px}
+.rule details{margin:4px 0 10px} .rule summary{cursor:pointer;color:var(--muted);font-size:13px}
+.rule .nl{font-size:13.5px;color:var(--muted);margin-top:4px}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+</style>
+<script>
+// Watchdog: if the login module has not loaded after 10 s (network block, old cache), explain it on screen
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a></small><h1>Spreken I (B1)</h1></div>
+    <div class="navlinks" id="ub"></div>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button class="tab" role="tab" data-tab="bank">Soru bankası</button>
+      <button class="tab" role="tab" data-tab="exam">Deneme sınavları</button>
+      <button class="tab" role="tab" data-tab="regels">Puanlama</button>
+    </nav>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Spreken practice without a microphone: the user TYPES what they would say.
+// - Soru bankası: all 368 tasks, filter by type / speech act / picture, write an answer, open the model answer.
+// - Deneme sınavları: 23 fixed mock exams (8 kort + 8 middel). Optional 15 s preparation before middel tasks.
+// - After an exam (or for practice answers) one text is copied for an AI chat. That text contains the full
+//   official scoring rules (data/spreken-regels.json), so a fresh chat with no context can score it.
+// Finished exams are saved as attempts (module "spreken", test "examen-N"). Total = 0 there on purpose:
+// the real score comes from the AI, so this page does not invent a percentage.
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const { user, profile } = await gate({ area: "nt2", title: "Spreken I (B1)", seen: "spreken" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+
+let D, R;
+try {
+  [D, R] = await Promise.all(["../data/spreken.json", "../data/spreken-regels.json"].map(u => fetch(u, { cache: "no-cache" }).then(r => r.json())));
+} catch (e) { app.innerHTML = `<div class="notice">Sorular yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+const byId = Object.fromEntries(D.vragen.map(q => [q.id, q]));
+let attempts = await loadAttempts(user.uid, "spreken").catch(() => []);
+
+// ---------- small helpers ----------
+// localStorage can be blocked (private mode): never let that break the page
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("spreken." + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("spreken." + k, JSON.stringify(v)); } catch (e) {} },
+  del(k) { try { localStorage.removeItem("spreken." + k); } catch (e) {} }
+};
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
+const sentences = t => (t.trim().match(/[^.!?]+[.!?]*/g) || []).filter(s => s.trim().split(/\s+/).length >= 2).length;
+
+// Speech acts: [Turkish label for the UI, Dutch description for the AI prompt]
+const H = {
+  voorkeur: ["Tercih + gerekçe", "een voorkeur of keuze geven en die beargumenteren"],
+  instructie: ["Talimat", "een instructie geven: vertellen wat de ander moet doen"],
+  mening: ["Fikir + argüman", "een mening geven met argument(en)"],
+  advies: ["Tavsiye", "advies geven"],
+  beschrijving: ["Betimleme", "iets beschrijven (wat er gebeurd is, hoe iets eruitziet)"],
+  overtuigen: ["İkna", "de ander proberen te overtuigen, met reden(en)"],
+  vraag: ["Rica / soru", "beleefd iets vragen of een verzoek doen"],
+  informeren: ["Bilgi verme", "informatie geven"],
+  uitleg: ["Açıklama", "uitleggen waarom, of wat iets betekent"],
+  reageren: ["Tepki", "passend reageren op de situatie"],
+  voorstel: ["Öneri", "een voorstel doen"],
+  troosten: ["Teselli", "iemand troosten"]
+};
+const hLabel = h => (H[h] || [h])[0];
+// Requirement chips, e.g. "2 redenen", "alle plaatjes"
+function eisText(e = {}) {
+  const out = [];
+  if (e.aantal) out.push(`${e.aantal} ${e.wat}`);
+  if (e.plaatjes === 3) out.push("alle plaatjes"); else if (e.plaatjes === 2) out.push("beide plaatjes"); else if (e.plaatjes) out.push("plaatje(s) gebruiken");
+  return out;
+}
+const spreektijd = q => q.type === "kort" ? 20 : 30;   // seconds of speaking time in the real exam
+
+// ---------- AI prompt (self-contained: a chat that knows nothing must be able to score it) ----------
+function rulesText(withTable) {
+  const L = [];
+  L.push("## Officiële beoordelingsregels (CvTE, beoordelingsmodel Spreken I 2023-2025)");
+  L.push("Preconditie: " + R.preconditie.nl, "");
+  L.push(`### Korte opdrachten (Deel 1, vraag 1-8): max ${R.kort.max} punten`);
+  R.kort.criteria.forEach(c => L.push(`- ${c.naam} (0-${c.max}): ${c.nl}`));
+  R.kort.extra.forEach(x => L.push(`- Extra: ${x.nl}`));
+  L.push("- Bij korte opdrachten geldt de regel over het aantal zinnen niet.", "");
+  L.push(`### Middellange opdrachten (Deel 2, vraag 9-16): max ${R.middel.max} punten`);
+  R.middel.criteria.forEach(c => L.push(`- ${c.naam} (0-${c.max}): ${c.nl}`));
+  L.push("", "### Foutcategorieën", "- Categorie-1 (kleine fouten): " + R.foutcategorieen.cat1.nl, "- Categorie-2 (alle andere fouten): " + R.foutcategorieen.cat2.nl);
+  L.push("", "### Algemene regels"); R.algemeen.forEach(a => L.push("- " + a.nl));
+  L.push("", "### Schriftelijke antwoorden", "- " + R.schriftelijk.tr);
+  if (withTable) L.push("", `### Omrekentabel punten → score (${D.score.bron}; ${D.score.cesuur} punten = 500 = geslaagd)`, D.score.tabel.map((s, i) => `${i}=${s}`).join(", "));
+  return L.join("\n");
+}
+function questionText(q, nr, answer) {
+  const L = [`### Vraag ${nr} · ${q.type === "kort" ? `Deel 1, korte opdracht, max ${R.kort.max}` : `Deel 2, middellange opdracht, max ${R.middel.max}`} · ${q.title}`];
+  L.push(`Gevraagde taalhandeling: ${(H[q.handeling] || [, q.handeling])[1]}${eisText(q.eis).length ? " · Eis: " + eisText(q.eis).join(", ") : ""}`);
+  L.push("Situatie:", q.situatie.trim());
+  if (q.vraag) L.push(`Gesprekspartner zegt: "${q.vraag.trim()}"`);
+  if (q.image) L.push("(Bij deze opdracht hoort een plaatje dat jij niet ziet. Leid uit de situatie en het voorbeeldantwoord af wat erop staat.)");
+  L.push("Mijn antwoord: " + (answer?.trim() || "(leeg: niets geantwoord → 0 punten)"));
+  L.push("Voorbeeldantwoord (alleen ter oriëntatie, geen enige juiste antwoord): " + q.voorbeeld.replace(/\n/g, " "));
+  return L.join("\n");
+}
+function buildPrompt(items, mode) {
+  const P = R.prompt;
+  return [P.intro, "", "## Werkwijze", ...P.werkwijze.map((w, i) => `${i + 1}. ${w}`), "",
+    rulesText(mode === "exam"), "", "## Mijn antwoorden", "",
+    items.map(({ q, nr, answer }) => questionText(q, nr, answer)).join("\n\n"), "",
+    "## Gevraagd resultaat", mode === "exam" ? P.slot_exam : P.slot_oefen].join("\n");
+}
+async function copyText(text, statusEl) {
+  try { await navigator.clipboard.writeText(text); statusEl.innerHTML = `<span class="chip ok">Kopyalandı</span> Şimdi yeni bir Claude veya ChatGPT sohbetine yapıştır.`; }
+  catch (e) { statusEl.innerHTML = `<span class="chip warn">Otomatik kopyalanamadı</span> Aşağıdaki kutudaki metni seçip kopyala.`; }
+}
+const copyPanel = (title, text, note) => `<section class="panel"><h3>${title}</h3>
+  <p class="muted" style="margin:6px 0 10px;font-size:14px">${note}</p>
+  <div class="row"><button class="btn primary" data-act="copy">Kopyala</button><span id="copystatus" class="muted" style="font-size:14px"></span></div>
+  <details style="margin-top:10px"><summary class="muted" style="cursor:pointer;font-size:13px">Metni göster (${text.length.toLocaleString("tr-TR")} karakter)</summary>
+  <textarea class="copybox" readonly id="copybox">${esc(text)}</textarea></details></section>`;
+
+// ---------- state ----------
+const S = {
+  tab: "bank",
+  f: store.get("filter", { type: "", h: "", img: "", q: "" }),
+  oefen: store.get("oefen", {}),          // practice answers: { questionId: text }
+  prep: store.get("prep", true),          // 15 s preparation before middel tasks
+  run: store.get("run", null),            // unfinished mock exam: { nr, i, ans:{id:text}, prepped:{id:true}, started }
+  timer: null
+};
+const saveRun = () => S.run ? store.set("run", S.run) : store.del("run");
+
+// ---------- Tab 1: question bank ----------
+function filtered() {
+  const f = S.f, s = f.q.trim().toLowerCase();
+  return D.vragen.filter(q => (!f.type || q.type === f.type) && (!f.h || q.handeling === f.h)
+    && (!f.img || (f.img === "ja") === !!q.image)
+    && (!s || (q.title + " " + q.situatie + " " + q.vraag).toLowerCase().includes(s)));
+}
+function vBank() {
+  const list = filtered(), written = Object.keys(S.oefen).filter(k => S.oefen[k]?.trim()).length;
+  const hOpts = Object.keys(H).map(h => `<option value="${h}" ${S.f.h === h ? "selected" : ""}>${hLabel(h)} (${D.vragen.filter(q => q.handeling === h).length})</option>`).join("");
+  return `
+  <section class="panel"><span class="eyebrow">368 görev</span>
+    <h2 style="margin:4px 0 8px">Soru bankası</h2>
+    <p class="muted" style="margin:0 0 12px;max-width:70ch">Söyleyeceğin cevabı yaz. Kısa görevlerde 1-2 cümle yeter; orta görevlerde en az 3 cümle hedefle (resmî puanlamada 3+ cümle daha hoşgörülü puanlanır). Yazdıkların bu cihazda saklanır; istediğin zaman hepsini yapay zekâya puanlatabilirsin.</p>
+    <div class="filters">
+      <select data-f="type"><option value="">Kısa + orta</option><option value="kort" ${S.f.type === "kort" ? "selected" : ""}>Kısa (deel 1)</option><option value="middel" ${S.f.type === "middel" ? "selected" : ""}>Orta (deel 2)</option></select>
+      <select data-f="h"><option value="">Tüm dil eylemleri</option>${hOpts}</select>
+      <select data-f="img"><option value="">Resimli + resimsiz</option><option value="ja" ${S.f.img === "ja" ? "selected" : ""}>Sadece resimli</option><option value="nee" ${S.f.img === "nee" ? "selected" : ""}>Resimsiz</option></select>
+      <input type="search" data-f="q" placeholder="Ara: kelime ya da başlık" value="${esc(S.f.q)}">
+    </div></section>
+  ${written ? copyPanel(`Yazdığın ${written} cevabı puanlat`, buildPrompt(Object.keys(S.oefen).filter(k => S.oefen[k]?.trim()).map((id, i) => ({ q: byId[id], nr: i + 1, answer: S.oefen[id] })).filter(x => x.q), "oefen"),
+      `Metin resmî puanlama kurallarının tamamını içerir. Puanlattıktan sonra cevapları silebilirsin: <button class="btn ghost" data-act="clearoefen" style="padding:3px 10px">Cevaplarımı sil</button>`) : ""}
+  <section class="panel"><div class="sectionhead"><h3>${list.length} görev</h3></div>
+    ${list.map(q => `<a class="qrow" href="?v=${q.id}"><span class="nr">#${q.id}</span>
+      <span><b lang="nl">${esc(q.title)}</b><span class="meta">
+        <span class="chip ${q.type === "kort" ? "" : "blue"}">${q.type === "kort" ? "kısa" : "orta"}</span><span class="chip">${hLabel(q.handeling)}</span>
+        ${eisText(q.eis).map(t => `<span class="chip" lang="nl">${esc(t)}</span>`).join("")}${q.image ? `<span class="chip">resim</span>` : ""}</span></span>
+      ${S.oefen[q.id]?.trim() ? `<span class="chip ok">yazıldı</span>` : ""}</a>`).join("") || `<p class="muted">Bu filtreyle görev yok.</p>`}
+  </section>`;
+}
+// The task itself (used by the bank and by the exam)
+function vTask(q, answer, { disabled = false, showModel = false } = {}) {
+  const n = sentences(answer || "");
+  return `<div class="task">
+    <div class="row"><span class="chip ${q.type === "kort" ? "" : "blue"}">${q.type === "kort" ? "kısa görev · max 3 puan" : "orta görev · max 13 puan"}</span>
+      <span class="chip">${hLabel(q.handeling)}</span>${eisText(q.eis).map(t => `<span class="chip accent" lang="nl">${esc(t)}</span>`).join("")}</div>
+    <h2 lang="nl">${esc(q.title)}</h2>
+    <div class="situatie" lang="nl">${esc(q.situatie.trim())}</div>
+    ${q.image ? `<img src="${esc(q.image)}" alt="Görev resmi" loading="lazy">` : ""}
+    ${q.vraag ? `<div class="bubble" lang="nl">${esc(q.vraag.trim())}</div>` : ""}
+    <textarea class="answer" id="answer" lang="nl" spellcheck="true" placeholder="Cevabını buraya yaz…" ${disabled ? "disabled" : ""}>${esc(answer || "")}</textarea>
+    <div class="hint" id="hint"><span>Sınavda konuşma süren: ${spreektijd(q)} sn</span>
+      ${q.type === "middel" ? `<span class="${n >= 3 ? "ok" : "warn"}">${n} cümle${n >= 3 ? " ✓" : " (hedef: en az 3)"}</span>` : ""}</div>
+    ${showModel ? `<details><summary class="muted" style="cursor:pointer">Örnek cevabı göster</summary><div class="model" lang="nl" style="margin-top:8px">${esc(q.voorbeeld)}</div>
+      ${q.hulp ? `<div style="margin-top:10px;font-size:14px">${q.hulp.taalhulp ? `<p><b>Kalıp:</b> <span lang="nl">${esc(q.hulp.taalhulp)}</span></p>` : ""}${q.hulp.valkuil ? `<p><b>Tuzak:</b> ${esc(q.hulp.valkuil)}</p>` : ""}${q.hulp.structuren ? `<p style="white-space:pre-line"><b>Kelimeler:</b>\n${esc(q.hulp.structuren)}</p>` : ""}</div>` : ""}</details>` : ""}
+  </div>`;
+}
+function vOne(id) {
+  const q = byId[id]; if (!q) return vBank();
+  const list = filtered(), i = list.findIndex(x => x.id === q.id);
+  const prev = list[i - 1], next = list[i + 1];
+  return `<div class="row"><a href="./">← Soru bankası</a><span class="muted" style="margin-left:auto;font-size:13px">#${q.id} · ${q.bron}</span></div>
+    <section class="panel">${vTask(q, S.oefen[q.id], { showModel: true })}</section>
+    <div class="row">${prev ? `<a class="btn" href="?v=${prev.id}" style="text-decoration:none">← Önceki</a>` : ""}
+      ${next ? `<a class="btn primary" href="?v=${next.id}" style="text-decoration:none;margin-left:auto">Sonraki →</a>` : ""}</div>`;
+}
+
+// ---------- Tab 2: mock exams ----------
+function vExamList() {
+  const done = nr => attempts.filter(a => a.test === "examen-" + nr);
+  return `<section class="panel"><span class="eyebrow">8 kısa + 8 orta görev</span>
+    <h2 style="margin:4px 0 8px">Deneme sınavları</h2>
+    <p class="muted" style="margin:0 0 12px;max-width:70ch">Gerçek sınav sırasıyla: önce 8 kısa görev (hazırlık yok, 20 sn konuşma), sonra 8 orta görev (15 sn hazırlık, 30 sn konuşma). Örnek cevaplar sınav sırasında gizli. Bitirince bütün cevapların, resmî kurallarla birlikte tek bir metin olarak kopyalanır.</p>
+    <label class="switch"><input type="checkbox" data-act="prep" ${S.prep ? "checked" : ""}> Orta görevlerden önce 15 saniyelik hazırlık süresi</label></section>
+  ${S.run ? `<section class="panel"><div class="row"><b>Deneme ${S.run.nr} yarım kaldı</b><span class="muted">${Object.values(S.run.ans).filter(t => t?.trim()).length}/16 cevap</span>
+    <button class="btn primary" data-act="resume" style="margin-left:auto">Devam et</button><button class="btn ghost" data-act="drop">Sil</button></div></section>` : ""}
+  <section class="panel"><div class="examgrid">${D.examens.map((_, k) => { const nr = k + 1, d = done(nr);
+    return `<a href="#" data-act="start" data-nr="${nr}"><b>Deneme ${nr}</b><span class="muted" style="font-size:13px">${d.length ? `${d.length} kez · son ${fmtDate(d[0].finished_at)}` : "henüz yapılmadı"}</span></a>`; }).join("")}</div></section>`;
+}
+function startExam(nr) {
+  if (S.run && S.run.nr !== nr && !confirmDrop()) return;
+  if (!S.run || S.run.nr !== nr) S.run = { nr, i: 0, ans: {}, prepped: {}, started: new Date().toISOString() };
+  saveRun(); S.tab = "exam"; render(); scrollTo(0, 0);
+}
+const confirmDrop = () => true;   // starting another exam replaces the unfinished one (it is only a draft)
+function vRun() {
+  const r = S.run, ids = D.examens[r.nr - 1], q = byId[ids[r.i]];
+  const needPrep = S.prep && q.type === "middel" && !r.prepped[q.id] && !r.ans[q.id];
+  const dots = ids.map((id, k) => `${k === 8 ? `<span class="sep"></span>` : ""}<button class="${k === r.i ? "on" : ""} ${r.ans[id]?.trim() ? "done" : ""}" data-act="go" data-i="${k}">${k + 1}</button>`).join("");
+  return `<div class="row"><b>Deneme ${r.nr}</b><span class="muted">· ${r.i < 8 ? "Deel 1 · kısa görevler" : "Deel 2 · orta görevler"}</span>
+      <button class="btn ghost" data-act="pause" style="margin-left:auto">Ara ver</button></div>
+    <div class="dots">${dots}</div>
+    <section class="panel">
+      ${needPrep ? `<div class="prep" id="prep"><span>Hazırlık</span><span class="sec num" id="prepsec">15</span><span style="flex:1">Durumu oku ve ne söyleyeceğini düşün.</span><button class="btn" data-act="skipprep">Atla</button></div>` : ""}
+      <div style="${needPrep ? "margin-top:14px" : ""}">${vTask(q, r.ans[q.id], { disabled: needPrep })}</div>
+    </section>
+    <div class="row">${r.i > 0 ? `<button class="btn" data-act="go" data-i="${r.i - 1}">← Önceki</button>` : ""}
+      ${r.i < 15 ? `<button class="btn primary" data-act="go" data-i="${r.i + 1}" style="margin-left:auto">Sonraki →</button>` : `<button class="btn primary" data-act="finish" style="margin-left:auto">Sınavı bitir</button>`}</div>
+    <div id="finishmsg"></div>`;
+}
+function startPrep() {
+  clearInterval(S.timer);
+  const el = document.getElementById("prepsec"); if (!el) return;
+  let s = 15;
+  S.timer = setInterval(() => {
+    s--; const e2 = document.getElementById("prepsec");
+    if (!e2) { clearInterval(S.timer); return; }
+    e2.textContent = s;
+    if (s <= 0) endPrep();
+  }, 1000);
+}
+function endPrep() {
+  clearInterval(S.timer);
+  const r = S.run; if (!r) return;
+  r.prepped[D.examens[r.nr - 1][r.i]] = true; saveRun(); render();
+  document.getElementById("answer")?.focus();
+}
+async function finishExam() {
+  const r = S.run, ids = D.examens[r.nr - 1];
+  const items = ids.map((id, k) => ({ q: byId[id], nr: k + 1, answer: r.ans[id] || "" }));
+  const answered = items.filter(x => x.answer.trim()).length;
+  const attempt = { kind: "examen", test: "examen-" + r.nr, title: "Spreken deneme " + r.nr, started_at: r.started, finished_at: new Date().toISOString(),
+    score: 0, total: 0, answered,       // total 0: no automatic score, the AI scores it
+    answers: items.map(x => ({ qid: String(x.q.id), text: x.answer.slice(0, 600) })) };
+  S.result = { nr: r.nr, answered, text: buildPrompt(items, "exam"), saved: false };
+  S.run = null; saveRun(); render(); scrollTo(0, 0);
+  try { await saveAttempt(user.uid, "spreken", attempt); attempts.unshift(attempt); S.result.saved = true; } catch (e) { console.warn(e); }
+  render();
+}
+function vResult() {
+  const x = S.result;
+  return `<section class="panel"><span class="eyebrow">Deneme ${x.nr} bitti</span>
+      <h2 style="margin:4px 0 6px">${x.answered}/16 görev cevaplandı</h2>
+      <p class="muted" style="margin:0">${x.saved ? "Profiline kaydedildi." : "Kaydediliyor…"} Puanı yapay zekâ verecek: metni kopyala, yeni bir sohbete yapıştır.</p></section>
+    ${copyPanel("Puanlatma metni", x.text, "İçinde: puanlama talimatı, resmî kuralların tamamı, 500'lük skor tablosu ve 16 görevin her biri (durum, soru, senin cevabın, örnek cevap). Konudan habersiz yeni bir sohbet de bununla puanlayabilir.")}
+    <div class="row"><button class="btn" data-act="back">Denemelere dön</button></div>`;
+}
+
+// ---------- Tab 3: scoring rules (short lesson) ----------
+function vRegels() {
+  const crit = c => `<li><b>${c.naam}</b> (0–${c.max})${c.schriftelijk === false ? ` <span class="chip">yazılı cevapta ölçülmez</span>` : ""}: ${esc(c.tr)}<div class="nl" lang="nl">${esc(c.nl)}</div></li>`;
+  return `<section class="panel rule"><span class="eyebrow">Resmî beoordelingsmodel 2023–2025</span>
+    <h2 style="margin:4px 0 8px">Spreken nasıl puanlanıyor?</h2>
+    <p>Sınav 16 görev: önce 8 kısa, sonra 8 orta. Kısa görevler en fazla 3, orta görevler en fazla 13 puan. Toplam 128 puan, 2025'te geçme sınırı ${D.score.cesuur}. <b>Puanın büyük kısmı orta görevlerde.</b></p>
+    <h3>Önce: preconditie</h3><p>${esc(R.preconditie.tr)}</p>
+    <h3>Kısa görevler (1–8)</h3><p>${esc(R.kort.tr)}</p><ul>${R.kort.criteria.map(crit).join("")}</ul>
+    ${R.kort.extra.map(x => `<p class="notice">${esc(x.tr)}</p>`).join("")}
+    <h3>Orta görevler (9–16)</h3><p>${esc(R.middel.tr)}</p><ul>${R.middel.criteria.map(crit).join("")}</ul>
+    <h3>Hata türleri</h3><ul><li><b>Kategori 1:</b> ${esc(R.foutcategorieen.cat1.tr)}</li><li><b>Kategori 2:</b> ${esc(R.foutcategorieen.cat2.tr)}</li></ul>
+    <h3>Genel kurallar</h3><ul>${R.algemeen.map(a => `<li>${esc(a.tr)}</li>`).join("")}</ul>
+    <h3>Bu sitede</h3><p>${esc(R.schriftelijk.tr)}</p></section>`;
+}
+
+// ---------- render & events ----------
+function render() {
+  clearInterval(S.timer);
+  document.querySelectorAll("#tabs .tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === S.tab));
+  const v = new URLSearchParams(location.search).get("v");
+  if (S.tab === "bank") app.innerHTML = v ? vOne(v) : vBank();
+  else if (S.tab === "exam") app.innerHTML = S.result ? vResult() : S.run && S.run.open ? vRun() : vExamList();
+  else app.innerHTML = vRegels();
+  if (document.getElementById("prepsec")) startPrep();
+}
+document.getElementById("tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-tab]"); if (!b) return;
+  if (S.run?.open) { S.run.open = false; saveRun(); }
+  S.tab = b.dataset.tab; S.result = null; history.replaceState(null, "", "./"); render(); scrollTo(0, 0);
+});
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const r = S.run;
+  switch (el.dataset.act) {
+    case "start": e.preventDefault(); startExam(+el.dataset.nr); S.run.open = true; saveRun(); render(); break;
+    case "resume": S.run.open = true; saveRun(); render(); break;
+    case "drop": S.run = null; saveRun(); render(); break;
+    case "pause": r.open = false; saveRun(); render(); break;
+    case "go": r.i = +el.dataset.i; saveRun(); render(); scrollTo(0, 0); break;
+    case "skipprep": endPrep(); break;
+    case "finish": {
+      const open = 16 - Object.values(r.ans).filter(t => t?.trim()).length, box = document.getElementById("finishmsg");
+      if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin-top:8px">${open} görev boş. Boş görev 0 puan sayılır. <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Yine de bitir</button></div>`; break; }
+      finishExam(); break; }
+    case "back": S.result = null; render(); break;
+    case "copy": copyText(document.getElementById("copybox").value, document.getElementById("copystatus")); break;
+    case "clearoefen": S.oefen = {}; store.set("oefen", {}); render(); break;
+  }
+});
+app.addEventListener("change", e => {
+  if (e.target.dataset.act === "prep") { S.prep = e.target.checked; store.set("prep", S.prep); return; }
+  if (e.target.dataset.f && e.target.tagName === "SELECT") { S.f[e.target.dataset.f] = e.target.value; store.set("filter", S.f); render(); }
+});
+// Typing: save the answer and update the sentence counter without re-rendering (keeps the cursor)
+app.addEventListener("input", e => {
+  if (e.target.dataset.f === "q") { S.f.q = e.target.value; store.set("filter", S.f); clearTimeout(S.searchT);
+    S.searchT = setTimeout(() => { const pos = e.target.selectionStart; render(); const i = app.querySelector("[data-f=q]"); i.focus(); i.setSelectionRange(pos, pos); }, 250); return; }
+  if (e.target.id !== "answer") return;
+  const text = e.target.value;
+  let q;
+  if (S.tab === "exam" && S.run?.open) { q = byId[D.examens[S.run.nr - 1][S.run.i]]; S.run.ans[q.id] = text; saveRun(); }
+  else { q = byId[new URLSearchParams(location.search).get("v")]; if (!q) return; S.oefen[q.id] = text; store.set("oefen", S.oefen); }
+  if (q.type === "middel") { const n = sentences(text), h = document.querySelector("#hint span:last-child");
+    if (h) { h.className = n >= 3 ? "ok" : "warn"; h.textContent = `${n} cümle${n >= 3 ? " ✓" : " (hedef: en az 3)"}`; } }
+});
+addEventListener("popstate", render);
+if (S.run) S.run.open = false;   // an unfinished exam waits on the exam tab ("Devam et")
+render();
+</script>
+</body>
+</html>
