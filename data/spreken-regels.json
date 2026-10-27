@@ -1,0 +1,91 @@
+{
+ "_about": "Official scoring rules for Spreken I, taken from CvTE beoordelingsmodel Spreken I 2023-2025. Hand-written, not generated. The Spreken page uses this file twice: (1) to build the AI scoring prompt after an exam, (2) for the 'Puanlama' part of the lesson. Dutch text = official wording, tr = short Turkish explanation.",
+
+ "preconditie": {
+  "nl": "0: Niet passend in de context, niet verstaanbaar, geen Nederlands. 1: Verstaanbare, Nederlandse reactie in relatie tot de context. Bij 0 wordt de rest van de opgave niet beoordeeld. De preconditie telt niet mee in het totaal.",
+  "tr": "Önce kontrol: cevap duruma uyuyor mu, Felemenkçe mi? Uymuyorsa o soru tamamen 0 olur."
+ },
+
+ "kort": {
+  "max": 3,
+  "tr": "Soru 1-8. Kısa cevap yeterli. Her kriter 0 ya da 1.",
+  "criteria": [
+   {"id": "inhoud", "naam": "Inhoud", "max": 1,
+    "nl": "0: Geen duidelijke uiting die doet wat de opdracht vraagt. 1: Duidelijke uiting die doet wat de opdracht vraagt.",
+    "tr": "Görevin istediğini net olarak yaptın mı?"},
+   {"id": "wzv", "naam": "Woord- en zinsvorming", "max": 1,
+    "nl": "0: Meer dan een enkele kleine fout. 1: Geen of een enkele kleine fout. Kleine fouten: de/het en wat daaruit volgt, meervoud, verkleinwoord.",
+    "tr": "En fazla 1 küçük hata (de/het, çoğul, küçültme). Fiil, kelime sırası gibi bir hata varsa 0."},
+   {"id": "woordkeus", "naam": "Woordkeus", "max": 1,
+    "nl": "0: Verkeerde en/of beperkte woordkeus. 1: Goede en/of gevarieerde woordkeus.",
+    "tr": "Doğru kelimeyi seçtin mi? ('een pot met dat spul' yerine 'een pot verf')."}
+  ],
+  "extra": [
+   {"nl": "Bij een verzoek of instructie: als de uiting onbeleefd overkomt, 0 punten bij Inhoud.",
+    "tr": "Rica ve talimat görevlerinde kaba görünen cevap içerikten 0 alır.",
+    "geldt_voor": ["vraag", "instructie"]}
+  ]
+ },
+
+ "middel": {
+  "max": 13,
+  "tr": "Soru 9-16. En az 3 cümle hedefle. Toplam puanın büyük kısmı burada.",
+  "criteria": [
+   {"id": "inhoud", "naam": "Inhoud", "max": 3,
+    "nl": "0: Er wordt gerefereerd aan de situatie, maar de uiting is verder volstrekt onduidelijk. 1: De gevraagde taalhandeling wordt niet gerealiseerd; of slechts één plaatje / geen reden; of veel onduidelijkheden. 2: Eén reden (of twee plaatjes) met hooguit enkele onduidelijkheden, of duidelijk maar de spreektijd wordt onvoldoende benut; of twee redenen (drie plaatjes) met enkele onduidelijkheden. 3: Twee redenen (of drie plaatjes) en duidelijk; of één reden (twee plaatjes), duidelijk en de spreektijd volledig benut.",
+    "tr": "Doğru dil eylemi + istenen sayıda gerekçe/resim + net anlatım = 3. Yanlış dil eylemi = en fazla 1."},
+   {"id": "wzv", "naam": "Woord- en zinsvorming", "max": 3,
+    "nl": "Uiting van minimaal 3 zinnen (>2): 0 erg veel fouten, moeilijk te volgen; 1 veel categorie-1-fouten of meerdere categorie-2-fouten; 2 enkele categorie-1-fouten of één categorie-2-fout; 3 hooguit één categorie-1-fout. Uiting van maximaal 2 zinnen (≤2): 0 erg veel fouten; 1 veel categorie-1-fouten of één of meer categorie-2-fouten; 2 enkele categorie-1-fouten; 3 hooguit één categorie-1-fout.",
+    "tr": "3 cümle kuralı: en az 3 cümle kurarsan 1 ağır hata seni 2'de tutar; 2 cümlede aynı hata 1'e düşürür."},
+   {"id": "woordenschat", "naam": "Woordenschat", "max": 3,
+    "nl": "0: Nauwelijks woorden ter beschikking. 1: Woordkeus en -variatie klein. 2: Woordkeus en -variatie redelijk. 3: Woordkeus en -variatie groot.",
+    "tr": "Kelime çeşitliliği. Aynı kelimeyi tekrar etme, konuya özel kelimeler kullan."},
+   {"id": "uitspraak", "naam": "Uitspraak", "max": 3, "schriftelijk": false,
+    "nl": "0: Uitspraak slecht. 1: Uitspraak net niet voldoende. 2: Uitspraak redelijk. 3: Uitspraak goed.",
+    "tr": "Telaffuz. Yazılı cevaptan ölçülemez."},
+   {"id": "tempo", "naam": "Tempo", "max": 1, "schriftelijk": false,
+    "nl": "0: Tempo te laag. 1: Tempo voldoende.",
+    "tr": "Akıcılık. Yazılı cevaptan ölçülemez."}
+  ]
+ },
+
+ "foutcategorieen": {
+  "cat1": {"nl": "Verkeerd lidwoordgebruik (de/het) en alle fouten die daaruit voortvloeien (een mooie huis, een kind die ...); fouten in de meervoudsvorming; fouten in verkleinwoorden.",
+           "tr": "Küçük hatalar: de/het, çoğul, küçültme eki."},
+  "cat2": {"nl": "Alle andere fouten, bijvoorbeeld verkeerde woordvolgorde (geen inversie), verkeerde werkwoordstijd of -vervoeging, verkeerd voltooid deelwoord, fouten in vergrotende en overtreffende trap, weglaten van 'het' als persoonlijk voornaamwoord.",
+           "tr": "Ağır hatalar: kelime sırası/inversie, fiil zamanı ve çekimi, voltooid deelwoord, groter/grootst."}
+ },
+
+ "algemeen": [
+  {"nl": "Als alleen wordt voorgelezen: maximaal 1 punt bij Inhoud en bij Woord- en zinsvorming.",
+   "tr": "Ekrandaki metni okumak = en fazla 1 puan."},
+  {"nl": "Wordt de gevraagde taalhandeling niet gerealiseerd (bijv. een beschrijving in plaats van een instructie), dan maximaal 1 punt bij Inhoud.",
+   "tr": "İstenen dil eylemini yap: talimat isteniyorsa talimat ver, betimleme yapma."},
+  {"nl": "De geldigheid van argumenten wordt niet beoordeeld. Een duidelijke reden is voldoende, ook als de beoordelaar hem vreemd vindt.",
+   "tr": "Gerekçenin mantıklı olması gerekmiyor, net olması yeter."},
+  {"nl": "Een reactie die niet in de voorschriften staat maar wel adequaat is, kan het maximum bij Inhoud krijgen.",
+   "tr": "Örnek cevaptan farklı ama uygun bir cevap da tam puan alır."},
+  {"nl": "Als een plaatje anders wordt geïnterpreteerd maar de opdracht goed wordt uitgevoerd, wordt analoog beoordeeld.",
+   "tr": "Resmi farklı yorumlaman sorun değil, görevi doğru yapman yeter."}
+ ],
+
+ "schriftelijk": {
+  "tr": "Bu sitede cevaplar yazılı. Telaffuz ve akıcılık ölçülemez. Orta sorular önce 9 üzerinden puanlanır, sonra 'uitspraak 2, tempo 1' varsayımıyla 13'lük tahmin verilir.",
+  "aanname": {"uitspraak": 2, "tempo": 1}
+ },
+
+ "prompt": {
+  "intro": "Sen Staatsexamen NT2 Spreken I (B1) beoordelaarsın. Aşağıdaki cevaplarımı CvTE'nin resmi beoordelingsmodel kurallarına göre puanla. Cevaplar konuşma yerine yazılı verildi. Cevabımı Türkçe açıkla, düzeltmeleri Felemenkçe yaz.",
+  "werkwijze": [
+   "Her soru için önce preconditie'ye bak (0 ise soru 0 puan, diğer kriterlere geçme).",
+   "Her kriter için puanı ve tek cümlelik gerekçesini yaz.",
+   "Orta sorularda cümle sayısını say (>2 mi ≤2 mi) ve woord- en zinsvorming tablosunun doğru sütununu kullan.",
+   "Her hatayı kategori-1 veya kategori-2 olarak etiketle ve düzeltilmiş halini yaz.",
+   "İstenen dil eylemi (taalhandeling) yapılmadıysa bunu açıkça belirt.",
+   "Uitspraak ve tempo için puan verme; toplamı 9 üzerinden ver, ayrıca varsayımla (uitspraak 2, tempo 1) 13 üzerinden tahmini ver.",
+   "Örnek cevap sadece fikir verir; farklı ama uygun cevap tam puan alabilir."
+  ],
+  "slot_exam": "Sonunda: soru soru puan tablosu, toplam puan (128 üzerinden, varsayımlı), aşağıdaki tabloya göre tahmini skor ve geçme sınırı 75'e göre sonuç. Son olarak en sık yaptığım 3 hata türü ve her biri için 1 düzeltilmiş örnek.",
+  "slot_oefen": "Sonunda: soru soru puan tablosu ve en sık yaptığım 3 hata türü, her biri için 1 düzeltilmiş örnek."
+ }
+}
