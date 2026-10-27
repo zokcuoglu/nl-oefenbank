@@ -3,6 +3,7 @@
 The item files are the place to edit content; this script only assembles and checks them:
 unique ids, valid answers, a ___ in every gap question, all five levels present.
 """
+import csv
 import importlib.util
 import json
 import re
@@ -10,7 +11,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent.parent / "data" / "nieuws.json"
-LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1"]
+LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1"]  # required in every item
+OPTIONAL_LEVELS = ["c2"]  # may be added to newer items
+WERK = HERE / "werk_woorden.csv"
 # Every item quiz has 18 questions with this spread, so item scores are comparable
 ITEM_QUIZ = {"begrip": 5, "woorden": 4, "uitdrukkingen": 5, "grammatica": 4}
 # Every mixed test has 20 questions with the same spread (6/5/5/4), so test scores are comparable.
@@ -35,7 +38,7 @@ def check_questions(qs, where, seen):
         seen.add(q["id"])
         assert q["type"] in ("mc", "tf", "gap"), f"{where}/{q['id']}: type"
         assert q["cat"] in ("begrip", "woorden", "uitdrukkingen", "grammatica"), f"{where}/{q['id']}: cat"
-        assert q["niveau"] in ("A1", "A2", "B1", "B2", "C1"), f"{where}/{q['id']}: niveau"
+        assert q["niveau"] in ("A1", "A2", "B1", "B2", "C1", "C2"), f"{where}/{q['id']}: niveau"
         assert 0 <= q["juist"] < len(q["opties"]), f"{where}/{q['id']}: juist"
         assert len(set(q["opties"])) == len(q["opties"]), f"{where}/{q['id']}: duplicate option"
         if q["type"] == "gap":
@@ -45,12 +48,23 @@ def check_questions(qs, where, seen):
 
 
 def main():
+    from build_woorden import appears_in  # same matching rule as the word pool
+    werk = {r["id"]: r for r in csv.DictReader(WERK.open(encoding="utf-8"))}
     items, seen_q = [], set()
     for f in sorted(HERE.glob("n[0-9][0-9]_*.py")):
         it = dict(load(f).ITEM)
         for l in LEVELS:
             assert it.get(l), f"{f.name}: missing {l}"
-        it["gloss"] = {l: it.pop(f"gloss_{l}") for l in LEVELS if f"gloss_{l}" in it}
+        it["gloss"] = {l: it.pop(f"gloss_{l}") for l in LEVELS + OPTIONAL_LEVELS if f"gloss_{l}" in it}
+        # Work-note words this item uses on purpose (direction: work notes -> news). Shown on the news page.
+        if it.get("werk_woorden"):
+            text = " ".join(it.get(l, "") for l in LEVELS + OPTIONAL_LEVELS)
+            it["werk"] = []
+            for wid in it["werk_woorden"]:
+                assert wid in werk, f"{f.name}: werk_woorden id {wid} not in werk_woorden.csv"
+                w = werk[wid]
+                assert appears_in(w["nl"], text), f"{f.name}: werk word {wid} '{w['nl']}' not found in the texts"
+                it["werk"].append({k: w[k] for k in ("id", "nl", "tr", "niveau", "voorbeeld", "voorbeeld_tr")})
         for line in it["woordenschat"].splitlines():
             assert len(line.split("|")) == 6, f"{f.name}: woordenschat line needs 6 columns: {line}"
         check_questions(it["toets"], f.name, seen_q)
@@ -85,11 +99,16 @@ def main():
         "toetsen": toetsen,
     }
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    words = {i["id"]: {l: len(re.sub(r"<[^>]+>", "", i[l]).split()) for l in LEVELS} for i in items}
+    words = {i["id"]: {l: len(re.sub(r"<[^>]+>", "", i[l]).split()) for l in LEVELS + OPTIONAL_LEVELS if i.get(l)} for i in items}
     print(f"{len(items)} items, {len(toetsen)} toets(en), {len(seen_q)} questions -> {OUT}")
     for k, v in words.items():
         print(f"  {k}: words per level {v}, idioms {len(next(i for i in items if i['id'] == k)['uitdrukkingen'])}")
 
 
 if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, str(HERE))
     main()
+    # The word pool reads data/nieuws.json, so rebuild it right after
+    import build_woorden
+    build_woorden.main()

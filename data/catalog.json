@@ -46,6 +46,14 @@
       "status": "ready"
     },
     {
+      "id": "woorden",
+      "area": "media",
+      "title": "Kelime testi",
+      "desc": "İş notlarından ve haberlerden 600+ kelime ve deyim. Seviyeni (A1–C2), kaynağı ve soru sayısını seç; öğrenme veya sınav modu, ipuçları ve sonda bütün cevaplar.",
+      "href": "woorden/",
+      "status": "ready"
+    },
+    {
       "id": "knm",
       "area": "nt2",
       "title": "KNM",

@@ -34,6 +34,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `knm/` + `data/knm.json` | KNM question bank (moved from the KNM artifact) |
 | `nieuws/` + `data/nieuws.json` | Nieuws in niveaus (v1): numbered video items, text at A1-C1, idioms, words, quiz; a mixed test after every 3 items |
 | `scripts/content/` | Source of the news items (`nNN_*.py`) and mixed tests (`toetsen.py`); `build_nieuws.py` checks them and writes `data/nieuws.json` |
+| `woorden/` + `data/woorden.json` | Word test: one pool of work-note words (`scripts/content/werk_woorden.csv`) and news words/idioms; filters for source, level (A1–C2), type and count; learning or exam mode, hints, full review at the end |
 | `js/stats.js` | Statistics helpers for the profile and admin pages |
 | `manifest.json`, `icons/` | "Add to home screen" on phones |
 | `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules |
@@ -67,3 +68,13 @@ Optional `video_start`/`video_end`
 1. Put the page under `kids/<groep>/`.
 2. In its module script: `const { user } = await gate({ area: "kids" })` and save rounds with `saveAttempt(user.uid, "<module-id>", attempt)`.
 3. Add an entry to `data/catalog.json` with `area: "kids"` and the right `group`.
+
+## Word pool (woorden)
+
+`scripts/content/werk_woorden.csv` holds the words and phrases from the work notes (one row each: `nl, soort, tr, niveau A0–C2, thema, voorbeeld, voorbeeld_tr, uitleg, voorbeeld_door`).
+`python3 scripts/content/build_nieuws.py` rebuilds `data/nieuws.json` and then `data/woorden.json` (work words + every news item's words and idioms).
+New work words: add rows to the CSV with the next free id (`w416`, ...), then run the builder.
+
+Work words in news: a news item may list `werk_woorden: ["w012", ...]`; the builder checks that each word occurs in the item's texts
+and the news page shows them under "İş notlarından kelimeler". `python3 scripts/content/build_woorden.py --kandidaat B1` lists work
+words at a level that no news text uses yet. News items may also have an optional `c2` text (+ `gloss_c2`).
