@@ -38,7 +38,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `woorden/` + `data/woorden.json` | Word test: one pool of work-note words (`scripts/content/werk_woorden.csv`) and news words/idioms; filters for source, level (A1–C2), type and count; learning or exam mode, hints, full review at the end |
 | `js/stats.js` | Statistics helpers for the profile and admin pages |
 | `manifest.json`, `icons/` | "Add to home screen" on phones |
-| `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules |
+| `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules (also covers the Slimspel daily ranking: `leaderboard/{day}/entries`) |
 
 ## E-mail
 
