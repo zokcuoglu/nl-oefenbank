@@ -273,6 +273,8 @@ function sel(id, opts, val) {
 function render() {
   const count = r => users.filter(u => roleOf(u) === r).length;
   // Children can be linked to an adult account; the weekly summary also goes to that parent
+  // Groep of child accounts (1-8). Moves up by itself every August (mailer); fix it here when needed.
+  const groepOpts = { "": "Seçilmedi", ...Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8].map(n => ["groep" + n, "Groep " + n])) };
   const parentOpts = { "": "Yok", ...Object.fromEntries(users.filter(u => u.type === "adult").map(u => [u.uid, u.name || u.email || u.uid])) };
   const pending = users.filter(u => statusOf(u) === "pending").length;
   const tabs = `<nav class="seg admintabs" role="tablist">${Object.entries(TABS).map(([k, v]) =>
@@ -286,12 +288,13 @@ function render() {
     </section>
 
     <section class="panel"><div class="sectionhead"><h3>Hesaplar</h3><span class="muted">yeni gelenleri "Onaylı" yap, satırdaki Kaydet'e bas</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Veli</th><th>Son giriş</th><th></th></tr></thead><tbody>
+      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Veli</th><th>Groep</th><th>Son giriş</th><th></th></tr></thead><tbody>
       ${users.map((u, i) => `<tr><td><b>${esc(u.name || "-")}</b><br><span class="muted" style="font-size:13px">${esc(u.email || u.uid)}</span></td>
         <td>${sel("s" + i, STATUSES, statusOf(u))}</td>
         <td>${sel("t" + i, { "": "Seçilmedi", ...TYPES }, u.type || "")}</td>
         <td>${sel("r" + i, ROLES, roleOf(u))}</td>
         <td>${u.type === "child" ? sel("p" + i, parentOpts, u.parent_uid || "") : `<span class="muted">-</span>`}</td>
+        <td>${u.type === "child" ? sel("g" + i, groepOpts, u.groep || "") : `<span class="muted">-</span>`}</td>
         <td class="num muted">${fmtDate(u.last_active)}</td>
         <td><button class="btn" data-i="${i}">Kaydet</button> <span id="m${i}"></span></td></tr>`).join("")}
       </tbody></table></div>
@@ -332,8 +335,9 @@ app.addEventListener("click", async e => {
   const i = +b.dataset.i, u = users[i], msg = document.getElementById("m" + i);
   const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value, status = document.getElementById("s" + i).value;
   const pSel = document.getElementById("p" + i), parent_uid = pSel ? (pSel.value || null) : (u.parent_uid || null);
+  const gSel = document.getElementById("g" + i), groep = gSel ? (gSel.value || null) : (u.groep || null);
   if (u.uid === user.uid && role !== "admin") { msg.innerHTML = `<span class="err-msg">Kendi admin rolünü buradan kaldıramazsın.</span>`; return; }
-  try { await updateDoc(doc(db, "users", u.uid), { type, role, status, parent_uid }); Object.assign(u, { type, role, status, parent_uid }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
+  try { await updateDoc(doc(db, "users", u.uid), { type, role, status, parent_uid, groep }); Object.assign(u, { type, role, status, parent_uid, groep }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
   catch (err) { msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
 });
 
