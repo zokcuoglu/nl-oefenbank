@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Luisteren · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.frrow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.frrow:last-child{border-bottom:0} .frrow:hover b{color:var(--accent)}
+.frrow .nr{font-family:var(--mono);font-size:13px;color:var(--muted);width:1.6em;text-align:right}
+.player{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--sunk);border-radius:12px;padding:16px}
+.play{width:64px;height:64px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:24px;cursor:pointer;flex:none}
+.play:disabled{opacity:.4;cursor:default} .play.on{animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.video{position:relative;aspect-ratio:16/9;width:100%;border-radius:10px;overflow:hidden;background:var(--sunk)} .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.q{display:flex;flex-direction:column;gap:8px;padding:12px 0;border-top:1px dashed var(--line)} .q:first-of-type{border-top:0}
+.qq{font-size:17.5px;font-weight:500;line-height:1.5;margin:0} .qq .n{font-family:var(--mono);font-size:13px;color:var(--muted);margin-right:6px}
+.timerbar{position:sticky;top:0;z-index:5;background:var(--ground);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0}
+.dots{display:flex;gap:3px;flex-wrap:wrap} .dots button{min-width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-family:var(--mono);padding:0 5px}
+.dots button.on{outline:2px solid var(--accent)} .dots button.done{background:var(--accent-soft)}
+.dots button.ok{background:var(--ok-soft);border-color:var(--ok)} .dots button.no{background:var(--bad-soft);border-color:var(--bad)} .dots button.mid{background:var(--warn-soft);border-color:var(--warn)}
+.timer{font-family:var(--mono);font-size:18px;font-weight:600} .timer.low{color:var(--bad)}
+.readbar{height:6px;border-radius:3px;background:var(--line);overflow:hidden} .readbar i{display:block;height:100%;background:var(--accent);transition:width 1s linear}
+.script{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15.5px;line-height:1.6}
+.script p{margin:2px 0} .script .who{display:inline-block;min-width:4.5em;color:var(--muted);font-size:13px;font-family:var(--mono)}
+.script mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 2px}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <span lang="nl" id="examname"></span></small><h1 id="title">Luisteren</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Listening practice for two exams, chosen with ?set=a2 or ?set=b1 (default b1):
+//   A2 inburgeringsexamen: short fragments, 1 question each, 20 per practice exam, 45 min, 2 plays per fragment (our choice).
+//   B1 Staatsexamen NT2 I: longer texts, 4 questions each, 10 per practice exam (40 questions), 90 min,
+//      25 s reading time per question before the text starts, the text plays once - like the real exam.
+// Texts are read aloud by the browser's Dutch voice(s), different voice/pitch per speaker. A text with 'video_url'
+// is played as a YouTube video instead (start/end seconds), for real videos later.
+// Practice mode (one text): play as often as you like, feedback per question right away.
+// Rounds are saved as attempts (module "luisteren-a2" / "luisteren-b1"); answer qid = question id.
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const params = () => new URLSearchParams(location.search);
+const SETS = {
+  a2: { file: "luisteren-a2", module: "luisteren-a2", title: "Luisteren A2", exam: "Inburgeringsexamen A2", plays: 2, readSec: 0,
+        intro: "A2 Luisteren sınavı bilgisayarda, 45 dakika: kısa videolar ve konuşmalar, çoktan seçmeli sorular. Tam sınavda 20 fragman var; her biri en fazla 2 kez dinlenebilir (bu bizim kuralımız; gerçek sınavdaki sayıyı doğrulayamadık), sonuçlar sonda görünür." },
+  b1: { file: "luisteren-b1", module: "luisteren-b1", title: "Luisteren I (B1)", exam: "Staatsexamen NT2 Programma I", plays: 1, readSec: 25,
+        intro: "B1 Luisteren sınavı bilgisayarda, 90 dakika: 5'ten fazla dinleme metni ve 1–3 video, yaklaşık 40 çoktan seçmeli soru. Metin başlamadan önce her soru için 25 saniye okuma süresi var; metin sadece bir kez çalınır, durdurulamaz. Tam sınavlarımız da böyle: 10 metin, 40 soru, 90 dakika. Sonuç doğru sayısı olarak gösterilir; resmî puan tablosunu bilmediğimiz için 500 puana çevirmiyoruz." },
+};
+const SETKEY = params().get("set") === "a2" ? "a2" : "b1", SET = SETS[SETKEY];
+const link = q => `?set=${SETKEY}${q ? "&" + q : ""}`;
+document.getElementById("title").textContent = SET.title; document.getElementById("examname").textContent = SET.exam;
+document.title = SET.title + " · NL Oefenbank";
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const mmss = s => `${Math.floor(Math.max(0, s) / 60)}:${String(Math.max(0, s) % 60).padStart(2, "0")}`;
+const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
+const WHO = { v: "vrouw", v2: "vrouw 2", m: "man", m2: "man 2", o: "omroep" };
+const ytId = u => ((u || "").match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/) || [])[1];
+
+const { user, profile } = await gate({ area: "nt2", title: SET.title, seen: SET.module });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let D;
+try { D = await (await fetch(`../data/${SET.file}.json`, { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Metinler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+// A2 fragments have one question on the fragment itself: give every text a 'vragen' list (question id = fragment id)
+D.examens.forEach(e => e.fragmenten.forEach(f => { if (!f.vragen) f.vragen = [{ id: f.id, vraag: f.vraag, opties: f.opties, uitleg: f.uitleg, bewijs: f.bewijs, juist: 0 }]; }));
+const frById = {}, examOf = {};
+D.examens.forEach(e => e.fragmenten.forEach(f => { frById[f.id] = f; examOf[f.id] = e.id; }));
+const examById = Object.fromEntries(D.examens.map(e => [e.id, e]));
+let attempts = await loadAttempts(user.uid, SET.module).catch(() => []);
+
+// ---------- Voices ----------
+const hasTTS = "speechSynthesis" in window;
+let nlVoices = [];
+const loadVoices = () => { nlVoices = hasTTS ? speechSynthesis.getVoices().filter(v => /^nl(-|_|$)/i.test(v.lang)) : []; };
+if (hasTTS) { loadVoices(); speechSynthesis.onvoiceschanged = () => { loadVoices(); if (!S.run) render(); }; }
+const VOICE = { v: [0, 1.1], v2: [2, 1.3], m: [1, 0.8], m2: [3, 0.7], o: [2, 1.0] };  // [voice index, pitch]
+function speakLines(lines, onEnd) {
+  speechSynthesis.cancel();
+  lines.forEach(([who, text], i) => {
+    const u = new SpeechSynthesisUtterance(text), [vi, pitch] = VOICE[who] || [0, 1];
+    u.lang = "nl-NL"; u.rate = SETKEY === "a2" ? 0.88 : 0.95; u.pitch = pitch;
+    if (nlVoices.length) u.voice = nlVoices[vi % nlVoices.length];
+    if (i === lines.length - 1) u.onend = onEnd;
+    speechSynthesis.speak(u);
+  });
+}
+
+// ---------- State ----------
+// S.run = { test, ids, cur, exam, order:{qid:[i]}, ans:{qid:i}, plays:{fid:n}, read:{fid:secondsLeft}, started, limit, done, saved }
+const S = { run: null, timer: null, playing: false, video: null };
+const qsOf = ids => ids.flatMap(id => frById[id].vragen);
+function startRun(test, ids, exam) {
+  S.run = { test, ids, cur: 0, exam, order: Object.fromEntries(qsOf(ids).map(q => [q.id, shuffle([0, 1, 2])])), ans: {}, plays: {}, read: {},
+    started: Date.now(), limit: (examById[test]?.minuten || 0) * 60, done: false, saved: false };
+  clearInterval(S.timer);
+  S.timer = setInterval(tick, 1000);
+  enterText();
+}
+const left = () => S.run.limit - Math.floor((Date.now() - S.run.started) / 1000);
+// B1 exam: reading time before a text starts (25 s per question), then the text plays by itself, once
+function enterText() {
+  const r = S.run, f = frById[r.ids[r.cur]];
+  if (r.exam && !r.done && SET.readSec && !(f.id in r.read) && !r.plays[f.id]) r.read[f.id] = SET.readSec * f.vragen.length;
+}
+function tick() {
+  const r = S.run; if (!r || r.done) return;
+  if (r.exam) { const el = document.getElementById("timer"), s = left(); if (el) { el.textContent = mmss(s); el.classList.toggle("low", s <= 300); } if (s <= 0) return finish(true); }
+  const f = frById[r.ids[r.cur]];
+  if (r.read[f.id] > 0) {
+    r.read[f.id]--;
+    const el = document.getElementById("readleft"), bar = document.getElementById("readbar");
+    if (el) el.textContent = r.read[f.id]; if (bar) bar.style.width = `${100 * r.read[f.id] / (SET.readSec * f.vragen.length)}%`;
+    if (r.read[f.id] === 0) play();
+  }
+}
+function play() {
+  const r = S.run, f = frById[r.ids[r.cur]];
+  if (r.exam && !r.done && (r.plays[f.id] || 0) >= SET.plays) return;
+  if (r.read[f.id] > 0) r.read[f.id] = 0;
+  if (!r.done) r.plays[f.id] = (r.plays[f.id] || 0) + 1;
+  if (f.video_url) { S.video = f.id; render(); return; }
+  if (!hasTTS) return;
+  S.playing = true; render();
+  speakLines(f.regels, () => { S.playing = false; if (S.run === r) render(); });
+}
+const lastOf = test => attempts.find(a => a.test === test);
+
+// ---------- Views ----------
+function vList() {
+  return `<section class="panel"><span class="eyebrow">${esc(SET.exam)}</span><h2 style="margin:4px 0 8px">Dinleme sınavına hazırlık</h2>
+      <p class="muted" style="margin:0;max-width:70ch">${SET.intro} Konuşmaları tarayıcının Hollandaca sesi okuyor. Tek metinle alıştırma yaparsan istediğin kadar dinlersin ve her sorunun cevabını hemen görürsün. Metinler bu sınav tarzında yazılmış alıştırmalardır; isimler uydurmadır.</p>
+      ${!hasTTS ? `<div class="notice" style="margin-top:10px">Bu tarayıcı sesli okumayı desteklemiyor. Chrome, Edge ya da Safari'de aç.</div>`
+        : !nlVoices.length ? `<div class="notice" style="margin-top:10px">Bu cihazda Hollandaca ses bulunamadı; okuma başka bir dilin sesiyle olabilir. Bilgisayarda Chrome ya da Edge en iyi sonucu verir.</div>`
+        : `<p class="muted" style="font-size:13px;margin:10px 0 0">Bu cihazda ${nlVoices.length} Hollandaca ses var${nlVoices.length < 2 ? " (konuşmacılar ses tonuyla ayrılıyor)" : ""}.</p>`}</section>
+    ${D.examens.map(e => { const l = lastOf(e.id), nq = e.fragmenten.reduce((n, f) => n + f.vragen.length, 0);
+      return `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3>
+        <span class="row">${l ? `<span class="chip ${tone(Math.round(100 * l.score / l.total))} num">son: ${l.score}/${l.total}</span>` : ""}<a class="btn primary" style="text-decoration:none" href="${link("examen=" + e.id)}">Tam sınav (${nq} soru, ${e.minuten} dk)</a></span></div>
+      ${e.fragmenten.map((f, k) => { const lf = lastOf(f.id); return `<a class="frrow" href="${link("f=" + f.id)}"><span class="nr">${k + 1}</span>
+        <span><span lang="nl">${esc(f.intro)}</span>${f.vragen.length > 1 ? ` <span class="muted" style="font-size:13px">· ${f.vragen.length} soru</span>` : ""}${f.video_url ? ` <span class="chip">video</span>` : ""}</span>
+        ${lf ? `<span class="chip ${tone(Math.round(100 * lf.score / lf.total))} num">${lf.score}/${lf.total}</span>` : `<span class="chip">yeni</span>`}</a>`; }).join("")}</section>`; }).join("")}`;
+}
+function script(f) {
+  const proofs = f.vragen.map(q => q.bewijs);
+  return `<div class="script" lang="nl">${f.regels.map(([w, t]) => { let h = esc(t); proofs.forEach(b => { const e = esc(b); if (h.includes(e)) h = h.replace(e, `<mark>${e}</mark>`); });
+    return `<p><span class="who">${WHO[w] || w}</span>${h}</p>`; }).join("")}</div>`;
+}
+function player(f) {
+  const r = S.run, plays = r.plays[f.id] || 0, reading = r.read[f.id] > 0;
+  const canPlay = (!r.exam || r.done || plays < SET.plays) && !reading;
+  if (f.video_url && S.video === f.id) {
+    const q = [`autoplay=1`, f.video_start && "start=" + f.video_start, f.video_end && "end=" + f.video_end].filter(Boolean).join("&");
+    return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${ytId(f.video_url)}?${q}" allow="autoplay" allowfullscreen></iframe></div>`;
+  }
+  return `<div class="player"><button class="play ${S.playing ? "on" : ""}" data-act="play" ${canPlay && !S.playing && (hasTTS || f.video_url) ? "" : "disabled"} aria-label="Dinle">${S.playing ? "♪" : "▶"}</button>
+    <div style="flex:1;min-width:200px"><b lang="nl">${esc(f.intro)}</b><br>
+      <span class="muted" style="font-size:13.5px">${reading ? `Önce soruları oku. Metin <b id="readleft">${r.read[f.id]}</b> saniye sonra kendiliğinden başlar. <button class="btn ghost" style="padding:1px 8px;font-size:12.5px" data-act="play">Şimdi başlat</button>`
+        : r.exam && !r.done ? (SET.plays - plays > 0 ? `${SET.plays - plays} dinleme hakkın kaldı` : "Bu metin dinlendi.") : "İstediğin kadar dinleyebilirsin"}</span>
+      ${reading ? `<div class="readbar" style="margin-top:6px"><i id="readbar" style="width:${100 * r.read[f.id] / (SET.readSec * f.vragen.length)}%"></i></div>` : ""}</div></div>`;
+}
+function vRun() {
+  const r = S.run, f = frById[r.ids[r.cur]];
+  const allQ = qsOf(r.ids), firstNr = qsOf(r.ids.slice(0, r.cur)).length;
+  const fState = id => { const qs = frById[id].vragen, ok = qs.filter(q => r.ans[q.id] === 0).length;
+    return r.done ? (ok === qs.length ? "ok" : ok ? "mid" : "no") : qs.every(q => q.id in r.ans) ? "done" : ""; };
+  const res = r.done && r.exam ? (() => { const ok = allQ.filter(q => r.ans[q.id] === 0).length, p = Math.round(100 * ok / allQ.length);
+    return `<section class="panel"><div class="row" style="gap:16px;align-items:flex-end"><div class="bigscore num" style="font-size:42px;font-weight:700;color:var(--${tone(p)})">%${p}</div>
+      <div class="muted num">${ok} / ${allQ.length} doğru${r.timeout ? " · süre doldu" : ""} · ${r.saved ? "kaydedildi" : "kaydediliyor…"}</div>
+      <div style="margin-left:auto" class="row"><a class="btn" href="${link("")}" style="text-decoration:none">Listeye dön</a><button class="btn primary" data-act="again">Tekrar</button></div></div>
+      <p class="muted" style="margin:8px 0 0;font-size:14px">Numaralara tıklayarak her metnin yazılı halini, doğru cevapları ve açıklamaları gör.</p></section>`; })() : "";
+  const qhtml = f.vragen.map((q, k) => { const a = r.ans[q.id], fb = r.done || (!r.exam && a !== undefined);
+    return `<div class="q"><p class="qq" lang="nl"><span class="n">${firstNr + k + 1}</span>${esc(q.vraag)}</p>
+      <div class="opts">${r.order[q.id].map((oi, j) => { const cls = fb ? (oi === 0 ? "right" : oi === a ? "wrongpick" : "") : (a === oi ? "sel" : "");
+        return `<button class="opt ${cls}" data-act="ans" data-q="${q.id}" data-o="${oi}" ${fb ? "disabled" : ""}><span class="mark">${"ABC"[j]}</span><span lang="nl">${esc(q.opties[oi])}</span></button>`; }).join("")}</div>
+      ${fb ? `<div class="why"><b>${a === 0 ? "Doğru!" : a === undefined ? "Boş." : "Yanlış."}</b> ${esc(q.uitleg)}</div>` : ""}</div>`; }).join("");
+  const showScript = r.done || (!r.exam && f.vragen.every(q => q.id in r.ans));
+  return `<div class="timerbar">
+      ${r.exam ? `<div class="dots">${r.ids.map((id, i) => `<button class="${i === r.cur ? "on" : ""} ${fState(id)}" data-act="go" data-i="${i}" title="${frById[id].vragen.length} soru">${i + 1}</button>`).join("")}</div>` : `<a href="${link("")}">← Metinler</a>`}
+      <span style="margin-left:auto" class="row">${r.exam && !r.done ? `<span class="timer" id="timer">${mmss(left())}</span><button class="btn primary" data-act="finish">Bitir</button>` : ""}</span></div>
+    <div id="finishmsg"></div>${res}
+    <section class="panel" style="display:flex;flex-direction:column;gap:12px">
+      <span class="eyebrow">Metin ${r.cur + 1}${r.exam ? ` / ${r.ids.length}` : ""} · ${f.vragen.length} soru</span>
+      ${player(f)}
+      <div>${qhtml}</div>
+      ${showScript ? `<details ${r.exam ? "" : "open"}><summary style="cursor:pointer;color:var(--blue);font-weight:600">Metnin yazılı hali</summary>${script(f)}</details>` : ""}
+      <div class="row">${r.exam ? `${r.cur > 0 ? `<button class="btn" data-act="go" data-i="${r.cur - 1}">‹ Önceki</button>` : ""}${r.cur < r.ids.length - 1 ? `<button class="btn primary" data-act="go" data-i="${r.cur + 1}">Sonraki metin →</button>` : ""}`
+        : showScript ? `${nextSingle(f) ? `<a class="btn primary" style="text-decoration:none" href="${link("f=" + nextSingle(f))}">Sonraki metin →</a>` : ""}<a class="btn" href="${link("")}" style="text-decoration:none">Listeye dön</a>` : ""}</div>
+    </section>`;
+}
+const nextSingle = f => { const e = examById[examOf[f.id]], i = e.fragmenten.findIndex(x => x.id === f.id); return e.fragmenten[i + 1]?.id; };
+
+// ---------- Finish & save ----------
+async function finish(timeout = false) {
+  const r = S.run; if (r.done) return;
+  r.done = true; r.timeout = timeout; if (hasTTS) speechSynthesis.cancel(); S.playing = false; S.video = null;
+  render(); scrollTo(0, 0);
+  const answers = qsOf(r.ids).map(q => ({ qid: q.id, chosen: q.id in r.ans ? String(r.ans[q.id]) : "", correct: r.ans[q.id] === 0 }));
+  const attempt = { kind: r.exam ? "examen" : "fragment", test: r.test, title: r.exam ? examById[r.test].titel : frById[r.test].intro,
+    started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: Math.round((Date.now() - r.started) / 1000),
+    score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
+  try { await saveAttempt(user.uid, SET.module, attempt); attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
+  if (r.exam) render();
+}
+
+// ---------- Render & events ----------
+function render() {
+  const p = params();
+  if (S.run) { app.innerHTML = vRun(); return; }
+  const ex = examById[p.get("examen")];
+  if (ex) { startRun(ex.id, ex.fragmenten.map(f => f.id), true); app.innerHTML = vRun(); return; }
+  if (frById[p.get("f")]) { startRun(p.get("f"), [p.get("f")], false); app.innerHTML = vRun(); return; }
+  app.innerHTML = vList();
+}
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const r = S.run;
+  switch (el.dataset.act) {
+    case "play": play(); break;
+    case "ans": { const q = el.dataset.q; if (r.done || (!r.exam && r.ans[q] !== undefined)) break;
+      r.ans[q] = +el.dataset.o; const y = scrollY; render(); scrollTo(0, y);
+      // Practice: the round ends when every question of the text is answered
+      if (!r.exam && frById[r.ids[0]].vragen.every(x => x.id in r.ans)) finish();
+      break; }
+    case "go": if (hasTTS) speechSynthesis.cancel(); S.playing = false; S.video = null; r.cur = +el.dataset.i; enterText(); render(); scrollTo(0, 0); break;
+    case "finish": { const open = qsOf(r.ids).filter(q => !(q.id in r.ans)).length, box = document.getElementById("finishmsg");
+      if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} soru boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
+      finish(); break; }
+    case "again": { const t = r.test, ex = r.exam; S.run = null; startRun(t, ex ? examById[t].fragmenten.map(f => f.id) : [t], ex); render(); scrollTo(0, 0); break; }
+  }
+});
+addEventListener("popstate", () => { S.run = null; render(); });
+render();
+</script>
+</body>
+</html>
