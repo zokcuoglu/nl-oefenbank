@@ -4,7 +4,7 @@
 // - helpers for the user's profile document and saved attempts
 //
 // Data model (Firestore):
-//   users/{uid}              name, email, photo, type, role, groep, exams{}, created_at, last_active, seen{module: time}
+//   users/{uid}              name, email, photo, type, role, groep ("groep1".."groep8", +1 every August by the mailer), exams{}, created_at, last_active, seen{module: time}
 //   users/{uid}/attempts/*   one finished practice round (module, score, total, answers, ...)
 // type  = "adult" | "child"            chosen once by the user, later only by admin
 // role  = "member" | "teacher" | "admin"  set only by admin (enforced in firestore.rules)

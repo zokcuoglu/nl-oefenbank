@@ -490,6 +490,55 @@ def run_test(db, sender, now, to):
 
 # ---------- entry point ----------
 
+# ---------- yearly: children move up one groep in the summer ----------
+
+GROEP_MAX = 8  # groep 8 is the last year of primary school: stays 8
+
+
+def run_groep_up(db, sender, now, dry_run=False, force=False):
+    """Once a year, in August (summer holiday everywhere), every child account goes up one groep:
+    groep5 -> groep6. Groep 8 stays. A log document (mail_log/groep-{year}) makes sure it runs once a year,
+    and each account remembers the year (groep_up_year) so it can never move up twice.
+    Only in August, so a deploy in another month never moves anyone by accident.
+    force (manual run): ignore the month and the log; use it with --dry-run to see what would change."""
+    local = now.astimezone(AMS)
+    year = local.year
+    log_ref = db.collection("mail_log").document(f"groep-{year}")
+    if not force:
+        if local.month != 8:
+            return
+        if log_ref.get().exists:
+            return
+    changes = []
+    for d in db.collection("users").stream():
+        u = d.to_dict()
+        g = u.get("groep") or ""
+        if u.get("type") != "child" or not re.fullmatch(r"groep[1-8]", g) or u.get("groep_up_year") == year:
+            continue
+        n = int(g[5:])
+        if n >= GROEP_MAX:
+            continue
+        new = f"groep{n + 1}"
+        changes.append((u.get("name") or u.get("email") or d.id, g, new))
+        print(f"groep-up: {changes[-1][0]}: {g} -> {new}{' (dry run)' if dry_run else ''}")
+        if not dry_run:
+            d.reference.update({"groep": new, "groep_up_year": year})
+
+    # Tell the admins what changed
+    admins = [u for u in (x.to_dict() for x in db.collection("users").stream()) if u.get("role") == "admin" and u.get("email")]
+    if changes:
+        lines = "\n".join(f"  • {name}: Groep {old[5:]} → Groep {new[5:]}" for name, old, new in changes)
+        text = (f"Yeni okul yılı: {len(changes)} öğrenci hesabının grubu bir artırıldı.\n\n{lines}\n\n"
+                "Bir hata varsa çocuğun profil sayfasından düzeltilebilir.")
+    else:
+        text = "Yeni okul yılı: grubu artırılacak öğrenci hesabı bulunmadı (grup seçilmemiş ya da Groep 8)."
+    for a in admins:
+        send_simple(sender, a["email"], "NL Oefenbank: öğrenciler bir üst gruba geçti", "Yeni okul yılı", text,
+                    "Bu bilgi e-postası sadece adminlere gönderilir.")
+    if not dry_run and not force:
+        log_ref.set({"job": "groep-up", "year": year, "ran_at": iso(now), "changes": len(changes)})
+
+
 def run_scheduled(db, sender, now, dry_run=False):
     """The hourly job: always the quick checks, plus news/weekly when the schedule says so."""
     run_hourly(db, sender, now, dry_run=dry_run)
@@ -501,6 +550,7 @@ def run_scheduled(db, sender, now, dry_run=False):
         run_news(db, sender, now, dry_run=dry_run)
     if is_due(sched["weekly"], now, weekly_dates):
         run_weekly(db, sender, now, dry_run=dry_run)
+    run_groep_up(db, sender, now, dry_run=dry_run)  # does nothing outside August
 
 
 def env_or_stop(names):
@@ -515,8 +565,9 @@ def env_or_stop(names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "test"], required=True,
-                    help="hourly = scheduled run; news/weekly = send that job now, ignoring the schedule; test = previews to one address")
+    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "test", "groep"], required=True,
+                    help="hourly = scheduled run; news/weekly = send that job now, ignoring the schedule; test = previews to one address; "
+                         "groep = move children up one groep now (use with --dry-run to only see what would change)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -543,6 +594,8 @@ def main():
         run_test(db, sender, now, os.environ.get("TEST_TO", "").strip() or os.environ["GMAIL_USER"].strip())
     elif args.mode == "news":
         run_news(db, sender, now, dry_run=args.dry_run, force=True)
+    elif args.mode == "groep":
+        run_groep_up(db, sender, now, dry_run=args.dry_run, force=True)
     else:
         run_weekly(db, sender, now, dry_run=args.dry_run, force=True)
     print(f"done: mode={args.mode} dry_run={args.dry_run}")

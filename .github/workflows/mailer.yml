@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "test = örnek e-postaları sadece test adresine gönder; hourly = normal çalışma; news / weekly = herkese şimdi gönder"
+        description: "test = örnek e-postaları sadece test adresine gönder; hourly = normal çalışma; news / weekly = herkese şimdi gönder; groep = çocukları şimdi bir üst gruba geçir (önce 'Sadece göster' ile dene)"
         type: choice
-        options: [test, hourly, news, weekly]
+        options: [test, hourly, news, weekly, groep]
         default: test
       test_to:
         description: "Test e-postası nereye gitsin? Boş bırak = nloefenbank@gmail.com (repo herkese açık; buraya yazılan adres loglarda görünebilir)"
