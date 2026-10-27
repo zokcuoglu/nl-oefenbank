@@ -11,6 +11,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/site.css">
+<style>
+/* Tabs on top, folded sections, one bar per exercise */
+.admintabs{margin-bottom:16px;width:100%;display:flex} .admintabs button{flex:1;font-size:15px;padding:10px 14px;display:inline-flex;gap:6px;justify-content:center;align-items:center}
+details.fold summary{cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:10px;list-style:none}
+details.fold summary::-webkit-details-marker{display:none}
+details.fold summary h3{margin:0} details.fold summary h3::before{content:"▸ ";color:var(--muted)} details.fold[open] summary h3::before{content:"▾ "}
+.modrow{grid-template-columns:minmax(8em,14em) 1fr auto}
+@media (max-width:560px){.modrow{grid-template-columns:1fr;gap:4px} .minibar{display:none}}
+</style>
 <script>
 // Watchdog: if the login module has not loaded after 10 s (network block, old cache), explain it on screen
 setTimeout(function () {
@@ -49,6 +58,12 @@ const ROLE_HELP = {
   admin: "Her şeyi görür, bu ekrandan tip ve rol atar."
 };
 let users = [], news = [], newsErr = "";
+// The page has three tabs; the choice is kept in the URL hash (#istatistik) so a reload stays on the same tab
+const TABS = { hesaplar: "Hesaplar", istatistik: "İstatistik", eposta: "E-posta" };
+let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : "hesaplar";
+// Statistics filter: everyone, adults or children (their exercises and scores are very different)
+const WHO = { all: "Herkes", adult: "Yetişkinler", child: "Öğrenciler" };
+let who = "all";
 // Mail schedule (Firestore settings/mail, read by scripts/mailer.py). weekday: 1 = Monday ... 7 = Sunday
 const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 } };
 const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
@@ -134,7 +149,7 @@ const CATNAME = { begrip: "Anlama", woorden: "Kelime", uitdrukkingen: "Deyim", g
 
 function statsHtml() {
   if (statsErr) return `<section class="panel"><span class="eyebrow">İstatistik</span><div class="notice" style="margin-top:8px">Çalışma kayıtları okunamadı (${esc(statsErr)}). Güvenlik kurallarını güncelle (admin'in attempts okuma izni).</div></section>`;
-  const active = users.filter(u => statusOf(u) === "approved");
+  const active = users.filter(u => statusOf(u) === "approved" && (who === "all" || (who === "child" ? u.type === "child" : u.type !== "child")));
   const daysSince = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : Infinity;
   const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
   const titleOf = id => cat.modules.find(m => m.id === id)?.title || id;
@@ -165,7 +180,8 @@ function statsHtml() {
   };
 
   // Per exercise: rounds, people who solved it, people who opened it (users.seen)
-  const ready = cat.modules.filter(m => m.status === "ready");
+  const ready = cat.modules.filter(m => m.status === "ready" && !m.id.startsWith("woorden-")
+    && (who === "all" || m.id === "woorden" || (who === "child" ? m.area === "kids" : m.area !== "kids")));
   const modRows = ready.map(m => {
     const solvers = active.filter(u => stats[u.uid]?.byModule[m.id]);
     return { m, rounds: solvers.reduce((n, u) => n + stats[u.uid].byModule[m.id].rounds, 0), solvers: solvers.length, openers: active.filter(u => u.seen?.[m.id]).length };
@@ -185,41 +201,45 @@ function statsHtml() {
     const k = (x.module || "lezen") + "|" + an.qid, v = q[k] = q[k] || { module: x.module || "lezen", qid: an.qid, n: 0, wrong: 0, people: new Set() };
     v.n++; if (!an.correct) v.wrong++; v.people.add(u.uid);
   })));
+  const maxRounds = Math.max(1, ...modRows.map(r => r.rounds));
   const hard = Object.values(q).filter(v => v.n >= 2 && v.wrong > 0).sort((a, b) => b.wrong / b.n - a.wrong / a.n || b.wrong - a.wrong).slice(0, 12);
 
+  const whoSeg = `<div class="seg" role="group" aria-label="Kimin istatistiği">${Object.entries(WHO).map(([k, v]) =>
+    `<button class="${who === k ? "on" : ""}" data-who="${k}" aria-pressed="${who === k}">${v}</button>`).join("")}</div>`;
+  if (!active.length) return `<div class="row" style="margin-bottom:12px">${whoSeg}</div><section class="panel"><p class="muted" style="margin:0">Bu grupta onaylı hesap yok.</p></section>`;
   return `
+    <div class="row" style="margin-bottom:12px">${whoSeg}<span class="muted" style="font-size:13px">${active.length} onaylı hesap</span></div>
     <section class="kpis">
       <div class="panel kpi"><div class="eyebrow">Bu hafta aktif</div><div class="v num">${activeWeek}<small class="muted" style="font-size:15px"> / ${active.length}</small></div></div>
       <div class="panel kpi"><div class="eyebrow">Bu hafta tur</div><div class="v num">${week.length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Bu hafta doğruluk</div><div class="v num" style="color:var(--${weekTot ? tone(pct(weekOk, weekTot)) : "ink"})">${weekTot ? "%" + pct(weekOk, weekTot) : "-"}</div></div>
       <div class="panel kpi"><div class="eyebrow">14+ gündür sessiz</div><div class="v num" style="color:var(--${quiet.length ? "warn" : "ink"})">${quiet.length}</div></div>
     </section>
-    <section class="panel"><div class="sectionhead"><h3>Son 30 gün</h3><span class="muted">herkesin günlük tur sayısı</span></div>${dayBars(everyone, 30)}
-      ${quiet.length ? `<p class="muted" style="font-size:13px;margin:10px 0 0">14 günden uzun süredir tur çözmeyenler: ${quiet.map(u => esc(u.name || u.email)).join(", ")}</p>` : ""}</section>
-    <section class="panel"><div class="sectionhead"><h3>Kim ne yaptı</h3><span class="muted">bu hafta en aktif olan üstte · ayrıntı için isme tıkla</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th class="r">Son 7 gün</th><th class="r">Toplam tur</th><th>Doğruluk</th><th>En çok</th><th class="r">Son tur</th></tr></thead><tbody>
-      ${people.map(({ u, s }) => { const p = pct(s.ok, s.tot), top = Object.entries(s.byModule).sort((a, b) => b[1].rounds - a[1].rounds)[0], idle = daysSince(s.last);
-        return `<tr><td><button class="linkbtn" data-person="${esc(u.uid)}" aria-expanded="false">▸ <b>${esc(u.name || u.email || u.uid)}</b></button>${u.type === "child" ? ` <span class="chip">öğrenci</span>` : ""}</td>
-          <td class="r num"><b>${recentRounds(s, 7)}</b></td><td class="r num">${s.rounds}</td>
-          <td>${s.tot ? `<span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span>` : `<span class="muted">-</span>`}</td>
-          <td>${top ? esc(titleOf(top[0])) : `<span class="muted">-</span>`}</td>
-          <td class="r num">${s.last ? `<span class="${idle > 14 ? "chip warn" : "muted"}">${fmtDate(s.last)}${idle > 14 ? ` · ${idle} gün` : ""}</span>` : `<span class="chip bad">hiç</span>`}</td></tr>
-          <tr id="pd-${esc(u.uid)}" hidden><td colspan="6">${detail(u, s)}</td></tr>`; }).join("")}
+    <section class="panel"><div class="sectionhead"><h3>Kişiler</h3><span class="muted">bu hafta en aktif üstte · ayrıntı için isme tıkla</span></div>
+      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Son tur</th><th class="r">Bu hafta</th><th>Doğruluk</th></tr></thead><tbody>
+      ${people.map(({ u, s }) => { const p = pct(s.ok, s.tot), idle = daysSince(s.last);
+        return `<tr><td><button class="linkbtn" data-person="${esc(u.uid)}" aria-expanded="false">▸ <b>${esc(u.name || u.email || u.uid)}</b></button>${u.type === "child" && who === "all" ? ` <span class="chip">öğrenci</span>` : ""}</td>
+          <td class="num">${s.last ? `<span class="${idle > 14 ? "chip warn" : "muted"}">${idle === 0 ? "bugün" : idle === 1 ? "dün" : idle + " gün önce"}</span>` : `<span class="chip bad">hiç</span>`}</td>
+          <td class="r num"><b>${recentRounds(s, 7)}</b> <span class="muted">tur</span></td>
+          <td>${s.tot ? `<span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span>` : `<span class="muted">-</span>`}</td></tr>
+          <tr id="pd-${esc(u.uid)}" hidden><td colspan="4">${detail(u, s)}</td></tr>`; }).join("")}
       </tbody></table></div></section>
-    <section class="panel"><div class="sectionhead"><h3>En çok yanlış yapılan sorular</h3><span class="muted">herkesin cevapları · en az 2 cevap</span></div>
-      ${hard.length ? `<div class="tablewrap"><table><thead><tr><th>Soru</th><th>Alıştırma</th><th class="r">Yanlış</th><th class="r">Kişi</th></tr></thead><tbody>
-        ${hard.map(v => `<tr><td lang="nl">${esc(questionLabel(v.module, v.qid))}</td><td class="muted">${esc(titleOf(v.module))}</td><td class="r num"><span class="chip ${tone(100 - pct(v.wrong, v.n))}">${v.wrong}/${v.n}</span></td><td class="r num">${v.people.size}</td></tr>`).join("")}
-        </tbody></table></div>` : `<p class="muted">Henüz yeterli cevap yok.</p>`}</section>
+    <section class="panel"><div class="sectionhead"><h3>Son 30 gün</h3><span class="muted">günlük tur sayısı</span></div>${dayBars(everyone, 30)}</section>
     <section class="panel"><div class="sectionhead"><h3>Alıştırmalar</h3><span class="muted">en çok çözülen üstte</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Alıştırma</th><th class="r">Tur</th><th class="r">Çözen</th><th class="r">Açan</th><th></th></tr></thead><tbody>
-      ${modRows.map(r => `<tr><td>${esc(r.m.title)}</td><td class="r num"><b>${r.rounds}</b></td><td class="r num">${r.solvers}</td><td class="r num">${r.openers}</td><td class="r">${status(r)}</td></tr>`).join("")}
-      </tbody></table></div></section>
-    <section class="panel"><div class="sectionhead"><h3 lang="nl">Nieuws in niveaus</h3><span class="muted">haber quiz'leri ve karma sınavlar</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Haber / sınav</th><th class="r">Açan</th><th class="r">Quiz yapan</th><th class="r">Deneme</th><th class="r">Ort. en iyi</th><th></th></tr></thead><tbody>
-      ${newsRows.map(r => `<tr><td lang="nl">${esc(r.title)}</td><td class="r num">${r.openers}</td><td class="r num">${r.solvers}</td><td class="r num">${r.rounds}</td>
-        <td class="r num">${r.best === null ? "-" : `<span class="chip ${tone(r.best)}">%${r.best}</span>`}</td><td class="r">${status(r)}</td></tr>`).join("")}
+      <div style="display:flex;flex-direction:column;gap:8px">${modRows.filter(r => r.rounds).map(r => `<div class="catrow modrow"><span>${esc(r.m.title)}</span>
+        <div class="bar"><i style="width:${Math.round(100 * r.rounds / maxRounds)}%;background:var(--accent)"></i></div>
+        <span class="num r">${r.rounds} tur · ${r.solvers} kişi</span></div>`).join("") || `<p class="muted" style="margin:0">Henüz tur yok.</p>`}</div>
+      ${modRows.some(r => !r.rounds) ? `<p class="muted" style="font-size:13px;margin:12px 0 0"><b>Kimsenin çözmediği:</b> ${modRows.filter(r => !r.rounds).map(r => esc(r.m.title) + (r.openers ? " (açıldı)" : "")).join(", ")}</p>` : ""}</section>
+    <details class="panel fold"><summary><h3>En çok yanlış yapılan sorular</h3><span class="muted">${hard.length} soru</span></summary>
+      ${hard.length ? `<div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Soru</th><th>Alıştırma</th><th class="r">Yanlış</th></tr></thead><tbody>
+        ${hard.map(v => `<tr><td lang="nl">${esc(questionLabel(v.module, v.qid))}</td><td class="muted">${esc(titleOf(v.module))}</td><td class="r num"><span class="chip ${tone(100 - pct(v.wrong, v.n))}">${v.wrong}/${v.n}</span></td></tr>`).join("")}
+        </tbody></table></div>` : `<p class="muted">Henüz yeterli cevap yok (bir soru en az 2 kez cevaplanmalı).</p>`}</details>
+    ${who === "child" ? "" : `<details class="panel fold"><summary><h3 lang="nl">Nieuws in niveaus</h3><span class="muted">haber başına açan, quiz yapan, ortalama</span></summary>
+      <div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Haber / sınav</th><th class="r">Açan</th><th class="r">Quiz yapan</th><th class="r">Ort. en iyi</th></tr></thead><tbody>
+      ${newsRows.map(r => `<tr><td lang="nl">${esc(r.title)}</td><td class="r num">${r.openers}</td><td class="r num">${r.solvers}</td>
+        <td class="r num">${r.best === null ? status(r) : `<span class="chip ${tone(r.best)}">%${r.best}</span>`}</td></tr>`).join("")}
       </tbody></table></div>
-      <p class="muted" style="font-size:13px;margin:10px 0 0">"Açan" sayısı 16 Ekim'den itibaren tutuluyor; eski ziyaretler sayılmaz.</p></section>`;
+      <p class="muted" style="font-size:13px;margin:10px 0 0">"Açan" sayısı 16 Ekim'den itibaren tutuluyor.</p></details>`}`;
 }
 
 // ---------- mail schedule ----------
@@ -254,15 +274,17 @@ function render() {
   const count = r => users.filter(u => roleOf(u) === r).length;
   // Children can be linked to an adult account; the weekly summary also goes to that parent
   const parentOpts = { "": "Yok", ...Object.fromEntries(users.filter(u => u.type === "adult").map(u => [u.uid, u.name || u.email || u.uid])) };
-  app.innerHTML = `
+  const pending = users.filter(u => statusOf(u) === "pending").length;
+  const tabs = `<nav class="seg admintabs" role="tablist">${Object.entries(TABS).map(([k, v]) =>
+    `<button role="tab" class="${tab === k ? "on" : ""}" data-tab="${k}" aria-selected="${tab === k}">${v}${k === "hesaplar" && pending ? ` <span class="chip accent">${pending}</span>` : ""}</button>`).join("")}</nav>`;
+  app.innerHTML = tabs + (tab === "istatistik" ? statsHtml() : tab === "eposta" ? mailTab() : `
     <section class="kpis">
       <div class="panel kpi"><div class="eyebrow">Onay bekleyen</div><div class="v num" style="color:var(--${users.some(u => statusOf(u) === "pending") ? "accent" : "ink"})">${users.filter(u => statusOf(u) === "pending").length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Hesap</div><div class="v num">${users.length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Öğrenci</div><div class="v num">${users.filter(u => u.type === "child").length}</div></div>
       <div class="panel kpi"><div class="eyebrow">Öğretmen</div><div class="v num">${count("teacher")}</div></div>
     </section>
-    <section class="panel"><span class="eyebrow">Roller</span>
-      <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></section>
+
     <section class="panel"><div class="sectionhead"><h3>Hesaplar</h3><span class="muted">yeni gelenleri "Onaylı" yap, satırdaki Kaydet'e bas</span></div>
       <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Veli</th><th>Son giriş</th><th></th></tr></thead><tbody>
       ${users.map((u, i) => `<tr><td><b>${esc(u.name || "-")}</b><br><span class="muted" style="font-size:13px">${esc(u.email || u.uid)}</span></td>
@@ -274,9 +296,13 @@ function render() {
         <td><button class="btn" data-i="${i}">Kaydet</button> <span id="m${i}"></span></td></tr>`).join("")}
       </tbody></table></div>
       <p class="muted" style="font-size:13px;margin:10px 0 0">Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider. Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>
-    ${statsHtml()}
-    ${schedHtml()}
-    ${sentHtml()}
+    <details class="panel fold"><summary><h3>Roller ne demek?</h3></summary>
+      <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></details>`);
+}
+
+// E-mail tab: write an announcement, the schedule, and what was sent
+function mailTab() {
+  return `
     <section class="panel"><div class="sectionhead"><h3>Duyuru gönder</h3><span class="muted">onaylı herkese e-posta, en geç bir saat içinde</span></div>
       <div class="formgrid" style="grid-template-columns:1fr">
         <div class="field"><label for="n-subj">Konu</label><input class="input" id="n-subj" maxlength="120" placeholder="Örn. Yeni: Groep 5 kelime testi"></div>
@@ -286,10 +312,16 @@ function render() {
       <div class="row" style="margin-top:10px"><button class="btn primary" id="n-send">Duyuruyu kuyruğa ekle</button><span id="n-msg"></span></div>
       ${newsErr ? `<div class="notice" style="margin-top:12px">Duyurular okunamadı (${esc(newsErr)}). Güvenlik kurallarını güncelle.</div>` : ""}
       ${news.length ? `<div class="tablewrap" style="margin-top:14px"><table><tbody>${news.map(n => `<tr><td>${esc(n.subject)} <span class="muted" style="font-size:13px">· ${esc({ all: "herkes", adult: "yetişkinler", child: "öğrenciler" }[n.audience || "all"])}</span></td><td class="num muted">${fmtDate(n.created_at)}</td><td class="r">${n.sent_at ? `<span class="chip ok">gönderildi · ${n.recipients || 0} kişi</span>` : `<span class="chip warn">sırada</span>`}</td></tr>`).join("")}</tbody></table></div>` : ""}
-    </section>`;
+    </section>
+    ${schedHtml()}
+    ${sentHtml()}`;
 }
 
 app.addEventListener("click", async e => {
+  const tb = e.target.closest("[data-tab]");
+  if (tb) { tab = tb.dataset.tab; history.replaceState(null, "", "#" + tab); render(); return; }
+  const wb = e.target.closest("[data-who]");
+  if (wb) { who = wb.dataset.who; render(); return; }
   if (e.target.id === "n-send") return queueNews();
   if (e.target.id === "sc-save") return saveSched();
   // Person row: show or hide the details row under it
