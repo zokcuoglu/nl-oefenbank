@@ -181,7 +181,7 @@ function statsHtml() {
 
   // Per exercise: rounds, people who solved it, people who opened it (users.seen)
   const ready = cat.modules.filter(m => m.status === "ready" && !m.id.startsWith("woorden-")
-    && (who === "all" || m.id === "woorden" || (who === "child" ? m.area === "kids" : m.area !== "kids")));
+    && (who === "all" || m.id === "woorden" || (who === "child" ? ["kids", "slimspel"].includes(m.area) : m.area !== "kids")));
   const modRows = ready.map(m => {
     const solvers = active.filter(u => stats[u.uid]?.byModule[m.id]);
     return { m, rounds: solvers.reduce((n, u) => n + stats[u.uid].byModule[m.id].rounds, 0), solvers: solvers.length, openers: active.filter(u => u.seen?.[m.id]).length };

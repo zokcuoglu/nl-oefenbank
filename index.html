@@ -60,7 +60,7 @@ function card(m) {
     days !== null ? `<span class="chip accent num">sınava ${days} gün</span>` : "",
     last ? `<span class="chip num">son: ${fmtDate(last.finished_at)} · ${last.score}/${last.total}</span>` : (m.status === "ready" ? `<span class="chip">başlanmadı</span>` : "")
   ].join("");
-  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
+  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
   return m.status === "ready"
     ? `<a class="panel card" href="${ROOT}${m.href}">${inner}</a>`
     : `<article class="panel card soon">${inner}</article>`;
@@ -86,7 +86,9 @@ app.innerHTML = `
   ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.media.title)}</h2><span class="muted">${esc(cat.areas.media.desc)}</span></div>
     <section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`}
   <div class="area-head"><h2>${esc(cat.areas.kids.title)}</h2><span class="muted">${esc(cat.areas.kids.desc)}</span></div>
-  ${kidsSection()}`;
+  ${kidsSection()}
+  <div class="area-head"><h2>${esc(cat.areas.slimspel.title)}</h2><span class="muted">${esc(cat.areas.slimspel.desc)} <a href="${ROOT}../slimspel/">Tüm oyunlar →</a></span></div>
+  <section class="cards">${cat.modules.filter(m => m.area === "slimspel").map(card).join("")}</section>`;
 </script>
 </body>
 </html>

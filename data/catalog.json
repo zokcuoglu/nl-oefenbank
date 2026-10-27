@@ -1,5 +1,5 @@
 {
-  "_about": "List of exercises shown on the home page. area: nt2 (adults only) or kids (everyone). status: ready or soon.",
+  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon.",
   "areas": {
     "nt2": {
       "title": "NT2 sınavları",
@@ -8,6 +8,10 @@
     "kids": {
       "title": "Öğrenci bölümü",
       "desc": "Okul alıştırmaları. Dokümanlar geldikçe yeni testler eklenecek."
+    },
+    "slimspel": {
+      "title": "Slimspel",
+      "desc": "Öğretici oyunlar ve bulmacalar. Ayrı sitede açılır, aynı hesapla."
     },
     "media": {
       "title": "Lezen en kijken in niveaus",
@@ -98,28 +102,25 @@
     },
     {
       "id": "slimspel-tafels",
-      "area": "kids",
-      "group": "groep5",
-      "title": "Slimspel · Tafels",
+      "area": "slimspel",
+      "title": "Tafels",
       "desc": "Çarpım tablosu 1–10: 10 soruluk alıştırma ya da 60 saniyede rekor denemesi.",
       "href": "../slimspel/tafels/",
       "status": "ready"
     },
     {
       "id": "slimspel-kennis",
-      "area": "kids",
-      "group": "groep5",
-      "title": "Slimspel · Algemene kennis",
+      "area": "slimspel",
+      "title": "Algemene kennis",
       "desc": "Landen, talen, voetbal, dieren, natuur ve Nederland: 10 soruluk turlar, her cevaptan sonra kısa bir bilgi.",
       "href": "../slimspel/kennis/",
       "status": "ready"
     },
     {
       "id": "slimspel-sudoku",
-      "area": "kids",
-      "group": "groep5",
-      "title": "Slimspel · Sudoku",
-      "desc": "4×4 ve 6×6 sudoku, her seferinde yeni bulmaca. Kural bozulunca hemen kırmızı gösterir.",
+      "area": "slimspel",
+      "title": "Sudoku",
+      "desc": "Günün bulmacası: her gün her seviyeden bir tane, herkes için aynı. 4×4 ve 6×6.",
       "href": "../slimspel/sudoku/",
       "status": "ready"
     },
