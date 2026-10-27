@@ -76,59 +76,59 @@ Op de langere termijn gaat het om iets fundamentelers: wolven moeten leren dat m
     "gloss_c1": "anderhalve eeuw = bir buçuk asır • menig = birçok • gezien = göz önüne alındığında • een wolf in schaapskleren = kuzu postuna bürünmüş kurt • onderscheiden = ayırt etmek • indruisen tegen = -e ters düşmek • uit den boze zijn = kesinlikle yasak/yanlış olmak • het devies luidt = parola şu, kural şu • geen krimp geven = kılını kıpırdatmamak, yılmamak • behoedzaam = temkinli • afdruipen = sessizce sıvışmak • het is zaak = önemli olan … • iemand de stuipen op het lijf jagen = ödünü koparmak • luidkeels = avazı çıktığı kadar",
 
     "uitdrukkingen": [
-        {"nl": "wegwezen!", "niveau": "A2", "tr": "git buradan!, defol!",
+        {"nl": "wegwezen!", "niveau": "A2", "groep": "5", "tr": "git buradan!, defol!",
          "uitleg": "Günlük dilde sert ama kısa bir 'git!' komutu. Videoda kurdu kovmak için bağırılıyor. 'Ik ben weg' / 'wegwezen hier' = hadi gidelim, gibi de kullanılır.",
          "voorbeeld": "Wegwezen, jij! Dit is mijn plek.", "voorbeeld_tr": "Git buradan! Burası benim yerim."},
-        {"nl": "hartstikke (leuk, goed …)", "niveau": "A2", "tr": "çok, son derece (günlük dil)",
+        {"nl": "hartstikke (leuk, goed …)", "niveau": "A2", "groep": "4", "tr": "çok, son derece (günlük dil)",
          "uitleg": "'Heel' anlamında güçlendirici. Konuşma dilinde çok yaygın: hartstikke leuk, hartstikke druk, hartstikke bedankt.",
          "voorbeeld": "Bedankt voor je hulp, hartstikke lief!", "voorbeeld_tr": "Yardımın için teşekkürler, çok tatlısın!"},
-        {"nl": "de kans is aanwezig", "niveau": "B1", "tr": "ihtimal var, olabilir",
+        {"nl": "de kans is aanwezig", "niveau": "B1", "groep": "7", "tr": "ihtimal var, olabilir",
          "uitleg": "'Er is een kans' demenin biraz daha resmî hali. Videoda: 'De kans is dus best aanwezig dat je een keer een wolf tegenkomt.'",
          "voorbeeld": "De kans is aanwezig dat het morgen sneeuwt.", "voorbeeld_tr": "Yarın kar yağma ihtimali var."},
-        {"nl": "iemand in de gaten houden", "niveau": "B1", "tr": "birini gözden kaçırmamak, gözü üstünde olmak",
+        {"nl": "iemand in de gaten houden", "niveau": "B1", "groep": "5", "tr": "birini gözden kaçırmamak, gözü üstünde olmak",
          "uitleg": "Birini ya da bir şeyi dikkatle izlemek. Videoda kurda söylenen mesaj: 'Ik hou je in de gaten, maar je moet wel wegwezen.'",
          "voorbeeld": "Kun jij de kinderen even in de gaten houden?", "voorbeeld_tr": "Çocuklara biraz göz kulak olabilir misin?"},
-        {"nl": "op afstand blijven", "niveau": "B1", "tr": "uzak durmak, mesafeyi korumak",
+        {"nl": "op afstand blijven", "niveau": "B1", "groep": "5", "tr": "uzak durmak, mesafeyi korumak",
          "uitleg": "Fiziksel olarak ya da mecazi anlamda birine çok yaklaşmamak. 'Afstand houden' da aynı anlamda.",
          "voorbeeld": "Blijf op afstand van de hond van de buren.", "voorbeeld_tr": "Komşunun köpeğinden uzak dur."},
-        {"nl": "het hazenpad kiezen", "niveau": "B2", "tr": "tabanları yağlamak, kaçıp gitmek",
+        {"nl": "het hazenpad kiezen", "niveau": "B2", "groep": "7", "tr": "tabanları yağlamak, kaçıp gitmek",
          "uitleg": "Tavşan gibi hızla kaçmak. Videodaki ana mesaj: kurt görünce tam da bunu yapmamalısın!",
          "voorbeeld": "Toen de politie kwam, koos de dief het hazenpad.", "voorbeeld_tr": "Polis gelince hırsız tabanları yağladı."},
-        {"nl": "voet bij stuk houden", "niveau": "B2", "tr": "geri adım atmamak, direnmek",
+        {"nl": "voet bij stuk houden", "niveau": "B2", "groep": "8", "tr": "geri adım atmamak, direnmek",
          "uitleg": "Baskıya rağmen fikrini ya da yerini değiştirmemek. Kurt karşısında da hem mecazi hem gerçek anlamda: olduğun yerde kal.",
          "voorbeeld": "Ondanks alle kritiek hield de minister voet bij stuk.", "voorbeeld_tr": "Tüm eleştirilere rağmen bakan geri adım atmadı."},
-        {"nl": "een wolf in schaapskleren", "niveau": "C1", "tr": "kuzu postuna bürünmüş kurt",
+        {"nl": "een wolf in schaapskleren", "niveau": "C1", "groep": "8", "tr": "kuzu postuna bürünmüş kurt",
          "uitleg": "Zararsız görünen ama aslında tehlikeli olan kişi. C1 metninde ters çevriliyor: Ties maskeli olduğu için 'kurt kılığında bir koyun'.",
          "voorbeeld": "Pas op met die verkoper: het is een wolf in schaapskleren.", "voorbeeld_tr": "O satıcıya dikkat et: kuzu postuna bürünmüş bir kurt."},
-        {"nl": "geen krimp geven", "niveau": "C1", "tr": "kılını kıpırdatmamak, yılmamak",
+        {"nl": "geen krimp geven", "niveau": "C1", "groep": "vo", "tr": "kılını kıpırdatmamak, yılmamak",
          "uitleg": "Zor bir durumda bile korku ya da acı göstermemek, pes etmemek.",
          "voorbeeld": "De keeper gaf geen krimp, ook niet na de harde botsing.", "voorbeeld_tr": "Kaleci sert çarpışmadan sonra bile yılmadı."},
-        {"nl": "iemand de stuipen op het lijf jagen", "niveau": "C1", "tr": "birinin ödünü koparmak",
+        {"nl": "iemand de stuipen op het lijf jagen", "niveau": "C1", "groep": "8", "tr": "birinin ödünü koparmak",
          "uitleg": "Birini çok korkutmak. 'De stuipen' = ani kasılmalar.",
          "voorbeeld": "Met dat masker jaag je de kinderen de stuipen op het lijf!", "voorbeeld_tr": "O maskeyle çocukların ödünü koparırsın!"},
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau
-    "woordenschat": """de wolf | zn | wild dier dat op een grote hond lijkt | In Nederland leven weer wolven. | kurt | A1
-het bos | zn | gebied met veel bomen | We wandelen in het bos. | orman | A1
-wandelen | ww | lopen voor je plezier | Op zondag wandelen we graag. | yürüyüş yapmak | A1
-bijten | ww | met je tanden in iets happen | Pas op, die hond bijt! | ısırmak | A2
-wegrennen | ww | snel weglopen | De kat rent weg voor de hond. | koşarak kaçmak | A2
-nieuwsgierig | bn | je wilt alles weten of zien | Kinderen zijn heel nieuwsgierig. | meraklı | A2
-gevaarlijk | bn | het kan pijn doen of schade geven | Deze weg is gevaarlijk. | tehlikeli | A2
-tegenkomen | ww | iemand of iets onverwacht zien of ontmoeten | Ik kwam mijn buurman tegen in de stad. | rastlamak, karşılaşmak | B1
-de roedel | zn | groep wolven (een familie) | Een roedel bestaat uit ouders en jongen. | (kurt) sürüsü | B1
-het roofdier | zn | dier dat andere dieren vangt en eet | De wolf is een roofdier. | yırtıcı hayvan | B1
-de wenkbrauw | zn | haartjes boven je oog | Ze trok haar wenkbrauwen omhoog. | kaş | B1
-achteruit | bw | naar achteren | Doe een stap achteruit. | geriye doğru | B1
-aan de lijn | uitdr | (van een hond) vast aan een riem | Honden moeten hier aan de lijn. | tasmalı | B1
-de wetenschapper | zn | iemand die onderzoek doet | Wetenschappers bestuderen de wolf. | bilim insanı | B1
-dreigend | bn | zo dat iemand bang wordt | Hij keek me dreigend aan. | tehditkâr | B2
-oog in oog staan met | uitdr | heel dichtbij tegenover iemand of iets staan | Ineens stond ik oog in oog met een hert. | burun buruna gelmek | B2
-struinen | ww | rustig rondlopen en rondkijken | We struinden over de markt. | gezinmek, dolaşmak | B2
-onderscheiden | ww | het verschil zien | Ik kan de tweeling niet van elkaar onderscheiden. | ayırt etmek | C1
-behoedzaam | bn | heel voorzichtig | Hij liep behoedzaam over het ijs. | temkinli | C1
-afdruipen | ww | stil en een beetje beschaamd weggaan | Na de ruzie droop hij af. | sessizce sıvışmak | C1""",
+    "woordenschat": """de wolf | zn | wild dier dat op een grote hond lijkt | In Nederland leven weer wolven. | kurt | A1 | 1-2
+het bos | zn | gebied met veel bomen | We wandelen in het bos. | orman | A1 | 1-2
+wandelen | ww | lopen voor je plezier | Op zondag wandelen we graag. | yürüyüş yapmak | A1 | 3
+bijten | ww | met je tanden in iets happen | Pas op, die hond bijt! | ısırmak | A2 | 3
+wegrennen | ww | snel weglopen | De kat rent weg voor de hond. | koşarak kaçmak | A2 | 3
+nieuwsgierig | bn | je wilt alles weten of zien | Kinderen zijn heel nieuwsgierig. | meraklı | A2 | 4
+gevaarlijk | bn | het kan pijn doen of schade geven | Deze weg is gevaarlijk. | tehlikeli | A2 | 3
+tegenkomen | ww | iemand of iets onverwacht zien of ontmoeten | Ik kwam mijn buurman tegen in de stad. | rastlamak, karşılaşmak | B1 | 5
+de roedel | zn | groep wolven (een familie) | Een roedel bestaat uit ouders en jongen. | (kurt) sürüsü | B1 | 6
+het roofdier | zn | dier dat andere dieren vangt en eet | De wolf is een roofdier. | yırtıcı hayvan | B1 | 5
+de wenkbrauw | zn | haartjes boven je oog | Ze trok haar wenkbrauwen omhoog. | kaş | B1 | 5
+achteruit | bw | naar achteren | Doe een stap achteruit. | geriye doğru | B1 | 4
+aan de lijn | uitdr | (van een hond) vast aan een riem | Honden moeten hier aan de lijn. | tasmalı | B1 | 4
+de wetenschapper | zn | iemand die onderzoek doet | Wetenschappers bestuderen de wolf. | bilim insanı | B1 | 6
+dreigend | bn | zo dat iemand bang wordt | Hij keek me dreigend aan. | tehditkâr | B2 | 7
+oog in oog staan met | uitdr | heel dichtbij tegenover iemand of iets staan | Ineens stond ik oog in oog met een hert. | burun buruna gelmek | B2 | 7
+struinen | ww | rustig rondlopen en rondkijken | We struinden over de markt. | gezinmek, dolaşmak | B2 | 8
+onderscheiden | ww | het verschil zien | Ik kan de tweeling niet van elkaar onderscheiden. | ayırt etmek | C1 | 8
+behoedzaam | bn | heel voorzichtig | Hij liep behoedzaam over het ijs. | temkinli | C1 | vo
+afdruipen | ww | stil en een beetje beschaamd weggaan | Na de ruzie droop hij af. | sessizce sıvışmak | C1 | vo""",
 
     "grammatica": """1) De gebiedende wijs: een opdracht of advies geven
 Je gebruikt de stam van het werkwoord (ik-vorm), zonder 'je'.

@@ -73,62 +73,62 @@ Opvallend genoeg blijft de laatste controle mensenwerk: in de proefkeuken wordt 
     "gloss_c1": "het erfgoed = miras • van de band rollen = üretim bandından çıkmak • vertrouwelijk = gizli • zich niet in de kaart laten kijken = kozlarını göstermemek, planını belli etmemek • hanteren = ele almak, işlemek • schuilen in = -de saklı olmak • iets dunnetjes overdoen = bir şeyi bir kez daha yapmak • ergens niet tegen opgewassen zijn = bir şeyle baş edememek • niets te wensen overlaten = kusursuz olmak",
 
     "uitdrukkingen": [
-        {"nl": "voor je het weet", "niveau": "A2", "tr": "bir bakmışsın, göz açıp kapayıncaya kadar",
+        {"nl": "voor je het weet", "niveau": "A2", "groep": "5", "tr": "bir bakmışsın, göz açıp kapayıncaya kadar",
          "uitleg": "Bir şey o kadar hızlı olur ki fark etmezsin bile. Videoda: 'voor je het weet zitten de doosjes dicht'.",
          "voorbeeld": "Voor je het weet, is de vakantie alweer voorbij.", "voorbeeld_tr": "Bir bakmışsın tatil yine bitmiş."},
-        {"nl": "keilekker (kei-)", "niveau": "A2", "tr": "çok lezzetli (konuşma dili)",
+        {"nl": "keilekker (kei-)", "niveau": "A2", "groep": "4", "tr": "çok lezzetli (konuşma dili)",
          "uitleg": "Konuşma dilinde 'kei-' bir sıfatı güçlendirir: keigoed, keihard, keileuk. Resmî yazıda kullanılmaz.",
          "voorbeeld": "Die soep was keilekker!", "voorbeeld_tr": "O çorba çok lezzetliydi!"},
-        {"nl": "iets uit de doeken doen", "niveau": "B1", "tr": "bir şeyi ayrıntısıyla anlatmak, sırrını açmak",
+        {"nl": "iets uit de doeken doen", "niveau": "B1", "groep": "8", "tr": "bir şeyi ayrıntısıyla anlatmak, sırrını açmak",
          "uitleg": "Gizli ya da karmaşık bir şeyi açıklamak. Çoğu zaman olumsuz cümlede: 'niet uit de doeken doen'.",
          "voorbeeld": "De bakker wil zijn recept niet uit de doeken doen.", "voorbeeld_tr": "Fırıncı tarifini açıklamak istemiyor."},
-        {"nl": "laagdrempelig", "niveau": "B1", "tr": "herkesin kolayca erişebileceği, girişi zahmetsiz",
+        {"nl": "laagdrempelig", "niveau": "B1", "groep": "vo", "tr": "herkesin kolayca erişebileceği, girişi zahmetsiz",
          "uitleg": "Kelimesi kelimesine 'eşiği alçak'. Herkesin kolayca başlayabildiği, gidebildiği ya da alabildiği şeyler için çok kullanılır.",
          "voorbeeld": "Het taalcafé is laagdrempelig: je hoeft je niet aan te melden.", "voorbeeld_tr": "Dil kafesi herkese açık: kayıt olman gerekmiyor."},
-        {"nl": "uit de muur eten", "niveau": "B2", "tr": "duvardaki otomattan sıcak atıştırmalık alıp yemek",
+        {"nl": "uit de muur eten", "niveau": "B2", "groep": "6", "tr": "duvardaki otomattan sıcak atıştırmalık alıp yemek",
          "uitleg": "Hollanda'da bazı snack barlarda kroket gibi sıcak atıştırmalıklar duvardaki küçük camlı dolaplardan, para atılarak alınır.",
          "voorbeeld": "Na het stappen eten we vaak een kroket uit de muur.", "voorbeeld_tr": "Gece eğlencesinden sonra genelde otomattan bir kroket alırız."},
-        {"nl": "het geheim van de smid", "niveau": "B2", "tr": "ustanın sırrı, işin püf noktası",
+        {"nl": "het geheim van de smid", "niveau": "B2", "groep": "8", "tr": "ustanın sırrı, işin püf noktası",
          "uitleg": "Birinin bir şeyi nasıl bu kadar iyi yaptığını söylememesi; 'bu benim sırrım' demek.",
          "voorbeeld": "Hoe ze zo snel leert? Dat is het geheim van de smid.", "voorbeeld_tr": "Nasıl bu kadar hızlı öğreniyor? Orası onun sırrı."},
-        {"nl": "van de band rollen", "niveau": "C1", "tr": "üretim bandından çıkmak, seri üretilmek",
+        {"nl": "van de band rollen", "niveau": "C1", "groep": "8", "tr": "üretim bandından çıkmak, seri üretilmek",
          "uitleg": "Fabrikada bantta seri halinde üretilmek. Bazen mecazi olarak: 'birbirinin aynı, seri üretim gibi'.",
          "voorbeeld": "Elke minuut rollen er honderden kroketten van de band.", "voorbeeld_tr": "Her dakika banttan yüzlerce kroket çıkıyor."},
-        {"nl": "zich niet in de kaart laten kijken", "niveau": "C1", "tr": "kozlarını göstermemek, planını belli etmemek",
+        {"nl": "zich niet in de kaart laten kijken", "niveau": "C1", "groep": "vo", "tr": "kozlarını göstermemek, planını belli etmemek",
          "uitleg": "İskambil oyunundan gelir: elindeki kartları kimseye göstermemek.",
          "voorbeeld": "De directeur laat zich niet in de kaart kijken over de nieuwe plannen.", "voorbeeld_tr": "Müdür yeni planlar hakkında hiçbir şey belli etmiyor."},
-        {"nl": "iets (nog eens) dunnetjes overdoen", "niveau": "C1", "tr": "bir şeyi bir kez daha yapmak",
+        {"nl": "iets (nog eens) dunnetjes overdoen", "niveau": "C1", "groep": "vo", "tr": "bir şeyi bir kez daha yapmak",
          "uitleg": "Aynı şeyi tekrar etmek; çoğu zaman 'bir tur daha' anlamında hafif şakacı.",
          "voorbeeld": "Het feest was zo leuk, dat doen we volgend jaar nog eens dunnetjes over.", "voorbeeld_tr": "Parti o kadar güzeldi ki seneye bir kez daha yapacağız."},
-        {"nl": "ergens niet tegen opgewassen zijn", "niveau": "C1", "tr": "bir şeyle baş edememek, ona yetişememek",
+        {"nl": "ergens niet tegen opgewassen zijn", "niveau": "C1", "groep": "vo", "tr": "bir şeyle baş edememek, ona yetişememek",
          "uitleg": "Bir işin, bir rakibin ya da bir durumun senin için fazla güçlü olması.",
          "voorbeeld": "De nieuwe medewerker was niet opgewassen tegen de drukte.", "voorbeeld_tr": "Yeni çalışan yoğunlukla baş edemedi."},
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau
-    "woordenschat": """de kroket | zn | gefrituurde snack met ragout en een korst van paneermeel | Ik neem een broodje kroket. | kroket | A1
-de fabriek | zn | groot gebouw waar producten met machines worden gemaakt | Mijn oom werkt in een fabriek. | fabrika | A1
-geheim | bn | wat niemand mag weten | Het recept is geheim. | gizli | A1
-knapperig | bn | lekker krokant, het kraakt als je bijt | Vers brood heeft een knapperige korst. | çıtır | A1
-de vulling | zn | wat binnenin iets zit | De vulling van de kroket is warm. | iç dolgu | A2
-de ragout | zn | dikke, warme vulling van vlees en saus | In een kroket zit ragout. | ragu (kroketin içi) | A2
-de ketel | zn | grote pan of bak om iets in te koken | Het water kookt in de ketel. | kazan | A2
-de bouillon | zn | dunne soep van water met kruiden of vlees | Ik maak soep van bouillon. | et/sebze suyu | A2
-vloeibaar | bn | zo zacht dat het stroomt, zoals water | Warme honing is vloeibaar. | sıvı, akışkan | A2
-stevig | bn | hard genoeg om zijn vorm te houden | De ragout wordt stevig in de koelcel. | sıkı, katı | A2
-de koelcel | zn | koude ruimte om voedsel koel te bewaren | Het vlees ligt in de koelcel. | soğuk hava odası | B1
-de trechter | zn | wijde bak die onderaan smal wordt | Giet de olie via een trechter in de fles. | huni | B1
-persen | ww | hard ergens op drukken om het een vorm te geven | De machine perst de ragout in staafjes. | preslemek | B1
-het paneermeel | zn | fijn gemalen droog brood | Rol de schnitzel door het paneermeel. | galeta unu | B1
-de proefkeuken | zn | keuken waar recepten getest worden | In de proefkeuken proeven ze elke week. | deneme mutfağı | B1
-razendsnel | bn | heel erg snel | De robot pakt de kroketten razendsnel in. | şimşek hızıyla | B1
-het etmaal | zn | 24 uur | De ragout koelt een etmaal af. | 24 saat, bir gün bir gece | B2
-kenmerkend | bn | typisch voor iets | Die geur is kenmerkend voor een bakkerij. | karakteristik | B2
-op grote schaal | uitdr | in grote hoeveelheden | Kroketten worden op grote schaal gemaakt. | büyük ölçekte | B2
-angstvallig | bw | heel voorzichtig, uit angst dat er iets misgaat | Hij houdt het recept angstvallig geheim. | titizlikle, kaygıyla | B2
-vertrouwelijk | bn | geheim, niet voor iedereen bestemd | Dit recept is vertrouwelijk. | gizli | C1
-hanteren | ww | met iets werken, iets vasthouden of gebruiken | Die massa is te heet om te hanteren. | ele almak, işlemek | C1
-het erfgoed | zn | wat van vroeger is overgebleven en bewaard wordt | Molens zijn Nederlands erfgoed. | miras | C1""",
+    "woordenschat": """de kroket | zn | gefrituurde snack met ragout en een korst van paneermeel | Ik neem een broodje kroket. | kroket | A1 | 1-2
+de fabriek | zn | groot gebouw waar producten met machines worden gemaakt | Mijn oom werkt in een fabriek. | fabrika | A1 | 3
+geheim | bn | wat niemand mag weten | Het recept is geheim. | gizli | A1 | 3
+knapperig | bn | lekker krokant, het kraakt als je bijt | Vers brood heeft een knapperige korst. | çıtır | A1 | 4
+de vulling | zn | wat binnenin iets zit | De vulling van de kroket is warm. | iç dolgu | A2 | 5
+de ragout | zn | dikke, warme vulling van vlees en saus | In een kroket zit ragout. | ragu (kroketin içi) | A2 | 6
+de ketel | zn | grote pan of bak om iets in te koken | Het water kookt in de ketel. | kazan | A2 | 5
+de bouillon | zn | dunne soep van water met kruiden of vlees | Ik maak soep van bouillon. | et/sebze suyu | A2 | 5
+vloeibaar | bn | zo zacht dat het stroomt, zoals water | Warme honing is vloeibaar. | sıvı, akışkan | A2 | 6
+stevig | bn | hard genoeg om zijn vorm te houden | De ragout wordt stevig in de koelcel. | sıkı, katı | A2 | 5
+de koelcel | zn | koude ruimte om voedsel koel te bewaren | Het vlees ligt in de koelcel. | soğuk hava odası | B1 | 6
+de trechter | zn | wijde bak die onderaan smal wordt | Giet de olie via een trechter in de fles. | huni | B1 | 6
+persen | ww | hard ergens op drukken om het een vorm te geven | De machine perst de ragout in staafjes. | preslemek | B1 | 6
+het paneermeel | zn | fijn gemalen droog brood | Rol de schnitzel door het paneermeel. | galeta unu | B1 | 6
+de proefkeuken | zn | keuken waar recepten getest worden | In de proefkeuken proeven ze elke week. | deneme mutfağı | B1 | 6
+razendsnel | bn | heel erg snel | De robot pakt de kroketten razendsnel in. | şimşek hızıyla | B1 | 5
+het etmaal | zn | 24 uur | De ragout koelt een etmaal af. | 24 saat, bir gün bir gece | B2 | 8
+kenmerkend | bn | typisch voor iets | Die geur is kenmerkend voor een bakkerij. | karakteristik | B2 | 8
+op grote schaal | uitdr | in grote hoeveelheden | Kroketten worden op grote schaal gemaakt. | büyük ölçekte | B2 | 8
+angstvallig | bw | heel voorzichtig, uit angst dat er iets misgaat | Hij houdt het recept angstvallig geheim. | titizlikle, kaygıyla | B2 | vo
+vertrouwelijk | bn | geheim, niet voor iedereen bestemd | Dit recept is vertrouwelijk. | gizli | C1 | 8
+hanteren | ww | met iets werken, iets vasthouden of gebruiken | Die massa is te heet om te hanteren. | ele almak, işlemek | C1 | vo
+het erfgoed | zn | wat van vroeger is overgebleven en bewaard wordt | Molens zijn Nederlands erfgoed. | miras | C1 | 8""",
 
     "grammatica": """1) Het passief: worden + voltooid deelwoord
 In een fabriek is vooral belangrijk wát er gebeurt, niet wie het doet. Daarom hoor je in de video veel passieve zinnen.

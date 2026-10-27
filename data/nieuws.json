@@ -21,6 +21,7 @@
     {
      "nl": "voor je het weet",
      "niveau": "A2",
+     "groep": "5",
      "tr": "bir bakmışsın, göz açıp kapayıncaya kadar",
      "uitleg": "Bir şey o kadar hızlı olur ki fark etmezsin bile. Videoda: 'voor je het weet zitten de doosjes dicht'.",
      "voorbeeld": "Voor je het weet, is de vakantie alweer voorbij.",
@@ -29,6 +30,7 @@
     {
      "nl": "keilekker (kei-)",
      "niveau": "A2",
+     "groep": "4",
      "tr": "çok lezzetli (konuşma dili)",
      "uitleg": "Konuşma dilinde 'kei-' bir sıfatı güçlendirir: keigoed, keihard, keileuk. Resmî yazıda kullanılmaz.",
      "voorbeeld": "Die soep was keilekker!",
@@ -37,6 +39,7 @@
     {
      "nl": "iets uit de doeken doen",
      "niveau": "B1",
+     "groep": "8",
      "tr": "bir şeyi ayrıntısıyla anlatmak, sırrını açmak",
      "uitleg": "Gizli ya da karmaşık bir şeyi açıklamak. Çoğu zaman olumsuz cümlede: 'niet uit de doeken doen'.",
      "voorbeeld": "De bakker wil zijn recept niet uit de doeken doen.",
@@ -45,6 +48,7 @@
     {
      "nl": "laagdrempelig",
      "niveau": "B1",
+     "groep": "vo",
      "tr": "herkesin kolayca erişebileceği, girişi zahmetsiz",
      "uitleg": "Kelimesi kelimesine 'eşiği alçak'. Herkesin kolayca başlayabildiği, gidebildiği ya da alabildiği şeyler için çok kullanılır.",
      "voorbeeld": "Het taalcafé is laagdrempelig: je hoeft je niet aan te melden.",
@@ -53,6 +57,7 @@
     {
      "nl": "uit de muur eten",
      "niveau": "B2",
+     "groep": "6",
      "tr": "duvardaki otomattan sıcak atıştırmalık alıp yemek",
      "uitleg": "Hollanda'da bazı snack barlarda kroket gibi sıcak atıştırmalıklar duvardaki küçük camlı dolaplardan, para atılarak alınır.",
      "voorbeeld": "Na het stappen eten we vaak een kroket uit de muur.",
@@ -61,6 +66,7 @@
     {
      "nl": "het geheim van de smid",
      "niveau": "B2",
+     "groep": "8",
      "tr": "ustanın sırrı, işin püf noktası",
      "uitleg": "Birinin bir şeyi nasıl bu kadar iyi yaptığını söylememesi; 'bu benim sırrım' demek.",
      "voorbeeld": "Hoe ze zo snel leert? Dat is het geheim van de smid.",
@@ -69,6 +75,7 @@
     {
      "nl": "van de band rollen",
      "niveau": "C1",
+     "groep": "8",
      "tr": "üretim bandından çıkmak, seri üretilmek",
      "uitleg": "Fabrikada bantta seri halinde üretilmek. Bazen mecazi olarak: 'birbirinin aynı, seri üretim gibi'.",
      "voorbeeld": "Elke minuut rollen er honderden kroketten van de band.",
@@ -77,6 +84,7 @@
     {
      "nl": "zich niet in de kaart laten kijken",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "kozlarını göstermemek, planını belli etmemek",
      "uitleg": "İskambil oyunundan gelir: elindeki kartları kimseye göstermemek.",
      "voorbeeld": "De directeur laat zich niet in de kaart kijken over de nieuwe plannen.",
@@ -85,6 +93,7 @@
     {
      "nl": "iets (nog eens) dunnetjes overdoen",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "bir şeyi bir kez daha yapmak",
      "uitleg": "Aynı şeyi tekrar etmek; çoğu zaman 'bir tur daha' anlamında hafif şakacı.",
      "voorbeeld": "Het feest was zo leuk, dat doen we volgend jaar nog eens dunnetjes over.",
@@ -93,13 +102,14 @@
     {
      "nl": "ergens niet tegen opgewassen zijn",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "bir şeyle baş edememek, ona yetişememek",
      "uitleg": "Bir işin, bir rakibin ya da bir durumun senin için fazla güçlü olması.",
      "voorbeeld": "De nieuwe medewerker was niet opgewassen tegen de drukte.",
      "voorbeeld_tr": "Yeni çalışan yoğunlukla baş edemedi."
     }
    ],
-   "woordenschat": "de kroket | zn | gefrituurde snack met ragout en een korst van paneermeel | Ik neem een broodje kroket. | kroket | A1\nde fabriek | zn | groot gebouw waar producten met machines worden gemaakt | Mijn oom werkt in een fabriek. | fabrika | A1\ngeheim | bn | wat niemand mag weten | Het recept is geheim. | gizli | A1\nknapperig | bn | lekker krokant, het kraakt als je bijt | Vers brood heeft een knapperige korst. | çıtır | A1\nde vulling | zn | wat binnenin iets zit | De vulling van de kroket is warm. | iç dolgu | A2\nde ragout | zn | dikke, warme vulling van vlees en saus | In een kroket zit ragout. | ragu (kroketin içi) | A2\nde ketel | zn | grote pan of bak om iets in te koken | Het water kookt in de ketel. | kazan | A2\nde bouillon | zn | dunne soep van water met kruiden of vlees | Ik maak soep van bouillon. | et/sebze suyu | A2\nvloeibaar | bn | zo zacht dat het stroomt, zoals water | Warme honing is vloeibaar. | sıvı, akışkan | A2\nstevig | bn | hard genoeg om zijn vorm te houden | De ragout wordt stevig in de koelcel. | sıkı, katı | A2\nde koelcel | zn | koude ruimte om voedsel koel te bewaren | Het vlees ligt in de koelcel. | soğuk hava odası | B1\nde trechter | zn | wijde bak die onderaan smal wordt | Giet de olie via een trechter in de fles. | huni | B1\npersen | ww | hard ergens op drukken om het een vorm te geven | De machine perst de ragout in staafjes. | preslemek | B1\nhet paneermeel | zn | fijn gemalen droog brood | Rol de schnitzel door het paneermeel. | galeta unu | B1\nde proefkeuken | zn | keuken waar recepten getest worden | In de proefkeuken proeven ze elke week. | deneme mutfağı | B1\nrazendsnel | bn | heel erg snel | De robot pakt de kroketten razendsnel in. | şimşek hızıyla | B1\nhet etmaal | zn | 24 uur | De ragout koelt een etmaal af. | 24 saat, bir gün bir gece | B2\nkenmerkend | bn | typisch voor iets | Die geur is kenmerkend voor een bakkerij. | karakteristik | B2\nop grote schaal | uitdr | in grote hoeveelheden | Kroketten worden op grote schaal gemaakt. | büyük ölçekte | B2\nangstvallig | bw | heel voorzichtig, uit angst dat er iets misgaat | Hij houdt het recept angstvallig geheim. | titizlikle, kaygıyla | B2\nvertrouwelijk | bn | geheim, niet voor iedereen bestemd | Dit recept is vertrouwelijk. | gizli | C1\nhanteren | ww | met iets werken, iets vasthouden of gebruiken | Die massa is te heet om te hanteren. | ele almak, işlemek | C1\nhet erfgoed | zn | wat van vroeger is overgebleven en bewaard wordt | Molens zijn Nederlands erfgoed. | miras | C1",
+   "woordenschat": "de kroket | zn | gefrituurde snack met ragout en een korst van paneermeel | Ik neem een broodje kroket. | kroket | A1 | 1-2\nde fabriek | zn | groot gebouw waar producten met machines worden gemaakt | Mijn oom werkt in een fabriek. | fabrika | A1 | 3\ngeheim | bn | wat niemand mag weten | Het recept is geheim. | gizli | A1 | 3\nknapperig | bn | lekker krokant, het kraakt als je bijt | Vers brood heeft een knapperige korst. | çıtır | A1 | 4\nde vulling | zn | wat binnenin iets zit | De vulling van de kroket is warm. | iç dolgu | A2 | 5\nde ragout | zn | dikke, warme vulling van vlees en saus | In een kroket zit ragout. | ragu (kroketin içi) | A2 | 6\nde ketel | zn | grote pan of bak om iets in te koken | Het water kookt in de ketel. | kazan | A2 | 5\nde bouillon | zn | dunne soep van water met kruiden of vlees | Ik maak soep van bouillon. | et/sebze suyu | A2 | 5\nvloeibaar | bn | zo zacht dat het stroomt, zoals water | Warme honing is vloeibaar. | sıvı, akışkan | A2 | 6\nstevig | bn | hard genoeg om zijn vorm te houden | De ragout wordt stevig in de koelcel. | sıkı, katı | A2 | 5\nde koelcel | zn | koude ruimte om voedsel koel te bewaren | Het vlees ligt in de koelcel. | soğuk hava odası | B1 | 6\nde trechter | zn | wijde bak die onderaan smal wordt | Giet de olie via een trechter in de fles. | huni | B1 | 6\npersen | ww | hard ergens op drukken om het een vorm te geven | De machine perst de ragout in staafjes. | preslemek | B1 | 6\nhet paneermeel | zn | fijn gemalen droog brood | Rol de schnitzel door het paneermeel. | galeta unu | B1 | 6\nde proefkeuken | zn | keuken waar recepten getest worden | In de proefkeuken proeven ze elke week. | deneme mutfağı | B1 | 6\nrazendsnel | bn | heel erg snel | De robot pakt de kroketten razendsnel in. | şimşek hızıyla | B1 | 5\nhet etmaal | zn | 24 uur | De ragout koelt een etmaal af. | 24 saat, bir gün bir gece | B2 | 8\nkenmerkend | bn | typisch voor iets | Die geur is kenmerkend voor een bakkerij. | karakteristik | B2 | 8\nop grote schaal | uitdr | in grote hoeveelheden | Kroketten worden op grote schaal gemaakt. | büyük ölçekte | B2 | 8\nangstvallig | bw | heel voorzichtig, uit angst dat er iets misgaat | Hij houdt het recept angstvallig geheim. | titizlikle, kaygıyla | B2 | vo\nvertrouwelijk | bn | geheim, niet voor iedereen bestemd | Dit recept is vertrouwelijk. | gizli | C1 | 8\nhanteren | ww | met iets werken, iets vasthouden of gebruiken | Die massa is te heet om te hanteren. | ele almak, işlemek | C1 | vo\nhet erfgoed | zn | wat van vroeger is overgebleven en bewaard wordt | Molens zijn Nederlands erfgoed. | miras | C1 | 8",
    "grammatica": "1) Het passief: worden + voltooid deelwoord\nIn een fabriek is vooral belangrijk wát er gebeurt, niet wie het doet. Daarom hoor je in de video veel passieve zinnen.\n• De kruiden worden met kokend water gemengd.\n• De ragout wordt een dag gekoeld.\n• Elke week worden de kroketten getest.\nWil je toch zeggen wie het doet? Gebruik dan 'door':\n• De kroketten worden door grijpers verpakt.\n2) De stappen van een proces: eerst – daarna – vervolgens – ten slotte\nNa deze woorden komt meteen het werkwoord (inversie).\n• Eerst maken ze bouillon.\n• Daarna wordt de ragout gekoeld.\n• Vervolgens krijgen de kroketten een laagje eiwit.\n• Ten slotte gaan ze de vriezer in.\n3) Bijzinnen met omdat – nadat – zodat: het werkwoord gaat naar het einde\n• De ragout moet afkoelen, omdat hij te vloeibaar is.\n• Nadat de kruiden zijn gemengd, ontstaat er bouillon.\n• Ze krijgen twee lagen paneermeel, zodat ze extra knapperig worden.\nBegint de zin met de bijzin? Dan komt in de hoofdzin het werkwoord meteen daarna: 'Nadat …, ontstaat er bouillon.'",
    "toets": [
     {
@@ -381,6 +391,7 @@
     {
      "nl": "de koukleum",
      "niveau": "A2",
+     "groep": "4",
      "tr": "çabuk üşüyen, soğuğa dayanamayan kişi",
      "uitleg": "Hep üşüyen birine söylenir, genelde şakayla: 'Wat ben jij een koukleum!'",
      "voorbeeld": "Jij hebt alweer een dikke trui aan, koukleum!",
@@ -389,6 +400,7 @@
     {
      "nl": "in de wolken zijn",
      "niveau": "A2",
+     "groep": "5",
      "tr": "havalara uçmak, çok mutlu olmak",
      "uitleg": "Bir şeye çok sevinmek. 'Ze is in de wolken met…' kalıbıyla kullanılır.",
      "voorbeeld": "Ze is in de wolken met haar nieuwe baan.",
@@ -397,6 +409,7 @@
     {
      "nl": "het regent pijpenstelen",
      "niveau": "B1",
+     "groep": "5",
      "tr": "bardaktan boşanırcasına yağıyor",
      "uitleg": "Çok şiddetli yağmur. Kelimesi kelimesine: 'pipo sapları yağıyor'.",
      "voorbeeld": "Neem een paraplu mee, het regent pijpenstelen!",
@@ -405,6 +418,7 @@
     {
      "nl": "met het blote oog",
      "niveau": "B1",
+     "groep": "6",
      "tr": "çıplak gözle",
      "uitleg": "Gözlük, dürbün ya da mikroskop olmadan.",
      "voorbeeld": "Bacteriën kun je niet met het blote oog zien.",
@@ -413,6 +427,7 @@
     {
      "nl": "zonneklaar",
      "niveau": "B2",
+     "groep": "7",
      "tr": "apaçık, gün gibi ortada",
      "uitleg": "'Güneş gibi açık'. Bir şeyin hiç şüphe bırakmayacak kadar net olması.",
      "voorbeeld": "Het is zonneklaar dat hij gelijk heeft.",
@@ -421,6 +436,7 @@
     {
      "nl": "iets biedt uitkomst",
      "niveau": "B2",
+     "groep": "vo",
      "tr": "bir şey çözüm getirir, imdada yetişir",
      "uitleg": "Bir soruna çare olmak. Biraz resmî; haberlerde ve yazı dilinde sık geçer.",
      "voorbeeld": "Bij lange wachttijden biedt een online afspraak uitkomst.",
@@ -429,6 +445,7 @@
     {
      "nl": "er is geen wolkje aan de lucht",
      "niveau": "B2",
+     "groep": "7",
      "tr": "her şey yolunda, hiçbir sorun yok",
      "uitleg": "Kelimesi kelimesine 'gökte tek bulut yok'; mecazi anlamda sorun, kavga ya da endişe olmaması.",
      "voorbeeld": "Na de ruzie was er weer geen wolkje aan de lucht.",
@@ -437,6 +454,7 @@
     {
      "nl": "een tipje van de sluier oplichten",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "bir sırrın ucunu göstermek, küçük bir ipucu vermek",
      "uitleg": "Örtünün (sluier) küçük bir köşesini kaldırmak: henüz her şeyi değil, bir kısmını anlatmak.",
      "voorbeeld": "De trainer lichtte een tipje van de sluier op over de nieuwe spelers.",
@@ -445,6 +463,7 @@
     {
      "nl": "iets aan den lijve ervaren",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "bir şeyi bizzat yaşamak, kendi tecrübesiyle görmek",
      "uitleg": "Eski bir dil kalıbı ('den'): bir şeyi kendi bedeninde, kendi hayatında deneyimlemek.",
      "voorbeeld": "Pas toen ik zelf verhuisde, ervoer ik aan den lijve hoe zwaar dat is.",
@@ -453,13 +472,14 @@
     {
      "nl": "ergens bij stilstaan",
      "niveau": "C1",
+     "groep": "8",
      "tr": "bir şey üzerinde durup düşünmek",
      "uitleg": "Normalde fark etmediğin bir şeyi bir an düşünmek.",
      "voorbeeld": "We staan er zelden bij stil hoe goed we het hebben.",
      "voorbeeld_tr": "Ne kadar iyi durumda olduğumuzu nadiren düşünürüz."
     }
    ],
-   "woordenschat": "de wolk | zn | witte of grijze vorm in de lucht, van waterdruppels | Er is geen wolk te zien. | bulut | A1\nde druppel | zn | heel klein beetje water in een rond vormpje | Er valt een druppel op mijn hand. | damla | A1\nhet weer | zn | hoe het buiten is: zon, regen, wind, temperatuur | Hoe is het weer morgen? | hava durumu | A1\nonzichtbaar | bn | je kunt het niet zien | Lucht is onzichtbaar. | görünmez | A2\nde meteoroloog | zn | iemand die het weer bestudeert en voorspelt | De meteoroloog verwacht morgen regen. | meteorolog | A2\nde waterdamp | zn | water als gas in de lucht | In de badkamer zit veel waterdamp. | su buharı | A2\nafkoelen | ww | kouder worden | Laat de thee even afkoelen. | soğumak | A2\nhet proefje | zn | klein experiment | We doen een proefje met ijs. | küçük deney | A2\nontstaan | ww | beginnen te bestaan | Zo ontstaat een wolk. | oluşmak | B1\nde condensatie | zn | damp die weer vloeibaar water wordt | Door condensatie wordt het raam nat. | yoğuşma | B1\ndoorzichtig | bn | je kunt erdoorheen kijken | Glas is doorzichtig. | şeffaf | B1\nweerkaatsen | ww | licht of geluid terugsturen | Sneeuw weerkaatst het zonlicht. | yansıtmak | B1\nhet aardoppervlak | zn | de buitenkant van de aarde | Warme lucht stijgt op van het aardoppervlak. | yeryüzü | B1\nin aanraking komen met | uitdr | iets aanraken, ermee in contact komen | De damp komt in aanraking met koude lucht. | temas etmek | B2\nogen | ww | eruitzien | De onderkant van de wolk oogt grijs. | görünmek | B2\ngrauw | bn | somber grijs | Het is een grauwe novemberdag. | kasvetli gri | B2\nverzadigd | bn | zo vol dat er niets meer bij kan | De lucht is verzadigd met waterdamp. | doymuş | C1\nwaarnemen | ww | zien, horen of voelen | We nemen de wolk als wit waar. | algılamak | C1\nvanzelfsprekend | bn | zo normaal dat je er niet over nadenkt | Schoon water is niet overal vanzelfsprekend. | olağan, doğal | C1",
+   "woordenschat": "de wolk | zn | witte of grijze vorm in de lucht, van waterdruppels | Er is geen wolk te zien. | bulut | A1 | 1-2\nde druppel | zn | heel klein beetje water in een rond vormpje | Er valt een druppel op mijn hand. | damla | A1 | 3\nhet weer | zn | hoe het buiten is: zon, regen, wind, temperatuur | Hoe is het weer morgen? | hava durumu | A1 | 1-2\nonzichtbaar | bn | je kunt het niet zien | Lucht is onzichtbaar. | görünmez | A2 | 4\nde meteoroloog | zn | iemand die het weer bestudeert en voorspelt | De meteoroloog verwacht morgen regen. | meteorolog | A2 | 7\nde waterdamp | zn | water als gas in de lucht | In de badkamer zit veel waterdamp. | su buharı | A2 | 6\nafkoelen | ww | kouder worden | Laat de thee even afkoelen. | soğumak | A2 | 4\nhet proefje | zn | klein experiment | We doen een proefje met ijs. | küçük deney | A2 | 5\nontstaan | ww | beginnen te bestaan | Zo ontstaat een wolk. | oluşmak | B1 | 6\nde condensatie | zn | damp die weer vloeibaar water wordt | Door condensatie wordt het raam nat. | yoğuşma | B1 | 8\ndoorzichtig | bn | je kunt erdoorheen kijken | Glas is doorzichtig. | şeffaf | B1 | 5\nweerkaatsen | ww | licht of geluid terugsturen | Sneeuw weerkaatst het zonlicht. | yansıtmak | B1 | 7\nhet aardoppervlak | zn | de buitenkant van de aarde | Warme lucht stijgt op van het aardoppervlak. | yeryüzü | B1 | 7\nin aanraking komen met | uitdr | iets aanraken, ermee in contact komen | De damp komt in aanraking met koude lucht. | temas etmek | B2 | 7\nogen | ww | eruitzien | De onderkant van de wolk oogt grijs. | görünmek | B2 | vo\ngrauw | bn | somber grijs | Het is een grauwe novemberdag. | kasvetli gri | B2 | 7\nverzadigd | bn | zo vol dat er niets meer bij kan | De lucht is verzadigd met waterdamp. | doymuş | C1 | 8\nwaarnemen | ww | zien, horen of voelen | We nemen de wolk als wit waar. | algılamak | C1 | 8\nvanzelfsprekend | bn | zo normaal dat je er niet over nadenkt | Schoon water is niet overal vanzelfsprekend. | olağan, doğal | C1 | 8",
    "grammatica": "1) Als …, … : wanneer iets gebeurt (of: onder welke voorwaarde)\nMet 'als' maak je een bijzin: het werkwoord staat aan het einde. Begint de zin met de bijzin, dan komt in de hoofdzin het werkwoord meteen daarna.\n• Als de deeltjes koudere lucht raken, klonteren ze samen.\n• Als ik met de zaklamp op de wolk schijn, wordt hij witter.\n• De wolk wordt witter als de zon erop schijnt.\n2) Hoe …, hoe … : twee dingen veranderen samen\n• Hoe dikker de wolk, hoe grijzer de onderkant.\n• Hoe meer druppels er zijn, hoe minder licht erdoorheen komt.\n3) Spreektaal herkennen: nou – eigenlijk – hè – sowieso\nIn het gesprek hoor je veel kleine woordjes. Ze veranderen de betekenis niet, maar maken de zin vriendelijker of zachter.\n• Nou, de lucht zit vol met kleine deeltjes. ('nou' = om een antwoord te beginnen)\n• Je ziet een waas eromheen, hè? ('hè' = toch?)\n• Het is sowieso koud vandaag. ('sowieso' = in elk geval)",
    "toets": [
     {
@@ -741,6 +761,7 @@
     {
      "nl": "zijn brood verdienen",
      "niveau": "A2",
+     "groep": "6",
      "tr": "geçimini sağlamak, ekmeğini kazanmak",
      "uitleg": "Bir işle para kazanıp hayatını sürdürmek. Türkçedeki 'ekmeğini kazanmak' ile aynı mantık.",
      "voorbeeld": "Hij verdient zijn brood als taxichauffeur.",
@@ -749,6 +770,7 @@
     {
      "nl": "beetje bij beetje",
      "niveau": "A2",
+     "groep": "4",
      "tr": "azar azar, yavaş yavaş",
      "uitleg": "Bir şeyi küçük adımlarla, yavaş yavaş yapmak.",
      "voorbeeld": "Beetje bij beetje leer ik Nederlands.",
@@ -757,6 +779,7 @@
     {
      "nl": "gebakken lucht",
      "niveau": "B1",
+     "groep": "7",
      "tr": "boş laf, içi boş vaat",
      "uitleg": "Kelimesi kelimesine 'pişmiş hava'. Kulağa hoş gelen ama içinde hiçbir şey olmayan sözler. Videoda şaka olarak gerçek anlamıyla kullanılıyor.",
      "voorbeeld": "Zijn verkiezingsbeloftes waren gebakken lucht.",
@@ -765,6 +788,7 @@
     {
      "nl": "met het blote oog",
      "niveau": "B1",
+     "groep": "6",
      "tr": "çıplak gözle",
      "uitleg": "Mikroskop, dürbün ya da gözlük olmadan, sadece kendi gözünle. Bkz. haber #2.",
      "voorbeeld": "Bacteriën kun je niet met het blote oog zien.",
@@ -773,6 +797,7 @@
     {
      "nl": "het kwartje valt",
      "niveau": "B2",
+     "groep": "7",
      "tr": "jeton düşüyor, birden anlamak",
      "uitleg": "'Kwartje' eski bir bozuk paraydı; otomata atılan para düşünce makine çalışırdı. Birinin sonunda bir şeyi anlaması.",
      "voorbeeld": "Na drie keer uitleggen viel eindelijk het kwartje.",
@@ -781,6 +806,7 @@
     {
      "nl": "ergens bij zweren",
      "niveau": "B2",
+     "groep": "8",
      "tr": "bir şeyin en iyisi olduğuna inanmak, ondan şaşmamak",
      "uitleg": "Bir yönteme, ürüne ya da alışkanlığa çok güvenmek.",
      "voorbeeld": "Mijn moeder zweert bij zelfgebakken brood.",
@@ -789,6 +815,7 @@
     {
      "nl": "geen overbodige luxe",
      "niveau": "B2",
+     "groep": "vo",
      "tr": "lüks değil, gerçekten gerekli",
      "uitleg": "Bir şeyin gereksiz değil, aslında çok faydalı/gerekli olduğunu söylemek.",
      "voorbeeld": "Een goede regenjas is in Nederland geen overbodige luxe.",
@@ -797,6 +824,7 @@
     {
      "nl": "stof doen opwaaien",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "ortalığı karıştırmak, çok tartışma yaratmak",
      "uitleg": "Kelimesi kelimesine 'toz kaldırmak'. Bir haberin ya da kararın çok tepki çekmesi.",
      "voorbeeld": "Het nieuwe plan van de gemeente deed veel stof opwaaien.",
@@ -805,6 +833,7 @@
     {
      "nl": "de kroon op iets zetten",
      "niveau": "C1",
+     "groep": "8",
      "tr": "bir şeyi taçlandırmak, en güzel son noktayı koymak",
      "uitleg": "Zaten iyi giden bir şeye en etkileyici kısmı eklemek. Bazen ironik: 'olumsuz bir şeyin üstüne bir de bu'.",
      "voorbeeld": "Met een doelpunt in de laatste minuut zette hij de kroon op zijn werk.",
@@ -813,6 +842,7 @@
     {
      "nl": "holle frasen",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "içi boş laflar",
      "uitleg": "Kulağa güzel gelen ama hiçbir şey söylemeyen cümleler. 'Gebakken lucht'ın daha resmî/yazı dilindeki karşılığı.",
      "voorbeeld": "De toespraak zat vol holle frasen.",
@@ -821,13 +851,14 @@
     {
      "nl": "zich lelijk vergissen",
      "niveau": "C1",
+     "groep": "8",
      "tr": "fena halde yanılmak",
      "uitleg": "'Lelijk' burada 'çirkin' değil, 'çok, fena' anlamında.",
      "voorbeeld": "Als je denkt dat dit makkelijk is, vergis je je lelijk.",
      "voorbeeld_tr": "Bunun kolay olduğunu sanıyorsan fena yanılıyorsun."
     }
    ],
-   "woordenschat": "het brood | zn | gebakken voedsel van meel, water en gist | Ik eet brood met kaas. | ekmek | A1\nde gluten | zn (mv) | eiwitten uit graan die deeg taai en rekbaar maken | In brood zitten gluten. | glüten | A1\nhet deeg | zn | mengsel van meel en water voordat het gebakken is | Het deeg moet even rusten. | hamur | A1\nluchtig | bn | met veel lucht erin, licht | Deze cake is heel luchtig. | kabarık, hafif | A1\nkneden | ww | deeg steeds met je handen drukken en vouwen | Kneed het deeg tien minuten. | yoğurmak | A2\nhet graan | zn | tarwe, rogge, gerst enz. | Brood maak je van graan. | tahıl | A2\nhet eiwit | zn | stof in voedsel die je lichaam nodig heeft; ook: het wit van een ei | Bonen bevatten veel eiwit. | protein; yumurta akı | A2\nuitrekken | ww | langer maken door eraan te trekken | Je kunt het deeg ver uitrekken. | germek | A2\nkleven | ww | vastplakken | De rijst kleeft aan de pan. | yapışmak | B1\nde sliert | zn | lang, dun stuk van iets | Er hangt een sliert spaghetti van zijn vork. | uzun ince şerit | B1\nhet zetmeel | zn | stof in graan en aardappels die energie geeft | Aardappels bevatten veel zetmeel. | nişasta | B1\nhet kuiltje | zn | kleine holte, klein gat | Maak een kuiltje in de bloem. | küçük çukur | B1\nrijzen | ww | groter worden door gas (van deeg) | Laat het deeg een uur rijzen. | kabarmak | B2\nde wrijving | zn | het langs elkaar bewegen en drukken | Door wrijving worden je handen warm. | sürtünme | B2\nveelbesproken | bn | waar veel mensen over praten | Gluten zijn een veelbesproken onderwerp. | çok konuşulan | B2\nmijden | ww | proberen iets niet te doen of te gebruiken | Hij mijdt suiker. | kaçınmak | B2\nachter de schermen | uitdr | op de plek waar het publiek niet komt | We kijken achter de schermen van de bakkerij. | perde arkasında | B2\nambachtelijk | bn | met de hand en op de traditionele manier gemaakt | Dit is ambachtelijk brood. | zanaatkâr usulü | C1\ntaai | bn | moeilijk te breken of te scheuren, buigzaam | Het deeg voelt taai aan. | sert ve esnek | C1\nresteren | ww | overblijven | Na het wassen resteren alleen de gluten. | geriye kalmak | C1",
+   "woordenschat": "het brood | zn | gebakken voedsel van meel, water en gist | Ik eet brood met kaas. | ekmek | A1 | 1-2\nde gluten | zn (mv) | eiwitten uit graan die deeg taai en rekbaar maken | In brood zitten gluten. | glüten | A1 | 6\nhet deeg | zn | mengsel van meel en water voordat het gebakken is | Het deeg moet even rusten. | hamur | A1 | 4\nluchtig | bn | met veel lucht erin, licht | Deze cake is heel luchtig. | kabarık, hafif | A1 | 5\nkneden | ww | deeg steeds met je handen drukken en vouwen | Kneed het deeg tien minuten. | yoğurmak | A2 | 5\nhet graan | zn | tarwe, rogge, gerst enz. | Brood maak je van graan. | tahıl | A2 | 5\nhet eiwit | zn | stof in voedsel die je lichaam nodig heeft; ook: het wit van een ei | Bonen bevatten veel eiwit. | protein; yumurta akı | A2 | 6\nuitrekken | ww | langer maken door eraan te trekken | Je kunt het deeg ver uitrekken. | germek | A2 | 5\nkleven | ww | vastplakken | De rijst kleeft aan de pan. | yapışmak | B1 | 5\nde sliert | zn | lang, dun stuk van iets | Er hangt een sliert spaghetti van zijn vork. | uzun ince şerit | B1 | 5\nhet zetmeel | zn | stof in graan en aardappels die energie geeft | Aardappels bevatten veel zetmeel. | nişasta | B1 | 8\nhet kuiltje | zn | kleine holte, klein gat | Maak een kuiltje in de bloem. | küçük çukur | B1 | 5\nrijzen | ww | groter worden door gas (van deeg) | Laat het deeg een uur rijzen. | kabarmak | B2 | 6\nde wrijving | zn | het langs elkaar bewegen en drukken | Door wrijving worden je handen warm. | sürtünme | B2 | 8\nveelbesproken | bn | waar veel mensen over praten | Gluten zijn een veelbesproken onderwerp. | çok konuşulan | B2 | vo\nmijden | ww | proberen iets niet te doen of te gebruiken | Hij mijdt suiker. | kaçınmak | B2 | 8\nachter de schermen | uitdr | op de plek waar het publiek niet komt | We kijken achter de schermen van de bakkerij. | perde arkasında | B2 | 7\nambachtelijk | bn | met de hand en op de traditionele manier gemaakt | Dit is ambachtelijk brood. | zanaatkâr usulü | C1 | 8\ntaai | bn | moeilijk te breken of te scheuren, buigzaam | Het deeg voelt taai aan. | sert ve esnek | C1 | 6\nresteren | ww | overblijven | Na het wassen resteren alleen de gluten. | geriye kalmak | C1 | vo",
    "grammatica": "1) Verkleinwoorden: -je, -tje, -pje, -etje\nIn het gesprek hoor je veel verkleinwoorden. Ze maken iets klein, maar ook vriendelijk of gezellig. Een verkleinwoord is altijd een het-woord.\n• de sliert → het sliertje (na -t: -je)\n• de kuil → het kuiltje (na een lange klank + l/n/r: -tje)\n• de bloem → het bloempje (na -m: -pje)\n• de bal → het balletje, de ballon → het ballonnetje (korte klank + l/n/r/m/ng aan het eind van een beklemtoonde lettergreep: -etje)\n2) Pas als / zodra: iets gebeurt pas op een bepaald moment\n• Het worden pas gluten als de eiwitten water krijgen.\n• Zodra er water bij komt, veranderen de eiwitten van vorm.\n3) 'zo'n' = ongeveer\n• De bakkerij bakt elke dag zo'n 400 broden. (= ongeveer 400)",
    "toets": [
     {
@@ -1111,6 +1142,7 @@
     {
      "nl": "mazzel hebben",
      "niveau": "A2",
+     "groep": "6",
      "tr": "şansı yaver gitmek",
      "uitleg": "Günlük dilde 'geluk hebben'. Videoda bir anne, kızının en sevdiği üzümden son paketi bulunca 'ze heeft mazzel' diyor. Tersi: 'pech hebben'.",
      "voorbeeld": "Ik had mazzel: de bus had ook vertraging.",
@@ -1119,6 +1151,7 @@
     {
      "nl": "zo erg is het (nou ook weer) niet",
      "niveau": "A2",
+     "groep": "5",
      "tr": "o kadar da kötü değil",
      "uitleg": "Birinin abarttığını düşündüğünde söylenir. Videoda bir müşteri: 'Mensen zeggen allemaal lege schappen, nou, zo erg is dat niet.'",
      "voorbeeld": "Een beetje regen? Zo erg is het nou ook weer niet.",
@@ -1127,6 +1160,7 @@
     {
      "nl": "een stuk (duurder, beter …)",
      "niveau": "B1",
+     "groep": "6",
      "tr": "epey, çok daha (pahalı, iyi …)",
      "uitleg": "'Een stuk' burada 'bir parça' değil, 'epey' anlamında; karşılaştırmalı sıfatla kullanılır. Günlük dilde çok sık.",
      "voorbeeld": "Met de trein ben je een stuk sneller.",
@@ -1135,6 +1169,7 @@
     {
      "nl": "uit voorzorg",
      "niveau": "B1",
+     "groep": "7",
      "tr": "önlem olarak, tedbiren",
      "uitleg": "Bir sorun büyümesin diye önceden bir şey yapmak. Haberlerde çok sık geçer.",
      "voorbeeld": "Uit voorzorg is de school vandaag dicht.",
@@ -1143,6 +1178,7 @@
     {
      "nl": "het is koffiedik kijken",
      "niveau": "B1",
+     "groep": "8",
      "tr": "kimse bilemez, falcılık etmek gibi",
      "uitleg": "Kelimesi kelimesine 'kahve telvesine bakmak'. Gelecek hakkında tahmin yürütmenin imkânsız olduğunu söyler. Türk kahvesi falıyla aynı mantık!",
      "voorbeeld": "Wie de verkiezingen wint? Dat is nog koffiedik kijken.",
@@ -1151,6 +1187,7 @@
     {
      "nl": "plat liggen",
      "niveau": "B2",
+     "groep": "7",
      "tr": "çökmüş olmak, tamamen durmak",
      "uitleg": "Bir sistemin, ağın ya da trafiğin tamamen çalışmaması. 'Platleggen' = durdurmak (bir grev treni 'platlegt').",
      "voorbeeld": "Door de storing lag het hele treinverkeer plat.",
@@ -1159,6 +1196,7 @@
     {
      "nl": "in de soep lopen",
      "niveau": "B2",
+     "groep": "7",
      "tr": "suya düşmek, ters gitmek",
      "uitleg": "Bir planın ya da işin bozulması. Günlük dilde ve haberlerde kullanılır.",
      "voorbeeld": "Door het slechte weer liep het feest in de soep.",
@@ -1167,6 +1205,7 @@
     {
      "nl": "in het duister tasten",
      "niveau": "C1",
+     "groep": "8",
      "tr": "hiçbir fikri olmamak, karanlıkta el yordamıyla aramak",
      "uitleg": "Bir şeyin nedenini ya da gerçeğini bilmemek. Polis haberlerinde de sık: 'De politie tast in het duister.'",
      "voorbeeld": "Over het motief tast de politie nog in het duister.",
@@ -1175,6 +1214,7 @@
     {
      "nl": "de schade beperken",
      "niveau": "C1",
+     "groep": "8",
      "tr": "zararı sınırlamak",
      "uitleg": "Bir sorun çıktığında daha kötüsünü önlemek için hızlı davranmak.",
      "voorbeeld": "Door snel te reageren kon het bedrijf de schade beperken.",
@@ -1183,13 +1223,14 @@
     {
      "nl": "met een sisser aflopen",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "ucuz atlatmak, büyümeden bitmek",
      "uitleg": "Kötü olabilecek bir şeyin ciddi sonuç doğurmadan bitmesi. 'Sisser' = fışşş diye sönen havai fişek.",
      "voorbeeld": "Het ongeluk liep gelukkig met een sisser af.",
      "voorbeeld_tr": "Kaza neyse ki ucuz atlatıldı."
     }
    ],
-   "woordenschat": "de supermarkt | zn | grote winkel voor eten en drinken | Ik doe boodschappen in de supermarkt. | süpermarket | A1\nleeg | bn | er zit niets in | De koelkast is leeg. | boş | A1\nde computer | zn | apparaat waarmee je werkt, rekent en informatie bewaart | De computer doet het niet. | bilgisayar | A1\nhet schap | zn | plank in een winkel waar producten op staan | De melk staat op het onderste schap. | raf | A2\nde krat | zn | open bak van plastic of hout om producten in te vervoeren (ook: het krat) | Het fruit ligt in een krat. | kasa | A2\nonduidelijk | bn | niet duidelijk, je weet het niet precies | Het is nog onduidelijk wanneer de bus komt. | belirsiz | A2\nbestellen | ww | vragen of iemand iets levert | Ik bestel een pizza. | sipariş etmek | A2\nlievelings- | voorvoegsel | wat je het leukst of lekkerst vindt | Dit is mijn lievelingsboek. | en sevdiği | A2\nhet boodschappenlijstje | zn | lijstje met wat je moet kopen | Ik vergeet mijn boodschappenlijstje altijd. | alışveriş listesi | A2\nde bedrijfsleider | zn | iemand die de leiding heeft in een winkel | De bedrijfsleider maakt het rooster. | mağaza müdürü | B1\nde voorraad | zn | spullen die klaarliggen om te gebruiken of te verkopen | De voorraad koffie is op. | stok | B1\nde storing | zn | iets werkt (tijdelijk) niet | Door een storing rijden er geen treinen. | arıza | B1\nde klantgegevens | zn (mv) | informatie over klanten, zoals naam en adres | Klantgegevens moeten goed beveiligd zijn. | müşteri bilgileri | B1\nopstarten | ww | een computer of machine (weer) laten werken | Start je computer opnieuw op. | (yeniden) başlatmak | B1\nde hacker | zn | iemand die zonder toestemming in computers inbreekt | Hackers vielen het systeem aan. | bilgisayar korsanı | B1\nrommelen | ww | (hier) zonder toestemming ergens aan zitten | Iemand heeft in de systemen gerommeld. | kurcalamak | B2\nde telefooncentrale | zn | systeem dat veel telefoongesprekken verbindt | De telefooncentrale was overbelast. | telefon santrali | B2\nlaconiek | bn | rustig, zonder je druk te maken | Ze reageerde laconiek op het nieuws. | soğukkanlı | B2\nde bevoorrading | zn | het brengen van nieuwe voorraad naar winkels | De bevoorrading komt weer op gang. | mal sevkiyatı | C1\nvermoedelijk | bw | waarschijnlijk | De trein heeft vermoedelijk vertraging. | muhtemelen | C1\nbuitmaken | ww | stelen, als buit meenemen | De dieven maakten veel geld buit. | ele geçirmek, çalmak | C1",
+   "woordenschat": "de supermarkt | zn | grote winkel voor eten en drinken | Ik doe boodschappen in de supermarkt. | süpermarket | A1 | 1-2\nleeg | bn | er zit niets in | De koelkast is leeg. | boş | A1 | 1-2\nde computer | zn | apparaat waarmee je werkt, rekent en informatie bewaart | De computer doet het niet. | bilgisayar | A1 | 3\nhet schap | zn | plank in een winkel waar producten op staan | De melk staat op het onderste schap. | raf | A2 | 5\nde krat | zn | open bak van plastic of hout om producten in te vervoeren (ook: het krat) | Het fruit ligt in een krat. | kasa | A2 | 4\nonduidelijk | bn | niet duidelijk, je weet het niet precies | Het is nog onduidelijk wanneer de bus komt. | belirsiz | A2 | 5\nbestellen | ww | vragen of iemand iets levert | Ik bestel een pizza. | sipariş etmek | A2 | 4\nlievelings- | voorvoegsel | wat je het leukst of lekkerst vindt | Dit is mijn lievelingsboek. | en sevdiği | A2 | 3\nhet boodschappenlijstje | zn | lijstje met wat je moet kopen | Ik vergeet mijn boodschappenlijstje altijd. | alışveriş listesi | A2 | 4\nde bedrijfsleider | zn | iemand die de leiding heeft in een winkel | De bedrijfsleider maakt het rooster. | mağaza müdürü | B1 | 7\nde voorraad | zn | spullen die klaarliggen om te gebruiken of te verkopen | De voorraad koffie is op. | stok | B1 | 6\nde storing | zn | iets werkt (tijdelijk) niet | Door een storing rijden er geen treinen. | arıza | B1 | 6\nde klantgegevens | zn (mv) | informatie over klanten, zoals naam en adres | Klantgegevens moeten goed beveiligd zijn. | müşteri bilgileri | B1 | 8\nopstarten | ww | een computer of machine (weer) laten werken | Start je computer opnieuw op. | (yeniden) başlatmak | B1 | 5\nde hacker | zn | iemand die zonder toestemming in computers inbreekt | Hackers vielen het systeem aan. | bilgisayar korsanı | B1 | 6\nrommelen | ww | (hier) zonder toestemming ergens aan zitten | Iemand heeft in de systemen gerommeld. | kurcalamak | B2 | 6\nde telefooncentrale | zn | systeem dat veel telefoongesprekken verbindt | De telefooncentrale was overbelast. | telefon santrali | B2 | vo\nlaconiek | bn | rustig, zonder je druk te maken | Ze reageerde laconiek op het nieuws. | soğukkanlı | B2 | vo\nde bevoorrading | zn | het brengen van nieuwe voorraad naar winkels | De bevoorrading komt weer op gang. | mal sevkiyatı | C1 | vo\nvermoedelijk | bw | waarschijnlijk | De trein heeft vermoedelijk vertraging. | muhtemelen | C1 | 8\nbuitmaken | ww | stelen, als buit meenemen | De dieven maakten veel geld buit. | ele geçirmek, çalmak | C1 | 8",
    "grammatica": "1) Oorzaak en gevolg: omdat – doordat – daardoor – daarom\nDoordat/daardoor gebruik je vooral als niemand het zo wilde. Omdat/daarom kan altijd, ook bij een bewuste keuze.\n• De schappen raken leeg, doordat de computers niet goed werken.\n• Er is een storing. Daardoor zijn de schappen leeg.\n• Er werd gerommeld in de systemen. Daarom zette Albert Heijn ze uit.\nNa omdat en doordat staat het werkwoord aan het einde (bijzin). Na daardoor en daarom komt het werkwoord meteen (inversie).\n2) Vertellen wat een ander zegt of denkt: dat – of – hoe\n• 'De gegevens zijn niet gestolen.' → Albert Heijn denkt dat de gegevens niet gestolen zijn.\n• 'Is het snel opgelost?' → Niemand weet of het snel opgelost is.\n• 'Hoe lang duurt het?' → Het is onduidelijk hoe lang het duurt.\nBij een ja/nee-vraag gebruik je 'of'. Het werkwoord staat steeds aan het einde.",
    "toets": [
     {
@@ -1471,6 +1512,7 @@
     {
      "nl": "wegwezen!",
      "niveau": "A2",
+     "groep": "5",
      "tr": "git buradan!, defol!",
      "uitleg": "Günlük dilde sert ama kısa bir 'git!' komutu. Videoda kurdu kovmak için bağırılıyor. 'Ik ben weg' / 'wegwezen hier' = hadi gidelim, gibi de kullanılır.",
      "voorbeeld": "Wegwezen, jij! Dit is mijn plek.",
@@ -1479,6 +1521,7 @@
     {
      "nl": "hartstikke (leuk, goed …)",
      "niveau": "A2",
+     "groep": "4",
      "tr": "çok, son derece (günlük dil)",
      "uitleg": "'Heel' anlamında güçlendirici. Konuşma dilinde çok yaygın: hartstikke leuk, hartstikke druk, hartstikke bedankt.",
      "voorbeeld": "Bedankt voor je hulp, hartstikke lief!",
@@ -1487,6 +1530,7 @@
     {
      "nl": "de kans is aanwezig",
      "niveau": "B1",
+     "groep": "7",
      "tr": "ihtimal var, olabilir",
      "uitleg": "'Er is een kans' demenin biraz daha resmî hali. Videoda: 'De kans is dus best aanwezig dat je een keer een wolf tegenkomt.'",
      "voorbeeld": "De kans is aanwezig dat het morgen sneeuwt.",
@@ -1495,6 +1539,7 @@
     {
      "nl": "iemand in de gaten houden",
      "niveau": "B1",
+     "groep": "5",
      "tr": "birini gözden kaçırmamak, gözü üstünde olmak",
      "uitleg": "Birini ya da bir şeyi dikkatle izlemek. Videoda kurda söylenen mesaj: 'Ik hou je in de gaten, maar je moet wel wegwezen.'",
      "voorbeeld": "Kun jij de kinderen even in de gaten houden?",
@@ -1503,6 +1548,7 @@
     {
      "nl": "op afstand blijven",
      "niveau": "B1",
+     "groep": "5",
      "tr": "uzak durmak, mesafeyi korumak",
      "uitleg": "Fiziksel olarak ya da mecazi anlamda birine çok yaklaşmamak. 'Afstand houden' da aynı anlamda.",
      "voorbeeld": "Blijf op afstand van de hond van de buren.",
@@ -1511,6 +1557,7 @@
     {
      "nl": "het hazenpad kiezen",
      "niveau": "B2",
+     "groep": "7",
      "tr": "tabanları yağlamak, kaçıp gitmek",
      "uitleg": "Tavşan gibi hızla kaçmak. Videodaki ana mesaj: kurt görünce tam da bunu yapmamalısın!",
      "voorbeeld": "Toen de politie kwam, koos de dief het hazenpad.",
@@ -1519,6 +1566,7 @@
     {
      "nl": "voet bij stuk houden",
      "niveau": "B2",
+     "groep": "8",
      "tr": "geri adım atmamak, direnmek",
      "uitleg": "Baskıya rağmen fikrini ya da yerini değiştirmemek. Kurt karşısında da hem mecazi hem gerçek anlamda: olduğun yerde kal.",
      "voorbeeld": "Ondanks alle kritiek hield de minister voet bij stuk.",
@@ -1527,6 +1575,7 @@
     {
      "nl": "een wolf in schaapskleren",
      "niveau": "C1",
+     "groep": "8",
      "tr": "kuzu postuna bürünmüş kurt",
      "uitleg": "Zararsız görünen ama aslında tehlikeli olan kişi. C1 metninde ters çevriliyor: Ties maskeli olduğu için 'kurt kılığında bir koyun'.",
      "voorbeeld": "Pas op met die verkoper: het is een wolf in schaapskleren.",
@@ -1535,6 +1584,7 @@
     {
      "nl": "geen krimp geven",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "kılını kıpırdatmamak, yılmamak",
      "uitleg": "Zor bir durumda bile korku ya da acı göstermemek, pes etmemek.",
      "voorbeeld": "De keeper gaf geen krimp, ook niet na de harde botsing.",
@@ -1543,13 +1593,14 @@
     {
      "nl": "iemand de stuipen op het lijf jagen",
      "niveau": "C1",
+     "groep": "8",
      "tr": "birinin ödünü koparmak",
      "uitleg": "Birini çok korkutmak. 'De stuipen' = ani kasılmalar.",
      "voorbeeld": "Met dat masker jaag je de kinderen de stuipen op het lijf!",
      "voorbeeld_tr": "O maskeyle çocukların ödünü koparırsın!"
     }
    ],
-   "woordenschat": "de wolf | zn | wild dier dat op een grote hond lijkt | In Nederland leven weer wolven. | kurt | A1\nhet bos | zn | gebied met veel bomen | We wandelen in het bos. | orman | A1\nwandelen | ww | lopen voor je plezier | Op zondag wandelen we graag. | yürüyüş yapmak | A1\nbijten | ww | met je tanden in iets happen | Pas op, die hond bijt! | ısırmak | A2\nwegrennen | ww | snel weglopen | De kat rent weg voor de hond. | koşarak kaçmak | A2\nnieuwsgierig | bn | je wilt alles weten of zien | Kinderen zijn heel nieuwsgierig. | meraklı | A2\ngevaarlijk | bn | het kan pijn doen of schade geven | Deze weg is gevaarlijk. | tehlikeli | A2\ntegenkomen | ww | iemand of iets onverwacht zien of ontmoeten | Ik kwam mijn buurman tegen in de stad. | rastlamak, karşılaşmak | B1\nde roedel | zn | groep wolven (een familie) | Een roedel bestaat uit ouders en jongen. | (kurt) sürüsü | B1\nhet roofdier | zn | dier dat andere dieren vangt en eet | De wolf is een roofdier. | yırtıcı hayvan | B1\nde wenkbrauw | zn | haartjes boven je oog | Ze trok haar wenkbrauwen omhoog. | kaş | B1\nachteruit | bw | naar achteren | Doe een stap achteruit. | geriye doğru | B1\naan de lijn | uitdr | (van een hond) vast aan een riem | Honden moeten hier aan de lijn. | tasmalı | B1\nde wetenschapper | zn | iemand die onderzoek doet | Wetenschappers bestuderen de wolf. | bilim insanı | B1\ndreigend | bn | zo dat iemand bang wordt | Hij keek me dreigend aan. | tehditkâr | B2\noog in oog staan met | uitdr | heel dichtbij tegenover iemand of iets staan | Ineens stond ik oog in oog met een hert. | burun buruna gelmek | B2\nstruinen | ww | rustig rondlopen en rondkijken | We struinden over de markt. | gezinmek, dolaşmak | B2\nonderscheiden | ww | het verschil zien | Ik kan de tweeling niet van elkaar onderscheiden. | ayırt etmek | C1\nbehoedzaam | bn | heel voorzichtig | Hij liep behoedzaam over het ijs. | temkinli | C1\nafdruipen | ww | stil en een beetje beschaamd weggaan | Na de ruzie droop hij af. | sessizce sıvışmak | C1",
+   "woordenschat": "de wolf | zn | wild dier dat op een grote hond lijkt | In Nederland leven weer wolven. | kurt | A1 | 1-2\nhet bos | zn | gebied met veel bomen | We wandelen in het bos. | orman | A1 | 1-2\nwandelen | ww | lopen voor je plezier | Op zondag wandelen we graag. | yürüyüş yapmak | A1 | 3\nbijten | ww | met je tanden in iets happen | Pas op, die hond bijt! | ısırmak | A2 | 3\nwegrennen | ww | snel weglopen | De kat rent weg voor de hond. | koşarak kaçmak | A2 | 3\nnieuwsgierig | bn | je wilt alles weten of zien | Kinderen zijn heel nieuwsgierig. | meraklı | A2 | 4\ngevaarlijk | bn | het kan pijn doen of schade geven | Deze weg is gevaarlijk. | tehlikeli | A2 | 3\ntegenkomen | ww | iemand of iets onverwacht zien of ontmoeten | Ik kwam mijn buurman tegen in de stad. | rastlamak, karşılaşmak | B1 | 5\nde roedel | zn | groep wolven (een familie) | Een roedel bestaat uit ouders en jongen. | (kurt) sürüsü | B1 | 6\nhet roofdier | zn | dier dat andere dieren vangt en eet | De wolf is een roofdier. | yırtıcı hayvan | B1 | 5\nde wenkbrauw | zn | haartjes boven je oog | Ze trok haar wenkbrauwen omhoog. | kaş | B1 | 5\nachteruit | bw | naar achteren | Doe een stap achteruit. | geriye doğru | B1 | 4\naan de lijn | uitdr | (van een hond) vast aan een riem | Honden moeten hier aan de lijn. | tasmalı | B1 | 4\nde wetenschapper | zn | iemand die onderzoek doet | Wetenschappers bestuderen de wolf. | bilim insanı | B1 | 6\ndreigend | bn | zo dat iemand bang wordt | Hij keek me dreigend aan. | tehditkâr | B2 | 7\noog in oog staan met | uitdr | heel dichtbij tegenover iemand of iets staan | Ineens stond ik oog in oog met een hert. | burun buruna gelmek | B2 | 7\nstruinen | ww | rustig rondlopen en rondkijken | We struinden over de markt. | gezinmek, dolaşmak | B2 | 8\nonderscheiden | ww | het verschil zien | Ik kan de tweeling niet van elkaar onderscheiden. | ayırt etmek | C1 | 8\nbehoedzaam | bn | heel voorzichtig | Hij liep behoedzaam over het ijs. | temkinli | C1 | vo\nafdruipen | ww | stil en een beetje beschaamd weggaan | Na de ruzie droop hij af. | sessizce sıvışmak | C1 | vo",
    "grammatica": "1) De gebiedende wijs: een opdracht of advies geven\nJe gebruikt de stam van het werkwoord (ik-vorm), zonder 'je'.\n• Blijf staan!\n• Kijk de wolf boos aan.\n• Ren niet weg!\n• Hou je hond aan de lijn.\n2) Scheidbare werkwoorden: tegenkomen, wegrennen, aankijken, weggaan\nIn een gewone zin gaat het eerste deel naar het einde. In een bijzin en na een modaal werkwoord blijft het werkwoord heel.\n• Ik kom een wolf tegen. → Als ik een wolf tegenkom, …\n• De wolf rent weg. → Je moet niet wegrennen.\n• Kijk de wolf aan. → Je moet de wolf aankijken.\n3) 'Juist' = precies het tegenovergestelde\n• Dat moet je juist niet doen! (= absoluut niet; het omgekeerde is goed)\n• Wolven vinden een groep niet leuk. Ga juist in een groep wandelen.",
    "toets": [
     {
@@ -1833,6 +1884,7 @@
     {
      "nl": "het gaat (niet) goed met …",
      "niveau": "A2",
+     "groep": "4",
      "tr": "… iyi gidiyor / iyi gitmiyor",
      "uitleg": "Birinin ya da bir kurumun durumunu anlatmak için en temel kalıp. Videoda: 'Het gaat dus niet goed met de opvang voor de zeehonden.'",
      "voorbeeld": "Het gaat weer goed met mijn oma.",
@@ -1841,6 +1893,7 @@
     {
      "nl": "iemand (weer) op de been helpen",
      "niveau": "A2",
+     "groep": "7",
      "tr": "birini iyileştirip ayağa kaldırmak",
      "uitleg": "Hasta ya da zor durumdaki birinin (ya da bir hayvanın) iyileşmesine yardım etmek. Mecazi olarak bir şirket için de kullanılır.",
      "voorbeeld": "De dierenarts helpt de zieke zeehond weer op de been.",
@@ -1849,6 +1902,7 @@
     {
      "nl": "in de schulden zitten",
      "niveau": "B1",
+     "groep": "7",
      "tr": "borç içinde olmak",
      "uitleg": "Ödenmesi gereken çok parası olmak. 'Diep in de schulden zitten' = borca batmış olmak.",
      "voorbeeld": "Na de verbouwing zaten ze diep in de schulden.",
@@ -1857,6 +1911,7 @@
     {
      "nl": "zijn baan kwijtraken",
      "niveau": "B1",
+     "groep": "7",
      "tr": "işini kaybetmek",
      "uitleg": "İşten çıkarılmak ya da iş yeri kapandığı için işsiz kalmak. Ayrılabilen fiil: 'Ze raken hun baan kwijt.'",
      "voorbeeld": "Door de sluiting raken veertig mensen hun baan kwijt.",
@@ -1865,6 +1920,7 @@
     {
      "nl": "aan de bel trekken",
      "niveau": "B2",
+     "groep": "8",
      "tr": "alarm vermek, sesini yükseltmek",
      "uitleg": "Ciddi bir soruna dikkat çekmek için yetkililere ya da kamuoyuna seslenmek.",
      "voorbeeld": "Leraren trekken aan de bel over de grote klassen.",
@@ -1873,6 +1929,7 @@
     {
      "nl": "de eindjes aan elkaar knopen",
      "niveau": "B2",
+     "groep": "vo",
      "tr": "iki yakasını bir araya getirmek",
      "uitleg": "Az parayla ancak ay sonunu getirebilmek. Hem kişiler hem kurumlar için.",
      "voorbeeld": "Met één salaris is het moeilijk om de eindjes aan elkaar te knopen.",
@@ -1881,6 +1938,7 @@
     {
      "nl": "het hoofd boven water houden",
      "niveau": "B2",
+     "groep": "8",
      "tr": "ayakta kalmak, batmamak",
      "uitleg": "Zor bir dönemde (genelde para sıkıntısında) hayatta kalabilmek.",
      "voorbeeld": "Veel kleine winkels kunnen het hoofd nauwelijks boven water houden.",
@@ -1889,6 +1947,7 @@
     {
      "nl": "aan een zijden draad hangen",
      "niveau": "B2",
+     "groep": "8",
      "tr": "pamuk ipliğine bağlı olmak",
      "uitleg": "Bir şeyin her an kötüye gidebileceği, çok belirsiz bir durumda olması.",
      "voorbeeld": "Het leven van de patiënt hing aan een zijden draad.",
@@ -1897,6 +1956,7 @@
     {
      "nl": "het water staat iemand tot aan de lippen",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "suyu boğazına gelmiş olmak",
      "uitleg": "Çok büyük (çoğu zaman maddi) sıkıntıda olmak; neredeyse batmak üzere olmak.",
      "voorbeeld": "Het water staat de club tot aan de lippen: zonder sponsor gaat ze failliet.",
@@ -1905,6 +1965,7 @@
     {
      "nl": "de stekker eruit trekken",
      "niveau": "C1",
+     "groep": "8",
      "tr": "fişini çekmek, bitirmek",
      "uitleg": "Bir projeyi, kurumu ya da desteği durdurmak. Haberlerde para kesildiğinde çok kullanılır.",
      "voorbeeld": "De bank trok de stekker eruit en het bedrijf ging failliet.",
@@ -1913,13 +1974,14 @@
     {
      "nl": "een dure grap",
      "niveau": "C1",
+     "groep": "vo",
      "tr": "pahalıya patlayan şey",
      "uitleg": "Beklenenden çok daha pahalı olan bir şey; ironik bir ifade.",
      "voorbeeld": "Die kapotte wasmachine werd een dure grap.",
      "voorbeeld_tr": "O bozuk çamaşır makinesi pahalıya patladı."
     }
    ],
-   "woordenschat": "de zeehond | zn | dier dat in zee leeft, met een rond hoofd en korte poten (vinnen) | Op het strand ligt een zeehond. | fok | A1\nhet strand | zn | zand naast de zee | We gaan naar het strand. | plaj | A1\nziek | bn | niet gezond | De zeehond is ziek. | hasta | A1\ndicht | bn | niet open | De winkel is op zondag dicht. | kapalı | A1\nde opvang | zn | plek waar mensen of dieren tijdelijk zorg krijgen | De kat zit in de dierenopvang. | barınak, bakımevi | A2\nverhuizen | ww | in een ander huis of gebouw gaan wonen of werken | We verhuizen naar Leiden. | taşınmak | A2\nhet kaartje | zn | (hier) bewijs dat je mag binnenkomen | Een kaartje kost tien euro. | bilet | A2\nde schuld | zn | geld dat je nog moet betalen | Hij heeft een schuld bij de bank. | borç | A2\nde bezoeker | zn | iemand die ergens op bezoek komt | Het museum had veel bezoekers. | ziyaretçi | A2\nopvangen | ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1\nverzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakmak | B1\nhet onderzoek | zn | goed kijken en testen om iets te weten te komen | Wetenschappelijk onderzoek kost veel geld. | araştırma | B1\nschenken | ww | (geld) geven zonder iets terug te vragen | Ze schenkt elk jaar geld aan het goede doel. | bağışlamak | B1\nverwachten | ww | denken dat iets gaat gebeuren | Het was duurder dan verwacht. | beklemek | B1\nde gemeente | zn | bestuur van een stad of dorp | De gemeente legt een nieuw park aan. | belediye | B1\nde provincie | zn | deel van Nederland met een eigen bestuur | Groningen is een provincie. | il | B1\nfinancieel | bn | met geld te maken | Het centrum heeft financiële problemen. | mali | B1\nde ondernemer | zn | iemand met een eigen bedrijf | Ondernemers in de buurt verdienen aan toeristen. | girişimci, esnaf | B2\nbetrokken zijn bij | uitdr | meedoen aan iets, (mede) verantwoordelijk zijn | De gemeente was betrokken bij het plan. | dahil olmak | B2\nde donateur | zn | iemand die (vaak elk jaar) geld geeft aan een organisatie | Het centrum zoekt nieuwe donateurs. | bağışçı | B2\nramen | ww | schatten wat iets gaat kosten | De kosten werden geraamd op een miljoen. | (maliyet) tahmin etmek | C1\nde totstandkoming | zn | het ontstaan, het tot stand komen | Hij werkte mee aan de totstandkoming van de wet. | oluşturulma süreci | C1\nbijspringen | ww | helpen als het nodig is | De buren sprongen bij toen we gingen verhuizen. | yardıma koşmak | C1",
+   "woordenschat": "de zeehond | zn | dier dat in zee leeft, met een rond hoofd en korte poten (vinnen) | Op het strand ligt een zeehond. | fok | A1 | 1-2\nhet strand | zn | zand naast de zee | We gaan naar het strand. | plaj | A1 | 1-2\nziek | bn | niet gezond | De zeehond is ziek. | hasta | A1 | 1-2\ndicht | bn | niet open | De winkel is op zondag dicht. | kapalı | A1 | 1-2\nde opvang | zn | plek waar mensen of dieren tijdelijk zorg krijgen | De kat zit in de dierenopvang. | barınak, bakımevi | A2 | 5\nverhuizen | ww | in een ander huis of gebouw gaan wonen of werken | We verhuizen naar Leiden. | taşınmak | A2 | 4\nhet kaartje | zn | (hier) bewijs dat je mag binnenkomen | Een kaartje kost tien euro. | bilet | A2 | 3\nde schuld | zn | geld dat je nog moet betalen | Hij heeft een schuld bij de bank. | borç | A2 | 6\nde bezoeker | zn | iemand die ergens op bezoek komt | Het museum had veel bezoekers. | ziyaretçi | A2 | 5\nopvangen | ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1 | 6\nverzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakmak | B1 | 5\nhet onderzoek | zn | goed kijken en testen om iets te weten te komen | Wetenschappelijk onderzoek kost veel geld. | araştırma | B1 | 6\nschenken | ww | (geld) geven zonder iets terug te vragen | Ze schenkt elk jaar geld aan het goede doel. | bağışlamak | B1 | 7\nverwachten | ww | denken dat iets gaat gebeuren | Het was duurder dan verwacht. | beklemek | B1 | 6\nde gemeente | zn | bestuur van een stad of dorp | De gemeente legt een nieuw park aan. | belediye | B1 | 6\nde provincie | zn | deel van Nederland met een eigen bestuur | Groningen is een provincie. | il | B1 | 6\nfinancieel | bn | met geld te maken | Het centrum heeft financiële problemen. | mali | B1 | 8\nde ondernemer | zn | iemand met een eigen bedrijf | Ondernemers in de buurt verdienen aan toeristen. | girişimci, esnaf | B2 | 8\nbetrokken zijn bij | uitdr | meedoen aan iets, (mede) verantwoordelijk zijn | De gemeente was betrokken bij het plan. | dahil olmak | B2 | 8\nde donateur | zn | iemand die (vaak elk jaar) geld geeft aan een organisatie | Het centrum zoekt nieuwe donateurs. | bağışçı | B2 | vo\nramen | ww | schatten wat iets gaat kosten | De kosten werden geraamd op een miljoen. | (maliyet) tahmin etmek | C1 | vo\nde totstandkoming | zn | het ontstaan, het tot stand komen | Hij werkte mee aan de totstandkoming van de wet. | oluşturulma süreci | C1 | vo\nbijspringen | ww | helpen als het nodig is | De buren sprongen bij toen we gingen verhuizen. | yardıma koşmak | C1 | 8",
    "grammatica": "1) Vergelijken: duurder dan verwacht, minder … dan gehoopt\nBij een vergelijking gebruik je 'dan' (niet 'als').\n• Het gebouw was veel duurder dan verwacht.\n• Er kwam minder geld binnen dan gedacht.\n• Er waren minder donateurs dan gehoopt.\n2) Een voorwaarde: als … , (dan) …\n• Als er binnen twee weken geen geld bijkomt, moet het centrum stoppen.\n• Het centrum moet stoppen als er geen geld bijkomt.\nOok als vraag, zonder 'als': Komt er geen geld bij? Dan moet het centrum stoppen.\n3) Getallen in het nieuws\n• 55 jaar geleden • bijna 3 miljoen euro (3.000.000) • 100.000 bezoekers (honderdduizend) • veertig medewerkers • negen zeehonden\nLet op: in het Nederlands zet je bij grote getallen een punt (100.000) en bij decimalen een komma (2,5 miljoen).",
    "toets": [
     {

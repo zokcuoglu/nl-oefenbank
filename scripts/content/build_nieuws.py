@@ -13,6 +13,7 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE.parent.parent / "data" / "nieuws.json"
 LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1"]  # required in every item
 OPTIONAL_LEVELS = ["c2"]  # may be added to newer items
+GROEPEN = ["1-2", "3", "4", "5", "6", "7", "8", "vo"]
 WERK = HERE / "werk_woorden.csv"
 # Every item quiz has 18 questions with this spread, so item scores are comparable
 ITEM_QUIZ = {"begrip": 5, "woorden": 4, "uitdrukkingen": 5, "grammatica": 4}
@@ -65,8 +66,13 @@ def main():
                 w = werk[wid]
                 assert appears_in(w["nl"], text), f"{f.name}: werk word {wid} '{w['nl']}' not found in the texts"
                 it["werk"].append({k: w[k] for k in ("id", "nl", "tr", "niveau", "voorbeeld", "voorbeeld_tr")})
+        # 7th column = groep (school year in which a Dutch child knows the word: 1-2, 3 ... 8, or vo = after primary school)
         for line in it["woordenschat"].splitlines():
-            assert len(line.split("|")) == 6, f"{f.name}: woordenschat line needs 6 columns: {line}"
+            cols = [c.strip() for c in line.split("|")]
+            assert len(cols) == 7, f"{f.name}: woordenschat line needs 7 columns (… | niveau | groep): {line}"
+            assert cols[6] in GROEPEN, f"{f.name}: groep '{cols[6]}' in: {line}"
+        for u in it["uitdrukkingen"]:
+            assert u.get("groep") in GROEPEN, f"{f.name}: idiom '{u['nl']}' needs groep (one of {GROEPEN})"
         check_questions(it["toets"], f.name, seen_q)
         cats = {c: sum(q["cat"] == c for q in it["toets"]) for c in ITEM_QUIZ}
         assert cats == ITEM_QUIZ, f"{f.name}: quiz spread {cats}, expected {ITEM_QUIZ}"
