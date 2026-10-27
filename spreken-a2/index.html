@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Spreken A2 · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.taskrow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.taskrow:last-child{border-bottom:0} .taskrow:hover b{color:var(--accent)}
+.taskrow .nr{font-family:var(--mono);font-size:13px;color:var(--muted);width:1.6em;text-align:right}
+.scene{background:var(--sunk);border-radius:12px;padding:16px;font-size:16.5px;line-height:1.6}
+.scene .pics{display:grid;gap:8px;margin-top:8px} .scene .pic{background:var(--surface);border:1px dashed var(--line);border-radius:8px;padding:10px 12px}
+.qline{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.qq{font-size:19px;font-weight:600;margin:0}
+.answer{width:100%;min-height:120px;font:inherit;font-size:16.5px;line-height:1.6;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);resize:vertical}
+.mic.on{background:var(--bad);border-color:var(--bad);color:#fff}
+.timerbar{position:sticky;top:0;z-index:5;background:var(--ground);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0}
+.dots{display:flex;gap:3px;flex-wrap:wrap} .dots button{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-family:var(--mono)}
+.dots button.on{outline:2px solid var(--accent)} .dots button.done{background:var(--accent-soft)}
+.timer{font-family:var(--mono);font-size:18px;font-weight:600} .timer.low{color:var(--bad)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px} @media (max-width:760px){.two{grid-template-columns:1fr}}
+.mine{background:var(--sunk);border-radius:10px;padding:10px 12px;white-space:pre-wrap} .model{background:var(--ok-soft);border-radius:10px;padding:10px 12px}
+.copybox{width:100%;min-height:160px;font-family:var(--mono);font-size:12px;margin-top:8px}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <span lang="nl">Inburgeringsexamen A2</span></small><h1>Spreken A2</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// A2 speaking practice: 16 tasks per practice exam (question about yourself, one / two / three pictures), 35 minutes.
+// There are no pictures or films: the picture is described in words and the question is read aloud.
+// You answer by typing or by dictating (browser speech recognition, nl-NL, where available).
+// After "Bitir": your answer next to a model answer, and a prompt to paste into Claude or ChatGPT for scoring.
+// Rounds are saved as attempts (module "spreken-a2", total 0 = scored by AI, like the B1 Spreken page).
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const params = () => new URLSearchParams(location.search);
+const mmss = s => `${Math.floor(Math.max(0, s) / 60)}:${String(Math.max(0, s) % 60).padStart(2, "0")}`;
+
+const { user, profile } = await gate({ area: "nt2", title: "Spreken A2", seen: "spreken-a2" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let D;
+try { D = await (await fetch("../data/spreken-a2.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Görevler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+const byId = {}, examOf = {};
+D.examens.forEach(e => e.taken.forEach(t => { byId[t.id] = t; examOf[t.id] = e.id; }));
+const examById = Object.fromEntries(D.examens.map(e => [e.id, e]));
+let attempts = await loadAttempts(user.uid, "spreken-a2").catch(() => []);
+
+// ---------- Speech: question read aloud; dictation where the browser supports it ----------
+const hasTTS = "speechSynthesis" in window;
+const say = text => { if (!hasTTS) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = "nl-NL"; u.rate = 0.9;
+  const v = speechSynthesis.getVoices().find(x => /^nl/i.test(x.lang)); if (v) u.voice = v; speechSynthesis.speak(u); };
+const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null;
+function toggleMic(id) {
+  if (rec) { rec.stop(); return; }
+  rec = new Rec(); rec.lang = "nl-NL"; rec.continuous = true; rec.interimResults = false;
+  rec.onresult = e => { const txt = [...e.results].slice(e.resultIndex).map(r => r[0].transcript).join(" ").trim();
+    S.run.ans[id] = ((S.run.ans[id] || "") + " " + txt).trim(); const ta = document.getElementById("answer"); if (ta) ta.value = S.run.ans[id]; };
+  rec.onend = () => { rec = null; const b = document.getElementById("mic"); if (b) { b.classList.remove("on"); b.textContent = "🎤 Konuşarak yaz"; } };
+  rec.onerror = e => { const m = document.getElementById("micmsg"); if (m) m.textContent = "Mikrofon çalışmadı (" + e.error + "). Cevabını yazabilirsin."; };
+  rec.start();
+  const b = document.getElementById("mic"); b.classList.add("on"); b.textContent = "■ Durdur";
+}
+
+// ---------- State & views ----------
+// S.run = { test, ids, cur, ans:{id:text}, exam, started, limit, done, saved }
+const S = { run: null, timer: null };
+function startRun(test, ids, exam) {
+  S.run = { test, ids, cur: 0, ans: {}, exam, started: Date.now(), limit: 35 * 60, done: false, saved: false };
+  clearInterval(S.timer);
+  if (exam) S.timer = setInterval(() => { const r = S.run; if (!r || r.done) return; const el = document.getElementById("timer"), s = left();
+    if (el) { el.textContent = mmss(s); el.classList.toggle("low", s <= 300); } if (s <= 0) finish(true); }, 1000);
+}
+const left = () => S.run.limit - Math.floor((Date.now() - S.run.started) / 1000);
+const typeChip = t => `<span class="chip blue" lang="nl">${esc(D.types[t.type])}</span>`;
+
+function vList() {
+  const tip = { vraag: "Kendi hayatından cevap ver ve sorulan her şeyi söyle (ne? neden?).", een: "Resimdeki durumu anlat; fikrin ya da öneri soruluyorsa onu da ekle.",
+    twee: "Bir resmi seç, 'Ik kies plaatje 1' de ve 'want …' ile nedenini söyle.", drie: "Sırayla anlat: eerst … daarna … dan …; ya da her nesnenin adını ve işini söyle." };
+  return `<section class="panel"><span class="eyebrow">Inburgeringsexamen A2</span><h2 style="margin:4px 0 8px">Konuşma sınavına hazırlık</h2>
+      <p class="muted" style="margin:0;max-width:68ch">A2 Spreken sınavı bilgisayarda, 35 dakika, 16 görev: kısa bir videodan sonra kendinle ilgili bir soru, ya da 1, 2 veya 3 resimle ilgili sorular. Cevabı sesli verirsin. Burada resim ve video yok: resim yazıyla anlatılıyor, soru sesli okunuyor. Cevabını yaz ya da mikrofona söyle; sonunda örnek cevapla karşılaştır ve istersen yapay zekâya puanlat. Görevler bu sınav tarzında yazılmış alıştırmalardır.</p>
+      ${Rec ? "" : `<p class="muted" style="font-size:13px;margin:8px 0 0">Bu tarayıcıda konuşarak yazma yok (Chrome ve Edge'de var). Cevabını yazabilirsin.</p>`}</section>
+    <section class="panel"><span class="eyebrow">Dört görev tipi</span><div style="display:grid;gap:8px;margin-top:8px">${Object.entries(D.types).map(([k, v]) => `<div><b lang="nl">${esc(v)}</b> · <span class="muted">${tip[k]}</span></div>`).join("")}</div></section>
+    ${D.examens.map(e => { const l = attempts.find(a => a.test === e.id);
+      return `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3>
+        <span class="row">${l ? `<span class="chip num">son: ${new Date(l.finished_at).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}</span>` : ""}<a class="btn primary" style="text-decoration:none" href="?examen=${e.id}">Tam sınav (${e.minuten} dk)</a></span></div>
+      ${e.taken.map((t, k) => `<a class="taskrow" href="?t=${t.id}"><span class="nr">${k + 1}</span><span lang="nl"><b>${esc(t.vraag)}</b></span>${typeChip(t)}</a>`).join("")}</section>`; }).join("")}`;
+}
+function scene(t) {
+  if (t.type === "vraag") return `<div class="scene" lang="nl"><span class="eyebrow">Filmpje</span><p style="margin:4px 0 0">${esc(t.situatie)}</p></div>`;
+  const pics = t.situatie.split(/(?=Plaatje \d:)/).map(s => s.trim()).filter(Boolean);
+  return `<div class="scene" lang="nl"><span class="eyebrow">${t.type === "een" ? "Plaatje" : "Plaatjes"}</span>
+    <div class="pics">${pics.map(p => `<div class="pic">${esc(p)}</div>`).join("")}</div></div>`;
+}
+function vRun() {
+  const r = S.run, t = byId[r.ids[r.cur]];
+  const head = `<div class="timerbar">
+      ${r.exam ? `<div class="dots">${r.ids.map((id, i) => `<button class="${i === r.cur ? "on" : ""} ${(r.ans[id] || "").trim() ? "done" : ""}" data-act="go" data-i="${i}">${i + 1}</button>`).join("")}</div>` : `<a href="./">← Görevler</a>`}
+      <span style="margin-left:auto" class="row">${r.exam && !r.done ? `<span class="timer" id="timer">${mmss(left())}</span>` : ""}${r.done ? "" : `<button class="btn primary" data-act="finish">Bitir</button>`}</span></div><div id="finishmsg"></div>`;
+  if (r.done) return head + vResult();
+  return head + `<section class="panel" style="display:flex;flex-direction:column;gap:14px">
+      <div class="row"><span class="eyebrow" style="margin:0">Opdracht ${r.cur + 1}${r.exam ? ` / ${r.ids.length}` : ""}</span>${typeChip(t)}</div>
+      ${scene(t)}
+      <div class="qline"><button class="btn" data-act="say" ${hasTTS ? "" : "disabled"}>🔊 Soruyu dinle</button><p class="qq" lang="nl">${esc(t.vraag)}</p></div>
+      <details><summary class="muted" style="cursor:pointer;font-size:13.5px">Türkçe açıklama</summary><p style="margin:6px 0 0;font-size:14.5px">${esc(t.tr)}</p></details>
+      <textarea class="answer" id="answer" lang="nl" spellcheck="false" placeholder="Cevabını buraya yaz ya da mikrofonla söyle…">${esc(r.ans[t.id] || "")}</textarea>
+      <div class="row">${Rec ? `<button class="btn mic" id="mic" data-act="mic">🎤 Konuşarak yaz</button><span class="muted" id="micmsg" style="font-size:13px"></span>` : ""}
+        <span style="margin-left:auto" class="row">${r.exam ? `${r.cur > 0 ? `<button class="btn" data-act="go" data-i="${r.cur - 1}">‹ Önceki</button>` : ""}${r.cur < r.ids.length - 1 ? `<button class="btn primary" data-act="go" data-i="${r.cur + 1}">Sonraki →</button>` : ""}` : ""}</span></div>
+      <p class="muted" style="font-size:13px;margin:0">İpucu: 2–4 kısa cümle yeter. Sorulan her şeye cevap ver; 'waarom' soruluyorsa 'want …' ile neden söyle.</p></section>`;
+}
+function vResult() {
+  const r = S.run, n = r.ids.filter(id => (r.ans[id] || "").trim()).length;
+  return `<section class="panel"><div class="row" style="gap:16px;align-items:flex-end"><div class="bigscore num" style="font-size:40px;font-weight:700">${n}/${r.ids.length}</div>
+      <div class="muted" style="font-size:14px">görevi cevapladın${r.timeout ? " · süre doldu" : ""} · ${r.saved ? "kaydedildi" : "kaydediliyor…"}</div>
+      <div style="margin-left:auto" class="row"><a class="btn" href="./" style="text-decoration:none">Görevlere dön</a><button class="btn primary" data-act="again">Tekrar</button></div></div>
+      <p class="muted" style="margin:8px 0 0;font-size:14px">Cevaplarını örnek cevaplarla karşılaştır. Puan için en alttaki metni kopyalayıp yapay zekâya yapıştır.</p></section>
+    ${r.ids.map((id, i) => { const t = byId[id]; return `<section class="panel"><div class="row"><span class="eyebrow" style="margin:0">Opdracht ${i + 1}</span>${typeChip(t)}</div>
+      <p style="margin:8px 0" lang="nl"><b>${esc(t.vraag)}</b></p>
+      <div class="two"><div><span class="eyebrow">Senin cevabın</span><div class="mine" lang="nl">${(r.ans[id] || "").trim() ? esc(r.ans[id]) : `<span class="muted">(boş)</span>`}</div></div>
+        <div><span class="eyebrow">Örnek cevap</span><div class="model" lang="nl">${esc(t.voorbeeld)} <button class="btn ghost" style="padding:1px 8px;font-size:12px" data-act="sayv" data-id="${id}">Sesli</button></div></div></div></section>`; }).join("")}
+    <section class="panel"><h3>Yapay zekâ ile puanla</h3>
+      <p class="muted" style="margin:6px 0 10px;font-size:14px">Metni kopyala, yeni bir Claude veya ChatGPT sohbetine yapıştır. Görevler, cevapların ve A2 konuşma ölçütleri içinde. Ölçütler alıştırma sitelerinin DUO A2 modeli hakkındaki anlatımına göre yazıldı; resmî metin değil. Telaffuz yazılı cevaptan değerlendirilemez.</p>
+      <div class="row"><button class="btn primary" data-act="copy">Kopyala</button><span id="copystatus" class="muted" style="font-size:14px"></span></div>
+      <details style="margin-top:10px"><summary class="muted" style="cursor:pointer;font-size:13px">Metni göster</summary><textarea class="copybox" readonly id="copybox">${esc(prompt(r))}</textarea></details></section>`;
+}
+function prompt(r) {
+  const L = ["Je bent examinator Nederlands als tweede taal. Beoordeel mijn antwoorden voor het A2-inburgeringsexamen Spreken.",
+    "Mijn antwoorden zijn geschreven of gedicteerd; uitspraak kun je dus niet beoordelen. Ik ben Turks: geef je uitleg in het Turks en de verbeteringen in het Nederlands.", "",
+    "## Criteria (niet het officiële DUO-model; gebaseerd op de beschrijving van A2 Spreken)"];
+  D.criteria.forEach(c => L.push(`- ${c.naam}: ${c.nl}`));
+  L.push("Een antwoord dat niet bij de vraag past of leeg is, krijgt 0. Geef per opdracht 0, 1 of 2 punten per criterium.", "", "## Opdrachten en mijn antwoorden", "");
+  r.ids.forEach((id, i) => { const t = byId[id];
+    L.push(`### Opdracht ${i + 1} (${D.types[t.type]})`, (t.type === "vraag" ? "Filmpje: " : "Wat er op de plaatjes staat: ") + t.situatie, "Vraag: " + t.vraag,
+      "Mijn antwoord: " + ((r.ans[id] || "").trim() || "(leeg)"), "Voorbeeldantwoord (alleen ter oriëntatie): " + t.voorbeeld, ""); });
+  L.push("## Gevraagd resultaat", "1. Per opdracht: punten per criterium, korte uitleg en een verbeterde versie van mijn antwoord.",
+    "2. Een totaal en een eerlijke inschatting of dit voldoende is voor A2.", "3. Drie concrete tips om te oefenen.");
+  return L.join("\n");
+}
+
+async function finish(timeout = false) {
+  const r = S.run; if (r.done) return;
+  if (rec) rec.stop();
+  r.done = true; r.timeout = timeout; clearInterval(S.timer); render(); scrollTo(0, 0);
+  const attempt = { kind: r.exam ? "examen" : "taak", test: r.test, title: r.exam ? examById[r.test].titel : byId[r.test].vraag,
+    started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: Math.round((Date.now() - r.started) / 1000),
+    score: 0, total: 0, answered: r.ids.filter(id => (r.ans[id] || "").trim()).length,
+    answers: r.ids.map(id => ({ qid: id, chosen: (r.ans[id] || "").slice(0, 600), correct: false })) };
+  try { await saveAttempt(user.uid, "spreken-a2", attempt); attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
+  render();
+}
+
+function render() {
+  const p = params();
+  if (S.run) { app.innerHTML = vRun(); return; }
+  const ex = examById[p.get("examen")];
+  if (ex) { startRun(ex.id, ex.taken.map(t => t.id), true); app.innerHTML = vRun(); return; }
+  if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], false); app.innerHTML = vRun(); return; }
+  app.innerHTML = vList();
+}
+app.addEventListener("input", e => { if (e.target.id === "answer" && S.run) S.run.ans[S.run.ids[S.run.cur]] = e.target.value; });
+app.addEventListener("click", async e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const r = S.run;
+  switch (el.dataset.act) {
+    case "say": say(byId[r.ids[r.cur]].vraag); break;
+    case "sayv": say(byId[el.dataset.id].voorbeeld); break;
+    case "mic": toggleMic(r.ids[r.cur]); break;
+    case "go": if (rec) rec.stop(); r.cur = +el.dataset.i; render(); break;
+    case "finish": { const open = r.ids.filter(id => !(r.ans[id] || "").trim()).length, box = document.getElementById("finishmsg");
+      if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} görev boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
+      finish(); break; }
+    case "again": { const t = r.test, ex = r.exam; S.run = null; startRun(t, ex ? examById[t].taken.map(x => x.id) : [t], ex); render(); scrollTo(0, 0); break; }
+    case "copy": { const st = document.getElementById("copystatus");
+      try { await navigator.clipboard.writeText(document.getElementById("copybox").value); st.innerHTML = `<span class="chip ok">Kopyalandı</span> Şimdi yeni bir Claude veya ChatGPT sohbetine yapıştır.`; }
+      catch (err) { st.innerHTML = `<span class="chip warn">Otomatik kopyalanamadı</span> "Metni göster"e tıklayıp kutudaki metni kopyala.`; } break; }
+  }
+});
+addEventListener("popstate", () => { S.run = null; render(); });
+render();
+</script>
+</body>
+</html>

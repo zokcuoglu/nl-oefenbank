@@ -38,6 +38,8 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `woorden/` + `data/woorden.json` | Word test: one pool of work-note words (`scripts/content/werk_woorden.csv`) and news words/idioms; filters for source, level (A1–C2), type and count; learning or exam mode, hints, full review at the end |
 | `lezen/teksten.html?set=a2` + `data/lezen-a2.json` | Lezen A2 (inburgeringsexamen): 16 short everyday texts, 2 practice exams of 8 texts / 25 questions / 65 minutes; source in `scripts/content/lezen_a2/` (`build_a2.py`) |
 | `schrijven-a2/` + `data/schrijven-a2.json` | Schrijven A2: 16 tasks (form, e-mail, note, message), 4 practice exams of 4 tasks / 40 minutes, model answer, self-check list, AI scoring prompt; source `scripts/content/schrijven_a2/build_schrijven_a2.py` |
+| `luisteren-a2/` + `data/luisteren-a2.json` | Luisteren A2: 40 dialogues/announcements read aloud by the browser's Dutch voice(s), 2 practice exams (20 fragments, 45 min, 2 plays each), transcript after answering; source `scripts/content/luisteren_a2/` |
+| `spreken-a2/` + `data/spreken-a2.json` | Spreken A2: 32 tasks in 4 types (question about yourself, 1/2/3 pictures described in words), 2 practice exams (16 tasks, 35 min), typed or dictated answers, model answers, AI scoring prompt; source `scripts/content/spreken_a2/build_spreken_a2.py` |
 | `js/stats.js` | Statistics helpers for the profile and admin pages |
 | `manifest.json`, `icons/` | "Add to home screen" on phones |
 | `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules (also covers the Slimspel daily ranking: `leaderboard/{day}/entries`) |
