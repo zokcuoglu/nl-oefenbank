@@ -49,7 +49,7 @@
       "id": "woorden",
       "area": "media",
       "title": "Kelime testi",
-      "desc": "İş notlarından ve haberlerden 600+ kelime ve deyim. Seviyeni (A1–C2), kaynağı ve soru sayısını seç; öğrenme veya sınav modu, ipuçları ve sonda bütün cevaplar.",
+      "desc": "Temel kelimeler, iş notları ve haberlerden 890+ kelime ve deyim. Seviyeni (A0–C2), kaynağı ve soru sayısını seç; öğrenme veya sınav modu, ipuçları ve sonda bütün cevaplar.",
       "href": "woorden/",
       "status": "ready"
     },
@@ -112,6 +112,33 @@
       "title": "Slimspel · Algemene kennis",
       "desc": "Landen, talen, voetbal, dieren, natuur ve Nederland: 10 soruluk turlar, her cevaptan sonra kısa bir bilgi.",
       "href": "../slimspel/kennis/",
+      "status": "ready"
+    },
+    {
+      "id": "woorden-groep4",
+      "area": "kids",
+      "group": "groep4",
+      "title": "Woordentest",
+      "desc": "Groep 4 ve önceki yılların kelimeleri: anlamı, Hollandacası, boşluk doldurma. İpucu ve sonda bütün cevaplar.",
+      "href": "woorden/?groep=4",
+      "status": "ready"
+    },
+    {
+      "id": "woorden-groep5",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Woordentest",
+      "desc": "Groep 5 ve önceki yılların kelimeleri: anlamı, Hollandacası, boşluk doldurma. İpucu ve sonda bütün cevaplar.",
+      "href": "woorden/?groep=5",
+      "status": "ready"
+    },
+    {
+      "id": "woorden-groep6",
+      "area": "kids",
+      "group": "groep6",
+      "title": "Woordentest",
+      "desc": "Groep 6 ve önceki yılların kelimeleri: anlamı, Hollandacası, boşluk doldurma. İpucu ve sonda bütün cevaplar.",
+      "href": "woorden/?groep=6",
       "status": "ready"
     }
   ]

@@ -71,61 +71,61 @@ De bakker <strong>zet de kroon op</strong> de demonstratie door deze massa als e
     "gloss_c1": "stof doen opwaaien = ortalığı karıştırmak, çok tartışma yaratmak • ambachtelijk = zanaatkâr usulü, el işi • ergens verandering in brengen = bir şeyi değiştirmek • zich ontvouwen = açılmak • samenhangend = bütünlüklü • zich lelijk vergissen = fena halde yanılmak • resteren = geriye kalmak • taai = sert ama esnek, kopması zor • de kroon op iets zetten = bir şeyi taçlandırmak • in één klap = bir anda • holle frasen = içi boş laflar • loze beloften = boş vaatler",
 
     "uitdrukkingen": [
-        {"nl": "zijn brood verdienen", "niveau": "A2", "tr": "geçimini sağlamak, ekmeğini kazanmak",
+        {"nl": "zijn brood verdienen", "niveau": "A2", "groep": "6", "tr": "geçimini sağlamak, ekmeğini kazanmak",
          "uitleg": "Bir işle para kazanıp hayatını sürdürmek. Türkçedeki 'ekmeğini kazanmak' ile aynı mantık.",
          "voorbeeld": "Hij verdient zijn brood als taxichauffeur.", "voorbeeld_tr": "Taksi şoförlüğü yaparak geçimini sağlıyor."},
-        {"nl": "beetje bij beetje", "niveau": "A2", "tr": "azar azar, yavaş yavaş",
+        {"nl": "beetje bij beetje", "niveau": "A2", "groep": "4", "tr": "azar azar, yavaş yavaş",
          "uitleg": "Bir şeyi küçük adımlarla, yavaş yavaş yapmak.",
          "voorbeeld": "Beetje bij beetje leer ik Nederlands.", "voorbeeld_tr": "Yavaş yavaş Hollandaca öğreniyorum."},
-        {"nl": "gebakken lucht", "niveau": "B1", "tr": "boş laf, içi boş vaat",
+        {"nl": "gebakken lucht", "niveau": "B1", "groep": "7", "tr": "boş laf, içi boş vaat",
          "uitleg": "Kelimesi kelimesine 'pişmiş hava'. Kulağa hoş gelen ama içinde hiçbir şey olmayan sözler. Videoda şaka olarak gerçek anlamıyla kullanılıyor.",
          "voorbeeld": "Zijn verkiezingsbeloftes waren gebakken lucht.", "voorbeeld_tr": "Seçim vaatleri boş laftı."},
-        {"nl": "met het blote oog", "niveau": "B1", "tr": "çıplak gözle",
+        {"nl": "met het blote oog", "niveau": "B1", "groep": "6", "tr": "çıplak gözle",
          "uitleg": "Mikroskop, dürbün ya da gözlük olmadan, sadece kendi gözünle. Bkz. haber #2.",
          "voorbeeld": "Bacteriën kun je niet met het blote oog zien.", "voorbeeld_tr": "Bakterileri çıplak gözle göremezsin."},
-        {"nl": "het kwartje valt", "niveau": "B2", "tr": "jeton düşüyor, birden anlamak",
+        {"nl": "het kwartje valt", "niveau": "B2", "groep": "7", "tr": "jeton düşüyor, birden anlamak",
          "uitleg": "'Kwartje' eski bir bozuk paraydı; otomata atılan para düşünce makine çalışırdı. Birinin sonunda bir şeyi anlaması.",
          "voorbeeld": "Na drie keer uitleggen viel eindelijk het kwartje.", "voorbeeld_tr": "Üç kez anlattıktan sonra sonunda jeton düştü."},
-        {"nl": "ergens bij zweren", "niveau": "B2", "tr": "bir şeyin en iyisi olduğuna inanmak, ondan şaşmamak",
+        {"nl": "ergens bij zweren", "niveau": "B2", "groep": "8", "tr": "bir şeyin en iyisi olduğuna inanmak, ondan şaşmamak",
          "uitleg": "Bir yönteme, ürüne ya da alışkanlığa çok güvenmek.",
          "voorbeeld": "Mijn moeder zweert bij zelfgebakken brood.", "voorbeeld_tr": "Annem ev yapımı ekmekten şaşmaz."},
-        {"nl": "geen overbodige luxe", "niveau": "B2", "tr": "lüks değil, gerçekten gerekli",
+        {"nl": "geen overbodige luxe", "niveau": "B2", "groep": "vo", "tr": "lüks değil, gerçekten gerekli",
          "uitleg": "Bir şeyin gereksiz değil, aslında çok faydalı/gerekli olduğunu söylemek.",
          "voorbeeld": "Een goede regenjas is in Nederland geen overbodige luxe.", "voorbeeld_tr": "Hollanda'da iyi bir yağmurluk lüks değil, ihtiyaç."},
-        {"nl": "stof doen opwaaien", "niveau": "C1", "tr": "ortalığı karıştırmak, çok tartışma yaratmak",
+        {"nl": "stof doen opwaaien", "niveau": "C1", "groep": "vo", "tr": "ortalığı karıştırmak, çok tartışma yaratmak",
          "uitleg": "Kelimesi kelimesine 'toz kaldırmak'. Bir haberin ya da kararın çok tepki çekmesi.",
          "voorbeeld": "Het nieuwe plan van de gemeente deed veel stof opwaaien.", "voorbeeld_tr": "Belediyenin yeni planı ortalığı epey karıştırdı."},
-        {"nl": "de kroon op iets zetten", "niveau": "C1", "tr": "bir şeyi taçlandırmak, en güzel son noktayı koymak",
+        {"nl": "de kroon op iets zetten", "niveau": "C1", "groep": "8", "tr": "bir şeyi taçlandırmak, en güzel son noktayı koymak",
          "uitleg": "Zaten iyi giden bir şeye en etkileyici kısmı eklemek. Bazen ironik: 'olumsuz bir şeyin üstüne bir de bu'.",
          "voorbeeld": "Met een doelpunt in de laatste minuut zette hij de kroon op zijn werk.", "voorbeeld_tr": "Son dakika golüyle emeğini taçlandırdı."},
-        {"nl": "holle frasen", "niveau": "C1", "tr": "içi boş laflar",
+        {"nl": "holle frasen", "niveau": "C1", "groep": "vo", "tr": "içi boş laflar",
          "uitleg": "Kulağa güzel gelen ama hiçbir şey söylemeyen cümleler. 'Gebakken lucht'ın daha resmî/yazı dilindeki karşılığı.",
          "voorbeeld": "De toespraak zat vol holle frasen.", "voorbeeld_tr": "Konuşma içi boş laflarla doluydu."},
-        {"nl": "zich lelijk vergissen", "niveau": "C1", "tr": "fena halde yanılmak",
+        {"nl": "zich lelijk vergissen", "niveau": "C1", "groep": "8", "tr": "fena halde yanılmak",
          "uitleg": "'Lelijk' burada 'çirkin' değil, 'çok, fena' anlamında.",
          "voorbeeld": "Als je denkt dat dit makkelijk is, vergis je je lelijk.", "voorbeeld_tr": "Bunun kolay olduğunu sanıyorsan fena yanılıyorsun."},
     ],
 
-    "woordenschat": """het brood | zn | gebakken voedsel van meel, water en gist | Ik eet brood met kaas. | ekmek | A1
-de gluten | zn (mv) | eiwitten uit graan die deeg taai en rekbaar maken | In brood zitten gluten. | glüten | A1
-het deeg | zn | mengsel van meel en water voordat het gebakken is | Het deeg moet even rusten. | hamur | A1
-luchtig | bn | met veel lucht erin, licht | Deze cake is heel luchtig. | kabarık, hafif | A1
-kneden | ww | deeg steeds met je handen drukken en vouwen | Kneed het deeg tien minuten. | yoğurmak | A2
-het graan | zn | tarwe, rogge, gerst enz. | Brood maak je van graan. | tahıl | A2
-het eiwit | zn | stof in voedsel die je lichaam nodig heeft; ook: het wit van een ei | Bonen bevatten veel eiwit. | protein; yumurta akı | A2
-uitrekken | ww | langer maken door eraan te trekken | Je kunt het deeg ver uitrekken. | germek | A2
-kleven | ww | vastplakken | De rijst kleeft aan de pan. | yapışmak | B1
-de sliert | zn | lang, dun stuk van iets | Er hangt een sliert spaghetti van zijn vork. | uzun ince şerit | B1
-het zetmeel | zn | stof in graan en aardappels die energie geeft | Aardappels bevatten veel zetmeel. | nişasta | B1
-het kuiltje | zn | kleine holte, klein gat | Maak een kuiltje in de bloem. | küçük çukur | B1
-rijzen | ww | groter worden door gas (van deeg) | Laat het deeg een uur rijzen. | kabarmak | B2
-de wrijving | zn | het langs elkaar bewegen en drukken | Door wrijving worden je handen warm. | sürtünme | B2
-veelbesproken | bn | waar veel mensen over praten | Gluten zijn een veelbesproken onderwerp. | çok konuşulan | B2
-mijden | ww | proberen iets niet te doen of te gebruiken | Hij mijdt suiker. | kaçınmak | B2
-achter de schermen | uitdr | op de plek waar het publiek niet komt | We kijken achter de schermen van de bakkerij. | perde arkasında | B2
-ambachtelijk | bn | met de hand en op de traditionele manier gemaakt | Dit is ambachtelijk brood. | zanaatkâr usulü | C1
-taai | bn | moeilijk te breken of te scheuren, buigzaam | Het deeg voelt taai aan. | sert ve esnek | C1
-resteren | ww | overblijven | Na het wassen resteren alleen de gluten. | geriye kalmak | C1""",
+    "woordenschat": """het brood | zn | gebakken voedsel van meel, water en gist | Ik eet brood met kaas. | ekmek | A1 | 1-2
+de gluten | zn (mv) | eiwitten uit graan die deeg taai en rekbaar maken | In brood zitten gluten. | glüten | A1 | 6
+het deeg | zn | mengsel van meel en water voordat het gebakken is | Het deeg moet even rusten. | hamur | A1 | 4
+luchtig | bn | met veel lucht erin, licht | Deze cake is heel luchtig. | kabarık, hafif | A1 | 5
+kneden | ww | deeg steeds met je handen drukken en vouwen | Kneed het deeg tien minuten. | yoğurmak | A2 | 5
+het graan | zn | tarwe, rogge, gerst enz. | Brood maak je van graan. | tahıl | A2 | 5
+het eiwit | zn | stof in voedsel die je lichaam nodig heeft; ook: het wit van een ei | Bonen bevatten veel eiwit. | protein; yumurta akı | A2 | 6
+uitrekken | ww | langer maken door eraan te trekken | Je kunt het deeg ver uitrekken. | germek | A2 | 5
+kleven | ww | vastplakken | De rijst kleeft aan de pan. | yapışmak | B1 | 5
+de sliert | zn | lang, dun stuk van iets | Er hangt een sliert spaghetti van zijn vork. | uzun ince şerit | B1 | 5
+het zetmeel | zn | stof in graan en aardappels die energie geeft | Aardappels bevatten veel zetmeel. | nişasta | B1 | 8
+het kuiltje | zn | kleine holte, klein gat | Maak een kuiltje in de bloem. | küçük çukur | B1 | 5
+rijzen | ww | groter worden door gas (van deeg) | Laat het deeg een uur rijzen. | kabarmak | B2 | 6
+de wrijving | zn | het langs elkaar bewegen en drukken | Door wrijving worden je handen warm. | sürtünme | B2 | 8
+veelbesproken | bn | waar veel mensen over praten | Gluten zijn een veelbesproken onderwerp. | çok konuşulan | B2 | vo
+mijden | ww | proberen iets niet te doen of te gebruiken | Hij mijdt suiker. | kaçınmak | B2 | 8
+achter de schermen | uitdr | op de plek waar het publiek niet komt | We kijken achter de schermen van de bakkerij. | perde arkasında | B2 | 7
+ambachtelijk | bn | met de hand en op de traditionele manier gemaakt | Dit is ambachtelijk brood. | zanaatkâr usulü | C1 | 8
+taai | bn | moeilijk te breken of te scheuren, buigzaam | Het deeg voelt taai aan. | sert ve esnek | C1 | 6
+resteren | ww | overblijven | Na het wassen resteren alleen de gluten. | geriye kalmak | C1 | vo""",
 
     "grammatica": """1) Verkleinwoorden: -je, -tje, -pje, -etje
 In het gesprek hoor je veel verkleinwoorden. Ze maken iets klein, maar ook vriendelijk of gezellig. Een verkleinwoord is altijd een het-woord.

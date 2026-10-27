@@ -1,12 +1,21 @@
 """Build data/woorden.json: one shared word pool for the word tests (woorden/ page).
 
 Sources:
-  1. scripts/content/werk_woorden.csv  - words and phrases from Zana's work notes (bron = "werk")
-  2. data/nieuws.json                   - the words (woordenschat) and idioms (uitdrukkingen) of every news item (bron = "nieuws")
+  1. scripts/content/basis_woorden.csv - basic everyday words, A0-A1 (bron = "basis")
+  2. scripts/content/werk_woorden.csv  - words and phrases from Zana's work notes (bron = "werk")
+  3. data/nieuws.json                   - the words (woordenschat) and idioms (uitdrukkingen) of every news item (bron = "nieuws")
      -> run build_nieuws.py first, this script reads its output.
 
 Run:  python3 scripts/content/build_woorden.py
       python3 scripts/content/build_woorden.py --kandidaat B1   # werk words not yet used in any news text (for writing new items)
+
+Every entry has two levels:
+  niveau = CEFR level for adult learners (A0-C2)
+  groep  = school year in which a Dutch child typically knows the word: 1-2, 3 ... 8, or "vo" (after primary
+           school: office, formal or technical language). Child accounts only get words up to their own groep, never "vo".
+  The groep labels follow the logic of the Dutch school word lists (BAK for groep 1-2, WAK for groep 3-8: concrete,
+  everyday words early; school language and abstract words later); they are our own judgement, not copied from those lists.
+  New words without a groep stop the build.
 
 Why one pool: the test page can then mix work words and news words, filter by level/type/source,
 and a news item can list which work words it uses (field werk_woorden in nNN_*.py).
@@ -21,6 +30,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 CSV = HERE / "werk_woorden.csv"
+BASIS = HERE / "basis_woorden.csv"
+GROEPEN = ["1-2", "3", "4", "5", "6", "7", "8", "vo"]
 NIEUWS = ROOT / "data" / "nieuws.json"
 OUT = ROOT / "data" / "woorden.json"
 
@@ -62,8 +73,8 @@ def item_text(item):
     return " ".join(item.get(l, "") for l in TEXT_LEVELS)
 
 
-def load_werk():
-    rows = list(csv.DictReader(CSV.open(encoding="utf-8")))
+def load_csv(path):
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
     seen = set()
     for r in rows:
         assert r["id"] not in seen, f"duplicate id {r['id']}"
@@ -71,35 +82,42 @@ def load_werk():
         assert r["niveau"] in LEVELS, f"{r['id']}: niveau {r['niveau']}"
         assert r["soort"] in SOORT, f"{r['id']}: soort {r['soort']}"
         assert r["nl"] and r["tr"] and r["voorbeeld"], f"{r['id']}: empty nl/tr/voorbeeld"
+        assert r["groep"] in GROEPEN, f"{r['id']} {r['nl']}: groep '{r['groep']}' must be one of {GROEPEN}"
     return rows
 
 
 def main():
-    werk = load_werk()
+    werk = load_csv(CSV)
+    basis = load_csv(BASIS)
     items = json.loads(NIEUWS.read_text(encoding="utf-8"))["items"]
 
     pool = []
+    for r in basis:
+        pool.append({"id": r["id"], "bron": "basis", "nl": r["nl"], "soort": r["soort"], "tr": r["tr"], "niveau": r["niveau"],
+                     "groep": r["groep"], "thema": r["thema"], "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"],
+                     "uitleg": r["uitleg"]})
     for r in werk:
         pool.append({
             "id": r["id"], "bron": "werk", "nl": r["nl"], "soort": r["soort"], "tr": r["tr"], "niveau": r["niveau"],
-            "thema": r["thema"], "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"], "uitleg": r["uitleg"],
+            "groep": r["groep"], "thema": r["thema"], "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"], "uitleg": r["uitleg"],
             "voorbeeld_door": r["voorbeeld_door"],
             # News items whose text uses this work word (direction 1: work notes -> news)
             "in_nieuws": [i["id"] for i in items if r["id"] in i.get("werk_woorden", []) or appears_in(r["nl"], item_text(i))],
         })
     for it in items:
         for k, line in enumerate(it["woordenschat"].splitlines(), 1):
-            woord, zn, betekenis, voorbeeld, turks, niveau = [c.strip() for c in line.split("|")]
+            woord, zn, betekenis, voorbeeld, turks, niveau, groep = [c.strip() for c in line.split("|")]
             pool.append({"id": f"n-{it['id']}-w{k}", "bron": "nieuws", "item": it["id"], "nr": it["nr"], "nl": woord,
-                         "soort": "woord", "woordsoort": zn, "tr": turks, "niveau": niveau or "B1", "thema": "nieuws",
+                         "soort": "woord", "woordsoort": zn, "tr": turks, "niveau": niveau or "B1", "groep": groep, "thema": "nieuws",
                          "definitie": betekenis, "voorbeeld": voorbeeld, "voorbeeld_tr": "", "uitleg": ""})
         for k, u in enumerate(it["uitdrukkingen"], 1):
             pool.append({"id": f"n-{it['id']}-u{k}", "bron": "nieuws", "item": it["id"], "nr": it["nr"], "nl": u["nl"],
-                         "soort": "uitdrukking", "tr": u["tr"], "niveau": u["niveau"], "thema": "nieuws",
+                         "soort": "uitdrukking", "tr": u["tr"], "niveau": u["niveau"], "groep": u["groep"], "thema": "nieuws",
                          "voorbeeld": u.get("voorbeeld", ""), "voorbeeld_tr": u.get("voorbeeld_tr", ""), "uitleg": u.get("uitleg", "")})
 
     for w in pool:
         assert w["niveau"] in LEVELS, f"{w['id']}: niveau {w['niveau']}"
+        assert w["groep"] in GROEPEN, f"{w['id']}: groep {w['groep']}"
 
     if "--kandidaat" in sys.argv:
         lvl = sys.argv[sys.argv.index("--kandidaat") + 1].upper()
@@ -112,6 +130,7 @@ def main():
     OUT.write_text(json.dumps({
         "_about": "Shared word pool. Generated by scripts/content/build_woorden.py from werk_woorden.csv and data/nieuws.json - do not edit by hand.",
         "levels": LEVELS,
+        "groepen": GROEPEN,
         "woorden": pool,
     }, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
 
@@ -119,6 +138,7 @@ def main():
     print(f"{len(pool)} entries -> {OUT}")
     print("  per source:", dict(Counter(w["bron"] for w in pool)))
     print("  per level: ", {l: c for l in LEVELS if (c := sum(w["niveau"] == l for w in pool))})
+    print("  per groep: ", {g: c for g in GROEPEN if (c := sum(w["groep"] == g for w in pool))})
     print(f"  werk words already in a news text: {used}")
 
 
