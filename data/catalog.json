@@ -81,11 +81,12 @@
     {
       "id": "luisteren",
       "area": "nt2",
-      "title": "Luisteren",
-      "desc": "Dinleme alıştırması.",
+      "title": "Luisteren I (B1)",
+      "desc": "20 dinleme metni (röportaj, toplantı, anons, bilgilendirme), Hollandaca sesle okunur; 2 deneme sınavı (10 metin, 40 soru, 90 dakika), sorular önce okunur ve metin bir kez çalınır.",
       "exam": true,
-      "status": "soon",
-      "niveau": "B1"
+      "status": "ready",
+      "niveau": "B1",
+      "href": "luisteren/?set=b1"
     },
     {
       "id": "schrijven",
@@ -122,7 +123,7 @@
       "niveau": "A2",
       "title": "Luisteren A2",
       "desc": "40 kısa konuşma ve anons, Hollandaca sesle okunur; 2 deneme sınavı (20 fragman, 45 dakika), sonda metin ve açıklama.",
-      "href": "luisteren-a2/",
+      "href": "luisteren/?set=a2",
       "exam": true,
       "status": "ready"
     },
