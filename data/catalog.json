@@ -103,6 +103,15 @@
       "desc": "Çarpım tablosu 1–10: 10 soruluk alıştırma ya da 60 saniyede rekor denemesi.",
       "href": "../slimspel/tafels/",
       "status": "ready"
+    },
+    {
+      "id": "slimspel-kennis",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Slimspel · Algemene kennis",
+      "desc": "Landen, talen, voetbal, dieren, natuur ve Nederland: 10 soruluk turlar, her cevaptan sonra kısa bir bilgi.",
+      "href": "../slimspel/kennis/",
+      "status": "ready"
     }
   ]
 }
