@@ -53,7 +53,7 @@ Manual run (Actions > Mailer > Run workflow): `test` sends preview mails to one 
 ### News items
 Edit `scripts/content/nNN_*.py`, then run `python3 scripts/content/build_nieuws.py`. Each item: `id`, `nr`, `titel`, `bron`,
 `video_url`, `afbeelding_url`, `niveau_video` + `niveau_uitleg`, `a0`…`c1` (`<strong>` allowed) + `gloss_{level}` (the words the text uses, in dictionary form; the page also shows these words at a lower level),
-`uitdrukkingen` `{nl, niveau, tr, uitleg, voorbeeld, voorbeeld_tr}`, `woordenschat` (lines `woord | soort | betekenis | voorbeeld | turks | niveau`),
+`uitdrukkingen` `{nl, niveau, tr, uitleg, voorbeeld, voorbeeld_tr}`, `woordenschat` (lines `woord | soort | betekenis | voorbeeld | turks | niveau | groep`),
 `grammatica`, `toets` (questions `{id, type mc|tf|gap, niveau, cat, vraag, opties, juist, uitleg}`; the page shuffles the options).
 Items are mailed in `nr` order. The old items are kept in `data/nieuws-v1.json` and are not used.
 Item quizzes always have 18 questions (5 begrip, 4 woorden, 5 uitdrukkingen, 4 grammatica); the builder checks this.
@@ -71,7 +71,12 @@ Optional `video_start`/`video_end`
 
 ## Word pool (woorden)
 
-`scripts/content/werk_woorden.csv` holds the words and phrases from the work notes (one row each: `nl, soort, tr, niveau A0–C2, thema, voorbeeld, voorbeeld_tr, uitleg, voorbeeld_door`).
+Three sources: `scripts/content/basis_woorden.csv` (basic everyday words, A0–A1), `scripts/content/werk_woorden.csv` (work notes) and the news items.
+Every entry has a CEFR level (`niveau`, A0–C2, for adults) and a school year (`groep`: `1-2`, `3` … `8`, or `vo` = after primary school).
+Child accounts choose groep instead of level and never see `vo` words; the home page has a word-test card per groep (`woorden/?groep=5`).
+News words carry the groep as 7th column of `woordenschat` and as `groep` in each idiom; the builders stop when a word has no groep.
+
+`scripts/content/werk_woorden.csv` holds the words and phrases from the work notes (one row each: `nl, soort, tr, niveau A0–C2, groep, thema, voorbeeld, voorbeeld_tr, uitleg, voorbeeld_door`).
 `python3 scripts/content/build_nieuws.py` rebuilds `data/nieuws.json` and then `data/woorden.json` (work words + every news item's words and idioms).
 New work words: add rows to the CSV with the next free id (`w416`, ...), then run the builder.
 

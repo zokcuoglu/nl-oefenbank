@@ -75,65 +75,65 @@ Als niemand over de brug komt, wordt <strong>de stekker eruit getrokken</strong>
     "gloss_c1": "een begrip zijn = herkesin bildiği bir şey olmak • het water staat iemand tot aan de lippen = suyu boğazına gelmiş olmak, çok zor durumda olmak • het doek valt = perde iniyor, son geliyor • eigentijds = çağdaş • een dure grap = pahalı bir şaka, çok pahalıya patlayan şey • ramen = (maliyet) tahmin etmek • achterblijven bij = -in gerisinde kalmak • de gunst = teveccüh • bijspringen = yardıma koşmak • de totstandkoming = oluşturulma süreci • met alle gevolgen van dien = bütün sonuçlarıyla birlikte • over de brug komen = (sonunda) parayı vermek • de stekker eruit trekken = fişi çekmek • op straat staan = işsiz kalmak • oplappen = iyileştirmek, toparlamak",
 
     "uitdrukkingen": [
-        {"nl": "het gaat (niet) goed met …", "niveau": "A2", "tr": "… iyi gidiyor / iyi gitmiyor",
+        {"nl": "het gaat (niet) goed met …", "niveau": "A2", "groep": "4", "tr": "… iyi gidiyor / iyi gitmiyor",
          "uitleg": "Birinin ya da bir kurumun durumunu anlatmak için en temel kalıp. Videoda: 'Het gaat dus niet goed met de opvang voor de zeehonden.'",
          "voorbeeld": "Het gaat weer goed met mijn oma.", "voorbeeld_tr": "Büyükannem yine iyi."},
-        {"nl": "iemand (weer) op de been helpen", "niveau": "A2", "tr": "birini iyileştirip ayağa kaldırmak",
+        {"nl": "iemand (weer) op de been helpen", "niveau": "A2", "groep": "7", "tr": "birini iyileştirip ayağa kaldırmak",
          "uitleg": "Hasta ya da zor durumdaki birinin (ya da bir hayvanın) iyileşmesine yardım etmek. Mecazi olarak bir şirket için de kullanılır.",
          "voorbeeld": "De dierenarts helpt de zieke zeehond weer op de been.", "voorbeeld_tr": "Veteriner hasta foku yeniden iyileştiriyor."},
-        {"nl": "in de schulden zitten", "niveau": "B1", "tr": "borç içinde olmak",
+        {"nl": "in de schulden zitten", "niveau": "B1", "groep": "7", "tr": "borç içinde olmak",
          "uitleg": "Ödenmesi gereken çok parası olmak. 'Diep in de schulden zitten' = borca batmış olmak.",
          "voorbeeld": "Na de verbouwing zaten ze diep in de schulden.", "voorbeeld_tr": "Tadilattan sonra borca battılar."},
-        {"nl": "zijn baan kwijtraken", "niveau": "B1", "tr": "işini kaybetmek",
+        {"nl": "zijn baan kwijtraken", "niveau": "B1", "groep": "7", "tr": "işini kaybetmek",
          "uitleg": "İşten çıkarılmak ya da iş yeri kapandığı için işsiz kalmak. Ayrılabilen fiil: 'Ze raken hun baan kwijt.'",
          "voorbeeld": "Door de sluiting raken veertig mensen hun baan kwijt.", "voorbeeld_tr": "Kapanma yüzünden kırk kişi işini kaybediyor."},
-        {"nl": "aan de bel trekken", "niveau": "B2", "tr": "alarm vermek, sesini yükseltmek",
+        {"nl": "aan de bel trekken", "niveau": "B2", "groep": "8", "tr": "alarm vermek, sesini yükseltmek",
          "uitleg": "Ciddi bir soruna dikkat çekmek için yetkililere ya da kamuoyuna seslenmek.",
          "voorbeeld": "Leraren trekken aan de bel over de grote klassen.", "voorbeeld_tr": "Öğretmenler kalabalık sınıflar konusunda alarm veriyor."},
-        {"nl": "de eindjes aan elkaar knopen", "niveau": "B2", "tr": "iki yakasını bir araya getirmek",
+        {"nl": "de eindjes aan elkaar knopen", "niveau": "B2", "groep": "vo", "tr": "iki yakasını bir araya getirmek",
          "uitleg": "Az parayla ancak ay sonunu getirebilmek. Hem kişiler hem kurumlar için.",
          "voorbeeld": "Met één salaris is het moeilijk om de eindjes aan elkaar te knopen.", "voorbeeld_tr": "Tek maaşla iki yakayı bir araya getirmek zor."},
-        {"nl": "het hoofd boven water houden", "niveau": "B2", "tr": "ayakta kalmak, batmamak",
+        {"nl": "het hoofd boven water houden", "niveau": "B2", "groep": "8", "tr": "ayakta kalmak, batmamak",
          "uitleg": "Zor bir dönemde (genelde para sıkıntısında) hayatta kalabilmek.",
          "voorbeeld": "Veel kleine winkels kunnen het hoofd nauwelijks boven water houden.", "voorbeeld_tr": "Pek çok küçük dükkân zar zor ayakta kalabiliyor."},
-        {"nl": "aan een zijden draad hangen", "niveau": "B2", "tr": "pamuk ipliğine bağlı olmak",
+        {"nl": "aan een zijden draad hangen", "niveau": "B2", "groep": "8", "tr": "pamuk ipliğine bağlı olmak",
          "uitleg": "Bir şeyin her an kötüye gidebileceği, çok belirsiz bir durumda olması.",
          "voorbeeld": "Het leven van de patiënt hing aan een zijden draad.", "voorbeeld_tr": "Hastanın hayatı pamuk ipliğine bağlıydı."},
-        {"nl": "het water staat iemand tot aan de lippen", "niveau": "C1", "tr": "suyu boğazına gelmiş olmak",
+        {"nl": "het water staat iemand tot aan de lippen", "niveau": "C1", "groep": "vo", "tr": "suyu boğazına gelmiş olmak",
          "uitleg": "Çok büyük (çoğu zaman maddi) sıkıntıda olmak; neredeyse batmak üzere olmak.",
          "voorbeeld": "Het water staat de club tot aan de lippen: zonder sponsor gaat ze failliet.", "voorbeeld_tr": "Kulübün suyu boğazına gelmiş: sponsor olmazsa iflas edecek."},
-        {"nl": "de stekker eruit trekken", "niveau": "C1", "tr": "fişini çekmek, bitirmek",
+        {"nl": "de stekker eruit trekken", "niveau": "C1", "groep": "8", "tr": "fişini çekmek, bitirmek",
          "uitleg": "Bir projeyi, kurumu ya da desteği durdurmak. Haberlerde para kesildiğinde çok kullanılır.",
          "voorbeeld": "De bank trok de stekker eruit en het bedrijf ging failliet.", "voorbeeld_tr": "Banka fişi çekti ve şirket iflas etti."},
-        {"nl": "een dure grap", "niveau": "C1", "tr": "pahalıya patlayan şey",
+        {"nl": "een dure grap", "niveau": "C1", "groep": "vo", "tr": "pahalıya patlayan şey",
          "uitleg": "Beklenenden çok daha pahalı olan bir şey; ironik bir ifade.",
          "voorbeeld": "Die kapotte wasmachine werd een dure grap.", "voorbeeld_tr": "O bozuk çamaşır makinesi pahalıya patladı."},
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau
-    "woordenschat": """de zeehond | zn | dier dat in zee leeft, met een rond hoofd en korte poten (vinnen) | Op het strand ligt een zeehond. | fok | A1
-het strand | zn | zand naast de zee | We gaan naar het strand. | plaj | A1
-ziek | bn | niet gezond | De zeehond is ziek. | hasta | A1
-dicht | bn | niet open | De winkel is op zondag dicht. | kapalı | A1
-de opvang | zn | plek waar mensen of dieren tijdelijk zorg krijgen | De kat zit in de dierenopvang. | barınak, bakımevi | A2
-verhuizen | ww | in een ander huis of gebouw gaan wonen of werken | We verhuizen naar Leiden. | taşınmak | A2
-het kaartje | zn | (hier) bewijs dat je mag binnenkomen | Een kaartje kost tien euro. | bilet | A2
-de schuld | zn | geld dat je nog moet betalen | Hij heeft een schuld bij de bank. | borç | A2
-de bezoeker | zn | iemand die ergens op bezoek komt | Het museum had veel bezoekers. | ziyaretçi | A2
-opvangen | ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1
-verzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakmak | B1
-het onderzoek | zn | goed kijken en testen om iets te weten te komen | Wetenschappelijk onderzoek kost veel geld. | araştırma | B1
-schenken | ww | (geld) geven zonder iets terug te vragen | Ze schenkt elk jaar geld aan het goede doel. | bağışlamak | B1
-verwachten | ww | denken dat iets gaat gebeuren | Het was duurder dan verwacht. | beklemek | B1
-de gemeente | zn | bestuur van een stad of dorp | De gemeente legt een nieuw park aan. | belediye | B1
-de provincie | zn | deel van Nederland met een eigen bestuur | Groningen is een provincie. | il | B1
-financieel | bn | met geld te maken | Het centrum heeft financiële problemen. | mali | B1
-de ondernemer | zn | iemand met een eigen bedrijf | Ondernemers in de buurt verdienen aan toeristen. | girişimci, esnaf | B2
-betrokken zijn bij | uitdr | meedoen aan iets, (mede) verantwoordelijk zijn | De gemeente was betrokken bij het plan. | dahil olmak | B2
-de donateur | zn | iemand die (vaak elk jaar) geld geeft aan een organisatie | Het centrum zoekt nieuwe donateurs. | bağışçı | B2
-ramen | ww | schatten wat iets gaat kosten | De kosten werden geraamd op een miljoen. | (maliyet) tahmin etmek | C1
-de totstandkoming | zn | het ontstaan, het tot stand komen | Hij werkte mee aan de totstandkoming van de wet. | oluşturulma süreci | C1
-bijspringen | ww | helpen als het nodig is | De buren sprongen bij toen we gingen verhuizen. | yardıma koşmak | C1""",
+    "woordenschat": """de zeehond | zn | dier dat in zee leeft, met een rond hoofd en korte poten (vinnen) | Op het strand ligt een zeehond. | fok | A1 | 1-2
+het strand | zn | zand naast de zee | We gaan naar het strand. | plaj | A1 | 1-2
+ziek | bn | niet gezond | De zeehond is ziek. | hasta | A1 | 1-2
+dicht | bn | niet open | De winkel is op zondag dicht. | kapalı | A1 | 1-2
+de opvang | zn | plek waar mensen of dieren tijdelijk zorg krijgen | De kat zit in de dierenopvang. | barınak, bakımevi | A2 | 5
+verhuizen | ww | in een ander huis of gebouw gaan wonen of werken | We verhuizen naar Leiden. | taşınmak | A2 | 4
+het kaartje | zn | (hier) bewijs dat je mag binnenkomen | Een kaartje kost tien euro. | bilet | A2 | 3
+de schuld | zn | geld dat je nog moet betalen | Hij heeft een schuld bij de bank. | borç | A2 | 6
+de bezoeker | zn | iemand die ergens op bezoek komt | Het museum had veel bezoekers. | ziyaretçi | A2 | 5
+opvangen | ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1 | 6
+verzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakmak | B1 | 5
+het onderzoek | zn | goed kijken en testen om iets te weten te komen | Wetenschappelijk onderzoek kost veel geld. | araştırma | B1 | 6
+schenken | ww | (geld) geven zonder iets terug te vragen | Ze schenkt elk jaar geld aan het goede doel. | bağışlamak | B1 | 7
+verwachten | ww | denken dat iets gaat gebeuren | Het was duurder dan verwacht. | beklemek | B1 | 6
+de gemeente | zn | bestuur van een stad of dorp | De gemeente legt een nieuw park aan. | belediye | B1 | 6
+de provincie | zn | deel van Nederland met een eigen bestuur | Groningen is een provincie. | il | B1 | 6
+financieel | bn | met geld te maken | Het centrum heeft financiële problemen. | mali | B1 | 8
+de ondernemer | zn | iemand met een eigen bedrijf | Ondernemers in de buurt verdienen aan toeristen. | girişimci, esnaf | B2 | 8
+betrokken zijn bij | uitdr | meedoen aan iets, (mede) verantwoordelijk zijn | De gemeente was betrokken bij het plan. | dahil olmak | B2 | 8
+de donateur | zn | iemand die (vaak elk jaar) geld geeft aan een organisatie | Het centrum zoekt nieuwe donateurs. | bağışçı | B2 | vo
+ramen | ww | schatten wat iets gaat kosten | De kosten werden geraamd op een miljoen. | (maliyet) tahmin etmek | C1 | vo
+de totstandkoming | zn | het ontstaan, het tot stand komen | Hij werkte mee aan de totstandkoming van de wet. | oluşturulma süreci | C1 | vo
+bijspringen | ww | helpen als het nodig is | De buren sprongen bij toen we gingen verhuizen. | yardıma koşmak | C1 | 8""",
 
     "grammatica": """1) Vergelijken: duurder dan verwacht, minder … dan gehoopt
 Bij een vergelijking gebruik je 'dan' (niet 'als').

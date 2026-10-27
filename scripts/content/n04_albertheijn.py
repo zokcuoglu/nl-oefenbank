@@ -76,60 +76,60 @@ Het eigenlijke verhaal speelt zich achter de schermen af. Toen Albert Heijn afge
     "gloss_c1": "plat komen te liggen = çökmek • in het duister tasten = karanlıkta el yordamıyla aramak, hiçbir fikri olmamak • moeizaam = zahmetli • blootleggen = gözler önüne sermek • het filiaal / de vestiging = şube • vergen = gerektirmek • scheef = dengesiz, çarpık • voorradig = stokta olan • gelaten ondergaan = sessizce katlanmak • de schade beperken = zararı sınırlamak • buitmaken = ele geçirmek • met een sisser aflopen = ucuz atlatmak • de aanwijzing = ipucu",
 
     "uitdrukkingen": [
-        {"nl": "mazzel hebben", "niveau": "A2", "tr": "şansı yaver gitmek",
+        {"nl": "mazzel hebben", "niveau": "A2", "groep": "6", "tr": "şansı yaver gitmek",
          "uitleg": "Günlük dilde 'geluk hebben'. Videoda bir anne, kızının en sevdiği üzümden son paketi bulunca 'ze heeft mazzel' diyor. Tersi: 'pech hebben'.",
          "voorbeeld": "Ik had mazzel: de bus had ook vertraging.", "voorbeeld_tr": "Şansım yaver gitti: otobüs de gecikmişti."},
-        {"nl": "zo erg is het (nou ook weer) niet", "niveau": "A2", "tr": "o kadar da kötü değil",
+        {"nl": "zo erg is het (nou ook weer) niet", "niveau": "A2", "groep": "5", "tr": "o kadar da kötü değil",
          "uitleg": "Birinin abarttığını düşündüğünde söylenir. Videoda bir müşteri: 'Mensen zeggen allemaal lege schappen, nou, zo erg is dat niet.'",
          "voorbeeld": "Een beetje regen? Zo erg is het nou ook weer niet.", "voorbeeld_tr": "Biraz yağmur mu? O kadar da kötü değil."},
-        {"nl": "een stuk (duurder, beter …)", "niveau": "B1", "tr": "epey, çok daha (pahalı, iyi …)",
+        {"nl": "een stuk (duurder, beter …)", "niveau": "B1", "groep": "6", "tr": "epey, çok daha (pahalı, iyi …)",
          "uitleg": "'Een stuk' burada 'bir parça' değil, 'epey' anlamında; karşılaştırmalı sıfatla kullanılır. Günlük dilde çok sık.",
          "voorbeeld": "Met de trein ben je een stuk sneller.", "voorbeeld_tr": "Trenle epey daha hızlısın."},
-        {"nl": "uit voorzorg", "niveau": "B1", "tr": "önlem olarak, tedbiren",
+        {"nl": "uit voorzorg", "niveau": "B1", "groep": "7", "tr": "önlem olarak, tedbiren",
          "uitleg": "Bir sorun büyümesin diye önceden bir şey yapmak. Haberlerde çok sık geçer.",
          "voorbeeld": "Uit voorzorg is de school vandaag dicht.", "voorbeeld_tr": "Okul bugün tedbiren kapalı."},
-        {"nl": "het is koffiedik kijken", "niveau": "B1", "tr": "kimse bilemez, falcılık etmek gibi",
+        {"nl": "het is koffiedik kijken", "niveau": "B1", "groep": "8", "tr": "kimse bilemez, falcılık etmek gibi",
          "uitleg": "Kelimesi kelimesine 'kahve telvesine bakmak'. Gelecek hakkında tahmin yürütmenin imkânsız olduğunu söyler. Türk kahvesi falıyla aynı mantık!",
          "voorbeeld": "Wie de verkiezingen wint? Dat is nog koffiedik kijken.", "voorbeeld_tr": "Seçimi kim kazanır? Bunu şimdiden kimse bilemez."},
-        {"nl": "plat liggen", "niveau": "B2", "tr": "çökmüş olmak, tamamen durmak",
+        {"nl": "plat liggen", "niveau": "B2", "groep": "7", "tr": "çökmüş olmak, tamamen durmak",
          "uitleg": "Bir sistemin, ağın ya da trafiğin tamamen çalışmaması. 'Platleggen' = durdurmak (bir grev treni 'platlegt').",
          "voorbeeld": "Door de storing lag het hele treinverkeer plat.", "voorbeeld_tr": "Arıza yüzünden tüm tren trafiği durdu."},
-        {"nl": "in de soep lopen", "niveau": "B2", "tr": "suya düşmek, ters gitmek",
+        {"nl": "in de soep lopen", "niveau": "B2", "groep": "7", "tr": "suya düşmek, ters gitmek",
          "uitleg": "Bir planın ya da işin bozulması. Günlük dilde ve haberlerde kullanılır.",
          "voorbeeld": "Door het slechte weer liep het feest in de soep.", "voorbeeld_tr": "Kötü hava yüzünden parti suya düştü."},
-        {"nl": "in het duister tasten", "niveau": "C1", "tr": "hiçbir fikri olmamak, karanlıkta el yordamıyla aramak",
+        {"nl": "in het duister tasten", "niveau": "C1", "groep": "8", "tr": "hiçbir fikri olmamak, karanlıkta el yordamıyla aramak",
          "uitleg": "Bir şeyin nedenini ya da gerçeğini bilmemek. Polis haberlerinde de sık: 'De politie tast in het duister.'",
          "voorbeeld": "Over het motief tast de politie nog in het duister.", "voorbeeld_tr": "Polisin sebep hakkında hâlâ hiçbir fikri yok."},
-        {"nl": "de schade beperken", "niveau": "C1", "tr": "zararı sınırlamak",
+        {"nl": "de schade beperken", "niveau": "C1", "groep": "8", "tr": "zararı sınırlamak",
          "uitleg": "Bir sorun çıktığında daha kötüsünü önlemek için hızlı davranmak.",
          "voorbeeld": "Door snel te reageren kon het bedrijf de schade beperken.", "voorbeeld_tr": "Şirket hızlı davranarak zararı sınırlayabildi."},
-        {"nl": "met een sisser aflopen", "niveau": "C1", "tr": "ucuz atlatmak, büyümeden bitmek",
+        {"nl": "met een sisser aflopen", "niveau": "C1", "groep": "vo", "tr": "ucuz atlatmak, büyümeden bitmek",
          "uitleg": "Kötü olabilecek bir şeyin ciddi sonuç doğurmadan bitmesi. 'Sisser' = fışşş diye sönen havai fişek.",
          "voorbeeld": "Het ongeluk liep gelukkig met een sisser af.", "voorbeeld_tr": "Kaza neyse ki ucuz atlatıldı."},
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau
-    "woordenschat": """de supermarkt | zn | grote winkel voor eten en drinken | Ik doe boodschappen in de supermarkt. | süpermarket | A1
-leeg | bn | er zit niets in | De koelkast is leeg. | boş | A1
-de computer | zn | apparaat waarmee je werkt, rekent en informatie bewaart | De computer doet het niet. | bilgisayar | A1
-het schap | zn | plank in een winkel waar producten op staan | De melk staat op het onderste schap. | raf | A2
-de krat | zn | open bak van plastic of hout om producten in te vervoeren (ook: het krat) | Het fruit ligt in een krat. | kasa | A2
-onduidelijk | bn | niet duidelijk, je weet het niet precies | Het is nog onduidelijk wanneer de bus komt. | belirsiz | A2
-bestellen | ww | vragen of iemand iets levert | Ik bestel een pizza. | sipariş etmek | A2
-lievelings- | voorvoegsel | wat je het leukst of lekkerst vindt | Dit is mijn lievelingsboek. | en sevdiği | A2
-het boodschappenlijstje | zn | lijstje met wat je moet kopen | Ik vergeet mijn boodschappenlijstje altijd. | alışveriş listesi | A2
-de bedrijfsleider | zn | iemand die de leiding heeft in een winkel | De bedrijfsleider maakt het rooster. | mağaza müdürü | B1
-de voorraad | zn | spullen die klaarliggen om te gebruiken of te verkopen | De voorraad koffie is op. | stok | B1
-de storing | zn | iets werkt (tijdelijk) niet | Door een storing rijden er geen treinen. | arıza | B1
-de klantgegevens | zn (mv) | informatie over klanten, zoals naam en adres | Klantgegevens moeten goed beveiligd zijn. | müşteri bilgileri | B1
-opstarten | ww | een computer of machine (weer) laten werken | Start je computer opnieuw op. | (yeniden) başlatmak | B1
-de hacker | zn | iemand die zonder toestemming in computers inbreekt | Hackers vielen het systeem aan. | bilgisayar korsanı | B1
-rommelen | ww | (hier) zonder toestemming ergens aan zitten | Iemand heeft in de systemen gerommeld. | kurcalamak | B2
-de telefooncentrale | zn | systeem dat veel telefoongesprekken verbindt | De telefooncentrale was overbelast. | telefon santrali | B2
-laconiek | bn | rustig, zonder je druk te maken | Ze reageerde laconiek op het nieuws. | soğukkanlı | B2
-de bevoorrading | zn | het brengen van nieuwe voorraad naar winkels | De bevoorrading komt weer op gang. | mal sevkiyatı | C1
-vermoedelijk | bw | waarschijnlijk | De trein heeft vermoedelijk vertraging. | muhtemelen | C1
-buitmaken | ww | stelen, als buit meenemen | De dieven maakten veel geld buit. | ele geçirmek, çalmak | C1""",
+    "woordenschat": """de supermarkt | zn | grote winkel voor eten en drinken | Ik doe boodschappen in de supermarkt. | süpermarket | A1 | 1-2
+leeg | bn | er zit niets in | De koelkast is leeg. | boş | A1 | 1-2
+de computer | zn | apparaat waarmee je werkt, rekent en informatie bewaart | De computer doet het niet. | bilgisayar | A1 | 3
+het schap | zn | plank in een winkel waar producten op staan | De melk staat op het onderste schap. | raf | A2 | 5
+de krat | zn | open bak van plastic of hout om producten in te vervoeren (ook: het krat) | Het fruit ligt in een krat. | kasa | A2 | 4
+onduidelijk | bn | niet duidelijk, je weet het niet precies | Het is nog onduidelijk wanneer de bus komt. | belirsiz | A2 | 5
+bestellen | ww | vragen of iemand iets levert | Ik bestel een pizza. | sipariş etmek | A2 | 4
+lievelings- | voorvoegsel | wat je het leukst of lekkerst vindt | Dit is mijn lievelingsboek. | en sevdiği | A2 | 3
+het boodschappenlijstje | zn | lijstje met wat je moet kopen | Ik vergeet mijn boodschappenlijstje altijd. | alışveriş listesi | A2 | 4
+de bedrijfsleider | zn | iemand die de leiding heeft in een winkel | De bedrijfsleider maakt het rooster. | mağaza müdürü | B1 | 7
+de voorraad | zn | spullen die klaarliggen om te gebruiken of te verkopen | De voorraad koffie is op. | stok | B1 | 6
+de storing | zn | iets werkt (tijdelijk) niet | Door een storing rijden er geen treinen. | arıza | B1 | 6
+de klantgegevens | zn (mv) | informatie over klanten, zoals naam en adres | Klantgegevens moeten goed beveiligd zijn. | müşteri bilgileri | B1 | 8
+opstarten | ww | een computer of machine (weer) laten werken | Start je computer opnieuw op. | (yeniden) başlatmak | B1 | 5
+de hacker | zn | iemand die zonder toestemming in computers inbreekt | Hackers vielen het systeem aan. | bilgisayar korsanı | B1 | 6
+rommelen | ww | (hier) zonder toestemming ergens aan zitten | Iemand heeft in de systemen gerommeld. | kurcalamak | B2 | 6
+de telefooncentrale | zn | systeem dat veel telefoongesprekken verbindt | De telefooncentrale was overbelast. | telefon santrali | B2 | vo
+laconiek | bn | rustig, zonder je druk te maken | Ze reageerde laconiek op het nieuws. | soğukkanlı | B2 | vo
+de bevoorrading | zn | het brengen van nieuwe voorraad naar winkels | De bevoorrading komt weer op gang. | mal sevkiyatı | C1 | vo
+vermoedelijk | bw | waarschijnlijk | De trein heeft vermoedelijk vertraging. | muhtemelen | C1 | 8
+buitmaken | ww | stelen, als buit meenemen | De dieven maakten veel geld buit. | ele geçirmek, çalmak | C1 | 8""",
 
     "grammatica": """1) Oorzaak en gevolg: omdat – doordat – daardoor – daarom
 Doordat/daardoor gebruik je vooral als niemand het zo wilde. Omdat/daarom kan altijd, ook bij een bewuste keuze.
