@@ -73,6 +73,25 @@ def guess_handeling(text: str) -> str:
     return "informeren"            # fallback: just give information
 
 
+# Hand-checked tags for questions the rules above could not place (they fell to 'informeren').
+# 'uitleg' = explain a reason or what something means ("Waarom ...?", "Wat betekent dit bord?").
+HANDELING_OVERRIDE = {
+    "beschrijving": [27, 35, 40, 52, 86, 87, 108, 115, 136, 211, 214, 248, 259, 274, 307, 312, 314, 317, 336, 339],
+    "instructie":   [25, 67, 69, 106, 186, 201, 234, 272, 281, 297, 308, 323, 342, 343, 348, 349],
+    "uitleg":       [16, 77, 94, 114, 155, 176, 180, 220, 225, 228, 293, 298, 311],
+    "voorkeur":     [46, 51, 53, 95, 98, 142, 151, 157, 304, 333, 340, 1004],
+    "mening":       [61, 88, 144, 160, 169, 172, 250, 251, 338],
+    "advies":       [141, 148, 159, 204, 209, 236, 273],
+    "vraag":        [32, 85, 200, 207, 208, 210, 217, 240, 268, 287, 347],
+    "overtuigen":   [171, 326, 332],
+    "voorstel":     [99, 133],
+    "reageren":     [38, 195],
+    # left as real 'informeren' on purpose: 19, 66, 73, 104, 109, 116, 130, 135, 153, 219, 222,
+    # 230, 247, 252, 253, 291, 319, 321, 337, 1016
+}
+OVERRIDE = {qid: tag for tag, ids in HANDELING_OVERRIDE.items() for qid in ids}
+
+
 # ---------- 3. guess the requirement (eis) ----------
 NUM = {"één": 1, "een": 1, "twee": 2, "drie": 3}
 
@@ -110,7 +129,7 @@ for it in items:
         "id": it["id"],
         "title": it["title"],
         "type": type_map[qid],
-        "handeling": guess_handeling(it["situatie"]),
+        "handeling": OVERRIDE.get(it["id"]) or guess_handeling(it["situatie"]),   # hand-check wins
         "eis": guess_eis(it["situatie"]),
         "situatie": it["situatie"],
         "vraag": it["vraag"],

@@ -329,7 +329,7 @@
    "id": 16,
    "title": "Bakkersopleiding",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -475,7 +475,7 @@
    "id": 25,
    "title": "Beveiliger vliegveld",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": 3
    },
@@ -503,7 +503,7 @@
    "id": 27,
    "title": "Bibliotheek",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -584,7 +584,7 @@
    "id": 32,
    "title": "Boek niet aanwezig",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {},
    "situatie": "U volgt een opleiding techniek.\nU moet als huiswerk het boek Basistechniek deel 2 bekijken.\nIn de bibliotheek is dat boek niet aanwezig.\nU gaat naar uw docente.\nLuister naar de docente en reageer.",
    "vraag": "JA, WAT IS ER? WIL JE IETS VRAGEN?",
@@ -632,7 +632,7 @@
    "id": 35,
    "title": "Boodschappen gedaan",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -676,7 +676,7 @@
    "id": 38,
    "title": "Broodjes bestellen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "reageren",
    "eis": {
     "plaatjes": "ja"
    },
@@ -704,7 +704,7 @@
    "id": 40,
    "title": "Bruiloft",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": 3
    },
@@ -788,7 +788,7 @@
    "id": 46,
    "title": "Computer kiezen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {},
    "situatie": "U kunt via uw werk een computer kopen.\nU kunt dan twee jaar lang elke maand 50 euro betalen.\nU betaalt dan 1200 euro voor de computer.\nOf u kunt de computer in één keer kopen voor 1000 euro.\nU wilt graag een computer kopen.\nUw baas wil weten hoe u de computer wilt betalen, en waarom.\nLuister naar uw baas en reageer.",
    "vraag": "HOE GA JE DE COMPUTER BETALEN? IN 2 JAAR OF IN 1 KEER?",
@@ -858,7 +858,7 @@
    "id": 51,
    "title": "Dagje Rotterdam",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -873,7 +873,7 @@
    "id": 52,
    "title": "Dagje uit",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -887,7 +887,7 @@
    "id": 53,
    "title": "Decembercadeau",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -1002,7 +1002,7 @@
    "id": 61,
    "title": "Edutel",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {},
    "situatie": "U wilt een opleiding gaan volgen.\nU ziet een advertentie in de krant.\nBekijk de informatie.\nVertel waarom u wel of niet bij Edutel zou willen studeren.",
    "vraag": "",
@@ -1080,7 +1080,7 @@
    "id": 67,
    "title": "Een gezicht tekenen",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -1108,7 +1108,7 @@
    "id": 69,
    "title": "Een ui snijden",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -1225,7 +1225,7 @@
    "id": 77,
    "title": "Feest met gekke kleding",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {},
    "situatie": "In het buurthuis is een feest.\nHet is de bedoeling dat iedereen gekke kleding aantrekt.\nU wilt geen gekke kleding aantrekken.\nU praat hierover met uw buurman.\nVertel uw buurman waarom u niet in gekke kleren naar\nhet feest wilt gaan.\nU hoort eerst uw buurman.",
    "vraag": "IEDEREEN DOET GEKKE KLEREN AAN. WAAROM WIL JIJ DAT NIET?",
@@ -1335,7 +1335,7 @@
    "id": 85,
    "title": "Gereedschap meubelcursus",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {
     "aantal": 2,
     "wat": "redenen"
@@ -1350,7 +1350,7 @@
    "id": 86,
    "title": "Geschrokken tijdens de les",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -1364,7 +1364,7 @@
    "id": 87,
    "title": "Gesprek op school",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": 2
    },
@@ -1378,7 +1378,7 @@
    "id": 88,
    "title": "Gesprek zorgopleiding",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {
     "aantal": 2,
     "wat": "dingen"
@@ -1466,7 +1466,7 @@
    "id": 94,
    "title": "Grote plant",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -1480,7 +1480,7 @@
    "id": 95,
    "title": "Hardlopen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -1523,7 +1523,7 @@
    "id": 98,
    "title": "Hoe vaak boodschappen doen?",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -1538,7 +1538,7 @@
    "id": 99,
    "title": "Hondenpoep op straat",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "voorstel",
    "eis": {},
    "situatie": "In uw buurt hebben veel mensen een hond.\nDoor al die honden ligt er veel poep op straat.\nUw buurman vraagt of u een idee heeft voor een oplossing.\nReageer op uw buurman.\nNoem één idee.\nU hoort eerst uw buurman.",
    "vraag": "HEB JIJ EEN IDEE VOOR EEN OPLOSSING?",
@@ -1632,7 +1632,7 @@
    "id": 106,
    "title": "Inloggen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -1662,7 +1662,7 @@
    "id": 108,
    "title": "Inrichting winkel",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": 3
    },
@@ -1743,7 +1743,7 @@
    "id": 114,
    "title": "Kantine op het werk |",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {},
    "situatie": "U werkt op een kantoor. |\nOp het kantoor is geen kantine.\nU vindt dat er een kantine moet komen. |\nU praat hierover met uw leidinggevende.\nVertel uw leidinggevende waarom u een kantine op uw werk\nwilt.\nU hoort eerst uw leidinggevende.",
    "vraag": "WAAROM WIL JE EEN KANTINE?",
@@ -1755,7 +1755,7 @@
    "id": 115,
    "title": "Kapotte ladder",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2014,7 +2014,7 @@
    "id": 133,
    "title": "Klusjes bij mensen thuis",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "voorstel",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2054,7 +2054,7 @@
    "id": 136,
    "title": "Koffie halen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2121,7 +2121,7 @@
    "id": 141,
    "title": "Laatste mode",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {
     "plaatjes": 3
    },
@@ -2135,7 +2135,7 @@
    "id": 142,
    "title": "Lang of kort?",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -2165,7 +2165,7 @@
    "id": 144,
    "title": "Langer doorwerken",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -2219,7 +2219,7 @@
    "id": 148,
    "title": "Lekker eten maken",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {},
    "situatie": "Uw buurvrouw is volgende week jarig.\nZij wil graag lekker eten maken voor haar feestje.\nZij vraagt aan u wat ze zal maken.\nVertel uw buurvrouw wat voor lekker eten ze kan maken.\nU hoort eerst uw buurvrouw.",
    "vraag": "IK BEN VOLGENDE WEEK JARIG, MAAR IK WEET ECHT NIET WAT VOOR ETEN IK MOET MAKEN. HEB JIJ EEN IDEE?",
@@ -2262,7 +2262,7 @@
    "id": 151,
    "title": "Lezen met muziek",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -2318,7 +2318,7 @@
    "id": 155,
    "title": "Lopen met buurjongetije",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2347,7 +2347,7 @@
    "id": 157,
    "title": "Lunchpauze",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -2377,7 +2377,7 @@
    "id": 159,
    "title": "Meer bewegen",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {
     "aantal": 2,
     "wat": "dingen"
@@ -2392,7 +2392,7 @@
    "id": 160,
    "title": "Meer theorie, minder praktijk",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {},
    "situatie": "U volgt een opleiding tot automonteur.\nU heeft iedere week 10 uur theorieles en 20 uur praktijkles.\nDe opleiding wil dat volgend jaar anders doen: 20 uur theorieles\nen 10 uur praktijkles.\nU vindt dat een slecht idee.\nEen medestudent vraagt waarom u dat een slecht idee vindt.\nVertel de medestudent waarom u het plan van de schoolleiding\neen slecht idee vindt.\nU hoort eerst uw medestudent.",
    "vraag": "DUS WE KRIJGEN VOLGEND JAAR MEER THEORIE EN MINDER PRAKTIJKLESSEN. WAAROM VIND JE DAT EEN SLECHT IDEE?",
@@ -2510,7 +2510,7 @@
    "id": 169,
    "title": "Muziekinstrument",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -2540,7 +2540,7 @@
    "id": 171,
    "title": "Naar de politie gaan",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "overtuigen",
    "eis": {
     "aantal": 2,
     "wat": "redenen"
@@ -2555,7 +2555,7 @@
    "id": 172,
    "title": "Naar school gaan",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {},
    "situatie": "Uw vriendin heeft een zoon van twaalf jaar.\nHij gaat niet graag naar school.\nHij vraagt u hoe u het vroeger vond om naar school te gaan.\nLuister naar de jongen en geef antwoord.",
    "vraag": "HOE VOND U HET VROEGER EIGENLIJK OM NAAR SCHOOL TE GAAN?",
@@ -2610,7 +2610,7 @@
    "id": 176,
    "title": "Niet kunnen sporten",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2660,7 +2660,7 @@
    "id": 180,
    "title": "Niet tevreden over stage",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {},
    "situatie": "U volgt een opleiding voor automonteur.\nU loopt stage bij een garage.\nU bent niet tevreden over uw stage.\nOp de plaaties ziet u wat u de hele dag doet.\nLuister naar uw begeleider en reageer.",
    "vraag": "WAAROM BEN JE DAN NIET TEVREDEN?",
@@ -2745,7 +2745,7 @@
    "id": 186,
    "title": "Nieuwe medewerker",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2876,7 +2876,7 @@
    "id": 195,
    "title": "Op de stoel",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "reageren",
    "eis": {
     "plaatjes": "ja"
    },
@@ -2946,7 +2946,7 @@
    "id": 200,
    "title": "Opdracht voor stagiaire",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {},
    "situatie": "U werkt op een kantoor.\nEen stagiaire vraagt of ze iets voor u kan doen.\nKijk naar het plaatije.\nVertel de stagiaire wat ze voor u kan doen.\nU hoort eerst de stagiaire.",
    "vraag": "WAT KAN IK VOOR JE DOEN?",
@@ -2958,7 +2958,7 @@
    "id": 201,
    "title": "Opdracht voor zomerfestival",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": 3
    },
@@ -3002,7 +3002,7 @@
    "id": 204,
    "title": "Opleiding fotografie",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {
     "aantal": 2,
     "wat": "dingen",
@@ -3047,7 +3047,7 @@
    "id": 207,
    "title": "Pakje ophalen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {},
    "situatie": "U komt thuis.\nU vindt een briefje van uw postbode.\nBekijk het briefje:\nU gaat naar uw buren.\nLuister naar uw buurvrouw en reageer.",
    "vraag": "HOI, WAT KAN IK VOOR JE DOEN?",
@@ -3059,7 +3059,7 @@
    "id": 208,
    "title": "Pakketjes",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3073,7 +3073,7 @@
    "id": 209,
    "title": "Passende opleiding",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {
     "aantal": 1,
     "wat": "reden",
@@ -3089,7 +3089,7 @@
    "id": 210,
    "title": "Pauze in fabriek",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {
     "aantal": 2,
     "wat": "argumenten"
@@ -3104,7 +3104,7 @@
    "id": 211,
    "title": "Persoon beschrijven",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3142,7 +3142,7 @@
    "id": 214,
    "title": "Postbezorger",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": 3
    },
@@ -3184,7 +3184,7 @@
    "id": 217,
    "title": "Presentatie geven",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3227,7 +3227,7 @@
    "id": 220,
    "title": "Probleem in nieuw kantoor",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3298,7 +3298,7 @@
    "id": 225,
    "title": "Product in fles",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3342,7 +3342,7 @@
    "id": 228,
    "title": "Regel in fabriek",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3430,7 +3430,7 @@
    "id": 234,
    "title": "Rijles",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3459,7 +3459,7 @@
    "id": 236,
    "title": "Saaie Engelse les",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {
     "aantal": 3,
     "wat": "dingen"
@@ -3517,7 +3517,7 @@
    "id": 240,
    "title": "Schildercursus",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3633,7 +3633,7 @@
    "id": 248,
    "title": "Sleutels kwijt",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3663,7 +3663,7 @@
    "id": 250,
    "title": "Sollicitatie kledingwinkel",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {},
    "situatie": "U zoekt een baan.\nU gaat solliciteren bij een kledingwinkel.\nU spreekt met de baas van de winkel.\nZij wil graag weten wat u leuk lijkt aan het werken in een\nkledingwinkel.\nU hoort eerst de baas.",
    "vraag": "WAT LIJKT JOU LEUK AAN HET WERKEN IN EEN KLEDINGWINKEL?",
@@ -3675,7 +3675,7 @@
    "id": 251,
    "title": "Sollicitatie tuincentrum",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {},
    "situatie": "U zoekt een baan.\nU solliciteert als verkoper bij een tuincentrum.\nU spreekt met de baas van het tuincentrum.\nDe baas wil graag weten wat u leuk vindt aan het werken in een\ntuincentrum.\nU hoort eerst de baas.",
    "vraag": "EN, WAT VIND JE NOU LEUK AAN HET WERKEN IN EEN TUINCENTRUM?",
@@ -3789,7 +3789,7 @@
    "id": 259,
    "title": "Spullen laten liggen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -3918,7 +3918,7 @@
    "id": 268,
    "title": "Stageplaats",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {},
    "situatie": "U volgt een opleiding voor ziekenverzorger.\nVoor uw opleiding moet u drie maanden stage lopen.\nU moet zelf een stageplaats zoeken.\nDaarom belt u een verpleeghuis.\nLuister naar de medewerkster en reageer.",
    "vraag": "U HEBT EEN VERZOEK? NOU, ZEG HET MAAR...",
@@ -3971,7 +3971,7 @@
    "id": 272,
    "title": "Stemmen",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": 3
    },
@@ -3985,7 +3985,7 @@
    "id": 273,
    "title": "Stoppen met de opleiding?",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "advies",
    "eis": {},
    "situatie": "U volgt een opleiding voor verpleeghulp.\nUw medecursiste heeft veel problemen met haar stage.\nDaarom wil ze met haar opleiding stoppen.\nU vindt dat geen goed idee.\nLuister naar uw medecursiste en reageer.",
    "vraag": "HET GAAT HELEMAAL NIET GOED MET MIJN STAGE. IK OENK DAT IK BETER MET OE OPLEIDING KAN STOPPEN.",
@@ -3997,7 +3997,7 @@
    "id": 274,
    "title": "Storm",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": 3
    },
@@ -4098,7 +4098,7 @@
    "id": 281,
    "title": "Taalcursus",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4179,7 +4179,7 @@
    "id": 287,
    "title": "Te weinig kopieén",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {},
    "situatie": "U werkt bij een computerfirma.\nVandaag bent u voorzitter van een vergadering.\nU ziet dat u te weinig kopieén hebt van enkele belangrijke\nU roept uw assistent.\nLuister naar uw assistent en vertel wat hij voor u moet doen.",
    "vraag": "",
@@ -4269,7 +4269,7 @@
    "id": 293,
    "title": "Thuiswerken",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {},
    "situatie": "U werkt op de salarisadministratie van een groot bedrijf.\nU werkt vijf dagen op kantoor.\nU wilt één dag in de week thuiswerken.\nU hebt een gesprek met uw leidinggevende.\nVertel uw leidinggevende waarom u één dag in de week thuis\nwilt werken.\nU hoort eerst uw leidinggevende.",
    "vraag": "WAAROM WIL JE EEN DAG THUIS GAAN WERKEN?",
@@ -4322,7 +4322,7 @@
    "id": 297,
    "title": "Toneelstuk",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": 3
    },
@@ -4336,7 +4336,7 @@
    "id": 298,
    "title": "Trui ruilen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4423,7 +4423,7 @@
    "id": 304,
    "title": "Uitgaan",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -4464,7 +4464,7 @@
    "id": 307,
    "title": "Vakantiepark",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4478,7 +4478,7 @@
    "id": 308,
    "title": "Veiligheid in vliegtuigen",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4519,7 +4519,7 @@
    "id": 311,
    "title": "Verffabriek",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "uitleg",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4533,7 +4533,7 @@
    "id": 312,
    "title": "Vergeten paraplu",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "aantal": 2,
     "wat": "dingen",
@@ -4563,7 +4563,7 @@
    "id": 314,
    "title": "Verjaardag |",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4606,7 +4606,7 @@
    "id": 317,
    "title": "Vertellen aan politie",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4693,7 +4693,7 @@
    "id": 323,
    "title": "Vraag in restaurant",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4737,7 +4737,7 @@
    "id": 326,
    "title": "Vrij vragen",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "overtuigen",
    "eis": {},
    "situatie": "Uw beste vriendin woont in het buitenland.\nIn de zomer komt ze een week bij u op bezoek.\nDaarom wilt u in die week vrij hebben van uw werk.\nU praat daarover met uw baas.\nLuister naar uw baas en reageer.",
    "vraag": "DUS JE WILT DIE WEEK VRIJ HEBBEN. MAAR DAT IS DE DRUKSTE WEEK VAN DE ZOMER...",
@@ -4824,7 +4824,7 @@
    "id": 332,
    "title": "Wel naar de toets",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "overtuigen",
    "eis": {},
    "situatie": "U volgt een opleiding.\nMorgen is er een toets.\nEen medestudent wil niet naar de toets gaan.\nDe medestudent denkt dat hij niet zal slagen.\nU vindt dat hij wel moet gaan.\nVertel uw medestudent waarom hij wel moet gaan.\nU hoort eerst uw medestudent.",
    "vraag": "NOU, IK DENK DAT IK MORGEN NIET NAAR DE TOETS GA. IK SLAAG VAST NIET.",
@@ -4836,7 +4836,7 @@
    "id": 333,
    "title": "Welke sport",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 2,
     "wat": "redenen"
@@ -4880,7 +4880,7 @@
    "id": 336,
    "title": "Werken bij een restaurant",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4908,7 +4908,7 @@
    "id": 338,
    "title": "Werken in het weekend",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "mening",
    "eis": {},
    "situatie": "Uw vriend vertelt dat hij graag meer wil werken in het weekend.\nHij krijgt dan meer geld.\nVertel uw vriend waarom u dit géén goed idee vindt.\nU hoort eerst uw vriend.",
    "vraag": "WAAROM ZOU IK HET NIET OOENT IK KRIJG IN HET WEEKENO MEER BETAALD...",
@@ -4920,7 +4920,7 @@
    "id": 339,
    "title": "Werken met kinderen",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "beschrijving",
    "eis": {
     "plaatjes": 3
    },
@@ -4934,7 +4934,7 @@
    "id": 340,
    "title": "Werken of studeren",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
@@ -4961,7 +4961,7 @@
    "id": 342,
    "title": "Werkstuk maken",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -4975,7 +4975,7 @@
    "id": 343,
    "title": "Werkzaamheden collega",
    "type": "middel",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": 3
    },
@@ -5030,7 +5030,7 @@
    "id": 347,
    "title": "Ziekenhuisbed",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "vraag",
    "eis": {
     "plaatjes": "ja"
    },
@@ -5044,7 +5044,7 @@
    "id": 348,
    "title": "Ziekenhuiskeuken",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -5058,7 +5058,7 @@
    "id": 349,
    "title": "Zorghulp |",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "instructie",
    "eis": {
     "plaatjes": "ja"
    },
@@ -5129,7 +5129,7 @@
    "id": 1004,
    "title": "Opleiding volgen",
    "type": "kort",
-   "handeling": "informeren",
+   "handeling": "voorkeur",
    "eis": {
     "aantal": 1,
     "wat": "reden"
