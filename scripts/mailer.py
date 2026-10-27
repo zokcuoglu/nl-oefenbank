@@ -25,6 +25,7 @@ import json
 import os
 import re
 import smtplib
+from collections import Counter
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
 from pathlib import Path
@@ -392,6 +393,13 @@ def weekly_text(u, attempts, titles, today):
             else:
                 # Modules without an automatic score (Spreken: the AI scores it) show only the count
                 lines.append(f"  • {titles.get(m, m)}: {s['n']} tur")
+        # Multiplication tables (Slimspel): the sums that went wrong most often this week,
+        # so a parent sees what to practise. qid is the sum itself, e.g. "7×8".
+        wrong = Counter(an.get("qid") for a in attempts if a.get("module") == "slimspel-tafels"
+                        for an in (a.get("answers") or []) if not an.get("correct") and an.get("qid"))
+        if wrong:
+            top = ", ".join(f"{q} ({k} kez)" for q, k in wrong.most_common(5))
+            lines.append(f"\nTafels'te en çok yanlış yapılanlar: {top}")
     else:
         lines.append("Bu hafta hiç tur çözülmedi. Kısa bir Hızlı 10 bile fark yaratır.")
 

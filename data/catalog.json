@@ -46,6 +46,14 @@
       "status": "ready"
     },
     {
+      "id": "woorden",
+      "area": "media",
+      "title": "Kelime testi",
+      "desc": "İş notlarından ve haberlerden 600+ kelime ve deyim. Seviyeni (A1–C2), kaynağı ve soru sayısını seç; öğrenme veya sınav modu, ipuçları ve sonda bütün cevaplar.",
+      "href": "woorden/",
+      "status": "ready"
+    },
+    {
       "id": "knm",
       "area": "nt2",
       "title": "KNM",
@@ -86,6 +94,24 @@
       "title": "Woorden met eer · oor · eur",
       "desc": "4 test, 72 cümle. Doğru kelimeyi 3 seçenekten seç.",
       "href": "kids/g5/eer-oor-eur.html",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-tafels",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Slimspel · Tafels",
+      "desc": "Çarpım tablosu 1–10: 10 soruluk alıştırma ya da 60 saniyede rekor denemesi.",
+      "href": "../slimspel/tafels/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-kennis",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Slimspel · Algemene kennis",
+      "desc": "Landen, talen, voetbal, dieren, natuur ve Nederland: 10 soruluk turlar, her cevaptan sonra kısa bir bilgi.",
+      "href": "../slimspel/kennis/",
       "status": "ready"
     }
   ]

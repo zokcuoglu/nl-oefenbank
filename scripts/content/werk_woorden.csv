@@ -1,0 +1,416 @@
+id,nl,soort,tr,niveau,thema,voorbeeld,voorbeeld_tr,uitleg,voorbeeld_door,bron
+w001,dan kunnen we beginnen,zin,başlayabiliriz,A2,vergadering,Dan kunnen we beginnen.,O zaman başlayabiliriz.,Toplantı açılışı.,notities,werk
+w002,het eerste punt is van ...,zin,ilk madde ...'nin,B1,vergadering,Het eerste punt is van Sanne.,İlk madde Sanne'nin.,Gündem sırası verilirken.,claude,werk
+w003,zijn er nog vragen of opmerkingen?,zin,soru ya da yorum var mı?,A2,vergadering,Zijn er nog vragen of opmerkingen?,Başka soru ya da yorum var mı?,Toplantı kapanışı.,notities,werk
+w004,rond zijn,uitdrukking,"tamamlanmış olmak, bitirmiş olmak",B1,vergadering,Ik denk dat we rond zijn.,Bitirdik sanırım.,"rond = yuvarlak; mecazi: kapanmış, tamam.",notities,werk
+w005,helder,woord,"net, berrak, anlaşılır",A2,vergadering,"Dat is helder, dankjewel.","Bu net, teşekkürler.",Toplantıda 'anladım' demenin kibar yolu.,notities,werk
+w006,even terug naar ...,zin,kısaca ...'e dönelim,B1,vergadering,Even terug naar het eerste punt.,Kısaca ilk maddeye dönelim.,"even = kısaca, bir; cümleyi yumuşatır.",claude,werk
+w007,dat is een puntje,zin,bu not edilecek bir konu,B1,vergadering,Dat is een puntje voor volgende week.,Bu gelecek haftaya not edilecek bir konu.,Küçültme ama 'önemsiz' demek değil.,claude,werk
+w008,iets meenemen (een punt),uitdrukking,"bir konuyu üstlenmek, aklında tutmak",B1,vergadering,Dat neem ik mee.,Bunu ben üstleniyorum / aklımda tutuyorum.,Toplantıda çok geçer.,notities,werk
+w009,ergens naar kijken,uitdrukking,"bir şeye bakmak, incelemek",A2,vergadering,Ik ga daar even naar kijken.,Buna bir bakayım.,Yumuşak bir taahhüt.,notities,werk
+w010,laten we het zo doen,zin,böyle yapalım,A2,vergadering,Laten we het zo doen.,Böyle yapalım.,Karar bağlarken.,notities,werk
+w011,een rare keuze,uitdrukking,garip bir tercih,B1,vergadering,Ik vind het een rare keuze.,Bunu garip bir tercih buluyorum.,Yumuşak itiraz.,notities,werk
+w012,vanuit ons perspectief,uitdrukking,bizim açımızdan,B1,vergadering,Vanuit ons perspectief is dat lastig.,Bizim açımızdan bu zor.,,claude,werk
+w013,tot stand komen,uitdrukking,"oluşmak, meydana gelmek",B2,formeel,Hoe is deze beslissing tot stand gekomen?,Bu karar nasıl oluştu?,Resmî dilde sık.,notities,werk
+w014,aan de voorkant,uitdrukking,"en baştan, işin başında",B2,vergadering,Ik heb liever dat je aan de voorkant meegenomen wordt.,En baştan dahil edilmeyi tercih ederim.,Zıttı: achteraf (sonradan).,notities,werk
+w015,achteraf,woord,"sonradan, geriye dönük",B1,werk,Achteraf gezien was dat een goede keuze.,Sonradan bakınca iyi bir tercihti.,achteraf gezien = geriye dönüp bakınca.,claude,werk
+w016,voor frictie zorgen,uitdrukking,sürtüşme yaratmak,B2,vergadering,Dat zorgt voor frictie.,Bu sürtüşme yaratıyor.,zorgen voor = -e yol açmak.,notities,werk
+w017,vertragen,woord,"geciktirmek, yavaşlatmak",B1,werk,Het vertraagt gewoon allemaal weer.,Her şeyi yine geciktiriyor.,,notities,werk
+w018,het (niet) eens zijn met,uitdrukking,katılmak / katılmamak,A2,vergadering,Daar ben ik het niet mee eens.,Buna katılmıyorum.,het ... mee eens: 'met' ayrılıp 'daar mee' olur.,notities,werk
+w019,ik zou zeggen ...,zin,ben derim ki ...,B1,vergadering,Ik zou zeggen: we wachten nog een week.,Ben derim ki bir hafta daha bekleyelim.,Yumuşak öneri kalıbı.,claude,werk
+w020,in principe,woord,"prensip olarak, aslında",B1,vergadering,In principe kan dat.,Prensip olarak olur.,Çoğu zaman dolgu kelimesi gibi kullanılır.,claude,werk
+w021,op zich,woord,"kendi başına, aslında",B2,vergadering,Op zich is het een goed idee.,Aslında kendi başına iyi bir fikir.,'ama' gelmeden önce yumuşatma.,claude,werk
+w022,dat is een goeie,zin,iyi soru / iyi nokta,B1,vergadering,Dat is een goeie!,İyi soru!,Konuşma dili.,notities,werk
+w023,ergens tegen in gaan,uitdrukking,bir şeye karşı çıkmak,B2,vergadering,"Als iets besloten is, is het lastig om daar tegen in te gaan.",Bir şey karara bağlanınca ona karşı çıkmak zor.,,notities,werk
+w024,meegenomen worden (in),uitdrukking,(bir sürece) dahil edilmek,B2,vergadering,Ik wil in de beslissing meegenomen worden.,Karara dahil edilmek istiyorum.,meenemen fiilinin edilgeni.,notities,werk
+w025,de dienstregeling,woord,"tarife, sefer planı",B1,techniek,De nieuwe dienstregeling begint in december.,Yeni tarife aralıkta başlıyor.,Toplu taşıma dili.,claude,werk
+w026,het werkpakket,woord,iş paketi,B2,techniek,Dit werkpakket is voor de chauffeurs van morgen.,Bu iş paketi yarınki şoförler için.,,claude,werk
+w027,de dienststaat,woord,görev çizelgesi,C1,techniek,De dienststaat laat zien wie wanneer werkt.,Görev çizelgesi kimin ne zaman çalıştığını gösterir.,Ulaşım sektörü terimi.,claude,werk
+w028,de geldigheid,woord,geçerlilik,B2,techniek,Deze kaart is geldig van 1 januari tot 31 maart.,Bu kart 1 Ocak'tan 31 Mart'a kadar geçerli.,geldig van ... tot ... = ... den ... e geçerli.,claude,werk
+w029,inkorten,woord,"kısaltmak, budamak",B2,techniek,We moeten de tekst wat inkorten.,Metni biraz kısaltmamız lazım.,Ayrılabilir fiil: kort ... in.,claude,werk
+w030,de schoning,woord,"temizleme, ayıklama (veri)",C1,techniek,Na de schoning blijven er duizend rijen over.,Ayıklamadan sonra bin satır kalıyor.,,claude,werk
+w031,de rit,woord,"sefer, yolculuk",A2,techniek,De rit naar Leiden duurt twintig minuten.,Leiden'e yolculuk yirmi dakika sürüyor.,ritnummer = sefer numarası.,claude,werk
+w032,de halte,woord,durak,A1,techniek,Ik stap uit bij de volgende halte.,Bir sonraki durakta iniyorum.,,claude,werk
+w033,de omloop,woord,araç görev turu,C1,techniek,Deze bus rijdt vandaag drie omlopen.,Bu otobüs bugün üç tur yapıyor.,Ulaşım planlamasına özgü.,claude,werk
+w034,het voertuig,woord,araç,B1,techniek,Het voertuig staat in de garage.,Araç garajda duruyor.,Resmî; günlük dilde 'auto' / 'bus'.,claude,werk
+w035,de chauffeur,woord,şoför,A1,techniek,De chauffeur stopt bij elke halte.,Şoför her durakta duruyor.,,claude,werk
+w036,de medewerker,woord,"çalışan, personel",A2,werk,Alle medewerkers krijgen een mail.,Tüm çalışanlar bir mail alıyor.,,claude,werk
+w037,de concessie,woord,"işletme hakkı, imtiyaz",C1,techniek,Het bedrijf heeft de concessie voor tien jaar gekregen.,Şirket işletme hakkını on yıllığına aldı.,,claude,werk
+w038,aanleveren,woord,"teslim etmek, göndermek (veri/belge)",B2,werk,Kun je de cijfers voor vrijdag aanleveren?,Rakamları cumaya kadar gönderebilir misin?,Ayrılabilir fiil.,claude,werk
+w039,inlezen,woord,(veriyi) sisteme okutmak; bir konuyu okuyup hazırlanmak,B2,techniek,We lezen het bestand elke nacht in.,Dosyayı her gece sisteme okutuyoruz.,Ayrılabilir fiil.,claude,werk
+w040,ontsluiten,woord,erişime açmak,C1,techniek,We willen deze data ontsluiten voor andere teams.,Bu veriyi başka takımlara açmak istiyoruz.,Ayrılamaz fiil.,claude,werk
+w041,uitleveren,woord,"teslim etmek, çıktı vermek",C1,techniek,Het rapport wordt elke maand uitgeleverd.,Rapor her ay teslim ediliyor.,,claude,werk
+w042,de bron,woord,kaynak,A2,werk,Wat is de bron van deze informatie?,Bu bilginin kaynağı ne?,,claude,werk
+w043,de afwijking,woord,sapma,B2,werk,Er is een kleine afwijking in de cijfers.,Rakamlarda küçük bir sapma var.,afwijken = sapmak.,claude,werk
+w044,de volgorde,woord,sıra,A2,werk,Zet de namen in de goede volgorde.,İsimleri doğru sıraya koy.,,claude,werk
+w045,het ijkpunt,woord,referans noktası,C1,werk,Dit jaar is ons ijkpunt.,Bu yıl bizim referans noktamız.,ijken = kalibre etmek.,claude,werk
+w046,het raamwerk,woord,çerçeve,B2,werk,We werken binnen een vast raamwerk.,Sabit bir çerçeve içinde çalışıyoruz.,,claude,werk
+w047,de opzet,woord,"kurgu, ilk tasarım",B2,werk,De opzet van het project is klaar.,Projenin kurgusu hazır.,,claude,werk
+w048,iemand in staat stellen om ...,structuur,"birine imkân vermek, mümkün kılmak",B2,formeel,De besluiten stellen ons in staat om door te gaan.,Alınan kararlar devam etmemizi sağlıyor.,Resmî dilde çok. in staat zijn om = yapabilecek durumda olmak.,notities,werk
+w049,naar aanleiding van (n.a.v.),structuur,"... üzerine, ... vesilesiyle",B2,e-mail,N.a.v. ons gesprek stuur ik je de cijfers.,Görüşmemiz üzerine sana rakamları gönderiyorum.,Mailde sık; kısaltması n.a.v.,notities,werk
+w050,zoiets hebben van ...,structuur,şöyle düşünmek / hissetmek,B1,dagelijks,Hij had zoiets van: dan sluiten we de test af.,O da 'o zaman testi kapatalım' diye düşündü.,Çok konuşma dili.,notities,werk
+w051,ergens zicht op hebben,uitdrukking,bir şey hakkında bilgisi / görüşü olmak,B2,vergadering,Daar heb ik geen zicht op.,O konuda bir fikrim yok.,,notities,werk
+w052,op je pad komen,uitdrukking,karşına çıkmak,B2,dagelijks,Je leert van alles wat op je pad komt.,Karşına çıkan her şeyden öğrenirsin.,,claude,werk
+w053,ergens last van hebben,uitdrukking,"bir şeyden rahatsız olmak, etkilenmek",B1,dagelijks,Daar hebben wij last van.,Bu bizi etkiliyor.,Ağrı için de: last van mijn rug.,notities,werk
+w054,het puntje,woord,not edilecek açık madde,B1,vergadering,Ik heb nog een puntje.,Bir maddem daha var.,Küçültme ama 'küçük konu' demek değil.,claude,werk
+w055,het vraagje,woord,kısa bir soru (nezaket),A2,dagelijks,Mag ik je een vraagje stellen?,Sana bir şey sorabilir miyim?,-je burada nezaket katar.,claude,werk
+w056,het minuutje,woord,bir dakikacık (rica),A2,dagelijks,Heb je een minuutje?,Bir dakikan var mı?,,claude,werk
+w057,het discussiepuntje,woord,tartışılacak nokta,B2,vergadering,Daarbij is er nog een discussiepuntje.,Bununla birlikte tartışılacak bir nokta daha var.,,notities,werk
+w058,de dingetjes,woord,ufak tefek şeyler / işler,A2,dagelijks,Gisteren heb ik wat documentatie dingetjes gedaan.,Dün biraz dokümantasyon işi yaptım.,"Küçültme işi küçümsemek için değil, mütevazı göstermek için.",notities,werk
+w059,het klusje,woord,"küçük iş, ufak görev",B1,dagelijks,Ik heb nog een klusje voor je.,Sana küçük bir işim daha var.,klus = iş; ev işlerinde de kullanılır.,claude,werk
+w060,nou,woord,"şey, eee (dolgu)",A2,dagelijks,"Nou, dat is goed.","Şey, bu iyi.","Çevirmeye çalışma, tanı.",claude,werk
+w061,gewoon,woord,"sadece, öylece (dolgu); normal",A2,dagelijks,Doe gewoon wat je wilt.,Sen sadece ne istiyorsan onu yap.,,claude,werk
+w062,even,woord,"bir, kısaca (yumuşatma)",A2,dagelijks,Kun je even helpen?,Bir yardım edebilir misin?,even olmadan istek sert durur.,claude,werk
+w063,eigenlijk,woord,aslında,A2,dagelijks,Eigenlijk heb ik geen tijd.,Aslında vaktim yok.,,claude,werk
+w064,zeg maar,uitdrukking,"yani, nasıl desem",B1,dagelijks,Het is zeg maar een soort lijst.,Yani bir çeşit liste.,İngilizce 'like' gibi.,claude,werk
+w065,in ieder geval,uitdrukking,"her halükârda, en azından",B1,vergadering,In ieder geval sturen we vandaag een mail.,Her halükârda bugün bir mail atıyoruz.,Toplantılarda çok sık.,claude,werk
+w066,sowieso,woord,"zaten, her halükârda",B1,dagelijks,Ik kom sowieso morgen.,Yarın zaten geliyorum.,Telaffuz: zo-wie-zo.,claude,werk
+w067,best wel,uitdrukking,"epey, oldukça",B1,dagelijks,Dat is best wel veel.,Bu epey fazla.,,notities,werk
+w068,toch,woord,yine de; değil mi?,A2,dagelijks,Je komt toch ook?,"Sen de geliyorsun, değil mi?",Cümle sonunda onay ister.,claude,werk
+w069,hoor,woord,(rahatlatıcı cümle sonu),B1,dagelijks,"Dat is geen probleem, hoor!","Sorun değil, merak etme!","Ayrı yazılır, güven verir.",notities,werk
+w070,de staking,woord,grev,B1,werk,Morgen is er een staking bij de NS.,Yarın NS'de grev var.,stakingsdag = grev günü.,claude,werk
+w071,thuiswerken,woord,evden çalışmak,A2,werk,Op vrijdag werk ik thuis.,Cuma günleri evden çalışıyorum.,Ayrılabilir: werk ... thuis.,claude,werk
+w072,op kantoor,uitdrukking,ofiste,A1,werk,Morgen ben ik op kantoor.,Yarın ofisteyim.,,claude,werk
+w073,de vakantie,woord,tatil,A1,dagelijks,Fijne vakantie alvast!,Şimdiden iyi tatiller!,,notities,werk
+w074,het overleg,woord,"istişare, görüşme, toplantı",B1,werk,Ik zit de hele ochtend in overleg.,Bütün sabah toplantıdayım.,,claude,werk
+w075,de afspraak,woord,randevu; anlaşma,A1,dagelijks,Dat hadden we afgesproken.,Öyle anlaşmıştık.,"Fiil: afspreken = sözleşmek, buluşmak ayarlamak.",notities,werk
+w076,het embargo,woord,"ambargo, yayın yasağı",C1,formeel,Het nieuws staat onder embargo tot maandag.,Haber pazartesiye kadar yayın yasağında.,,claude,werk
+w077,de aanbesteding,woord,ihale,C1,formeel,De gemeente schrijft een aanbesteding uit.,Belediye bir ihaleye çıkıyor.,,claude,werk
+w078,inschrijven,woord,kaydolmak; ihaleye girmek,B1,formeel,Je kunt je online inschrijven.,Online kaydolabilirsin.,Zıttı: uitschrijven.,claude,werk
+w079,de collega,woord,iş arkadaşı,A1,werk,Mijn collega helpt me.,İş arkadaşım bana yardım ediyor.,,claude,werk
+w080,de werkgever,woord,işveren,A2,werk,Mijn werkgever betaalt de reiskosten.,İşverenim yol masraflarını ödüyor.,Zıttı: werknemer.,claude,werk
+w081,de onrust,woord,huzursuzluk,B2,werk,Er is veel onrust in het team.,Takımda çok huzursuzluk var.,,claude,werk
+w082,alvast,woord,"şimdiden, önceden",B1,e-mail,Alvast bedankt!,Şimdiden teşekkürler!,Talebin sonuna konur; tam karşılığı yok.,notities,werk
+w083,ik weet niet hoe we het anders zouden moeten noemen,zin,başka ne diyeceğimizi bilmiyorum,B2,vergadering,Ik weet niet hoe we het anders zouden moeten noemen.,Başka nasıl adlandıracağımızı bilmiyorum.,,notities,werk
+w084,geen verschil maken,uitdrukking,fark etmemek,B1,vergadering,Technisch maakt het geen verschil.,Teknik olarak fark etmiyor.,,notities,werk
+w085,vermijden,woord,kaçınmak,B2,werk,Ik zou die naam vermijden.,O isimden kaçınırdım.,,notities,werk
+w086,aansluiten,woord,"bağlanmak, uymak, oturmak",B2,werk,Dat moet allemaal aansluiten.,Hepsinin birbirine oturması lazım.,aansluiten op = ile örtüşmek.,notities,werk
+w087,het is niet zo heel veel werk,zin,çok iş değil,A2,werk,Het is niet zo heel veel werk.,Çok iş değil.,,notities,werk
+w088,benoemen,woord,"dile getirmek, adlandırmak",B2,vergadering,Goed dat je dat even benoemde.,İyi ki bundan bahsettin.,,notities,werk
+w089,vandaag ga ik vertellen over ...,zin,bugün ...'den bahsedeceğim,A2,presentatie,Vandaag ga ik vertellen over ons nieuwe project.,Bugün yeni projemizden bahsedeceğim.,Sunum açılışı.,claude,werk
+w090,opsplitsen,woord,"bölmek, ayırmak",B1,werk,Ik heb het in tweeën opgesplitst.,İkiye ayırdım.,Ayrılabilir fiil.,notities,werk
+w091,ergens doorheen gaan,uitdrukking,"bir şeyi gözden geçirmek, üzerinden geçmek",B2,presentatie,Hier ga ik even kort doorheen.,Buradan hızlıca geçiyorum.,,notities,werk
+w092,de slides zullen gedeeld worden,zin,slaytlar paylaşılacak,B1,presentatie,De slides zullen gedeeld worden.,Slaytlar paylaşılacak.,Edilgen gelecek zaman.,notities,werk
+w093,tussendoor,woord,"arada, bu sırada",B1,presentatie,Vragen mogen ook tussendoor.,Sorular arada da sorulabilir.,,notities,werk
+w094,concreet,woord,somut,B1,werk,Geef eens een concreet voorbeeld.,Somut bir örnek versene.,"eens = haydi, -sene (yumuşatma).",notities,werk
+w095,dat even terzijde,uitdrukking,ama o ayrı konu,C1,presentatie,"Wat dat betekent weet ik niet, maar dat even terzijde.",Ne demek bilmiyorum ama o ayrı konu.,terzijde = bir yana. Konuya girmeden kapatmak için.,notities,werk
+w096,dat is een andere vraag,zin,o başka bir soru,A2,vergadering,"Of dat zo is, dat is een andere vraag.","Öyle mi, o başka bir soru.",,notities,werk
+w097,dat weet ik nog niet,zin,bunu henüz bilmiyorum,A1,vergadering,Dat weet ik nog niet.,Bunu henüz bilmiyorum.,,notities,werk
+w098,ergens ervaring mee hebben,uitdrukking,bir konuda tecrübesi olmak,B1,werk,Ik heb er geen ervaring mee.,Bu konuda tecrübem yok.,,notities,werk
+w099,voorop lopen,uitdrukking,"önde koşmak, öncü olmak",B2,werk,Ik weet dat ik daar wat voorop loop.,Bu konuda biraz önde koştuğumu biliyorum.,,notities,werk
+w100,oprecht,woord,"samimi, dürüst; içtenlikle",B2,dagelijks,Ik heb oprecht gevraagd waarom ik werd uitgenodigd.,İçtenlikle neden davet edildiğimi sordum.,,notities,werk
+w101,van (alıntı başlatır),structuur,"dedi ki, diye",B2,dagelijks,Hij had zoiets van: laten we het zo doen.,O da 'hadi böyle yapalım' gibi bir şey dedi.,Konuşma dilinde van alıntıyı başlatır.,notities,werk
+w102,zich geëerd voelen,uitdrukking,onurlandırılmış hissetmek,B2,presentatie,Ik voelde me heel erg geëerd.,Kendimi çok onurlandırılmış hissettim.,eer = onur.,notities,werk
+w103,voorheen,woord,"eskiden, önceden",B2,formeel,Voorheen moesten we alles met de hand doen.,Eskiden her şeyi elle yapmak zorundaydık.,,claude,werk
+w104,aanroepen,woord,çağırmak (fonksiyon),C1,techniek,Op de achtergrond roept hij een functie aan.,Arka planda bir fonksiyon çağırıyor.,,notities,werk
+w105,concurreren,woord,rekabet etmek,B2,werk,Je gaat met de hele wereld concurreren.,Bütün dünyayla rekabet edeceksin.,,notities,werk
+w106,flink,woord,"epeyce, ciddi şekilde",B1,dagelijks,Ze zijn er flink mee bezig.,Üzerinde ciddi çalışıyorlar.,,claude,werk
+w107,omarmen,woord,"kucaklamak, benimsemek",C1,werk,We zijn het nieuwe systeem langzamerhand aan het omarmen.,Yeni sistemi yavaş yavaş benimsiyoruz.,,notities,werk
+w108,langzamerhand,woord,yavaş yavaş,B2,dagelijks,Langzamerhand wordt het beter.,Yavaş yavaş daha iyi oluyor.,,claude,werk
+w109,zo'n,woord,"öyle bir, o türden bir",A2,grammatica,Zo'n huis wil ik ook!,Öyle bir ev ben de istiyorum!,zo'n + tekil isim; çoğulda zulke: zulke mensen (zo'n mensen yanlış).,notities,werk
+w110,zulke,woord,öyle (çoğul),B1,grammatica,Zulke vragen kun je beter direct stellen.,Öyle soruları doğrudan sorsan daha iyi.,zo'n'un çoğul hali.,claude,werk
+w111,iets doorhebben,uitdrukking,"fark etmek, çakmak",B1,dagelijks,Ik had het niet door.,Fark etmemiştim.,Ayrılabilir: door sona gider. 'Gizli kalanı sezmek'.,notities,werk
+w112,ergens belanden,uitdrukking,"bir yere düşmek, varmak (kazara)",B2,dagelijks,Hoe ben jij hier beland?,Sen buraya nasıl düştün?,terechtkomen ile yakın anlamlı.,notities,werk
+w113,zat,woord,"bol bol, fazlasıyla",B2,dagelijks,We hebben tijd zat.,Vakit bol.,"İsimden sonra gelir. Samimi, resmî yazıda kullanılmaz.",notities,werk
+w114,aankaarten,woord,gündeme getirmek,C1,vergadering,Ik wil dit aankaarten bij het team.,Bunu takıma açmak istiyorum.,Toplantıların anahtar fiili.,notities,werk
+w115,op de agenda komen,uitdrukking,gündeme girmek,B1,vergadering,Zodat het op de agenda komt.,Gündeme girsin diye.,,notities,werk
+w116,beleggen,woord,"(bir işi) bir yere yerleştirmek, havale etmek",C1,vergadering,Dat moet belegd worden bij dat team.,Bu iş o takıma verilmeli.,Para yatırmak anlamı da var.,notities,werk
+w117,even denken,zin,bir düşüneyim,A2,vergadering,Even denken...,Bir düşüneyim...,Konuşmaya başlarken dolgu.,notities,werk
+w118,dat vind ik iets heel anders,zin,bu bence bambaşka bir şey,B1,vergadering,Dat vind ik iets heel anders.,Bu bence bambaşka bir şey.,Nazik ama net itiraz.,notities,werk
+w119,verward,woord,kafası karışık,B1,dagelijks,Ik ben nog steeds heel erg verward.,Hâlâ çok kafam karışık.,verwarrend = kafa karıştırıcı.,notities,werk
+w120,verwarrend,woord,kafa karıştırıcı,B1,dagelijks,Is het minder verwarrend nu?,Şimdi daha az mı karışık?,,notities,werk
+w121,niet zozeer,structuur,tam olarak ... değil,B2,vergadering,"Dat is een gevolg van het proces, maar niet zozeer het proces zelf.","Bu sürecin sonucu, ama tam olarak sürecin kendisi değil.",Tamamen reddetmeden düzeltmek için.,notities,werk
+w122,inhoudelijk,woord,içerik olarak,B2,vergadering,"Niet inhoudelijk, maar wel in het proces.","İçerik olarak değil, ama süreç olarak.",,notities,werk
+w123,dat lijkt me sterk,zin,bunu pek sanmıyorum,B2,vergadering,Dat lijkt me sterk.,Bunu pek sanmıyorum.,Kibar şüphe.,notities,werk
+w124,wordt vervolgd,uitdrukking,devam edecek,B1,vergadering,Wordt vervolgd!,Devam edecek!,Konuyu kapatmadan bırakır.,notities,werk
+w125,oppakken,woord,"(bir işi) üstlenmek, ele almak",B1,werk,Kan iemand van jullie de eerste review oppakken?,Biriniz ilk incelemeyi üstlenebilir mi?,Ayrılabilir: pak ... op.,notities,werk
+w126,overpakken,woord,devralmak,B2,werk,Dan pak ik hem maar meteen over.,O zaman hemen devralıyorum.,,notities,werk
+w127,de vrijwilliger,woord,gönüllü,A2,dagelijks,Niemand is dus vrijwilliger.,Demek ki kimse gönüllü değil.,,notities,werk
+w128,goed bezig zijn,uitdrukking,"iyi iş yapmak, doğru yolda olmak",B1,werk,Dan zijn we niet goed bezig.,O zaman iyi iş yapmıyoruz demektir.,,notities,werk
+w129,mag ik heel even inbreken?,zin,kısaca araya girebilir miyim?,B2,vergadering,Mag ik heel even inbreken?,Kısaca araya girebilir miyim?,inbreken = (eve) girmek; mecazi: söze girmek.,notities,werk
+w130,afronden,woord,"tamamlamak, bitirmek",B1,vergadering,We moeten nog even afronden.,Turu tamamlamamız lazım.,,notities,werk
+w131,voortzetten,woord,devam ettirmek,B2,formeel,Daarna kunnen we de discussie voortzetten.,Sonra tartışmaya devam ederiz.,,notities,werk
+w132,doorgeven,woord,"devretmek, iletmek",B1,vergadering,Dan geef ik het woord door aan Tom.,O zaman sözü Tom'a devrediyorum.,,claude,werk
+w133,uit de koker van iemand komen,uitdrukking,birinin fikri olmak,C1,vergadering,Dat idee komt uit de koker van de manager.,Bu fikir yöneticiden çıkma.,Kelime anlamı: birinin ok kılıfından çıkmak. Hafif mesafeli ton.,notities,werk
+w134,teamoverstijgend,woord,takımlar üstü,C1,werk,Het is een teamoverstijgend probleem.,Takımlar üstü bir sorun.,teamoverschrijdend ile aynı anlam.,notities,werk
+w135,de vermenging,woord,karışma (olumsuz),C1,werk,"Er is een vermenging, waardoor ik verward ben.","Bir karışma var, o yüzden kafam karışık.",Ayrı durması gereken iki şey karışmış.,notities,werk
+w136,zuiver houden,uitdrukking,saf / ayrı tutmak,C1,werk,We moeten het zuiver houden.,Bunu net ayrı tutmalıyız.,vermenging'in karşıtı.,notities,werk
+w137,niks te maken hebben met,uitdrukking,ile alakası olmamak,B1,dagelijks,Dat heeft niks met jou te maken.,Bunun seninle alakası yok.,"Resmîde niets, konuşmada niks.",claude,werk
+w138,op een gegeven moment,uitdrukking,"bir noktada, bir yerden sonra",B1,dagelijks,Op een gegeven moment was ik heel moe.,Bir noktada çok yorulmuştum.,,claude,werk
+w139,ergens voor bedoeld zijn,uitdrukking,bir şeyin amacı olmak,B2,werk,Dat is niet waar het voor bedoeld is.,Bunun amacı bu değil.,,notities,werk
+w140,er moet een afspraak komen,zin,bir anlaşma olması lazım,B2,vergadering,Daar moet een generieke afspraak komen.,Orada genel bir anlaşma olması lazım.,Kişiyi belirtmeden talep etmenin yolu.,notities,werk
+w141,tegelijkertijd,woord,aynı anda,B1,dagelijks,We doen twee dingen tegelijkertijd.,İki şeyi aynı anda yapıyoruz.,Kısa hali: tegelijk.,notities,werk
+w142,het is mij niet (helemaal) duidelijk,zin,bana (tam) net değil,B1,vergadering,Het is mij nog niet helemaal duidelijk hoe het werkt.,Nasıl çalıştığı bana henüz tam net değil.,Bilmediğini söylemenin profesyonel yolu.,notities,werk
+w143,het is mijn fout,zin,benim hatam,A2,werk,Het is mijn fout en ik ga het oplossen.,"Benim hatam, düzelteceğim.","Kısa, özürsüz hata sahiplenme.",claude,werk
+w144,eigenlijk niet,zin,aslında hayır,A2,dagelijks,"Is dat goed? - Eigenlijk niet, hè.",Bu doğru mu? - Aslında değil ya.,Hatayı yumuşak kabul.,notities,werk
+w145,aftakken van,uitdrukking,"(bir daldan) ayrılmak, dallanmak",C1,techniek,Deze branch is afgetakt van develop.,Bu branch develop'tan dallandı.,,notities,werk
+w146,idd (inderdaad),afkorting,"gerçekten, evet doğru",B1,e-mail,"Idd, dat klopt.","Evet, doğru.",Yazışmada çok geçer.,claude,werk
+w147,behalve,woord,"hariç, dışında",A2,dagelijks,"Iedereen komt, behalve Tom.",Tom hariç herkes geliyor.,behalve natuurlijk = tabii ... hariç.,claude,werk
+w148,anders,woord,"yoksa, aksi halde",A2,dagelijks,"Neem een jas mee, anders krijg je het koud.","Mont al, yoksa üşürsün.",Ayrıca: farklı.,claude,werk
+w149,ergens om verlegen zitten,uitdrukking,bir şeye muhtaç olmak,C1,dagelijks,Zit je nog om werk verlegen?,Hâlâ işe ihtiyacın var mı?,,notities,werk
+w150,ergens op lijken,uitdrukking,-e benzemek,A2,dagelijks,Hij lijkt op zijn vader.,Babasına benziyor.,,claude,werk
+w151,zoiets?,zin,böyle bir şey mi?,A2,dagelijks,"Het lijkt er niet op, maar zoiets?",Benzemiyor ama böyle bir şey mi?,Taslak paylaşırken.,notities,werk
+w152,voortschrijdend inzicht,uitdrukking,ilerleyen içgörü (öğrendikçe fikir değiştirmek),C1,formeel,Op basis van voortschrijdend inzicht hebben we het plan aangepast.,İlerleyen içgörü doğrultusunda planı değiştirdik.,"Özür değil, gerekçe. Fikir değiştirmenin zarif yolu.",notities,werk
+w153,verder gaan met,uitdrukking,ile devam etmek,A2,vergadering,Gisteren ben ik weer verder gegaan met de levering.,Dün yine teslimatla devam ettim.,Stand-up'ın en yaygın açılışı.,notities,werk
+w154,wat meer,uitdrukking,biraz daha,A2,dagelijks,Ik wil wat meer tijd.,Biraz daha zaman istiyorum.,wat burada 'biraz'.,claude,werk
+w155,een hele boel,uitdrukking,"bir sürü, epey fazla",B1,dagelijks,Dat is best wel een hele boel.,Bu epey fazla.,,notities,werk
+w156,aan de slag gaan (met),uitdrukking,"bir işe girişmek, kolları sıvamak",B1,werk,Vandaag gaan we aan de slag met de nieuwe dataset.,Bugün yeni veri setine girişiyoruz.,,notities,werk
+w157,afhameren,woord,"(bir konuyu) karara bağlamak, kapatmak",C1,vergadering,We moeten de vertaling nog afhameren.,Çeviriyi hâlâ karara bağlamamız lazım.,Müzayede çekicinden.,notities,werk
+w158,alsmede,woord,ve ayrıca (resmî),C1,formeel,De slides alsmede de notulen worden gedeeld.,Slaytlar ve ayrıca tutanak paylaşılacak.,,claude,werk
+w159,ergens in duiken,uitdrukking,"bir şeye dalmak, derinlemesine bakmak",B1,werk,Ik ga in dat probleem duiken.,O soruna dalacağım.,İngilizce 'dive into'.,notities,werk
+w160,op je bord liggen,uitdrukking,sorumluluğunda beklemek,B2,werk,Wat ligt er nog op mijn bord?,Masamda başka ne bekliyor?,İngilizce 'on my plate'.,notities,werk
+w161,links en rechts,uitdrukking,"sağa sola, orada burada",B1,dagelijks,Er zijn links en rechts wat dingetjes misgegaan.,Sağda solda bazı ufak şeyler ters gitti.,,notities,werk
+w162,omvallen,woord,devrilmek; (sistem) çökmek,B1,dagelijks,De fiets is omgevallen.,Bisiklet devrildi.,,claude,werk
+w163,ergens rekening mee houden,uitdrukking,bir şeyi hesaba katmak,B1,werk,We houden er rekening mee dat het later wordt.,Daha geç olabileceğini hesaba katıyoruz.,Çok yaygın.,claude,werk
+w164,het kan zomaar zijn dat ...,structuur,pekâlâ olabilir ki ...,B2,werk,Het kan zomaar zijn dat de trein vertraging heeft.,Trenin rötarlı olması pekâlâ mümkün.,zomaar = durup dururken. Riski yumuşatarak bildirir.,claude,werk
+w165,hoge verwachtingen hebben (van),uitdrukking,-den beklentisi yüksek olmak,B1,werk,Ik heb hoge verwachtingen van de sessie.,Oturumdan beklentim yüksek.,,notities,werk
+w166,handig,woord,"pratik, işe yarar",A2,dagelijks,Het is handig om de vraag alvast te delen.,Soruyu önceden paylaşmak iyi olur.,Öneri yaparken en sık sıfat.,notities,werk
+w167,zich ergens op voorbereiden,uitdrukking,bir şeye hazırlanmak,B1,werk,Misschien kan hij zich erop voorbereiden?,Belki hazırlanabilir?,,notities,werk
+w168,zeer gewenst,uitdrukking,çok arzu edilir,B2,formeel,Aanwezigheid is zeer gewenst.,Katılım çok arzu ediliyor.,,notities,werk
+w169,soort van,uitdrukking,"bir nevi, sayılır",B1,dagelijks,Het is soort van verplicht.,Bir nevi zorunlu.,Konuşma dili.,notities,werk
+w170,dat mag niet,zin,buna izin yok,A1,grammatica,Roken in de trein? Dat mag niet.,Trende sigara mı? Buna izin yok.,mogen = izinli olmak; kunnen = yapabilmek.,claude,werk
+w171,hè?,woord,değil mi?,A2,dagelijks,"Dat mag niet, hè?","Bu yasak, değil mi?",Onay isteyen soru eki.,notities,werk
+w172,mag ik ...?,structuur,... alabilir miyim / yapabilir miyim? (izin),A1,grammatica,Mag ik jouw pen?,Kalemini alabilir miyim?,İzin isterken en temel kalıp.,claude,werk
+w173,tot zo,uitdrukking,birazdan görüşürüz,A1,dagelijks,Tot zo!,Birazdan görüşürüz!,"Aile: tot straks, tot morgen, tot snel, tot ziens.",notities,werk
+w174,tot straks,uitdrukking,az sonra görüşürüz,A1,dagelijks,Tot straks!,Az sonra görüşürüz!,,claude,werk
+w175,tot snel,uitdrukking,yakında görüşürüz,A2,dagelijks,Tot snel!,Yakında görüşürüz!,Belirsiz ama yakın.,notities,werk
+w176,benieuwd,woord,merakla bekleyen,B1,vergadering,Ik ben benieuwd wat zij ervan vindt.,Onun ne düşündüğünü merak ediyorum.,Belli bir şeyi merak etmek; nieuwsgierig ise kişilik özelliği.,notities,werk
+w177,nieuwsgierig,woord,meraklı,A2,dagelijks,Ik ben wel nieuwsgierig in hoeverre dat klopt.,Bunun ne ölçüde doğru olduğunu merak ediyorum.,,notities,werk
+w178,in hoeverre,structuur,ne ölçüde,B2,formeel,In hoeverre is dit nodig?,Bu ne ölçüde gerekli?,,claude,werk
+w179,de optiek,woord,bakış açısı,C1,vergadering,In zijn optiek is het goed.,Ona göre iyi.,,notities,werk
+w180,eerlijk gezegd,uitdrukking,açıkçası,B1,dagelijks,Eerlijk gezegd begrijp ik het niet helemaal.,Açıkçası tam anlamıyorum.,"Toplantıda zayıflık değil, netlik talebi sayılır.",notities,werk
+w181,interpreteren,woord,yorumlamak,B2,werk,Ik denk dat wij het anders interpreteren.,Sanırım farklı yorumluyoruz.,,notities,werk
+w182,er is wat voor te zeggen,uitdrukking,"savunulabilir, söylenecek şey var",C1,vergadering,Over allebei is er wat te zeggen.,İkisi için de söylenecek şey var.,,notities,werk
+w183,twee stappen terugdoen,uitdrukking,iki adım geri gitmek,B1,vergadering,Misschien moeten we twee stappen terugdoen.,Belki iki adım geri gitmeliyiz.,,claude,werk
+w184,consolideren,woord,"birleştirmek, toparlamak",C1,techniek,We gaan dat later consolideren.,Bunu sonra toparlayacağız.,,notities,werk
+w185,in overleg met,uitdrukking,ile görüşerek,B2,formeel,Dat moet de manager bepalen in overleg met het team.,Bunu yönetici takımla görüşerek belirlemeli.,,notities,werk
+w186,de overeenstemming,woord,"mutabakat, uzlaşı",C1,formeel,Daar moet wel overeenstemming over zijn.,Bu konuda mutabakat olması lazım.,,notities,werk
+w187,vastleggen,woord,"kayıt altına almak, sabitlemek",B2,werk,We moeten een definitie vastleggen.,Bir tanımı yazılı olarak sabitlemeliyiz.,"Karar, tanım, anlaşma için.",notities,werk
+w188,voorkomen,woord,önlemek,B2,formeel,Zo kunnen we de discussies in de toekomst voorkomen.,Böylece gelecekte bu tartışmaları önleyebiliriz.,Vurgu 'komen'de; VOORkomen = meydana gelmek.,notities,werk
+w189,ja goeie vraag,zin,iyi soru,A2,vergadering,"Ja, goeie vraag.","Evet, iyi soru.",,notities,werk
+w190,als er iets anders is?,zin,başka bir şey var mı?,A2,vergadering,Als er iets anders is?,Başka bir şey var mı?,Toplantı kapatırken.,notities,werk
+w191,heel graag,uitdrukking,çok isterim / rica etsem,A2,dagelijks,Wil je koffie? - Heel graag!,Kahve ister misin? - Çok isterim!,,claude,werk
+w192,zou men ... kunnen,structuur,biri ... yapabilir mi? (kişisiz),C1,e-mail,Zou men deze kunnen goedkeuren?,Biri bunu onaylayabilir mi?,men = belirsiz özne; kimseyi hedef almadan hatırlatma.,notities,werk
+w193,doorgaan,woord,devam etmek; gerçekleşmek,A2,werk,Dan kan de release doorgaan.,Böylece sürüm devam edebilir.,niet doorgaan = iptal olmak.,notities,werk
+w194,werk ze,uitdrukking,iyi çalışmalar,B1,vergadering,"Nou, werk ze allemaal!",Herkese iyi çalışmalar!,Toplantı kapanışı; kelime kelime çevrilmez.,claude,werk
+w195,dat valt wel mee,uitdrukking,o kadar da kötü değil,B1,dagelijks,Het weer valt wel mee.,Hava o kadar da kötü değil.,Zıttı: het viel tegen (umduğumdan kötüydü).,notities,werk
+w196,tegenvallen,woord,beklenenden kötü çıkmak,B1,dagelijks,De film viel tegen.,Film umduğumdan kötü çıktı.,Ayrılabilir.,claude,werk
+w197,meevallen,woord,beklenenden iyi çıkmak,B1,dagelijks,Viel het mee?,Korktuğun kadar kötü değil miydi?,Ayrılabilir.,notities,werk
+w198,het woord voeren,uitdrukking,"sözü almak, konuşmayı yürütmek",C1,vergadering,Lisa gaat het woord voeren.,Sözü Lisa alacak.,,notities,werk
+w199,iets aanvliegen,uitdrukking,bir soruna yaklaşmak,C1,werk,Ik zou het probleem anders aanvliegen.,Soruna farklı yaklaşırdım.,Kelime anlamı: uçarak yaklaşmak.,notities,werk
+w200,de ophef,woord,"gürültü, velvele",C1,dagelijks,Er was veel ophef over het nieuws.,Haber hakkında çok velvele koptu.,,claude,werk
+w201,landen (mecazi),woord,"yerleşmek, karşılık bulmak",B2,werk,Hoe is dat bij het team geland?,Bu takımda nasıl karşılandı?,,notities,werk
+w202,de notulen,woord,toplantı tutanağı,B2,vergadering,Wie maakt de notulen?,Tutanağı kim tutuyor?,Her zaman çoğul.,claude,werk
+w203,ter info,uitdrukking,bilgi olsun diye,B1,e-mail,Ter info: de vergadering is verplaatst.,Bilginize: toplantı ertelendi.,,claude,werk
+w204,maar goed,uitdrukking,"neyse, her neyse",B1,dagelijks,"Het was jammer, maar goed, zo is het.","Yazık oldu ama neyse, öyle işte.",Düşünceyi sonuca bağlamadan kapatır.,notities,werk
+w205,afspreken,woord,"sözleşmek, buluşma ayarlamak",A2,dagelijks,Zullen we iets afspreken?,Bir şey ayarlayalım mı?,Hollanda sosyal hayatının merkezinde.,notities,werk
+w206,niet doorgaan,uitdrukking,iptal olmak,A2,dagelijks,De training gaat vandaag niet door.,Antrenman bugün iptal.,geannuleerd daha resmî.,claude,werk
+w207,het spannend vinden,uitdrukking,heyecanlı / biraz gergin olmak,B1,dagelijks,Ik vind die presentatie best spannend.,Bu sunum beni epey heyecanlandırıyor.,Hem heyecan verici hem biraz korkutucu.,notities,werk
+w208,laten weten,uitdrukking,haber vermek,A2,dagelijks,Wil je het even laten weten?,Bir haber verir misin?,even olmadan sert durur.,claude,werk
+w209,het erover hebben,uitdrukking,-den bahsetmek,B1,dagelijks,Ik had het erover dat we later beginnen.,Daha geç başlayacağımızdan bahsetmiştim.,,notities,werk
+w210,goed uitkomen,uitdrukking,uygun düşmek,B1,dagelijks,Komt het je uit?,Sana uyar mı?,Resmî: komt het u uit?,notities,werk
+w211,om ... te + fiil,structuur,... -mek için / -meye dair,A2,grammatica,Heb je zin om mee te gaan?,Gelmek ister misin?,Ayrılabilir fiilde te araya girer: mee te gaan.,notities,werk
+w212,verwarren,woord,kafa karıştırmak,B1,dagelijks,De twee namen verwarden me even.,İki isim kafamı biraz karıştırdı.,,claude,werk
+w213,had ... gezegd (plusquamperfectum),structuur,... demiştim / söylemiştin,B1,grammatica,Dat had je al gezegd.,Bunu zaten söylemiştin.,had + voltooid deelwoord: başka bir geçmişten önce olan.,notities,werk
+w214,"ach, die ... ook",structuur,ah şu ... yok mu (şakacı sitem),B2,dagelijks,"Ach, die buren ook!",Ah şu komşular yok mu!,,claude,werk
+w215,iemand aanspreken,uitdrukking,"birine seslenmek, hitap etmek",B1,dagelijks,Hoe mag ik u aanspreken?,Size nasıl hitap edebilirim?,Ayrılabilir: aan te spreken.,claude,werk
+w216,mogen vs kunnen,structuur,izinli olmak vs yapabilmek,A2,grammatica,"Ik kan zwemmen, maar ik mag hier niet zwemmen.",Yüzebilirim ama burada yüzmem yasak.,Mag ik...? izin; Kan ik...? yapabilir miyim.,claude,werk
+w217,het ballenhok,woord,"top deposu, malzeme kulübesi",B1,dagelijks,De ballen liggen in het ballenhok.,Toplar malzeme kulübesinde.,bal + hok.,claude,werk
+w218,de wachtlijst,woord,bekleme listesi,A2,dagelijks,Mijn zoon staat op de wachtlijst.,Oğlum bekleme listesinde.,,claude,werk
+w219,mezelf,woord,kendim,A2,grammatica,Ik ga mezelf even voorstellen.,Kendimi tanıtayım.,ik - mezelf.,notities,werk
+w220,jezelf,woord,kendin,A2,grammatica,Zorg goed voor jezelf.,Kendine iyi bak.,jij - jezelf.,claude,werk
+w221,zichzelf,woord,"kendisi, kendileri",B1,grammatica,Hij praat weleens tegen zichzelf.,Bazen kendi kendine konuşuyor.,"hij, zij, het, u ve çoğul zij.",notities,werk
+w222,onszelf,woord,kendimiz,B1,grammatica,We moeten onszelf niet te serieus nemen.,Kendimizi fazla ciddiye almamalıyız.,,claude,werk
+w223,ondertussen,woord,bu arada,A2,dagelijks,Ondertussen ga ik even koffie halen.,Bu arada ben kahve alayım.,,notities,werk
+w224,intussen,woord,bu arada (daha resmî),B1,e-mail,Intussen heb ik het gedeeld in de groep.,Bu arada grupta paylaştım.,,notities,werk
+w225,daarnaast,woord,"bunun yanında, ayrıca",B1,formeel,Daarnaast moeten we de notities bijwerken.,Bunun yanında notları da güncellememiz lazım.,Yeni madde eklerken.,notities,werk
+w226,verder,woord,"ayrıca, bundan başka; daha ileri",A2,dagelijks,Verder is alles goed.,Bunun dışında her şey iyi.,,claude,werk
+w227,uitfaseren,woord,kademeli olarak kaldırmak,C1,formeel,Het oude systeem wordt uitgefaseerd.,Eski sistem aşamalı olarak kaldırılıyor.,Ayrılabilir.,notities,werk
+w228,in onderzoek,uitdrukking,inceleme aşamasında,B2,formeel,Deze tool is nog in onderzoek.,Bu araç hâlâ inceleme aşamasında.,,claude,werk
+w229,mits,woord,"... şartıyla, yeter ki",C1,formeel,"Je mag het gebruiken, mits je het kunt onderbouwen.",Gerekçelendirebildiğin sürece kullanabilirsin.,op voorwaarde dat'tan kısa; 'evet ama şu şartla'.,notities,werk
+w230,onderbouwen,woord,"gerekçelendirmek, temellendirmek",C1,formeel,Je moet je keuze kunnen onderbouwen.,Tercihini gerekçelendirebilmelisin.,,notities,werk
+w231,bewaren,woord,saklamak,A2,dagelijks,Bewaar de bon goed.,Fişi iyi sakla.,,claude,werk
+w232,verwerken,woord,işlemek,B2,formeel,Wij verwerken uw gegevens veilig.,Verilerinizi güvenle işliyoruz.,Veri gizliliği metinlerinde.,claude,werk
+w233,het beheerde apparaat,uitdrukking,yönetilen (kurumsal) cihaz,C1,techniek,Gebruik alleen een beheerd apparaat.,Sadece kurumsal cihaz kullan.,Zıttı: privéapparaat.,claude,werk
+w234,inruilen voor,uitdrukking,"karşılığında vermek, takas etmek",B2,dagelijks,Ik ruil mijn oude telefoon in voor een nieuwe.,Eski telefonumu yenisiyle takas ediyorum.,Ayrılabilir.,claude,werk
+w235,goedkeuren,woord,onaylamak,B1,werk,De manager moet het nog goedkeuren.,Yöneticinin hâlâ onaylaması lazım.,Zıttı: afkeuren.,claude,werk
+w236,het datalek,woord,veri sızıntısı,B2,techniek,Er is een datalek geweest.,Bir veri sızıntısı oldu.,"lek = sızıntı, delik.",claude,werk
+w237,benaderen,woord,"yaklaşmak, iletişime geçmek",B2,formeel,Benader me gerust als je vragen hebt.,Sorun olursa çekinmeden bana ulaş.,,notities,werk
+w238,[emir] + gerust,structuur,çekinmeden ...!,B1,dagelijks,Laat het gerust weten!,Çekinmeden haber ver!,"roep gerust, benader gerust; oturmuş kalıp.",notities,werk
+w239,vanwege,woord,... nedeniyle,B1,formeel,Vanwege het weer gaat de training niet door.,Hava nedeniyle antrenman iptal.,omdat'tan resmî; edat.,claude,werk
+w240,waarbij,woord,"bu sırada, bununla birlikte",C1,formeel,"Er komt een nieuw beleid, waarbij medewerkers verantwoordelijk blijven.",Yeni bir politika geliyor; çalışanlar yine sorumlu kalıyor.,,notities,werk
+w241,terwijl,woord,-ken; oysa,B1,grammatica,Hij leest terwijl hij eet.,Yemek yerken okuyor.,Yan cümle: fiil sona gider.,claude,werk
+w242,toelichten,woord,"açıklamak, izah etmek",B2,formeel,Kun je dat even toelichten?,Bunu biraz açıklayabilir misin?,Ayrılabilir.,claude,werk
+w243,afstemmen (met),uitdrukking,koordine etmek,B2,werk,Dit moet vooraf worden afgestemd.,Bu önceden koordine edilmeli.,,notities,werk
+w244,afraden,woord,tavsiye etmemek,B2,formeel,De dokter raadt het af om te gaan sporten.,Doktor spor yapmamayı tavsiye ediyor.,Zıttı: aanraden.,claude,werk
+w245,ontdoen van,uitdrukking,-den arındırmak,C2,formeel,De tekst is ontdaan van persoonlijke gegevens.,Metin kişisel verilerden arındırıldı.,,notities,werk
+w246,doorbelasten,woord,maliyeti yansıtmak,C2,formeel,De kosten worden doorbelast aan de klant.,Masraflar müşteriye yansıtılıyor.,Mali terim.,claude,werk
+w247,raadplegen,woord,"başvurmak, danışmak",B2,formeel,Raadpleeg het beleid voor meer informatie.,Daha fazla bilgi için politikaya başvurun.,,notities,werk
+w248,worden + voltooid deelwoord (passief),structuur,edilgen yapı,B1,grammatica,De applicatie moet worden geregistreerd.,Uygulama kayıt altına alınmalı.,Resmî yazının imzası.,notities,werk
+w249,geloofwaardig,woord,"güvenilir, inandırıcı",B2,formeel,Zijn verhaal klinkt geloofwaardig.,Hikâyesi inandırıcı geliyor.,,claude,werk
+w250,beoogd,woord,"öngörülen, hedeflenen",C1,formeel,Het beoogde resultaat is nog niet bereikt.,Hedeflenen sonuca henüz ulaşılmadı.,,claude,werk
+w251,stapsgewijs,woord,"adım adım, kademeli",B2,formeel,We voeren het stapsgewijs in.,Bunu adım adım uygulamaya koyuyoruz.,Eş anlamlı: gefaseerd.,claude,werk
+w252,gefaseerd,woord,aşamalı,C1,formeel,De invoering verloopt gefaseerd.,Uygulama aşamalı ilerliyor.,,notities,werk
+w253,het aanspreekpunt,woord,irtibat kişisi / noktası,B2,werk,Zij is ons aanspreekpunt voor vragen.,Sorular için irtibat kişimiz o.,,claude,werk
+w254,productierijp,woord,üretime hazır,C1,techniek,De applicatie moet productierijp zijn.,Uygulama üretime hazır olmalı.,,notities,werk
+w255,het meldpunt,woord,bildirim noktası,B2,formeel,Meld het bij het meldpunt.,Bunu bildirim noktasına bildir.,,claude,werk
+w256,het applicatielandschap,woord,uygulama envanteri,C1,techniek,De app staat in het applicatielandschap.,Uygulama envanterde kayıtlı.,'Uygulama ortamı' değil; kurumun tüm uygulamalarının haritası.,notities,werk
+w257,achter de schermen,uitdrukking,perde arkasında,B2,dagelijks,Achter de schermen wordt hard gewerkt.,Perde arkasında sıkı çalışılıyor.,,claude,werk
+w258,bijpraten (over),woord,"güncel bilgi vermek, sohbet edip güncellemek",B2,werk,We praten jullie volgende week bij.,Size gelecek hafta bilgi veririz.,Ayrılabilir.,notities,werk
+w259,de grote lijnen,uitdrukking,ana hatlar,B2,werk,De grote lijnen staan.,Ana hatlar belli.,,notities,werk
+w260,het voorproefje,woord,"ön tat, önizleme",B2,dagelijks,Hier is alvast een voorproefje.,İşte şimdiden bir ön tat.,,claude,werk
+w261,volop bezig zijn met,uitdrukking,yoğun biçimde ... ile meşgul olmak,B2,werk,We zijn volop bezig met de verhuizing.,Taşınmayla yoğun biçimde meşgulüz.,,claude,werk
+w262,het beeldmerk,woord,"logo, simge",C1,werk,Het nieuwe beeldmerk is klaar.,Yeni logo hazır.,,claude,werk
+w263,in een nieuw jasje (steken),uitdrukking,yeni bir kılığa sokmak,C1,werk,"We houden het goede, maar dan in een nieuw jasje.",İyi olanı tutuyoruz ama yeni bir kılıkta.,Çok kullanışlı kurumsal metafor.,notities,werk
+w264,vormgeven (aan),woord,şekillendirmek,C1,formeel,Samen geven we vorm aan de nieuwe plek.,Yeni mekânı birlikte şekillendiriyoruz.,,claude,werk
+w265,laat van je horen,zin,"sesini duyur, bize haber ver",B1,e-mail,Heb je ideeën? Laat van je horen!,Fikrin var mı? Sesini duyur!,Emir kipi davet kalıbı.,notities,werk
+w266,de smoelenwand,woord,'surat duvarı' (çalışan fotoğrafları),C1,werk,Iedereen komt op de smoelenwand.,Herkes surat duvarına giriyor.,"smoel = argo 'surat'; samimi, resmî değil.",claude,werk
+w267,verzetten,woord,"ertelemek, tarihini değiştirmek",B1,dagelijks,Zouden we het gesprek kunnen verzetten naar volgende week?,Görüşmeyi gelecek haftaya alabilir miyiz?,Sık tekrar eden kalıp.,notities,werk
+w268,rechtzetten,woord,"düzeltmek, telafi etmek",B2,dagelijks,Ik wil het misverstand rechtzetten.,Yanlış anlamayı düzeltmek istiyorum.,,claude,werk
+w269,er is iets tussengekomen,zin,araya bir şey girdi,B1,dagelijks,"Sorry, er is iets tussengekomen.","Kusura bakma, araya bir şey girdi.",Program çakışmasının standart kalıbı.,notities,werk
+w270,begeleiden,woord,"rehberlik etmek, eşlik etmek",B1,werk,Twee trainers begeleiden het team.,İki antrenör takıma rehberlik ediyor.,,claude,werk
+w271,ingrijpen,woord,müdahale etmek,B2,dagelijks,Ik kan niet altijd goed ingrijpen.,Her zaman iyi müdahale edemiyorum.,,notities,werk
+w272,aanpakken,woord,"ele almak, girişmek",B1,werk,Hoe gaan we dit aanpakken?,Bunu nasıl ele alacağız?,,claude,werk
+w273,meedenken,woord,"birlikte düşünmek, fikir vermek",B1,werk,Bedankt voor het meedenken!,Fikir verdiğin için teşekkürler!,,notities,werk
+w274,hartstikke,woord,"çok, son derece (günlük)",B1,dagelijks,Het was hartstikke leuk!,Çok güzeldi!,Güçlü vurgu.,notities,werk
+w275,de taalbarrière,woord,dil bariyeri,B1,dagelijks,Door de taalbarrière mis ik soms iets.,Dil bariyeri yüzünden bazen bir şey kaçırıyorum.,,notities,werk
+w276,waardoor,woord,"bu yüzden, bunun sonucunda",B2,grammatica,"Ik was ziek, waardoor ik niet kon komen.","Hastaydım, bu yüzden gelemedim.","waardoor sonucu, zodat amacı vurgular.",claude,werk
+w277,uitstralen,woord,"yansıtmak, yaymak",B2,dagelijks,De ruimte straalt rust uit.,Mekân huzur yayıyor.,"uitstraling = hava, görünüm.",claude,werk
+w278,een knipoog naar,uitdrukking,"-e göz kırpma, şakacı atıf",C1,dagelijks,De naam is een knipoog naar het verleden.,İsim geçmişe bir göz kırpma.,,claude,werk
+w279,het komt er niet van,uitdrukking,(yapmak istediğin şey) bir türlü olmuyor,B2,dagelijks,"Ik wil sporten, maar het komt er niet van.",Spor yapmak istiyorum ama bir türlü olmuyor.,,claude,werk
+w280,moeite hebben met,uitdrukking,-de zorlanmak,B1,dagelijks,Ik heb moeite met de uitspraak.,Telaffuzda zorlanıyorum.,,claude,werk
+w281,verwijzen naar,uitdrukking,"atıfta bulunmak, işaret etmek",B1,formeel,De naam verwijst naar ons verleden.,İsim geçmişimize atıfta bulunuyor.,,claude,werk
+w282,de gebedsruimte,woord,ibadet odası,B2,dagelijks,In het nieuwe kantoor komt een gebedsruimte.,Yeni ofiste bir ibadet odası olacak.,gebed = dua.,claude,werk
+w283,uitschrijven,woord,kaydı silmek,B1,formeel,Je kunt je altijd uitschrijven.,Kaydını her zaman silebilirsin.,Zıttı: inschrijven.,claude,werk
+w284,de woningzoekende,woord,konut arayan kişi,B2,formeel,Er zijn veel woningzoekenden in de regio.,Bölgede çok konut arayan var.,woning + zoeken + -de.,claude,werk
+w285,de coulanceperiode,woord,tolerans dönemi,C2,formeel,Er geldt een coulanceperiode van drie maanden.,Üç aylık tolerans dönemi geçerli.,"Fransızca kökenli, idari dil.",claude,werk
+w286,streng,woord,"sert, katı",A2,dagelijks,De regels zijn streng.,Kurallar katı.,,claude,werk
+w287,een besluit nemen,uitdrukking,karar almak,B1,formeel,Het bestuur heeft een besluit genomen.,Yönetim bir karar aldı.,,claude,werk
+w288,de betalingsverplichting,woord,ödeme yükümlülüğü,C1,formeel,Je hebt geen betalingsverplichting.,Ödeme yükümlülüğün yok.,,claude,werk
+w289,ongewijzigd,woord,değişmeden,B2,formeel,De regels blijven ongewijzigd.,Kurallar değişmeden kalıyor.,on- + gewijzigd.,claude,werk
+w290,stilstaan bij,uitdrukking,bir konu üzerinde durmak,B2,formeel,We willen even stilstaan bij dit onderwerp.,Bu konu üzerinde biraz durmak istiyoruz.,Kayıp/yas bağlamında da kullanılır.,claude,werk
+w291,toekennen,woord,"tahsis etmek, (yetki) vermek",C1,formeel,Toegang wordt alleen toegekend als het nodig is.,Erişim sadece gerekirse veriliyor.,,claude,werk
+w292,gerechtvaardigd,woord,"haklı, gerekçeli",C1,formeel,Is deze toegang nog gerechtvaardigd?,Bu erişim hâlâ gerekçeli mi?,rechtvaardigen kökünden.,claude,werk
+w293,behouden,woord,"korumak, elde tutmak",B2,formeel,Je behoudt je toegang tot het einde van het project.,Proje sonuna kadar erişimini koruyorsun.,,claude,werk
+w294,intrekken,woord,"geri çekmek, iptal etmek",B2,formeel,De toegang wordt ingetrokken.,Erişim geri çekiliyor.,Ayrılabilir.,claude,werk
+w295,verlopen,woord,"süresi dolmak; ilerlemek, geçmek",B1,dagelijks,Mijn paspoort is verlopen.,Pasaportumun süresi doldu.,Ayrıca: Hoe is het verlopen? = Nasıl geçti?,claude,werk
+w296,schaalbaar,woord,ölçeklenebilir,C1,techniek,De oplossing moet schaalbaar zijn.,Çözüm ölçeklenebilir olmalı.,,claude,werk
+w297,tijdig,woord,zamanında,B2,formeel,Graag tijdig reageren.,Lütfen zamanında cevap verin.,,claude,werk
+w298,terugkerend,woord,"tekrarlayan, dönemsel",B2,formeel,Het is een terugkerend proces.,Tekrarlayan bir süreç.,,notities,werk
+w299,geraakt worden door,uitdrukking,-den etkilenmek,B2,formeel,Veel teams worden hierdoor geraakt.,Birçok takım bundan etkileniyor.,,claude,werk
+w300,"waar voorheen ..., ... tegenwoordig",structuur,eskiden ... iken bugün ...,C1,formeel,"Waar je voorheen een brief stuurde, stuur je tegenwoordig een mail.",Eskiden mektup gönderirken bugün mail atıyorsun.,Bir değişimi anlatmanın güçlü resmî kalıbı.,claude,werk
+w301,geen vs niet,structuur,"olumsuzluk: isimle geen, fiil/sıfatla niet",A1,grammatica,Dat is geen probleem. Het is niet moeilijk.,Sorun değil. Zor değil.,"geen probleem, geen tijd / niet makkelijk, ik kom niet.",notities,werk
+w302,de entree,woord,giriş (ücreti),A2,dagelijks,De entree is gratis.,Giriş ücretsiz.,İngilizce 'entrance' değil.,claude,werk
+w303,de ketenregie,woord,zincir yönetimi,C2,werk,Het ketenregieteam coördineert alle partijen.,Zincir yönetimi ekibi tüm tarafları koordine ediyor.,"keten = zincir, regie = yönetim.",claude,werk
+w304,vorm krijgen,uitdrukking,şekillenmek,B2,formeel,Steeds meer zaken krijgen vorm.,Gittikçe daha çok şey şekilleniyor.,,notities,werk
+w305,aanscherpen,woord,"netleştirmek, keskinleştirmek",C1,formeel,We willen de regels verder aanscherpen.,Kuralları daha da netleştirmek istiyoruz.,Ayrılabilir: aan te scherpen.,notities,werk
+w306,het speelveld,woord,"oyun alanı, faaliyet alanı",C1,werk,Het speelveld verandert snel.,Faaliyet alanı hızla değişiyor.,,claude,werk
+w307,gaandeweg,woord,"zamanla, yol boyunca",C1,formeel,Gaandeweg leer je het wel.,Zamanla öğrenirsin.,,claude,werk
+w308,de inbreng,woord,katkı,B2,werk,Bedankt voor jullie inbreng.,Katkınız için teşekkürler.,,notities,werk
+w309,meenemen in,uitdrukking,"dahil etmek, hesaba katmak",B2,werk,We nemen deze feedback mee in de volgende versie.,Bu geri bildirimi bir sonraki sürüme dahil ediyoruz.,"meenemen: somuttan (şemsiye) soyuta (konu, fikir).",notities,werk
+w310,van daaruit,uitdrukking,buradan yola çıkarak,B2,formeel,Van daaruit maken we een plan.,Buradan yola çıkarak bir plan yapıyoruz.,,claude,werk
+w311,ergens beter van worden,uitdrukking,bir şeyden fayda görmek,C1,formeel,Daar wordt ons verhaal beter van.,Hikâyemiz bundan daha iyi hale gelir.,,notities,werk
+w312,wijzen op,uitdrukking,"dikkat çekmek, işaret etmek",B2,e-mail,Ik wil jullie wijzen op de nieuwe regels.,Yeni kurallara dikkatinizi çekmek istiyorum.,,notities,werk
+w313,tof,woord,"harika, süper",A2,dagelijks,Wat een toffe dag!,Ne harika bir gün!,Öz Hollandaca argo; İbranice 'tov' (iyi) kökenli.,claude,werk
+w314,afscheid nemen (van),uitdrukking,vedalaşmak,B1,e-mail,Vandaag neem ik afscheid van jullie.,Bugün sizinle vedalaşıyorum.,,claude,werk
+w315,een overstap maken,uitdrukking,geçiş yapmak,B2,werk,Ik maak de overstap naar een nieuwe baan.,Yeni bir işe geçiş yapıyorum.,Trende aktarma anlamı da var.,claude,werk
+w316,terugkijken op,uitdrukking,geriye dönüp bakmak,B1,e-mail,Ik kijk met plezier terug op deze tijd.,Bu döneme keyifle geri bakıyorum.,,notities,werk
+w317,ontzettend,woord,"son derece, müthiş",B1,dagelijks,Ontzettend bedankt!,Çok çok teşekkürler!,Güçlü vurgu zarfı.,claude,werk
+w318,de gezelligheid,woord,"sıcak, samimi ve keyifli ortam",B1,dagelijks,Bedankt voor alle gezelligheid!,Tüm o güzel ve sıcak anlar için teşekkürler!,En ünlü 'çevrilemeyen' kelime.,claude,werk
+w319,maak er wat moois van!,zin,ondan güzel bir şey çıkar!,B2,e-mail,"Succes met je nieuwe baan, maak er wat moois van!","Yeni işinde başarılar, güzel bir şey çıkar ondan!",Teşvik edici veda kalıbı.,notities,werk
+w320,dan + inversie,structuur,dan cümle başında devrik yapı,B1,grammatica,Dan hebben ze mijn PR vergeten.,Sonra PR'ımı unuttular.,dan devrik yapı tetikler; en tetiklemez (En ik denk...).,notities,werk
+w321,het bericht,woord,mesaj,A1,dagelijks,Bedankt voor je bericht.,Mesajın için teşekkürler.,het-kelime: dit bericht (deze değil).,notities,werk
+w322,een soort (van),uitdrukking,bir çeşit,A2,dagelijks,Het is een soort chaos.,Bir çeşit kaos.,Yazım: soort.,notities,werk
+w323,obv (op basis van),afkorting,-e dayanarak,B2,e-mail,Een query obv de nieuwe tabel.,Yeni tabloya dayanan bir sorgu.,Sadece yazışmada.,notities,werk
+w324,ipv (in plaats van),afkorting,yerine,B1,e-mail,We gebruiken thee ipv koffie.,Kahve yerine çay kullanıyoruz.,,claude,werk
+w325,ivm (in verband met),afkorting,"ile bağlantılı olarak, nedeniyle",B1,e-mail,Ivm de release werkt dit nog niet.,Sürüm nedeniyle bu henüz çalışmıyor.,,notities,werk
+w326,mbt (met betrekking tot),afkorting,ile ilgili olarak,B2,e-mail,Een vraag mbt de planning.,Planlamayla ilgili bir soru.,,notities,werk
+w327,tbv (ten behoeve van),afkorting,"... için, yararına",C1,e-mail,Deze tabel is tbv rapportage.,Bu tablo raporlama için.,,notities,werk
+w328,agv (als gevolg van),afkorting,sonucu olarak,B2,e-mail,Vertraging agv de storing.,Arıza sonucu gecikme.,,notities,werk
+w329,tov (ten opzichte van),afkorting,"-e göre, -e kıyasla",B2,e-mail,10% hoger tov vorig jaar.,Geçen yıla göre %10 daha yüksek.,,notities,werk
+w330,icm (in combinatie met),afkorting,ile birlikte,B2,e-mail,Werkt alleen icm de nieuwe versie.,Sadece yeni sürümle birlikte çalışır.,,notities,werk
+w331,zsm (zo snel mogelijk),afkorting,en kısa sürede,A2,e-mail,Graag zsm reageren.,Lütfen en kısa sürede cevap verin.,,notities,werk
+w332,evt (eventueel),afkorting,"gerekirse, muhtemelen",B1,e-mail,Evt kunnen we dit verzetten.,Gerekirse bunu erteleyebiliriz.,,notities,werk
+w333,bevallen,woord,"hoşuna gitmek, memnun kalmak",B1,dagelijks,Is het goed bevallen?,"Beğendin mi, iyi geçti mi?",Doğum yapmak anlamı da var.,notities,werk
+w334,aanmaken,woord,"oluşturmak, açmak; (ateş) yakmak",B1,techniek,Je moet eerst een account aanmaken.,Önce bir hesap açman lazım.,,notities,werk
+w335,uitmaken,woord,fark etmek; ayrılmak; karar vermek,B1,dagelijks,Het maakt niet uit.,Fark etmez.,Ze heeft het uitgemaakt = ayrıldı; deel uitmaken van = parçası olmak.,notities,werk
+w336,meemaken,woord,"yaşamak, başından geçmek",B1,dagelijks,Ik heb veel meegemaakt.,Çok şey yaşadım.,,notities,werk
+w337,tegen een probleem aanlopen,uitdrukking,bir soruna denk gelmek,B2,werk,We lopen tegen een probleem aan.,Bir soruna denk geliyoruz.,aanlopen: bij iemand aanlopen = uğramak; rood aanlopen = kızarmak.,notities,werk
+w338,over het hoofd zien,uitdrukking,gözden kaçırmak,B2,dagelijks,"Sorry, dat heb ik over het hoofd gezien.","Pardon, onu gözden kaçırmışım.",,claude,werk
+w339,mijn voorkeur gaat uit naar,structuur,tercihim ... yönünde,B2,e-mail,Mijn voorkeur gaat uit naar maandag.,Tercihim pazartesi.,ik prefereer'den daha doğal ve zarif.,notities,werk
+w340,mocht dit niet uitkomen,structuur,eğer bu uymazsa,C1,e-mail,"Mocht dit niet uitkomen, dan hoor ik graag jouw voorstel.",Bu uymazsa önerini duymak isterim.,"mocht = indien (eğer), resmî şart.",notities,werk
+w341,het gemis,woord,"yokluk hissi, özlem",C1,formeel,Het gemis is groot.,Yokluğu çok hissediliyor.,missen fiilinin ismi.,claude,werk
+w342,voortbouwen op,uitdrukking,üzerine inşa etmek,B2,formeel,We bouwen voort op wat er al is.,Var olanın üzerine inşa ediyoruz.,,notities,werk
+w343,de bezettingsgraad,woord,doluluk / kapasite kullanım oranı,C1,werk,De bezettingsgraad is dit jaar hoog.,Bu yıl doluluk oranı yüksek.,,claude,werk
+w344,naar beneden bijstellen,uitdrukking,aşağı yönlü revize etmek,C1,formeel,De verwachting wordt naar beneden bijgesteld.,Beklenti aşağı yönlü revize ediliyor.,,notities,werk
+w345,op de rol staan,uitdrukking,"planlı olmak, gündemde olmak",C1,formeel,Er staan nieuwe projecten op de rol.,Gündemde yeni projeler var.,,notities,werk
+w346,gegund worden,uitdrukking,(ihale) verilmek,C2,formeel,De opdracht is aan ons gegund.,İhale bize verildi.,"gunnen = layık görmek, çok görmemek.",notities,werk
+w347,uitsluitsel krijgen,uitdrukking,kesin cevap almak,C1,formeel,Volgende week krijgen we uitsluitsel.,Gelecek hafta kesin cevap alıyoruz.,,notities,werk
+w348,het woord geven aan,uitdrukking,sözü vermek,B1,vergadering,Ik geef het woord aan Lisa.,Sözü Lisa'ya veriyorum.,,claude,werk
+w349,behapbaar,woord,"idare edilebilir, kaldırılabilir",C1,werk,We houden het werk behapbaar.,İşi idare edilebilir tutuyoruz.,behappen = ısırıp yutabilmek.,notities,werk
+w350,ondanks,woord,-e rağmen,B1,formeel,Ondanks de regen gingen we wandelen.,Yağmura rağmen yürüyüşe çıktık.,,claude,werk
+w351,de gemeenschappelijke basis,uitdrukking,ortak temel,C1,formeel,We bouwen een gemeenschappelijke basis.,Ortak bir temel inşa ediyoruz.,,claude,werk
+w352,het vertrekpunt,woord,başlangıç noktası,B2,formeel,Dit is ons vertrekpunt.,Bu bizim başlangıç noktamız.,,claude,werk
+w353,aansluiten op,uitdrukking,"ile örtüşmek, uyum sağlamak",B2,formeel,De training sluit aan op je werk.,Eğitim işinle örtüşüyor.,,notities,werk
+w354,zich herkennen in,uitdrukking,kendini bir şeyde bulmak,B2,dagelijks,Ik herken me wel in dat verhaal.,O hikâyede kendimi buluyorum.,,notities,werk
+w355,de randvoorwaarden,woord,ön koşullar,C1,formeel,Wat zijn de randvoorwaarden?,Ön koşullar neler?,,claude,werk
+w356,het snijvlak van ... en ...,uitdrukking,... ile ...'nin kesişimi,C1,formeel,Het werk ligt op het snijvlak van data en AI.,"İş, veri ile yapay zekânın kesişiminde.",,claude,werk
+w357,toetsen aan,uitdrukking,-e göre sınamak,C1,formeel,We toetsen het plan aan de wet.,Planı yasaya göre sınıyoruz.,,notities,werk
+w358,bewaken,woord,"korumak, gözetmek",B2,werk,Wie bewaakt de kwaliteit?,Kaliteyi kim gözetiyor?,,claude,werk
+w359,meebewegen met,uitdrukking,ayak uydurmak,C1,werk,Je moet meebewegen met de ontwikkelingen.,Gelişmelere ayak uydurmalısın.,,notities,werk
+w360,geen eindstation,uitdrukking,son durak değil,B2,formeel,"Dit is geen eindstation, maar een begin.","Bu bir son durak değil, bir başlangıç.",,claude,werk
+w361,herbruikbaar,woord,yeniden kullanılabilir,B2,techniek,Maak een herbruikbaar template.,Yeniden kullanılabilir bir şablon yap.,,claude,werk
+w362,de hallucinatie,woord,halüsinasyon,B2,techniek,Een AI-model kan hallucinaties geven.,Bir yapay zekâ modeli halüsinasyon üretebilir.,Yanlış ama inandırıcı bilgi.,claude,werk
+w363,plausibel klinkend,uitdrukking,inandırıcı gelen,C1,techniek,"Het antwoord is plausibel klinkend, maar fout.",Cevap inandırıcı geliyor ama yanlış.,,claude,werk
+w364,de verwerkersovereenkomst,woord,veri işleme sözleşmesi,C2,formeel,We tekenen een verwerkersovereenkomst met de leverancier.,Tedarikçiyle veri işleme sözleşmesi imzalıyoruz.,AVG/GDPR terimi.,claude,werk
+w365,bevooroordeeld,woord,önyargılı,C1,formeel,Het model kan bevooroordeeld zijn.,Model önyargılı olabilir.,,claude,werk
+w366,privacygevoelig,woord,gizlilik açısından hassas,B2,formeel,Dit zijn privacygevoelige gegevens.,Bunlar hassas veriler.,,claude,werk
+w367,toestemming geven,uitdrukking,izin vermek,B1,formeel,Heb je toestemming gegeven?,İzin verdin mi?,,claude,werk
+w368,het gaat z'n gangetje,uitdrukking,işler her zamanki gibi gidiyor,B2,dagelijks,Hier gaat het z'n gangetje.,Burada işler her zamanki gibi.,"Dengeli, alçakgönüllü 'naber' cevabı.",notities,werk
+w369,hopen te + infinitief,structuur,-meyi ummak,B1,grammatica,Ik hoop jullie snel te zien en te spreken.,Sizi yakında görmeyi ve konuşmayı umuyorum.,,notities,werk
+w370,de werkzaamheden,woord,"işler, çalışmalar",B2,formeel,Door werkzaamheden rijdt er geen trein.,Çalışmalar nedeniyle tren yok.,Her zaman çoğul.,claude,werk
+w371,op de planning staan,uitdrukking,planda olmak,B1,werk,Wat staat er deze week op de planning?,Bu hafta planda ne var?,,claude,werk
+w372,vervanging zoeken,uitdrukking,yedek / vekil aramak,B1,dagelijks,Ik ben nog op zoek naar vervanging.,Hâlâ yerime birini arıyorum.,,notities,werk
+w373,wat erbij komt kijken,uitdrukking,işin ne gerektirdiği,B2,dagelijks,Ik weet nog niet wat erbij komt kijken.,İşin ne gerektirdiğini henüz bilmiyorum.,,notities,werk
+w374,je steentje bijdragen,uitdrukking,"katkıda bulunmak, elinden geleni yapmak",B2,dagelijks,Ik draag graag mijn steentje bij!,Seve seve katkıda bulunurum!,Kelime anlamı: taşını eklemek.,notities,werk
+w375,inspringen voor iemand,uitdrukking,birinin yerine geçmek,B2,dagelijks,Ik spring graag een keer voor jou in.,Bir kere seve seve senin yerine geçerim.,,notities,werk
+w376,overnemen,woord,devralmak,B1,werk,Kan iemand mijn dienst overnemen?,Biri görevimi devralabilir mi?,,notities,werk
+w377,de herinnering,woord,hatırlatma; anı,B1,e-mail,Bedankt voor de herinnering.,Hatırlatma için teşekkürler.,,notities,werk
+w378,stiekem,woord,"gizlice, çaktırmadan",B1,dagelijks,Hij at stiekem een koekje.,Gizlice bir kurabiye yedi.,İbranice 'shtika' (sessizlik) kökenli.,claude,werk
+w379,roddelen,woord,dedikodu yapmak,B1,dagelijks,Op het werk wordt veel geroddeld.,İşte çok dedikodu yapılıyor.,roddel = dedikodu. Kökeni belirsiz.,claude,werk
+w380,mazzel,woord,şans,B2,dagelijks,Wat een mazzel!,Ne şans!,İbranice 'mazal'.,claude,werk
+w381,jatten,woord,"aşırmak, çalmak (argo)",B2,dagelijks,Iemand heeft mijn fiets gejat.,Biri bisikletimi aşırdı.,Argo.,claude,werk
+w382,de bajes,woord,hapishane (argo),C1,dagelijks,Hij zat twee jaar in de bajes.,İki yıl hapis yattı.,İbranice 'bayit' (ev).,claude,werk
+w383,iemand in de steek laten,uitdrukking,birini yarı yolda bırakmak,B2,dagelijks,Ik wil jullie niet in de steek laten.,Sizi yarı yolda bırakmak istemiyorum.,Türkçeyle tam örtüşüyor.,notities,werk
+w384,wegwijs zijn in,uitdrukking,bir şeyde yolunu bulmuş olmak,C1,dagelijks,Ik ben er nog niet wegwijs in.,Henüz orada yolumu bulamadım.,,notities,werk
+w385,zich aanmelden,uitdrukking,"başvurmak, kaydolmak",B1,dagelijks,Hopelijk meldt iemand zich.,Umarım biri başvurur.,,notities,werk
+w386,tegen (zaman),structuur,"... -e kadar, -e doğru",B1,grammatica,"Als er tegen vrijdagavond niemand reageert, doe ik het zelf.",Cuma akşamına kadar kimse cevap vermezse kendim yaparım.,"tegen burada 'karşı' değil, zaman sınırı.",notities,werk
+w387,vriend vs vriendin,structuur,erkek arkadaş vs kız arkadaş,A1,grammatica,Mijn vriendin en haar broer komen ook.,Kız arkadaşım ve abisi de geliyor.,zijn (erkek) / haar (kadın).,claude,werk
+w388,de kantinedienst,woord,kantin görevi,B1,dagelijks,Zaterdag heb ik kantinedienst.,Cumartesi kantin görevim var.,,claude,werk
+w389,gelukt zijn,uitdrukking,"başarılı olmak, iyi gitmek",A2,dagelijks,Is het gelukt?,Oldu mu? Başardın mı?,,notities,werk
+w390,het tegengestelde,woord,"zıttı, karşıtı",B1,grammatica,Warm is het tegengestelde van koud.,Sıcak soğuğun zıttıdır.,Gerçek zıtlık.,notities,werk
+w391,tegenover,woord,karşısında; -e karşı (tutum),A2,dagelijks,Het café ligt tegenover de kerk.,Kafe kilisenin karşısında.,Hoe sta jij tegenover dit voorstel? = Bu öneriye bakışın ne?,notities,werk
+w392,in tegenstelling tot,uitdrukking,-in aksine,B2,formeel,In tegenstelling tot vorig jaar is het nu druk.,Geçen yılın aksine şimdi yoğun.,,claude,werk
+w393,tegenstrijdig,woord,çelişkili,C1,formeel,Ik krijg tegenstrijdige berichten.,Çelişkili mesajlar alıyorum.,,claude,werk
+w394,tegenkomen,woord,rastlamak,A2,dagelijks,Ik kwam hem toevallig tegen.,Ona tesadüfen rastladım.,,notities,werk
+w395,ten opzichte van,uitdrukking,"-e göre, -e kıyasla",B2,formeel,Ten opzichte van vorig jaar is het beter.,Geçen yıla göre daha iyi.,Kısaltması tov.,claude,werk
+w396,tegenwoordig,woord,"günümüzde, bugünlerde",A2,dagelijks,Tegenwoordig werkt iedereen thuis.,Bugünlerde herkes evden çalışıyor.,tegen (karşı) ile ilgisi yok; tuzak.,notities,werk
+w397,terecht,woord,"haklı, yerinde",B2,dagelijks,Dat is een terechte opmerking.,Bu yerinde bir yorum.,,notities,werk
+w398,terechtkomen,woord,bir yere varmak / düşmek,B2,dagelijks,Waar is het terechtgekomen?,Nereye düştü?,ergens belanden ile eş anlamlı.,notities,werk
+w399,ergens terechtkunnen (voor),uitdrukking,bir yere başvurabilmek,B2,formeel,Waar kan ik terecht voor hulp?,Yardım için nereye başvurabilirim?,Çok kullanışlı.,notities,werk
+w400,terechtwijzen,woord,"uyarmak, azarlamak",C1,formeel,De leraar wees de leerling terecht.,Öğretmen öğrenciyi uyardı.,,notities,werk
+w401,terechtstaan,woord,yargılanmak,C1,formeel,Hij moet terechtstaan voor diefstal.,Hırsızlıktan yargılanacak.,Hukuki.,notities,werk
+w402,de beoordelaar,woord,değerlendirici,C1,formeel,Wie is jouw beoordelaar?,Seni kim değerlendiriyor?,,claude,werk
+w403,de competentie,woord,yetkinlik,B2,formeel,Welke competenties wil je ontwikkelen?,Hangi yetkinlikleri geliştirmek istiyorsun?,gedragscompetenties = davranış yetkinlikleri.,claude,werk
+w404,sparren (over),woord,fikir alışverişi yapmak,B2,werk,Zullen we even sparren over het plan?,Plan üzerine biraz fikir alışverişi yapalım mı?,,claude,werk
+w405,wederzijds,woord,karşılıklı,B2,formeel,Het respect is wederzijds.,Saygı karşılıklı.,,claude,werk
+w406,waarborgen,woord,güvence altına almak,C1,formeel,We waarborgen de onafhankelijkheid.,Bağımsızlığı güvence altına alıyoruz.,,notities,werk
+w407,beheersbaar houden,uitdrukking,yönetilebilir tutmak,C1,formeel,We houden de werkdruk beheersbaar.,İş yükünü yönetilebilir tutuyoruz.,,notities,werk
+w408,beterschap!,uitdrukking,geçmiş olsun!,A2,dagelijks,Allereerst beterschap!,Öncelikle geçmiş olsun!,Hastaya söylenen standart kalıp.,notities,werk
+w409,afkeuren,woord,"reddetmek, onaylamamak",B2,formeel,Die aanvraag ga ik afkeuren.,O talebi reddedeceğim.,Zıttı: goedkeuren.,notities,werk
+w410,uitzieken,woord,hastalığı acele etmeden atlatmak,B2,dagelijks,Ziek goed uit!,İyice iyileş!,Ayrılabilir: ziek ... uit.,notities,werk
+w411,per ongeluk,uitdrukking,yanlışlıkla,A2,dagelijks,Ik had per ongeluk de verkeerde optie gekozen.,Yanlışlıkla yanlış seçeneği seçmişim.,,notities,werk
+w412,zodra,woord,"-ir -mez, -diği anda",B1,grammatica,Ik laat het je weten zodra ik weer beter ben.,İyileşir iyileşmez sana haber veririm.,Yan cümle: fiil sona.,notities,werk
+w413,ziek worden,uitdrukking,hasta olmak,A1,dagelijks,Ik ben ziek geworden.,Hasta oldum.,worden + sıfat: değişim bildirir.,notities,werk
+w414,het ongemak,woord,"rahatsızlık, zahmet",B1,e-mail,Excuses voor het ongemak!,Rahatsızlık için özür dilerim!,Standart özür kalıbı.,notities,werk
+w415,zouden we ... kunnen,structuur,... yapabilir miyiz? (kibar rica),B1,e-mail,Zouden we het gesprek kunnen verzetten?,Görüşmeyi erteleyebilir miyiz?,En kibar rica kalıplarından.,notities,werk
