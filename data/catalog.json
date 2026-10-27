@@ -115,6 +115,15 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-sudoku",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Slimspel · Sudoku",
+      "desc": "4×4 ve 6×6 sudoku, her seferinde yeni bulmaca. Kural bozulunca hemen kırmızı gösterir.",
+      "href": "../slimspel/sudoku/",
+      "status": "ready"
+    },
+    {
       "id": "woorden-groep4",
       "area": "kids",
       "group": "groep4",
