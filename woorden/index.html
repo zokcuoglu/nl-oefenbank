@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kelime testi · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.lvl-chip{font-family:var(--mono);font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;border:1.5px solid currentColor}
+.setup{display:flex;flex-direction:column;gap:16px}
+.setup .lbl{font-size:13px;color:var(--muted);margin:0 0 6px}
+.lvls{display:flex;flex-wrap:wrap;gap:6px}
+.lvls button{font-family:var(--mono);font-size:13px;font-weight:600;border:1.5px solid var(--lc);color:var(--lc);background:none;border-radius:8px;padding:6px 10px;cursor:pointer}
+.lvls button.on{background:var(--lc);color:var(--surface)}
+.lvls button:disabled{opacity:.35;cursor:default}
+.lvls .num{font-weight:400;opacity:.85}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;cursor:pointer}
+.check input{margin-top:3px}
+.qcard{display:flex;flex-direction:column;gap:12px}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qq{font-size:19px;font-weight:500;line-height:1.5;margin:0;max-width:60ch}
+.qq .big{font-family:var(--display);font-size:24px}
+.qq .gapb{display:inline-block;min-width:4.5em;border-bottom:2px solid var(--accent);text-align:center;font-weight:600}
+.qq .gapb.ok{color:var(--ok);border-color:var(--ok)} .qq .gapb.no{color:var(--bad);border-color:var(--bad)}
+.qfoot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.hint{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.hint summary{cursor:pointer;color:var(--blue);font-weight:600}
+.hint p{margin:8px 0 0}
+.bigscore{font-family:var(--display);font-size:46px;font-weight:700;line-height:1}
+.expl{display:flex;flex-direction:column;gap:4px}
+.expl .src{font-size:12.5px;color:var(--muted)}
+.wl td{vertical-align:top}
+.examnote{font-size:13px;color:var(--muted)}
+.picked{font-weight:600}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <span lang="nl">Woorden en uitdrukkingen</span></small><h1>Kelime testi</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Word test: questions are generated from one shared pool (data/woorden.json = work notes + news words).
+// The user picks source, levels, type and number of questions, and a mode:
+//   leer   = learning: right answer and explanation right after each question
+//   examen = exam: no feedback until the end; then the score, and (on request) every answer with explanation
+// A hint box under each question shows context (example, explanation) without giving the answer away.
+// Finished rounds are saved as attempts (module "woorden"); "weak words first" uses the last answer per word.
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
+const RANK = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
+const SOORTEN = { alle: "Hepsi", woord: "Kelimeler", frase: "Deyim, kalıp ve cümleler" };
+const BRONNEN = { alle: "Hepsi", werk: "İş notları", nieuws: "Haberler" };
+const TYPES = { nl2tr: "Anlamı ne?", tr2nl: "Hollandacası ne?", gap: "Boşluk doldurma", def: "Tanımdan bul" };
+const COUNTS = [10, 20, 30, 50];
+const PREF = "woorden-cfg";
+const S = { pool: [], byId: {}, attempts: [], view: "setup", quiz: null, showReview: false, onlyWrong: false, search: "",
+  cfg: { bron: "alle", levels: ["B1"], soort: "alle", n: 20, mode: "leer", weak: true } };
+try { Object.assign(S.cfg, JSON.parse(localStorage.getItem(PREF) || "{}")); } catch (e) {}
+const saveCfg = () => { try { localStorage.setItem(PREF, JSON.stringify(S.cfg)); } catch (e) {} };
+
+// ---------- Small helpers ----------
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const lvlChip = l => `<span class="lvl-chip" style="color:var(--${l.toLowerCase()})">${esc(l)}</span>`;
+const group = w => (w.soort === "woord" || w.soort === "afkorting") ? "woord" : "frase";
+const speak = t => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = "nl-NL"; u.rate = .9; speechSynthesis.speak(u); };
+// Main words of an entry ('iets doorhebben' -> ['doorhebben']); same rule as build_woorden.py
+const PLACE = new Set(["iets", "ergens", "iemand", "zich", "je", "jouw", "mijn", "zijn", "de", "het", "een", "van", "met", "op", "aan", "in", "naar", "voor", "om", "te", "tot"]);
+const keyTokens = nl => nl.toLowerCase().replace(/\(.*?\)|\[.*?\]/g, " ").replace(/[^\p{L}' -]/gu, " ").split(/\s+/).filter(w => w.length >= 3 && !PLACE.has(w));
+const stem = t => t.length > 4 ? t.slice(0, Math.max(4, t.length - 2)) : t;
+// Hide the entry's own words in a hint, so the hint helps without giving the answer away
+const mask = (text, w) => { let s = esc(text || ""); for (const t of keyTokens(w.nl)) s = s.replace(new RegExp(`(^|[^\\p{L}])(${stem(t)}[\\p{L}']*)`, "giu"), "$1…"); return s; };
+const srcLabel = w => w.bron === "werk" ? "İş notları" : `Haber #${w.nr}`;
+
+// ---------- Load ----------
+const { user, profile } = await gate({ area: "nt2", title: "Kelime testi", seen: "woorden" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+try {
+  const data = await (await fetch("../data/woorden.json", { cache: "no-cache" })).json();
+  S.pool = data.woorden; S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
+} catch (e) { app.innerHTML = `<div class="notice">Kelimeler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+S.attempts = await loadAttempts(user.uid, "woorden").catch(() => []);
+S.cfg.levels = S.cfg.levels.filter(l => LEVELS.includes(l)); if (!S.cfg.levels.length) S.cfg.levels = ["B1"];
+
+// Last result per word (attempts are newest first): true = right, false = wrong, missing = never asked
+function lastResult() {
+  const last = {};
+  for (const a of S.attempts) for (const x of a.answers || []) if (x.w && !(x.w in last)) last[x.w] = x.correct;
+  return last;
+}
+
+// ---------- Selection ----------
+const matchCfg = (w, cfg = S.cfg, lv = true) => (cfg.bron === "alle" || w.bron === cfg.bron) && (cfg.soort === "alle" || group(w) === cfg.soort) && (!lv || cfg.levels.includes(w.niveau));
+const selection = () => S.pool.filter(w => matchCfg(w));
+
+// Which question types fit this word
+function typesFor(w) {
+  const t = ["nl2tr", "tr2nl"];
+  if (gapForm(w)) t.push("gap");
+  if (w.definitie) t.push("def");
+  return t;
+}
+// The word form in the example sentence that can be blanked (one-word entries only)
+function gapForm(w) {
+  const toks = keyTokens(w.nl);
+  if (toks.length !== 1 || !w.voorbeeld) return null;
+  const m = w.voorbeeld.match(new RegExp(`(^|[^\\p{L}])(${stem(toks[0])}[\\p{L}']*)`, "iu"));
+  return m ? m[2] : null;
+}
+// Three wrong options: same kind (word / phrase), close in level, different text
+function distractors(w, field) {
+  const seen = new Set([w[field].toLowerCase()]);
+  const cands = shuffle(S.pool.filter(x => x.id !== w.id && group(x) === group(w) && x[field]))
+    .sort((a, b) => Math.abs(RANK[a.niveau] - RANK[w.niveau]) - Math.abs(RANK[b.niveau] - RANK[w.niveau]));
+  const out = [];
+  for (const x of cands) { const v = x[field].toLowerCase(); if (seen.has(v)) continue; seen.add(v); out.push(x); if (out.length === 3) break; }
+  return out;
+}
+function makeQuestion(w, type) {
+  const field = type === "nl2tr" ? "tr" : "nl";
+  const opts = shuffle([w, ...distractors(w, field)]);
+  return { w: w.id, type, opties: opts.map(x => x[field]), juist: opts.indexOf(w), gap: type === "gap" ? gapForm(w) : null };
+}
+function buildQuiz(onlyIds) {
+  const last = lastResult();
+  let words = onlyIds ? onlyIds.map(id => S.byId[id]) : selection();
+  // Weak words first: wrong last time, then never asked, then the rest (each group shuffled)
+  const order = w => !S.cfg.weak ? 0 : last[w.id] === false ? 0 : last[w.id] === undefined ? 1 : 2;
+  words = shuffle(words).sort((a, b) => order(a) - order(b)).slice(0, onlyIds ? words.length : S.cfg.n);
+  // Easier levels first, so a mixed test warms up
+  words.sort((a, b) => RANK[a.niveau] - RANK[b.niveau]);
+  // Spread the question types: pick the least used type that fits each word
+  const used = { nl2tr: 0, tr2nl: 0, gap: 0, def: 0 };
+  const qs = words.map(w => { const t = shuffle(typesFor(w)).sort((a, b) => used[a] - used[b])[0]; used[t]++; return makeQuestion(w, t); });
+  S.quiz = { qs, idx: 0, ans: {}, done: false, saved: false, mode: S.cfg.mode, started: new Date().toISOString() };
+  S.showReview = false; S.onlyWrong = false; S.view = "quiz";
+}
+
+// ---------- Views ----------
+function vSetup() {
+  const c = S.cfg, last = lastResult();
+  const countAt = l => S.pool.filter(w => w.niveau === l && matchCfg(w, c, false)).length;
+  const sel = selection(), weak = sel.filter(w => last[w.id] === false).length, fresh = sel.filter(w => last[w.id] === undefined).length;
+  const seg = (name, opts, cur) => `<div class="seg" role="group">${Object.entries(opts).map(([k, v]) =>
+    `<button class="${String(cur) === String(k) ? "on" : ""}" data-act="cfg" data-k="${name}" data-v="${k}" aria-pressed="${String(cur) === String(k)}">${esc(v)}</button>`).join("")}</div>`;
+  return `<section class="panel"><span class="eyebrow">İş notları + haberler</span>
+      <h2 style="margin:4px 0 8px">Kendi testini kur</h2>
+      <p class="muted" style="margin:0;max-width:62ch">${S.pool.length} kelime ve deyim: iş toplantıları ve yazışmalardan (${S.pool.filter(w => w.bron === "werk").length}) ve haberlerden (${S.pool.filter(w => w.bron === "nieuws").length}). Seviyeleri, kaynağı ve soru sayısını seç; sorular her seferinde yeniden üretilir.</p></section>
+    <section class="panel setup">
+      <div><p class="lbl">Kaynak</p>${seg("bron", BRONNEN, c.bron)}</div>
+      <div><p class="lbl">Tür</p>${seg("soort", SOORTEN, c.soort)}</div>
+      <div><p class="lbl">Seviye (birden fazla seçebilirsin)</p><div class="lvls">${LEVELS.map(l => { const n = countAt(l);
+        return `<button style="--lc:var(--${l.toLowerCase()})" class="${c.levels.includes(l) ? "on" : ""}" data-act="lvl" data-l="${l}" ${n ? "" : "disabled"}>${l} <span class="num">(${n})</span></button>`; }).join("")}</div></div>
+      <div><p class="lbl">Soru sayısı</p>${seg("n", Object.fromEntries(COUNTS.map(n => [n, n])), c.n)}</div>
+      <div><p class="lbl">Mod</p>${seg("mode", { leer: "Öğrenme", examen: "Sınav" }, c.mode)}
+        <p class="examnote" style="margin:6px 0 0">${c.mode === "leer" ? "Her cevaptan sonra doğrusu ve açıklaması gelir." : "Cevaplar sınav bitene kadar gösterilmez. Sonunda puanını görürsün; istersen bütün doğru ve yanlışları açıklamalarıyla açarsın."} İki modda da sorunun altında bir ipucu kutusu var.</p></div>
+      <label class="check"><input type="checkbox" data-act="weak" ${c.weak ? "checked" : ""}><span>Önce zayıf kelimelerim: son seferde yanlış yaptıkların (${weak}), sonra hiç sorulmamışlar (${fresh}).</span></label>
+      <div class="row"><button class="btn primary" data-act="start" ${sel.length ? "" : "disabled"}>Teste başla · ${Math.min(c.n, sel.length)} soru</button>
+        <button class="btn ghost" data-act="list">Seçili kelimeleri listele (${sel.length})</button></div>
+      ${sel.length < c.n && sel.length ? `<p class="examnote" style="margin:0">Bu seçimde sadece ${sel.length} kelime var; test ${sel.length} soru olacak.</p>` : ""}
+    </section>`;
+}
+
+// What the question asks
+function qPrompt(x, answered, a) {
+  const w = S.byId[x.w];
+  if (x.type === "nl2tr") return `<span class="big" lang="nl">${esc(w.nl)}</span><br><span class="muted" style="font-size:15px">Türkçe anlamı hangisi?</span>`;
+  if (x.type === "tr2nl") return `<span class="big">${esc(w.tr)}</span><br><span class="muted" style="font-size:15px">Hollandacası hangisi?</span>`;
+  if (x.type === "def") return `<span class="muted" style="font-size:15px">Welk woord betekent:</span><br><span lang="nl">‘${esc(w.definitie)}’</span>`;
+  // gap: blank the word form in the example sentence; after answering show the real form
+  const fill = answered ? `<span class="gapb ${a === x.juist ? "ok" : "no"}">${esc(x.gap)}</span>` : `<span class="gapb">&nbsp;</span>`;
+  const sentence = esc(w.voorbeeld).replace(new RegExp(`(^|[^\\p{L}])${esc(x.gap).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "u"), `$1${fill}`);
+  return `<span lang="nl">${sentence}</span><br><span class="muted" style="font-size:15px">Boşluğa hangi kelime gelir? (seçenekler sözlük halinde)</span>`;
+}
+// Hint under the question: context that does not give the answer away
+function hint(x) {
+  const w = S.byId[x.w], parts = [];
+  if (x.type === "nl2tr") {
+    if (w.voorbeeld) parts.push(`<p><b>Örnek:</b> <i lang="nl">${esc(w.voorbeeld)}</i></p>`);
+    if (w.definitie) parts.push(`<p><b>Hollandaca tanım:</b> <span lang="nl">${esc(w.definitie)}</span></p>`);
+  } else {
+    if (w.voorbeeld_tr && x.type !== "gap") parts.push(`<p><b>Örnek (Türkçe):</b> ${esc(w.voorbeeld_tr)}</p>`);
+    if (x.type === "gap" && w.voorbeeld_tr) parts.push(`<p><b>Cümlenin anlamı:</b> ${esc(w.voorbeeld_tr)}</p>`);
+    if (x.type === "gap" || x.type === "def") parts.push(`<p><b>Türkçe:</b> ${esc(w.tr)}</p>`);
+  }
+  if (w.uitleg) parts.push(`<p><b>Not:</b> ${mask(w.uitleg, w)}</p>`);
+  parts.push(`<p class="muted" style="font-size:13px">${lvlChip(w.niveau)} ${esc(srcLabel(w))}${w.thema && w.thema !== "nieuws" ? " · " + esc(w.thema) : ""}</p>`);
+  return parts.join("");
+}
+// Full explanation after answering (learning mode) or in the end review
+function explain(w) {
+  return `<div class="expl"><span><b lang="nl">${esc(w.nl)}</b> = ${esc(w.tr)}
+      <button class="btn ghost" style="padding:1px 8px;font-size:12px" data-act="say" data-t="${esc(w.voorbeeld || w.nl)}">Sesli</button></span>
+    ${w.definitie ? `<span lang="nl" class="muted">${esc(w.definitie)}</span>` : ""}
+    ${w.voorbeeld ? `<span><i lang="nl">${esc(w.voorbeeld)}</i>${w.voorbeeld_tr ? `<br><span class="muted">${esc(w.voorbeeld_tr)}</span>` : ""}</span>` : ""}
+    ${w.uitleg ? `<span>${esc(w.uitleg)}</span>` : ""}
+    <span class="src">${lvlChip(w.niveau)} ${esc(srcLabel(w))}${w.voorbeeld_door === "claude" ? " · örnek cümle sonradan eklendi" : ""}</span></div>`;
+}
+
+function vQuiz() {
+  const z = S.quiz, x = z.qs[z.idx], w = S.byId[x.w], a = z.ans[z.idx], answered = a !== undefined;
+  const feedback = answered && z.mode === "leer";
+  return `<section class="panel"><div class="qcard" aria-live="polite">
+    <div class="qfoot"><span class="eyebrow">${z.mode === "leer" ? "Öğrenme modu" : "Sınav modu"}</span>
+      <span class="muted num" style="font-size:13px">${Object.keys(z.ans).length} cevaplandı</span></div>
+    <div class="progress"><i style="width:${Math.round(100 * z.idx / z.qs.length)}%"></i></div>
+    <div class="qmeta"><span class="chip num">${z.idx + 1} / ${z.qs.length}</span>${lvlChip(w.niveau)}<span class="chip blue">${TYPES[x.type]}</span></div>
+    <p class="qq">${qPrompt(x, feedback, a)}</p>
+    <div class="opts" style="margin-top:4px">${x.opties.map((o, k) => {
+      const cls = feedback ? (k === x.juist ? "right" : k === a ? "wrongpick" : "") : (answered && k === a ? "sel" : "");
+      return `<button class="opt ${cls}" data-act="ans" data-o="${k}" ${feedback ? "disabled" : ""}><span class="mark">${k + 1}</span><span ${x.type === "nl2tr" ? "" : 'lang="nl"'}>${esc(o)}</span></button>`; }).join("")}</div>
+    ${feedback ? `<div class="why"><b>${a === x.juist ? "Doğru!" : "Yanlış."}</b> ${explain(w)}</div>` : `<details class="hint"><summary>İpucu ve açıklama</summary>${hint(x)}</details>`}
+    <div class="qfoot"><button class="btn ghost" data-act="stop">Çık</button>
+      <span class="row">${z.mode === "examen" && z.idx > 0 ? `<button class="btn" data-act="prev">‹ Önceki</button>` : ""}
+      ${answered ? `<button class="btn primary" data-act="next" id="qnext">${z.idx === z.qs.length - 1 ? (z.mode === "examen" ? "Sınavı bitir" : "Sonucu gör") : "Sonraki →"}</button>`
+        : z.mode === "examen" ? `<button class="btn" data-act="next">Boş geç →</button>` : `<span class="muted" style="font-size:13px">Klavye: 1–${x.opties.length}</span>`}</span></div>
+  </div></section>`;
+}
+
+function vResult() {
+  const z = S.quiz, n = z.qs.length, okOf = (x, i) => z.ans[i] === x.juist;
+  const ok = z.qs.filter(okOf).length, p = Math.round(100 * ok / n);
+  const byLevel = {};
+  z.qs.forEach((x, i) => { const l = S.byId[x.w].niveau, v = byLevel[l] = byLevel[l] || { ok: 0, n: 0 }; v.n++; if (okOf(x, i)) v.ok++; });
+  const wrong = z.qs.filter((x, i) => !okOf(x, i));
+  const rows = z.qs.map((x, i) => ({ x, i })).filter(({ x, i }) => !S.onlyWrong || !okOf(x, i));
+  return `<section class="panel"><div class="sectionhead"><h3>Sonuç</h3><span class="muted">${z.saved ? "kaydedildi" : "kaydediliyor…"}</span></div>
+      <div class="row" style="gap:18px;align-items:flex-end;margin-bottom:14px"><div class="bigscore num" style="color:var(--${p >= 80 ? "ok" : p >= 60 ? "warn" : "bad"})">%${p}</div>
+        <div class="muted num">${ok} / ${n} doğru${z.qs.length - Object.keys(z.ans).length ? ` · ${z.qs.length - Object.keys(z.ans).length} boş` : ""}</div></div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">${LEVELS.filter(l => byLevel[l]).map(l => { const v = byLevel[l];
+        return `<div class="catrow"><span>${lvlChip(l)}</span><div class="bar"><i style="width:${Math.round(100 * v.ok / v.n)}%;background:var(--${v.ok === v.n ? "ok" : v.ok / v.n >= .6 ? "warn" : "bad"})"></i></div><span class="num r">${v.ok}/${v.n}</span></div>`; }).join("")}</div>
+      <div class="row">${wrong.length ? `<button class="btn primary" data-act="retry">Yanlışları tekrar çöz (${wrong.length})</button>` : ""}
+        <button class="btn" data-act="review">${S.showReview ? "Cevapları gizle" : "Doğru ve yanlışları göster"}</button>
+        <button class="btn" data-act="again">Yeni test (aynı ayarlar)</button><button class="btn ghost" data-act="stop">Ayarlar</button></div></section>
+    ${S.showReview ? `<section class="panel"><div class="sectionhead"><h3>Cevaplar</h3>
+        <label class="check" style="font-size:13px"><input type="checkbox" data-act="onlywrong" ${S.onlyWrong ? "checked" : ""}><span>Sadece yanlışlar</span></label></div>
+      <div class="review">${rows.map(({ x, i }) => { const w = S.byId[x.w], good = okOf(x, i), a = z.ans[i];
+        return `<details class="panel rq ${good ? "good" : "wrong"}" ${good ? "" : "open"}><summary><span class="num">${i + 1}</span><span>${x.type === "nl2tr" ? `<b lang="nl">${esc(w.nl)}</b>` : x.type === "def" ? `<span lang="nl">${esc(w.definitie)}</span>` : x.type === "gap" ? `<span lang="nl">${esc(w.voorbeeld)}</span>` : esc(w.tr)}</span>
+          <span class="chip ${good ? "ok" : "bad"}">${good ? "doğru" : a === undefined ? "boş" : "yanlış"}</span></summary>
+          <p style="margin:10px 0 6px">${a !== undefined && !good ? `Senin cevabın: <span class="picked">${esc(x.opties[a])}</span> · ` : ""}Doğru cevap: <b>${esc(x.opties[x.juist])}</b></p>
+          <div class="why">${explain(w)}</div></details>`; }).join("") || `<p class="muted">Yanlış yok.</p>`}</div></section>` : ""}`;
+}
+
+function vList() {
+  const q = S.search.trim().toLowerCase();
+  const rows = selection().filter(w => !q || w.nl.toLowerCase().includes(q) || w.tr.toLowerCase().includes(q))
+    .sort((a, b) => RANK[a.niveau] - RANK[b.niveau] || a.nl.localeCompare(b.nl, "nl"));
+  return `<p style="margin:0"><button class="btn ghost" data-act="stop">← Ayarlar</button></p>
+    <section class="panel"><div class="sectionhead"><h3>Seçili kelimeler</h3><span class="muted num">${rows.length}</span></div>
+      <input type="search" id="search" placeholder="Ara (Hollandaca veya Türkçe)" value="${esc(S.search)}" style="width:100%;margin-bottom:10px">
+      <div class="tablewrap"><table class="wl"><thead><tr><th>Hollandaca</th><th>Türkçe</th><th>Örnek</th><th></th></tr></thead>
+      <tbody>${rows.slice(0, 300).map(w => `<tr><td><b lang="nl">${esc(w.nl)}</b></td><td>${esc(w.tr)}</td>
+        <td><i lang="nl">${esc(w.voorbeeld)}</i>${w.voorbeeld_tr ? `<br><span class="muted">${esc(w.voorbeeld_tr)}</span>` : ""}</td>
+        <td>${lvlChip(w.niveau)}<br><span class="muted" style="font-size:12px">${esc(srcLabel(w))}</span></td></tr>`).join("")}</tbody></table></div>
+      ${rows.length > 300 ? `<p class="muted" style="font-size:13px">İlk 300 gösteriliyor; aramayı daralt.</p>` : ""}</section>`;
+}
+
+function render() {
+  app.innerHTML = S.view === "quiz" ? (S.quiz.done ? vResult() : vQuiz()) : S.view === "list" ? vList() : vSetup();
+}
+
+async function finish() {
+  const z = S.quiz; z.done = true; render();
+  const answers = z.qs.map((x, i) => ({ qid: `${x.w}:${x.type}`, w: x.w, chosen: z.ans[i] === undefined ? "" : String(z.ans[i]), correct: z.ans[i] === x.juist }));
+  const attempt = { kind: "woorden", test: "woorden", title: "Kelime testi", mode: z.mode, level: S.cfg.levels.join(","), bron: S.cfg.bron,
+    started_at: z.started, finished_at: new Date().toISOString(), duration_s: Math.round((Date.now() - new Date(z.started)) / 1000),
+    score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
+  try { await saveAttempt(user.uid, "woorden", attempt); S.attempts.unshift(attempt); z.saved = true; } catch (e) { console.warn(e); }
+  render();
+}
+
+// ---------- Events ----------
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const z = S.quiz, c = S.cfg;
+  switch (el.dataset.act) {
+    case "cfg": c[el.dataset.k] = el.dataset.k === "n" ? +el.dataset.v : el.dataset.v; saveCfg(); render(); break;
+    case "lvl": { const l = el.dataset.l; c.levels = c.levels.includes(l) ? c.levels.filter(x => x !== l) : [...c.levels, l]; saveCfg(); render(); break; }
+    case "start": case "again": buildQuiz(); render(); scrollTo(0, 0); break;
+    case "list": S.view = "list"; render(); break;
+    case "stop": S.view = "setup"; S.quiz = null; render(); break;
+    case "say": speak(el.dataset.t); break;
+    case "ans": { const o = +el.dataset.o;
+      if (z.mode === "leer" && z.ans[z.idx] !== undefined) break;
+      z.ans[z.idx] = o; const y = scrollY; render(); scrollTo(0, y); document.getElementById("qnext")?.focus({ preventScroll: true }); break; }
+    case "next": if (z.idx < z.qs.length - 1) { z.idx++; render(); } else finish(); break;
+    case "prev": if (z.idx > 0) { z.idx--; render(); } break;
+    case "retry": { const ids = z.qs.filter((x, i) => z.ans[i] !== x.juist).map(x => x.w); buildQuiz(ids); render(); scrollTo(0, 0); break; }
+    case "review": S.showReview = !S.showReview; render(); break;
+  }
+});
+app.addEventListener("change", e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  if (el.dataset.act === "weak") { S.cfg.weak = el.checked; saveCfg(); render(); }
+  if (el.dataset.act === "onlywrong") { S.onlyWrong = el.checked; render(); }
+});
+app.addEventListener("input", e => {
+  if (e.target.id !== "search") return;
+  S.search = e.target.value; const pos = e.target.selectionStart; render();
+  const s = document.getElementById("search"); s.focus(); s.setSelectionRange(pos, pos);
+});
+// Keyboard: 1-4 to answer, Enter for next
+document.addEventListener("keydown", e => {
+  const z = S.quiz; if (S.view !== "quiz" || !z || z.done || ["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName)) return;
+  const x = z.qs[z.idx];
+  if (/^[1-4]$/.test(e.key) && x.opties[+e.key - 1] !== undefined && !(z.mode === "leer" && z.ans[z.idx] !== undefined)) app.querySelector(`[data-act=ans][data-o="${+e.key - 1}"]`)?.click();
+  else if (z.ans[z.idx] !== undefined && e.key === "Enter" && document.activeElement?.id !== "qnext") document.getElementById("qnext")?.click();
+});
+render();
+</script>
+</body>
+</html>

@@ -73,9 +73,9 @@ import { scoreChips } from "../js/stats.js";
 import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
-const LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1"];
+const LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1", "c2"];  // c2 only on items that have that text
 const CATS = { begrip: "Begrip", woorden: "Woorden", uitdrukkingen: "Uitdrukkingen", grammatica: "Grammatica" };
-const RANK = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5 };
+const RANK = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
 const PREF = "nieuws-level";
 const S = { items: [], byId: {}, toetsen: [], sent: [], attempts: [], level: "b1", showAll: false, quiz: null };
 try { const l = localStorage.getItem(PREF); if (LEVELS.includes(l) || l === "all") S.level = l; } catch (e) {}
@@ -143,9 +143,13 @@ function vList() {
 }
 
 // ---------- Item ----------
-function levelSeg() {
-  return `<div class="seg" role="group" aria-label="Seviye">${[...LEVELS, "all"].map(l =>
-    `<button class="${S.level === l ? "on" : ""}" data-act="level" data-l="${l}" aria-pressed="${S.level === l}">${l === "all" ? "Hepsi" : l.toUpperCase()}</button>`).join("")}</div>`;
+const levelsOf = item => LEVELS.filter(l => item[l]);
+// Chosen level, or the highest the item has (an older item has no c2 text)
+const levelFor = item => S.level === "all" || item[S.level] ? S.level : levelsOf(item).at(-1);
+function levelSeg(item) {
+  const cur = levelFor(item);
+  return `<div class="seg" role="group" aria-label="Seviye">${[...levelsOf(item), "all"].map(l =>
+    `<button class="${cur === l ? "on" : ""}" data-act="level" data-l="${l}" aria-pressed="${cur === l}">${l === "all" ? "Hepsi" : l.toUpperCase()}</button>`).join("")}</div>`;
 }
 function levelBox(item, l) {
   return `<div class="levelbox" style="--lc:var(--${l})" lang="nl">
@@ -159,11 +163,11 @@ function grammar(raw) {
 }
 function vItem(item) {
   const vid = ytId(item.video_url);
-  const upTo = S.level === "all" ? 5 : RANK[S.level.toUpperCase()];
+  const lv = levelFor(item), upTo = lv === "all" ? 6 : RANK[lv.toUpperCase()];
   // A word or idiom is shown when its level is not above the chosen one, or when the chosen level's text uses it
   // (the text's word line under it lists those words in dictionary form, e.g. 'kneden = yoğurmak')
   const norm = t => (t || "").toLowerCase().replace(/\(.*?\)/g, "").replace(/^(de|het|een)\s+/, "").replace(/[!?.…]/g, "").replace(/\s+/g, " ").trim();
-  const used = S.level === "all" ? [] : (item.gloss?.[S.level] || "").split("•").map(x => norm(x.split("=")[0])).filter(Boolean);
+  const used = lv === "all" ? [] : (item.gloss?.[lv] || "").split("•").map(x => norm(x.split("=")[0])).filter(Boolean);
   const inText = w => { const n = norm(w); return used.includes(n) || used.some(k => k.length >= 6 && (n.includes(k) || k.includes(n))); };
   const idioms = (item.uitdrukkingen || []).filter(u => RANK[u.niveau] <= upTo || inText(u.nl));
   const vocab = pipeRows(item.woordenschat, 6).filter(c => !c[5] || RANK[c[5]] <= upTo || inText(c[0]));
@@ -176,9 +180,13 @@ function vItem(item) {
       ${vid ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${vid}${clipParams(item)}" title="${esc(item.titel)}" allowfullscreen loading="lazy"></iframe></div>` : ""}
       ${item.video_end ? `<p class="muted" style="margin:8px 0 0;font-size:13px">Bu haber videonun sadece bir bölümü: <span class="num">${mmss(item.video_start || 0)}–${mmss(item.video_end)}</span>. Video o kısımda başlar ve durur.</p>` : ""}
     </section>
-    <section class="panel"><div class="sectionhead"><h3>Metin</h3>${levelSeg()}</div>
-      ${(S.level === "all" ? LEVELS : [S.level]).map(l => levelBox(item, l)).join("")}</section>
-    ${idioms.length ? `<section class="panel"><div class="sectionhead"><h3>Günlük deyimler</h3><span class="muted">${S.level === "all" ? "tümü" : "bu seviyeye kadar + metinde geçenler"}</span></div>
+    <section class="panel"><div class="sectionhead"><h3>Metin</h3>${levelSeg(item)}</div>
+      ${(lv === "all" ? levelsOf(item) : [lv]).map(l => levelBox(item, l)).join("")}</section>
+    ${item.werk?.length ? `<section class="panel"><div class="sectionhead"><h3>İş notlarından kelimeler</h3><span class="muted">bu haberde geçiyor</span></div>
+      ${item.werk.map(w => `<div class="idiom"><div class="row">${lvlChip(w.niveau)} <b lang="nl">${esc(w.nl)}</b></div><span>${esc(w.tr)}</span>
+        ${w.voorbeeld ? `<span style="font-size:14.5px"><i lang="nl">${esc(w.voorbeeld)}</i><br><span class="muted">${esc(w.voorbeeld_tr || "")}</span></span>` : ""}</div>`).join("")}
+      <p class="muted" style="font-size:13px;margin:8px 0 0"><a href="../woorden/">Kelime testi</a> sayfasında bu kelimelerle de alıştırma yapabilirsin.</p></section>` : ""}
+    ${idioms.length ? `<section class="panel"><div class="sectionhead"><h3>Günlük deyimler</h3><span class="muted">${lv === "all" ? "tümü" : "bu seviyeye kadar + metinde geçenler"}</span></div>
       ${idioms.map(u => `<div class="idiom"><div class="row">${lvlChip(u.niveau)} <b lang="nl">${esc(u.nl)}</b>
           <button class="btn ghost" style="padding:1px 8px;font-size:12px;margin-left:auto" data-act="say" data-t="${esc(u.voorbeeld || u.nl)}">Sesli</button></div>
         <span>${esc(u.tr)}</span><span class="muted" style="font-size:14px">${esc(u.uitleg || "")}</span>
@@ -195,7 +203,7 @@ function vItem(item) {
 // toets: a mixed-test object (fixed 20 questions, no level filter, new selection on every start)
 function newQuiz(test, title, pool, toets = null) { S.quiz = { test, title, pool, toets, filter: S.quiz?.test === test ? S.quiz.filter : "all", qs: null }; }
 function startQuiz(onlyIds) {
-  const z = S.quiz; const max = z.filter === "all" ? 5 : RANK[z.filter];
+  const z = S.quiz; const max = z.filter === "all" ? 6 : RANK[z.filter];
   let qs = z.pool.filter(q => RANK[q.niveau] <= max && (!onlyIds || onlyIds.includes(q.uid)));
   // Easier questions first, shuffled within each level; options shuffled (true/false keeps its order)
   qs = Object.values(qs.reduce((g, q) => ((g[q.niveau] = g[q.niveau] || []).push(q), g), {})).sort((a, b) => RANK[a[0].niveau] - RANK[b[0].niveau]).flatMap(shuffle);
@@ -220,7 +228,7 @@ function vQuiz() {
       <button class="btn primary" data-act="qstart">Sınava başla</button>`;
   }
   if (!z.qs) {
-    const count = f => z.pool.filter(q => RANK[q.niveau] <= (f === "all" ? 5 : RANK[f])).length;
+    const count = f => z.pool.filter(q => RANK[q.niveau] <= (f === "all" ? 6 : RANK[f])).length;
     return `<div class="sectionhead"><h3>${esc(z.title)}</h3>${b >= 0 ? `<span class="chip ok num">en iyi %${Math.round(b * 100)}</span>` : ""}</div>
       <p class="muted" style="margin:0 0 12px;max-width:60ch">Sorular tek tek gelir; her cevaptan sonra doğrusunu ve açıklamasını görürsün. Seviyeni seç: o seviyeye kadar olan sorular sorulur.</p>
       <div class="row lvlfilter" style="margin-bottom:14px"><div class="seg">${["A2", "B1", "B2", "all"].map(f =>
