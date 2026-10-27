@@ -78,11 +78,15 @@ function kidsSection() {
 }
 
 const isChild = profile.type === "child";
+// NT2 cards: only those for the exam level chosen on the profile (B1 default; "beide" = all)
+const niveau = profile.examen_niveau || "B1";
+const nt2 = cat.modules.filter(m => m.area === "nt2" && (!m.niveau || niveau === "beide" || m.niveau === niveau));
+const levelNote = `<span class="chip">${niveau === "beide" ? "A2 + B1" : niveau}</span> <a href="${ROOT}profile.html" style="font-size:13px">seviyeyi değiştir</a>`;
 app.innerHTML = `
   <section class="panel"><span class="eyebrow">Hoş geldin</span><h2 style="margin-top:4px">${esc(profile.name || user.displayName || "")}</h2>
     <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "NT2 sınav alıştırmaların ve öğrenci bölümü aşağıda. Sınav tarihlerini profil sayfasından girebilirsin."}</p></section>
-  ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)}</span></div>
-    <section class="cards">${cat.modules.filter(m => m.area === "nt2").map(card).join("")}</section>`}
+  ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)} ${levelNote}</span></div>
+    <section class="cards">${nt2.map(card).join("")}</section>`}
   ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.media.title)}</h2><span class="muted">${esc(cat.areas.media.desc)}</span></div>
     <section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`}
   <div class="area-head"><h2>${esc(cat.areas.kids.title)}</h2><span class="muted">${esc(cat.areas.kids.desc)}</span></div>
