@@ -1,5 +1,5 @@
 {
-  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon.",
+  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon. NT2 modules may have niveau \"B1\" or \"A2\" (inburgering); the home page shows the ones matching the exam level on the profile. No niveau = both (KNM).",
   "areas": {
     "nt2": {
       "title": "NT2 sınavları",
@@ -31,7 +31,8 @@
       "desc": "Resmi sınavlarda en sık geçen 302 kelime ve 17 soru kalıbı.",
       "href": "lezen/",
       "exam": true,
-      "status": "ready"
+      "status": "ready",
+      "niveau": "B1"
     },
     {
       "id": "lezen-teksten",
@@ -39,7 +40,8 @@
       "title": "Lezen I · Teksten",
       "desc": "Sınav tarzında okuma metinleri ve sorular; 110 dakikalık deneme sınavı.",
       "href": "lezen/teksten.html",
-      "status": "ready"
+      "status": "ready",
+      "niveau": "B1"
     },
     {
       "id": "nieuws",
@@ -73,7 +75,8 @@
       "desc": "368 görev, dil eylemine göre filtre, 23 deneme sınavı. Cevabını yaz, yapay zekâ resmî kurallarla puanlasın.",
       "exam": true,
       "status": "ready",
-      "href": "spreken/"
+      "href": "spreken/",
+      "niveau": "B1"
     },
     {
       "id": "luisteren",
@@ -81,7 +84,8 @@
       "title": "Luisteren",
       "desc": "Dinleme alıştırması.",
       "exam": true,
-      "status": "soon"
+      "status": "soon",
+      "niveau": "B1"
     },
     {
       "id": "schrijven",
@@ -89,7 +93,28 @@
       "title": "Schrijven",
       "desc": "Yazma alıştırması.",
       "exam": true,
-      "status": "soon"
+      "status": "soon",
+      "niveau": "B1"
+    },
+    {
+      "id": "lezen-a2",
+      "area": "nt2",
+      "niveau": "A2",
+      "title": "Lezen A2",
+      "desc": "Günlük hayattan kısa metinler (e-posta, mektup, tarife, web sitesi, form, kurallar); 2 deneme sınavı, 25 soru, 65 dakika.",
+      "href": "lezen/teksten.html?set=a2",
+      "exam": true,
+      "status": "ready"
+    },
+    {
+      "id": "schrijven-a2",
+      "area": "nt2",
+      "niveau": "A2",
+      "title": "Schrijven A2",
+      "desc": "Form doldurma, kısa e-posta ve not yazma; 40 dakikalık 4 görevli deneme sınavları, örnek cevap ve yapay zekâ ile puanlama.",
+      "href": "schrijven-a2/",
+      "exam": true,
+      "status": "ready"
     },
     {
       "id": "g5-eer-oor-eur",

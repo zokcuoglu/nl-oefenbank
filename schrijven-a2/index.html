@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Schrijven A2 · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.taskrow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.taskrow:last-child{border-bottom:0}
+.taskrow:hover b{color:var(--accent)}
+.taskrow .nr{font-family:var(--mono);font-size:13px;color:var(--muted);width:1.6em;text-align:right}
+.sit{background:var(--sunk);border-radius:10px;padding:14px 16px;font-size:16.5px;line-height:1.65}
+.sit .opd{margin:10px 0 0;padding-left:20px}
+.answer{width:100%;min-height:190px;font:inherit;font-size:16.5px;line-height:1.6;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);resize:vertical}
+.fields{display:grid;grid-template-columns:minmax(10em,16em) 1fr;gap:8px 12px;align-items:center}
+@media (max-width:560px){.fields{grid-template-columns:1fr;gap:2px 0}.fields label{margin-top:8px}}
+.fields label{font-size:14.5px;font-weight:500} .fields .hint{font-weight:400;color:var(--muted);font-size:12.5px}
+.fields input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+.timerbar{position:sticky;top:0;z-index:5;background:var(--ground);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0}
+.examtabs{display:flex;gap:4px;flex-wrap:wrap} .examtabs button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 10px;font-size:13.5px}
+.examtabs button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.timer{font-family:var(--mono);font-size:18px;font-weight:600} .timer.low{color:var(--bad)}
+.model{white-space:pre-wrap;background:var(--ok-soft);border-radius:10px;padding:12px 14px;font-size:15.5px;line-height:1.6}
+.mine{white-space:pre-wrap;background:var(--sunk);border-radius:10px;padding:12px 14px;font-size:15.5px;line-height:1.6}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:15px;cursor:pointer;margin:6px 0}
+.check input{margin-top:4px}
+.copybox{width:100%;min-height:160px;font-family:var(--mono);font-size:12px;margin-top:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media (max-width:760px){.two{grid-template-columns:1fr}}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <span lang="nl">Inburgeringsexamen A2</span></small><h1>Schrijven A2</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// A2 writing practice: one task, or a practice exam (4 tasks, 40 minutes) like the A2 inburgeringsexamen Schrijven.
+// After "Bitir": your answer next to a model answer, a checklist of the task's points (self-check), and a prompt
+// you can paste into Claude or ChatGPT for scoring. The round is saved (module "schrijven-a2") when you press
+// "Sonucu kaydet" after ticking the checklist: score = ticked task points / all points (self-assessment).
+// Attempts cannot be edited afterwards (firestore.rules), so the save waits for the checklist.
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const SOORT = { formulier: "Formulier", "e-mail": "E-mail", briefje: "Briefje", bericht: "Bericht" };
+const params = () => new URLSearchParams(location.search);
+const mmss = s => `${Math.floor(Math.max(0, s) / 60)}:${String(Math.max(0, s) % 60).padStart(2, "0")}`;
+const words = t => (t.match(/[\p{L}\d'-]+/gu) || []).length;
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
+
+const { user, profile } = await gate({ area: "nt2", title: "Schrijven A2", seen: "schrijven-a2" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let D;
+try { D = await (await fetch("../data/schrijven-a2.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Görevler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+const byId = Object.fromEntries(D.taken.map(t => [t.id, t]));
+const examById = Object.fromEntries(D.examens.map(e => [e.id, e]));
+let attempts = await loadAttempts(user.uid, "schrijven-a2").catch(() => []);
+// S.run = { test, ids, cur, ans:{id: text | {field: value}}, started, limit, done, checks:{id:[bool]}, saved }
+const S = { run: null, timer: null };
+
+// Answer as plain text (forms: "label: value" lines) for showing and for the AI prompt
+const answerText = (t, a) => t.velden ? t.velden.map(([l], i) => `${l}: ${(a || {})[i] || ""}`).join("\n") : (a || "");
+const isEmpty = (t, a) => t.velden ? !t.velden.some((_, i) => ((a || {})[i] || "").trim()) : !(a || "").trim();
+
+// ---------- List ----------
+function lastOf(test) { const t = attempts.filter(a => a.test === test); return t[0] || null; }
+function vList() {
+  const row = (t, k) => { const l = lastOf(t.id);
+    return `<a class="taskrow" href="?t=${encodeURIComponent(t.id)}"><span class="nr">${k}</span>
+      <span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${SOORT[t.soort]}</span></span>
+      ${l ? `<span class="chip num" title="Son deneme: ${fmtDate(l.finished_at)}">✓ ${l.score}/${l.total}</span>` : `<span class="chip">yeni</span>`}</a>`; };
+  return `<section class="panel"><span class="eyebrow">Inburgeringsexamen A2</span>
+      <h2 style="margin:4px 0 8px">Yazma sınavına hazırlık</h2>
+      <p class="muted" style="margin:0;max-width:68ch">A2 Schrijven sınavı kâğıt üzerinde, 40 dakika, 4 görev: form doldurma, kısa e-posta, not ya da mesaj. Her deneme sınavı da 4 görev ve 40 dakika. Bitirince cevabını örnek bir cevapla karşılaştırır, görevin istediği noktaları kendin işaretlersin; istersen cevabını yapay zekâya puanlatırsın. Görevler bu sınav tarzında yazılmış alıştırmalardır; isimler uydurmadır.</p></section>
+    ${D.examens.map(e => `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3>
+        <a class="btn primary" style="text-decoration:none" href="?examen=${encodeURIComponent(e.id)}">Tam sınav (${e.minuten} dk)</a></div>
+      ${e.taken.map((id, k) => row(byId[id], k + 1)).join("")}</section>`).join("")}
+    <section class="panel"><span class="eyebrow">İpuçları</span>
+      <ul style="margin:8px 0 0;padding-left:20px;line-height:1.7">
+        <li>Görevdeki <b>her noktayı</b> yaz: en çok puan oradan gelir.</li>
+        <li>E-postada başla ve bitir: <i lang="nl">Beste meneer De Boer,</i> … <i lang="nl">Met vriendelijke groet,</i> + adın. Tanıdığına: <i lang="nl">Hoi …,</i> … <i lang="nl">Groetjes,</i></li>
+        <li>Kısa ve basit cümleler yeter: <i lang="nl">Ik ben ziek. Daarom kan ik morgen niet werken.</i></li>
+        <li>Formda her alanı doldur; tarih: <i lang="nl">dag-maand-jaar</i> (14-03-2019).</li></ul></section>`;
+}
+
+// ---------- Run ----------
+function startRun(test, ids, minutes) {
+  S.run = { test, ids, cur: 0, ans: {}, started: Date.now(), limit: minutes * 60, timerOn: !!minutes, done: false, checks: {}, saved: false };
+  clearInterval(S.timer);
+  S.timer = setInterval(() => {
+    const r = S.run; if (!r || r.done || !r.timerOn) return;
+    const el = document.getElementById("timer"), s = left();
+    if (el) { el.textContent = mmss(s); el.classList.toggle("low", s <= 300); }
+    if (s <= 0) finish(true);
+  }, 1000);
+}
+const left = () => S.run.limit - Math.floor((Date.now() - S.run.started) / 1000);
+function taskInput(t, a) {
+  if (t.velden) return `<div class="fields" lang="nl">${t.velden.map(([l, h], i) => `<label for="f-${i}">${esc(l)}${h ? ` <span class="hint">(${esc(h)})</span>` : ""}</label>
+    <input id="f-${i}" data-field="${i}" value="${esc((a || {})[i] || "")}" autocomplete="off">`).join("")}</div>`;
+  return `<textarea class="answer" id="answer" lang="nl" spellcheck="false" placeholder="Schrijf hier je antwoord…">${esc(a || "")}</textarea>
+    <p class="muted num" style="font-size:13px;margin:4px 0 0" id="wc">${words(a || "")} kelime</p>`;
+}
+function situation(t, nr) {
+  return `<div class="sit" lang="nl"><span class="eyebrow">Opdracht ${nr} · ${SOORT[t.soort]}</span><h3 style="margin:4px 0 6px">${esc(t.titel)}</h3>
+    <p style="margin:0">${esc(t.situatie)}</p><ul class="opd">${t.punten.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+    <details style="margin:8px 0 0"><summary class="muted" style="cursor:pointer;font-size:13.5px">Türkçe açıklama</summary><p style="margin:6px 0 0;font-size:14.5px">${esc(t.tr)}</p></details>`;
+}
+function vRun() {
+  const r = S.run, exam = !!examById[r.test];
+  const head = `<div class="timerbar">
+      ${exam ? `<div class="examtabs">${r.ids.map((id, i) => `<button class="${i === r.cur ? "on" : ""}" data-act="go" data-i="${i}">${i + 1}${!r.done && !isEmpty(byId[id], r.ans[id]) ? " ✓" : ""}</button>`).join("")}</div>` : `<a href="./">← Görevler</a>`}
+      <span style="margin-left:auto" class="row">${r.done ? "" : r.timerOn ? `<span class="timer" id="timer">${mmss(left())}</span>` : ""}
+        ${r.done ? `<a class="btn" href="./" style="text-decoration:none">Görevlere dön</a><button class="btn primary" data-act="again">Tekrar yaz</button>` : `<button class="btn primary" data-act="finish">Bitir</button>`}</span></div>
+    <div id="finishmsg"></div>`;
+  if (!r.done) {
+    const t = byId[r.ids[r.cur]];
+    return head + `<section class="panel">${situation(t, r.cur + 1)}<div style="margin-top:14px">${taskInput(t, r.ans[t.id])}</div>
+      ${exam && r.cur < r.ids.length - 1 ? `<div class="row" style="margin-top:12px"><button class="btn" data-act="go" data-i="${r.cur + 1}">Sonraki görev →</button></div>` : ""}</section>`;
+  }
+  // Result: per task your answer, the model answer and the checklist
+  const total = r.ids.reduce((n, id) => n + byId[id].punten.length, 0), ok = r.ids.reduce((n, id) => n + (r.checks[id] || []).filter(Boolean).length, 0);
+  return head + `<section class="panel"><div class="row" style="gap:16px;align-items:flex-end"><div class="bigscore num" style="font-size:40px;font-weight:700">${ok}/${total}</div>
+      <div class="muted" style="font-size:14px">görev noktası işaretledin${r.timeout ? " · süre doldu" : ""}</div>
+      <div style="margin-left:auto">${r.saved ? `<span class="chip ok">kaydedildi</span>` : `<button class="btn primary" data-act="save">Sonucu kaydet</button>`}</div></div>
+    <p class="muted" style="margin:8px 0 0;font-size:14px;max-width:70ch">Her görevde cevabını örnek cevapla karşılaştır ve cevabında olan noktaları işaretle, sonra "Sonucu kaydet"e bas. Bu bir öz değerlendirme; dil hatalarını da görmek için en alttaki yapay zekâ puanlamasını kullan.</p></section>
+    ${r.ids.map((id, i) => { const t = byId[id], a = r.ans[id];
+      return `<section class="panel">${situation(t, i + 1)}
+        <div class="two" style="margin-top:14px"><div><span class="eyebrow">Senin cevabın</span><div class="mine" lang="nl">${isEmpty(t, a) ? `<span class="muted">(boş)</span>` : esc(answerText(t, a))}</div></div>
+          <div><span class="eyebrow">Örnek cevap</span><div class="model" lang="nl">${esc(t.voorbeeld)}</div></div></div>
+        <div style="margin-top:12px"><span class="eyebrow">Cevabımda var</span>${t.punten.map((p, k) => `<label class="check"><input type="checkbox" data-act="chk" data-id="${id}" data-k="${k}" ${(r.checks[id] || [])[k] ? "checked" : ""}><span lang="nl">${esc(p)}</span></label>`).join("")}</div></section>`; }).join("")}
+    ${aiPanel(r)}`;
+}
+
+// ---------- AI scoring prompt (self-contained, so a fresh chat can score it) ----------
+function prompt(r) {
+  const L = ["Je bent examinator Nederlands als tweede taal. Beoordeel mijn antwoorden voor het A2-inburgeringsexamen Schrijven.",
+    "Ik ben Turks; geef je uitleg in het Turks, maar citeer mijn tekst en de verbeteringen in het Nederlands.", "",
+    "## Criteria (gebaseerd op het ERK-niveau A2 schrijven; dit is niet het officiële DUO-beoordelingsmodel)"];
+  D.criteria.forEach(c => L.push(`- ${c.naam}: ${c.nl}`));
+  L.push("Geef per criterium 0, 1 of 2 punten (0 = niet goed, 1 = voldoende, 2 = goed). Een antwoord dat niet bij de opdracht past, krijgt 0 voor alles.", "", "## Opdrachten en mijn antwoorden", "");
+  r.ids.forEach((id, i) => { const t = byId[id], a = r.ans[id];
+    L.push(`### Opdracht ${i + 1} (${SOORT[t.soort]}): ${t.titel}`, "Situatie: " + t.situatie, "Opdracht:", ...t.punten.map(p => "- " + p));
+    if (t.velden) L.push("Formuliervelden: " + t.velden.map(([l]) => l).join(", "));
+    L.push("Mijn antwoord:", isEmpty(t, a) ? "(leeg)" : answerText(t, a), "Voorbeeldantwoord (alleen ter oriëntatie): " + t.voorbeeld.replace(/\n/g, " / "), ""); });
+  L.push("## Gevraagd resultaat",
+    "1. Per opdracht: punten per criterium, een korte uitleg en een verbeterde versie van mijn tekst (zo dicht mogelijk bij mijn eigen tekst).",
+    "2. Daarna een totaal en een inschatting: zou dit voldoende zijn voor A2? Wees eerlijk; zeg het als je het niet zeker weet.",
+    "3. Tot slot drie concrete tips voor mijn volgende oefening.");
+  return L.join("\n");
+}
+function aiPanel(r) {
+  const text = prompt(r);
+  return `<section class="panel"><h3>Yapay zekâ ile puanla</h3>
+    <p class="muted" style="margin:6px 0 10px;font-size:14px">Metni kopyala, yeni bir Claude veya ChatGPT sohbetine yapıştır. Görevleri, cevaplarını ve A2 yazma ölçütlerini içeriyor; düzeltilmiş metin ve ipuçları ister. Ölçütler Avrupa Dil Çerçevesi'nin A2 tanımına göre; DUO'nun resmî puanlama modeli değil.</p>
+    <div class="row"><button class="btn primary" data-act="copy">Kopyala</button><span id="copystatus" class="muted" style="font-size:14px"></span></div>
+    <details style="margin-top:10px"><summary class="muted" style="cursor:pointer;font-size:13px">Metni göster</summary><textarea class="copybox" readonly id="copybox">${esc(text)}</textarea></details></section>`;
+}
+
+// ---------- Finish & save ----------
+async function finish(timeout = false) {
+  const r = S.run; if (r.done) return;
+  r.done = true; r.timeout = timeout; clearInterval(S.timer);
+  r.used = Math.floor((Date.now() - r.started) / 1000);
+  render(); scrollTo(0, 0);
+}
+// The attempt is saved once; the self-check score is stored with it (ticking boxes later updates the page only)
+async function save() {
+  const r = S.run;
+  const total = r.ids.reduce((n, id) => n + byId[id].punten.length, 0);
+  const attempt = { kind: examById[r.test] ? "examen" : "taak", test: r.test, title: examById[r.test]?.titel || byId[r.test].titel,
+    started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: r.used, timed: r.timerOn,
+    score: r.ids.reduce((n, id) => n + (r.checks[id] || []).filter(Boolean).length, 0), total, self_check: true,
+    answers: r.ids.map(id => ({ qid: id, chosen: answerText(byId[id], r.ans[id]).slice(0, 1500), correct: false })) };
+  try { await saveAttempt(user.uid, "schrijven-a2", attempt); attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
+  render();
+}
+
+// ---------- Render & events ----------
+function render() {
+  const p = params();
+  if (S.run) { app.innerHTML = vRun(); return; }
+  const ex = examById[p.get("examen")];
+  if (ex) { startRun(ex.id, ex.taken, ex.minuten); app.innerHTML = vRun(); return; }
+  if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], 0); app.innerHTML = vRun(); return; }
+  app.innerHTML = vList();
+}
+app.addEventListener("input", e => {
+  const r = S.run; if (!r || r.done) return;
+  const t = byId[r.ids[r.cur]];
+  if (e.target.id === "answer") { r.ans[t.id] = e.target.value; const wc = document.getElementById("wc"); if (wc) wc.textContent = words(e.target.value) + " kelime"; }
+  if (e.target.dataset.field !== undefined) { r.ans[t.id] = { ...(r.ans[t.id] || {}), [e.target.dataset.field]: e.target.value }; }
+});
+app.addEventListener("change", e => {
+  const el = e.target.closest("[data-act=chk]"); if (!el) return;
+  const r = S.run, c = r.checks[el.dataset.id] = r.checks[el.dataset.id] || [];
+  c[+el.dataset.k] = el.checked; const y = scrollY; render(); scrollTo(0, y);
+});
+app.addEventListener("click", async e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const r = S.run;
+  switch (el.dataset.act) {
+    case "save": if (!r.saved) { el.disabled = true; await save(); } break;
+    case "go": r.cur = +el.dataset.i; render(); scrollTo(0, 0); break;
+    case "finish": {
+      const open = r.ids.filter(id => isEmpty(byId[id], r.ans[id])).length, box = document.getElementById("finishmsg");
+      if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} görev boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
+      finish(); break; }
+    case "again": { const test = r.test; S.run = null; startRun(test, examById[test]?.taken || [test], examById[test]?.minuten || 0); render(); scrollTo(0, 0); break; }
+    case "copy": { const st = document.getElementById("copystatus");
+      try { await navigator.clipboard.writeText(document.getElementById("copybox").value); st.innerHTML = `<span class="chip ok">Kopyalandı</span> Şimdi yeni bir Claude veya ChatGPT sohbetine yapıştır.`; }
+      catch (err) { st.innerHTML = `<span class="chip warn">Otomatik kopyalanamadı</span> "Metni göster"e tıklayıp kutudaki metni kopyala.`; } break; }
+  }
+});
+addEventListener("popstate", () => { S.run = null; render(); });
+render();
+</script>
+</body>
+</html>

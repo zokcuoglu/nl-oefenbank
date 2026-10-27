@@ -44,7 +44,11 @@ document.getElementById("ub").innerHTML = userBox(user, profile);
 const cat = await (await fetch("data/catalog.json", { cache: "no-cache" })).json();
 const attempts = await loadAllAttempts(user.uid).catch(() => []);
 const isChild = profile.type === "child";
-const examMods = cat.modules.filter(m => m.area === "nt2" && m.exam);
+// Exam level: B1 (Staatsexamen NT2 I) or A2 (inburgeringsexamen); decides which NT2 cards and exam dates are shown
+const NIVEAUS = { B1: "B1 · Staatsexamen NT2 I", A2: "A2 · inburgeringsexamen", beide: "İkisi de" };
+const niveau = profile.examen_niveau || "B1";
+const forLevel = (m, n) => !m.niveau || n === "beide" || m.niveau === n;
+const examMods = cat.modules.filter(m => m.area === "nt2" && m.exam && forLevel(m, niveau));
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short", year: "numeric" }); } catch (e) { return ""; } };
 
 // Own statistics: totals, activity per day, per exercise, and per news item / test
@@ -99,7 +103,11 @@ app.innerHTML = `
     </div>
     <p class="muted" style="font-size:13px;margin:12px 0 0">Hesap tipi ve rol sadece admin tarafından değiştirilebilir.</p>
   </section>
-  ${isChild ? "" : `<section class="panel"><span class="eyebrow">Sınav tarihleri</span>
+  ${isChild ? "" : `<section class="panel"><span class="eyebrow">Sınav seviyem</span>
+    <p class="muted" style="margin:6px 0 12px">Ana sayfada bu seviyenin alıştırmaları görünür. A2 = inburgeringsexamen (Lezen, Luisteren, Schrijven, Spreken A2); B1 = Staatsexamen NT2 Programma I. KNM ikisinde de aynı.</p>
+    <div class="seg" role="group" id="p-niveau">${Object.entries(NIVEAUS).map(([k, v]) => `<button type="button" class="${niveau === k ? "on" : ""}" data-n="${k}">${esc(v)}</button>`).join("")}</div>
+    <p class="muted" style="font-size:13px;margin:8px 0 0">Seviyeyi değiştirdikten sonra Kaydet'e bas.</p></section>
+  <section class="panel"><span class="eyebrow">Sınav tarihleri</span>
     <p class="muted" style="margin:6px 0 12px">Geri sayım ana sayfada ve ilgili alıştırmada görünür. Boş bırakabilirsin.</p>
     <div class="formgrid">${examMods.map(m => `<div class="field"><label for="d-${m.id}">${esc(m.title)}</label>
       <input class="input" type="date" id="d-${m.id}" value="${esc(profile.exams?.[m.id] || (m.id === "lezen" ? profile.exam_date || "" : ""))}"></div>`).join("")}</div></section>`}
@@ -108,13 +116,22 @@ app.innerHTML = `
   ${statsHtml}
   <section class="panel"><span class="eyebrow">Sınıflar</span><p class="muted" style="margin:6px 0 0">Sınıf özelliği yakında eklenecek. Sınıf arkadaşların ilerleme özetini burada göreceksin.</p></section>`;
 
+document.getElementById("p-niveau")?.addEventListener("click", e => {
+  const b = e.target.closest("[data-n]"); if (!b) return;
+  document.querySelectorAll("#p-niveau button").forEach(x => x.classList.toggle("on", x === b));
+});
 document.getElementById("save").onclick = async () => {
   const msg = document.getElementById("msg");
   const data = { name: document.getElementById("p-name").value.trim(), email_weekly: document.getElementById("p-weekly").checked };
   if (!isChild) data.email_news = document.getElementById("p-news").checked;
   if (isChild) data.groep = document.getElementById("p-groep").value || null;
-  else data.exams = Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null]));
-  try { await updateProfile(user.uid, data); msg.innerHTML = `<span class="ok-msg">Kaydedildi.</span>`; }
+  else {
+    // Keep dates of modules that are hidden at the current level
+    data.exams = { ...(profile.exams || {}), ...Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null])) };
+    data.examen_niveau = document.querySelector("#p-niveau button.on")?.dataset.n || "B1";
+  }
+  try { await updateProfile(user.uid, data); msg.innerHTML = `<span class="ok-msg">Kaydedildi.</span>`;
+    if (!isChild && data.examen_niveau !== niveau) setTimeout(() => location.reload(), 600); }
   catch (e) { msg.innerHTML = `<span class="err-msg">Kaydedilemedi: ${esc(e.code || e.message)}</span>`; }
 };
 </script>

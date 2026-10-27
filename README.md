@@ -36,6 +36,8 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `nieuws/` + `data/nieuws.json` | Nieuws in niveaus (v1): numbered video items, text at A1-C1, idioms, words, quiz; a mixed test after every 3 items |
 | `scripts/content/` | Source of the news items (`nNN_*.py`) and mixed tests (`toetsen.py`); `build_nieuws.py` checks them and writes `data/nieuws.json` |
 | `woorden/` + `data/woorden.json` | Word test: one pool of work-note words (`scripts/content/werk_woorden.csv`) and news words/idioms; filters for source, level (A1–C2), type and count; learning or exam mode, hints, full review at the end |
+| `lezen/teksten.html?set=a2` + `data/lezen-a2.json` | Lezen A2 (inburgeringsexamen): 16 short everyday texts, 2 practice exams of 8 texts / 25 questions / 65 minutes; source in `scripts/content/lezen_a2/` (`build_a2.py`) |
+| `schrijven-a2/` + `data/schrijven-a2.json` | Schrijven A2: 16 tasks (form, e-mail, note, message), 4 practice exams of 4 tasks / 40 minutes, model answer, self-check list, AI scoring prompt; source `scripts/content/schrijven_a2/build_schrijven_a2.py` |
 | `js/stats.js` | Statistics helpers for the profile and admin pages |
 | `manifest.json`, `icons/` | "Add to home screen" on phones |
 | `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules (also covers the Slimspel daily ranking: `leaderboard/{day}/entries`) |
@@ -84,3 +86,11 @@ New work words: add rows to the CSV with the next free id (`w416`, ...), then ru
 Work words in news: a news item may list `werk_woorden: ["w012", ...]`; the builder checks that each word occurs in the item's texts
 and the news page shows them under "İş notlarından kelimeler". `python3 scripts/content/build_woorden.py --kandidaat B1` lists work
 words at a level that no news text uses yet. News items may also have an optional `c2` text (+ `gloss_c2`).
+
+## Exam level (B1 / A2)
+
+Adults choose their exam level on the profile (`examen_niveau`: `B1` = Staatsexamen NT2 I, `A2` = inburgeringsexamen, `beide`).
+NT2 modules in `data/catalog.json` may have `niveau` (`B1` or `A2`); the home page shows only the matching ones. No `niveau` = both (KNM).
+A2 facts used (DUO / inburgeren.nl via practice sites): Lezen 65 min on the computer, Schrijven 40 min on paper with 4 tasks,
+Luisteren 45 min, Spreken 35 min with 16 tasks, KNM 45 min. DUO publishes no fixed number of questions or pass mark for A2 Lezen;
+the pages show "about 18 of 25" only as a rough guideline. The writing criteria follow the CEFR A2 description, not DUO's own model.

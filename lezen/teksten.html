@@ -66,6 +66,8 @@ setTimeout(function () {
 // All questions are visible at once and can be changed until "Bitir", like in the real exam.
 // Texts are grouped in practice exams of 6 texts / 35 questions, like the official booklets.
 // Rounds are saved as attempts (module "lezen-teksten"; test = text id or exam id, e.g. "examen-1").
+// ?set=a2 shows the A2 inburgering texts instead (data/lezen-a2.json, module "lezen-a2"): 8 short texts / 25 questions,
+// 65 minutes, no official score table (only the rough "about 18 of 25" guideline).
 import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
 import { pct } from "../js/stats.js";
 
@@ -77,17 +79,28 @@ const mmss = s => `${Math.floor(s / 60)}:${String(Math.max(0, s) % 60).padStart(
 const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
 
-const { user, profile } = await gate({ area: "nt2", title: "Lezen · Teksten", seen: "lezen-teksten" });
+const A2 = new URLSearchParams(location.search).get("set") === "a2";
+const SET = A2 ? { file: "lezen-a2", module: "lezen-a2", title: "Lezen A2 · Teksten", home: "Lezen A2" }
+               : { file: "lezen-teksten", module: "lezen-teksten", title: "Lezen · Teksten", home: "Lezen I (B1)" };
+// Links inside the page keep the set (?set=a2&t=...)
+const link = q => "?" + (A2 ? "set=a2" + (q ? "&" : "") : "") + q;
+const listUrl = "./teksten.html" + (A2 ? "?set=a2" : "");
+const { user, profile } = await gate({ area: "nt2", title: SET.title, seen: SET.module });
+document.title = SET.title + " · NL Oefenbank";
+document.querySelector(".brand h1").innerHTML = A2 ? `Lezen A2 · <span lang="nl">Teksten</span>` : `Lezen · <span lang="nl">Teksten</span>`;
+if (A2) { const a = document.querySelector('.brand small a[href="./"]'); a.textContent = "Kelime testi"; a.href = "../woorden/"; }
 document.getElementById("ub").innerHTML = userBox(user, profile);
-try { S.data = await (await fetch("../data/lezen-teksten.json", { cache: "no-cache" })).json(); }
+try { S.data = await (await fetch(`../data/${SET.file}.json`, { cache: "no-cache" })).json(); }
 catch (e) { app.innerHTML = `<div class="notice">Metinler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
-S.attempts = (await loadAttempts(user.uid, "lezen-teksten").catch(() => [])).map(a => a.test === "proefexamen" ? { ...a, test: "examen-1" } : a);
+S.attempts = (await loadAttempts(user.uid, SET.module).catch(() => [])).map(a => a.test === "proefexamen" ? { ...a, test: "examen-1" } : a);
 const byId = Object.fromEntries(S.data.teksten.map(t => [t.id, t]));
 // Question patterns from the Lezen word bank: { p: Dutch pattern, tr: Turkish, tip: where to look for the answer }
 const examById = Object.fromEntries(S.data.examens.map(e => [e.id, e]));
 const isExam = test => !!examById[test];
 // Converted exam score (500 = pass) from the official 2025 table; only an estimate for our own texts
-const examScore = ok => S.data.score[Math.min(ok, S.data.score.length - 1)];
+const examScore = ok => S.data.score ? S.data.score[Math.min(ok, S.data.score.length - 1)] : null;
+// Result line: B1 = converted score from the official table; A2 = only "x of y right" against the rough guideline
+const scoreText = ok => S.data.score ? `tahmini puan ${examScore(ok)}` : `${ok} doğru`;
 const patternName = n => S.data.patronen[n - 1]?.p || "";
 const patternTip = n => S.data.patronen[n - 1]?.tip || "";
 
@@ -122,20 +135,20 @@ function vList() {
   S.attempts.forEach(a => (a.answers || []).forEach(x => { if (!x.patroon) return; const v = byPat[x.patroon] = byPat[x.patroon] || { ok: 0, n: 0 }; v.n++; if (x.correct) v.ok++; }));
   const pats = Object.entries(byPat).sort((a, b) => pct(a[1].ok, a[1].n) - pct(b[1].ok, b[1].n));
   const textRow = t => { const b = bestOf(t.id);
-    return `<a class="textcard" href="?t=${encodeURIComponent(t.id)}"><span class="nr">${t.nr}</span>
+    return `<a class="textcard" href="${link("t=" + encodeURIComponent(t.id))}"><span class="nr">${t.nr}</span>
       <span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${esc(t.soort)} · ${t.woorden} kelime · ${t.vragen.length} soru${t.zoektekst ? " · arama metni" : ""}</span>
-      <br><span class="chip dom" lang="nl">${esc(t.domein)}</span> <span class="chip dom" lang="nl">${esc(t.tekstsoort)}</span></span>
+      ${t.domein ? `<br><span class="chip dom" lang="nl">${esc(t.domein)}</span> <span class="chip dom" lang="nl">${esc(t.tekstsoort)}</span>` : ""}</span>
       ${b ? `<span class="chip ${tone(b.best)} num" title="${b.n} deneme, son: ${fmtDate(b.last)}">en iyi %${b.best}</span>` : `<span class="chip">yeni</span>`}</a>`; };
   const examCard = e => { const b = bestOf(e.id), tries = S.attempts.filter(a => a.test === e.id && a.total), bestOk = tries.length ? Math.max(...tries.map(a => a.score)) : null;
     return `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3><span class="muted">${e.teksten.length} metin · ${e.vragen} soru · ${e.minuten} dakika</span></div>
-      <div class="row" style="margin-bottom:6px">${b ? `<span class="chip ${bestOk >= S.data.geslaagd ? "ok" : "bad"} num">en iyi: ${bestOk}/${e.vragen} doğru · tahmini puan ${examScore(bestOk)}</span><span class="muted" style="font-size:13px">${b.n} deneme</span>` : `<span class="muted" style="font-size:14px">Henüz tam sınav olarak çözülmedi.</span>`}
-        <a class="btn primary" style="margin-left:auto;text-decoration:none" href="?examen=${encodeURIComponent(e.id)}">Tam sınav (${e.minuten} dk)</a></div>
+      <div class="row" style="margin-bottom:6px">${b ? `<span class="chip ${bestOk >= S.data.geslaagd ? "ok" : "bad"} num">en iyi: ${bestOk}/${e.vragen} doğru${S.data.score ? ` · tahmini puan ${examScore(bestOk)}` : ""}</span><span class="muted" style="font-size:13px">${b.n} deneme</span>` : `<span class="muted" style="font-size:14px">Henüz tam sınav olarak çözülmedi.</span>`}
+        <a class="btn primary" style="margin-left:auto;text-decoration:none" href="${link("examen=" + encodeURIComponent(e.id))}">Tam sınav (${e.minuten} dk)</a></div>
       ${e.teksten.map(id => textRow(byId[id])).join("")}
       <p class="muted" style="font-size:13px;margin:10px 0 0">Metinleri tek tek de çözebilirsin (metne tıkla); tam sınav süreli ve hepsi birlikte.</p></section>`; };
   return `
     <section class="panel"><span class="eyebrow">Sınav gibi okuma</span>
       <h2 style="margin:4px 0 8px">Deneme sınavları</h2>
-      <p class="muted" style="margin:0;max-width:68ch">Her deneme sınavı resmî örnek sınavlar (2023–2025) gibi kuruldu: 6 metin, 35 soru, 110 dakika. Her alandan (werk, educatie, overig) iki metin, farklı metin türleri; son metin uzun bir arama metni (önce soruyu oku, sonra cevabı ara). Her soru 1 puan; sonuçta resmî 2025 tablosuyla tahmini sınav puanı (${S.data.geslaagd} doğru = 500 = geçer). Metin solda, sorular sağda; bütün soruları görür, değiştirir, sonunda "Bitir"e basarsın. Metinler sınav tarzında yazılmış alıştırma metinleridir; kişi, kurum ve yer adları uydurmadır.</p></section>
+      <p class="muted" style="margin:0;max-width:68ch">${A2 ? `A2 inburgeringsexamen Lezen gibi: bilgisayarda, 65 dakika, günlük hayattan kısa metinler (e-posta, mektup, tarife, web sitesi, form, kurallar) ve çoktan seçmeli sorular. Her deneme sınavında 8 metin ve 25 soru var. DUO resmî soru sayısı ve geçme notu yayınlamıyor; alıştırma sitelerinde "25 sorudan yaklaşık ${S.data.geslaagd} doğru" ölçüsü kullanılıyor, burada da sadece tahmin olarak gösteriliyor. Metin solda, sorular sağda; sonunda "Bitir"e basarsın. Kişi, kurum ve yer adları uydurmadır.` : `Her deneme sınavı resmî örnek sınavlar (2023–2025) gibi kuruldu: 6 metin, 35 soru, 110 dakika. Her alandan (werk, educatie, overig) iki metin, farklı metin türleri; son metin uzun bir arama metni (önce soruyu oku, sonra cevabı ara). Her soru 1 puan; sonuçta resmî 2025 tablosuyla tahmini sınav puanı (${S.data.geslaagd} doğru = 500 = geçer). Metin solda, sorular sağda; bütün soruları görür, değiştirir, sonunda "Bitir"e basarsın. Metinler sınav tarzında yazılmış alıştırma metinleridir; kişi, kurum ve yer adları uydurmadır.`}</p></section>
     ${S.data.examens.map(examCard).join("")}
     ${pats.length ? `<section class="panel"><div class="sectionhead"><h3>Soru tiplerine göre</h3><span class="muted">en zayıf olan üstte</span></div>
       <div style="display:flex;flex-direction:column;gap:6px">${pats.map(([p, v]) => { const q = pct(v.ok, v.n); return `<div class="catrow" style="grid-template-columns:minmax(0,1fr) 120px 5em"><span lang="nl" style="font-size:13.5px">${esc(patternName(+p))}</span><div class="bar"><i style="width:${q}%;background:var(--${tone(q)})"></i></div><span class="num r">%${q} <span class="muted">(${v.n})</span></span></div>`; }).join("")}</div>
@@ -180,13 +193,13 @@ function vRun() {
   const res = r.done ? (() => { const ok = all.filter(k => r.ans[k] === byId[k.split(":")[0]].vragen.find(q => q.id === k.split(":")[1]).juist).length, p = pct(ok, all.length);
     return `<section class="panel"><div class="row" style="gap:18px;align-items:flex-end"><div class="bigscore num" style="font-size:44px;font-weight:700;color:var(--${tone(p)})">%${p}</div>
       <div class="muted num">${ok} / ${all.length} doğru · ${mmss(r.used)} dakika${r.timeout ? " · süre doldu" : ""} · ${r.saved ? "kaydedildi" : "kaydediliyor…"}</div>
-      ${isExam(r.test) ? `<div><span class="chip ${ok >= S.data.geslaagd ? "ok" : "bad"} num" style="font-size:15px">tahmini puan ${examScore(ok)} · ${ok >= S.data.geslaagd ? "geçer" : `geçmek için ${S.data.geslaagd - ok} doğru daha`}</span></div>` : ""}
-      <div style="margin-left:auto" class="row"><a class="btn" href="./teksten.html" style="text-decoration:none">Metinlere dön</a><button class="btn primary" data-act="again">Tekrar çöz</button></div></div>
-      <p class="muted" style="margin:10px 0 0;font-size:14px">Her sorunun altında açıklama var; "Metinde göster" cevabın geçtiği cümleyi metinde sarıyla gösterir.${isExam(r.test) ? " Tahmini puan resmî 2025 örnek sınavının tablosuyla hesaplandı (24 doğru = 500 = geçer); kendi metinlerimizde bu sadece bir tahmindir." : ""}</p></section>`; })() : "";
+      ${isExam(r.test) ? `<div><span class="chip ${ok >= S.data.geslaagd ? "ok" : "bad"} num" style="font-size:15px">${scoreText(ok)} · ${ok >= S.data.geslaagd ? (A2 ? "muhtemelen geçer" : "geçer") : `geçmek için ${S.data.geslaagd - ok} doğru daha`}</span></div>` : ""}
+      <div style="margin-left:auto" class="row"><a class="btn" href="${listUrl}" style="text-decoration:none">Metinlere dön</a><button class="btn primary" data-act="again">Tekrar çöz</button></div></div>
+      <p class="muted" style="margin:10px 0 0;font-size:14px">Her sorunun altında açıklama var; "Metinde göster" cevabın geçtiği cümleyi metinde sarıyla gösterir.${isExam(r.test) ? (A2 ? ` A2 için resmî puan tablosu yok; "yaklaşık ${S.data.geslaagd}/25" sadece bir ölçü.` : " Tahmini puan resmî 2025 örnek sınavının tablosuyla hesaplandı (24 doğru = 500 = geçer); kendi metinlerimizde bu sadece bir tahmindir.") : ""}</p></section>`; })() : "";
   return `
     <div class="timerbar">
       ${exam ? `<div class="examtabs">${r.texts.map((id, i) => { const n = byId[id].vragen.filter(q => (id + ":" + q.id) in r.ans).length;
-        return `<button class="${i === r.cur ? "on" : ""}" data-act="text" data-i="${i}">Tekst ${i + 1} <span class="cnt">${n}/${byId[id].vragen.length}</span></button>`; }).join("")}</div>` : `<a href="./teksten.html">← Metinler</a>`}
+        return `<button class="${i === r.cur ? "on" : ""}" data-act="text" data-i="${i}">Tekst ${i + 1} <span class="cnt">${n}/${byId[id].vragen.length}</span></button>`; }).join("")}</div>` : `<a href="${listUrl}">← Metinler</a>`}
       <span style="margin-left:auto" class="row">
         ${r.done ? "" : r.timerOn ? `<span class="timer num" id="timer">${mmss(left())}</span>` : `<button class="btn ghost" data-act="timer">⏱ ${t.minuten} dk süre tut</button>`}
         ${r.done ? "" : `<span class="muted num" style="font-size:13px">${answered}/${all.length}</span><button class="btn primary" data-act="finish">Bitir</button>`}</span>
@@ -207,7 +220,7 @@ async function finish(timeout = false) {
   const attempt = { kind: isExam(r.test) ? "examen" : "tekst", test: r.test, title: isExam(r.test) ? examById[r.test].titel : byId[r.test].titel,
     started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: r.used, timed: r.timerOn,
     score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
-  try { await saveAttempt(user.uid, "lezen-teksten", attempt); S.attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
+  try { await saveAttempt(user.uid, SET.module, attempt); S.attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
   render();
 }
 
