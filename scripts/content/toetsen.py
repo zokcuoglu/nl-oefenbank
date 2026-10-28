@@ -60,5 +60,26 @@ TOETSEN = [
              "opties": ["de roedel", "de schuld", "de donateur"], "juist": 0,
              "uitleg": "Schuld en donateur gaan over geld (nieuws 6); een roedel is een groep wolven (nieuws 5)."},
         ],
+    },
+    {"id": "toets-5", "nr": 5, "tot": 7, "titel": "Toets 5 · Nieuws 1–7", "extra": []},
+    {"id": "toets-6", "nr": 6, "tot": 8, "titel": "Toets 6 · Nieuws 1–8", "extra": []},
+    {
+        "id": "toets-7",
+        "nr": 7,
+        "tot": 9,
+        "titel": "Toets 7 · Nieuws 1–9",
+        "extra": [
+            {"id": "t7m1", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "In welke video speelt lucht de belangrijkste rol?",
+             "opties": ["Het draaiorgel: een blaasbalg pompt lucht naar de pijpen", "De doosjes: lucht vouwt het karton", "Het bankbiljet: lucht maakt de ribbels"], "juist": 0,
+             "uitleg": "In het draaiorgel pompt een blaasbalg lucht naar de orgelpijpen; ook de trommel werkt met lucht."},
+            {"id": "t7m2", "type": "mc", "niveau": "B1", "cat": "begrip", "vraag": "Welk ding is NIET van papier, hoewel veel mensen dat denken?",
+             "opties": ["het bankbiljet", "het orgelboek", "het verpakkingsdoosje"], "juist": 0,
+             "uitleg": "Het bankbiljet is van katoen (nieuws 9). Het doosje is van karton; van het orgelboek zegt de video het materiaal niet."},
+            {"id": "t7m3", "type": "mc", "niveau": "B1", "cat": "woorden", "vraag": "Gaatjes, vouwlijnen, ribbels: wat hoort bij welk nieuws?",
+             "opties": ["orgel – doosje – bankbiljet", "doosje – bankbiljet – orgel", "bankbiljet – orgel – doosje"], "juist": 0,
+             "uitleg": "Gaatjes in het orgelboek (7), vouwlijnen in het karton (8), ribbels op het biljet (9)."},
+            {"id": "t7m4", "type": "gap", "niveau": "B2", "cat": "uitdrukkingen", "vraag": "Orgeldraaien lijkt makkelijk, maar het is een vak ___.",
+             "opties": ["apart", "alleen", "anders"], "juist": 0, "uitleg": "Een vak apart = iets waar veel kunde voor nodig is (nieuws 7)."},
+        ],
     }
 ]

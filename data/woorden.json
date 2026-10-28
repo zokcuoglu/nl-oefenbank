@@ -3865,7 +3865,8 @@
 "voorbeeld_door": "notities",
 "in_nieuws": [
 "wolken",
-"wolf"
+"wolf",
+"draaiorgel"
 ]
 },
 {
@@ -3950,7 +3951,9 @@
 "wolken",
 "albertheijn",
 "wolf",
-"pieterburen"
+"pieterburen",
+"draaiorgel",
+"bankbiljet"
 ]
 },
 {
@@ -4045,7 +4048,8 @@
 "gluten",
 "albertheijn",
 "wolf",
-"pieterburen"
+"pieterburen",
+"doosjes"
 ]
 },
 {
@@ -4124,7 +4128,9 @@
 "voorbeeld_tr": "Prensip olarak olur.",
 "uitleg": "Çoğu zaman dolgu kelimesi gibi kullanılır.",
 "voorbeeld_door": "claude",
-"in_nieuws": []
+"in_nieuws": [
+"draaiorgel"
+]
 },
 {
 "id": "w021",
@@ -4471,7 +4477,9 @@
 "voorbeeld_tr": "Rakamlarda küçük bir sapma var.",
 "uitleg": "afwijken = sapmak.",
 "voorbeeld_door": "claude",
-"in_nieuws": []
+"in_nieuws": [
+"doosjes"
+]
 },
 {
 "id": "w044",
@@ -4751,7 +4759,9 @@
 "uitleg": "",
 "voorbeeld_door": "claude",
 "in_nieuws": [
-"albertheijn"
+"albertheijn",
+"draaiorgel",
+"bankbiljet"
 ]
 },
 {
@@ -4769,7 +4779,9 @@
 "voorbeeld_door": "claude",
 "in_nieuws": [
 "wolken",
-"albertheijn"
+"albertheijn",
+"draaiorgel",
+"bankbiljet"
 ]
 },
 {
@@ -4789,7 +4801,10 @@
 "kroket",
 "wolken",
 "gluten",
-"albertheijn"
+"albertheijn",
+"draaiorgel",
+"doosjes",
+"bankbiljet"
 ]
 },
 {
@@ -4870,7 +4885,9 @@
 "wolken",
 "gluten",
 "albertheijn",
-"wolf"
+"wolf",
+"draaiorgel",
+"bankbiljet"
 ]
 },
 {
@@ -4886,7 +4903,9 @@
 "voorbeeld_tr": "Sorun değil, merak etme!",
 "uitleg": "Ayrı yazılır, güven verir.",
 "voorbeeld_door": "notities",
-"in_nieuws": []
+"in_nieuws": [
+"draaiorgel"
+]
 },
 {
 "id": "w070",
@@ -5495,7 +5514,10 @@
 "gluten",
 "albertheijn",
 "wolf",
-"pieterburen"
+"pieterburen",
+"draaiorgel",
+"doosjes",
+"bankbiljet"
 ]
 },
 {
@@ -5953,7 +5975,8 @@
 "uitleg": "",
 "voorbeeld_door": "notities",
 "in_nieuws": [
-"gluten"
+"gluten",
+"bankbiljet"
 ]
 },
 {
@@ -6097,7 +6120,8 @@
 "wolken",
 "gluten",
 "wolf",
-"pieterburen"
+"pieterburen",
+"doosjes"
 ]
 },
 {
@@ -6130,7 +6154,8 @@
 "voorbeeld_door": "claude",
 "in_nieuws": [
 "gluten",
-"albertheijn"
+"albertheijn",
+"draaiorgel"
 ]
 },
 {
@@ -6191,7 +6216,10 @@
 "voorbeeld_tr": "Biraz daha zaman istiyorum.",
 "uitleg": "wat burada 'biraz'.",
 "voorbeeld_door": "claude",
-"in_nieuws": []
+"in_nieuws": [
+"doosjes",
+"bankbiljet"
+]
 },
 {
 "id": "w155",
@@ -6372,7 +6400,9 @@
 "uitleg": "Öneri yaparken en sık sıfat.",
 "voorbeeld_door": "notities",
 "in_nieuws": [
-"gluten"
+"gluten",
+"doosjes",
+"bankbiljet"
 ]
 },
 {
@@ -6421,7 +6451,8 @@
 "in_nieuws": [
 "kroket",
 "wolken",
-"gluten"
+"gluten",
+"doosjes"
 ]
 },
 {
@@ -6502,7 +6533,8 @@
 "in_nieuws": [
 "wolken",
 "wolf",
-"pieterburen"
+"pieterburen",
+"draaiorgel"
 ]
 },
 {
@@ -6520,7 +6552,9 @@
 "voorbeeld_door": "notities",
 "in_nieuws": [
 "kroket",
-"albertheijn"
+"albertheijn",
+"doosjes",
+"bankbiljet"
 ]
 },
 {
@@ -6802,7 +6836,9 @@
 "voorbeeld_door": "notities",
 "in_nieuws": [
 "wolken",
-"gluten"
+"gluten",
+"doosjes",
+"bankbiljet"
 ]
 },
 {
@@ -6820,7 +6856,8 @@
 "voorbeeld_door": "claude",
 "in_nieuws": [
 "kroket",
-"pieterburen"
+"pieterburen",
+"doosjes"
 ]
 },
 {
@@ -7321,7 +7358,8 @@
 "in_nieuws": [
 "gluten",
 "wolf",
-"pieterburen"
+"pieterburen",
+"bankbiljet"
 ]
 },
 {
@@ -7416,7 +7454,10 @@
 "voorbeeld_tr": "Verilerinizi güvenle işliyoruz.",
 "uitleg": "Veri gizliliği metinlerinde.",
 "voorbeeld_door": "claude",
-"in_nieuws": []
+"in_nieuws": [
+"doosjes",
+"bankbiljet"
+]
 },
 {
 "id": "w233",
@@ -7555,7 +7596,8 @@
 "wolken",
 "albertheijn",
 "wolf",
-"pieterburen"
+"pieterburen",
+"doosjes"
 ]
 },
 {
@@ -8411,7 +8453,8 @@
 "uitleg": "",
 "voorbeeld_door": "claude",
 "in_nieuws": [
-"wolf"
+"wolf",
+"draaiorgel"
 ]
 },
 {
@@ -8714,7 +8757,9 @@
 "voorbeeld_tr": "Çok çok teşekkürler!",
 "uitleg": "Güçlü vurgu zarfı.",
 "voorbeeld_door": "claude",
-"in_nieuws": []
+"in_nieuws": [
+"draaiorgel"
+]
 },
 {
 "id": "w318",
@@ -8792,7 +8837,8 @@
 "in_nieuws": [
 "kroket",
 "wolken",
-"gluten"
+"gluten",
+"doosjes"
 ]
 },
 {
@@ -9273,7 +9319,9 @@
 "voorbeeld_tr": "O hikâyede kendimi buluyorum.",
 "uitleg": "",
 "voorbeeld_door": "notities",
-"in_nieuws": []
+"in_nieuws": [
+"bankbiljet"
+]
 },
 {
 "id": "w355",
@@ -9318,7 +9366,9 @@
 "voorbeeld_tr": "Planı yasaya göre sınıyoruz.",
 "uitleg": "",
 "voorbeeld_door": "notities",
-"in_nieuws": []
+"in_nieuws": [
+"draaiorgel"
+]
 },
 {
 "id": "w358",
@@ -9759,7 +9809,10 @@
 "kroket",
 "gluten",
 "wolf",
-"pieterburen"
+"pieterburen",
+"draaiorgel",
+"doosjes",
+"bankbiljet"
 ]
 },
 {
@@ -9805,7 +9858,10 @@
 "voorbeeld_tr": "Oldu mu? Başardın mı?",
 "uitleg": "",
 "voorbeeld_door": "notities",
-"in_nieuws": []
+"in_nieuws": [
+"draaiorgel",
+"bankbiljet"
+]
 },
 {
 "id": "w390",
@@ -10159,7 +10215,8 @@
 "voorbeeld_door": "notities",
 "in_nieuws": [
 "wolken",
-"gluten"
+"gluten",
+"draaiorgel"
 ]
 },
 {
@@ -13278,6 +13335,1441 @@
 "voorbeeld": "Die kapotte wasmachine werd een dure grap.",
 "voorbeeld_tr": "O bozuk çamaşır makinesi pahalıya patladı.",
 "uitleg": "Beklenenden çok daha pahalı olan bir şey; ironik bir ifade."
+},
+{
+"id": "n-draaiorgel-w1",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "de muziek",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "müzik",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "geluid van zingen of van instrumenten",
+"voorbeeld": "Ik luister graag naar muziek.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w2",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "draaien",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "çevirmek",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "rond laten gaan",
+"voorbeeld": "Je draait aan het wiel.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w3",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "dansen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "dans etmek",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "op muziek bewegen",
+"voorbeeld": "Op het feest dansen we.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w4",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het gaatje",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "küçük delik",
+"niveau": "A1",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "klein gat",
+"voorbeeld": "In het papier zit een gaatje.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w5",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het feest",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "kutlama, parti",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "moment waarop je samen iets viert",
+"voorbeeld": "Morgen is er een feest.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w6",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het liedje",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "şarkı",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "kort lied",
+"voorbeeld": "Dit liedje ken ik.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w7",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "populair",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "popüler",
+"niveau": "A2",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "door veel mensen leuk gevonden",
+"voorbeeld": "Voetbal is populair in Nederland.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w8",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "vieren",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "kutlamak",
+"niveau": "A2",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "feest maken voor iets",
+"voorbeeld": "We vieren mijn verjaardag.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w9",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "de lucht",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "hava",
+"niveau": "A2",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "(hier) wat je inademt; gas om ons heen",
+"voorbeeld": "De ballon zit vol lucht.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w10",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "de buis",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "boru",
+"niveau": "A2",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "lange, holle pijp",
+"voorbeeld": "Het water loopt door een buis.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w11",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het ritme",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "ritim",
+"niveau": "A2",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "vaste maat in muziek",
+"voorbeeld": "Klap mee op het ritme.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w12",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het vak",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "meslek, zanaat",
+"niveau": "A2",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "(hier) beroep waarvoor je veel moet kunnen",
+"voorbeeld": "Bakker is een mooi vak.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w13",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "de blaasbalg",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "körük",
+"niveau": "B1",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "zak die lucht opzuigt en weer uitblaast",
+"voorbeeld": "De blaasbalg pompt lucht in het orgel.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w14",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "de toets",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "tuş",
+"niveau": "B1",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "knop van een instrument of toetsenbord",
+"voorbeeld": "Druk op de toets.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w15",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "indrukken",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "bastırmak",
+"niveau": "B1",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "naar beneden duwen",
+"voorbeeld": "Je moet de knop twee seconden indrukken.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w16",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "leeglopen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "boşalmak, sönmek",
+"niveau": "B1",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "leeg raken (lucht, water)",
+"voorbeeld": "Mijn fietsband loopt leeg.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w17",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "aanhouden",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "sürdürmek",
+"niveau": "B1",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "(hier) blijven doen, niet stoppen",
+"voorbeeld": "Het is moeilijk om dat tempo aan te houden.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w18",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "de trommel",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "davul",
+"niveau": "B1",
+"groep": "4",
+"thema": "nieuws",
+"definitie": "instrument waar je met een stok op slaat",
+"voorbeeld": "De jongen slaat op de trommel.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w19",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het mechaniek",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "mekanizma",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "de delen die samen iets laten bewegen",
+"voorbeeld": "Het mechaniek van de klok is oud.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w20",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "ingenieus",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "dâhiyane",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "slim en knap bedacht",
+"voorbeeld": "Wat een ingenieus apparaat!",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w21",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "vernuftig",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "ustaca, zekice",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "slim bedacht",
+"voorbeeld": "Het systeem is heel vernuftig.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w22",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "het ambacht",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "zanaat",
+"niveau": "C1",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "vak waarbij je met je handen werkt",
+"voorbeeld": "Orgeldraaien is een oud ambacht.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-w23",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "vergen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "gerektirmek",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "nodig hebben, vragen (van iemand)",
+"voorbeeld": "Dit werk vergt veel geduld.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-draaiorgel-u1",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "volgens mij",
+"soort": "uitdrukking",
+"tr": "bence, bana kalırsa",
+"niveau": "A2",
+"groep": "3",
+"thema": "nieuws",
+"voorbeeld": "Volgens mij is het museum vandaag open.",
+"voorbeeld_tr": "Bence müze bugün açık.",
+"uitleg": "Kendi fikrini ya da tahminini söylerken. Videoda: 'Maar volgens mij hoor ik nog helemaal niks.'"
+},
+{
+"id": "n-draaiorgel-u2",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "op en neer gaan",
+"soort": "uitdrukking",
+"tr": "inip çıkmak",
+"niveau": "A2",
+"groep": "4",
+"thema": "nieuws",
+"voorbeeld": "Ik ga elke dag op en neer naar Utrecht.",
+"voorbeeld_tr": "Her gün Utrecht'e gidip geliyorum.",
+"uitleg": "Bir şeyin sürekli yukarı ve aşağı hareket etmesi. Videoda blaasbalg için: 'Die gaat zo op en neer.' Mecazi: iki yer arasında gidip gelmek."
+},
+{
+"id": "n-draaiorgel-u3",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "er valt iets te vieren",
+"soort": "uitdrukking",
+"tr": "kutlanacak bir şey var",
+"niveau": "B1",
+"groep": "6",
+"thema": "nieuws",
+"voorbeeld": "Er valt vandaag iets te vieren: ik ben geslaagd!",
+"voorbeeld_tr": "Bugün kutlanacak bir şey var: sınavı geçtim!",
+"uitleg": "'Er valt … te + fiil' kalıbı: yapılabilecek/yapılacak bir şey var. Videoda: 'Zodra er wat te vieren viel, dansten mensen op straat.'"
+},
+{
+"id": "n-draaiorgel-u4",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "iets op zijn duimpje kennen",
+"soort": "uitdrukking",
+"tr": "bir şeyi avucunun içi gibi bilmek",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"voorbeeld": "Anton kent alle draaiorgels op zijn duimpje.",
+"voorbeeld_tr": "Anton bütün laternaları avucunun içi gibi biliyor.",
+"uitleg": "Bir konuyu ya da yeri çok iyi bilmek. 'Zijn' kişiye göre değişir: ik ken het op mijn duimpje."
+},
+{
+"id": "n-draaiorgel-u5",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "een vak apart",
+"soort": "uitdrukking",
+"tr": "başlı başına bir uzmanlık",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"voorbeeld": "Een goede foto maken is een vak apart.",
+"voorbeeld_tr": "İyi bir fotoğraf çekmek başlı başına bir uzmanlık.",
+"uitleg": "Kolay görünen ama aslında çok beceri isteyen iş. Videoda daha basit hali var: 'Het is echt een vak.'"
+},
+{
+"id": "n-draaiorgel-u6",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "in de maat blijven",
+"soort": "uitdrukking",
+"tr": "ritmi tutturmak, temposunu korumak",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"voorbeeld": "Het is moeilijk om de hele dag in de maat te blijven.",
+"voorbeeld_tr": "Bütün gün ritmi tutturmak zor.",
+"uitleg": "Müzikte ritme uymak. Mecazi olarak: kurallara/gruba uyum sağlamak ('in de pas lopen' de benzer)."
+},
+{
+"id": "n-draaiorgel-u7",
+"bron": "nieuws",
+"item": "draaiorgel",
+"nr": 7,
+"nl": "niet weg te denken zijn",
+"soort": "uitdrukking",
+"tr": "olmazsa olmaz olmak",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"voorbeeld": "De fiets is niet weg te denken uit Nederland.",
+"voorbeeld_tr": "Bisiklet Hollanda'nın olmazsa olmazı.",
+"uitleg": "Bir şey öyle yerleşmiş ki onsuz bir durumu düşünemiyorsun."
+},
+{
+"id": "n-doosjes-w1",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de doos",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "kutu",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "ding van karton of hout waar je iets in doet",
+"voorbeeld": "De schoenen zitten in een doos.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w2",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "het karton",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "karton",
+"niveau": "A1",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "dik, stevig papier",
+"voorbeeld": "De doos is van karton.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w3",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "plat",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "yassı, düz",
+"niveau": "A1",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "zonder hoogte, niet dik",
+"voorbeeld": "Het doosje is nog plat.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w4",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "leeg",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "boş",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "er zit niets in",
+"voorbeeld": "De fles is leeg.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w5",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "vouwen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "katlamak",
+"niveau": "A2",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "papier of karton dubbel buigen",
+"voorbeeld": "Vouw het papier in twee.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w6",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de lijm",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "yapıştırıcı",
+"niveau": "A2",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "iets waarmee je dingen aan elkaar plakt",
+"voorbeeld": "Doe wat lijm op de rand.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w7",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de verpakking",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "ambalaj",
+"niveau": "A2",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "doos of zak waarin een product zit",
+"voorbeeld": "Gooi de verpakking bij het oud papier.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w8",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de maat",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "ölçü, beden",
+"niveau": "A2",
+"groep": "4",
+"thema": "nieuws",
+"definitie": "hoe groot of lang iets is",
+"voorbeeld": "Welke maat heeft je jas?",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w9",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de drukkerij",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "matbaa",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"definitie": "bedrijf dat boeken, folders en dozen drukt",
+"voorbeeld": "Mijn oom werkt in een drukkerij.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w10",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "drukken",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "basmak",
+"niveau": "B1",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "(hier) tekst of plaatjes op papier zetten",
+"voorbeeld": "De folders worden morgen gedrukt.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w11",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "het vel",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "tabaka",
+"niveau": "B1",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "groot, plat stuk papier of karton",
+"voorbeeld": "Pak een vel papier.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w12",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "bedenken",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "düşünüp bulmak",
+"niveau": "B1",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "een idee of plan maken",
+"voorbeeld": "Wie heeft dit spel bedacht?",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w13",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "ingewikkeld",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "karmaşık",
+"niveau": "B1",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "moeilijk, met veel delen",
+"voorbeeld": "Het formulier is erg ingewikkeld.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w14",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "kloppen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "doğru olmak",
+"niveau": "B1",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "(hier) juist zijn",
+"voorbeeld": "Klopt het adres?",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w15",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "het ontwerp",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "tasarım",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"definitie": "tekening of plan van iets dat gemaakt gaat worden",
+"voorbeeld": "Het ontwerp van het huis is klaar.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w16",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de lopende band",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "yürüyen bant",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"definitie": "band in een fabriek die steeds doorloopt",
+"voorbeeld": "De dozen gaan over de lopende band.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w17",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "het precisiewerk",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "hassas iş",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "werk dat heel nauwkeurig moet",
+"voorbeeld": "Een horloge maken is precisiewerk.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w18",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "overtollig",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "fazla",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "wat over is, niet nodig",
+"voorbeeld": "Snijd het overtollige papier weg.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w19",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "produceren",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "üretmek",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "(in een fabriek) maken",
+"voorbeeld": "De fabriek produceert duizend dozen per dag.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w20",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "nauwkeurig",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "titiz, hassas",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "heel precies",
+"voorbeeld": "Meet het nauwkeurig op.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w21",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "vervaardigen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "imal etmek",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "maken (formeel)",
+"voorbeeld": "Het meubel is met de hand vervaardigd.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-w22",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "de afwijking",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "sapma",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "verschil met wat normaal of gepland is",
+"voorbeeld": "Er is een kleine afwijking in de maat.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-doosjes-u1",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "van alles en nog wat",
+"soort": "uitdrukking",
+"tr": "her türlü şey, aklına ne gelirse",
+"niveau": "A2",
+"groep": "5",
+"thema": "nieuws",
+"voorbeeld": "In die winkel kun je van alles en nog wat kopen.",
+"voorbeeld_tr": "O dükkânda her türlü şeyi alabilirsin.",
+"uitleg": "Çok farklı şeyler için. Videoda: 'verpakkingsdoosjes voor van alles en nog wat'."
+},
+{
+"id": "n-doosjes-u2",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "in principe",
+"soort": "uitdrukking",
+"tr": "prensipte, esasen",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"voorbeeld": "In principe ben ik om vijf uur thuis.",
+"voorbeeld_tr": "Prensipte saat beşte evdeyim.",
+"uitleg": "'Normalde öyle ama küçük bir 'ama'sı var.' Videoda: 'Zo is het doosje in principe klaar … maar hij is nog wel plat.'"
+},
+{
+"id": "n-doosjes-u3",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "aan de lopende band",
+"soort": "uitdrukking",
+"tr": "durmadan, seri halde",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"voorbeeld": "Hij maakt aan de lopende band fouten.",
+"voorbeeld_tr": "Durmadan hata yapıyor.",
+"uitleg": "Gerçek anlamı: fabrikadaki yürüyen bant. Mecazi: bir şeyin sürekli, art arda olması."
+},
+{
+"id": "n-doosjes-u4",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "tot op de millimeter",
+"soort": "uitdrukking",
+"tr": "milimetrik, çok hassas",
+"niveau": "B1",
+"groep": "6",
+"thema": "nieuws",
+"voorbeeld": "De kast past tot op de millimeter in de hoek.",
+"voorbeeld_tr": "Dolap köşeye milimetrik oturuyor.",
+"uitleg": "Ölçünün tam doğru olması. Videoda: 'Alle maten moeten precies kloppen.'"
+},
+{
+"id": "n-doosjes-u5",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "kloppen als een bus",
+"soort": "uitdrukking",
+"tr": "tıkır tıkır doğru olmak",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"voorbeeld": "Ik heb alles nagerekend: het klopt als een bus.",
+"voorbeeld_tr": "Her şeyi yeniden hesapladım: tıkır tıkır doğru.",
+"uitleg": "Bir hesabın, planın ya da hikâyenin tamamen doğru ve tutarlı olması. 'Kloppen' = doğru olmak."
+},
+{
+"id": "n-doosjes-u6",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "als gegoten zitten / passen",
+"soort": "uitdrukking",
+"tr": "kalıp gibi oturmak",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"voorbeeld": "Die jas zit je als gegoten.",
+"voorbeeld_tr": "O ceket üstüne kalıp gibi oturmuş.",
+"uitleg": "Bir giysinin ya da parçanın tam uyması."
+},
+{
+"id": "n-doosjes-u7",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "… en wel",
+"soort": "uitdrukking",
+"tr": "… haliyle, tamamen …",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"voorbeeld": "De pakketjes liggen klaar, ingepakt en wel.",
+"voorbeeld_tr": "Paketler hazır, paketlenmiş halde.",
+"uitleg": "Geçmiş zaman ortacı + 'en wel': bir şeyin o işlemden tamamen geçmiş halde olduğunu vurgular. Videoda: 'gevouwen en wel'. Sık örnek: 'getrouwd en wel'."
+},
+{
+"id": "n-doosjes-u8",
+"bron": "nieuws",
+"item": "doosjes",
+"nr": 8,
+"nl": "zo plat als een dubbeltje",
+"soort": "uitdrukking",
+"tr": "kâğıt gibi yassı",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"voorbeeld": "Na de vrachtwagen was het blikje zo plat als een dubbeltje.",
+"voorbeeld_tr": "Kamyondan sonra kutu kâğıt gibi yassılaşmıştı.",
+"uitleg": "Çok düz/yassı. 'Dubbeltje' = eski 10 sentlik madeni para."
+},
+{
+"id": "n-bankbiljet-w1",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het geld",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "para",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "munten en biljetten waarmee je betaalt",
+"voorbeeld": "Ik heb geen geld bij me.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w2",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "betalen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "ödemek",
+"niveau": "A1",
+"groep": "3",
+"thema": "nieuws",
+"definitie": "geld geven voor iets",
+"voorbeeld": "Ik betaal met mijn telefoon.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w3",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "voelen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "dokunarak hissetmek",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "nieuws",
+"definitie": "met je handen merken",
+"voorbeeld": "Voel eens hoe zacht dit is.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w4",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "nep",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "sahte",
+"niveau": "A2",
+"groep": "4",
+"thema": "nieuws",
+"definitie": "niet echt",
+"voorbeeld": "Dat is een nep tientje.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w5",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het katoen",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "pamuk",
+"niveau": "A2",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "stof van de katoenplant",
+"voorbeeld": "Dit T-shirt is van katoen.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w6",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het bankbiljet",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "banknot",
+"niveau": "A2",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "geld van papier (of katoen)",
+"voorbeeld": "Hij betaalt met een bankbiljet van twintig euro.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w7",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het salaris",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "maaş",
+"niveau": "A2",
+"groep": "7",
+"thema": "nieuws",
+"definitie": "geld dat je elke maand voor je werk krijgt",
+"voorbeeld": "Mijn salaris komt aan het eind van de maand.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w8",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "uitgeven",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "harcamak",
+"niveau": "A2",
+"groep": "5",
+"thema": "nieuws",
+"definitie": "geld gebruiken om iets te kopen",
+"voorbeeld": "Ze geeft veel geld uit aan kleding.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w9",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "digitaal",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "dijital",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"definitie": "met de computer, zonder papier",
+"voorbeeld": "Ik betaal mijn rekeningen digitaal.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w10",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "de vezel",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "lif",
+"niveau": "B1",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "heel dunne draad in stof of papier",
+"voorbeeld": "Katoen heeft lange vezels.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w11",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het watermerk",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "filigran",
+"niveau": "B1",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "tekening in papier die je ziet als je het tegen het licht houdt",
+"voorbeeld": "Op het biljet zit een watermerk.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w12",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "slechtziend",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "az gören",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"definitie": "niet goed kunnen zien",
+"voorbeeld": "Voor slechtziende mensen is er grote letter.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w13",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "flexibel",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "esnek",
+"niveau": "B1",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "makkelijk te buigen; ook: makkelijk aan te passen",
+"voorbeeld": "Het biljet is sterk en flexibel.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w14",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "hoewel",
+"soort": "woord",
+"woordsoort": "vw",
+"tr": "-e rağmen",
+"niveau": "B1",
+"groep": "6",
+"thema": "nieuws",
+"definitie": "ook al",
+"voorbeeld": "Hoewel het regent, gaan we fietsen.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w15",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het echtheidskenmerk",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "gerçeklik işareti",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "teken waaraan je ziet dat iets echt is",
+"voorbeeld": "De ribbels zijn een echtheidskenmerk.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w16",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "de vervalsing",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "sahte(cilik)",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "iets wat nagemaakt is om mensen te bedriegen",
+"voorbeeld": "Dit biljet is een vervalsing.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w17",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "buigzaam",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "esnek, bükülebilir",
+"niveau": "B2",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "makkelijk te buigen",
+"voorbeeld": "Een katoenen biljet is buigzaam.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w18",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "ontbreken",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "eksik olmak",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"definitie": "er niet zijn terwijl het er wel hoort",
+"voorbeeld": "Er ontbreekt een pagina.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w19",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "uitgekiend",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "ince düşünülmüş",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "heel slim en precies bedacht",
+"voorbeeld": "Het plan is goed uitgekiend.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-w20",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "beduidend",
+"soort": "woord",
+"woordsoort": "bw",
+"tr": "önemli ölçüde",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"definitie": "veel, duidelijk (formeel)",
+"voorbeeld": "De vezels zijn beduidend langer.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-bankbiljet-u1",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het mis hebben",
+"soort": "uitdrukking",
+"tr": "yanılmak",
+"niveau": "A2",
+"groep": "5",
+"thema": "nieuws",
+"voorbeeld": "Je denkt dat de winkel open is, maar je hebt het mis.",
+"voorbeeld_tr": "Dükkânın açık olduğunu sanıyorsun ama yanılıyorsun.",
+"uitleg": "Yanlış düşünmek. Videoda: 'Maar dan heb je het echt mis.' Tersi: 'gelijk hebben'."
+},
+{
+"id": "n-bankbiljet-u2",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "geld maakt niet gelukkig",
+"soort": "uitdrukking",
+"tr": "para mutluluk getirmez",
+"niveau": "A2",
+"groep": "6",
+"thema": "nieuws",
+"voorbeeld": "Geld maakt niet gelukkig, zegt mijn opa altijd.",
+"voorbeeld_tr": "Para mutluluk getirmez, der dedem hep.",
+"uitleg": "Atasözü. Videodaki espri: 'Geld maakt niet gelukkig, maar gelukkig is er wel geld' (gelukkig: hem 'mutlu' hem 'neyse ki')."
+},
+{
+"id": "n-bankbiljet-u3",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "met het blote oog",
+"soort": "uitdrukking",
+"tr": "çıplak gözle",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"voorbeeld": "Die sterren zie je niet met het blote oog.",
+"voorbeeld_tr": "O yıldızları çıplak gözle göremezsin.",
+"uitleg": "Büyüteç ya da mikroskop olmadan."
+},
+{
+"id": "n-bankbiljet-u4",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "iets tegen het licht houden",
+"soort": "uitdrukking",
+"tr": "bir şeyi ışığa tutmak; (mecazi) dikkatle incelemek",
+"niveau": "B1",
+"groep": "6",
+"thema": "nieuws",
+"voorbeeld": "Laten we dat plan eens goed tegen het licht houden.",
+"voorbeeld_tr": "Şu planı bir iyice inceleyelim.",
+"uitleg": "Gerçek anlam: filigranı görmek için ışığa tutmak. Mecazi: bir planı ya da iddiayı eleştirel şekilde incelemek."
+},
+{
+"id": "n-bankbiljet-u5",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "het geld groeit me niet op de rug",
+"soort": "uitdrukking",
+"tr": "para ağaçta bitmiyor",
+"niveau": "B1",
+"groep": "7",
+"thema": "nieuws",
+"voorbeeld": "Nee, geen nieuwe telefoon: het geld groeit me niet op de rug!",
+"voorbeeld_tr": "Hayır, yeni telefon yok: para ağaçta bitmiyor!",
+"uitleg": "Paranın sınırsız olmadığını, dikkatli harcamak gerektiğini söylemek için. Videoda: 'Maar helaas groeit het niet op mijn rug.'"
+},
+{
+"id": "n-bankbiljet-u6",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "ergens van staan te kijken",
+"soort": "uitdrukking",
+"tr": "bir şeye çok şaşırmak",
+"niveau": "B2",
+"groep": "8",
+"thema": "nieuws",
+"voorbeeld": "Ik stond ervan te kijken hoe goed hij Nederlands spreekt.",
+"voorbeeld_tr": "Hollandacayı ne kadar iyi konuştuğuna çok şaşırdım.",
+"uitleg": "Beklemediğin bir şey karşısında şaşırmak. Videoda: 'Ik stond hier dus heel erg van te kijken.'"
+},
+{
+"id": "n-bankbiljet-u7",
+"bron": "nieuws",
+"item": "bankbiljet",
+"nr": 9,
+"nl": "iets onder de loep nemen",
+"soort": "uitdrukking",
+"tr": "bir şeyi mercek altına almak",
+"niveau": "C1",
+"groep": "vo",
+"thema": "nieuws",
+"voorbeeld": "De gemeente neemt de kosten onder de loep.",
+"voorbeeld_tr": "Belediye masrafları mercek altına alıyor.",
+"uitleg": "Bir şeyi çok dikkatle, ayrıntısıyla incelemek. 'De loep' = büyüteç; videodaki 'superzoom' ile aynı fikir."
 }
 ]
 }
