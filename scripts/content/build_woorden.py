@@ -40,6 +40,40 @@ NIEUWS = ROOT / "data" / "nieuws.json"
 OUT = ROOT / "data" / "woorden.json"
 
 LEVELS = ["A0", "A1", "A2", "B1", "B2", "C1", "C2"]
+
+# Three separate labels on every entry (shown as filters on the word page; labels Dutch + Turkish).
+# tur = grammatical type, thema = topic (subthema only inside "werk"), register = formal / neutral / informal.
+TUREN = {
+    "zn": "Zelfstandig naamwoord · isim", "ww": "Werkwoord · fiil", "sch_ww": "Scheidbaar werkwoord · ayrılabilen fiil",
+    "bn": "Bijvoeglijk naamwoord · sıfat", "bw": "Bijwoord · zarf", "klein": "Kleine woorden · zamir, edat, bağlaç",
+    "telw": "Telwoord · sayı", "tw": "Tussenwerpsel · ünlem, selam", "vaste_comb": "Vaste combinatie · sabit kalıp (op zoek naar)",
+    "uitdr": "Uitdrukking · deyim", "zin": "Zin · hazır cümle", "structuur": "Grammaticastructuur · dilbilgisi yapısı",
+    "afk": "Afkorting · kısaltma",
+}
+THEMAS = {
+    "werk": "Werk · iş yeri", "winkel": "Winkel & boodschappen · alışveriş", "eten": "Eten & drinken · yeme içme",
+    "gezondheid": "Gezondheid · sağlık", "wonen": "Wonen · ev", "familie": "Familie · aile", "onderweg": "Onderweg · yolda, ulaşım",
+    "school": "School · okul", "weer": "Weer · hava", "tijd": "Tijd & getallen · zaman, sayılar", "kleding": "Kleding · giyim",
+    "lichaam": "Lichaam · vücut", "natuur": "Natuur & dieren · doğa, hayvanlar", "overheid": "Overheid & brieven · resmi kurumlar",
+    "kennismaken": "Kennismaken · tanışma, selamlaşma", "maatschappij": "Nieuws & maatschappij · haber, toplum",
+    "algemeen": "Algemeen · genel",
+}
+SUBTHEMAS = {"vergadering": "Vergadering · toplantı", "e-mail": "E-mail", "presentatie": "Presentatie · sunum", "techniek": "Techniek · teknik"}
+REGISTERS = {"formeel": "Formeel · resmi", "neutraal": "Neutraal · nötr", "informeel": "Informeel · samimi"}
+
+# News words: topic per news item (a new item must be added here, or the build stops)
+NIEUWS_THEMA = {"kroket": "eten", "wolken": "weer", "gluten": "eten", "albertheijn": "winkel", "wolf": "natuur",
+                "pieterburen": "natuur", "draaiorgel": "maatschappij", "doosjes": "maatschappij", "bankbiljet": "maatschappij"}
+# News words: woordsoort in the news files -> tur. Separable verbs are written "sch ww" in the news files.
+WOORDSOORT_TUR = {"zn": "zn", "zn (mv)": "zn", "ww": "ww", "sch ww": "sch_ww", "bn": "bn", "bw": "bw", "vw": "klein",
+                  "uitdr": "uitdr", "voorvoegsel": "structuur"}
+# News idioms that are really a word or a fixed combination (default for idioms: uitdr)
+NIEUWS_TUR = {"angstvallig": "bw", "laagdrempelig": "bn", "zonneklaar": "bn", "vermoedelijk": "bw", "achteruit": "bw",
+              "beduidend": "bn", "hoewel": "klein", "lievelings-": "structuur", "keilekker (kei-)": "bn", "de koukleum": "zn",
+              "in aanraking komen met": "vaste_comb", "ergens bij stilstaan": "vaste_comb", "betrokken zijn bij": "vaste_comb",
+              "oog in oog staan met": "vaste_comb", "ergens van staan te kijken": "vaste_comb", "volgens mij": "vaste_comb",
+              "in principe": "vaste_comb", "uit voorzorg": "vaste_comb", "aan de lijn": "vaste_comb", "wegwezen!": "tw"}
+NIEUWS_INFORMEEL = {"keilekker (kei-)", "wegwezen!", "hartstikke (leuk, goed …)", "mazzel hebben"}
 SOORT = {"woord", "uitdrukking", "zin", "structuur", "afkorting"}
 TEXT_LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1", "c2"]
 # Words that stand for "something/someone" in a dictionary form; they are not in the real sentence
@@ -73,8 +107,20 @@ def appears_in(nl, text):
     return False
 
 
+def labels(r):
+    return {"tur": r["tur"], "thema": r["thema"], "subthema": r.get("subthema", ""), "register": r["register"]}
+
+
 def item_text(item):
     return " ".join(item.get(l, "") for l in TEXT_LEVELS)
+
+
+def check_labels(w):
+    """Every entry needs tur, thema and register; a missing or unknown label stops the build."""
+    assert w.get("tur") in TUREN, f"{w['id']} {w['nl']}: tur '{w.get('tur')}' must be one of {list(TUREN)}"
+    assert w.get("thema") in THEMAS, f"{w['id']} {w['nl']}: thema '{w.get('thema')}' must be one of {list(THEMAS)}"
+    assert not w.get("subthema") or w["subthema"] in SUBTHEMAS, f"{w['id']}: subthema '{w.get('subthema')}'"
+    assert w.get("register") in REGISTERS, f"{w['id']} {w['nl']}: register '{w.get('register')}'"
 
 
 def load_csv(path):
@@ -87,6 +133,7 @@ def load_csv(path):
         assert r["soort"] in SOORT, f"{r['id']}: soort {r['soort']}"
         assert r["nl"] and r["tr"] and r["voorbeeld"], f"{r['id']}: empty nl/tr/voorbeeld"
         assert r["groep"] in GROEPEN, f"{r['id']} {r['nl']}: groep '{r['groep']}' must be one of {GROEPEN}"
+        check_labels(r)
     return rows
 
 
@@ -100,12 +147,12 @@ def main():
     for r in basis:
         pool.append({"id": r["id"], "bron": "basis", "nl": r["nl"], "soort": r["soort"], "tr": r["tr"], "niveau": r["niveau"],
                      "groep": r["groep"], "thema": r["thema"], "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"],
-                     "uitleg": r["uitleg"]})
+                     "uitleg": r["uitleg"], **labels(r)})
     for r in werk:
         pool.append({
             "id": r["id"], "bron": "werk", "nl": r["nl"], "soort": r["soort"], "tr": r["tr"], "niveau": r["niveau"],
             "groep": r["groep"], "thema": r["thema"], "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"], "uitleg": r["uitleg"],
-            "voorbeeld_door": r["voorbeeld_door"],
+            "voorbeeld_door": r["voorbeeld_door"], **labels(r),
             # News items whose text uses this work word (direction 1: work notes -> news)
             "in_nieuws": [i["id"] for i in items if r["id"] in i.get("werk_woorden", []) or appears_in(r["nl"], item_text(i))],
         })
@@ -113,24 +160,31 @@ def main():
         pool.append({
             "id": r["id"], "bron": "school", "nl": r["nl"], "soort": r["soort"], "tr": r["tr"], "niveau": r["niveau"],
             "groep": r["groep"], "thema": r["thema"], "lijst": r["lijst"], "definitie": r["definitie"],
-            "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"], "uitleg": r["uitleg"],
+            "voorbeeld": r["voorbeeld"], "voorbeeld_tr": r["voorbeeld_tr"], "uitleg": r["uitleg"], **labels(r),
             # Same link as work words: news items whose text uses this school word
             "in_nieuws": [i["id"] for i in items if r["id"] in i.get("werk_woorden", []) or appears_in(r["nl"], item_text(i))],
         })
     for it in items:
+        assert it["id"] in NIEUWS_THEMA, f"news item {it['id']}: add its topic to NIEUWS_THEMA"
+        thema = NIEUWS_THEMA[it["id"]]
+        reg = lambda nl: "informeel" if nl in NIEUWS_INFORMEEL else "neutraal"
         for k, line in enumerate(it["woordenschat"].splitlines(), 1):
             woord, zn, betekenis, voorbeeld, turks, niveau, groep = [c.strip() for c in line.split("|")]
+            assert zn in WOORDSOORT_TUR or woord in NIEUWS_TUR, f"{it['id']} {woord}: woordsoort '{zn}' unknown"
             pool.append({"id": f"n-{it['id']}-w{k}", "bron": "nieuws", "item": it["id"], "nr": it["nr"], "nl": woord,
-                         "soort": "woord", "woordsoort": zn, "tr": turks, "niveau": niveau or "B1", "groep": groep, "thema": "nieuws",
+                         "soort": "woord", "woordsoort": zn, "tr": turks, "niveau": niveau or "B1", "groep": groep, "thema": thema,
+                         "tur": NIEUWS_TUR.get(woord) or WOORDSOORT_TUR[zn], "subthema": "", "register": reg(woord),
                          "definitie": betekenis, "voorbeeld": voorbeeld, "voorbeeld_tr": "", "uitleg": ""})
         for k, u in enumerate(it["uitdrukkingen"], 1):
             pool.append({"id": f"n-{it['id']}-u{k}", "bron": "nieuws", "item": it["id"], "nr": it["nr"], "nl": u["nl"],
-                         "soort": "uitdrukking", "tr": u["tr"], "niveau": u["niveau"], "groep": u["groep"], "thema": "nieuws",
+                         "soort": "uitdrukking", "tr": u["tr"], "niveau": u["niveau"], "groep": u["groep"], "thema": thema,
+                         "tur": u.get("tur") or NIEUWS_TUR.get(u["nl"], "uitdr"), "subthema": "", "register": reg(u["nl"]),
                          "voorbeeld": u.get("voorbeeld", ""), "voorbeeld_tr": u.get("voorbeeld_tr", ""), "uitleg": u.get("uitleg", "")})
 
     for w in pool:
         assert w["niveau"] in LEVELS, f"{w['id']}: niveau {w['niveau']}"
         assert w["groep"] in GROEPEN, f"{w['id']}: groep {w['groep']}"
+        check_labels(w)
 
     if "--kandidaat" in sys.argv:
         lvl = sys.argv[sys.argv.index("--kandidaat") + 1].upper()
@@ -145,6 +199,7 @@ def main():
         "_about": "Shared word pool. Generated by scripts/content/build_woorden.py from basis/werk/school csv files and data/nieuws.json - do not edit by hand.",
         "levels": LEVELS,
         "groepen": GROEPEN,
+        "turen": TUREN, "themas": THEMAS, "subthemas": SUBTHEMAS, "registers": REGISTERS,
         "woorden": pool,
     }, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
 
@@ -153,6 +208,8 @@ def main():
     print("  per source:", dict(Counter(w["bron"] for w in pool)))
     print("  per level: ", {l: c for l in LEVELS if (c := sum(w["niveau"] == l for w in pool))})
     print("  per groep: ", {g: c for g in GROEPEN if (c := sum(w["groep"] == g for w in pool))})
+    print("  per tur:   ", dict(Counter(w["tur"] for w in pool)))
+    print("  per thema: ", dict(Counter(w["thema"] for w in pool)))
     print(f"  werk/school words already in a news text: {used}")
 
 

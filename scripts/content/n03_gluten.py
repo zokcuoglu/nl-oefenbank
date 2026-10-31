@@ -113,7 +113,7 @@ luchtig | bn | met veel lucht erin, licht | Deze cake is heel luchtig. | kabarı
 kneden | ww | deeg steeds met je handen drukken en vouwen | Kneed het deeg tien minuten. | yoğurmak | A2 | 5
 het graan | zn | tarwe, rogge, gerst enz. | Brood maak je van graan. | tahıl | A2 | 5
 het eiwit | zn | stof in voedsel die je lichaam nodig heeft; ook: het wit van een ei | Bonen bevatten veel eiwit. | protein; yumurta akı | A2 | 6
-uitrekken | ww | langer maken door eraan te trekken | Je kunt het deeg ver uitrekken. | germek | A2 | 5
+uitrekken | sch ww | langer maken door eraan te trekken | Je kunt het deeg ver uitrekken. | germek | A2 | 5
 kleven | ww | vastplakken | De rijst kleeft aan de pan. | yapışmak | B1 | 5
 de sliert | zn | lang, dun stuk van iets | Er hangt een sliert spaghetti van zijn vork. | uzun ince şerit | B1 | 5
 het zetmeel | zn | stof in graan en aardappels die energie geeft | Aardappels bevatten veel zetmeel. | nişasta | B1 | 8

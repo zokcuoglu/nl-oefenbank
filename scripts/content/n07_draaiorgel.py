@@ -106,9 +106,9 @@ het ritme | zn | vaste maat in muziek | Klap mee op het ritme. | ritim | A2 | 5
 het vak | zn | (hier) beroep waarvoor je veel moet kunnen | Bakker is een mooi vak. | meslek, zanaat | A2 | 6
 de blaasbalg | zn | zak die lucht opzuigt en weer uitblaast | De blaasbalg pompt lucht in het orgel. | körük | B1 | 8
 de toets | zn | knop van een instrument of toetsenbord | Druk op de toets. | tuş | B1 | 5
-indrukken | ww | naar beneden duwen | Je moet de knop twee seconden indrukken. | bastırmak | B1 | 5
-leeglopen | ww | leeg raken (lucht, water) | Mijn fietsband loopt leeg. | boşalmak, sönmek | B1 | 5
-aanhouden | ww | (hier) blijven doen, niet stoppen | Het is moeilijk om dat tempo aan te houden. | sürdürmek | B1 | 8
+indrukken | sch ww | naar beneden duwen | Je moet de knop twee seconden indrukken. | bastırmak | B1 | 5
+leeglopen | sch ww | leeg raken (lucht, water) | Mijn fietsband loopt leeg. | boşalmak, sönmek | B1 | 5
+aanhouden | sch ww | (hier) blijven doen, niet stoppen | Het is moeilijk om dat tempo aan te houden. | sürdürmek | B1 | 8
 de trommel | zn | instrument waar je met een stok op slaat | De jongen slaat op de trommel. | davul | B1 | 4
 het mechaniek | zn | de delen die samen iets laten bewegen | Het mechaniek van de klok is oud. | mekanizma | B2 | vo
 ingenieus | bn | slim en knap bedacht | Wat een ingenieus apparaat! | dâhiyane | B2 | vo

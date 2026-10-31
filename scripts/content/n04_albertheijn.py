@@ -122,14 +122,14 @@ de bedrijfsleider | zn | iemand die de leiding heeft in een winkel | De bedrijfs
 de voorraad | zn | spullen die klaarliggen om te gebruiken of te verkopen | De voorraad koffie is op. | stok | B1 | 6
 de storing | zn | iets werkt (tijdelijk) niet | Door een storing rijden er geen treinen. | arıza | B1 | 6
 de klantgegevens | zn (mv) | informatie over klanten, zoals naam en adres | Klantgegevens moeten goed beveiligd zijn. | müşteri bilgileri | B1 | 8
-opstarten | ww | een computer of machine (weer) laten werken | Start je computer opnieuw op. | (yeniden) başlatmak | B1 | 5
+opstarten | sch ww | een computer of machine (weer) laten werken | Start je computer opnieuw op. | (yeniden) başlatmak | B1 | 5
 de hacker | zn | iemand die zonder toestemming in computers inbreekt | Hackers vielen het systeem aan. | bilgisayar korsanı | B1 | 6
 rommelen | ww | (hier) zonder toestemming ergens aan zitten | Iemand heeft in de systemen gerommeld. | kurcalamak | B2 | 6
 de telefooncentrale | zn | systeem dat veel telefoongesprekken verbindt | De telefooncentrale was overbelast. | telefon santrali | B2 | vo
 laconiek | bn | rustig, zonder je druk te maken | Ze reageerde laconiek op het nieuws. | soğukkanlı | B2 | vo
 de bevoorrading | zn | het brengen van nieuwe voorraad naar winkels | De bevoorrading komt weer op gang. | mal sevkiyatı | C1 | vo
 vermoedelijk | bw | waarschijnlijk | De trein heeft vermoedelijk vertraging. | muhtemelen | C1 | 8
-buitmaken | ww | stelen, als buit meenemen | De dieven maakten veel geld buit. | ele geçirmek, çalmak | C1 | 8""",
+buitmaken | sch ww | stelen, als buit meenemen | De dieven maakten veel geld buit. | ele geçirmek, çalmak | C1 | 8""",
 
     "grammatica": """1) Oorzaak en gevolg: omdat – doordat – daardoor – daarom
 Doordat/daardoor gebruik je vooral als niemand het zo wilde. Omdat/daarom kan altijd, ook bij een bewuste keuze.

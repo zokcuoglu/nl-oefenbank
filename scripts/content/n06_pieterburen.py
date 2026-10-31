@@ -120,7 +120,7 @@ verhuizen | ww | in een ander huis of gebouw gaan wonen of werken | We verhuizen
 het kaartje | zn | (hier) bewijs dat je mag binnenkomen | Een kaartje kost tien euro. | bilet | A2 | 3
 de schuld | zn | geld dat je nog moet betalen | Hij heeft een schuld bij de bank. | borç | A2 | 6
 de bezoeker | zn | iemand die ergens op bezoek komt | Het museum had veel bezoekers. | ziyaretçi | A2 | 5
-opvangen | ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1 | 6
+opvangen | sch ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1 | 6
 verzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakmak | B1 | 5
 het onderzoek | zn | goed kijken en testen om iets te weten te komen | Wetenschappelijk onderzoek kost veel geld. | araştırma | B1 | 6
 schenken | ww | (geld) geven zonder iets terug te vragen | Ze schenkt elk jaar geld aan het goede doel. | bağışlamak | B1 | 7
@@ -133,7 +133,7 @@ betrokken zijn bij | uitdr | meedoen aan iets, (mede) verantwoordelijk zijn | De
 de donateur | zn | iemand die (vaak elk jaar) geld geeft aan een organisatie | Het centrum zoekt nieuwe donateurs. | bağışçı | B2 | vo
 ramen | ww | schatten wat iets gaat kosten | De kosten werden geraamd op een miljoen. | (maliyet) tahmin etmek | C1 | vo
 de totstandkoming | zn | het ontstaan, het tot stand komen | Hij werkte mee aan de totstandkoming van de wet. | oluşturulma süreci | C1 | vo
-bijspringen | ww | helpen als het nodig is | De buren sprongen bij toen we gingen verhuizen. | yardıma koşmak | C1 | 8""",
+bijspringen | sch ww | helpen als het nodig is | De buren sprongen bij toen we gingen verhuizen. | yardıma koşmak | C1 | 8""",
 
     "grammatica": """1) Vergelijken: duurder dan verwacht, minder … dan gehoopt
 Bij een vergelijking gebruik je 'dan' (niet 'als').

@@ -105,7 +105,7 @@ het weer | zn | hoe het buiten is: zon, regen, wind, temperatuur | Hoe is het we
 onzichtbaar | bn | je kunt het niet zien | Lucht is onzichtbaar. | görünmez | A2 | 4
 de meteoroloog | zn | iemand die het weer bestudeert en voorspelt | De meteoroloog verwacht morgen regen. | meteorolog | A2 | 7
 de waterdamp | zn | water als gas in de lucht | In de badkamer zit veel waterdamp. | su buharı | A2 | 6
-afkoelen | ww | kouder worden | Laat de thee even afkoelen. | soğumak | A2 | 4
+afkoelen | sch ww | kouder worden | Laat de thee even afkoelen. | soğumak | A2 | 4
 het proefje | zn | klein experiment | We doen een proefje met ijs. | küçük deney | A2 | 5
 ontstaan | ww | beginnen te bestaan | Zo ontstaat een wolk. | oluşmak | B1 | 6
 de condensatie | zn | damp die weer vloeibaar water wordt | Door condensatie wordt het raam nat. | yoğuşma | B1 | 8
@@ -116,7 +116,7 @@ in aanraking komen met | uitdr | iets aanraken, ermee in contact komen | De damp
 ogen | ww | eruitzien | De onderkant van de wolk oogt grijs. | görünmek | B2 | vo
 grauw | bn | somber grijs | Het is een grauwe novemberdag. | kasvetli gri | B2 | 7
 verzadigd | bn | zo vol dat er niets meer bij kan | De lucht is verzadigd met waterdamp. | doymuş | C1 | 8
-waarnemen | ww | zien, horen of voelen | We nemen de wolk als wit waar. | algılamak | C1 | 8
+waarnemen | sch ww | zien, horen of voelen | We nemen de wolk als wit waar. | algılamak | C1 | 8
 vanzelfsprekend | bn | zo normaal dat je er niet over nadenkt | Schoon water is niet overal vanzelfsprekend. | olağan, doğal | C1 | 8""",
 
     "grammatica": """1) Als …, … : wanneer iets gebeurt (of: onder welke voorwaarde)

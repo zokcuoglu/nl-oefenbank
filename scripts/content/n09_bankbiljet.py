@@ -107,7 +107,7 @@ nep | bn | niet echt | Dat is een nep tientje. | sahte | A2 | 4
 het katoen | zn | stof van de katoenplant | Dit T-shirt is van katoen. | pamuk | A2 | 6
 het bankbiljet | zn | geld van papier (of katoen) | Hij betaalt met een bankbiljet van twintig euro. | banknot | A2 | 6
 het salaris | zn | geld dat je elke maand voor je werk krijgt | Mijn salaris komt aan het eind van de maand. | maaş | A2 | 7
-uitgeven | ww | geld gebruiken om iets te kopen | Ze geeft veel geld uit aan kleding. | harcamak | A2 | 5
+uitgeven | sch ww | geld gebruiken om iets te kopen | Ze geeft veel geld uit aan kleding. | harcamak | A2 | 5
 digitaal | bn | met de computer, zonder papier | Ik betaal mijn rekeningen digitaal. | dijital | B1 | 7
 de vezel | zn | heel dunne draad in stof of papier | Katoen heeft lange vezels. | lif | B1 | 8
 het watermerk | zn | tekening in papier die je ziet als je het tegen het licht houdt | Op het biljet zit een watermerk. | filigran | B1 | 8

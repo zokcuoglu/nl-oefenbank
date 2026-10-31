@@ -1,31 +1,31 @@
-id,nl,soort,tr,niveau,groep,thema,lijst,definitie,voorbeeld,voorbeeld_tr,uitleg
-s001,buitensporig,woord,"aşırı, olağandışı",B2,5,weer,Staal groep 5 · Weer,"niet gewoon, bijzonder, abnormaal",Het was buitensporig warm voor april.,Nisan için aşırı sıcaktı.,
-s002,de bui,woord,kısa süreli yağış,B1,5,weer,Staal groep 5 · Weer,"korte tijd waarin regen, sneeuw of hagel valt",We wachten tot de bui over is.,Yağmur geçene kadar bekliyoruz.,
-s003,doorweekt,woord,sırılsıklam,B2,5,weer,Staal groep 5 · Weer,helemaal nat,Na het fietsen was ik doorweekt.,Bisikletten sonra sırılsıklam olmuştum.,
-s004,guur,woord,soğuk ve rüzgarlı,B2,5,weer,Staal groep 5 · Weer,koud en winderig,Het is guur weer vandaag; doe je jas aan.,Bugün hava soğuk ve rüzgarlı; montunu giy.,
-s005,de hagelsteen,woord,dolu tanesi,B1,5,weer,Staal groep 5 · Weer,een ronde korrel ijs,Er vielen hagelstenen zo groot als knikkers.,Bilye büyüklüğünde dolu taneleri yağdı.,
-s006,heftig,woord,çok şiddetli,B1,5,weer,Staal groep 5 · Weer,"heel erg, fel",Het onweer was heel heftig.,Fırtına çok şiddetliydi.,
-s007,de hittegolf,woord,sıcak hava dalgası,B1,5,weer,Staal groep 5 · Weer,aantal dagen waarin het rond of boven de 30 graden is,Tijdens de hittegolf zwommen we elke dag.,Sıcak hava dalgası boyunca her gün yüzdük.,
-s008,ijzelen,woord,yağmurun yerde donması (buzlanma),B2,5,weer,Staal groep 5 · Weer,als het regent en de druppels op de ijskoude grond direct bevriezen,Het heeft vannacht geijzeld; de stoep is glad.,Bu gece yağmur yerde dondu; kaldırım kaygan.,
-s009,inslaan,woord,"(yıldırım) düşmek, sertçe çarpmak",B2,5,weer,Staal groep 5 · Weer,ergens met een klap of veel kracht in doordringen,De bliksem sloeg in de boom in.,Yıldırım ağaca düştü.,Ayrılabilen fiil: sloeg ... in.
-s010,het klimaat,woord,iklim,B1,5,weer,Staal groep 5 · Weer,al het weer bekeken over een langere tijd,Nederland heeft een zeeklimaat.,Hollanda'da deniz iklimi vardır.,
-s011,miezeren,woord,çiselemek,C1,5,weer,Staal groep 5 · Weer,zachtjes regenen,Het miezert al de hele ochtend.,Bütün sabah çiseliyor.,
-s012,de motregen,woord,çisenti,B2,5,weer,Staal groep 5 · Weer,regen van heel kleine druppels,Door de motregen werden mijn haren nat.,Çisenti yüzünden saçlarım ıslandı.,
-s013,de neerslag,woord,yağış,B1,5,weer,Staal groep 5 · Weer,"regen, sneeuw of hagel",Morgen wordt er veel neerslag verwacht.,Yarın çok yağış bekleniyor.,
-s014,de onweersbui,woord,gök gürültülü sağanak,B1,5,weer,Staal groep 5 · Weer,"bui met regen, bliksem en donder",Tijdens de onweersbui bleven we binnen.,Gök gürültülü sağanakta içeride kaldık.,
-s015,opwarmen,woord,ısınmak,B1,5,weer,Staal groep 5 · Weer,warmer worden,De aarde warmt langzaam op.,Dünya yavaş yavaş ısınıyor.,Ayrılabilen fiil: warmt ... op.
-s016,de periode,woord,"dönem, süre",A2,5,weer,Staal groep 5 · Weer,bepaalde hoeveelheid tijd,Het was een periode met veel regen.,Çok yağmurlu bir dönemdi.,
-s017,plenzen,woord,bardaktan boşanırcasına yağmak,B2,5,weer,Staal groep 5 · Weer,heel hard regenen,Het plensde toen we naar school fietsten.,Okula bisikletle giderken bardaktan boşanırcasına yağıyordu.,
-s018,het risico,woord,risk,B1,5,weer,Staal groep 5 · Weer,"gevaar voor schade of verlies, kans dat er iets vervelends gebeurt",Bij ijzel is het risico op vallen groot.,Buzlanmada düşme riski büyüktür.,
-s019,rommelen,woord,(gök) gürlemek,B2,5,weer,Staal groep 5 · Weer,een dof rollend geluid maken,In de verte rommelde de donder.,Uzakta gök gürlüyordu.,Haberlerde 'kurcalamak' anlamında da geçer.
-s020,de sneeuwstorm,woord,"kar fırtınası, tipi",A2,5,weer,Staal groep 5 · Weer,storm met sneeuwbuien,Door de sneeuwstorm reden er geen bussen.,Kar fırtınası yüzünden otobüsler çalışmadı.,
-s021,spekglad,woord,buz gibi kaygan,B2,5,weer,Staal groep 5 · Weer,heel erg glad,De weg is spekglad; rij voorzichtig.,Yol buz gibi kaygan; dikkatli sür.,spek = domuz yağı; yağ kadar kaygan.
-s022,de stortbui,woord,şiddetli sağanak,B1,5,weer,Staal groep 5 · Weer,heel harde regenbui,Door de stortbui waren we doorweekt.,Sağanak yüzünden sırılsıklam olduk.,storten = dökmek.
-s023,uiteindelijk,woord,sonunda,B1,5,weer,Staal groep 5 · Weer,op het laatst,Uiteindelijk werd het toch nog zonnig.,Sonunda yine de güneşli oldu.,
-s024,voorspellen,woord,"tahmin etmek, öngörmek",B1,5,weer,Staal groep 5 · Weer,zeggen wat er verwacht wordt,Ze voorspellen sneeuw voor het weekend.,Hafta sonu için kar tahmin ediyorlar.,
-s025,de weersverwachting,woord,hava tahmini,B1,5,weer,Staal groep 5 · Weer,bericht over het weer dat waarschijnlijk komen gaat,Volgens de weersverwachting wordt het morgen droog.,Hava tahminine göre yarın kuru olacak.,
-s026,de windkracht,woord,rüzgar şiddeti,B1,5,weer,Staal groep 5 · Weer,kracht of snelheid waarmee de wind waait,Morgen is het windkracht 8.,Yarın rüzgar şiddeti 8 olacak.,
-s027,wisselvallig,woord,değişken,B2,5,weer,Staal groep 5 · Weer,telkens anders,Het weer is deze week erg wisselvallig.,Bu hafta hava çok değişken.,
-s028,de wolkbreuk,woord,çok kısa sürede çok yoğun yağış,B2,5,weer,Staal groep 5 · Weer,heel veel regen in een heel korte tijd,Na de wolkbreuk stonden de straten onder water.,Ani yoğun yağıştan sonra sokaklar su altında kaldı.,wolk = bulut + breuk = kırılma.
-s029,het wolkenveld,woord,kalın bulut tabakası,B2,5,weer,Staal groep 5 · Weer,een dikke laag wolken,Een groot wolkenveld trekt over het land.,Büyük bir bulut tabakası ülkenin üzerinden geçiyor.,
-s030,de zeespiegel,woord,deniz seviyesi,B1,5,weer,Staal groep 5 · Weer,hoe hoog de zee staat,Door het warmere klimaat stijgt de zeespiegel.,Isınan iklim yüzünden deniz seviyesi yükseliyor.,
+id,nl,soort,tr,niveau,groep,thema,register,subthema,tur,lijst,definitie,voorbeeld,voorbeeld_tr,uitleg
+s001,buitensporig,woord,"aşırı, olağandışı",B2,5,weer,neutraal,,bn,Staal groep 5 · Weer,"niet gewoon, bijzonder, abnormaal",Het was buitensporig warm voor april.,Nisan için aşırı sıcaktı.,
+s002,de bui,woord,kısa süreli yağış,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,"korte tijd waarin regen, sneeuw of hagel valt",We wachten tot de bui over is.,Yağmur geçene kadar bekliyoruz.,
+s003,doorweekt,woord,sırılsıklam,B2,5,weer,neutraal,,bn,Staal groep 5 · Weer,helemaal nat,Na het fietsen was ik doorweekt.,Bisikletten sonra sırılsıklam olmuştum.,
+s004,guur,woord,soğuk ve rüzgarlı,B2,5,weer,neutraal,,bn,Staal groep 5 · Weer,koud en winderig,Het is guur weer vandaag; doe je jas aan.,Bugün hava soğuk ve rüzgarlı; montunu giy.,
+s005,de hagelsteen,woord,dolu tanesi,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,een ronde korrel ijs,Er vielen hagelstenen zo groot als knikkers.,Bilye büyüklüğünde dolu taneleri yağdı.,
+s006,heftig,woord,çok şiddetli,B1,5,weer,neutraal,,bn,Staal groep 5 · Weer,"heel erg, fel",Het onweer was heel heftig.,Fırtına çok şiddetliydi.,
+s007,de hittegolf,woord,sıcak hava dalgası,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,aantal dagen waarin het rond of boven de 30 graden is,Tijdens de hittegolf zwommen we elke dag.,Sıcak hava dalgası boyunca her gün yüzdük.,
+s008,ijzelen,woord,yağmurun yerde donması (buzlanma),B2,5,weer,neutraal,,ww,Staal groep 5 · Weer,als het regent en de druppels op de ijskoude grond direct bevriezen,Het heeft vannacht geijzeld; de stoep is glad.,Bu gece yağmur yerde dondu; kaldırım kaygan.,
+s009,inslaan,woord,"(yıldırım) düşmek, sertçe çarpmak",B2,5,weer,neutraal,,sch_ww,Staal groep 5 · Weer,ergens met een klap of veel kracht in doordringen,De bliksem sloeg in de boom in.,Yıldırım ağaca düştü.,Ayrılabilen fiil: sloeg ... in.
+s010,het klimaat,woord,iklim,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,al het weer bekeken over een langere tijd,Nederland heeft een zeeklimaat.,Hollanda'da deniz iklimi vardır.,
+s011,miezeren,woord,çiselemek,C1,5,weer,neutraal,,ww,Staal groep 5 · Weer,zachtjes regenen,Het miezert al de hele ochtend.,Bütün sabah çiseliyor.,
+s012,de motregen,woord,çisenti,B2,5,weer,neutraal,,zn,Staal groep 5 · Weer,regen van heel kleine druppels,Door de motregen werden mijn haren nat.,Çisenti yüzünden saçlarım ıslandı.,
+s013,de neerslag,woord,yağış,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,"regen, sneeuw of hagel",Morgen wordt er veel neerslag verwacht.,Yarın çok yağış bekleniyor.,
+s014,de onweersbui,woord,gök gürültülü sağanak,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,"bui met regen, bliksem en donder",Tijdens de onweersbui bleven we binnen.,Gök gürültülü sağanakta içeride kaldık.,
+s015,opwarmen,woord,ısınmak,B1,5,weer,neutraal,,sch_ww,Staal groep 5 · Weer,warmer worden,De aarde warmt langzaam op.,Dünya yavaş yavaş ısınıyor.,Ayrılabilen fiil: warmt ... op.
+s016,de periode,woord,"dönem, süre",A2,5,weer,neutraal,,zn,Staal groep 5 · Weer,bepaalde hoeveelheid tijd,Het was een periode met veel regen.,Çok yağmurlu bir dönemdi.,
+s017,plenzen,woord,bardaktan boşanırcasına yağmak,B2,5,weer,neutraal,,ww,Staal groep 5 · Weer,heel hard regenen,Het plensde toen we naar school fietsten.,Okula bisikletle giderken bardaktan boşanırcasına yağıyordu.,
+s018,het risico,woord,risk,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,"gevaar voor schade of verlies, kans dat er iets vervelends gebeurt",Bij ijzel is het risico op vallen groot.,Buzlanmada düşme riski büyüktür.,
+s019,rommelen,woord,(gök) gürlemek,B2,5,weer,neutraal,,ww,Staal groep 5 · Weer,een dof rollend geluid maken,In de verte rommelde de donder.,Uzakta gök gürlüyordu.,Haberlerde 'kurcalamak' anlamında da geçer.
+s020,de sneeuwstorm,woord,"kar fırtınası, tipi",A2,5,weer,neutraal,,zn,Staal groep 5 · Weer,storm met sneeuwbuien,Door de sneeuwstorm reden er geen bussen.,Kar fırtınası yüzünden otobüsler çalışmadı.,
+s021,spekglad,woord,buz gibi kaygan,B2,5,weer,neutraal,,bn,Staal groep 5 · Weer,heel erg glad,De weg is spekglad; rij voorzichtig.,Yol buz gibi kaygan; dikkatli sür.,spek = domuz yağı; yağ kadar kaygan.
+s022,de stortbui,woord,şiddetli sağanak,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,heel harde regenbui,Door de stortbui waren we doorweekt.,Sağanak yüzünden sırılsıklam olduk.,storten = dökmek.
+s023,uiteindelijk,woord,sonunda,B1,5,weer,neutraal,,bw,Staal groep 5 · Weer,op het laatst,Uiteindelijk werd het toch nog zonnig.,Sonunda yine de güneşli oldu.,
+s024,voorspellen,woord,"tahmin etmek, öngörmek",B1,5,weer,neutraal,,ww,Staal groep 5 · Weer,zeggen wat er verwacht wordt,Ze voorspellen sneeuw voor het weekend.,Hafta sonu için kar tahmin ediyorlar.,
+s025,de weersverwachting,woord,hava tahmini,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,bericht over het weer dat waarschijnlijk komen gaat,Volgens de weersverwachting wordt het morgen droog.,Hava tahminine göre yarın kuru olacak.,
+s026,de windkracht,woord,rüzgar şiddeti,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,kracht of snelheid waarmee de wind waait,Morgen is het windkracht 8.,Yarın rüzgar şiddeti 8 olacak.,
+s027,wisselvallig,woord,değişken,B2,5,weer,neutraal,,bn,Staal groep 5 · Weer,telkens anders,Het weer is deze week erg wisselvallig.,Bu hafta hava çok değişken.,
+s028,de wolkbreuk,woord,çok kısa sürede çok yoğun yağış,B2,5,weer,neutraal,,zn,Staal groep 5 · Weer,heel veel regen in een heel korte tijd,Na de wolkbreuk stonden de straten onder water.,Ani yoğun yağıştan sonra sokaklar su altında kaldı.,wolk = bulut + breuk = kırılma.
+s029,het wolkenveld,woord,kalın bulut tabakası,B2,5,weer,neutraal,,zn,Staal groep 5 · Weer,een dikke laag wolken,Een groot wolkenveld trekt over het land.,Büyük bir bulut tabakası ülkenin üzerinden geçiyor.,
+s030,de zeespiegel,woord,deniz seviyesi,B1,5,weer,neutraal,,zn,Staal groep 5 · Weer,hoe hoog de zee staat,Door het warmere klimaat stijgt de zeespiegel.,Isınan iklim yüzünden deniz seviyesi yükseliyor.,

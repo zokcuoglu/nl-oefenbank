@@ -113,10 +113,10 @@ Op de langere termijn gaat het om iets fundamentelers: wolven moeten leren dat m
 het bos | zn | gebied met veel bomen | We wandelen in het bos. | orman | A1 | 1-2
 wandelen | ww | lopen voor je plezier | Op zondag wandelen we graag. | yürüyüş yapmak | A1 | 3
 bijten | ww | met je tanden in iets happen | Pas op, die hond bijt! | ısırmak | A2 | 3
-wegrennen | ww | snel weglopen | De kat rent weg voor de hond. | koşarak kaçmak | A2 | 3
+wegrennen | sch ww | snel weglopen | De kat rent weg voor de hond. | koşarak kaçmak | A2 | 3
 nieuwsgierig | bn | je wilt alles weten of zien | Kinderen zijn heel nieuwsgierig. | meraklı | A2 | 4
 gevaarlijk | bn | het kan pijn doen of schade geven | Deze weg is gevaarlijk. | tehlikeli | A2 | 3
-tegenkomen | ww | iemand of iets onverwacht zien of ontmoeten | Ik kwam mijn buurman tegen in de stad. | rastlamak, karşılaşmak | B1 | 5
+tegenkomen | sch ww | iemand of iets onverwacht zien of ontmoeten | Ik kwam mijn buurman tegen in de stad. | rastlamak, karşılaşmak | B1 | 5
 de roedel | zn | groep wolven (een familie) | Een roedel bestaat uit ouders en jongen. | (kurt) sürüsü | B1 | 6
 het roofdier | zn | dier dat andere dieren vangt en eet | De wolf is een roofdier. | yırtıcı hayvan | B1 | 5
 de wenkbrauw | zn | haartjes boven je oog | Ze trok haar wenkbrauwen omhoog. | kaş | B1 | 5
@@ -128,7 +128,7 @@ oog in oog staan met | uitdr | heel dichtbij tegenover iemand of iets staan | In
 struinen | ww | rustig rondlopen en rondkijken | We struinden over de markt. | gezinmek, dolaşmak | B2 | 8
 onderscheiden | ww | het verschil zien | Ik kan de tweeling niet van elkaar onderscheiden. | ayırt etmek | C1 | 8
 behoedzaam | bn | heel voorzichtig | Hij liep behoedzaam over het ijs. | temkinli | C1 | vo
-afdruipen | ww | stil en een beetje beschaamd weggaan | Na de ruzie droop hij af. | sessizce sıvışmak | C1 | vo""",
+afdruipen | sch ww | stil en een beetje beschaamd weggaan | Na de ruzie droop hij af. | sessizce sıvışmak | C1 | vo""",
 
     "grammatica": """1) De gebiedende wijs: een opdracht of advies geven
 Je gebruikt de stam van het werkwoord (ik-vorm), zonder 'je'.
