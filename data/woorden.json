@@ -14217,7 +14217,16 @@
 "voorbeeld": "Het was buitensporig warm voor april.",
 "voorbeeld_tr": "Nisan için aşırı sıcaktı.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "De prijzen in dat restaurant zijn buitensporig hoog.",
+"tr": "O restoranın fiyatları aşırı yüksek."
+},
+{
+"nl": "Hij kreeg een boete voor buitensporig gedrag.",
+"tr": "Ölçüsüz davranışı yüzünden ceza aldı."
+}
+],
 "tur": "bn",
 "subthema": "",
 "register": "neutraal",
@@ -14257,7 +14266,12 @@
 "voorbeeld": "Na het fietsen was ik doorweekt.",
 "voorbeeld_tr": "Bisikletten sonra sırılsıklam olmuştum.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Mijn schoenen zijn doorweekt van het gras.",
+"tr": "Ayakkabılarım çimden sırılsıklam oldu."
+}
+],
 "tur": "bn",
 "subthema": "",
 "register": "neutraal",
@@ -14317,7 +14331,16 @@
 "voorbeeld": "Het onweer was heel heftig.",
 "voorbeeld_tr": "Fırtına çok şiddetliydi.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Ze reageerde heel heftig op het nieuws.",
+"tr": "Habere çok sert tepki verdi."
+},
+{
+"nl": "Het was een heftige week op het werk.",
+"tr": "İşte çok yoğun/zor bir haftaydı."
+}
+],
 "tur": "bn",
 "subthema": "",
 "register": "neutraal",
@@ -14377,7 +14400,16 @@
 "voorbeeld": "De bliksem sloeg in de boom in.",
 "voorbeeld_tr": "Yıldırım ağaca düştü.",
 "uitleg": "Ayrılabilen fiil: sloeg ... in.",
-"meer": [],
+"meer": [
+{
+"nl": "We slaan boodschappen in voor de hele week.",
+"tr": "Bütün hafta için alışveriş yapıp stok yapıyoruz."
+},
+{
+"nl": "Het nieuws sloeg in als een bom.",
+"tr": "Haber bomba gibi düştü."
+}
+],
 "tur": "sch_ww",
 "subthema": "",
 "register": "neutraal",
@@ -14497,7 +14529,16 @@
 "voorbeeld": "De aarde warmt langzaam op.",
 "voorbeeld_tr": "Dünya yavaş yavaş ısınıyor.",
 "uitleg": "Ayrılabilen fiil: warmt ... op.",
-"meer": [],
+"meer": [
+{
+"nl": "Ik warm de soep op in de magnetron.",
+"tr": "Çorbayı mikrodalgada ısıtıyorum."
+},
+{
+"nl": "Voor de wedstrijd moet je eerst opwarmen.",
+"tr": "Maçtan önce ısınman gerekir."
+}
+],
 "tur": "sch_ww",
 "subthema": "",
 "register": "neutraal",
@@ -14517,7 +14558,16 @@
 "voorbeeld": "Het was een periode met veel regen.",
 "voorbeeld_tr": "Çok yağmurlu bir dönemdi.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Na een korte periode van ziekte werkt hij weer.",
+"tr": "Kısa bir hastalık döneminden sonra yeniden çalışıyor."
+},
+{
+"nl": "De proefperiode duurt twee maanden.",
+"tr": "Deneme süresi iki ay sürüyor."
+}
+],
 "tur": "zn",
 "subthema": "",
 "register": "neutraal",
@@ -14557,7 +14607,16 @@
 "voorbeeld": "Bij ijzel is het risico op vallen groot.",
 "voorbeeld_tr": "Buzlanmada düşme riski büyüktür.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Roken verhoogt het risico op ziektes.",
+"tr": "Sigara içmek hastalık riskini artırır."
+},
+{
+"nl": "Wil je dat risico echt nemen?",
+"tr": "O riski gerçekten almak istiyor musun?"
+}
+],
 "tur": "zn",
 "subthema": "",
 "register": "neutraal",
@@ -14577,7 +14636,12 @@
 "voorbeeld": "In de verte rommelde de donder.",
 "voorbeeld_tr": "Uzakta gök gürlüyordu.",
 "uitleg": "Haberlerde 'kurcalamak' anlamında da geçer.",
-"meer": [],
+"meer": [
+{
+"nl": "Hij rommelde in zijn tas op zoek naar zijn sleutels.",
+"tr": "Anahtarlarını bulmak için çantasını karıştırdı."
+}
+],
 "tur": "ww",
 "subthema": "",
 "register": "neutraal",
@@ -14657,7 +14721,16 @@
 "voorbeeld": "Uiteindelijk werd het toch nog zonnig.",
 "voorbeeld_tr": "Sonunda yine de güneşli oldu.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Uiteindelijk heeft ze de baan gekregen.",
+"tr": "Sonunda işi aldı."
+},
+{
+"nl": "We hebben lang getwijfeld, maar uiteindelijk kozen we het kleine huis.",
+"tr": "Uzun süre kararsız kaldık ama sonunda küçük evi seçtik."
+}
+],
 "tur": "bw",
 "subthema": "",
 "register": "neutraal",
@@ -14679,7 +14752,16 @@
 "voorbeeld": "Ze voorspellen sneeuw voor het weekend.",
 "voorbeeld_tr": "Hafta sonu için kar tahmin ediyorlar.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Niemand kan de toekomst voorspellen.",
+"tr": "Kimse geleceği tahmin edemez."
+},
+{
+"nl": "De bank voorspelt dat de prijzen stijgen.",
+"tr": "Banka fiyatların artacağını öngörüyor."
+}
+],
 "tur": "ww",
 "subthema": "",
 "register": "neutraal",
@@ -14739,7 +14821,12 @@
 "voorbeeld": "Het weer is deze week erg wisselvallig.",
 "voorbeeld_tr": "Bu hafta hava çok değişken.",
 "uitleg": "",
-"meer": [],
+"meer": [
+{
+"nl": "Zijn resultaten op school zijn wisselvallig.",
+"tr": "Okuldaki notları değişken (bazen iyi bazen kötü)."
+}
+],
 "tur": "bn",
 "subthema": "",
 "register": "neutraal",

@@ -32,12 +32,17 @@ for n in range(1, 7):
     assert not dup, f"duplicate ids in alt_{n}: {sorted(dup)}"
     ALT.update(part)
 HANDELINGEN = load("handelingen").HANDELINGEN
+FIX = load("alt_fix").FIX   # reviewed alternatives (different ideas per answer) replace the earlier ones
 
 vragen = json.loads((ROOT / "data/spreken.json").read_text())["vragen"]
 alt, missing = {}, []
 for q in vragen:
     answers = []
     hulp = q.get("hulp") or {}
+    if q["id"] in FIX:
+        alt[str(q["id"])] = list(FIX[q["id"]])
+        assert not q["image"], f"FIX is only for tasks without a picture: {q['id']}"
+        continue
     # the 19 tasks with old 'hulp' already have two extra models
     for k in ("model_2", "model_3"):
         if hulp.get(k):

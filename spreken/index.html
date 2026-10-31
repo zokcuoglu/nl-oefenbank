@@ -245,7 +245,9 @@ function hintBox(q, { open = false } = {}) {
     ${h.wat ? `<p><b>${hLabel(q.handeling)}:</b> ${esc(h.wat)}</p>` : ""}
     ${eis.length ? `<p><b>Bu görevde şart:</b> <span lang="nl">${eis.map(esc).join(", ")}</span>. Eksik kalırsa içerik puanı düşer.</p>` : ""}
     ${h.kaliplar ? `<p><b>Kullanabileceğin kalıplar</b></p><ul>${h.kaliplar.map(k => `<li class="kal" lang="nl">${esc(k)}</li>`).join("")}</ul>` : ""}
-    <p><b>Örnek cevaplar</b> <span class="muted" style="font-size:13px">(ilki görevin kaynağından, diğerleri bu sitede yazıldı; birini seç, kendi durumuna uyarla)</span></p>
+    <p><b>Örnek cevaplar</b> <span class="muted" style="font-size:13px">(ilki görevin kaynağından, diğerleri bu sitede yazıldı)</span></p>
+    ${q.image ? `<p class="notice" style="font-size:14px">📷 <b>Resimli görev:</b> içerik resimden gelir. Resimdeki her kareyi söylemek zorundasın, bu yüzden örnek cevaplar aynı şeyleri farklı cümlelerle söylüyor.</p>`
+      : `<p class="muted" style="font-size:14px">Her cevap farklı bir fikir veriyor: sınavda birini hatırlamazsan diğerini kullan.</p>`}
     <ol>${answers.map((a, i) => `<li class="model" lang="nl"><span class="chip ${i ? "" : "accent"}" lang="tr" style="font-size:11.5px;margin-bottom:4px">${i ? "ek örnek (bu site)" : srcLabel(q.bron)}</span>\n${esc(a)}</li>`).join("")}</ol>
     ${h.tip ? `<p><b>Taktik:</b> ${esc(h.tip)}</p>` : ""}
     ${q.hulp?.valkuil || h.valkuil ? `<p class="kwarn"><b>Tuzak:</b> ${esc(q.hulp?.valkuil || h.valkuil)}</p>` : ""}
