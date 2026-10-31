@@ -79,10 +79,12 @@ const BRONNEN = { alle: "Hepsi", basis: "Temel kelimeler", school: "Okul listele
 const TYPES = { nl2tr: "Anlamı ne?", tr2nl: "Hollandacası ne?", gap: "Boşluk doldurma", def: "Tanımdan bul" };
 const COUNTS = [10, 20, 30, 50];
 const PREF = "woorden-cfg";
+// ?lijst=weer: only the words of that school list (bron "school", thema "weer"); opened from kids/woordkaarten.html
+const LIJST = new URLSearchParams(location.search).get("lijst");
 const S = { pool: [], byId: {}, attempts: [], view: "setup", quiz: null, showReview: false, onlyWrong: false, search: "",
   cfg: { bron: "alle", levels: ["B1"], groepen: [], soort: "alle", n: 20, mode: "leer", weak: true } };
 try { Object.assign(S.cfg, JSON.parse(localStorage.getItem(PREF) || "{}")); } catch (e) {}
-const saveCfg = () => { try { localStorage.setItem(PREF, JSON.stringify(S.cfg)); } catch (e) {} };
+const saveCfg = () => { if (LIJST) return; try { localStorage.setItem(PREF, JSON.stringify(S.cfg)); } catch (e) {} };
 
 // ---------- Small helpers ----------
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -117,6 +119,11 @@ S.cfg.groepen = (S.cfg.groepen || []).filter(g => GROEPEN.includes(g));
 if (GROEPEN.includes(ownGroep) && (new URLSearchParams(location.search).get("groep") || !S.cfg.groepen.length)) S.cfg.groepen = [ownGroep];
 if (!S.cfg.groepen.length) S.cfg.groepen = ["3"];
 if (isChild) { S.pool = S.pool.filter(w => w.groep !== "vo"); S.byId = Object.fromEntries(S.pool.map(w => [w.id, w])); if (S.cfg.bron === "werk") S.cfg.bron = "alle"; }
+if (LIJST) {
+  // School list mode: pool = that list only, all its levels and groepen selected
+  S.pool = S.pool.filter(w => w.bron === "school" && w.thema === LIJST); S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
+  Object.assign(S.cfg, { bron: "school", levels: [...new Set(S.pool.map(w => w.niveau))], groepen: [...new Set(S.pool.map(w => w.groep))], soort: "alle" });
+}
 
 // Last result per word (attempts are newest first): true = right, false = wrong, missing = never asked
 function lastResult() {

@@ -147,6 +147,15 @@
       "status": "ready"
     },
     {
+      "id": "school-weer",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Thema Weer (Staal)",
+      "desc": "Okul listesi, 30 hava durumu kelimesi: hafıza kartları, eşleştirme ve test. Arka yüz Hollandaca tanım ya da Türkçe.",
+      "href": "kids/woordkaarten.html?lijst=weer",
+      "status": "ready"
+    },
+    {
       "id": "slimspel-tafels",
       "area": "slimspel",
       "title": "Tafels",
