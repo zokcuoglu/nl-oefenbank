@@ -50,35 +50,6 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .progress span{display:block;height:100%;background:var(--ink);width:0;transition:width .25s}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
 
-/* Flashcard: tap to flip (3D turn) */
-.flip{perspective:1200px;height:clamp(260px,48vh,360px);cursor:pointer}
-.flip-in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
-.flip.back .flip-in{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:2px solid var(--line);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;text-align:center}
-.face.b{transform:rotateY(180deg)}
-.front-word{font-family:var(--f-display);font-weight:700;font-size:clamp(32px,8vw,52px)}
-.back-main{font-size:clamp(21px,4.6vw,28px);font-weight:700}
-.back-sub{color:var(--muted);font-size:16px}
-.ex{font-size:16px;border-left:3px solid var(--line);padding-left:10px;text-align:left;max-width:52ch}
-.ex em{color:var(--muted)}
-.tap{position:absolute;bottom:10px;font-size:13px;color:var(--muted)}
-.say{position:absolute;top:10px;right:12px;background:none;border:none;font-size:22px}
-.judge{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.judge button{border-radius:14px;padding:14px;font-family:var(--f-display);font-weight:600;font-size:19px;border:2px solid}
-.judge .no{background:var(--bad-bg);color:var(--bad);border-color:var(--bad)}
-.judge .ok{background:var(--good-bg);color:var(--good);border-color:var(--good)}
-
-/* Matching game: two columns of tiles */
-.match{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
-.col{display:flex;flex-direction:column;gap:10px}
-.tile{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 10px;min-height:58px;font-size:16px;line-height:1.3;transition:background .15s,border-color .15s,opacity .3s}
-.tile.w{font-family:var(--f-display);font-weight:600;font-size:19px}
-.tile:hover:not(:disabled){border-color:var(--ink)}
-.tile.sel{border-color:var(--ink);background:var(--accent);color:var(--accent-ink)}
-.tile.ok{background:var(--good-bg);border-color:var(--good);color:var(--good);opacity:.45;cursor:default}
-.tile.no{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);animation:shake .35s}
-@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-
 /* Results */
 .summary{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
 .stat{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;flex:1 1 140px}
@@ -110,6 +81,7 @@ setTimeout(function () {
   <section id="menu">
     <h1 id="mTitle">Woord<mark>kaarten</mark></h1>
     <p class="sub" id="mSub"></p>
+    <p class="sub" id="mStatus"></p>
     <div class="label">Wat staat er op de achterkant?</div>
     <div class="seg" id="sideSeg">
       <button data-side="def">Uitleg (NL)</button>
@@ -123,37 +95,8 @@ setTimeout(function () {
     </div>
   </section>
 
-  <!-- FLASHCARDS -->
-  <section id="cards" hidden>
-    <div class="bar">
-      <button class="link" data-quit>← Stoppen</button>
-      <span class="chip" id="cCount"></span>
-      <span class="chip" id="cKnown"></span>
-    </div>
-    <div class="progress"><span id="cProg"></span></div>
-    <div class="flip" id="flip" role="button" tabindex="0" aria-label="Kaart omdraaien">
-      <div class="flip-in">
-        <div class="face"><button class="say" id="say1" aria-label="Voorlezen">🔊</button><div class="front-word" id="cWord" lang="nl"></div><span class="tap">Tik om te draaien</span></div>
-        <div class="face b"><button class="say" id="say2" aria-label="Voorlezen">🔊</button><div class="back-main" id="cMain"></div><div class="back-sub" id="cSub"></div><div class="ex" id="cEx"></div></div>
-      </div>
-    </div>
-    <div class="judge">
-      <button class="no" id="cNo">✗ Nog oefenen</button>
-      <button class="ok" id="cOk">✓ Ken ik</button>
-    </div>
-  </section>
-
-  <!-- MATCHING GAME -->
-  <section id="match" hidden>
-    <div class="bar">
-      <button class="link" data-quit>← Stoppen</button>
-      <span class="chip" id="mRound"></span>
-      <span class="chip" id="mTime">⏱ 0:00</span>
-      <span class="chip" id="mErr">0 fouten</span>
-    </div>
-    <div class="progress"><span id="mProg"></span></div>
-    <div class="match"><div class="col" id="mLeft"></div><div class="col" id="mRight"></div></div>
-  </section>
+  <!-- PLAY: flashcards or matching game, drawn by js/oefen.js -->
+  <section id="play" hidden></section>
 
   <!-- RESULT (Turkish explanation for the parent, like the other kids pages) -->
   <section id="result" hidden>
@@ -168,151 +111,69 @@ setTimeout(function () {
 </div>
 
 <script type="module">
-import { gate, userBox, saveAttempt, loadAttempts, esc } from "../js/core.js";
+import { gate, userBox, saveAttempt, loadAllAttempts, esc } from "../js/core.js";
+import { mountCards, mountMatch, wordStatus, statusOf, STATUS, STATUS_ORDER, shuffle, fmtTime as fmt } from "../js/oefen.js";
 
 // Which school list: ?lijst=weer -> the school words (bron "school") with thema "weer" from data/woorden.json
 const LIJST = new URLSearchParams(location.search).get("lijst") || "weer";
 const MODULE = "school-" + LIJST;        // same id as the card in data/catalog.json (titles in mail/admin)
-const PAIRS = 6;                         // tiles per matching round
 const $ = id => document.getElementById(id);
-const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-const fmt = ms => { const s = Math.round(ms / 1000); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
-const speak = t => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = "nl-NL"; u.rate = .9; speechSynthesis.speak(u); };
-const show = s => ["menu", "cards", "match", "result"].forEach(x => $(x).hidden = x !== s);
+const show = s => ["menu", "play", "result"].forEach(x => $(x).hidden = x !== s);
 
 // Back side: Dutch definition (as on the school sheet) or Turkish meaning; remembered in this browser
 let side = localStorage.getItem("woordkaarten:side") || "def";
-const meaning = w => side === "tr" ? w.tr : (w.definitie || w.tr);
 function drawSide() { document.querySelectorAll("#sideSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.side === side)); }
 document.querySelectorAll("#sideSeg button").forEach(b => b.onclick = () => { side = b.dataset.side; localStorage.setItem("woordkaarten:side", side); drawSide(); });
 
-let WORDS = [], ATTEMPTS = [], USER;
+let WORDS = [], ALL = [], USER, game = null;
+const mine = () => ALL.filter(a => a.module === MODULE);
+// Weak words first, so "Alleen de moeilijke" and a new round start where it matters
+const byStatus = list => { const st = wordStatus(ALL); return shuffle(list).sort((a, b) => STATUS_ORDER[statusOf(st, a.id)] - STATUS_ORDER[statusOf(st, b.id)]); };
 
 // ---------- Menu ----------
 function renderMenu() {
+  game?.stop(); game = null;
   const lijst = WORDS[0]?.lijst || LIJST;
   $("mTitle").innerHTML = `Thema <mark>${esc(LIJST.charAt(0).toUpperCase() + LIJST.slice(1))}</mark>`;
   $("mSub").textContent = `${lijst} · ${WORDS.length} woorden`;
+  // How many words he knows: from every saved round (cards, matching, word test)
+  const st = wordStatus(ALL), count = k => WORDS.filter(w => statusOf(st, w.id) === k).length;
+  $("mStatus").textContent = ["kent", "bezig", "zwak", "nieuw"].map(k => `${STATUS[k].icon} ${STATUS[k].label} ${count(k)}`).join(" · ");
   $("goToets").href = `../woorden/?lijst=${encodeURIComponent(LIJST)}`;
-  const cards = ATTEMPTS.filter(a => a.test === "kaarten"), match = ATTEMPTS.filter(a => a.test === "koppelen");
+  const cards = mine().filter(a => a.test === "kaarten"), match = mine().filter(a => a.test === "koppelen");
   $("bestCards").textContent = cards.length ? `Beste: ${Math.max(...cards.map(a => a.score))}/${cards[0].total} meteen goed` : "";
   const fastest = match.filter(a => a.score === a.total).map(a => a.duration_ms);
   $("bestMatch").textContent = fastest.length ? `Record zonder fouten: ${fmt(Math.min(...fastest))}` : match.length ? `${match.length}× gespeeld` : "";
   drawSide();
   show("menu");
 }
-document.querySelectorAll("[data-quit]").forEach(b => b.onclick = () => { clearInterval(M?.timer); renderMenu(); });
+document.querySelectorAll("[data-quit]").forEach(b => b.onclick = renderMenu);
 
 // ---------- Flashcards ----------
-// Queue of words; "Nog oefenen" puts the word back a few places later, so it returns in the same round.
-let C = null;
 function startCards(list = WORDS) {
-  C = { queue: shuffle(list), first: {}, tries: {}, known: 0, total: list.length, t0: Date.now(), words: list };
-  show("cards"); drawCard();
-}
-function drawCard() {
-  const w = C.queue[0];
-  $("flip").classList.remove("back");
-  $("cWord").textContent = w.nl;
-  $("cMain").textContent = meaning(w);
-  $("cSub").textContent = side === "tr" ? (w.definitie || "") : w.tr;   // the other meaning, small
-  $("cEx").innerHTML = `<span lang="nl">${esc(w.voorbeeld)}</span>${w.voorbeeld_tr ? `<br><em>${esc(w.voorbeeld_tr)}</em>` : ""}`;
-  $("cCount").textContent = `Nog ${C.queue.length}`;
-  $("cKnown").textContent = `✓ ${C.known}/${C.total}`;
-  $("cProg").style.width = (C.known / C.total * 100) + "%";
-}
-$("flip").onclick = e => { if (!e.target.closest(".say")) $("flip").classList.toggle("back"); };
-$("flip").onkeydown = e => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); $("flip").classList.toggle("back"); } };
-$("say1").onclick = $("say2").onclick = () => speak(C.queue[0].nl);
-function judge(ok) {
-  const w = C.queue.shift();
-  if (!(w.id in C.first)) C.first[w.id] = ok;               // first answer counts for the score
-  C.tries[w.id] = (C.tries[w.id] || 0) + 1;
-  if (ok) C.known++;
-  else C.queue.splice(Math.min(3, C.queue.length), 0, w);   // comes back after 3 other cards
-  if (!C.queue.length) finishCards(); else drawCard();
-}
-$("cOk").onclick = () => judge(true);
-$("cNo").onclick = () => judge(false);
-document.addEventListener("keydown", e => {
-  if ($("cards").hidden) return;
-  if (e.key === "ArrowRight") judge(true);
-  if (e.key === "ArrowLeft") judge(false);
-});
-function finishCards() {
-  const ms = Date.now() - C.t0;
-  const right = C.words.filter(w => C.first[w.id]).length;
-  const hard = C.words.filter(w => !C.first[w.id]);
-  save({ test: "kaarten", title: "Kaartjes", ms, score: right, total: C.total,
-    answers: C.words.map(w => ({ qid: w.id, w: w.id, chosen: C.first[w.id] ? "ken ik" : "nog oefenen", correct: !!C.first[w.id] })) });
-  result(`Alle kaarten gedaan!${right === C.total ? " 🎉" : ""}`,
-    [[`${right}/${C.total}`, "Meteen goed / İlk seferde bildi"], [fmt(ms), "Tijd / Süre"]], hard,
-    () => startCards(C.words));
-  // Extra button logic: practise only the hard ones
-  $("rAgain").textContent = hard.length ? "Alleen de moeilijke" : "Nog een keer";
-  if (hard.length) $("rAgain").onclick = () => startCards(hard);
+  show("play");
+  game = mountCards($("play"), byStatus(list), { side, onQuit: renderMenu, onDone: ({ ms, first, words }) => {
+    const right = words.filter(w => first[w.id]).length, hard = words.filter(w => !first[w.id]);
+    save({ test: "kaarten", title: "Kaartjes", ms, score: right, total: words.length,
+      answers: words.map(w => ({ qid: w.id, w: w.id, chosen: first[w.id] ? "ken ik" : "nog oefenen", correct: !!first[w.id] })) });
+    result(`Alle kaarten gedaan!${right === words.length ? " 🎉" : ""}`,
+      [[`${right}/${words.length}`, "Meteen goed / İlk seferde bildi"], [fmt(ms), "Tijd / Süre"]], hard, () => startCards(words));
+    // Practise only the hard ones
+    $("rAgain").textContent = hard.length ? "Alleen de moeilijke" : "Nog een keer";
+    if (hard.length) $("rAgain").onclick = () => startCards(hard);
+  } });
 }
 
 // ---------- Matching ----------
-// All words in rounds of 6: click a word, then its meaning (or the other way round).
-let M = null;
 function startMatch() {
-  const order = shuffle(WORDS), rounds = [];
-  for (let i = 0; i < order.length; i += PAIRS) rounds.push(order.slice(i, i + PAIRS));
-  // A last round of 1-2 words is too easy: merge it into the round before
-  if (rounds.length > 1 && rounds.at(-1).length < 3) rounds.at(-2).push(...rounds.pop());
-  M = { rounds, r: 0, errors: 0, wrongIds: new Set(), done: 0, sel: null, t0: Date.now() };
-  M.timer = setInterval(() => $("mTime").textContent = "⏱ " + fmt(Date.now() - M.t0), 500);
-  show("match"); drawRound();
-}
-function tile(w, kind) {
-  const b = document.createElement("button");
-  b.className = "tile" + (kind === "w" ? " w" : "");
-  b.textContent = kind === "w" ? w.nl : meaning(w);
-  if (kind === "w") b.lang = "nl";
-  b.dataset.id = w.id; b.dataset.kind = kind;
-  b.onclick = () => pick(b);
-  return b;
-}
-function drawRound() {
-  const set = M.rounds[M.r];
-  $("mLeft").replaceChildren(...shuffle(set).map(w => tile(w, "w")));
-  $("mRight").replaceChildren(...shuffle(set).map(w => tile(w, "m")));
-  $("mRound").textContent = `Ronde ${M.r + 1}/${M.rounds.length}`;
-}
-function pick(b) {
-  if (b.classList.contains("ok")) return;
-  if (!M.sel || M.sel.dataset.kind === b.dataset.kind) {     // first pick, or change pick in the same column
-    M.sel?.classList.remove("sel");
-    M.sel = b; b.classList.add("sel");
-    if (b.dataset.kind === "w") speak(b.textContent);
-    return;
-  }
-  const a = M.sel; M.sel = null; a.classList.remove("sel");
-  if (a.dataset.id === b.dataset.id) {
-    [a, b].forEach(x => { x.classList.add("ok"); x.disabled = true; });
-    M.done++;
-    $("mProg").style.width = (M.done / WORDS.length * 100) + "%";
-    if (M.rounds[M.r].every(w => document.querySelector(`.tile.w[data-id="${w.id}"]`).classList.contains("ok"))) {
-      M.r++;
-      setTimeout(() => M.r < M.rounds.length ? drawRound() : finishMatch(), 400);
-    }
-  } else {
-    M.errors++;
-    // Both words of a wrong pair count as "still hard"
-    [a, b].forEach(x => { M.wrongIds.add(x.dataset.id); x.classList.add("no"); setTimeout(() => x.classList.remove("no"), 450); });
-    $("mErr").textContent = `${M.errors} fouten`;
-  }
-}
-function finishMatch() {
-  clearInterval(M.timer);
-  const ms = Date.now() - M.t0;
-  const hard = WORDS.filter(w => M.wrongIds.has(w.id));
-  save({ test: "koppelen", title: "Koppelen", ms, score: WORDS.length - hard.length, total: WORDS.length,
-    answers: WORDS.map(w => ({ qid: w.id, w: w.id, chosen: M.wrongIds.has(w.id) ? "fout" : "goed", correct: !M.wrongIds.has(w.id) })) });
-  result(M.errors ? "Klaar!" : "Klaar zonder fouten! 🎉",
-    [[fmt(ms), "Tijd / Süre"], [String(M.errors), "Fouten / Hata"]], hard, startMatch);
-  $("rAgain").textContent = "Nog een keer";
+  show("play");
+  game = mountMatch($("play"), WORDS, { side, onQuit: renderMenu, onDone: ({ ms, errors, wrong, words }) => {
+    const hard = words.filter(w => wrong.has(w.id));
+    save({ test: "koppelen", title: "Koppelen", ms, score: words.length - hard.length, total: words.length,
+      answers: words.map(w => ({ qid: w.id, w: w.id, chosen: wrong.has(w.id) ? "fout" : "goed", correct: !wrong.has(w.id) })) });
+    result(errors ? "Klaar!" : "Klaar zonder fouten! 🎉", [[fmt(ms), "Tijd / Süre"], [String(errors), "Fouten / Hata"]], hard, startMatch);
+    $("rAgain").textContent = "Nog een keer";
+  } });
 }
 
 // ---------- Result + saving ----------
@@ -327,10 +188,10 @@ function result(title, stats, hard, again) {
 }
 function save({ test, title, ms, score, total, answers }) {
   const now = new Date();
-  const attempt = { kind: "full", test, title, lijst: LIJST, side,
+  const attempt = { kind: "full", test, title, lijst: LIJST, side, module: MODULE,
     started_at: new Date(now - ms).toISOString(), finished_at: now.toISOString(),
     duration_s: Math.round(ms / 1000), duration_ms: ms, score, total, answers };
-  ATTEMPTS.unshift(attempt);
+  ALL.unshift(attempt);
   saveAttempt(USER.uid, MODULE, attempt).catch(e =>
     $("rTitle").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${esc(e.code || "hata")}).</p>`));
 }
@@ -347,7 +208,7 @@ try {
   WORDS = data.woorden.filter(w => w.bron === "school" && w.thema === LIJST);
 } catch (e) { $("mSub").textContent = "Kelimeler yüklenemedi: " + e.message; throw e; }
 if (!WORDS.length) { $("mSub").textContent = `Bu liste bulunamadı: ${LIJST}`; throw new Error("empty list"); }
-ATTEMPTS = await loadAttempts(user.uid, MODULE).catch(() => []);
+ALL = await loadAllAttempts(user.uid).catch(() => []);   // all modules: the word test also counts for the status
 renderMenu();
 </script>
 </body>

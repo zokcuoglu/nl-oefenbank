@@ -19,6 +19,8 @@
 .lvls button.on{background:var(--lc);color:var(--surface)}
 .lvls button:disabled{opacity:.35;cursor:default}
 .lvls .num{font-weight:400;opacity:.85}
+/* Topic / type / status chips: plain text font, smaller (long labels) */
+.lvls.tags button{font-family:var(--body);font-weight:500;font-size:13px;padding:5px 9px}
 .check{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;cursor:pointer}
 .check input{margin-top:3px}
 .qcard{display:flex;flex-direction:column;gap:12px}
@@ -67,14 +69,17 @@ setTimeout(function () {
 // Finished rounds are saved as attempts (module "woorden"); "weak words first" uses the last answer per word.
 // Child accounts choose school years (groep) instead of CEFR levels and never get "vo" words (office/formal language).
 // Easier rules at low levels: no Dutch-definition questions, wrong options from the same or a lower level, short gap sentences.
-import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+import { gate, userBox, esc, saveAttempt, loadAllAttempts } from "../js/core.js";
+// Shared with kids/woordkaarten.html: word status (yeni / zayıf / öğreniliyor / biliyor), flashcards, matching game
+import { mountCards, mountMatch, wordStatus, statusOf, STATUS, STATUS_ORDER, fmtTime } from "../js/oefen.js";
 
 const app = document.getElementById("app");
 const LEVELS = ["A0", "A1", "A2", "B1", "B2", "C1", "C2"];
 const GROEPEN = ["1-2", "3", "4", "5", "6", "7", "8"];  // "vo" words are never shown to children
 const GRANK = { "1-2": 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, vo: 9 };
 const RANK = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
-const SOORTEN = { alle: "Hepsi", woord: "Kelimeler", frase: "Deyim, kalıp ve cümleler" };
+const REG_ALL = { alle: "Hepsi" };   // + registers from woorden.json (formeel / neutraal / informeel)
+const SIDES = { tr: "Türkçe", def: "Hollandaca tanım (varsa)" };
 const BRONNEN = { alle: "Hepsi", basis: "Temel kelimeler", school: "Okul listeleri", werk: "İş notları", nieuws: "Haberler" };
 const TYPES = { nl2tr: "Anlamı ne?", tr2nl: "Hollandacası ne?", gap: "Boşluk doldurma", def: "Tanımdan bul" };
 const COUNTS = [10, 20, 30, 50];
@@ -82,7 +87,9 @@ const PREF = "woorden-cfg";
 // ?lijst=weer: only the words of that school list (bron "school", thema "weer"); opened from kids/woordkaarten.html
 const LIJST = new URLSearchParams(location.search).get("lijst");
 const S = { pool: [], byId: {}, attempts: [], view: "setup", quiz: null, showReview: false, onlyWrong: false, search: "",
-  cfg: { bron: "alle", levels: ["B1"], groepen: [], soort: "alle", n: 20, mode: "leer", weak: true } };
+  cfg: { bron: "alle", levels: ["B1"], groepen: [], themas: [], subthema: "", turen: [], register: "alle", status: [], side: "tr", n: 20, mode: "leer", weak: true },
+  // Labels come from woorden.json (filled after loading)
+  L: { turen: {}, themas: {}, subthemas: {}, registers: {} }, st: {}, game: null, played: null };
 try { Object.assign(S.cfg, JSON.parse(localStorage.getItem(PREF) || "{}")); } catch (e) {}
 const saveCfg = () => { if (LIJST) return; try { localStorage.setItem(PREF, JSON.stringify(S.cfg)); } catch (e) {} };
 
@@ -110,8 +117,14 @@ document.getElementById("ub").innerHTML = userBox(user, profile);
 try {
   const data = await (await fetch("../data/woorden.json", { cache: "no-cache" })).json();
   S.pool = data.woorden; S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
+  S.L = { turen: data.turen, themas: data.themas, subthemas: data.subthemas, registers: data.registers };
 } catch (e) { app.innerHTML = `<div class="notice">Kelimeler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
-S.attempts = await loadAttempts(user.uid, "woorden").catch(() => []);
+// All rounds of all word pages (test, cards, matching, school lists) count for the word status
+S.attempts = (await loadAllAttempts(user.uid).catch(() => [])).filter(a => (a.answers || []).some(x => x.w));
+S.st = wordStatus(S.attempts);
+// Drop saved filter values that no longer exist
+S.cfg.themas = (S.cfg.themas || []).filter(t => t in S.L.themas); S.cfg.turen = (S.cfg.turen || []).filter(t => t in S.L.turen);
+S.cfg.status = (S.cfg.status || []).filter(t => t in STATUS); if (!(S.cfg.subthema in S.L.subthemas)) S.cfg.subthema = "";
 S.cfg.levels = S.cfg.levels.filter(l => LEVELS.includes(l)); if (!S.cfg.levels.length) S.cfg.levels = ["B1"];
 // Children: own groep (profile "groep5" -> "5"), or the one in the link (?groep=5); whole pool limited to non-"vo" words
 const ownGroep = ((new URLSearchParams(location.search).get("groep")) || (profile.groep || "").replace("groep", "") || "").trim();
@@ -122,21 +135,32 @@ if (isChild) { S.pool = S.pool.filter(w => w.groep !== "vo"); S.byId = Object.fr
 if (LIJST) {
   // School list mode: pool = that list only, all its levels and groepen selected
   S.pool = S.pool.filter(w => w.bron === "school" && w.thema === LIJST); S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
-  Object.assign(S.cfg, { bron: "school", levels: [...new Set(S.pool.map(w => w.niveau))], groepen: [...new Set(S.pool.map(w => w.groep))], soort: "alle" });
+  Object.assign(S.cfg, { bron: "school", levels: [...new Set(S.pool.map(w => w.niveau))], groepen: [...new Set(S.pool.map(w => w.groep))],
+    themas: [], subthema: "", turen: [], register: "alle", status: [] });
 }
 
-// Last result per word (attempts are newest first): true = right, false = wrong, missing = never asked
-function lastResult() {
-  const last = {};
-  for (const a of S.attempts) for (const x of a.answers || []) if (x.w && !(x.w in last)) last[x.w] = x.correct;
-  return last;
-}
+// Status of a word for this user (see js/oefen.js): nieuw / zwak / bezig / kent
+const stOf = w => statusOf(S.st, w.id);
 
 // ---------- Selection ----------
+// Every filter; `skip` leaves one filter out (used for the counts next to that filter's own buttons)
 const inLevel = (w, cfg = S.cfg) => isChild ? cfg.groepen.includes(w.groep) : cfg.levels.includes(w.niveau);
-const matchCfg = (w, cfg = S.cfg, lv = true) => (cfg.bron === "alle" || w.bron === cfg.bron) && (cfg.soort === "alle" || group(w) === cfg.soort) && (!lv || inLevel(w, cfg));
+function matchCfg(w, cfg = S.cfg, skip = "") {
+  return (cfg.bron === "alle" || w.bron === cfg.bron)
+    && (skip === "thema" || !cfg.themas.length || cfg.themas.includes(w.thema))
+    && (skip === "thema" || skip === "sub" || !cfg.subthema || !cfg.themas.includes("werk") || w.thema !== "werk" || w.subthema === cfg.subthema)
+    && (skip === "tur" || !cfg.turen.length || cfg.turen.includes(w.tur))
+    && (skip === "register" || cfg.register === "alle" || w.register === cfg.register)
+    && (skip === "status" || !cfg.status.length || cfg.status.includes(stOf(w)))
+    && (skip === "level" || inLevel(w, cfg));
+}
 // One entry per Dutch text (a basic word can also be in a news item), and only askable entries
-function selection() { const seen = new Set(); return S.pool.filter(w => matchCfg(w) && askable(w) && !seen.has(w.nl.toLowerCase()) && seen.add(w.nl.toLowerCase())); }
+function selection(cfg = S.cfg, skip = "") { const seen = new Set(); return S.pool.filter(w => matchCfg(w, cfg, skip) && askable(w) && !seen.has(w.nl.toLowerCase()) && seen.add(w.nl.toLowerCase())); }
+// Words for one round: weak first (if chosen), then new, learning, known; each group shuffled
+function pickWords(n) {
+  const order = w => S.cfg.weak ? STATUS_ORDER[stOf(w)] : 0;
+  return shuffle(selection()).sort((a, b) => order(a) - order(b)).slice(0, n);
+}
 // Difficulty on one scale for both systems (used for ordering and wrong options)
 const diff = w => isChild ? GRANK[w.groep] : RANK[w.niveau];
 const easy = w => isChild ? GRANK[w.groep] <= 4 : RANK[w.niveau] <= RANK.A2;
@@ -174,11 +198,7 @@ function makeQuestion(w, type) {
   return { w: w.id, type, opties: opts.map(x => x[field]), juist: opts.indexOf(w), gap: type === "gap" ? gapForm(w) : null };
 }
 function buildQuiz(onlyIds) {
-  const last = lastResult();
-  let words = onlyIds ? onlyIds.map(id => S.byId[id]) : selection();
-  // Weak words first: wrong last time, then never asked, then the rest (each group shuffled)
-  const order = w => !S.cfg.weak ? 0 : last[w.id] === false ? 0 : last[w.id] === undefined ? 1 : 2;
-  words = shuffle(words).sort((a, b) => order(a) - order(b)).slice(0, onlyIds ? words.length : S.cfg.n);
+  let words = onlyIds ? onlyIds.map(id => S.byId[id]) : pickWords(S.cfg.n);
   // Easier levels first, so a mixed test warms up
   words.sort((a, b) => diff(a) - diff(b));
   // Spread the question types: pick the least used type that fits each word
@@ -190,31 +210,95 @@ function buildQuiz(onlyIds) {
 
 // ---------- Views ----------
 function vSetup() {
-  const c = S.cfg, last = lastResult();
-  const countAt = l => S.pool.filter(w => w.niveau === l && matchCfg(w, c, false) && askable(w)).length;
-  const countG = g => S.pool.filter(w => w.groep === g && matchCfg(w, c, false) && askable(w)).length;
-  const sel = selection(), weak = sel.filter(w => last[w.id] === false).length, fresh = sel.filter(w => last[w.id] === undefined).length;
+  const c = S.cfg, L = S.L;
   const seg = (name, opts, cur) => `<div class="seg" role="group">${Object.entries(opts).map(([k, v]) =>
     `<button class="${String(cur) === String(k) ? "on" : ""}" data-act="cfg" data-k="${name}" data-v="${k}" aria-pressed="${String(cur) === String(k)}">${esc(v)}</button>`).join("")}</div>`;
-  return `<section class="panel"><span class="eyebrow">${isChild ? "Woordentest" : "Temel kelimeler · iş notları · haberler"}</span>
-      <h2 style="margin:4px 0 8px">Kendi testini kur</h2>
-      <p class="muted" style="margin:0;max-width:62ch">${S.pool.length} kelime ve deyim: temel kelimeler (${S.pool.filter(w => w.bron === "basis").length}), okul listeleri (${S.pool.filter(w => w.bron === "school").length})${isChild ? "" : `, iş toplantıları ve yazışmalar (${S.pool.filter(w => w.bron === "werk").length})`} ve haberler (${S.pool.filter(w => w.bron === "nieuws").length}). ${isChild ? "Sınıfını (groep)" : "Seviyeleri"}, kaynağı ve soru sayısını seç; sorular her seferinde yeniden üretilir.</p></section>
+  // Multi-select chips with counts (count = words that would match if this chip were the only choice of its filter)
+  const chips = (name, opts, cur, skip, field) => { const base = selection(c, skip);
+    return `<div class="lvls tags">${Object.entries(opts).map(([k, v]) => { const n = base.filter(w => (field ? w[field] : stOf(w)) === k).length;
+      return `<button style="--lc:var(--blue)" class="${cur.includes(k) ? "on" : ""}" data-act="multi" data-k="${name}" data-v="${k}" ${n || cur.includes(k) ? "" : "disabled"}>${esc(v)} <span class="num">(${n})</span></button>`; }).join("")}
+      ${cur.length ? `<button class="btn ghost" style="padding:4px 10px;font-size:12.5px" data-act="clear" data-k="${name}">Hepsi</button>` : ""}</div>`; };
+  const countAt = l => selection(c, "level").filter(w => w.niveau === l).length;
+  const countG = g => selection(c, "level").filter(w => w.groep === g).length;
+  const sel = selection(), by = k => sel.filter(w => stOf(w) === k).length;
+  const statusLine = ["kent", "bezig", "zwak", "nieuw"].map(k => `<span title="${esc(STATUS[k].hint)}">${STATUS[k].icon} ${STATUS[k].label} <b class="num">${by(k)}</b></span>`).join(" · ");
+  const n = Math.min(c.n, sel.length);
+  return `<section class="panel"><span class="eyebrow">${isChild ? "Woordentest" : "Temel kelimeler · iş notları · okul listeleri · haberler"}</span>
+      <h2 style="margin:4px 0 8px">Kelime çalış</h2>
+      <p class="muted" style="margin:0;max-width:62ch">${S.pool.length} kelime ve kalıp. Konuyu, türü ve seviyeyi seç; sonra kartlarla çalış, eşleştir ya da test çöz. Her kelimenin durumu bütün turlarından hesaplanır.</p></section>
     <section class="panel setup">
+      <div><p class="lbl">Tema · konu</p>${chips("themas", L.themas, c.themas, "thema", "thema")}
+        ${c.themas.includes("werk") ? `<div style="margin-top:8px">${seg("subthema", { "": "Bütün iş yeri", ...L.subthemas }, c.subthema)}</div>` : ""}</div>
+      <div><p class="lbl">Tür · dilbilgisi</p>${chips("turen", L.turen, c.turen, "tur", "tur")}</div>
       <div><p class="lbl">Kaynak</p>${seg("bron", isChild ? Object.fromEntries(Object.entries(BRONNEN).filter(([k]) => k !== "werk")) : BRONNEN, c.bron)}</div>
-      <div><p class="lbl">Tür</p>${seg("soort", SOORTEN, c.soort)}</div>
-      ${isChild ? `<div><p class="lbl">Groep (birden fazla seçebilirsin)</p><div class="lvls">${GROEPEN.map(g => { const n = countG(g);
-        return `<button style="--lc:var(--accent)" class="${c.groepen.includes(g) ? "on" : ""}" data-act="grp" data-g="${g}" ${n ? "" : "disabled"}>Groep ${g} <span class="num">(${n})</span></button>`; }).join("")}</div></div>`
-      : `<div><p class="lbl">Seviye (birden fazla seçebilirsin)</p><div class="lvls">${LEVELS.map(l => { const n = countAt(l);
-        return `<button style="--lc:var(--${l.toLowerCase()})" class="${c.levels.includes(l) ? "on" : ""}" data-act="lvl" data-l="${l}" ${n ? "" : "disabled"}>${l} <span class="num">(${n})</span></button>`; }).join("")}</div>
+      ${isChild ? "" : `<div><p class="lbl">Üslup</p>${seg("register", { ...REG_ALL, ...L.registers }, c.register)}</div>`}
+      ${isChild ? `<div><p class="lbl">Groep (birden fazla seçebilirsin)</p><div class="lvls">${GROEPEN.map(g => { const k = countG(g);
+        return `<button style="--lc:var(--accent)" class="${c.groepen.includes(g) ? "on" : ""}" data-act="grp" data-g="${g}" ${k ? "" : "disabled"}>Groep ${g} <span class="num">(${k})</span></button>`; }).join("")}</div></div>`
+      : `<div><p class="lbl">Seviye (birden fazla seçebilirsin)</p><div class="lvls">${LEVELS.map(l => { const k = countAt(l);
+        return `<button style="--lc:var(--${l.toLowerCase()})" class="${c.levels.includes(l) ? "on" : ""}" data-act="lvl" data-l="${l}" ${k ? "" : "disabled"}>${l} <span class="num">(${k})</span></button>`; }).join("")}</div>
         <p class="examnote" style="margin:6px 0 0">A0 = hiç bilmeyen için ilk kelimeler. NT2 B1 sınavı için B1 ve altı yeterli.</p></div>`}
-      <div><p class="lbl">Soru sayısı</p>${seg("n", Object.fromEntries(COUNTS.map(n => [n, n])), c.n)}</div>
-      <div><p class="lbl">Mod</p>${seg("mode", { leer: "Öğrenme", examen: "Sınav" }, c.mode)}
-        <p class="examnote" style="margin:6px 0 0">${c.mode === "leer" ? "Her cevaptan sonra doğrusu ve açıklaması gelir." : "Cevaplar sınav bitene kadar gösterilmez. Sonunda puanını görürsün; istersen bütün doğru ve yanlışları açıklamalarıyla açarsın."} İki modda da sorunun altında bir ipucu kutusu var.</p></div>
-      <label class="check"><input type="checkbox" data-act="weak" ${c.weak ? "checked" : ""}><span>Önce zayıf kelimelerim: son seferde yanlış yaptıkların (${weak}), sonra hiç sorulmamışlar (${fresh}).</span></label>
-      <div class="row"><button class="btn primary" data-act="start" ${sel.length ? "" : "disabled"}>Teste başla · ${Math.min(c.n, sel.length)} soru</button>
-        <button class="btn ghost" data-act="list">Seçili kelimeleri listele (${sel.length})</button></div>
-      ${sel.length < c.n && sel.length ? `<p class="examnote" style="margin:0">Bu seçimde sadece ${sel.length} kelime var; test ${sel.length} soru olacak.</p>` : ""}
+      <div><p class="lbl">Durum · ne kadar biliyorsun</p>${chips("status", Object.fromEntries(Object.entries(STATUS).map(([k, v]) => [k, v.icon + " " + v.label])), c.status, "status", "")}
+        <p class="examnote" style="margin:6px 0 0">🟢 Biliyor = test ya da eşleştirmede arka arkaya ${3} doğru. Kartta "Ken ik" en fazla 🟡'ye çıkarır. Bir yanlış 🔴 yapar.</p></div>
+    </section>
+    <section class="panel setup">
+      <div class="sectionhead"><h3>Seçimin: ${sel.length} kelime</h3><span class="muted" style="font-size:14px">${statusLine}</span></div>
+      <div><p class="lbl">Bir turda kaç kelime</p>${seg("n", Object.fromEntries(COUNTS.map(k => [k, k])), c.n)}</div>
+      <label class="check"><input type="checkbox" data-act="weak" ${c.weak ? "checked" : ""}><span>Önce zayıf kelimelerim, sonra yeniler; bildiklerim en sona.</span></label>
+      <div><p class="lbl">Kartın arka yüzü ve eşleştirmedeki anlam</p>${seg("side", SIDES, c.side)}</div>
+      <div class="row">
+        <button class="btn primary" data-act="cards" ${sel.length ? "" : "disabled"}>🃏 Kartlar · ${n}</button>
+        <button class="btn primary" data-act="match" ${sel.length >= 2 ? "" : "disabled"}>🧩 Eşleştir · ${n}</button>
+        <button class="btn primary" data-act="start" ${sel.length ? "" : "disabled"}>✏️ Test · ${n} soru</button>
+        <button class="btn ghost" data-act="list">Listele ve durumlar (${sel.length})</button></div>
+      <div><p class="lbl">Test modu</p>${seg("mode", { leer: "Öğrenme", examen: "Sınav" }, c.mode)}
+        <p class="examnote" style="margin:6px 0 0">${c.mode === "leer" ? "Her cevaptan sonra doğrusu ve açıklaması gelir." : "Cevaplar sınav bitene kadar gösterilmez. Sonunda puanını görürsün; istersen bütün doğru ve yanlışları açıklamalarıyla açarsın."}</p></div>
     </section>`;
+}
+
+// Small label line for a word: level/groep, type, topic
+const tagLine = w => `${isChild ? groepChip(w.groep) : lvlChip(w.niveau)} <span class="muted" style="font-size:12.5px">${esc((S.L.turen[w.tur] || "").split(" · ")[0])} · ${esc((S.L.themas[w.thema] || "").split(" · ")[0])}${w.subthema ? " / " + esc((S.L.subthemas[w.subthema] || "").split(" · ")[0]) : ""}</span>`;
+const stBadge = w => { const k = stOf(w); return `<span title="${esc(STATUS[k].hint)}">${STATUS[k].icon} ${STATUS[k].label}</span>`; };
+
+// ---------- Cards and matching (drawn by js/oefen.js into #app) ----------
+function vPlay() { return `<section class="panel" id="game"></section>`; }
+function startGame(kind, words) {
+  S.view = "play"; render(); scrollTo(0, 0);
+  const el = document.getElementById("game"), side = S.cfg.side;
+  const quit = () => { S.view = "setup"; render(); };
+  if (kind === "cards") S.game = mountCards(el, words, { side, onQuit: quit, tags: w => tagLine(w), onDone: ({ ms, first }) => {
+    const answers = words.map(w => ({ qid: `${w.id}:kaart`, w: w.id, chosen: first[w.id] ? "ken ik" : "nog oefenen", correct: !!first[w.id] }));
+    savePlay("kaarten", "Kelime kartları", ms, answers, { words, hard: words.filter(w => !first[w.id]) });
+  } });
+  else S.game = mountMatch(el, words, { side, onQuit: quit, onDone: ({ ms, errors, wrong }) => {
+    const answers = words.map(w => ({ qid: `${w.id}:koppel`, w: w.id, chosen: wrong.has(w.id) ? "fout" : "goed", correct: !wrong.has(w.id) }));
+    savePlay("koppelen", "Eşleştirme", ms, answers, { words, hard: words.filter(w => wrong.has(w.id)), errors });
+  } });
+}
+async function savePlay(test, title, ms, answers, played) {
+  const before = Object.fromEntries(played.words.map(w => [w.id, stOf(w)]));
+  const now = new Date();
+  const attempt = { kind: "woorden", test, title, side: S.cfg.side, level: isChild ? "groep " + S.cfg.groepen.join(",") : S.cfg.levels.join(","), bron: S.cfg.bron,
+    started_at: new Date(now - ms).toISOString(), finished_at: now.toISOString(), duration_s: Math.round(ms / 1000), duration_ms: ms,
+    score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
+  S.attempts.unshift(attempt); S.st = wordStatus(S.attempts);
+  S.played = { ...played, test, ms, score: attempt.score, total: attempt.total, before, saved: false };
+  S.view = "played"; render();
+  try { await saveAttempt(user.uid, "woorden", attempt); S.played.saved = true; } catch (e) { console.warn(e); S.played.saved = "err"; }
+  if (S.view === "played") render();
+}
+// Result of a card / matching round: score, how the status of the words changed, the hard words
+function vPlayed() {
+  const P = S.played, up = P.words.filter(w => STATUS_ORDER[stOf(w)] > STATUS_ORDER[P.before[w.id]] && stOf(w) !== "nieuw").length;
+  return `<section class="panel"><div class="sectionhead"><h3>${P.test === "kaarten" ? "Kartlar bitti" : "Eşleştirme bitti"}${P.hard.length ? "" : " 🎉"}</h3>
+      <span class="muted">${P.saved === true ? "kaydedildi" : P.saved === "err" ? "kaydedilemedi" : "kaydediliyor…"}</span></div>
+    <div class="row" style="gap:18px;align-items:flex-end;margin-bottom:12px"><div class="bigscore num">${P.score}/${P.total}</div>
+      <div class="muted num">${P.test === "kaarten" ? "ilk seferde bildin" : `ilk denemede doğru · ${P.errors} hata`} · ${fmtTime(P.ms)}</div></div>
+    <p style="margin:0 0 12px">${["kent", "bezig", "zwak"].map(k => `${STATUS[k].icon} ${P.words.filter(w => stOf(w) === k).length}`).join(" · ")}${up ? ` · <b>${up} kelime bir üst duruma çıktı</b>` : ""}</p>
+    <div class="row">${P.hard.length ? `<button class="btn primary" data-act="replay" data-k="hard">Sadece zorları tekrar (${P.hard.length})</button>` : ""}
+      <button class="btn" data-act="replay" data-k="all">Aynı kelimelerle tekrar</button>
+      <button class="btn" data-act="${P.test === "kaarten" ? "match" : "cards"}">${P.test === "kaarten" ? "🧩 Şimdi eşleştir" : "🃏 Kartlara geç"}</button>
+      <button class="btn ghost" data-act="stop">Ayarlar</button></div></section>
+    ${P.hard.length ? `<section class="panel"><h3 style="margin:0 0 10px">Henüz zor olanlar</h3><div class="review">${P.hard.map(w => `<div class="panel rq wrong"><div class="why">${explain(w)}</div></div>`).join("")}</div></section>` : ""}`;
 }
 
 // What the question asks
@@ -301,19 +385,21 @@ function vResult() {
 function vList() {
   const q = S.search.trim().toLowerCase();
   const rows = selection().filter(w => !q || w.nl.toLowerCase().includes(q) || w.tr.toLowerCase().includes(q))
-    .sort((a, b) => diff(a) - diff(b) || a.nl.localeCompare(b.nl, "nl"));
+    .sort((a, b) => STATUS_ORDER[stOf(a)] - STATUS_ORDER[stOf(b)] || diff(a) - diff(b) || a.nl.localeCompare(b.nl, "nl"));
   return `<p style="margin:0"><button class="btn ghost" data-act="stop">← Ayarlar</button></p>
-    <section class="panel"><div class="sectionhead"><h3>Seçili kelimeler</h3><span class="muted num">${rows.length}</span></div>
+    <section class="panel"><div class="sectionhead"><h3>Seçili kelimeler · önce zayıflar</h3><span class="muted num">${rows.length}</span></div>
       <input type="search" id="search" placeholder="Ara (Hollandaca veya Türkçe)" value="${esc(S.search)}" style="width:100%;margin-bottom:10px">
-      <div class="tablewrap"><table class="wl"><thead><tr><th>Hollandaca</th><th>Türkçe</th><th>Örnek</th><th></th></tr></thead>
+      <div class="tablewrap"><table class="wl"><thead><tr><th>Hollandaca</th><th>Türkçe</th><th>Örnek</th><th>Durum</th><th></th></tr></thead>
       <tbody>${rows.slice(0, 300).map(w => `<tr><td><b lang="nl">${esc(w.nl)}</b></td><td>${esc(w.tr)}</td>
         <td><i lang="nl">${esc(w.voorbeeld)}</i>${w.voorbeeld_tr ? `<br><span class="muted">${esc(w.voorbeeld_tr)}</span>` : ""}</td>
-        <td>${isChild ? groepChip(w.groep) : lvlChip(w.niveau)}<br><span class="muted" style="font-size:12px">${esc(srcLabel(w))}</span></td></tr>`).join("")}</tbody></table></div>
+        <td style="white-space:nowrap">${stBadge(w)}</td>
+        <td>${tagLine(w)}<br><span class="muted" style="font-size:12px">${esc(srcLabel(w))}</span></td></tr>`).join("")}</tbody></table></div>
       ${rows.length > 300 ? `<p class="muted" style="font-size:13px">İlk 300 gösteriliyor; aramayı daralt.</p>` : ""}</section>`;
 }
 
 function render() {
-  app.innerHTML = S.view === "quiz" ? (S.quiz.done ? vResult() : vQuiz()) : S.view === "list" ? vList() : vSetup();
+  if (S.view !== "play") { S.game?.stop(); S.game = null; }
+  app.innerHTML = S.view === "quiz" ? (S.quiz.done ? vResult() : vQuiz()) : S.view === "list" ? vList() : S.view === "play" ? vPlay() : S.view === "played" ? vPlayed() : vSetup();
 }
 
 async function finish() {
@@ -322,19 +408,26 @@ async function finish() {
   const attempt = { kind: "woorden", test: "woorden", title: "Kelime testi", mode: z.mode, level: isChild ? "groep " + S.cfg.groepen.join(",") : S.cfg.levels.join(","), bron: S.cfg.bron,
     started_at: z.started, finished_at: new Date().toISOString(), duration_s: Math.round((Date.now() - new Date(z.started)) / 1000),
     score: answers.filter(a => a.correct).length, total: answers.length, answers: answers.slice(0, 50) };
-  try { await saveAttempt(user.uid, "woorden", attempt); S.attempts.unshift(attempt); z.saved = true; } catch (e) { console.warn(e); }
+  S.attempts.unshift(attempt); S.st = wordStatus(S.attempts);
+  try { await saveAttempt(user.uid, "woorden", attempt); z.saved = true; } catch (e) { console.warn(e); }
   render();
 }
 
 // ---------- Events ----------
+// Re-draw the settings without jumping to the top of the page
+const keep = () => { const y = scrollY; render(); scrollTo(0, y); };
 app.addEventListener("click", e => {
   const el = e.target.closest("[data-act]"); if (!el) return;
   const z = S.quiz, c = S.cfg;
   switch (el.dataset.act) {
-    case "cfg": c[el.dataset.k] = el.dataset.k === "n" ? +el.dataset.v : el.dataset.v; saveCfg(); render(); break;
-    case "lvl": { const l = el.dataset.l; c.levels = c.levels.includes(l) ? c.levels.filter(x => x !== l) : [...c.levels, l]; saveCfg(); render(); break; }
-    case "grp": { const g = el.dataset.g; c.groepen = c.groepen.includes(g) ? c.groepen.filter(x => x !== g) : [...c.groepen, g]; saveCfg(); render(); break; }
+    case "cfg": c[el.dataset.k] = el.dataset.k === "n" ? +el.dataset.v : el.dataset.v; saveCfg(); { const y = scrollY; render(); scrollTo(0, y); } break;
+    case "lvl": { const l = el.dataset.l; c.levels = c.levels.includes(l) ? c.levels.filter(x => x !== l) : [...c.levels, l]; saveCfg(); keep(); break; }
+    case "grp": { const g = el.dataset.g; c.groepen = c.groepen.includes(g) ? c.groepen.filter(x => x !== g) : [...c.groepen, g]; saveCfg(); keep(); break; }
     case "start": case "again": buildQuiz(); render(); scrollTo(0, 0); break;
+    case "multi": { const k = el.dataset.k, v = el.dataset.v; c[k] = c[k].includes(v) ? c[k].filter(x => x !== v) : [...c[k], v]; saveCfg(); keep(); break; }
+    case "clear": c[el.dataset.k] = []; saveCfg(); keep(); break;
+    case "cards": case "match": startGame(el.dataset.act, pickWords(c.n)); break;
+    case "replay": startGame(S.played.test === "kaarten" ? "cards" : "match", el.dataset.k === "hard" ? S.played.hard : S.played.words); break;
     case "list": S.view = "list"; render(); break;
     case "stop": S.view = "setup"; S.quiz = null; render(); break;
     case "say": speak(el.dataset.t); break;
