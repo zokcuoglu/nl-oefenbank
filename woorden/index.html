@@ -39,6 +39,35 @@
 .wl td{vertical-align:top}
 .examnote{font-size:13px;color:var(--muted)}
 .picked{font-weight:600}
+
+/* Setup screen: quick-start cards, progress per topic, folded filters, fixed action bar at the bottom */
+.presets{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px}
+.preset{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px 11px;cursor:pointer;font:inherit;color:inherit}
+.preset:hover{border-color:var(--ink)}
+.preset.on{border-color:var(--accent);background:var(--accent-soft)}
+.preset .ic{font-size:22px;line-height:1}
+.preset b{font-family:var(--display);font-size:15.5px}
+.preset small{color:var(--muted);font-size:12.5px}
+.prog{display:flex;flex-direction:column;gap:6px}
+.progrow{display:grid;grid-template-columns:minmax(7em,9em) 1fr auto;gap:10px;align-items:center;font-size:14px;background:none;border:0;padding:4px 2px;cursor:pointer;color:inherit;text-align:left;border-radius:6px}
+.progrow:hover{background:var(--sunk)}
+.progrow.on{background:var(--accent-soft)}
+.stack{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--sunk)}
+.stack i{display:block;height:100%}
+.fold{border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.fold>summary{cursor:pointer;padding:14px 16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::after{content:"▾";color:var(--muted)}
+.fold[open]>summary::after{content:"▴"}
+.fold .inner{padding:0 16px 16px;display:flex;flex-direction:column;gap:16px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--blue);color:var(--blue);background:var(--blue-soft);border-radius:999px;padding:3px 10px;font-size:13px;cursor:pointer;font-family:inherit}
+.actionbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.actionbar .in{max-width:860px;margin:0 auto;display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:8px;align-items:center}
+.actionbar .cnt{grid-column:1/-1;font-weight:600;font-size:14px}
+.actionbar .btn{padding:10px 6px;white-space:nowrap;text-align:center}
+@media (min-width:640px){.actionbar .in{grid-template-columns:1fr auto auto auto auto}.actionbar .cnt{grid-column:auto}.actionbar .btn{padding:9px 14px}}
+.has-bar{padding-bottom:130px}
 </style>
 <script>
 // Watchdog: explain on screen when the login module cannot load (network block)
@@ -209,50 +238,91 @@ function buildQuiz(onlyIds) {
 }
 
 // ---------- Views ----------
+// Quick-start cards: one tap sets the filters (levels stay as chosen; "zayıf" uses every level)
+const PRESETS = [
+  { id: "zayif", ic: "🔴", t: "Zayıf kelimelerim", d: "son cevabı yanlış olanlar", set: { status: ["zwak"] }, allLevels: true },
+  { id: "werk", ic: "💼", t: "İş yeri kalıpları", d: "cümle, kalıp, deyim", set: { themas: ["werk"], turen: ["zin", "vaste_comb", "uitdr", "structuur"] }, adult: true },
+  { id: "winkel", ic: "🛒", t: "Alışveriş", d: "winkel & boodschappen", set: { themas: ["winkel"] } },
+  { id: "schww", ic: "🔀", t: "Ayrılabilen fiiller", d: "opbellen → ik bel op", set: { turen: ["sch_ww"] } },
+  { id: "uitdr", ic: "💬", t: "Deyimler", d: "uitdrukkingen ve sabit kalıplar", set: { turen: ["uitdr", "vaste_comb"] } },
+  { id: "school", ic: "🏫", t: "Okul listeleri", d: "Staal kelime listeleri", set: { bron: "school" } },
+  { id: "nieuws", ic: "📰", t: "Haber kelimeleri", d: "haberlerdeki kelimeler", set: { bron: "nieuws" } },
+];
+const EMPTY = { bron: "alle", themas: [], subthema: "", turen: [], register: "alle", status: [] };
+const presetCfg = p => ({ ...S.cfg, ...EMPTY, ...p.set, ...(p.allLevels ? (isChild ? { groepen: GROEPEN.slice() } : { levels: LEVELS.slice() }) : {}) });
+const presetOn = p => Object.entries({ ...EMPTY, ...p.set }).every(([k, v]) => JSON.stringify(S.cfg[k]) === JSON.stringify(v));
+const short = label => (label || "").split(" · ")[0];
+
 function vSetup() {
   const c = S.cfg, L = S.L;
   const seg = (name, opts, cur) => `<div class="seg" role="group">${Object.entries(opts).map(([k, v]) =>
     `<button class="${String(cur) === String(k) ? "on" : ""}" data-act="cfg" data-k="${name}" data-v="${k}" aria-pressed="${String(cur) === String(k)}">${esc(v)}</button>`).join("")}</div>`;
-  // Multi-select chips with counts (count = words that would match if this chip were the only choice of its filter)
+  // Multi-select chips with counts; options without words are hidden (unless selected)
   const chips = (name, opts, cur, skip, field) => { const base = selection(c, skip);
     return `<div class="lvls tags">${Object.entries(opts).map(([k, v]) => { const n = base.filter(w => (field ? w[field] : stOf(w)) === k).length;
-      return `<button style="--lc:var(--blue)" class="${cur.includes(k) ? "on" : ""}" data-act="multi" data-k="${name}" data-v="${k}" ${n || cur.includes(k) ? "" : "disabled"}>${esc(v)} <span class="num">(${n})</span></button>`; }).join("")}
-      ${cur.length ? `<button class="btn ghost" style="padding:4px 10px;font-size:12.5px" data-act="clear" data-k="${name}">Hepsi</button>` : ""}</div>`; };
-  const countAt = l => selection(c, "level").filter(w => w.niveau === l).length;
-  const countG = g => selection(c, "level").filter(w => w.groep === g).length;
-  const sel = selection(), by = k => sel.filter(w => stOf(w) === k).length;
-  const statusLine = ["kent", "bezig", "zwak", "nieuw"].map(k => `<span title="${esc(STATUS[k].hint)}">${STATUS[k].icon} ${STATUS[k].label} <b class="num">${by(k)}</b></span>`).join(" · ");
-  const n = Math.min(c.n, sel.length);
-  return `<section class="panel"><span class="eyebrow">${isChild ? "Woordentest" : "Temel kelimeler · iş notları · okul listeleri · haberler"}</span>
-      <h2 style="margin:4px 0 8px">Kelime çalış</h2>
-      <p class="muted" style="margin:0;max-width:62ch">${S.pool.length} kelime ve kalıp. Konuyu, türü ve seviyeyi seç; sonra kartlarla çalış, eşleştir ya da test çöz. Her kelimenin durumu bütün turlarından hesaplanır.</p></section>
-    <section class="panel setup">
-      <div><p class="lbl">Tema · konu</p>${chips("themas", L.themas, c.themas, "thema", "thema")}
-        ${c.themas.includes("werk") ? `<div style="margin-top:8px">${seg("subthema", { "": "Bütün iş yeri", ...L.subthemas }, c.subthema)}</div>` : ""}</div>
-      <div><p class="lbl">Tür · dilbilgisi</p>${chips("turen", L.turen, c.turen, "tur", "tur")}</div>
-      <div><p class="lbl">Kaynak</p>${seg("bron", isChild ? Object.fromEntries(Object.entries(BRONNEN).filter(([k]) => k !== "werk")) : BRONNEN, c.bron)}</div>
-      ${isChild ? "" : `<div><p class="lbl">Üslup</p>${seg("register", { ...REG_ALL, ...L.registers }, c.register)}</div>`}
-      ${isChild ? `<div><p class="lbl">Groep (birden fazla seçebilirsin)</p><div class="lvls">${GROEPEN.map(g => { const k = countG(g);
-        return `<button style="--lc:var(--accent)" class="${c.groepen.includes(g) ? "on" : ""}" data-act="grp" data-g="${g}" ${k ? "" : "disabled"}>Groep ${g} <span class="num">(${k})</span></button>`; }).join("")}</div></div>`
-      : `<div><p class="lbl">Seviye (birden fazla seçebilirsin)</p><div class="lvls">${LEVELS.map(l => { const k = countAt(l);
-        return `<button style="--lc:var(--${l.toLowerCase()})" class="${c.levels.includes(l) ? "on" : ""}" data-act="lvl" data-l="${l}" ${k ? "" : "disabled"}>${l} <span class="num">(${k})</span></button>`; }).join("")}</div>
-        <p class="examnote" style="margin:6px 0 0">A0 = hiç bilmeyen için ilk kelimeler. NT2 B1 sınavı için B1 ve altı yeterli.</p></div>`}
-      <div><p class="lbl">Durum · ne kadar biliyorsun</p>${chips("status", Object.fromEntries(Object.entries(STATUS).map(([k, v]) => [k, v.icon + " " + v.label])), c.status, "status", "")}
-        <p class="examnote" style="margin:6px 0 0">🟢 Biliyor = test ya da eşleştirmede arka arkaya ${3} doğru. Kartta "Ken ik" en fazla 🟡'ye çıkarır. Bir yanlış 🔴 yapar.</p></div>
-    </section>
-    <section class="panel setup">
-      <div class="sectionhead"><h3>Seçimin: ${sel.length} kelime</h3><span class="muted" style="font-size:14px">${statusLine}</span></div>
-      <div><p class="lbl">Bir turda kaç kelime</p>${seg("n", Object.fromEntries(COUNTS.map(k => [k, k])), c.n)}</div>
-      <label class="check"><input type="checkbox" data-act="weak" ${c.weak ? "checked" : ""}><span>Önce zayıf kelimelerim, sonra yeniler; bildiklerim en sona.</span></label>
-      <div><p class="lbl">Kartın arka yüzü ve eşleştirmedeki anlam</p>${seg("side", SIDES, c.side)}</div>
-      <div class="row">
-        <button class="btn primary" data-act="cards" ${sel.length ? "" : "disabled"}>🃏 Kartlar · ${n}</button>
-        <button class="btn primary" data-act="match" ${sel.length >= 2 ? "" : "disabled"}>🧩 Eşleştir · ${n}</button>
-        <button class="btn primary" data-act="start" ${sel.length ? "" : "disabled"}>✏️ Test · ${n} soru</button>
-        <button class="btn ghost" data-act="list">Listele ve durumlar (${sel.length})</button></div>
-      <div><p class="lbl">Test modu</p>${seg("mode", { leer: "Öğrenme", examen: "Sınav" }, c.mode)}
-        <p class="examnote" style="margin:6px 0 0">${c.mode === "leer" ? "Her cevaptan sonra doğrusu ve açıklaması gelir." : "Cevaplar sınav bitene kadar gösterilmez. Sonunda puanını görürsün; istersen bütün doğru ve yanlışları açıklamalarıyla açarsın."}</p></div>
-    </section>`;
+      return n || cur.includes(k) ? `<button style="--lc:var(--blue)" class="${cur.includes(k) ? "on" : ""}" data-act="multi" data-k="${name}" data-v="${k}">${esc(v)} <span class="num">(${n})</span></button>` : ""; }).join("")}</div>`; };
+  const sel = selection(), by = k => sel.filter(w => stOf(w) === k).length, n = Math.min(c.n, sel.length);
+
+  // 1. Quick start
+  const presets = PRESETS.filter(p => !(p.adult && isChild)).map(p => ({ p, k: selection(presetCfg(p)).length })).filter(x => x.k);
+  const quick = `<section class="panel"><h2 style="margin:0 0 4px">Ne çalışmak istiyorsun?</h2>
+      <p class="muted" style="margin:0 0 12px;font-size:14px">Birine dokun, sonra alttan Kartlar, Eşleştir ya da Test'i seç.</p>
+      <div class="presets">${presets.map(({ p, k }) => `<button class="preset ${presetOn(p) ? "on" : ""}" data-act="preset" data-id="${p.id}">
+        <span class="ic">${p.ic}</span><b>${esc(p.t)}</b><small>${esc(p.d)} · ${k}</small></button>`).join("")}</div></section>`;
+
+  // 2. Progress per topic (inside the chosen levels); tap a row to practise that topic
+  const lvlPool = selection({ ...c, ...EMPTY });
+  const rows = Object.keys(L.themas).map(t => { const ws = lvlPool.filter(w => w.thema === t), cnt = k => ws.filter(w => stOf(w) === k).length;
+    return { t, n: ws.length, kent: cnt("kent"), bezig: cnt("bezig"), zwak: cnt("zwak") }; }).filter(r => r.n).sort((a, b) => b.n - a.n);
+  const seg3 = r => `<div class="stack"><i style="width:${100 * r.kent / r.n}%;background:var(--ok)"></i><i style="width:${100 * r.bezig / r.n}%;background:var(--warn)"></i><i style="width:${100 * r.zwak / r.n}%;background:var(--bad)"></i></div>`;
+  const prog = `<details class="fold" ${S.progOpen ? "open" : ""} data-fold="progOpen"><summary><span>Gelişimin · ${lvlPool.filter(w => stOf(w) === "kent").length}/${lvlPool.length} biliyor</span></summary>
+      <div class="inner"><p class="muted" style="margin:0;font-size:13px">🟢 biliyor · 🟡 öğreniliyor · 🔴 zayıf · boş = yeni. ${isChild ? "Seçili groep'ler" : "Seçili seviyeler"} için. Bir konuya dokun, o konu seçilsin.</p>
+      <div class="prog">${rows.map(r => `<button class="progrow ${c.themas.length === 1 && c.themas[0] === r.t ? "on" : ""}" data-act="theme1" data-v="${r.t}">
+        <span>${esc(short(L.themas[r.t]))}</span>${seg3(r)}<span class="num muted" style="font-size:13px">${r.kent}/${r.n}</span></button>`).join("")}</div></div></details>`;
+
+  // 3. Filters (folded) with the active ones as removable pills
+  const pills = [
+    ...c.themas.map(v => ["themas", v, short(L.themas[v])]), ...(c.subthema && c.themas.includes("werk") ? [["subthema", c.subthema, short(L.subthemas[c.subthema])]] : []),
+    ...c.turen.map(v => ["turen", v, short(L.turen[v])]), ...(c.bron !== "alle" ? [["bron", c.bron, BRONNEN[c.bron]]] : []),
+    ...(c.register !== "alle" ? [["register", c.register, short(L.registers[c.register])]] : []), ...c.status.map(v => ["status", v, STATUS[v].icon + " " + STATUS[v].label]),
+  ];
+  const levels = isChild ? `<div><p class="lbl">Groep</p><div class="lvls">${GROEPEN.map(g => { const k = selection(c, "level").filter(w => w.groep === g).length;
+      return `<button style="--lc:var(--accent)" class="${c.groepen.includes(g) ? "on" : ""}" data-act="grp" data-g="${g}" ${k ? "" : "disabled"}>Groep ${g} <span class="num">(${k})</span></button>`; }).join("")}</div></div>`
+    : `<div><p class="lbl">Seviye</p><div class="lvls">${LEVELS.map(l => { const k = selection(c, "level").filter(w => w.niveau === l).length;
+      return `<button style="--lc:var(--${l.toLowerCase()})" class="${c.levels.includes(l) ? "on" : ""}" data-act="lvl" data-l="${l}" ${k ? "" : "disabled"}>${l} <span class="num">(${k})</span></button>`; }).join("")}</div>
+      <p class="examnote" style="margin:6px 0 0">NT2 B1 sınavı için B1 ve altı yeterli.</p></div>`;
+  const filters = `<details class="fold" ${S.filtersOpen ? "open" : ""} data-fold="filtersOpen"><summary><span>Filtreler${pills.length ? ` · ${pills.length} aktif` : ""}</span></summary>
+      <div class="inner">
+        ${pills.length ? `<div class="pills">${pills.map(([k, v, t]) => `<button class="pill" data-act="unset" data-k="${k}" data-v="${esc(v)}">${esc(t)} ✕</button>`).join("")}
+          <button class="pill" style="background:none" data-act="reset">Hepsini temizle</button></div>` : ""}
+        ${levels}
+        <div><p class="lbl">Tema · konu</p>${chips("themas", L.themas, c.themas, "thema", "thema")}
+          ${c.themas.includes("werk") ? `<div style="margin-top:8px">${seg("subthema", { "": "Bütün iş yeri", ...Object.fromEntries(Object.entries(L.subthemas).map(([k, v]) => [k, short(v)])) }, c.subthema)}</div>` : ""}</div>
+        <div><p class="lbl">Tür · dilbilgisi</p>${chips("turen", L.turen, c.turen, "tur", "tur")}</div>
+        <div><p class="lbl">Durum</p>${chips("status", Object.fromEntries(Object.entries(STATUS).map(([k, v]) => [k, v.icon + " " + v.label])), c.status, "status", "")}
+          <p class="examnote" style="margin:6px 0 0">🟢 = test ya da eşleştirmede arka arkaya 3 doğru. Kartta "Ken ik" en fazla 🟡'ye çıkarır. Bir yanlış 🔴 yapar.</p></div>
+        <div><p class="lbl">Kaynak</p>${seg("bron", isChild ? Object.fromEntries(Object.entries(BRONNEN).filter(([k]) => k !== "werk")) : BRONNEN, c.bron)}</div>
+        ${isChild ? "" : `<div><p class="lbl">Üslup</p>${seg("register", { ...REG_ALL, ...Object.fromEntries(Object.entries(L.registers).map(([k, v]) => [k, short(v)])) }, c.register)}</div>`}
+      </div></details>`;
+
+  // 4. Settings (folded)
+  const settings = `<details class="fold" ${S.setOpen ? "open" : ""} data-fold="setOpen"><summary><span>⚙️ Ayarlar · ${c.n} kelime · ${c.mode === "leer" ? "öğrenme" : "sınav"}</span></summary>
+      <div class="inner">
+        <div><p class="lbl">Bir turda kaç kelime</p>${seg("n", Object.fromEntries(COUNTS.map(k => [k, k])), c.n)}</div>
+        <label class="check"><input type="checkbox" data-act="weak" ${c.weak ? "checked" : ""}><span>Önce zayıf kelimeler, sonra yeniler; bildiklerim en sona.</span></label>
+        <div><p class="lbl">Kartın arka yüzü / eşleştirmedeki anlam</p>${seg("side", SIDES, c.side)}</div>
+        <div><p class="lbl">Test modu</p>${seg("mode", { leer: "Öğrenme", examen: "Sınav" }, c.mode)}
+          <p class="examnote" style="margin:6px 0 0">${c.mode === "leer" ? "Her cevaptan sonra doğrusu ve açıklaması gelir." : "Cevaplar sınav bitene kadar gösterilmez."}</p></div>
+      </div></details>`;
+
+  // 5. Action bar, fixed at the bottom of the screen
+  const bar = `<div class="actionbar"><div class="in">
+      <span class="cnt">${sel.length} kelime <span class="muted" style="font-weight:400;font-size:13px">· 🟢${by("kent")} 🟡${by("bezig")} 🔴${by("zwak")} 🆕${by("nieuw")}</span></span>
+      <button class="btn ghost" data-act="list" ${sel.length ? "" : "disabled"} title="Listele">📋</button>
+      <button class="btn primary" data-act="cards" ${sel.length ? "" : "disabled"}>🃏 Kartlar</button>
+      <button class="btn primary" data-act="match" ${sel.length >= 2 ? "" : "disabled"}>🧩 Eşleştir</button>
+      <button class="btn primary" data-act="start" ${sel.length ? "" : "disabled"}>✏️ Test</button></div></div>`;
+  return quick + prog + filters + settings + `<p class="muted" style="font-size:13px;margin:0">Bir turda en fazla ${n} kelime${sel.length > c.n ? ` (seçimde ${sel.length})` : ""}. 📋 = listele ve durumlara bak.</p>` + bar;
 }
 
 // Small label line for a word: level/groep, type, topic
@@ -399,6 +469,7 @@ function vList() {
 
 function render() {
   if (S.view !== "play") { S.game?.stop(); S.game = null; }
+  app.classList.toggle("has-bar", S.view === "setup");
   app.innerHTML = S.view === "quiz" ? (S.quiz.done ? vResult() : vQuiz()) : S.view === "list" ? vList() : S.view === "play" ? vPlay() : S.view === "played" ? vPlayed() : vSetup();
 }
 
@@ -426,6 +497,10 @@ app.addEventListener("click", e => {
     case "start": case "again": buildQuiz(); render(); scrollTo(0, 0); break;
     case "multi": { const k = el.dataset.k, v = el.dataset.v; c[k] = c[k].includes(v) ? c[k].filter(x => x !== v) : [...c[k], v]; saveCfg(); keep(); break; }
     case "clear": c[el.dataset.k] = []; saveCfg(); keep(); break;
+    case "preset": { const p = PRESETS.find(x => x.id === el.dataset.id); Object.assign(c, presetCfg(p)); saveCfg(); keep(); break; }
+    case "theme1": Object.assign(c, EMPTY, { themas: [el.dataset.v] }); saveCfg(); keep(); break;
+    case "unset": { const k = el.dataset.k, v = el.dataset.v; if (Array.isArray(c[k])) c[k] = c[k].filter(x => x !== v); else c[k] = k === "subthema" ? "" : "alle"; saveCfg(); keep(); break; }
+    case "reset": Object.assign(c, EMPTY); saveCfg(); keep(); break;
     case "cards": case "match": startGame(el.dataset.act, pickWords(c.n)); break;
     case "replay": startGame(S.played.test === "kaarten" ? "cards" : "match", el.dataset.k === "hard" ? S.played.hard : S.played.words); break;
     case "list": S.view = "list"; render(); break;
@@ -440,6 +515,8 @@ app.addEventListener("click", e => {
     case "review": S.showReview = !S.showReview; render(); break;
   }
 });
+// Remember open/closed folds between re-draws
+app.addEventListener("toggle", e => { const f = e.target.dataset?.fold; if (f) S[f] = e.target.open; }, true);
 app.addEventListener("change", e => {
   const el = e.target.closest("[data-act]"); if (!el) return;
   if (el.dataset.act === "weak") { S.cfg.weak = el.checked; saveCfg(); render(); }
