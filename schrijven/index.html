@@ -31,15 +31,18 @@
 .model{white-space:pre-wrap;background:var(--ok-soft);border-radius:10px;padding:10px 12px;font-size:15.5px;line-height:1.6}
 .check{display:flex;gap:8px;align-items:flex-start;font-size:15px;cursor:pointer;margin:6px 0} .check input{margin-top:4px}
 .copybox{width:100%;min-height:160px;font-family:var(--mono);font-size:12px;margin-top:8px}
-/* Tactics: pattern cards and the hint box under each task */
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
-.kcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
-.kcard h3{margin:0;font-size:17px} .kcard .nr{font-family:var(--mono);font-size:12px;color:var(--muted)}
+/* Tactics page (simple tables) and the hint box under each task */
+.ktab{width:100%;border-collapse:collapse;font-size:15px}
+.ktab th,.ktab td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+.ktab th{font-size:12.5px;color:var(--muted);font-weight:600}
+.ktab td.nl{background:var(--accent-soft)} .ktab td.first{font-weight:600;white-space:nowrap}
+.tscroll{overflow-x:auto}
 .kal{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
 .kal li{background:var(--accent-soft);border-radius:6px;padding:5px 9px;font-size:15px}
-.kal.hide li span{filter:blur(5px);cursor:pointer} .kal.hide li span:hover{filter:none}
-.kex{font-size:14.5px;background:var(--ok-soft);border-radius:6px;padding:6px 9px}
+.kex{font-size:14.5px;background:var(--ok-soft);border-radius:6px;padding:6px 9px;white-space:pre-line}
 .kwarn{font-size:14px;color:var(--bad)}
+.sitgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.sitgrid div{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 details.hintbox{margin-top:10px;border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;background:var(--surface)}
 details.hintbox summary{cursor:pointer;font-weight:600;color:var(--accent)}
 </style>
@@ -88,7 +91,7 @@ const R = D.regels, byId = {}, examOf = {};
 D.examens.forEach(e => e.taken.forEach(t => { byId[t.id] = t; examOf[t.id] = e.id; }));
 const examById = Object.fromEntries(D.examens.map(e => [e.id, e]));
 let attempts = await loadAttempts(user.uid, "schrijven-b1").catch(() => []);
-const S = { run: null, timer: null, hide: false, hintOpen: false };
+const S = { run: null, timer: null, hintOpen: false };
 // A run is an "exam" (navigation dots, hint box closed) for the fixed mock exams and for random exams
 const isExam = r => !!examById[r.test] || !!r.random;
 
@@ -118,38 +121,42 @@ const checks = t => t.soort === "zin" ? [t.adequaat, t.gram_tekst ? `Ik gebruik 
 const answerText = (t, a) => t.velden ? t.velden.map(([l], i) => `${l}: ${(a || {})[i] || ""}`).join("\n") : (a || "");
 const isEmpty = (t, a) => t.velden ? !t.velden.some((_, i) => ((a || {})[i] || "").trim()) : !(a || "").trim();
 
-// ---------- Tactics: pattern card per task type ----------
-const K = D.kaliplar, A = D.algemeen;
-const typeNrs = k => [...new Set(D.examens.flatMap(e => e.taken.filter(t => t.kalip === k).map(t => t.nr)))];
-function kCard(k, { hide = false, compact = false } = {}) {
-  const c = K[k];
-  return `<div class="${compact ? "" : "kcard"}">
-    ${compact ? "" : `<span class="nr">Opdracht ${typeNrs(k).join(", ")}</span><h3>${esc(c.titel)}</h3>`}
-    <p style="margin:0;font-size:14.5px">${esc(c.wat)}</p>
-    <span class="eyebrow" style="margin:4px 0 0">Ezberle</span>
-    <ul class="kal ${hide ? "hide" : ""}" lang="nl">${c.kaliplar.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul>
-    <div class="kex" lang="nl"><b>Örnek:</b> ${esc(c.voorbeeld)}</div>
-    <ul style="margin:0;padding-left:18px;font-size:14px">${c.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-    <div class="kwarn">⚠ ${esc(c.valkuil)}</div>
-    ${compact ? "" : `<a href="?kalip=${k}" style="font-size:13.5px">Bu tipte görevleri çöz →</a>`}</div>`;
+// ---------- Tactics: one simple page + hint box ----------
+const K = D.kaliplar, A = D.algemeen, BR = D.brief;
+const isLetter = t => t.soort !== "zin";   // form + texts: the letter skeleton applies
+// Hint box: patterns of this task type; for letters also the opening/closing lines (je or u)
+function hintBox(t, open = false) {
+  const c = K[t.kalip];
+  const letter = isLetter(t) ? `<span class="eyebrow" style="margin-top:6px">Mektup iskeleti</span>
+    <div class="tscroll"><table class="ktab"><tr><th></th><th>je (samimi)</th><th>u (resmî)</th></tr>
+    ${BR.delen.filter(d => d[0] !== "Gövde").map(([n, je, u]) => `<tr><td class="first">${esc(n)}</td><td lang="nl">${esc(je)}</td><td lang="nl">${esc(u)}</td></tr>`).join("")}</table></div>` : "";
+  return `<details class="hintbox" ${open ? "open" : ""}><summary>💡 İpucu: ${esc(c.titel)}</summary>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+      <p style="margin:0;font-size:14.5px">${esc(c.wat)}</p>
+      <ul class="kal" lang="nl">${c.kaliplar.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <div class="kex" lang="nl"><b>Örnek:</b> ${esc(c.voorbeeld)}</div>
+      <div class="kwarn">⚠ ${esc(c.valkuil)}</div>${letter}</div></details>`;
 }
-const hintBox = (t, open = false) => `<details class="hintbox" ${open ? "open" : ""}><summary>💡 İpucu: ${esc(K[t.kalip].titel)}</summary>${kCard(t.kalip, { compact: true })}</details>`;
 function vTaktik() {
-  const hide = S.hide;
+  const zin = Object.keys(K).filter(k => D.examens[0].taken.some(t => t.kalip === k && t.soort === "zin"));
+  const nrOf = k => D.examens[0].taken.find(t => t.kalip === k).nr;
   return `<p style="margin:0"><a href="./">← Görevler</a></p>
-    <section class="panel"><span class="eyebrow">Taktik ve kalıplar</span><h2 style="margin:4px 0 8px">Sınavın kalıpları</h2>
-      <p class="muted" style="margin:0;max-width:72ch">Schrijven I'de görevler her sınavda aynı sırayla gelir: 1 neden, 2 yan cümle, 3 sonuç + devrik cümle, 4 'te + mastar', 5 başka çözüm, 6 fikir, 7 talimat, 8 duyuru, 9 form, 10 resimlerle e-posta, 11 şikâyet, 12 karşılaştırma. Her tipin kalıplarını ezberlersen sınavda sadece boşlukları doldurursun.</p>
-      <label class="check" style="margin-top:10px"><input type="checkbox" data-act="hide" ${hide ? "checked" : ""}><span>Ezber modu: kalıpları bulanıklaştır (üzerine gelince görünür)</span></label></section>
-    <section class="panel"><span class="eyebrow">${esc(A.titel)}</span><ul style="margin:8px 0 0;padding-left:20px;line-height:1.7">${A.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-      <div class="two" style="margin-top:10px"><div><b>Başlangıç</b><ul class="kal ${hide ? "hide" : ""}" lang="nl" style="margin-top:6px">${A.aanhef.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div>
-        <div><b>Bitiş</b><ul class="kal ${hide ? "hide" : ""}" lang="nl" style="margin-top:6px">${A.slot.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div></div></section>
-    <div class="kgrid">${Object.keys(K).map(k => kCard(k, { hide })).join("")}</div>`;
-}
-function vKalip(k) {
-  const ts = D.examens.flatMap(e => e.taken.filter(t => t.kalip === k));
-  return `<p style="margin:0"><a href="?taktik">← Taktik ve kalıplar</a></p>
-    <section class="panel">${kCard(k)}</section>
-    <section class="panel"><div class="sectionhead"><h3>Bu tipte ${ts.length} görev</h3></div>${ts.map(t => `<a class="taskrow" href="?t=${t.id}"><span class="nr">${t.nr}</span><span><b lang="nl">${esc(t.titel)}</b></span><span class="chip">${esc(examById[examOf[t.id]].titel.replace("Schrijven I ", ""))}</span></a>`).join("")}</section>`;
+    <section class="panel"><span class="eyebrow">Taktik</span><h2 style="margin:4px 0 8px">3 kural</h2>
+      <ol style="margin:0;padding-left:20px;line-height:1.8">${A.regels.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>
+    <section class="panel"><span class="eyebrow">Görev 10–12 (ve çoğu zaman 9)</span><h2 style="margin:4px 0 8px">E-posta / mektup iskeleti</h2>
+      <p class="muted" style="margin:0 0 10px;font-size:14.5px">Her mektup aynı 5 parça. Bunları ezberle, sınavda sadece gövdeyi düşün. Bunlar Hollandaca mektupta çok kullanılan standart ifadeler; zorunlu değiller ama işe yararlar.</p>
+      <div class="tscroll"><table class="ktab"><tr><th>Parça</th><th>Arkadaş, komşu (je)</th><th>Şirket, belediye, okul (u)</th></tr>
+        ${BR.delen.map(([n, je, u]) => `<tr><td class="first">${esc(n)}</td><td ${n === "Gövde" ? "" : `class="nl" lang="nl"`}>${esc(je)}</td><td ${n === "Gövde" ? "" : `class="nl" lang="nl"`}>${esc(u)}</td></tr>`).join("")}</table></div>
+      <div class="kex" lang="nl" style="margin-top:12px"><b>Örnek:</b>\n${esc(BR.voorbeeld)}</div></section>
+    <section class="panel"><h2 style="margin:0 0 10px">Duruma göre hazır cümleler</h2>
+      <div class="sitgrid">${BR.situaties.map(([n, zs]) => `<div><b>${esc(n)}</b><ul class="kal" lang="nl" style="margin-top:6px">${zs.map(z => `<li>${esc(z)}</li>`).join("")}</ul></div>`).join("")}</div></section>
+    <section class="panel"><span class="eyebrow">Görev 1–8</span><h2 style="margin:4px 0 8px">Cümle görevleri</h2>
+      <p class="muted" style="margin:0 0 10px;font-size:14.5px">Tek cümle yeter. İstenen yapı yoksa gramer puanı 0.</p>
+      <div class="tscroll"><table class="ktab"><tr><th>Nr</th><th>Ne isteniyor</th><th>Kalıp</th><th>Tuzak</th></tr>
+        ${zin.map(k => `<tr><td class="first">${nrOf(k)}</td><td>${esc(K[k].titel)}</td><td class="nl" lang="nl">${esc(K[k].kaliplar[0])}</td><td style="font-size:14px">${esc(K[k].valkuil)}</td></tr>`).join("")}</table></div></section>
+    <section class="panel"><span class="eyebrow">Görev 9</span><h2 style="margin:4px 0 8px">Form</h2>
+      <ul class="kal" lang="nl">${K.formulier.kaliplar.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <p class="kwarn" style="margin:8px 0 0">⚠ ${esc(K.formulier.valkuil)}</p></section>`;
 }
 
 // ---------- List ----------
@@ -158,7 +165,7 @@ function vList() {
     return `<a class="taskrow" href="?t=${t.id}"><span class="nr">${t.nr}</span><span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${SOORT[t.soort]} · max ${t.max} punt${t.gram_tekst ? " · " + esc(t.gram_tekst) : ""}</span></span>
       ${l ? `<span class="chip num">✓ ${l.score}/${l.total}</span>` : `<span class="chip">yeni</span>`}</a>`; };
   return `<a class="panel" href="?taktik" style="display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit;border:2px solid var(--accent)">
-      <span style="font-size:30px">🧠</span><span><b style="font-size:17px">Taktik ve kalıplar</b><br><span class="muted" style="font-size:14px">12 görev tipinin ezberlenecek kalıpları, örnekleri ve tuzakları — sınava girmeden önce mutlaka çalış.</span></span>
+      <span style="font-size:30px">🧠</span><span><b style="font-size:17px">Taktik ve kalıplar</b><br><span class="muted" style="font-size:14px">3 kural, e-posta/mektup iskeleti (hitap, açılış, kapanış), hazır cümleler ve cümle görevlerinin kalıpları — tek sayfa.</span></span>
       <span class="btn primary" style="margin-left:auto">Aç</span></a>
     <section class="panel"><span class="eyebrow">Staatsexamen NT2 Programma I</span><h2 style="margin:4px 0 8px">Yazma sınavına hazırlık</h2>
       <p class="muted" style="margin:0;max-width:70ch">Schrijven I bilgisayarda, 100 dakika, yazım denetimi yok. 12 görev: 8 cümle görevi (bazılarında belirli bir yapı istenir: ana cümle, yan cümle, devrik cümle, 'te + mastar'), 1 form ve 3 kısa metin. Toplam 47 puan; 2025 örnek sınavında geçme sınırı 25 puan (= 503). Deneme sınavlarımız aynı yapıda. Bitirince cevabını örnek cevapla karşılaştırır, kontrol listesini işaretler ve istersen resmî kurallarla yapay zekâya puanlatırsın. Görevler bu sınav tarzında yazılmış alıştırmalardır; isimler uydurmadır.</p></section>
@@ -266,8 +273,7 @@ function render() {
   const ex = examById[p.get("examen")];
   if (ex) { startRun(ex.id, ex.taken.map(t => t.id), ex.minuten); app.innerHTML = vRun(); return; }
   if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], 0); app.innerHTML = vRun(); return; }
-  if (p.has("taktik")) { app.innerHTML = vTaktik(); return; }
-  if (K[p.get("kalip")]) { app.innerHTML = vKalip(p.get("kalip")); return; }
+  if (p.has("taktik") || p.has("kalip")) { app.innerHTML = vTaktik(); return; }
   app.innerHTML = vList();
 }
 app.addEventListener("input", e => {
@@ -277,7 +283,6 @@ app.addEventListener("input", e => {
   if (e.target.dataset.field !== undefined) r.ans[t.id] = { ...(r.ans[t.id] || {}), [e.target.dataset.field]: e.target.value };
 });
 app.addEventListener("change", e => {
-  if (e.target.dataset.act === "hide") { S.hide = e.target.checked; render(); return; }
   const el = e.target.closest("[data-act=chk]"); if (!el) return;
   const c = S.run.checks[el.dataset.id] = S.run.checks[el.dataset.id] || []; c[+el.dataset.k] = el.checked;
   const y = scrollY; render(); scrollTo(0, y);

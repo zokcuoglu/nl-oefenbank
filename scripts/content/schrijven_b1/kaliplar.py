@@ -6,19 +6,35 @@ The task types follow the order of the official exams (CvTE 2023-2025): 1 reason
 4 te + infinitive, 5 other solution, 6 idea, 7 instruction, 8 announcement, 9 form, 10 pictures, 11 complaint, 12 choice.
 """
 
+# Three rules shown at the top of the tactics page (kept short on purpose: the user found the long version confusing)
 ALGEMEEN = {
-    "titel": "Her görevde işe yarayan kurallar",
-    "tips": [
-        "Görevdeki cümleyi kopyalama: kopyalanan cümle puan almaz. Aynı fikri kendi kelimelerinle yaz.",
-        "Kısa ve doğru, uzun ve hatalıdan iyidir. Fazladan yazdığın hatalı cümleler de puanını düşürür.",
-        "Kelime sırası her zaman doğru olmalı: ana cümlede fiil 2. sırada, yan cümlede (omdat, als, dat, zodat) fiil sonda.",
-        "de/het hatası sayılmaz, ama artikeli hiç yazmamak (ik heb vraag) hata sayılır.",
-        "Resim ve tablo e-postaya eklenmez: 'op plaatje 1' yazma, ne gördüğünü anlat.",
-        "Uzun görevlerde (10-12) önce istenen noktaları say, her biri için en az bir cümle yaz, sonunda tek tek kontrol et.",
-        "Bağlantı kelimeleri samenhang puanı getirir: eerst, daarna, tot slot, want, omdat, daarom, maar, bovendien, ten eerste / ten tweede.",
+    "regels": [
+        "Görevdeki her soruya / her noktaya bir cümleyle cevap ver. Bitirince tek tek kontrol et.",
+        "Görev metnindeki cümleleri olduğu gibi kopyalama: kopya cümle puan almaz.",
+        "Hitabı karıştırma: arkadaşa baştan sona 'je', şirkete / resmî kişiye baştan sona 'u'.",
     ],
-    "aanhef": ["Beste meneer De Vries, / Beste mevrouw Jansen,", "Geachte heer, mevrouw, (şirkete, adı bilinmiyorsa)", "Hoi Sanne, / Beste Sanne, (iş arkadaşı, arkadaş)"],
-    "slot": ["Met vriendelijke groet, + adın (resmî)", "Groeten, / Groetjes, + adın (samimi)", "Alvast bedankt voor uw antwoord.", "Ik hoor graag van u."],
+}
+
+# E-mail / letter skeleton (tasks 10-12 and often 9). Standard Dutch letter phrases; presented as
+# "phrases that work", not as something the official model requires.
+BRIEF = {
+    "delen": [
+        # [part, informal (je), formal (u)]
+        ["Hitap", "Beste Ahmet, / Hoi Lisa,", "Geachte heer De Vries, / Geachte mevrouw Jansen, / Geachte heer/mevrouw,"],
+        ["Açılış: neden yazıyorum", "Bedankt voor je mail. / Ik schrijf je omdat …", "Ik schrijf u omdat … / Ik wil u laten weten dat … / Naar aanleiding van …"],
+        ["Gövde", "Görevdeki noktalar, her biri bir cümle; eerst / daarna / ook / want / omdat ile bağla", "Aynısı"],
+        ["Kapanış cümlesi", "Ik houd je op de hoogte. / Laat je het me weten? / Ik hoor graag van je.", "Ik hoor graag van u. / Ik houd u op de hoogte. / Alvast bedankt voor uw hulp."],
+        ["Selam", "Groetjes, / Hartelijke groet, + adın", "Met vriendelijke groet, + adın"],
+    ],
+    "situaties": [
+        ["Davete evet", ["Wat leuk! Ik kom graag.", "Bedankt voor de uitnodiging."]],
+        ["Davete hayır", ["Helaas kan ik niet komen, want …", "Misschien kunnen we een andere keer afspreken?"]],
+        ["Şikâyet", ["Ik ben niet tevreden over …", "Ik wil graag dat u …", "Kunt u … oplossen?"]],
+        ["Bilgi isteme", ["Ik wil graag weten …", "Kunt u mij vertellen …?"]],
+        ["Özür", ["Het spijt me dat …", "Nogmaals sorry."]],
+        ["Teşekkür", ["Bedankt voor …", "Ik vond het erg leuk / fijn."]],
+    ],
+    "voorbeeld": "Beste Sanne,\n\nBedankt voor je uitnodiging voor je verjaardag. Helaas kan ik niet komen, want ik moet zaterdag werken. Misschien kunnen we volgende week samen koffie drinken?\n\nIk houd je op de hoogte.\n\nGroetjes,\nAyşe",
 }
 
 KALIPLAR = {
