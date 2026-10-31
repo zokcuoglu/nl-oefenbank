@@ -13703,6 +13703,507 @@
 "in_nieuws": []
 },
 {
+"id": "w418",
+"bron": "werk",
+"nl": "aanpassen",
+"soort": "woord",
+"tr": "uyarlamak, değiştirmek, düzenlemek",
+"niveau": "B1",
+"groep": "6",
+"thema": "werk",
+"voorbeeld": "Ik pas het script nog even aan.",
+"voorbeeld_tr": "Script'i biraz daha düzenliyorum.",
+"uitleg": "Ayrılabilen fiil: ik pas ... aan; aangepast. zich aanpassen (aan) = uyum sağlamak.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Kun je de planning aanpassen?",
+"tr": "Planı değiştirebilir misin?"
+},
+{
+"nl": "Het document is aangepast.",
+"tr": "Belge güncellendi."
+},
+{
+"nl": "Je moet je aanpassen aan de nieuwe regels.",
+"tr": "Yeni kurallara uyum sağlaman gerekiyor."
+}
+],
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w419",
+"bron": "werk",
+"nl": "de aanpassing",
+"soort": "woord",
+"tr": "değişiklik, uyarlama",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "Ik heb een kleine aanpassing in de code gedaan.",
+"voorbeeld_tr": "Kodda küçük bir değişiklik yaptım.",
+"uitleg": "aanpassen fiilinin ismi.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Na de aanpassing werkt het weer.",
+"tr": "Değişiklikten sonra yine çalışıyor."
+},
+{
+"nl": "Zijn er nog aanpassingen nodig?",
+"tr": "Başka değişiklik gerekiyor mu?"
+}
+],
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w420",
+"bron": "werk",
+"nl": "toepassen",
+"soort": "woord",
+"tr": "uygulamak (kural, yöntem)",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "We passen dezelfde regels toe op alle tabellen.",
+"voorbeeld_tr": "Aynı kuralları bütün tablolara uyguluyoruz.",
+"uitleg": "İngilizce 'apply' (kural/yöntem için). İşe başvurmak = solliciteren; izin veya erişim istemek = aanvragen. Geçmiş: toegepast.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Deze filter wordt alleen toegepast op actieve klanten.",
+"tr": "Bu filtre sadece aktif müşterilere uygulanıyor."
+},
+{
+"nl": "Die regel is hier niet van toepassing.",
+"tr": "O kural burada geçerli değil."
+},
+{
+"nl": "Kun je de wijzigingen toepassen?",
+"tr": "Değişiklikleri uygulayabilir misin?"
+}
+],
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w421",
+"bron": "werk",
+"nl": "de toepassing",
+"soort": "woord",
+"tr": "uygulama, kullanım; yazılım uygulaması",
+"niveau": "B2",
+"groep": "8",
+"thema": "werk",
+"voorbeeld": "Dit is een slimme toepassing van AI.",
+"voorbeeld_tr": "Bu, yapay zekânın akıllıca bir kullanımı.",
+"uitleg": "van toepassing zijn = geçerli olmak; formlarda n.v.t. = niet van toepassing.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Niet van toepassing.",
+"tr": "Geçerli değil (formlarda)."
+},
+{
+"nl": "De toepassing draait in de cloud.",
+"tr": "Uygulama bulutta çalışıyor."
+}
+],
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w422",
+"bron": "werk",
+"nl": "aanvragen",
+"soort": "woord",
+"tr": "talep etmek, başvurmak (izin, erişim)",
+"niveau": "B1",
+"groep": "6",
+"thema": "werk",
+"voorbeeld": "Ik heb toegang tot de database aangevraagd.",
+"voorbeeld_tr": "Veritabanına erişim talep ettim.",
+"uitleg": "Ayrılabilen fiil: ik vraag ... aan; aangevraagd. de aanvraag = başvuru, talep.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Je kunt verlof aanvragen via het portaal.",
+"tr": "İzni portal üzerinden talep edebilirsin."
+},
+{
+"nl": "Mijn aanvraag is goedgekeurd.",
+"tr": "Başvurum onaylandı."
+},
+{
+"nl": "Ze vraagt een nieuwe laptop aan.",
+"tr": "Yeni bir dizüstü bilgisayar talep ediyor."
+}
+],
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w423",
+"bron": "werk",
+"nl": "solliciteren",
+"soort": "woord",
+"tr": "(işe) başvurmak",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "Ik heb gesolliciteerd naar een baan als data engineer.",
+"voorbeeld_tr": "Data engineer olarak bir işe başvurdum.",
+"uitleg": "Sadece iş için: solliciteren naar een baan / bij een bedrijf. de sollicitatie = iş başvurusu; het sollicitatiegesprek = iş görüşmesi.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Hij solliciteert bij een bank.",
+"tr": "Bir bankaya başvuruyor."
+},
+{
+"nl": "Morgen heb ik een sollicitatiegesprek.",
+"tr": "Yarın iş görüşmem var."
+}
+],
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w424",
+"bron": "werk",
+"nl": "doorvoeren",
+"soort": "woord",
+"tr": "(değişikliği) uygulamak, hayata geçirmek",
+"niveau": "B2",
+"groep": "vo",
+"thema": "werk",
+"voorbeeld": "De wijzigingen worden vanavond doorgevoerd.",
+"voorbeeld_tr": "Değişiklikler bu akşam uygulanacak.",
+"uitleg": "Ayrılabilen fiil: we voeren ... door; doorgevoerd. Çoğunlukla 'wijzigingen doorvoeren'.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Wie voert de aanpassing door in productie?",
+"tr": "Değişikliği canlıya kim alıyor?"
+},
+{
+"nl": "Die verandering is nooit doorgevoerd.",
+"tr": "O değişiklik hiç uygulanmadı."
+}
+],
+"tur": "sch_ww",
+"subthema": "techniek",
+"register": "neutraal",
+"in_nieuws": [
+"draaiorgel"
+]
+},
+{
+"id": "w425",
+"bron": "werk",
+"nl": "ontwikkelen",
+"soort": "woord",
+"tr": "geliştirmek",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "We ontwikkelen een nieuw dashboard.",
+"voorbeeld_tr": "Yeni bir dashboard geliştiriyoruz.",
+"uitleg": "Ayrılmaz fiil: ik ontwikkel; ontwikkeld. zich ontwikkelen = gelişmek.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Zij heeft de tool zelf ontwikkeld.",
+"tr": "Aracı kendisi geliştirdi."
+},
+{
+"nl": "Het project ontwikkelt zich goed.",
+"tr": "Proje iyi gelişiyor."
+},
+{
+"nl": "Ik wil mijn Nederlands verder ontwikkelen.",
+"tr": "Hollandacamı daha da geliştirmek istiyorum."
+}
+],
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w426",
+"bron": "werk",
+"nl": "de ontwikkeling",
+"soort": "woord",
+"tr": "gelişme; geliştirme",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "Dat is een positieve ontwikkeling.",
+"voorbeeld_tr": "Bu olumlu bir gelişme.",
+"uitleg": "ontwikkelen fiilinin ismi.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "De ontwikkeling van de app duurt drie maanden.",
+"tr": "Uygulamanın geliştirilmesi üç ay sürüyor."
+},
+{
+"nl": "Ik volg de ontwikkelingen op de voet.",
+"tr": "Gelişmeleri yakından takip ediyorum."
+}
+],
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w427",
+"bron": "werk",
+"nl": "de afstemming",
+"soort": "woord",
+"tr": "koordinasyon, uzlaşma",
+"niveau": "B2",
+"groep": "vo",
+"thema": "werk",
+"voorbeeld": "Na afstemming met het team kiezen we voor optie B.",
+"voorbeeld_tr": "Ekiple konuştuktan sonra B seçeneğini seçiyoruz.",
+"uitleg": "afstemmen (met) fiilinin ismi. in afstemming met = ile koordineli olarak.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Dit gaat in afstemming met de business.",
+"tr": "Bu iş birimiyle koordineli yürüyor."
+},
+{
+"nl": "Er is nog wat afstemming nodig.",
+"tr": "Biraz daha koordinasyon gerekiyor."
+}
+],
+"tur": "zn",
+"subthema": "vergadering",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w428",
+"bron": "werk",
+"nl": "opleveren",
+"soort": "woord",
+"tr": "teslim etmek (iş, ürün); sonuç vermek",
+"niveau": "B2",
+"groep": "vo",
+"thema": "werk",
+"voorbeeld": "We leveren de eerste versie vrijdag op.",
+"voorbeeld_tr": "İlk versiyonu cuma teslim ediyoruz.",
+"uitleg": "Ayrılabilen fiil; opgeleverd. de oplevering = teslim. İkinci anlam: Dat levert veel op = Bu çok şey kazandırır.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Wanneer wordt het rapport opgeleverd?",
+"tr": "Rapor ne zaman teslim edilecek?"
+},
+{
+"nl": "De oplevering is gepland voor maart.",
+"tr": "Teslim mart için planlandı."
+},
+{
+"nl": "Die aanpak levert tijdwinst op.",
+"tr": "O yaklaşım zaman kazandırıyor."
+}
+],
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w429",
+"bron": "werk",
+"nl": "uitrollen",
+"soort": "woord",
+"tr": "devreye almak, yaygınlaştırmak (rollout)",
+"niveau": "B2",
+"groep": "vo",
+"thema": "werk",
+"voorbeeld": "We rollen de nieuwe versie volgende week uit.",
+"voorbeeld_tr": "Yeni versiyonu gelecek hafta devreye alıyoruz.",
+"uitleg": "Ayrılabilen fiil; uitgerold. Kelime anlamı: (halı gibi) açıp sermek.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "De update wordt stap voor stap uitgerold.",
+"tr": "Güncelleme adım adım devreye alınıyor."
+},
+{
+"nl": "Na de pilot rollen we het uit naar alle regio's.",
+"tr": "Pilottan sonra bütün bölgelere yayıyoruz."
+}
+],
+"tur": "sch_ww",
+"subthema": "techniek",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w430",
+"bron": "werk",
+"nl": "inplannen",
+"soort": "woord",
+"tr": "planlamak, takvime koymak",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "Ik plan een overleg in voor dinsdag.",
+"voorbeeld_tr": "Salı için bir toplantı koyuyorum.",
+"uitleg": "Ayrılabilen fiil; ingepland.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Is de demo al ingepland?",
+"tr": "Demo takvime kondu mu?"
+},
+{
+"nl": "Kun je tijd inplannen om dit te bespreken?",
+"tr": "Bunu konuşmak için zaman ayırabilir misin?"
+}
+],
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w431",
+"bron": "werk",
+"nl": "implementeren",
+"soort": "woord",
+"tr": "uygulamaya koymak",
+"niveau": "B2",
+"groep": "vo",
+"thema": "werk",
+"voorbeeld": "We implementeren de nieuwe logica in dbt.",
+"voorbeeld_tr": "Yeni mantığı dbt'de uyguluyoruz.",
+"uitleg": "Ayrılmaz fiil; geïmplementeerd. de implementatie = uygulama.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "De oplossing is nog niet geïmplementeerd.",
+"tr": "Çözüm henüz uygulanmadı."
+},
+{
+"nl": "De implementatie kost meer tijd dan gedacht.",
+"tr": "Uygulama düşünülenden fazla zaman alıyor."
+}
+],
+"tur": "ww",
+"subthema": "techniek",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w432",
+"bron": "werk",
+"nl": "testen",
+"soort": "woord",
+"tr": "test etmek",
+"niveau": "A2",
+"groep": "5",
+"thema": "werk",
+"voorbeeld": "Heb je de query al getest?",
+"voorbeeld_tr": "Sorguyu test ettin mi?",
+"uitleg": "Geçmiş: getest ('t kofschip: test- + -te/-t).",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "We testen eerst in de acceptatieomgeving.",
+"tr": "Önce kabul ortamında test ediyoruz."
+},
+{
+"nl": "Alles is getest en goedgekeurd.",
+"tr": "Her şey test edildi ve onaylandı."
+}
+],
+"tur": "ww",
+"subthema": "techniek",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w433",
+"bron": "werk",
+"nl": "de wijziging",
+"soort": "woord",
+"tr": "değişiklik",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "Er is een wijziging in de planning.",
+"voorbeeld_tr": "Planda bir değişiklik var.",
+"uitleg": "wijzigen = değiştirmek; aanpassing'den biraz daha resmî.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Wijzigingen voorbehouden.",
+"tr": "Değişiklik hakkı saklıdır."
+},
+{
+"nl": "Kun je de wijzigingen even nalopen?",
+"tr": "Değişiklikleri bir gözden geçirebilir misin?"
+}
+],
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
+"id": "w434",
+"bron": "werk",
+"nl": "het verzoek",
+"soort": "woord",
+"tr": "rica, talep",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"voorbeeld": "Op verzoek van de klant hebben we het veld toegevoegd.",
+"voorbeeld_tr": "Müşterinin talebi üzerine alanı ekledik.",
+"uitleg": "Resmî. een verzoek doen / indienen = talepte bulunmak.",
+"voorbeeld_door": "claude",
+"meer": [
+{
+"nl": "Ik heb een verzoek: kun je dit vandaag nog sturen?",
+"tr": "Bir ricam var: bunu bugün gönderebilir misin?"
+},
+{
+"nl": "Uw verzoek is in behandeling.",
+"tr": "Talebiniz işleme alındı."
+}
+],
+"tur": "zn",
+"subthema": "",
+"register": "formeel",
+"in_nieuws": [
+"pieterburen",
+"doosjes"
+]
+},
+{
 "id": "s001",
 "bron": "school",
 "nl": "buitensporig",
