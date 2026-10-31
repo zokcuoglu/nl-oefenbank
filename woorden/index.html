@@ -403,6 +403,7 @@ function explain(w) {
       <button class="btn ghost" style="padding:1px 8px;font-size:12px" data-act="say" data-t="${esc(w.voorbeeld || w.nl)}">Sesli</button></span>
     ${w.definitie ? `<span lang="nl" class="muted">${esc(w.definitie)}</span>` : ""}
     ${w.voorbeeld ? `<span><i lang="nl">${esc(w.voorbeeld)}</i>${w.voorbeeld_tr ? `<br><span class="muted">${esc(w.voorbeeld_tr)}</span>` : ""}</span>` : ""}
+    ${w.meer?.length ? `<span><b>Başka örnekler:</b>${w.meer.map(e => `<br><i lang="nl">${esc(e.nl)}</i> <span class="muted">— ${esc(e.tr)}</span>`).join("")}</span>` : ""}
     ${w.uitleg ? `<span>${esc(w.uitleg)}</span>` : ""}
     <span class="src">${lvlChip(w.niveau)} ${groepChip(w.groep)} ${esc(srcLabel(w))}${w.voorbeeld_door === "claude" ? " · örnek cümle sonradan eklendi" : ""}</span></div>`;
 }

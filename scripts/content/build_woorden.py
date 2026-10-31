@@ -107,8 +107,19 @@ def appears_in(nl, text):
     return False
 
 
+def meer(r):
+    """Extra example sentences: 'nl = tr | nl = tr' -> [{nl, tr}] (optional column)."""
+    out = []
+    for part in (r.get("meer") or "").split(" | "):
+        if part.strip():
+            assert " = " in part, f"{r['id']}: extra example needs 'nl = tr': {part}"
+            nl, tr = part.split(" = ", 1)
+            out.append({"nl": nl.strip(), "tr": tr.strip()})
+    return out
+
+
 def labels(r):
-    return {"tur": r["tur"], "thema": r["thema"], "subthema": r.get("subthema", ""), "register": r["register"]}
+    return {"meer": meer(r), "tur": r["tur"], "thema": r["thema"], "subthema": r.get("subthema", ""), "register": r["register"]}
 
 
 def item_text(item):

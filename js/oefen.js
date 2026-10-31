@@ -57,7 +57,7 @@ const CSS = `
 .of-word{font-family:var(--display,var(--f-display));font-weight:700;font-size:clamp(28px,7vw,48px);line-height:1.15}
 .of-main{font-size:clamp(20px,4.4vw,27px);font-weight:700;line-height:1.3}
 .of-sub{color:var(--muted);font-size:15px}
-.of-ex{font-size:15px;border-left:3px solid var(--line);padding-left:10px;text-align:left;max-width:52ch}
+.of-ex{font-size:15px;max-height:9.5em;overflow:auto;border-left:3px solid var(--line);padding-left:10px;text-align:left;max-width:52ch}
 .of-ex em{color:var(--muted)}
 .of-tap{position:absolute;bottom:10px;font-size:13px;color:var(--muted)}
 .of-say{position:absolute;top:10px;right:12px;background:none;border:none;font-size:22px;cursor:pointer}
@@ -104,7 +104,9 @@ export function mountCards(el, words, { side = "tr", tags = () => "", onDone, on
     $("[data-main]").textContent = meaningOf(w, side);
     // The other meaning, small: Turkish under a definition, the definition under Turkish
     $("[data-sub]").textContent = meaningOf(w, side) === w.tr ? (w.definitie || "") : w.tr;
-    $("[data-ex]").innerHTML = w.voorbeeld ? `<span lang="nl">${esc(w.voorbeeld)}</span>${w.voorbeeld_tr ? `<br><em>${esc(w.voorbeeld_tr)}</em>` : ""}` : "";
+    // Main example plus up to 2 extra examples (other meanings / uses), so the meaning sticks
+    const ex = [{ nl: w.voorbeeld, tr: w.voorbeeld_tr }, ...shuffle(w.meer || []).slice(0, 2)].filter(e => e.nl);
+    $("[data-ex]").innerHTML = ex.map(e => `<span lang="nl">${esc(e.nl)}</span>${e.tr ? `<br><em>${esc(e.tr)}</em>` : ""}`).join("<br>");
     $("[data-count]").textContent = `Nog ${C.queue.length}`;
     $("[data-known]").textContent = `✓ ${C.known}/${words.length}`;
     $("[data-prog]").style.width = (C.known / words.length * 100) + "%";
