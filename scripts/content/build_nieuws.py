@@ -51,6 +51,8 @@ def check_questions(qs, where, seen):
 def main():
     from build_woorden import appears_in  # same matching rule as the word pool
     werk = {r["id"]: r for r in csv.DictReader(WERK.open(encoding="utf-8"))}
+    # School word lists can be linked the same way (ids s001...), so a news text can say which school words it uses
+    werk.update({r["id"]: r for r in csv.DictReader((HERE / "school_woorden.csv").open(encoding="utf-8"))})
     items, seen_q = [], set()
     for f in sorted(HERE.glob("n[0-9][0-9]_*.py")):
         it = dict(load(f).ITEM)

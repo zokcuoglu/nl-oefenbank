@@ -75,7 +75,7 @@ const GROEPEN = ["1-2", "3", "4", "5", "6", "7", "8"];  // "vo" words are never 
 const GRANK = { "1-2": 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, vo: 9 };
 const RANK = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
 const SOORTEN = { alle: "Hepsi", woord: "Kelimeler", frase: "Deyim, kalıp ve cümleler" };
-const BRONNEN = { alle: "Hepsi", basis: "Temel kelimeler", werk: "İş notları", nieuws: "Haberler" };
+const BRONNEN = { alle: "Hepsi", basis: "Temel kelimeler", school: "Okul listeleri", werk: "İş notları", nieuws: "Haberler" };
 const TYPES = { nl2tr: "Anlamı ne?", tr2nl: "Hollandacası ne?", gap: "Boşluk doldurma", def: "Tanımdan bul" };
 const COUNTS = [10, 20, 30, 50];
 const PREF = "woorden-cfg";
@@ -95,7 +95,7 @@ const keyTokens = nl => nl.toLowerCase().replace(/\(.*?\)|\[.*?\]/g, " ").replac
 const stem = t => t.length > 4 ? t.slice(0, Math.max(4, t.length - 2)) : t;
 // Hide the entry's own words in a hint, so the hint helps without giving the answer away
 const mask = (text, w) => { let s = esc(text || ""); for (const t of keyTokens(w.nl)) s = s.replace(new RegExp(`(^|[^\\p{L}])(${stem(t)}[\\p{L}']*)`, "giu"), "$1…"); return s; };
-const srcLabel = w => w.bron === "werk" ? "İş notları" : w.bron === "basis" ? "Temel kelimeler" : `Haber #${w.nr}`;
+const srcLabel = w => w.bron === "werk" ? "İş notları" : w.bron === "basis" ? "Temel kelimeler" : w.bron === "school" ? `Okul: ${w.lijst}` : `Haber #${w.nr}`;
 const groepLabel = g => g === "vo" ? "ortaokul+" : "groep " + g;
 const groepChip = g => `<span class="chip">${esc(groepLabel(g))}</span>`;
 // Rules and comparisons ("geen vs niet", "[emir] + gerust") stay in the word list but are not asked as questions
@@ -140,7 +140,7 @@ function typesFor(w) {
   // Gap: only with a short example sentence for easy words
   if (gapForm(w) && (!easy(w) || w.voorbeeld.split(/\s+/).length <= 8)) t.push("gap");
   // A Dutch definition is harder to read than the word itself: only from B1 (adults) / groep 6 (children)
-  if (w.definitie && (isChild ? GRANK[w.groep] >= 6 : RANK[w.niveau] >= RANK.B1)) t.push("def");
+  if (w.definitie && (w.bron === "school" || (isChild ? GRANK[w.groep] >= 6 : RANK[w.niveau] >= RANK.B1))) t.push("def");
   return t;
 }
 // The word form in the example sentence that can be blanked (one-word entries only)
@@ -191,7 +191,7 @@ function vSetup() {
     `<button class="${String(cur) === String(k) ? "on" : ""}" data-act="cfg" data-k="${name}" data-v="${k}" aria-pressed="${String(cur) === String(k)}">${esc(v)}</button>`).join("")}</div>`;
   return `<section class="panel"><span class="eyebrow">${isChild ? "Woordentest" : "Temel kelimeler · iş notları · haberler"}</span>
       <h2 style="margin:4px 0 8px">Kendi testini kur</h2>
-      <p class="muted" style="margin:0;max-width:62ch">${S.pool.length} kelime ve deyim: temel kelimeler (${S.pool.filter(w => w.bron === "basis").length})${isChild ? "" : `, iş toplantıları ve yazışmalar (${S.pool.filter(w => w.bron === "werk").length})`} ve haberler (${S.pool.filter(w => w.bron === "nieuws").length}). ${isChild ? "Sınıfını (groep)" : "Seviyeleri"}, kaynağı ve soru sayısını seç; sorular her seferinde yeniden üretilir.</p></section>
+      <p class="muted" style="margin:0;max-width:62ch">${S.pool.length} kelime ve deyim: temel kelimeler (${S.pool.filter(w => w.bron === "basis").length}), okul listeleri (${S.pool.filter(w => w.bron === "school").length})${isChild ? "" : `, iş toplantıları ve yazışmalar (${S.pool.filter(w => w.bron === "werk").length})`} ve haberler (${S.pool.filter(w => w.bron === "nieuws").length}). ${isChild ? "Sınıfını (groep)" : "Seviyeleri"}, kaynağı ve soru sayısını seç; sorular her seferinde yeniden üretilir.</p></section>
     <section class="panel setup">
       <div><p class="lbl">Kaynak</p>${seg("bron", isChild ? Object.fromEntries(Object.entries(BRONNEN).filter(([k]) => k !== "werk")) : BRONNEN, c.bron)}</div>
       <div><p class="lbl">Tür</p>${seg("soort", SOORTEN, c.soort)}</div>
