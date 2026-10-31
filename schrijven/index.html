@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Schrijven I (B1) · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.taskrow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.taskrow:last-child{border-bottom:0} .taskrow:hover b{color:var(--accent)}
+.taskrow .nr{font-family:var(--mono);font-size:13px;color:var(--muted);width:1.6em;text-align:right}
+.sit{background:var(--sunk);border-radius:10px;padding:14px 16px;font-size:16.5px;line-height:1.65}
+.sit ul{margin:8px 0 0;padding-left:20px}
+.bijlage{margin-top:10px;background:var(--surface);border:1px dashed var(--line);border-radius:8px;padding:10px 12px;font-size:15px}
+.answer{width:100%;font:inherit;font-size:16.5px;line-height:1.6;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);resize:vertical}
+.fields{display:grid;grid-template-columns:minmax(10em,18em) 1fr;gap:8px 12px;align-items:start}
+@media (max-width:600px){.fields{grid-template-columns:1fr;gap:2px 0}.fields label{margin-top:8px}}
+.fields label{font-size:14.5px;font-weight:500;padding-top:8px} .fields .hint{font-weight:400;color:var(--muted);font-size:12.5px}
+.fields textarea{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%;min-height:40px;resize:vertical}
+.timerbar{position:sticky;top:0;z-index:5;background:var(--ground);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0}
+.dots{display:flex;gap:3px;flex-wrap:wrap} .dots button{min-width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-family:var(--mono)}
+.dots button.on{outline:2px solid var(--accent)} .dots button.done{background:var(--accent-soft)} .dots .sep{width:6px}
+.timer{font-family:var(--mono);font-size:18px;font-weight:600} .timer.low{color:var(--bad)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px} @media (max-width:760px){.two{grid-template-columns:1fr}}
+.mine{white-space:pre-wrap;background:var(--sunk);border-radius:10px;padding:10px 12px;font-size:15.5px;line-height:1.6}
+.model{white-space:pre-wrap;background:var(--ok-soft);border-radius:10px;padding:10px 12px;font-size:15.5px;line-height:1.6}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:15px;cursor:pointer;margin:6px 0} .check input{margin-top:4px}
+.copybox{width:100%;min-height:160px;font-family:var(--mono);font-size:12px;margin-top:8px}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <span lang="nl">Staatsexamen NT2 Programma I</span></small><h1>Schrijven I (B1)</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// B1 writing practice like Staatsexamen NT2 Schrijven I: 12 tasks (8 sentence tasks, a form, 3 short texts), 100 minutes,
+// no spellchecker. One task or a full practice exam. After "Bitir": your answer next to a model answer, a self-check
+// (sentence tasks: does it do the task + the required construction; texts: all required elements), and a prompt with the
+// official CvTE scoring rules and the 47-point score table to paste into Claude or ChatGPT.
+// Saved as attempt (module "schrijven-b1") after the self-check: score = ticked items / all items (self-assessment).
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const params = () => new URLSearchParams(location.search);
+const mmss = s => `${Math.floor(Math.max(0, s) / 60)}:${String(Math.max(0, s) % 60).padStart(2, "0")}`;
+const words = t => (t.match(/[\p{L}\d'-]+/gu) || []).length;
+const SOORT = { zin: "Zinstaak", formulier: "Formulier", tekst: "Korte tekst" };
+
+const { user, profile } = await gate({ area: "nt2", title: "Schrijven I (B1)", seen: "schrijven" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let D;
+try { D = await (await fetch("../data/schrijven-b1.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Görevler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+const R = D.regels, byId = {}, examOf = {};
+D.examens.forEach(e => e.taken.forEach(t => { byId[t.id] = t; examOf[t.id] = e.id; }));
+const examById = Object.fromEntries(D.examens.map(e => [e.id, e]));
+let attempts = await loadAttempts(user.uid, "schrijven-b1").catch(() => []);
+const S = { run: null, timer: null };
+
+// Self-check items per task: sentence task = task done + construction; form/text = the required elements
+const checks = t => t.soort === "zin" ? [t.adequaat, t.gram_tekst ? `Ik gebruik ${t.gram_tekst}.` : "De zin is grammaticaal correct (woordvolgorde!)."] : t.elementen;
+const answerText = (t, a) => t.velden ? t.velden.map(([l], i) => `${l}: ${(a || {})[i] || ""}`).join("\n") : (a || "");
+const isEmpty = (t, a) => t.velden ? !t.velden.some((_, i) => ((a || {})[i] || "").trim()) : !(a || "").trim();
+
+// ---------- List ----------
+function vList() {
+  const row = (t) => { const l = attempts.find(a => a.test === t.id);
+    return `<a class="taskrow" href="?t=${t.id}"><span class="nr">${t.nr}</span><span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${SOORT[t.soort]} · max ${t.max} punt${t.gram_tekst ? " · " + esc(t.gram_tekst) : ""}</span></span>
+      ${l ? `<span class="chip num">✓ ${l.score}/${l.total}</span>` : `<span class="chip">yeni</span>`}</a>`; };
+  return `<section class="panel"><span class="eyebrow">Staatsexamen NT2 Programma I</span><h2 style="margin:4px 0 8px">Yazma sınavına hazırlık</h2>
+      <p class="muted" style="margin:0;max-width:70ch">Schrijven I bilgisayarda, 100 dakika, yazım denetimi yok. 12 görev: 8 cümle görevi (bazılarında belirli bir yapı istenir: ana cümle, yan cümle, devrik cümle, 'te + mastar'), 1 form ve 3 kısa metin. Toplam 47 puan; 2025 örnek sınavında geçme sınırı 25 puan (= 503). Deneme sınavlarımız aynı yapıda. Bitirince cevabını örnek cevapla karşılaştırır, kontrol listesini işaretler ve istersen resmî kurallarla yapay zekâya puanlatırsın. Görevler bu sınav tarzında yazılmış alıştırmalardır; isimler uydurmadır.</p></section>
+    <section class="panel"><span class="eyebrow">Puanlama kısaca (CvTE 2025)</span><ul style="margin:8px 0 0;padding-left:20px;line-height:1.7">
+      <li><b>Görev 1–8:</b> görevi yapıyor mu (0–1) + gramer (0–1). İstenen yapı yoksa gramer puanı 0. Kelime sırası her zaman doğru olmalı.</li>
+      <li><b>Görev 9 (form):</b> her alan dolu = 2 puan başlangıç (en çok 3) + gramer 0–2 + imla + kelime seçimi = en çok 7.</li>
+      <li><b>Görev 10–12:</b> istenen her nokta varsa 2 puan başlangıç (en çok 3) + gramer 0–2 + imla + bağlantı kelimeleri + kelime seçimi = en çok 8. Resim ya da tablo e-postaya eklenmiyor: metin onlarsız anlaşılmalı.</li>
+      <li>Görevdeki cümleleri <b>olduğu gibi kopyalama</b>: puan almaz. de/het hatası sayılmaz, artikeli unutmak sayılır.</li></ul></section>
+    ${D.examens.map(e => { const l = attempts.find(a => a.test === e.id);
+      return `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3><span class="row">${l ? `<span class="chip num">son: ${new Date(l.finished_at).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}</span>` : ""}
+        <a class="btn primary" style="text-decoration:none" href="?examen=${e.id}">Tam sınav (${e.minuten} dk)</a></span></div>${e.taken.map(row).join("")}</section>`; }).join("")}`;
+}
+
+// ---------- Run ----------
+function startRun(test, ids, minutes) {
+  S.run = { test, ids, cur: 0, ans: {}, checks: {}, started: Date.now(), limit: minutes * 60, timerOn: !!minutes, done: false, saved: false };
+  clearInterval(S.timer);
+  S.timer = setInterval(() => { const r = S.run; if (!r || r.done || !r.timerOn) return; const el = document.getElementById("timer"), s = left();
+    if (el) { el.textContent = mmss(s); el.classList.toggle("low", s <= 600); } if (s <= 0) finish(true); }, 1000);
+}
+const left = () => S.run.limit - Math.floor((Date.now() - S.run.started) / 1000);
+function situation(t) {
+  return `<div class="sit" lang="nl"><span class="eyebrow">Opdracht ${t.nr} · ${SOORT[t.soort]} · max ${t.max} punt</span><h3 style="margin:4px 0 6px">${esc(t.titel)}</h3>
+    <p style="margin:0">${esc(t.situatie)}</p><p style="margin:8px 0 0"><b>${esc(t.opdracht)}</b>${t.gram_tekst ? ` <span class="chip accent">${esc(t.gram_tekst)}</span>` : ""}</p>
+    ${t.elementen && t.soort === "tekst" ? `<ul>${t.elementen.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+    ${t.bijlage ? `<div class="bijlage">${esc(t.bijlage).replace(/ (Plaatje \d:)/g, "<br>$1").replace(/ — /g, " · ")}</div>` : ""}</div>
+    <details style="margin:8px 0 0"><summary class="muted" style="cursor:pointer;font-size:13.5px">Türkçe açıklama</summary><p style="margin:6px 0 0;font-size:14.5px">${esc(t.tr)}</p></details>`;
+}
+function input(t, a) {
+  if (t.velden) return `<div class="fields" lang="nl">${t.velden.map(([l, h], i) => `<label for="f-${i}">${esc(l)}${h ? ` <span class="hint">(${esc(h)})</span>` : ""}</label>
+    <textarea id="f-${i}" data-field="${i}" spellcheck="false" autocomplete="off" rows="${h.includes("zinnen") ? 3 : 1}">${esc((a || {})[i] || "")}</textarea>`).join("")}</div>`;
+  return `<textarea class="answer" id="answer" lang="nl" spellcheck="false" style="min-height:${t.soort === "zin" ? 90 : 240}px" placeholder="Schrijf hier je antwoord…">${esc(a || "")}</textarea>
+    <p class="muted num" style="font-size:13px;margin:4px 0 0" id="wc">${words(a || "")} kelime</p>`;
+}
+function vRun() {
+  const r = S.run, exam = !!examById[r.test];
+  const head = `<div class="timerbar">
+      ${exam ? `<div class="dots">${r.ids.map((id, i) => `${i === 8 || i === 9 ? `<span class="sep"></span>` : ""}<button class="${i === r.cur ? "on" : ""} ${!r.done && !isEmpty(byId[id], r.ans[id]) ? "done" : ""}" data-act="go" data-i="${i}">${i + 1}</button>`).join("")}</div>` : `<a href="./">← Görevler</a>`}
+      <span style="margin-left:auto" class="row">${!r.done && r.timerOn ? `<span class="timer" id="timer">${mmss(left())}</span>` : ""}
+        ${r.done ? `<a class="btn" href="./" style="text-decoration:none">Görevlere dön</a><button class="btn" data-act="again">Tekrar yaz</button>` : `<button class="btn primary" data-act="finish">Bitir</button>`}</span></div><div id="finishmsg"></div>`;
+  if (!r.done) { const t = byId[r.ids[r.cur]];
+    return head + `<section class="panel">${situation(t)}<div style="margin-top:14px">${input(t, r.ans[t.id])}</div>
+      ${exam ? `<div class="row" style="margin-top:12px">${r.cur > 0 ? `<button class="btn" data-act="go" data-i="${r.cur - 1}">‹ Önceki</button>` : ""}${r.cur < r.ids.length - 1 ? `<button class="btn primary" data-act="go" data-i="${r.cur + 1}">Sonraki →</button>` : ""}</div>` : ""}</section>`; }
+  const total = r.ids.reduce((n, id) => n + checks(byId[id]).length, 0), ok = r.ids.reduce((n, id) => n + (r.checks[id] || []).filter(Boolean).length, 0);
+  return head + `<section class="panel"><div class="row" style="gap:16px;align-items:flex-end"><div class="bigscore num" style="font-size:40px;font-weight:700">${ok}/${total}</div>
+      <div class="muted" style="font-size:14px">kontrol noktası işaretledin${r.timeout ? " · süre doldu" : ""}</div>
+      <div style="margin-left:auto">${r.saved ? `<span class="chip ok">kaydedildi</span>` : `<button class="btn primary" data-act="save">Sonucu kaydet</button>`}</div></div>
+    <p class="muted" style="margin:8px 0 0;font-size:14px;max-width:72ch">Bu bir öz değerlendirme. Resmî 47 puanlık tahmin ve dil hataları için en alttaki metni yapay zekâya yapıştır.</p></section>
+    ${r.ids.map(id => { const t = byId[id], a = r.ans[id];
+      return `<section class="panel">${situation(t)}
+        <div class="two" style="margin-top:12px"><div><span class="eyebrow">Senin cevabın</span><div class="mine" lang="nl">${isEmpty(t, a) ? `<span class="muted">(boş)</span>` : esc(answerText(t, a))}</div></div>
+          <div><span class="eyebrow">Örnek cevap</span><div class="model" lang="nl">${esc(t.voorbeeld)}</div></div></div>
+        <div style="margin-top:10px"><span class="eyebrow">Cevabımda var</span>${checks(t).map((c, k) => `<label class="check"><input type="checkbox" data-act="chk" data-id="${id}" data-k="${k}" ${(r.checks[id] || [])[k] ? "checked" : ""}><span lang="nl">${esc(c)}</span></label>`).join("")}</div></section>`; }).join("")}
+    <section class="panel"><h3>Yapay zekâ ile puanla</h3>
+      <p class="muted" style="margin:6px 0 10px;font-size:14px">Metni kopyala, yeni bir Claude veya ChatGPT sohbetine yapıştır. İçinde resmî CvTE puanlama kuralları${r.ids.length === 12 ? ", 47 puanlık skor tablosu" : ""}, görevler, senin cevapların ve örnek cevaplar var.</p>
+      <div class="row"><button class="btn primary" data-act="copy">Kopyala</button><span id="copystatus" class="muted" style="font-size:14px"></span></div>
+      <details style="margin-top:10px"><summary class="muted" style="cursor:pointer;font-size:13px">Metni göster</summary><textarea class="copybox" readonly id="copybox">${esc(prompt(r))}</textarea></details></section>`;
+}
+
+// ---------- AI prompt: self-contained, official rules ----------
+function prompt(r) {
+  const full = r.ids.length === 12, max = r.ids.reduce((n, id) => n + byId[id].max, 0);
+  const L = ["Je bent beoordelaar van het Staatsexamen NT2 Schrijven I (B1). Beoordeel mijn antwoorden volgens de regels van het CvTE hieronder.",
+    "Ik ben Turks: geef je uitleg in het Turks, citeer mijn tekst en de verbeteringen in het Nederlands.", "",
+    `## Beoordelingsregels (samenvatting van ${R.bron})`, "- " + R.zin, "- " + R.formulier, "- " + R.tekst, ...R.algemeen.map(x => "- " + x)];
+  if (full) L.push("", `## Omrekentabel punten → score (max ${R.max}, ${R.cesuur} punten = ${R.tabel[R.cesuur]} = geslaagd)`, R.tabel.map((s, i) => `${i}=${s}`).join(", "));
+  L.push("", "## Opdrachten en mijn antwoorden", "");
+  r.ids.forEach(id => { const t = byId[id], a = r.ans[id];
+    L.push(`### Opdracht ${t.nr} (${SOORT[t.soort]}, max ${t.max}): ${t.titel}`, "Situatie: " + t.situatie, "Opdracht: " + t.opdracht);
+    if (t.soort === "zin") L.push("Adequaat als: " + t.adequaat, "Grammatica: " + (t.gram_tekst ? `de schrijver produceert ${t.gram_tekst}.` : "geen specifieke eis."));
+    if (t.velden) L.push("Formuliervelden: " + t.velden.map(([l]) => l).join(" | "));
+    if (t.soort !== "zin") L.push("Acceptabel (2 punten) als: " + t.elementen.join(" / "));
+    if (t.doel) L.push("Doel van de tekst: " + t.doel);
+    if (t.bijlage) L.push("Bijlage (komt niet mee met de tekst): " + t.bijlage);
+    L.push("Mijn antwoord:", isEmpty(t, a) ? "(leeg)" : answerText(t, a), "Voorbeeldantwoord (alleen ter oriëntatie): " + t.voorbeeld.replace(/\n/g, " / "), ""); });
+  L.push("## Gevraagd resultaat",
+    "1. Per opdracht: punten per aspect met een korte uitleg, de fouten (met verbetering) en een verbeterde versie van mijn tekst.",
+    full ? `2. Een puntentabel, het totaal (max ${R.max}), de score volgens de tabel en of ik geslaagd zou zijn (cesuur ${R.cesuur}).`
+         : `2. Een puntentabel en het totaal (max ${max}). Het examen heeft 47 punten en de cesuur is ${R.cesuur}; geef een korte inschatting.`,
+    "3. Mijn drie belangrijkste verbeterpunten, met per punt één voorbeeld.");
+  return L.join("\n");
+}
+
+// ---------- Finish & save ----------
+function finish(timeout = false) { const r = S.run; if (r.done) return; r.done = true; r.timeout = timeout; clearInterval(S.timer); r.used = Math.floor((Date.now() - r.started) / 1000); render(); scrollTo(0, 0); }
+async function save() {
+  const r = S.run, total = r.ids.reduce((n, id) => n + checks(byId[id]).length, 0);
+  const attempt = { kind: examById[r.test] ? "examen" : "taak", test: r.test, title: examById[r.test]?.titel || byId[r.test].titel,
+    started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: r.used, timed: r.timerOn, self_check: true,
+    score: r.ids.reduce((n, id) => n + (r.checks[id] || []).filter(Boolean).length, 0), total,
+    answers: r.ids.map(id => ({ qid: id, chosen: answerText(byId[id], r.ans[id]).slice(0, 1500), correct: false })) };
+  try { await saveAttempt(user.uid, "schrijven-b1", attempt); attempts.unshift(attempt); r.saved = true; } catch (e) { console.warn(e); }
+  render();
+}
+
+// ---------- Render & events ----------
+function render() {
+  const p = params();
+  if (S.run) { app.innerHTML = vRun(); return; }
+  const ex = examById[p.get("examen")];
+  if (ex) { startRun(ex.id, ex.taken.map(t => t.id), ex.minuten); app.innerHTML = vRun(); return; }
+  if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], 0); app.innerHTML = vRun(); return; }
+  app.innerHTML = vList();
+}
+app.addEventListener("input", e => {
+  const r = S.run; if (!r || r.done) return;
+  const t = byId[r.ids[r.cur]];
+  if (e.target.id === "answer") { r.ans[t.id] = e.target.value; const wc = document.getElementById("wc"); if (wc) wc.textContent = words(e.target.value) + " kelime"; }
+  if (e.target.dataset.field !== undefined) r.ans[t.id] = { ...(r.ans[t.id] || {}), [e.target.dataset.field]: e.target.value };
+});
+app.addEventListener("change", e => {
+  const el = e.target.closest("[data-act=chk]"); if (!el) return;
+  const c = S.run.checks[el.dataset.id] = S.run.checks[el.dataset.id] || []; c[+el.dataset.k] = el.checked;
+  const y = scrollY; render(); scrollTo(0, y);
+});
+app.addEventListener("click", async e => {
+  const el = e.target.closest("[data-act]"); if (!el) return;
+  const r = S.run;
+  switch (el.dataset.act) {
+    case "go": r.cur = +el.dataset.i; render(); scrollTo(0, 0); break;
+    case "save": if (!r.saved) { el.disabled = true; await save(); } break;
+    case "finish": { const open = r.ids.filter(id => isEmpty(byId[id], r.ans[id])).length, box = document.getElementById("finishmsg");
+      if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} görev boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
+      finish(); break; }
+    case "again": { const t = r.test; S.run = null; startRun(t, examById[t]?.taken.map(x => x.id) || [t], examById[t]?.minuten || 0); render(); scrollTo(0, 0); break; }
+    case "copy": { const st = document.getElementById("copystatus");
+      try { await navigator.clipboard.writeText(document.getElementById("copybox").value); st.innerHTML = `<span class="chip ok">Kopyalandı</span> Şimdi yeni bir Claude veya ChatGPT sohbetine yapıştır.`; }
+      catch (err) { st.innerHTML = `<span class="chip warn">Otomatik kopyalanamadı</span> "Metni göster"e tıklayıp kutudaki metni kopyala.`; } break; }
+  }
+});
+addEventListener("popstate", () => { S.run = null; render(); });
+render();
+</script>
+</body>
+</html>
