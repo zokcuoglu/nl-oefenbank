@@ -72,7 +72,7 @@
       "id": "spreken",
       "area": "nt2",
       "title": "Spreken",
-      "desc": "368 görev, dil eylemine göre filtre, 23 deneme sınavı. Cevabını yaz, yapay zekâ resmî kurallarla puanlasın.",
+      "desc": "368 görev, dil eylemine göre filtre, 23 deneme sınavı ve 4–8–12–16 görevlik rastgele denemeler. Cevabını yaz, yapay zekâ resmî kurallarla puanlasın.",
       "exam": true,
       "status": "ready",
       "href": "spreken/",
@@ -91,11 +91,12 @@
     {
       "id": "schrijven",
       "area": "nt2",
-      "title": "Schrijven",
-      "desc": "Yazma alıştırması.",
+      "title": "Schrijven I (B1)",
+      "desc": "Resmî yapıda 3 deneme sınavı: 8 cümle görevi, form, 3 kısa metin; 100 dakika, 47 puan. Örnek cevap, kontrol listesi ve CvTE kurallarıyla yapay zekâ puanı.",
       "exam": true,
-      "status": "soon",
-      "niveau": "B1"
+      "status": "ready",
+      "niveau": "B1",
+      "href": "schrijven/"
     },
     {
       "id": "lezen-a2",

@@ -155,10 +155,13 @@ function questionText(q, nr, answer) {
 }
 function buildPrompt(items, mode) {
   const P = R.prompt;
+  // Random exam shorter than 16 tasks: the official 128-point table does not apply, so ask for a share of the maximum
+  const nk = items.filter(x => x.q.type === "kort").length, nm = items.length - nk, max = nk * R.kort.max + nm * R.middel.max;
+  const slotPart = `Bu tam sınav değil, ${items.length} görevlik kısa bir deneme (${nk} kısa, ${nm} orta; en fazla ${max} puan, uitspraak ve tempo varsayımlı). Sonunda: soru soru puan tablosu, toplam puan ${max} üzerinden ve yüzde olarak. Tam sınavda geçme sınırı 128 üzerinden ${D.score.cesuur} (yaklaşık %${Math.round(100 * D.score.cesuur / 128)}); bu orana göre 'bu tempoda geçer mi' diye kısa bir tahmin ver. Son olarak en sık yaptığım 3 hata türü ve her biri için 1 düzeltilmiş örnek.`;
   return [P.intro, "", "## Werkwijze", ...P.werkwijze.map((w, i) => `${i + 1}. ${w}`), "",
-    rulesText(mode === "exam"), "", "## Mijn antwoorden", "",
+    rulesText(mode === "exam" && items.length === 16), "", "## Mijn antwoorden", "",
     items.map(({ q, nr, answer }) => questionText(q, nr, answer)).join("\n\n"), "",
-    "## Gevraagd resultaat", mode === "exam" ? P.slot_exam : P.slot_oefen].join("\n");
+    "## Gevraagd resultaat", mode === "exam" ? (items.length === 16 ? P.slot_exam : slotPart) : P.slot_oefen].join("\n");
 }
 async function copyText(text, statusEl) {
   try { await navigator.clipboard.writeText(text); statusEl.innerHTML = `<span class="chip ok">Kopyalandı</span> Şimdi yeni bir Claude veya ChatGPT sohbetine yapıştır.`; }
@@ -180,6 +183,10 @@ const S = {
   timer: null
 };
 const saveRun = () => S.run ? store.set("run", S.run) : store.del("run");
+// Task ids of the running exam: a numbered mock exam, or a random exam (run.ids, nr = "r")
+const runIds = r => r.ids || D.examens[r.nr - 1];
+const runTitle = r => r.ids ? `Rastgele deneme (${r.ids.length} görev)` : `Deneme ${r.nr}`;
+const RANDOM_SIZES = [4, 8, 12, 16];
 
 // ---------- Tab 1: question bank ----------
 function filtered() {
@@ -245,7 +252,12 @@ function vExamList() {
     <h2 style="margin:4px 0 8px">Deneme sınavları</h2>
     <p class="muted" style="margin:0 0 12px;max-width:70ch">Gerçek sınav sırasıyla: önce 8 kısa görev (hazırlık yok, 20 sn konuşma), sonra 8 orta görev (15 sn hazırlık, 30 sn konuşma). Örnek cevaplar sınav sırasında gizli. Bitirince bütün cevapların, resmî kurallarla birlikte tek bir metin olarak kopyalanır.</p>
     <label class="switch"><input type="checkbox" data-act="prep" ${S.prep ? "checked" : ""}> Orta görevlerden önce 15 saniyelik hazırlık süresi</label></section>
-  ${S.run ? `<section class="panel"><div class="row"><b>Deneme ${S.run.nr} yarım kaldı</b><span class="muted">${Object.values(S.run.ans).filter(t => t?.trim()).length}/16 cevap</span>
+  <section class="panel"><span class="eyebrow">Soru bankasından</span>
+    <h3 style="margin:4px 0 6px">Rastgele deneme</h3>
+    <p class="muted" style="margin:0 0 10px;max-width:70ch">368 görevden her seferinde yeni bir seçki: yarısı kısa, yarısı orta görev, gerçek sınav sırasıyla (önce kısalar). Daha önce denemelerde cevapladığın görevler en sona bırakılır, böylece hep yeni görevler gelir. Bitince yapay zekâ puanlama metni hazır olur.</p>
+    <div class="row">${RANDOM_SIZES.map(n => `<button class="btn ${n === 16 ? "primary" : ""}" data-act="random" data-n="${n}">${n} görev <span class="muted" style="font-size:12.5px">(${n / 2} kısa + ${n / 2} orta)</span></button>`).join("")}</div>
+    ${attempts.some(a => (a.test || "").startsWith("rastgele")) ? `<p class="muted" style="font-size:13px;margin:10px 0 0">Rastgele denemeler: ${attempts.filter(a => (a.test || "").startsWith("rastgele")).length} kez · son ${fmtDate(attempts.find(a => (a.test || "").startsWith("rastgele")).finished_at)}</p>` : ""}</section>
+  ${S.run ? `<section class="panel"><div class="row"><b>${runTitle(S.run)} yarım kaldı</b><span class="muted">${Object.values(S.run.ans).filter(t => t?.trim()).length}/${runIds(S.run).length} cevap</span>
     <button class="btn primary" data-act="resume" style="margin-left:auto">Devam et</button><button class="btn ghost" data-act="drop">Sil</button></div></section>` : ""}
   <section class="panel"><div class="examgrid">${D.examens.map((_, k) => { const nr = k + 1, d = done(nr);
     return `<a href="#" data-act="start" data-nr="${nr}"><b>Deneme ${nr}</b><span class="muted" style="font-size:13px">${d.length ? `${d.length} kez · son ${fmtDate(d[0].finished_at)}` : "henüz yapılmadı"}</span></a>`; }).join("")}</div></section>`;
@@ -255,12 +267,21 @@ function startExam(nr) {
   if (!S.run || S.run.nr !== nr) S.run = { nr, i: 0, ans: {}, prepped: {}, started: new Date().toISOString() };
   saveRun(); S.tab = "exam"; render(); scrollTo(0, 0);
 }
-const confirmDrop = () => true;   // starting another exam replaces the unfinished one (it is only a draft)
+const confirmDrop = () => true;
+// Random exam: n/2 short + n/2 medium tasks; tasks answered in earlier exams go to the back of the queue
+function startRandom(n) {
+  const used = new Set(attempts.flatMap(a => (a.answers || []).map(x => String(x.qid))));
+  const pick = type => { const pool = D.vragen.filter(q => q.type === type);
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    return pool.sort((a, b) => used.has(String(a.id)) - used.has(String(b.id))).slice(0, n / 2).map(q => q.id); };
+  S.run = { nr: "r", ids: [...pick("kort"), ...pick("middel")], i: 0, ans: {}, prepped: {}, started: new Date().toISOString(), open: true };
+  saveRun(); S.tab = "exam"; render(); scrollTo(0, 0);
+}   // starting another exam replaces the unfinished one (it is only a draft)
 function vRun() {
-  const r = S.run, ids = D.examens[r.nr - 1], q = byId[ids[r.i]];
+  const r = S.run, ids = runIds(r), q = byId[ids[r.i]], half = ids.length / 2;
   const needPrep = S.prep && q.type === "middel" && !r.prepped[q.id] && !r.ans[q.id];
-  const dots = ids.map((id, k) => `${k === 8 ? `<span class="sep"></span>` : ""}<button class="${k === r.i ? "on" : ""} ${r.ans[id]?.trim() ? "done" : ""}" data-act="go" data-i="${k}">${k + 1}</button>`).join("");
-  return `<div class="row"><b>Deneme ${r.nr}</b><span class="muted">· ${r.i < 8 ? "Deel 1 · kısa görevler" : "Deel 2 · orta görevler"}</span>
+  const dots = ids.map((id, k) => `${k === half && k ? `<span class="sep"></span>` : ""}<button class="${k === r.i ? "on" : ""} ${r.ans[id]?.trim() ? "done" : ""}" data-act="go" data-i="${k}">${k + 1}</button>`).join("");
+  return `<div class="row"><b>${runTitle(r)}</b><span class="muted">· ${r.i < half ? "Deel 1 · kısa görevler" : "Deel 2 · orta görevler"}</span>
       <button class="btn ghost" data-act="pause" style="margin-left:auto">Ara ver</button></div>
     <div class="dots">${dots}</div>
     <section class="panel">
@@ -268,7 +289,7 @@ function vRun() {
       <div style="${needPrep ? "margin-top:14px" : ""}">${vTask(q, r.ans[q.id], { disabled: needPrep })}</div>
     </section>
     <div class="row">${r.i > 0 ? `<button class="btn" data-act="go" data-i="${r.i - 1}">← Önceki</button>` : ""}
-      ${r.i < 15 ? `<button class="btn primary" data-act="go" data-i="${r.i + 1}" style="margin-left:auto">Sonraki →</button>` : `<button class="btn primary" data-act="finish" style="margin-left:auto">Sınavı bitir</button>`}</div>
+      ${r.i < ids.length - 1 ? `<button class="btn primary" data-act="go" data-i="${r.i + 1}" style="margin-left:auto">Sonraki →</button>` : `<button class="btn primary" data-act="finish" style="margin-left:auto">Sınavı bitir</button>`}</div>
     <div id="finishmsg"></div>`;
 }
 function startPrep() {
@@ -285,27 +306,27 @@ function startPrep() {
 function endPrep() {
   clearInterval(S.timer);
   const r = S.run; if (!r) return;
-  r.prepped[D.examens[r.nr - 1][r.i]] = true; saveRun(); render();
+  r.prepped[runIds(r)[r.i]] = true; saveRun(); render();
   document.getElementById("answer")?.focus();
 }
 async function finishExam() {
-  const r = S.run, ids = D.examens[r.nr - 1];
+  const r = S.run, ids = runIds(r);
   const items = ids.map((id, k) => ({ q: byId[id], nr: k + 1, answer: r.ans[id] || "" }));
   const answered = items.filter(x => x.answer.trim()).length;
-  const attempt = { kind: "examen", test: "examen-" + r.nr, title: "Spreken deneme " + r.nr, started_at: r.started, finished_at: new Date().toISOString(),
+  const attempt = { kind: "examen", test: r.ids ? "rastgele-" + ids.length : "examen-" + r.nr, title: r.ids ? `Spreken rastgele deneme (${ids.length})` : "Spreken deneme " + r.nr, started_at: r.started, finished_at: new Date().toISOString(),
     score: 0, total: 0, answered,       // total 0: no automatic score, the AI scores it
     answers: items.map(x => ({ qid: String(x.q.id), text: x.answer.slice(0, 600) })) };
-  S.result = { nr: r.nr, answered, text: buildPrompt(items, "exam"), saved: false };
+  S.result = { title: runTitle(r), total: ids.length, answered, text: buildPrompt(items, "exam"), saved: false };
   S.run = null; saveRun(); render(); scrollTo(0, 0);
   try { await saveAttempt(user.uid, "spreken", attempt); attempts.unshift(attempt); S.result.saved = true; } catch (e) { console.warn(e); }
   render();
 }
 function vResult() {
   const x = S.result;
-  return `<section class="panel"><span class="eyebrow">Deneme ${x.nr} bitti</span>
-      <h2 style="margin:4px 0 6px">${x.answered}/16 görev cevaplandı</h2>
+  return `<section class="panel"><span class="eyebrow">${esc(x.title)} bitti</span>
+      <h2 style="margin:4px 0 6px">${x.answered}/${x.total} görev cevaplandı</h2>
       <p class="muted" style="margin:0">${x.saved ? "Profiline kaydedildi." : "Kaydediliyor…"} Puanı yapay zekâ verecek: metni kopyala, yeni bir sohbete yapıştır.</p></section>
-    ${copyPanel("Puanlatma metni", x.text, "İçinde: puanlama talimatı, resmî kuralların tamamı, 500'lük skor tablosu ve 16 görevin her biri (durum, soru, senin cevabın, örnek cevap). Konudan habersiz yeni bir sohbet de bununla puanlayabilir.")}
+    ${copyPanel("Puanlatma metni", x.text, `İçinde: puanlama talimatı, resmî kuralların tamamı${x.total === 16 ? ", 500'lük skor tablosu" : ""} ve ${x.total} görevin her biri (durum, soru, senin cevabın, örnek cevap). Konudan habersiz yeni bir sohbet de bununla puanlayabilir.`)}
     <div class="row"><button class="btn" data-act="back">Denemelere dön</button></div>`;
 }
 
@@ -344,13 +365,14 @@ app.addEventListener("click", e => {
   const r = S.run;
   switch (el.dataset.act) {
     case "start": e.preventDefault(); startExam(+el.dataset.nr); S.run.open = true; saveRun(); render(); break;
+    case "random": startRandom(+el.dataset.n); break;
     case "resume": S.run.open = true; saveRun(); render(); break;
     case "drop": S.run = null; saveRun(); render(); break;
     case "pause": r.open = false; saveRun(); render(); break;
     case "go": r.i = +el.dataset.i; saveRun(); render(); scrollTo(0, 0); break;
     case "skipprep": endPrep(); break;
     case "finish": {
-      const open = 16 - Object.values(r.ans).filter(t => t?.trim()).length, box = document.getElementById("finishmsg");
+      const open = runIds(r).length - runIds(r).filter(id => r.ans[id]?.trim()).length, box = document.getElementById("finishmsg");
       if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin-top:8px">${open} görev boş. Boş görev 0 puan sayılır. <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Yine de bitir</button></div>`; break; }
       finishExam(); break; }
     case "back": S.result = null; render(); break;
@@ -369,7 +391,7 @@ app.addEventListener("input", e => {
   if (e.target.id !== "answer") return;
   const text = e.target.value;
   let q;
-  if (S.tab === "exam" && S.run?.open) { q = byId[D.examens[S.run.nr - 1][S.run.i]]; S.run.ans[q.id] = text; saveRun(); }
+  if (S.tab === "exam" && S.run?.open) { q = byId[runIds(S.run)[S.run.i]]; S.run.ans[q.id] = text; saveRun(); }
   else { q = byId[new URLSearchParams(location.search).get("v")]; if (!q) return; S.oefen[q.id] = text; store.set("oefen", S.oefen); }
   if (q.type === "middel") { const n = sentences(text), h = document.querySelector("#hint span:last-child");
     if (h) { h.className = n >= 3 ? "ok" : "warn"; h.textContent = `${n} cümle${n >= 3 ? " ✓" : " (hedef: en az 3)"}`; } }
