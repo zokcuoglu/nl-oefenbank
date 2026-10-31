@@ -17,6 +17,7 @@
      "tr": "Neden gelemeyeceğini tek bir ana cümleyle yaz.",
      "gram_tekst": "een hoofdzin",
      "nr": 1,
+     "kalip": "reden",
      "max": 2
     },
     {
@@ -31,6 +32,7 @@
      "tr": "'omdat'tan sonra yan cümle: fiil sona.",
      "gram_tekst": "een bijzin (werkwoord achteraan)",
      "nr": 2,
+     "kalip": "bijzin",
      "max": 2
     },
     {
@@ -45,6 +47,7 @@
      "tr": "'Door …' cümle başında: ardından fiil gelir (devrik yapı).",
      "gram_tekst": "een hoofdzin met inversie",
      "nr": 3,
+     "kalip": "gevolg",
      "max": 2
     },
     {
@@ -59,6 +62,7 @@
      "tr": "'om … te + mastar' yapısını kullan.",
      "gram_tekst": "een 'te + infinitief'-constructie",
      "nr": 4,
+     "kalip": "te-inf",
      "max": 2
     },
     {
@@ -73,6 +77,7 @@
      "tr": "Kendi park yerine ihtiyacın var; başka bir çözüm öner.",
      "gram_tekst": null,
      "nr": 5,
+     "kalip": "voorstel",
      "max": 2
     },
     {
@@ -87,6 +92,7 @@
      "tr": "Kulübe para kazandırmak için bir fikir yaz.",
      "gram_tekst": null,
      "nr": 6,
+     "kalip": "idee",
      "max": 2
     },
     {
@@ -101,6 +107,7 @@
      "tr": "Müşterilerin kampanyadan yararlanmak için ne yapması gerektiğini yaz.",
      "gram_tekst": null,
      "nr": 7,
+     "kalip": "instructie",
      "max": 2
     },
     {
@@ -115,6 +122,7 @@
      "tr": "Mahalle şenliğinin olmayacağını duyur.",
      "gram_tekst": null,
      "nr": 8,
+     "kalip": "mededeling",
      "max": 2
     },
     {
@@ -153,6 +161,7 @@
      "voorbeeld": "Naam: Ayşe Yılmaz\nAfdeling: Klantenservice\nDatum: 19 maart\nWaarom: Op mijn afdeling werken veel mensen. Ik wil kunnen helpen als iemand onwel wordt.\nEerder: Nee, ik heb nog nooit een cursus EHBO gedaan, maar ik heb wel eens iemand geholpen die gevallen was.",
      "tr": "Her alanı doldur; 'waarom' kısmına en az iki tam cümle yaz.",
      "nr": 9,
+     "kalip": "formulier",
      "max": 7
     },
     {
@@ -171,6 +180,7 @@
      "tr": "Üç resmi kullanarak ne yaptığınızı anlat; en çok neyi sevdiğini ve gelecek yıl nereye gitmek istediğini nedenleriyle yaz.",
      "bijlage": "Plaatje 1: een boot op de gracht. Plaatje 2: collega's lunchen op een terras. Plaatje 3: een museum met oude treinen.",
      "nr": 10,
+     "kalip": "plaatjes",
      "max": 8
     },
     {
@@ -191,6 +201,7 @@
      "voorbeeld": "Geachte heer, mevrouw,\n\nOp 20 april heb ik bij u een witte wasmachine van het merk Wasto besteld. De levering zou op 3 mei zijn, maar nu hoor ik dat hij pas op 24 mei komt. Dat vind ik erg vervelend, want mijn oude wasmachine is kapot en ik heb drie kinderen. Ik zie twee oplossingen: u levert een andere wasmachine die wel op voorraad is, of ik krijg korting. Mijn voorkeur gaat uit naar een andere wasmachine, omdat ik niet drie weken naar de wasserette wil. Ik verwacht binnen twee dagen een antwoord van u.\n\nMet vriendelijke groet,\nAli Demir",
      "tr": "Siparişini, eski ve yeni teslim tarihini, ne düşündüğünü, en az iki çözümü, tercihini ve beklentini yaz.",
      "nr": 11,
+     "kalip": "klacht",
      "max": 8
     },
     {
@@ -211,6 +222,7 @@
      "tr": "Neden yazdığını, üç şirketi, tercihini (en az iki neden), diğerlerinin neden uygun olmadığını ve nasıl iletişime geçeceğinizi yaz.",
      "bijlage": "Tabel: Sportshop Max — 10 minuten fietsen, stagevergoeding € 150 per maand, maandag t/m vrijdag. Boekhandel De Pagina — 20 minuten met de bus, geen vergoeding, alleen zaterdag. Supermarkt Vers — 5 minuten lopen, € 100 per maand, vooral vakken vullen.",
      "nr": 12,
+     "kalip": "keuze",
      "max": 8
     }
    ],
@@ -232,6 +244,7 @@
      "tr": "Toplantıya neden katılamayacağını tek bir ana cümleyle yaz.",
      "gram_tekst": "een hoofdzin",
      "nr": 1,
+     "kalip": "reden",
      "max": 2
     },
     {
@@ -246,6 +259,7 @@
      "tr": "'omdat'tan sonra fiil sona gider.",
      "gram_tekst": "een bijzin (werkwoord achteraan)",
      "nr": 2,
+     "kalip": "bijzin",
      "max": 2
     },
     {
@@ -260,6 +274,7 @@
      "tr": "Yan cümle başta: ana cümlede fiil önce gelir.",
      "gram_tekst": "een hoofdzin met inversie",
      "nr": 3,
+     "kalip": "gevolg",
      "max": 2
     },
     {
@@ -274,6 +289,7 @@
      "tr": "'om … te + mastar' kullan.",
      "gram_tekst": "een 'te + infinitief'-constructie",
      "nr": 4,
+     "kalip": "te-inf",
      "max": 2
     },
     {
@@ -288,6 +304,7 @@
      "tr": "Yapamadığını ama başka bir çözüm önerdiğini yaz.",
      "gram_tekst": null,
      "nr": 5,
+     "kalip": "voorstel",
      "max": 2
     },
     {
@@ -302,6 +319,7 @@
      "tr": "Okul bahçesi için bir fikir yaz.",
      "gram_tekst": null,
      "nr": 6,
+     "kalip": "idee",
      "max": 2
     },
     {
@@ -316,6 +334,7 @@
      "tr": "Müşterilerin kampanya için ne yapması gerektiğini yaz.",
      "gram_tekst": null,
      "nr": 7,
+     "kalip": "instructie",
      "max": 2
     },
     {
@@ -330,6 +349,7 @@
      "tr": "Kulübün ödül kazandığını duyur.",
      "gram_tekst": null,
      "nr": 8,
+     "kalip": "mededeling",
      "max": 2
     },
     {
@@ -368,6 +388,7 @@
      "voorbeeld": "Naam: Ali Demir\nTelefoonnummer: 06-12345678\nDagen: dinsdag en zaterdag\nWat: Ik wil graag pakketten uitdelen. Ik vind contact met mensen leuk en ik spreek Turks en Arabisch.\nErvaring: Ja, ik heb twee jaar geholpen bij de moskee met de iftar-maaltijden.",
      "tr": "Formu doldur; ne yapmak istediğini ve nedenini tam cümlelerle yaz.",
      "nr": 9,
+     "kalip": "formulier",
      "max": 7
     },
     {
@@ -386,6 +407,7 @@
      "tr": "Üç resmi kullanarak ne yaptığınızı, en zor kısmı ve tekrar yardım edip etmeyeceğini nedenleriyle yaz.",
      "bijlage": "Plaatje 1: collega's zetten dozen in een vrachtwagen. Plaatje 2: twee mannen dragen een bank een trap op. Plaatje 3: de collega's eten pizza in de nieuwe woonkamer.",
      "nr": 10,
+     "kalip": "plaatjes",
      "max": 8
     },
     {
@@ -406,6 +428,7 @@
      "voorbeeld": "Beste medewerker van FitNu,\n\nIk ben sinds januari lid en ik heb een abonnement van € 35 per maand. Nu is de sportschool drie weken dicht, maar ik moet toch betalen. Dat vind ik niet eerlijk, omdat ik niet kan sporten. Er zijn twee oplossingen: u geeft mij geld terug voor drie weken, of mijn abonnement wordt drie weken langer. Ik heb liever geld terug, want ik ga in de zomer op vakantie. Ik verwacht voor 1 juli een reactie.\n\nMet vriendelijke groet,\nFatma Arslan",
      "tr": "Üyeliğini, sorunu, düşünceni, en az iki çözümü, tercihini ve beklentini yaz.",
      "nr": 11,
+     "kalip": "klacht",
      "max": 8
     },
     {
@@ -426,6 +449,7 @@
      "tr": "Neden yazdığını, üç kursu, tercihini (en az iki neden), diğerlerinin eksiklerini ve nasıl kayıt olacağınızı yaz.",
      "bijlage": "Tabel: Excel Basis (bibliotheek) — gratis, dinsdagavond, 6 lessen, met docent. Digitaal Werken (ROC Midden) — € 250, overdag, 10 lessen, certificaat. LeerNu online — € 40, wanneer je wilt, geen docent.",
      "nr": 12,
+     "kalip": "keuze",
      "max": 8
     }
    ],
@@ -447,6 +471,7 @@
      "tr": "Neden gelemeyeceğini tek bir ana cümleyle yaz.",
      "gram_tekst": "een hoofdzin",
      "nr": 1,
+     "kalip": "reden",
      "max": 2
     },
     {
@@ -461,6 +486,7 @@
      "tr": "'omdat'tan sonra fiil sona.",
      "gram_tekst": "een bijzin (werkwoord achteraan)",
      "nr": 2,
+     "kalip": "bijzin",
      "max": 2
     },
     {
@@ -475,6 +501,7 @@
      "tr": "'Sinds maandag' başta: ardından fiil gelir.",
      "gram_tekst": "een hoofdzin met inversie",
      "nr": 3,
+     "kalip": "gevolg",
      "max": 2
     },
     {
@@ -489,6 +516,7 @@
      "tr": "'om … te + mastar' kullan.",
      "gram_tekst": "een 'te + infinitief'-constructie",
      "nr": 4,
+     "kalip": "te-inf",
      "max": 2
     },
     {
@@ -503,6 +531,7 @@
      "tr": "Arabaya ihtiyacın var; başka bir çözüm öner.",
      "gram_tekst": null,
      "nr": 5,
+     "kalip": "voorstel",
      "max": 2
     },
     {
@@ -517,6 +546,7 @@
      "tr": "Emekli olan iş arkadaşı için bir hediye fikri yaz.",
      "gram_tekst": null,
      "nr": 6,
+     "kalip": "idee",
      "max": 2
     },
     {
@@ -531,6 +561,7 @@
      "tr": "Öğrencilerin indirim için ne yapması gerektiğini yaz.",
      "gram_tekst": null,
      "nr": 7,
+     "kalip": "instructie",
      "max": 2
     },
     {
@@ -545,6 +576,7 @@
      "tr": "Yeni oyun parkını duyur.",
      "gram_tekst": null,
      "nr": 8,
+     "kalip": "mededeling",
      "max": 2
     },
     {
@@ -583,6 +615,7 @@
      "voorbeeld": "Naam: Fatma Arslan\nBuslijn: 43\nWanneer: 3, 5 en 6 maart\nGevolg: Ik kwam drie keer te laat op mijn werk. Mijn leidinggevende was daar niet blij mee.\nVerwacht: Ik verwacht dat de bus weer op tijd rijdt en dat ik een excuus krijg.",
      "tr": "Şikâyet formunu doldur; sonucunu ve beklentini tam cümlelerle yaz.",
      "nr": 9,
+     "kalip": "formulier",
      "max": 7
     },
     {
@@ -601,6 +634,7 @@
      "tr": "Üç resmi kullanarak ne yaptığınızı, oğlunun en çok neyi sevdiğini ve bu okula gitmek isteyip istemediğini nedenleriyle yaz.",
      "bijlage": "Plaatje 1: een docent geeft ouders en kinderen een rondleiding. Plaatje 2: een jongen doet een proefje in een scheikundelokaal. Plaatje 3: een moeder praat met een docent aan een tafel.",
      "nr": 10,
+     "kalip": "plaatjes",
      "max": 8
     },
     {
@@ -621,6 +655,7 @@
      "voorbeeld": "Geachte heer, mevrouw,\n\nOp 2 oktober heb ik bij u een zwarte bril met leesglazen gekocht. Sinds ik deze bril draag, heb ik elke dag hoofdpijn. Ik denk dat de glazen niet goed zijn. Dat vind ik vervelend, want ik heb de bril nodig voor mijn werk. Er zijn twee oplossingen: u maakt nieuwe glazen, of ik krijg mijn geld terug. Ik heb liever nieuwe glazen, omdat het montuur wel heel mooi is. Ik verwacht dat u mij deze week belt voor een afspraak.\n\nMet vriendelijke groet,\nAli Demir",
      "tr": "Ne aldığını, sorunu, düşünceni, en az iki çözümü, tercihini ve beklentini yaz.",
      "nr": 11,
+     "kalip": "klacht",
      "max": 8
     },
     {
@@ -641,6 +676,7 @@
      "tr": "Neden yazdığını, üç fikri, tercihini (en az iki neden), diğerlerinin eksiklerini ve nasıl rezervasyon yapacağınızı yaz.",
      "bijlage": "Tabel: Kookworkshop (KookStudio) — € 45 per persoon, eten inbegrepen, binnen, voor iedereen. Pretpark Avonturia — € 60 per persoon, lange reis, eten niet inbegrepen. Fietstocht langs de kust — € 20 per persoon, alleen bij goed weer, voor goede fietsers.",
      "nr": 12,
+     "kalip": "keuze",
      "max": 8
     }
    ],
@@ -711,5 +747,228 @@
    "Adequaatheid wordt tolerant beoordeeld; de waarheid van de inhoud telt niet.",
    "Fouten tegen het woordgeslacht (de/het) en wat daaruit volgt mogen; een vergeten lidwoord is wel een fout."
   ]
+ },
+ "algemeen": {
+  "titel": "Her görevde işe yarayan kurallar",
+  "tips": [
+   "Görevdeki cümleyi kopyalama: kopyalanan cümle puan almaz. Aynı fikri kendi kelimelerinle yaz.",
+   "Kısa ve doğru, uzun ve hatalıdan iyidir. Fazladan yazdığın hatalı cümleler de puanını düşürür.",
+   "Kelime sırası her zaman doğru olmalı: ana cümlede fiil 2. sırada, yan cümlede (omdat, als, dat, zodat) fiil sonda.",
+   "de/het hatası sayılmaz, ama artikeli hiç yazmamak (ik heb vraag) hata sayılır.",
+   "Resim ve tablo e-postaya eklenmez: 'op plaatje 1' yazma, ne gördüğünü anlat.",
+   "Uzun görevlerde (10-12) önce istenen noktaları say, her biri için en az bir cümle yaz, sonunda tek tek kontrol et.",
+   "Bağlantı kelimeleri samenhang puanı getirir: eerst, daarna, tot slot, want, omdat, daarom, maar, bovendien, ten eerste / ten tweede."
+  ],
+  "aanhef": [
+   "Beste meneer De Vries, / Beste mevrouw Jansen,",
+   "Geachte heer, mevrouw, (şirkete, adı bilinmiyorsa)",
+   "Hoi Sanne, / Beste Sanne, (iş arkadaşı, arkadaş)"
+  ],
+  "slot": [
+   "Met vriendelijke groet, + adın (resmî)",
+   "Groeten, / Groetjes, + adın (samimi)",
+   "Alvast bedankt voor uw antwoord.",
+   "Ik hoor graag van u."
+  ]
+ },
+ "kaliplar": {
+  "reden": {
+   "titel": "Neden söyle (ana cümle)",
+   "wat": "Bir şeye gelemediğini/yapamadığını tek cümleyle ve nedeniyle söylüyorsun. Çoğu zaman 'een hoofdzin' istenir.",
+   "kaliplar": [
+    "Helaas kan ik … niet komen, want ik …",
+    "Ik kan … niet, want ik heb dan …",
+    "Op … heb ik helaas een afspraak bij …"
+   ],
+   "voorbeeld": "Helaas kan ik woensdag niet komen, want ik heb een afspraak bij de tandarts.",
+   "tips": [
+    "'want' ana cümle bağlar: want'tan sonra normal sıra (want ik heb).",
+    "Neden somut olsun: afspraak, ziek kind, werk, cursus."
+   ],
+   "valkuil": "'want ik … heb' yazmak (fiili sona atmak) yanlış; o 'omdat' kuralı."
+  },
+  "bijzin": {
+   "titel": "Yan cümle (omdat …)",
+   "wat": "Verilen cümleyi tamamlıyorsun; çoğu zaman 'omdat' ya da 'dat' ile başlayan bir yan cümle istenir.",
+   "kaliplar": [
+    "…, omdat ik … wil / moet / heb.",
+    "…, omdat ik graag meer wil weten over …",
+    "…, zodat ik … kan …"
+   ],
+   "voorbeeld": "Ik wil graag een afspraak maken, omdat ik een nieuw paspoort moet aanvragen.",
+   "tips": [
+    "Yan cümlede çekimli fiil EN SONA: omdat ik een paspoort moet aanvragen.",
+    "İki fiil varsa ikisi de sonda: moet aanvragen, wil volgen."
+   ],
+   "valkuil": "'omdat ik moet een paspoort aanvragen' — fiil ortada kalırsa gramer puanı 0."
+  },
+  "gevolg": {
+   "titel": "Sonuç + devrik cümle (inversie)",
+   "wat": "Bir sorunun sonucunu yazıyorsun. Cümle 'Door …', 'Omdat … ,' ya da 'Sinds …' ile başlar, bu yüzden devrik yapı (fiil özneden önce) gerekir.",
+   "kaliplar": [
+    "Door de kapotte … kan ik niet …",
+    "Omdat de … kapot is, moet ik …",
+    "Sinds … kunnen wij niet meer …",
+    "Daardoor kan ik …"
+   ],
+   "voorbeeld": "Door de kapotte printer kan ik de facturen niet versturen.",
+   "tips": [
+    "Cümle başında başka bir şey varsa (Door…, Sinds…, Daardoor, Daarom) hemen ardından FİİL gelir: Door de lift kan mijn moeder…",
+    "'Omdat …, ' yan cümlesinden sonra da ana cümle fiille başlar: Omdat de printer kapot is, kan ik…"
+   ],
+   "valkuil": "'Door de kapotte lift mijn moeder kan niet…' — özne fiilden önce: devrik değil."
+  },
+  "te-inf": {
+   "titel": "'om … te + mastar'",
+   "wat": "Cümle 'Is het mogelijk om …', 'Ik heb zin om …', 'Wij zijn van plan om …' gibi biter; 'te + mastar' ile tamamlarsın.",
+   "kaliplar": [
+    "Is het mogelijk om … te …?",
+    "Ik heb zin om … te …",
+    "Wij zijn van plan om … te …",
+    "Ik probeer om … te …"
+   ],
+   "voorbeeld": "Is het mogelijk om op zaterdag extra te oefenen?",
+   "tips": [
+    "'te' + mastar EN SONDA: om op zaterdag extra te oefenen.",
+    "Ayrılabilir fiilde 'te' araya girer: mee te doen, op te halen, af te spreken."
+   ],
+   "valkuil": "'om te oefenen op zaterdag extra' gibi 'te + mastar'ı ortada bırakmak ya da 'te'yi unutmak."
+  },
+  "voorstel": {
+   "titel": "Başka bir çözüm öner",
+   "wat": "Birinin isteğini olduğu gibi yapamıyorsun ama başka bir çözüm öneriyorsun.",
+   "kaliplar": [
+    "… kan ik helaas niet, maar ik kan wel …",
+    "Misschien kun je …",
+    "Zullen we …?",
+    "Wat vind je van …?"
+   ],
+   "voorbeeld": "Morgen heb ik mijn parkeerplaats zelf nodig, maar je kunt misschien in de garage naast het kantoor parkeren.",
+   "tips": [
+    "İki parça: hayır + çözüm. Sadece 'nee' yazmak görevi karşılamaz.",
+    "'maar … wel' yapısı çok iş görür."
+   ],
+   "valkuil": "Çözüm önermeden sadece neden yapamadığını anlatmak."
+  },
+  "idee": {
+   "titel": "Bir fikir yaz",
+   "wat": "Bir kulüp, okul ya da iş için fikir istiyorlar (para toplamak, hediye, etkinlik).",
+   "kaliplar": [
+    "We kunnen …",
+    "Mijn idee is om … te …",
+    "Het lijkt me leuk om …",
+    "Misschien kunnen we …"
+   ],
+   "voorbeeld": "We kunnen op de kerstmarkt zelfgebakken koekjes verkopen.",
+   "tips": [
+    "Tek, somut ve uygulanabilir bir fikir yeter.",
+    "'Mijn idee is om … te …' aynı zamanda te-inf pratiği."
+   ],
+   "valkuil": "Konudan sapmak: fikir, istenen amaca (para kazanmak, hediye…) uymalı."
+  },
+  "instructie": {
+   "titel": "Ne yapmalı? (talimat)",
+   "wat": "Bir kampanya, ilan ya da kural için müşterilere/okurlara ne yapmaları gerektiğini yazıyorsun.",
+   "kaliplar": [
+    "Koop … en u krijgt …",
+    "Laat … zien, dan krijgt u …",
+    "U moet … om … te krijgen.",
+    "Meld u aan via …"
+   ],
+   "voorbeeld": "Laat uw studentenkaart zien bij de balie, dan krijgt u 20% korting.",
+   "tips": [
+    "Emir kipi (Koop, Laat zien, Meld u aan) kısa ve doğrudur.",
+    "Ne yapacağını VE ne kazanacağını yaz."
+   ],
+   "valkuil": "Sadece kampanyayı tekrar etmek ('Elke tweede taart halve prijs') — görev ne yapılacağını soruyor."
+  },
+  "mededeling": {
+   "titel": "Duyuru",
+   "wat": "Bir grup (mahalle, kulüp, bülten) için bir haber/duyuru yazıyorsun.",
+   "kaliplar": [
+    "Goed nieuws: …",
+    "Helaas gaat … niet door, omdat …",
+    "… verplaatsen we naar …",
+    "Graag tot …!"
+   ],
+   "voorbeeld": "Door het slechte weer gaat het buurtfeest zaterdag niet door; we verplaatsen het naar 21 juni.",
+   "tips": [
+    "Ne oldu + (varsa) ne zaman / ne olacak.",
+    "'Helaas … niet door, omdat …' iptal duyurularında hazır kalıp."
+   ],
+   "valkuil": "Görevdeki cümleyi aynen kopyalamak."
+  },
+  "formulier": {
+   "titel": "Form doldurma",
+   "wat": "Bir formu dolduruyorsun. Her alan dolu olunca 2 puandan başlarsın; açıklama alanlarında tam cümle beklenir.",
+   "kaliplar": [
+    "Ik wil deze cursus volgen, omdat …",
+    "Ik heb (nog) geen ervaring met …, maar …",
+    "Ik wil graag …, want ik …",
+    "Ik verwacht dat …"
+   ],
+   "voorbeeld": "Waarom: Op mijn afdeling werken veel mensen. Ik wil kunnen helpen als iemand onwel wordt.",
+   "tips": [
+    "HİÇBİR alanı boş bırakma; bilmiyorsan uydur, doğruluğu puanlanmaz.",
+    "'minstens twee zinnen' yazıyorsa iki tam cümle yaz.",
+    "Evet/hayır sorusunda bir cümle açıklama ekle."
+   ],
+   "valkuil": "Açıklama alanına tek kelime yazmak ('helpen')."
+  },
+  "plaatjes": {
+   "titel": "Resimlerle anlatma (e-posta)",
+   "wat": "Resimlerdeki olayları sırayla anlatıyor, sonra fikrini ve önerini nedeniyle yazıyorsun. Okuyan resimleri görmüyor.",
+   "kaliplar": [
+    "Eerst hebben we … / Daarna zijn we naar … geweest. / Tot slot hebben we …",
+    "Het leukst vond ik …, omdat …",
+    "Volgend jaar wil ik graag naar …, want …",
+    "Bedankt voor …"
+   ],
+   "voorbeeld": "Eerst hebben we een rondvaart gemaakt. Daarna hebben we geluncht, en tot slot zijn we naar een museum geweest.",
+   "tips": [
+    "Her resim için bir cümle: eerst – daarna – tot slot (samenhang puanı).",
+    "Geçmiş zaman: hebben/zijn + voltooid deelwoord (hebben gemaakt, zijn geweest).",
+    "Her 'waarom' için 'omdat/want' ile bir neden."
+   ],
+   "valkuil": "'Op plaatje 1 zie je…' yazmak; okuyan resmi görmüyor."
+  },
+  "klacht": {
+   "titel": "Şikâyet + çözüm (ikna e-postası)",
+   "wat": "Bir şirkete şikâyet ediyorsun: ne aldın, ne oldu, ne düşünüyorsun, iki çözüm, tercihin ve beklentin.",
+   "kaliplar": [
+    "Op … heb ik bij u … besteld / gekocht.",
+    "De levering zou op … zijn, maar nu …",
+    "Dat vind ik erg vervelend, omdat …",
+    "Ik zie twee oplossingen: … of …",
+    "Mijn voorkeur gaat uit naar …, omdat …",
+    "Ik verwacht dat u … / Ik verwacht binnen … een reactie."
+   ],
+   "voorbeeld": "Ik zie twee oplossingen: u levert een andere wasmachine, of ik krijg korting. Mijn voorkeur gaat uit naar een andere wasmachine, omdat …",
+   "tips": [
+    "Bu görevde 6 nokta var; kalıplar sırayla 6 noktayı karşılıyor — ezberle, sınavda doldur.",
+    "'Geachte heer, mevrouw,' ile başla, 'Met vriendelijke groet,' ile bitir.",
+    "Kibar ama net ol: 'Ik verwacht …'."
+   ],
+   "valkuil": "Sadece bir çözüm yazmak — en az iki çözüm isteniyor."
+  },
+  "keuze": {
+   "titel": "Karşılaştır ve seç (tablodan)",
+   "wat": "Tablodaki seçenekleri karşılaştırıp birini seçiyor, nedenlerini ve diğerlerinin eksiklerini yazıyorsun.",
+   "kaliplar": [
+    "Ik schrijf je omdat …",
+    "Ik heb drie … gevonden: …, … en …",
+    "Ik kies het liefst voor …, want … Bovendien …",
+    "… is minder geschikt, omdat …",
+    "… vind ik ook minder goed, want …",
+    "Zullen we … bellen / mailen / langsgaan?"
+   ],
+   "voorbeeld": "Ik kies het liefst voor Sportshop Max, want het is dichtbij. Bovendien krijgen we een stagevergoeding. De boekhandel is minder geschikt, omdat …",
+   "tips": [
+    "Seçtiğin için EN AZ iki neden ('want … Bovendien …').",
+    "Diğer HER seçenek için en az bir neden.",
+    "Tablodaki bilgiyi cümleye çevir; tabloyu kopyalama."
+   ],
+   "valkuil": "Diğer seçeneklerin neden uygun olmadığını unutmak — puan kaybettirir."
+  }
  }
 }

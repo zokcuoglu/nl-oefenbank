@@ -1,0 +1,1610 @@
+{
+ "_about": "Hint box content for spreken/: speech-act help + extra model answers. Built by scripts/content/spreken/build_spreken_hulp.py",
+ "handelingen": {
+  "voorkeur": {
+   "wat": "İki seçenekten birini seç ve neden seçtiğini söyle. Seçimini ilk cümlede net söyle, sonra gerekçeyi ver.",
+   "kaliplar": [
+    "Ik kies voor ... , want ...",
+    "Ik ... liever ... , omdat ...",
+    "Ik vind ... beter/leuker dan ... .",
+    "Bovendien ... / Daarnaast ...   (ikinci gerekçe)"
+   ],
+   "tip": "İstenen sayıda gerekçe ver (2 reden isteniyorsa iki ayrı cümle). Her iki seçeneği de övme: tek birini seç.",
+   "valkuil": "'omdat' bijzin'dir: fiil sona gider (omdat ik graag buiten ben). 'want' sonrası normal sıra (want ik ben graag buiten)."
+  },
+  "instructie": {
+   "wat": "Karşındakine ne yapması gerektiğini söyle. Resim varsa her resim = bir adım; sırayı belirten kelimeler kullan.",
+   "kaliplar": [
+    "Eerst moet je ... .",
+    "Daarna/Dan ... je ... .",
+    "Tot slot ... je ... .",
+    "Wil je ... ? / Kunt u ... ?   (kibar rica)"
+   ],
+   "tip": "'alle plaatjes' isteniyorsa her resim için bir cümle kur. 'Eerst – daarna – tot slot' sırası hem net hem puan getirir.",
+   "valkuil": "'je moet ... + mastar sonda' (Je moet de vloer vegen). 'Daarna' ile başlayınca inversie: Daarna veeg je de vloer."
+  },
+  "mening": {
+   "wat": "Bir konu hakkında ne düşündüğünü söyle (iyi/kötü/fikir) ve nedenini ekle.",
+   "kaliplar": [
+    "Ik vind het een goed/slecht idee, want ... .",
+    "Ik vind dat ... , omdat ... .",
+    "Ik ben het (niet) eens met ... .",
+    "Een ander argument is dat ... ."
+   ],
+   "tip": "İlk cümle = görüşün (goed / niet goed). İkinci cümle = neden. Orta görevde ikinci bir argüman ekle.",
+   "valkuil": "'Ik vind dat' sonrası bijzin: fiil sona (Ik vind dat kinderen buiten moeten spelen)."
+  },
+  "advies": {
+   "wat": "Karşındakine tavsiye ver: ne yapmalı? İstenirse neden yapmalı?",
+   "kaliplar": [
+    "Je kunt het beste ... .",
+    "Je moet/zou ... .",
+    "Misschien kun je ... .",
+    "Ik zou ... , want ... ."
+   ],
+   "tip": "Soruyu soran kişiye 'je' ile (resmîyse 'u' ile) hitap et. İki tavsiye isteniyorsa iki ayrı öneri say.",
+   "valkuil": "'Ik zou ...' + mastar sonda: Ik zou een eerdere trein nemen."
+  },
+  "beschrijving": {
+   "wat": "Ne olduğunu ya da bir şeyin neye benzediğini anlat. Olmuş bir şeyse geçmiş zaman (perfectum) kullan.",
+   "kaliplar": [
+    "Ik heb ... ge...d.   (perfectum)",
+    "We zijn naar ... gegaan.",
+    "Er is/zijn ... .   (bir yeri anlatırken)",
+    "Het/De ... is groot/rood/nieuw."
+   ],
+   "tip": "Resimdeki her şeyi tek tek söyle: resim başına bir cümle. Renk, boyut, malzeme gibi somut sıfatlar kullan.",
+   "valkuil": "hebben/zijn seçimi: hareket ve değişim fiilleri 'zijn' alır (ik ben gevallen, we zijn gegaan)."
+  },
+  "overtuigen": {
+   "wat": "Karşındakini senin fikrine ikna et. Önce ne istediğini söyle, sonra istenen sayıda güçlü gerekçe ver.",
+   "kaliplar": [
+    "Ik denk dat het beter is om ... , want ... .",
+    "We kunnen beter ... .",
+    "Bovendien ... .   (ikinci argüman)",
+    "Ik begrijp je, maar ... ."
+   ],
+   "tip": "Her argüman ayrı bir cümle olsun. Karşı tarafın itirazına 'Ik begrijp je, maar ...' ile cevap vermek doğal durur.",
+   "valkuil": "Konudan sapma: argümanlar sadece istenen seçeneği desteklemeli."
+  },
+  "vraag": {
+   "wat": "Kibarca bir şey sor ya da rica et. Durumdaki kişiye uygun hitap (u / je) kullan.",
+   "kaliplar": [
+    "Mag ik ... ?",
+    "Kunt u / Kun je ... ?",
+    "Wilt u / Wil je ... ?",
+    "Weet u misschien ... ?"
+   ],
+   "tip": "Soru cümlesinde fiil başa gelir (Kunt u mij helpen?). İki soru isteniyorsa iki ayrı soru sor.",
+   "valkuil": "Sadece durumu anlatıp soruyu sormamak. Mutlaka soru işaretiyle biten bir cümle olsun."
+  },
+  "informeren": {
+   "wat": "Karşındakine bilgi ver: nerede, ne zaman, ne yapıyorsun. Kısa ve net ol.",
+   "kaliplar": [
+    "... is in/op ... .",
+    "Ik ga ... .",
+    "We zoeken ... .",
+    "Eerst ... , daarna ... ."
+   ],
+   "tip": "Resimdeki bilgiyi (sayı, saat, oda numarası) doğru aktar. Birden fazla bilgi isteniyorsa hepsini say.",
+   "valkuil": "Gereksiz uzun açıklama: istenen bilgiyi ilk cümlede ver."
+  },
+  "uitleg": {
+   "wat": "Bir şeyin nedenini ya da ne anlama geldiğini açıkla.",
+   "kaliplar": [
+    "Dat komt doordat ... .",
+    "Ik kan niet ... , want ... .",
+    "Dit bord betekent dat ... .",
+    "Met dit product kunt u ... ."
+   ],
+   "tip": "Soruya doğrudan cevap ver: 'Waarom?' → 'want / omdat ...'. Resimdeki problemi ismiyle söyle.",
+   "valkuil": "'doordat' ve 'omdat' bijzin: fiil sona gider."
+  },
+  "reageren": {
+   "wat": "Duruma uygun kısa bir tepki ver: uyar, kabul et, itiraz et.",
+   "kaliplar": [
+    "Pas op! ... .",
+    "Wil je ... ?   (kibar uyarı)",
+    "Ja, dat is goed. / Sorry, maar ... .",
+    "Dat mag hier niet, want ... ."
+   ],
+   "tip": "Kısa görevde bir-iki cümle yeter, ama ne istediğini açıkça söyle.",
+   "valkuil": "Kaba ifade: emir cümlesine 'alsjeblieft' ya da 'Wil je ...' eklemek nazik durur."
+  },
+  "voorstel": {
+   "wat": "Bir problem için çözüm öner.",
+   "kaliplar": [
+    "Zullen we ... ?",
+    "Misschien kunnen we ... .",
+    "Ik stel voor dat ... .",
+    "Wat vind je van ... ?"
+   ],
+   "tip": "Somut bir öneri ver (saat, yer, yöntem). Sadece problemi anlatmak yetmez.",
+   "valkuil": "'Ik stel voor dat' bijzin: fiil sona."
+  },
+  "troosten": {
+   "wat": "Üzgün birini teselli et: anlayış göster ve iyi bir dilekte bulun.",
+   "kaliplar": [
+    "Wat vervelend voor u/je.",
+    "Ik hoop dat ... snel beter wordt.",
+    "Kan ik iets voor u/je doen?"
+   ],
+   "tip": "Önce duyguyu kabul et, sonra dilek ya da yardım teklifi ekle.",
+   "valkuil": "Konuyu değiştirmek ya da problemi küçümsemek."
+  }
+ },
+ "alt": {
+  "1": [
+   "Op vrijdagavond ga ik altijd naar mijn familie.\nOp maandagavond heb ik geen andere plannen.",
+   "Mijn vrouw werkt op vrijdagavond, dus ik moet thuis zijn.\nOp maandagavond kan ik makkelijk werken."
+  ],
+  "2": [
+   "Sorry mevrouw, maar ik was voor u.",
+   "Neemt u mij niet kwalijk, ik was eerder aan de beurt."
+  ],
+  "3": [
+   "Ik stel voor dat we de kinderen gaan schminken. Dat vinden ze leuk.",
+   "Misschien kunnen we een schminkhoek maken voor de kinderen."
+  ],
+  "4": [
+   "Ga maar vroeg slapen. Met een moe hoofd kun je niet goed nadenken.",
+   "Ik zou vroeg naar bed gaan. Je hebt al genoeg gestudeerd."
+  ],
+  "5": [
+   "Ik denk dat de klas beter is.\nJe kunt vragen stellen aan de docent. En je leert andere studenten kennen.",
+   "Doe het thuis op de computer.\nJe kunt zelf je tijd kiezen. En je hoeft niet te reizen."
+  ],
+  "6": [
+   "Ik kies een papieren agenda. Schrijven helpt mij om dingen te onthouden.",
+   "Ik gebruik de agenda op mijn telefoon. Die geeft mij automatisch een herinnering."
+  ],
+  "7": [
+   "Ik wil graag naar de eerste hulp.\nIk werk graag snel en ik vind het werk daar interessant.",
+   "Ik kies de kinderafdeling.\nIk heb ervaring met kinderen en dat werk past goed bij mij."
+  ],
+  "8": [
+   "Ik begrijp het wel. Met de auto ben je vrij en soms is er geen goede bus.",
+   "Ik vind het niet slim. De trein is vaak sneller en beter voor het milieu."
+  ],
+  "9": [
+   "De auto moet veilig zijn. Hij moet ook groot genoeg zijn voor mijn gezin.\nEn de prijs is belangrijk.",
+   "Ik vind drie dingen belangrijk: de prijs, het merk en zuinig rijden."
+  ],
+  "10": [
+   "Ik vind het geen goed plan. Het is mijn eigen auto en ik wil geen reclame erop.",
+   "Ik vind het een goed idee. Zo krijgt de winkel meer klanten."
+  ],
+  "11": [
+   "Ik reis liever met de auto. Dan ben ik vrij en kan ik overal stoppen.",
+   "Ik ga liever met de trein. In de trein kan ik lezen of werken."
+  ],
+  "12": [
+   "Ga met het vliegtuig.\nDe reis met de auto is te lang en te vermoeiend met kinderen.",
+   "Ik zou met de auto gaan.\nJe kunt veel bagage meenemen en in Marokko heb je dan een auto."
+  ],
+  "13": [
+   "Maak eerst je opleiding af. Met een diploma verdien je later meer.",
+   "Ik zou de opleiding afmaken. Het is nog maar één jaar en dan heb je je diploma."
+  ],
+  "14": [
+   "Je kunt drie dingen doen: een speciale stoel gebruiken, een filmpje laten zien, of de baby bij de moeder op schoot zetten.",
+   "Gebruik een speciale babystoel. Een filmpje helpt ook goed.\nEn anders kan de baby op de schoot van de moeder zitten."
+  ],
+  "15": [
+   "Begin met het schoonmaken van het zwembad: haal eerst de bladeren uit het water.",
+   "Je begint met de bladeren. Haal ze met het net uit het zwembad."
+  ],
+  "16": [
+   "Sorry, de taart is niet gelukt. Hij is in de oven verbrand.",
+   "Ik ben de taart helaas thuis vergeten. Zal ik hem morgen meenemen?"
+  ],
+  "17": [
+   "Ik vind een werkplaats van een modeontwerper een goed idee, want we zien daar hoe kleding echt gemaakt wordt. Bovendien kunnen we de ontwerper vragen stellen over ons toekomstige werk.",
+   "Ten eerste leren we daar meer dan uit een boek. Ten tweede kunnen we misschien contacten maken voor een stage."
+  ],
+  "18": [
+   "Als er brand is, bel je eerst 1-1-2. Daarna ga je met de trap naar beneden, niet met de lift. Tot slot loop je rustig naar de nooduitgang.",
+   "Eerst moet je het alarmnummer bellen. Gebruik nooit de lift, maar neem de trap. Ga dan rustig naar buiten via de nooduitgang."
+  ],
+  "19": [
+   "Ik geef de jongeren kookles, ik help ze met bankzaken op de computer en ik leer ze de was doen.",
+   "Ik leer jongeren koken en wassen, en ik help ze met internetbankieren."
+  ],
+  "20": [
+   "Volgens mij moeten scholen meer stages aanbieden, zodat leerlingen het werk al kennen. Daarnaast moeten bedrijven nieuwe werknemers een goede begeleider geven.",
+   "De opleidingen moeten beter aansluiten bij de praktijk. En bedrijven kunnen in de eerste maanden extra trainingen geven."
+  ],
+  "21": [
+   "Ik vind goede begeleiding belangrijk. En de lessen moeten praktisch zijn.",
+   "De school moet goed bereikbaar zijn. En ik wil veel praktijk in de opleiding."
+  ],
+  "22": [
+   "Ik vind een goede isolatie belangrijk, zodat het huis warm blijft. Ook wil ik een grote keuken. En er moet een tuin of balkon zijn.",
+   "Het huis moet niet te klein zijn. Het moet goed geïsoleerd zijn. En ik wil graag een eigen parkeerplaats."
+  ],
+  "23": [
+   "Ik vind het belangrijk dat de buurt veilig is. En er moet een school in de buurt zijn.",
+   "Er moet genoeg groen zijn, zoals een park. Daarnaast wil ik dat de bushalte dichtbij is."
+  ],
+  "24": [
+   "Mijn buurt is heel rustig. Er is een groot park vlakbij. En er zijn veel winkels om de hoek.",
+   "Ik woon in een buurt met veel flats. Er wonen veel jonge gezinnen. Helaas is er weinig parkeerplaats."
+  ],
+  "25": [
+   "Eerst haal je de flessen uit de bagage. Daarna scan je de bagage. En dan controleer je de koffers.",
+   "Je gaat vandaag de bagage scannen, de koffers controleren en de flessen uit de tassen halen."
+  ],
+  "26": [
+   "Let erop dat de bezoekers niets aanraken. Ze mogen in het museum ook niet eten. En ze mogen geen afval op de grond gooien.",
+   "Bezoekers mogen de kunst niet aanraken, niet eten in de zalen en niets op de grond gooien. Daar moet je op letten."
+  ],
+  "27": [
+   "Het is een grote bibliotheek met veel boekenkasten. Er staan tafels waar je kunt studeren. Er zijn ook computers voor bezoekers.",
+   "Je ziet er heel veel boeken. Mensen zitten aan tafels te lezen. En je kunt er op de computer werken."
+  ],
+  "28": [
+   "Je moet naar een politieke bijeenkomst gaan en daar een verslag over schrijven.",
+   "Je moet een bijeenkomst over de verkiezingen bezoeken. Daarna schrijf je een verslag."
+  ],
+  "29": [
+   "Ik vind het jammer, want buiten spelen is gezond. Kinderen bewegen dan meer en ze maken vrienden.",
+   "Ik vind het geen goede ontwikkeling. Kinderen zitten al de hele dag op school, dus ze moeten na school naar buiten."
+  ],
+  "30": [
+   "Ik vind het niet fijn, want soms moet ik naar de wc. Met een pauze mis ik niets van de film.",
+   "Ik vind het goed dat er geen pauze is. Dan blijf je beter in het verhaal."
+  ],
+  "31": [
+   "Eerst knip je de bloemen af. Daarna zet je ze in een emmer met water. En als een klant komt, pak je de bloemen in.",
+   "Je moet de stelen afknippen, de bloemen in de emmer zetten en de boeketten inpakken."
+  ],
+  "32": [
+   "Ik zoek het boek Basistechniek deel 2, maar het is niet in de bibliotheek. Weet u waar ik het kan lenen?",
+   "Het boek voor het huiswerk is niet aanwezig in de bibliotheek. Wat kan ik nu het beste doen?"
+  ],
+  "33": [
+   "Ik vind een boek een beter idee. Een boek is persoonlijker dan geld.",
+   "Laten we geld geven, dan kan hij zelf iets kiezen wat hij leuk vindt."
+  ],
+  "34": [
+   "Geef eerst de koeien eten. Daarna moet je de stal schoonmaken.",
+   "Vandaag geef je de koeien voer en maak je de stal schoon."
+  ],
+  "35": [
+   "Mijn tas scheurde en al mijn boodschappen vielen op straat.",
+   "Ik liep naar huis en toen ging mijn tas kapot. Alles lag op de grond."
+  ],
+  "36": [
+   "We moeten rustig de trap af lopen en naar het verzamelpunt buiten gaan.",
+   "Niet rennen! Loop rustig naar beneden en ga dan naar het verzamelpunt."
+  ],
+  "37": [
+   "Mijn brommer is rood en hij heeft blauwe fietstassen.",
+   "Het is een rode brommer met twee blauwe tassen achterop."
+  ],
+  "38": [
+   "Momentje, mijn collega maakt de belegde broodjes voor u klaar.",
+   "Dat kan, maar voor belegde broodjes moet u bij mijn collega zijn."
+  ],
+  "39": [
+   "Je moet de broodjes beleggen met kaas, het brood sorteren en het afval weggooien.",
+   "Doe kaas op de broodjes, zet de broden op de goede plek en gooi het afval weg."
+  ],
+  "40": [
+   "Eerst maakten twee honden de versiering kapot. Daarna viel het eten op de grond. En toen begon het ook nog te regenen en te waaien.",
+   "Er waren honden die de versiering kapot maakten, het eten viel van tafel en het weer was heel slecht."
+  ],
+  "41": [
+   "Sporten is goed voor je gezondheid, ook als het regent. En na de les kunnen we lekker warm douchen.",
+   "Een beetje regen is niet erg. Bovendien hebben we deze les al een keer afgezegd, dus we moeten nu echt sporten."
+  ],
+  "42": [
+   "Je moet nog de vloer vegen, en dan zijn we klaar.",
+   "Veeg jij de vloer even? Dan sluit ik af."
+  ],
+  "43": [
+   "Eerst mengen we samen het cement met water. Jij roert het cement goed door. Daarna metsel je de muur.",
+   "Jij moet water bij het cement doen en goed roeren. Daarna gaan we samen de muur bouwen."
+  ],
+  "44": [
+   "Hoi Klaartje, van harte gefeliciteerd met jullie zoon! Hoe gaat het met jullie?",
+   "Gefeliciteerd met je zoontje! Wat ontzettend leuk nieuws."
+  ],
+  "45": [
+   "Je kunt een uur eerder vertrekken, dan is het nog rustig. Of je kunt met de trein gaan.",
+   "Misschien kun je thuiswerken op de drukste dagen. En je kunt je werktijden aanpassen, bijvoorbeeld van tien tot zes."
+  ],
+  "46": [
+   "Ik betaal liever alles in één keer, want dan bespaar ik 200 euro.",
+   "Ik kies voor betalen in twee jaar, want ik heb nu niet genoeg geld."
+  ],
+  "47": [
+   "Ik kies de cursus 'Computer voor u!', want die is op zaterdag. Doordeweeks moet ik werken, en op zaterdag ben ik vrij.",
+   "Ik wil 'Computer voor u!' doen. Het past goed in mijn rooster, want op de andere dagen werk ik en op zaterdag heb ik tijd."
+  ],
+  "48": [
+   "Ik ga liever naar het kleine concert, want daar is het gezelliger en minder druk.",
+   "Het grote concert! Die band is heel bekend en ik wil ze één keer live zien."
+  ],
+  "49": [
+   "Ik zou een muziekcursus kiezen. Muziek maken is ontspannend en ik wil al jaren gitaar leren spelen.",
+   "Ik kies een taalcursus, want daar heb je ook iets aan op je werk. Bovendien leer je nieuwe mensen kennen."
+  ],
+  "50": [
+   "Geen probleem, ik heb genoeg verf en kwasten bij me. Pak maar wat je nodig hebt.",
+   "Wil je wat van mijn spullen lenen? Ik heb genoeg."
+  ],
+  "51": [
+   "Ik wil graag naar de Euromast, want vanaf boven heb je een mooi uitzicht over de stad.",
+   "Ik wil een rondvaart door de haven maken, omdat ik nog nooit zo'n grote haven heb gezien."
+  ],
+  "52": [
+   "Het was niet leuk, want het regende de hele dag en ik werd helemaal nat.",
+   "Jammer genoeg was het slecht weer. Ik had geen paraplu bij me."
+  ],
+  "53": [
+   "Ik vind een doos met eten en drinken beter, want daar heeft iedereen iets aan. Niet iedereen gaat graag naar de bioscoop.",
+   "Bioscoopkaartjes lijken me leuker. Je kunt ze samen met je familie gebruiken, en eten krijgen we in december al genoeg."
+  ],
+  "54": [
+   "Jij hebt altijd goede ideeën, dus je kunt de school echt helpen. En je leert er veel van, bijvoorbeeld vergaderen.",
+   "Je bent goed in praten met mensen. Bovendien staat het mooi op je cv."
+  ],
+  "55": [
+   "Je moet de katten eten geven en de honden uitlaten.",
+   "Vandaag geef je eerst de katten voer en daarna ga je met de honden wandelen."
+  ],
+  "56": [
+   "Vroeger liet ik honden uit bij mensen thuis. Nu geef ik de olifanten eten in de dierentuin.",
+   "Bij mijn oude werk zorgde ik voor huisdieren, zoals honden. Nu zorg ik voor grote dieren, zoals olifanten."
+  ],
+  "57": [
+   "Ik wil een nieuwe bureaustoel, want mijn stoel is kapot en ik krijg rugpijn. En de lamp moet gerepareerd worden, omdat hij steeds uitgaat.",
+   "Graag een nieuwe lamp en een nieuwe stoel. De lamp geeft te weinig licht en de stoel is oud."
+  ],
+  "58": [
+   "Ik vind het geen goed idee, want kinderen leren dan veel minder.",
+   "Dat is niet goed, want veel ouders werken en kunnen niet twee dagen extra voor hun kinderen zorgen."
+  ],
+  "59": [
+   "Ik zou bellen, want dan kun je meteen uitleggen wat er is gebeurd.",
+   "Stuur een e-mail, dan kun je rustig nadenken over wat je schrijft."
+  ],
+  "60": [
+   "Je kunt bij de kassa helpen, de winkelwagens schoonmaken en de vakken vullen.",
+   "Ga eerst achter de kassa zitten. Daarna kun je vakken vullen en de karren schoonmaken."
+  ],
+  "61": [
+   "Ik wil niet bij Edutel studeren, want ik leer liever in een klas met een docent.",
+   "Edutel lijkt me goed, want ik kan dan thuis leren als ik tijd heb."
+  ],
+  "62": [
+   "Ach, kom toch mee! Ik heb de kaartjes al betaald en het wordt echt een leuke avond.",
+   "Jammer! Ga toch mee, die band speelt maar één keer in onze stad."
+  ],
+  "63": [
+   "Om acht uur geef je de dieren eten. Om tien uur maak je de stal schoon. En 's middags vertel je kinderen over de dieren.",
+   "De dag begint om acht uur met het voeren van de dieren. Daarna maak je de stallen schoon. Om één uur geef je uitleg aan kinderen."
+  ],
+  "64": [
+   "Om tien uur zijn we op de fiets naar het park gegaan. Om half één hebben we gepicknickt. En om twee uur zijn we naar de dierentuin gegaan.",
+   "Eerst fietsten we naar het park. Daar hebben we samen gegeten. Daarna hebben we de dieren in de dierentuin bekeken."
+  ],
+  "65": [
+   "Mag ik vandaag om elf uur weg? Ik heb om half twaalf een afspraak bij de tandarts.",
+   "Ik heb straks een tandartsafspraak. Is het goed als ik iets eerder vertrek?"
+  ],
+  "66": [
+   "Ik wil een eigen pizzeria openen.",
+   "Mijn plan is om een pizzarestaurant te beginnen."
+  ],
+  "67": [
+   "Begin met de vorm van het hoofd. Daarna teken je de ogen. Tot slot teken je de neus en de mond.",
+   "Je tekent eerst een ovaal voor het hoofd. Dan komen de ogen, en daarna de neus en de mond."
+  ],
+  "68": [
+   "Verzamel eerst de vuile was. Daarna stofzuig je de kamer. En tot slot maak je het bed op.",
+   "Je moet de was ophalen, stofzuigen en de bedden opmaken."
+  ],
+  "69": [
+   "Snijd de ui eerst door de helft. Haal dan de schil eraf. Snijd hem daarna in kleine stukjes.",
+   "Eerst halveer je de ui. Daarna pel je hem. Tot slot snijd je hem fijn."
+  ],
+  "70": [
+   "Ik vind het goed, want dan is het werk op tijd af.",
+   "Liever niet, want ik moet om vijf uur mijn kinderen ophalen."
+  ],
+  "71": [
+   "Ik werk liever alleen, want met drie mensen is het te druk. Bovendien heb ik veel telefoongesprekken.",
+   "Een eigen kamer is beter voor mij. Ik kan me dan beter concentreren en de kamer is nu eigenlijk te klein."
+  ],
+  "72": [
+   "Ik blijf voor het hogere salaris. Een eigen zaak is veel risico. En ik vind mijn werk nu leuk.",
+   "Ik begin mijn eigen zaak. Dat is al lang mijn droom, en ik kan dan zelf mijn tijden bepalen."
+  ],
+  "73": [
+   "Ik moet eerst nog eten, mijn schoenen aantrekken en geld pinnen.",
+   "Wacht even, ik moet nog snel iets eten, mijn schoenen aandoen en geld halen bij de pinautomaat."
+  ],
+  "74": [
+   "Tijdens het examen ging mijn computer kapot. Daardoor kon ik het examen niet afmaken.",
+   "Mijn computer viel uit. Het was dus niet mijn schuld dat ik het examen niet kon maken."
+  ],
+  "75": [
+   "Ik krijg het geld liever in december, want dan koop ik cadeaus voor mijn familie.",
+   "In mei graag, want in de zomer ga ik op vakantie."
+  ],
+  "76": [
+   "Blijf elke dag een uur langer. Dan heb je je weekend vrij, en je bent niet zo moe.",
+   "Kom liever een dag extra. Dan kun je rustig werken, want er zijn minder collega's en je wordt niet gestoord."
+  ],
+  "77": [
+   "Ik vind het niet leuk om me te verkleden.",
+   "Ik voel me niet prettig in gekke kleren."
+  ],
+  "78": [
+   "Hoi! Ga je ook naar de feestavond? Zullen we samen gaan?",
+   "Hé, heb je zin om vanavond met mij naar het feest in de buurt te gaan?"
+  ],
+  "79": [
+   "Hoeveel dagen per week heb ik les bij de opleiding tot fietsenmaker?",
+   "Kunt u mij vertellen wat de opleiding tot fietsenmaker kost?"
+  ],
+  "80": [
+   "Ik ga liever naar de bioscoop, want het scherm is groot en het geluid is beter.",
+   "Thuis kijken vind ik fijner, want dan kan ik pauzeren wanneer ik wil."
+  ],
+  "81": [
+   "Gaan jullie samen in het midden van de brug staan, alstublieft.",
+   "Ga maar op de brug staan, precies in het midden. Dan maak ik de foto."
+  ],
+  "82": [
+   "Ja, dat lijkt me wel wat. Ik rijd graag auto en ik ben graag onderweg.",
+   "Nee, dat past niet bij mij. Ik heb geen rijbewijs voor een vrachtwagen en ik wil 's avonds thuis zijn."
+  ],
+  "83": [
+   "Met een laptop kan ik mijn aantekeningen beter bewaren. Bovendien gebruiken we later op het werk ook altijd een computer.",
+   "Ik typ veel sneller dan ik schrijf, dus ik mis minder van de les. En mijn handschrift is moeilijk te lezen."
+  ],
+  "84": [
+   "Dat vind ik niet goed, want stage is het belangrijkste deel van de opleiding.",
+   "Dat is jammer, maar ik begrijp het. Misschien kunnen we volgend jaar extra stage lopen."
+  ],
+  "85": [
+   "Wil je voortaan je eigen gereedschap meenemen? Ik heb mijn spullen zelf nodig, en ze gaan sneller kapot als we ze samen gebruiken.",
+   "Ik wil liever niet dat je mijn spullen pakt. Ze waren duur en ik moet er zelf mee werken."
+  ],
+  "86": [
+   "Er kwam opeens een bal door het raam de klas in.",
+   "Een voetbal vloog door het open raam naar binnen. Ik schrok me rot!"
+  ],
+  "87": [
+   "Op woensdag heeft ze muziekles en op zaterdag gaat ze zwemmen.",
+   "Ze gaat elke woensdag naar muziekles en op zaterdag heeft ze zwemles."
+  ],
+  "88": [
+   "Het lijkt me moeilijk om mensen te helpen met wassen. Ook vind ik het lastig om te zien dat mensen pijn hebben.",
+   "Ik denk dat de nachtdiensten zwaar zijn. En mensen in bed tillen lijkt me ook moeilijk."
+  ],
+  "89": [
+   "Zet de lamp in de hoek. Daarna kun je een vaas met bloemen op tafel zetten. En hang wat foto's aan de muur.",
+   "Je kunt de lamp in de hoek zetten, bloemen op de tafel zetten en foto's ophangen."
+  ],
+  "90": [
+   "Ik werk liever bij woonhuizen, want ik ben bang voor hoogte.",
+   "Bij gewone huizen, want daar heb je ook contact met de bewoners."
+  ],
+  "91": [
+   "Ik kies Monumentenzorg. Oude gebouwen vertellen de geschiedenis van een stad, en als ze weg zijn, komen ze nooit meer terug.",
+   "Het Wereld Natuurfonds, want zonder gezonde natuur hebben onze kinderen geen goede toekomst. Bovendien helpt het ook dieren."
+  ],
+  "92": [
+   "Nee, dat vind ik niet belangrijk. Ik wil vooral nieuwe dingen zien, en dat kan ook als het regent.",
+   "Ja, voor mij is zon belangrijk, want in Nederland is het vaak grijs. In de vakantie wil ik lekker buiten zijn."
+  ],
+  "93": [
+   "Ik vind het een goed idee, want dan is er minder verkeer in de stad. Bovendien is parkeren buiten de stad goedkoper.",
+   "Ik vind het een slecht idee, omdat de bus vaak vol is. Het kost ook extra tijd."
+  ],
+  "94": [
+   "Die plant is zo groot dat ik niet meer langs kan met mijn fiets.",
+   "Ja, want door die plant komt er geen licht meer in mijn kamer."
+  ],
+  "95": [
+   "Nee, ik houd niet van hardlopen. Ik krijg er pijn in mijn knieën van.",
+   "Niet echt, ik fiets liever. Dat vind ik leuker."
+  ],
+  "96": [
+   "De heftruck was vol met dozen. Toen ging het mis en vielen alle dozen op de grond. Mijn chef werd heel boos op mij.",
+   "Ik reed met een heftruck met veel dozen. Door een ongeluk viel alles om. De chef was er niet blij mee."
+  ],
+  "97": [
+   "Wil je de appels plukken? Dan maak ik de tuin schoon.",
+   "Je kunt helpen met het plukken van de appels."
+  ],
+  "98": [
+   "Ik doe één keer per week boodschappen. Dat scheelt tijd en ik koop minder dingen die ik niet nodig heb.",
+   "Ik doe liever elke dag boodschappen, want dan heb ik altijd vers brood en verse groente."
+  ],
+  "99": [
+   "De gemeente moet meer prullenbakken voor hondenpoep neerzetten.",
+   "Misschien kunnen hondenbezitters een boete krijgen als ze de poep niet opruimen."
+  ],
+  "100": [
+   "Ik werk liever in een bestaand hotel. Dan heb ik een vast salaris. En ik kan van ervaren collega's leren.",
+   "Ik begin het liefst mijn eigen hotel, want dan kan ik mijn eigen ideeën uitvoeren. Bovendien kan ik dan meer verdienen."
+  ],
+  "101": [
+   "Maak eerst foto's van de woonkamer. Meet daarna hoe groot de kamer is. En zet tot slot een bord 'te koop' in de tuin.",
+   "Je moet de woonkamer fotograferen en opmeten. Daarna zet je een verkoopbord in de tuin."
+  ],
+  "102": [
+   "Graag! Kun jij mijn dochter even ophalen en op haar passen tot ik terug ben?",
+   "Dat is lief. Wil je op mijn zoontje passen? Ik moet naar het ziekenhuis."
+  ],
+  "103": [
+   "Je moet de huurbaas een e-mail sturen met alles wat kapot is. Zo heb je het op papier.",
+   "Je kunt het beste met haar gaan praten. Zij weet misschien niet wat er kapot is."
+  ],
+  "104": [
+   "Je krijgt les van een docent. Je oefent eerst op poppen, en later knip je echte klanten.",
+   "Er zijn theorielessen en praktijklessen. In de praktijklessen werk je eerst met poppen en daarna met echte mensen."
+  ],
+  "105": [
+   "Hoeveel uur per week moet je naar school?",
+   "Is de opleiding moeilijk? En hoe lang duurt hij?"
+  ],
+  "106": [
+   "Pak de brief van het ROC. Daar staan je gebruikersnaam en wachtwoord in.",
+   "In de brief van school vind je je gebruikersnaam en je wachtwoord. Daarmee log je in."
+  ],
+  "107": [
+   "Leg gras aan, dan kunnen de kinderen buiten spelen. En haal de vijver weg, want die is gevaarlijk voor kleine kinderen.",
+   "Ik zou de vijver dichtmaken en er een trampoline neerzetten. Daarnaast is een grasveld fijn voor de kinderen."
+  ],
+  "108": [
+   "Eerst heb ik met de eigenaar overlegd. Daarna heb ik een plattegrond van de winkel gemaakt. Tot slot hebben we samen de tafels en kasten verplaatst.",
+   "Ik heb met de eigenaar gepraat, een tekening van de winkel gemaakt en daarna met collega's nieuwe meubels neergezet."
+  ],
+  "109": [
+   "'s Ochtends krijgen we informatie over de opleiding. 's Middags gaan we sporten. Aan het eind krijgen we onze boeken.",
+   "Eerst is er een informatiebijeenkomst. Daarna doen we sporten, en tot slot halen we onze studieboeken op."
+  ],
+  "110": [
+   "Er moet een auto op de taart, en de tekst '5 jaar'.",
+   "Ik wil een taart met een autootje erop en de tekst '5 jaar'."
+  ],
+  "111": [
+   "Pardon mevrouw, ik denk dat u mijn kaas in uw tas hebt gedaan.",
+   "Sorry, maar die kaas heb ik net betaald."
+  ],
+  "112": [
+   "Ik ga liever naar de markt, want daar heb ik meer contact met klanten.",
+   "Ik werk vandaag liever in de winkel, want ik ben verkouden."
+  ],
+  "113": [
+   "Mevrouw Adams woont nu in kamer 14. Ze is verhuisd.",
+   "Ze zit niet meer in kamer 32, maar in kamer 14."
+  ],
+  "114": [
+   "In een kantine kan ik even weg van mijn bureau. Bovendien kunnen we daar samen met collega's lunchen.",
+   "Ik wil graag een kantine, omdat eten achter de computer niet gezond is. En dan heb je echt pauze."
+  ],
+  "115": [
+   "Mijn collega reed met de auto tegen de ladder, en toen viel de ladder om.",
+   "De ladder stond tegen het huis en mijn collega reed er met de auto tegenaan."
+  ],
+  "116": [
+   "Ik weet het nog niet. Misschien neem ik een taxi.",
+   "Ik ga met de bus verder, maar ik kom wel later."
+  ],
+  "117": [
+   "Ik vind het een goed idee. Kort haar is makkelijk en het is mode.",
+   "Dat zou ik niet doen, want je lange haar is heel mooi."
+  ],
+  "118": [
+   "Ik werk het liefst bij de bakkerij. Ik ben 's ochtends vrij, en ik heb al eerder in een winkel gewerkt.",
+   "Ik kies de bakkerij, want de werktijden passen goed bij mij. Bovendien vind ik verkopen leuk."
+  ],
+  "119": [
+   "Ik kies de groepscursus, want samen leren is gezelliger en goedkoper.",
+   "Ik wil de individuele cursus, want dan krijg ik alle aandacht. En hij is niet duur."
+  ],
+  "120": [
+   "Je moet de baan nemen. Je verdient dan geld en je leert in de praktijk.",
+   "Maak eerst je opleiding af. Zonder diploma is het later moeilijk om een vaste baan te vinden."
+  ],
+  "121": [
+   "Kies de broodfabriek. Daar leer je met grote machines werken, en er zijn meer banen in fabrieken.",
+   "De bakkerswinkel lijkt me beter. Je hoeft niet te reizen, en je leert alles over het vak."
+  ],
+  "122": [
+   "Ik wil Spaans leren. Veel toeristen komen uit Spanje en Zuid-Amerika, en ik wil later in Spanje werken.",
+   "Ik kies Duits, omdat veel toeristen in Nederland uit Duitsland komen. Bovendien lijkt Duits op Nederlands."
+  ],
+  "123": [
+   "Ga naar het hotel in Spanje. Daar is het warm, en in een hotel hoef je niet zelf te koken.",
+   "Een huisje in Nederland is goedkoper. Bovendien hoef je niet te vliegen met kleine kinderen."
+  ],
+  "124": [
+   "Ik kies de Damschool, want die is goedkoper. Bovendien kan ik daar stage lopen.",
+   "De Damschool lijkt me het beste, omdat er een stage bij zit en de prijs lager is."
+  ],
+  "125": [
+   "Ik kies Koken voor kinderen, want ik wil later in een kinderdagverblijf werken.",
+   "Koken zonder vlees, want vegetarisch eten is gezond en populair."
+  ],
+  "126": [
+   "Ik kies Rekenen. Dat heb je bij elke baan nodig. En ik spreek al genoeg talen.",
+   "Ik kies Duits, want veel toeristen komen uit Duitsland. Bovendien vind ik talen leuker dan rekenen."
+  ],
+  "127": [
+   "Hé jongens, voetballen in de gang mag niet! Ga maar naar buiten.",
+   "Stop met voetballen! Dat is gevaarlijk in de gang."
+  ],
+  "128": [
+   "Snijd eerst de broodjes open. Doe er daarna kaas, jam of vlees op. En leg ze dan in de manden.",
+   "Je moet de broodjes snijden, beleggen en in drie manden doen."
+  ],
+  "129": [
+   "Pardon, wilt u mij helpen met de kinderwagen?",
+   "Sorry, kunt u even helpen? De kinderwagen is te zwaar voor mij alleen."
+  ],
+  "130": [
+   "Ja, u heeft uw tas hier laten liggen.",
+   "Uw tas staat nog op ons kantoor. Wilt u hem komen halen?"
+  ],
+  "131": [
+   "Twee klanten wilden dezelfde jurk. Ik heb een tweede jurk uit het magazijn gehaald. Toen waren ze allebei tevreden.",
+   "Er was ruzie tussen twee klanten over één jurk. Ik heb in het magazijn nog een jurk gevonden, dus het probleem was opgelost."
+  ],
+  "132": [
+   "Leg je spullen in het kluisje. Doe er een euro in. Dan kun je de sleutel eruit halen.",
+   "Eerst stop je je spullen erin. Daarna gooi je een euro in het slot en neem je de sleutel mee."
+  ],
+  "133": [
+   "Jullie kunnen de bladeren in de tuin opruimen.",
+   "Willen jullie de bladeren bij elkaar harken en in de groene bak doen?"
+  ],
+  "134": [
+   "Dat lijkt me geen goed idee, want zelf koffie zetten kost veel tijd. Laten we liever een nieuwe machine vragen.",
+   "Ik ben het er niet mee eens. Wie moet er dan elke dag koffie zetten en afwassen? Dat geeft alleen maar ruzie."
+  ],
+  "135": [
+   "Over tien minuten lukt niet. Ik moet nog douchen en me aankleden, en daarna fiets ik naar de stad. Over een half uur ben ik er.",
+   "Ik kom graag, maar ik moet eerst douchen en kleren aantrekken. Daarna kom ik op de fiets. Ik heb ongeveer dertig minuten nodig."
+  ],
+  "136": [
+   "De machine deed koffie, maar er stond geen kopje.",
+   "Er kwam geen bekertje uit de machine, dus de koffie liep over mijn handen."
+  ],
+  "137": [
+   "We konden geen koffie maken en de klanten werden boos.",
+   "De machine deed het niet, dus we hadden geen koffie. Veel klanten waren niet blij."
+  ],
+  "138": [
+   "Je weet niet of de computer goed werkt. Bovendien kun je je geld kwijtraken als de verkoper niet eerlijk is.",
+   "Ik zou dat niet doen, want je kunt hem niet eerst proberen. En als hij kapot gaat, heb je geen garantie."
+  ],
+  "139": [
+   "De krant ligt elke ochtend bij u op de mat. Bovendien is een abonnement goedkoper dan losse kranten.",
+   "Met een abonnement mist u geen nieuws. En u krijgt de eerste maand gratis."
+  ],
+  "140": [
+   "Schrijf een briefje met je telefoonnummer en leg het op de auto. Dan kan de buurman je bellen.",
+   "Ga naar de buurman en zeg sorry. Je verzekering kan de schade betalen."
+  ],
+  "141": [
+   "Kijk eens in modebladen en ga in kledingwinkels rondkijken. Een modeshow is ook goed.",
+   "Je kunt in winkels kijken, modebladen lezen en naar een modeshow gaan."
+  ],
+  "142": [
+   "Ik vind een lange vakantie beter. Kinderen hebben veel tijd om te spelen en ze kunnen lang naar familie in het buitenland.",
+   "Een korte vakantie is beter, omdat kinderen anders veel vergeten van wat ze op school hebben geleerd."
+  ],
+  "143": [
+   "Ik lees liever op het scherm, want printen is slecht voor het milieu.",
+   "Op papier, want van een scherm krijg ik pijn aan mijn ogen."
+  ],
+  "144": [
+   "Ik vind het niet goed. Veel werk is zwaar, en oudere mensen hebben recht op rust.",
+   "Ik vind het goed, omdat mensen langer leven. Bovendien kan de overheid dan de pensioenen blijven betalen."
+  ],
+  "145": [
+   "Ik kies een computermuis, want daarmee werk ik sneller dan met het touchpad.",
+   "Ik wil graag een extra beeldscherm. Dan kan ik twee documenten tegelijk zien."
+  ],
+  "146": [
+   "Ik vind het niet zo goed. Kinderen moeten ook leren schrijven met een pen, en ze zitten al genoeg achter een scherm.",
+   "Ik vind het prima, omdat kinderen later op het werk ook met een computer werken."
+  ],
+  "147": [
+   "Gooi het flesje alsjeblieft in de prullenbak.",
+   "Je kunt het flesje meenemen en thuis in de plasticbak doen."
+  ],
+  "148": [
+   "Maak een paar kleine hapjes, zoals worstenbroodjes en salade.",
+   "Je kunt een barbecue doen. Dat vindt iedereen gezellig."
+  ],
+  "149": [
+   "Kies de avondles. Dan zijn er minder studenten in de klas, en de docent is aardig.",
+   "Ik zou de avond kiezen, omdat de groep kleiner is en je een aardige docent krijgt."
+  ],
+  "150": [
+   "Ik vind het Suikerfeest een leuk feest. De hele familie komt bij elkaar en we eten veel lekkere dingen.",
+   "Ik vind Koningsdag leuk, want dan is er overal muziek en een vrijmarkt."
+  ],
+  "151": [
+   "Ja, ik lees graag met zachte muziek aan. Dan word ik rustig.",
+   "Nee, want met muziek lees ik alles twee keer. Ik hoor de woorden van het liedje."
+  ],
+  "152": [
+   "Hoeveel boeken mag ik tegelijk lenen? En hoe lang mag ik ze houden?",
+   "Moet ik betalen om lid te worden? En kun je er ook boeken in andere talen lenen?"
+  ],
+  "153": [
+   "Hier is het niet. Jullie hebben vandaag les in lokaal 26.",
+   "Sorry, dit lokaal wordt geverfd. Je les is in lokaal 26."
+  ],
+  "154": [
+   "Ik heb liever een papieren loonstrookje, want dan kan ik het in een map bewaren.",
+   "Via de e-mail, want dan raak ik het niet kwijt en ik kan het altijd terugvinden."
+  ],
+  "155": [
+   "Op dat bord staat dat je geen afval op de grond mag gooien.",
+   "Kijk, op dat bord staat dat je papier in de prullenbak moet doen."
+  ],
+  "156": [
+   "Laten we toch de docenten kiezen. Docenten geven ons goede feedback, en dat is fijn voor ons cijfer. Bovendien zijn we dan in het weekend vrij.",
+   "Ik vind donderdag beter, want de docenten van de basisschool kunnen ons later misschien een stageplek geven. En op zaterdag werk ik."
+  ],
+  "157": [
+   "Ik vind een korte pauze beter, want dan ben ik eerder klaar met werken en kan ik eerder naar huis.",
+   "Ik wil liever een lange lunchpauze, omdat ik dan even kan wandelen. Daarna kan ik me weer beter concentreren."
+  ],
+  "158": [
+   "Ik vind het niet goed, want veel mensen verliezen dan hun baan.",
+   "Ik vind het goed, omdat machines zwaar en gevaarlijk werk kunnen doen. Bovendien maken machines minder fouten."
+  ],
+  "159": [
+   "Ga elke dag een half uur wandelen. En je kunt ook thuis oefeningen doen met een filmpje op internet.",
+   "Neem de trap in plaats van de lift. Bovendien kun je met de fiets naar de winkel gaan."
+  ],
+  "160": [
+   "Als automonteur moet je vooral met je handen werken. Dat leer je in de praktijklessen, niet uit een boek.",
+   "Ik vind het een slecht idee, omdat we in de garage moeten oefenen. Anders kunnen we straks niet goed werken."
+  ],
+  "161": [
+   "Mevrouw, u kunt beter de middelste deur gebruiken. Daar is plek voor de kinderwagen.",
+   "U kunt het best achterin instappen. Die deur is breder."
+  ],
+  "162": [
+   "Ik werk liever met de radio aan. Muziek maakt me vrolijk, en de tijd gaat sneller.",
+   "Zonder radio, want ik moet vaak bellen met klanten. Bovendien krijg ik hoofdpijn van het geluid."
+  ],
+  "163": [
+   "Ik vind het een goede regel, omdat leerlingen anders steeds op hun telefoon kijken en niet opletten.",
+   "Ik vind het een beetje streng. Leerlingen kunnen hun telefoon ook gebruiken om iets op te zoeken voor de les."
+  ],
+  "164": [
+   "Mag ik even jouw telefoon lenen? Ik moet mijn werk bellen.",
+   "Kan ik met jouw telefoon naar mijn baas bellen?"
+  ],
+  "165": [
+   "Graag! Kun jij de bloemen halen en de stoelen neerzetten?",
+   "Ja, fijn! Wil jij de microfoon regelen? En misschien kun je ook bloemen kopen."
+  ],
+  "166": [
+   "Ga gewoon vooraan zitten, dichter bij de docent.",
+   "Je kunt beter op de eerste rij gaan zitten. Dan hoor je de docent beter."
+  ],
+  "167": [
+   "Kunt u mij een munt van één euro geven voor deze munt van twee euro?",
+   "Heeft u twee munten van één euro voor mij? Ik heb er een nodig voor de winkelwagen."
+  ],
+  "168": [
+   "Wil je je muziek uitzetten of oordopjes gebruiken? De andere mensen hebben er last van.",
+   "Je muziek staat te hard. Zet hem zachter, alsjeblieft."
+  ],
+  "169": [
+   "Ja, ik vind dat belangrijk. Muziek maken is goed voor de hersenen, en kinderen leren dan ook doorzetten.",
+   "Nee, dat vind ik niet nodig. Kinderen moeten zelf kiezen wat ze leuk vinden."
+  ],
+  "170": [
+   "Muziek maakt kinderen vrolijk. Bovendien leren ze samenwerken als ze samen zingen. En ze kunnen er hun gevoelens mee uiten.",
+   "Ik vind muziekles belangrijk, want kinderen leren ritme en luisteren. Daarnaast is het goed voor hun taal. En sommige kinderen ontdekken zo hun talent."
+  ],
+  "171": [
+   "Je moet wel naar de politie, want voor de verzekering heb je een aangifte nodig. Bovendien kan de politie de dief misschien vinden.",
+   "Ga toch naar de politie. Je pasjes en je telefoon waren in die tas, en de politie kan andere mensen waarschuwen."
+  ],
+  "172": [
+   "Ik vond het niet altijd leuk, maar ik had veel vrienden op school.",
+   "Ik vond het saai, maar nu ben ik blij dat ik veel heb geleerd."
+  ],
+  "173": [
+   "We hebben eerst in de zee gezwommen. Daarna hebben we naar de grote boten gekeken. En tot slot hebben we op het strand een ijsje gegeten.",
+   "De kinderen hebben in het water gespeeld, we hebben boten bekeken en we hebben een ijsje gegeten."
+  ],
+  "174": [
+   "Ja, dat wil ik wel. 's Nachts is het rustiger en ik verdien er meer mee.",
+   "Liever niet, want ik heb kleine kinderen. Ik moet 's ochtends voor ze zorgen."
+  ],
+  "175": [
+   "Zet je beeldscherm hoger, op de hoogte van je ogen. En stel je stoel goed in.",
+   "Je moet je stoel en je computer goed instellen. Neem ook af en toe een pauze."
+  ],
+  "176": [
+   "Ik kan niet sporten, want mijn been is gebroken.",
+   "Helaas, ik ben gevallen en heb mijn been gebroken."
+  ],
+  "177": [
+   "We missen veel lessen. Dat is slecht voor onze examens.",
+   "Omdat de lessen steeds verschuiven, kan ik mijn werk niet goed plannen."
+  ],
+  "178": [
+   "Ik vind het geen goed idee. Als we het verslag niet op tijd inleveren, krijgen we een onvoldoende. Je kunt volgende week naar een ander feestje.",
+   "Ga liever niet. We moeten nog veel doen en morgen moet alles klaar zijn. Na het inleveren kunnen we samen iets leuks doen."
+  ],
+  "179": [
+   "Sorry, de chef is nu in gesprek. Kunt u even wachten?",
+   "Het spijt me, de chef wil nu niet gestoord worden. Ik vraag of hij u straks terugbelt."
+  ],
+  "180": [
+   "Ik moet alleen maar koffie halen en schoonmaken. Ik mag niet aan de auto's werken.",
+   "Ik leer niks, want de monteur doet alles zelf. Ik sta alleen maar te kijken."
+  ],
+  "181": [
+   "Het is prachtig! Er staan overal mooie planten. We hebben nieuwe printers en de koffiemachines zijn ook nieuw.",
+   "Het gebouw is licht en modern. Er zijn grote planten, nieuwe printers en goede koffieautomaten."
+  ],
+  "182": [
+   "Ik vind 's middags het fijnst, want 's ochtends ben ik nog moe.",
+   "'s Avonds, omdat ik overdag werk. Dan kan ik werk en school combineren."
+  ],
+  "183": [
+   "Ik vind veiligheid belangrijk. De auto moet niet te veel benzine gebruiken. En er moet genoeg ruimte zijn voor mijn gezin.",
+   "Een lage prijs, een grote kofferbak en een navigatiesysteem."
+  ],
+  "184": [
+   "Je moet elke dag Nederlands praten met de buren. En je kunt Nederlandse televisie kijken met ondertiteling.",
+   "Ga naar een taalcursus. Bovendien kun je vrijwilligerswerk doen, dan spreek je veel Nederlands."
+  ],
+  "185": [
+   "Eerst doe je tomatensaus en groente op de bodem. Daarna zet je de pizza in de oven. Tot slot snijd je hem in stukken.",
+   "Je doet saus en groente op de pizza, je bakt hem in de oven en dan snijd je hem in stukken."
+  ],
+  "186": [
+   "Ga de gang op en sla rechtsaf. Dan weer rechts. De kopieermachine staat in een klein kamertje aan het eind.",
+   "Je loopt naar rechts en dan nog een keer naar rechts. Helemaal aan het eind is een kleine kamer met de kopieermachine."
+  ],
+  "187": [
+   "De Coolprint kan in kleur printen. Bovendien gebruikt hij minder stroom, dus we besparen geld.",
+   "Met de Coolprint kunnen we kleurenprints maken. En hij is zuiniger met energie, dat is goed voor het milieu."
+  ],
+  "188": [
+   "Eerst vul je de vakken. Daarna help je bij de kaas. En tot slot ga je naar de kassa.",
+   "Je begint met vakken vullen. Dan help je op de kaasafdeling en daarna aan de kassa."
+  ],
+  "189": [
+   "Het beeld moet scherp zijn. En hij moet internet hebben.",
+   "Ik vind de prijs belangrijk. Bovendien moet hij niet te veel stroom gebruiken."
+  ],
+  "190": [
+   "Dat vind ik een leuk plan. Dan leren we de buren beter kennen, en de kinderen kunnen er spelen.",
+   "Ik vind het geen goed idee, want wie gaat de tuin onderhouden? Dat geeft misschien ruzie."
+  ],
+  "191": [
+   "Ik kies werkdagen, want ik moet elke dag met de trein naar school.",
+   "Gratis reizen op werkdagen, omdat ik op werkdagen naar mijn opleiding ga. Dat scheelt veel geld."
+  ],
+  "192": [
+   "Ik heb geholpen bij de gymles. Daarna heb ik een boek voorgelezen. En tot slot heb ik de schriften nagekeken.",
+   "Eerst heb ik bij sport geholpen. Ik heb ook voorgelezen en schriften gecontroleerd."
+  ],
+  "193": [
+   "Wilt u 112 bellen? Dan blijf ik bij de fietser.",
+   "Kunt u een ambulance bellen, alstublieft?"
+  ],
+  "194": [
+   "Ik vind het een goed plan, want veel mensen hebben 's ochtends geen tijd om te ontbijten.",
+   "Ik vind het geen goed idee, omdat we dan nog vroeger moeten beginnen."
+  ],
+  "195": [
+   "Niet gaan zitten! De verf op die stoel is nog nat.",
+   "Wacht even! Die stoel is net geverfd."
+  ],
+  "196": [
+   "We moeten bladzijde 34 lezen.",
+   "De docent zegt dat we pagina 34 moeten lezen."
+  ],
+  "197": [
+   "Dag meneer Van Veen. Ik ben de hele week ziek. Mag ik de opdracht later inleveren?",
+   "Goedemiddag. Ik ben ziek, dus ik kan de opdracht niet op tijd inleveren. Is volgende week ook goed?"
+  ],
+  "198": [
+   "Eerst maak je een jurk op de naaimachine. Daarna maak je een foto van een vrouw in die jurk. Tot slot zet je de foto op de computer.",
+   "Je moet een jurk naaien, een foto maken van iemand in de jurk en de foto op de computer zetten."
+  ],
+  "199": [
+   "Ik vind het idee van de rivier het beste. Kinderen leren meer als ze buiten zijn.",
+   "Laten we naar de rivier gaan, want dan kunnen de kinderen zelf vissen en planten zien. Dat is leuker dan uit een boek."
+  ],
+  "200": [
+   "Wil je deze brieven naar de brievenbus brengen?",
+   "Je kunt de post wegbrengen. De brievenbus is buiten bij de ingang."
+  ],
+  "201": [
+   "Eerst maken we een grote poster voor het festival. Daarna laten we hem aan andere studenten zien. Tot slot printen we de poster.",
+   "We moeten een poster ontwerpen, hem aan medestudenten laten zien en dan printen."
+  ],
+  "202": [
+   "Op maandag zijn er bijna geen klanten, dus we verdienen niks. Bovendien moeten de koks ook een keer uitrusten.",
+   "Ik denk dat het niet slim is, want op maandag komen er weinig gasten. En dan moeten we extra personeel zoeken."
+  ],
+  "203": [
+   "Ik vind het normaal, want een hbo-opleiding duurt langer en is moeilijker. Bovendien hebben die mensen vaak meer verantwoordelijkheid.",
+   "Ik vind het oneerlijk. Mbo'ers doen vaak zwaar werk, en zonder hen werkt niks in Nederland."
+  ],
+  "204": [
+   "Iedereen moet naar de camera kijken. En vraag ze om te lachen.",
+   "Zorg dat alle mensen in de camera kijken. Bovendien moeten ze vrolijk lachen."
+  ],
+  "205": [
+   "Leg uw hoofd naar achteren op de wasbak, alstublieft.",
+   "U moet achterover leunen, zodat uw hoofd onder de kraan ligt."
+  ],
+  "206": [
+   "Ik kies het profiel 'zorg', want ik help graag mensen.",
+   "Het profiel 'techniek' past het best bij mij, omdat ik graag dingen repareer."
+  ],
+  "207": [
+   "Hallo, heeft u misschien een pakje voor mij aangenomen?",
+   "Goedemiddag. De postbode zegt dat mijn pakje bij u is. Mag ik het komen halen?"
+  ],
+  "208": [
+   "Kun je even de deur voor mij openhouden? Mijn handen zijn vol.",
+   "Wil je me even helpen met de deur? Ik draag veel pakketjes."
+  ],
+  "209": [
+   "Ik denk dat een opleiding tot monteur bij je past, want je repareert altijd fietsen en auto's.",
+   "Kies een technische opleiding, omdat je graag met je handen werkt. Bovendien ben je goed in klussen."
+  ],
+  "210": [
+   "Ik wil graag twee pauzes extra. We staan de hele dag, en als we moe zijn, maken we fouten.",
+   "Kunnen we langere pauzes krijgen? Het werk is zwaar. Bovendien hebben we nu geen tijd om naar het toilet te gaan."
+  ],
+  "211": [
+   "Het was een meisje met lang haar. Ze droeg een groene rok en roze schoenen.",
+   "Een jong meisje met lang haar, een groene rok en roze schoenen."
+  ],
+  "212": [
+   "Zullen we afspreken dat je na negen uur 's avonds niet meer speelt?",
+   "Misschien kun je een koptelefoon gebruiken, of op zaterdagmiddag oefenen."
+  ],
+  "213": [
+   "Plastic tassen zijn slecht voor het milieu. Neem gewoon een eigen tas mee.",
+   "Omdat die tassen in de zee terechtkomen. En je betaalt er ook steeds voor."
+  ],
+  "214": [
+   "Eerst had ik een lekke band. Toen ben ik gevallen. En daarna heeft een hond me in mijn been gebeten.",
+   "Mijn fietsband was lek, ik viel op straat en een hond beet me."
+  ],
+  "215": [
+   "Eerst hebben we de olifantenpoep opgeruimd. Daarna hebben we een aap medicijnen gegeven. Tot slot hebben we de zebra's naar hun stal gebracht.",
+   "We hebben het hok van de olifanten schoongemaakt, een zieke aap medicijnen gegeven en de zebra's naar binnen gebracht."
+  ],
+  "216": [
+   "Ik moest een wasbak ophangen. Eerst heb ik gemeten hoe hoog hij moest. Toen heb ik de afvoer aangesloten. Tot slot heb ik de wasbak vastgemaakt.",
+   "Ik heb een nieuwe wasbak geplaatst. Ik heb de hoogte gemeten, de afvoerpijp gemonteerd en de wasbak aan de muur gezet."
+  ],
+  "217": [
+   "Willen jullie even stil zijn? Ik wil met mijn presentatie beginnen.",
+   "Mag ik jullie aandacht? Ik ga nu beginnen."
+  ],
+  "218": [
+   "Oefen je presentatie eerst thuis. Gebruik ook plaatjes op de dia's. En kijk het publiek aan als je praat.",
+   "Begin met een leuke vraag. Daarnaast moet je niet te lang praten. En gebruik filmpjes of foto's."
+  ],
+  "219": [
+   "Die mannen maken te veel herrie. Ik kan me niet concentreren.",
+   "Er wordt hiernaast geboord. Kunnen ze even stoppen tijdens het examen?"
+  ],
+  "220": [
+   "Mijn bureau is te laag. Daar krijg ik rugpijn van.",
+   "Nee, de tafel is veel te laag voor mij."
+  ],
+  "221": [
+   "Hoi, met mij. Ik heb een lekke band, dus ik kom wat later.",
+   "Sorry, ik ben er nog niet. Mijn auto heeft een lekke band."
+  ],
+  "222": [
+   "Iemand heeft het raam van mijn winkel kapotgemaakt.",
+   "Ik wilde de winkel openen, maar de ruit is ingegooid."
+  ],
+  "223": [
+   "Een klant heeft per ongeluk een glazen kat laten vallen. Hij is kapot.",
+   "Er is een glazen beeldje van een kat op de grond gevallen."
+  ],
+  "224": [
+   "Dat is een goed idee. Ik heb al met haar gepraat, en ik moet mijn eigen werk ook doen.",
+   "Ik doe dat liever niet. Dan wordt de sfeer slecht, en ik wil geen ruzie met haar."
+  ],
+  "225": [
+   "Met dit product kunt u uw ramen poetsen.",
+   "Dit is een middel om ramen en spiegels schoon te maken."
+  ],
+  "226": [
+   "Dat is goed, maar zet hem wel zacht. Dan kan ik me nog concentreren.",
+   "Liever niet, want ik moet me goed concentreren voor het examen."
+  ],
+  "227": [
+   "Ik kies een groot hotel, want daar kan ik veel leren en Engels spreken.",
+   "Ik kies het grote hotel voor zakenmensen, omdat ik later bij een groot bedrijf wil werken."
+  ],
+  "228": [
+   "Dit bord betekent dat je veiligheidsschoenen moet dragen.",
+   "Hier moet je stevige werkschoenen aan."
+  ],
+  "229": [
+   "Ik vind het niet goed. Mensen moeten zelf kunnen kiezen wat ze aantrekken.",
+   "Ik vind het goed, omdat het er netjes uitziet voor klanten. En je hoeft 's ochtends niet na te denken wat je aantrekt."
+  ],
+  "230": [
+   "Ik wil graag naar het strand. Daarnaast wil ik een stad bekijken. En ik wil lekker uit eten gaan.",
+   "Ik wil fietsen, in de zon liggen en lekker uit eten."
+  ],
+  "231": [
+   "Dat vind ik prima, want dan kan ik in de trein lezen.",
+   "Dat is te veel, want ik heb kleine kinderen en ik wil 's avonds op tijd thuis zijn."
+  ],
+  "232": [
+   "Tel eerst de koeien en trek een lijn naar het cijfer 2. Doe dat ook met de katten en het cijfer 3. En dan de schapen met het cijfer 4.",
+   "Je moet de dieren tellen. Daarna trek je een lijn naar het goede cijfer: twee koeien naar 2, drie katten naar 3 en vier schapen naar 4."
+  ],
+  "233": [
+   "Ik vind het een goed plan. We worden dan echte specialisten. Bovendien hebben we minder verschillende onderdelen nodig.",
+   "Ik vind het een slecht plan, omdat we veel klanten verliezen. En wat doen we als er minder televisies kapotgaan?"
+  ],
+  "234": [
+   "Rijd nu achteruit in die parkeerplaats.",
+   "Probeer nu achteruit te parkeren tussen die twee auto's."
+  ],
+  "235": [
+   "Ik vind het een goede regel, omdat rook ongezond is voor andere mensen.",
+   "Ik vind het jammer voor rokers, maar het is beter voor het personeel."
+  ],
+  "236": [
+   "U kunt spelletjes in het Engels doen. U kunt ons over toerisme laten praten. En u kunt Engelse filmpjes laten zien.",
+   "Laat ons meer praten in groepjes. Gebruik ook muziek. En misschien kunnen we een excursie maken met Engelse toeristen."
+  ],
+  "237": [
+   "Ik kies de oefeningen op muziek, want ik dans graag.",
+   "Ik doe liever oefeningen in de ochtend. Dan heb ik de rest van de dag vrij."
+  ],
+  "238": [
+   "Ik kies de grote bouwplaats, want daar leer ik veel van verschillende collega's.",
+   "Een grote bouwplaats, omdat er daar later misschien een baan voor mij is."
+  ],
+  "239": [
+   "Mag ik een keer bij jou komen om je hond te schilderen?",
+   "Ik heb geen hond. Mag ik een foto van een van jouw honden maken?"
+  ],
+  "240": [
+   "Ik heb een week geleden materiaal besteld, maar ik heb nog niks gekregen. Wanneer komt het?",
+   "Mijn bestelling is nog niet gekomen. Kunt u kijken waar hij is?"
+  ],
+  "241": [
+   "Schilder de muren in een vrolijke kleur. Koop nieuwe, mooie stoelen. En zet planten bij de ingang.",
+   "Het wordt gezelliger met nieuwe verf op de muren, nieuwe stoelen en bloemen bij de deur."
+  ],
+  "242": [
+   "Ik vind het te lang. Kinderen worden moe en kunnen zich dan niet meer concentreren.",
+   "Ik vind het een goed idee, omdat ouders dan allebei kunnen werken."
+  ],
+  "243": [
+   "Je moet je dienblad naar de afvalbak brengen en het bord leegmaken.",
+   "Gooi je afval weg en zet je bord op de kar."
+  ],
+  "244": [
+   "Ik kies de Mondriaanschool. Hij is dicht bij ons huis, en er is een groot schoolplein.",
+   "De Mondriaanschool is het best, want er zijn niet zoveel leerlingen. Bovendien kunnen de kinderen buiten spelen."
+  ],
+  "245": [
+   "Ik werk liever in een ziekenhuis. Het is belangrijk werk, en het is daar altijd heel schoon.",
+   "Op een school, want dan werk ik niet in het weekend. En in de vakantie heb ik ook vrij."
+  ],
+  "246": [
+   "Wilt u de planten even van de vensterbank halen?",
+   "Kunt u de planten weghalen? Dan kan ik bij het raam."
+  ],
+  "247": [
+   "Ik ga er mijn fietsen in zetten.",
+   "Hij is voor mijn fietsen, dan staan ze niet in de regen."
+  ],
+  "248": [
+   "Het zijn vijf sleutels aan een groene sleutelhanger. Het lijkt op een schoentje.",
+   "Er hangen vijf sleutels aan, met een kleine groene schoen als sleutelhanger."
+  ],
+  "249": [
+   "Trek een net pak of een nette jurk aan. Bij een bank is dat normaal. Bovendien maak je dan een goede eerste indruk.",
+   "Je moet nette kleding dragen, omdat de klanten van een bank dat verwachten. En je laat zien dat je de baan serieus neemt."
+  ],
+  "250": [
+   "Ik houd van mode en ik praat graag met klanten.",
+   "Het lijkt me leuk om mensen te helpen die iets moois zoeken."
+  ],
+  "251": [
+   "Ik vind het leuk dat ik met planten werk en klanten kan helpen.",
+   "Ik houd van tuinieren, dus ik kan klanten goed advies geven."
+  ],
+  "252": [
+   "Ik heb op een taxi gereden. Daarna ben ik vrachtwagenchauffeur geweest. En ik heb ook op de bus gewerkt.",
+   "Ik was eerst taxichauffeur, toen buschauffeur en daarna vrachtwagenchauffeur."
+  ],
+  "253": [
+   "Ik ga limonade schenken voor de kinderen. Daarnaast maak ik foto's. En aan het einde ruim ik alles op.",
+   "Ik deel drinken uit, ik maak foto's en ik help met opruimen."
+  ],
+  "254": [
+   "Wilt u uw kinderen bij u aan tafel houden? In de keuken is het heet en gevaarlijk. Bovendien hebben andere gasten er last van.",
+   "Uw kinderen mogen niet in de keuken komen. Er zijn messen en hete pannen, en de koks kunnen niet goed werken."
+  ],
+  "255": [
+   "Leg je telefoon alsjeblieft weg. We moeten goed opletten, want er kan iets gebeuren. En de baas wordt boos als hij het ziet.",
+   "Stop even met dat spelletje. We moeten de klanten in de gaten houden. Bovendien moet je batterij vol zijn als er alarm is."
+  ],
+  "256": [
+   "Je kunt T-shirts uitdelen of limonade schenken.",
+   "Je mag kiezen: de kinderen een T-shirt geven, of limonade inschenken."
+  ],
+  "257": [
+   "We moeten nog 50 T-shirts bestellen. Er moeten ballen komen. En we moeten limonade en fruit kopen.",
+   "We hebben nog T-shirts, ballen, limonade en fruit nodig."
+  ],
+  "258": [
+   "Je kunt stage lopen in een zwembad. Je zwemt zelf graag, en daar kun je zwemles geven.",
+   "Wat dacht je van het zwembad? Je bent een goede zwemmer, bovendien zijn er daar veel banen."
+  ],
+  "259": [
+   "Mijn agenda is heel kleurrijk, en de pen is zwart met groene bloemetjes.",
+   "Het is een agenda met veel kleuren en een zwarte pen met groene bloemen."
+  ],
+  "260": [
+   "Ik zou op de stadsbus blijven. Dan ben je elke avond thuis bij je familie. Bovendien rijd je in de stad die je goed kent.",
+   "Ik zou het nieuwe werk proberen. Je ziet veel van Europa en het is afwisselend werk."
+  ],
+  "261": [
+   "Eerst breng je de geiten naar de wei. Daarna maak je de stal schoon. En tot slot geef je de geiten eten.",
+   "Je moet de geiten naar buiten brengen, de stal schoonmaken en de geiten voeren."
+  ],
+  "262": [
+   "Ik zou niet gaan. Drie maanden is lang zonder familie en vrienden. Bovendien is wonen in het buitenland duur.",
+   "Je moet zeker gaan. Een vertaler moet de taal goed spreken. En je leert ook de cultuur kennen."
+  ],
+  "263": [
+   "Ja, ga naar Italië! Je leert echte Italiaanse gerechten koken. Bovendien staat het goed op je cv.",
+   "Ik zou het niet doen, want je spreekt geen Italiaans. En je moet hier je opleiding afmaken."
+  ],
+  "264": [
+   "Ik wil graag meer leren. Mag ik ook helpen met koken?",
+   "Ik zou graag eten willen klaarmaken in plaats van alleen afwassen."
+  ],
+  "265": [
+   "Wil jij de vakken vullen?",
+   "Je gaat nu de schappen bijvullen met producten."
+  ],
+  "266": [
+   "Graag! Kun je mijn schort even vastmaken?",
+   "Ja, wil je de strik van mijn schort dichtknopen?"
+  ],
+  "267": [
+   "Eerst vul je de vakken. Daarna ga je achter de kassa.",
+   "Je moet vakken vullen en daarna kassawerk doen."
+  ],
+  "268": [
+   "Goedemiddag, ik zoek een stageplaats. Mag ik bij u drie maanden stage lopen?",
+   "Heeft u misschien een stageplek voor mij? Ik ben student verzorging."
+  ],
+  "269": [
+   "Ik kies voor de ouderen. Ik praat graag met oude mensen en ik heb al voor mijn oma gezorgd.",
+   "Het liefst werk ik met gehandicapten, omdat ik graag help bij sport en spel. Bovendien lijkt het me afwisselend werk."
+  ],
+  "270": [
+   "Wil je de vloer vegen?",
+   "Je moet nu de vloer schoonvegen."
+  ],
+  "271": [
+   "Ik vind het goed, want met meer wegen staan we minder in de file.",
+   "Dat vind ik slecht, omdat dieren en planten dan geen plek meer hebben."
+  ],
+  "272": [
+   "Eerst krijg je een stembiljet. Daarna kleur je met een rood potlood het hokje van een persoon. Tot slot gooi je het biljet in de stembus.",
+   "Je krijgt een papier met namen. Je kiest één persoon met het rode potlood en dan doe je het papier in de doos."
+  ],
+  "273": [
+   "Stop niet. Praat eerst met je stagebegeleider over de problemen.",
+   "Je kunt misschien een andere stageplek zoeken. Je bent al zo ver!"
+  ],
+  "274": [
+   "Er is een boom op het huis gevallen. Daardoor is het raam kapot. Er zit ook een gat in het dak. En de schutting is omgewaaid.",
+   "De storm heeft veel schade gemaakt: een gat in het dak, een kapot raam, een boom tegen het huis en een kapotte schutting."
+  ],
+  "275": [
+   "Ik heb lekker in de zee gezwommen.",
+   "Ik ben de zee in gegaan om te zwemmen."
+  ],
+  "276": [
+   "Er heeft iemand door het natte cement gelopen.",
+   "Er staan voetstappen in het cement, want iemand liep erover."
+  ],
+  "277": [
+   "Eerst hadden we theorie. Daarna hebben we plantjes in de grond gezet. Tot slot hebben we ze water gegeven.",
+   "We hebben les gehad, plantjes geplant en ze water gegeven."
+  ],
+  "278": [
+   "In de bibliotheek is het veel te druk. De mensen praten de hele tijd. En de zon schijnt in je ogen.",
+   "Laten we liever ergens anders gaan zitten. In de bieb kletst iedereen, het is er druk en het is er warm door de zon."
+  ],
+  "279": [
+   "Nee, ik denk het niet. Ik houd niet van haar knippen, ik wil liever iets technisch doen.",
+   "Ja, dat past bij mij. Ik vind mode leuk en ik werk graag met mensen."
+  ],
+  "280": [
+   "Word lid van de sportclub van school. Daar leer je snel mensen kennen.",
+   "Ga in de pauze in de kantine zitten en praat met andere studenten. Dan leren ze je kennen."
+  ],
+  "281": [
+   "Je moet elke week twee uur luisteren in de cabine. Daarnaast studeer je elke dag twee uur met het boek. En je oefent twee uur per week op de computer.",
+   "Elke week twee uur luisteroefeningen, elke dag twee uur uit het boek en twee uur per week computeroefeningen."
+  ],
+  "282": [
+   "Ik vind het een goed idee, want het kost veel tijd. Patiënten moeten zelf aan hun afspraak denken.",
+   "Ik ben het er niet mee eens, omdat we dan meer lege plekken in de agenda krijgen. Dat kost de praktijk geld."
+  ],
+  "283": [
+   "Je moet echt gaan. Een tandarts kan je pijn snel weghalen. Bovendien wordt het later alleen maar duurder.",
+   "Ik begrijp dat je bang bent, maar de tandarts is heel voorzichtig. En ik ga met je mee als je wilt."
+  ],
+  "284": [
+   "Bij ons brengen we het tapijt gratis bij u thuis. Bovendien leggen we het gratis voor u. En u krijgt tien procent korting.",
+   "Als u bij ons koopt, krijgt u gratis bezorging en gratis plaatsing. Daarnaast is er nu tien procent korting."
+  ],
+  "285": [
+   "Kinderen drinken te veel frisdrank en ze bewegen te weinig. Scholen moeten meer gymles geven en ouders moeten gezond koken.",
+   "Er is te veel snoep en fastfood. De oplossing: water drinken in plaats van frisdrank en elke dag buiten spelen."
+  ],
+  "286": [
+   "Je kunt een eerdere trein nemen. Dan ben je altijd op tijd.",
+   "Ga eerder van huis weg. En kijk in de app of de trein vertraging heeft."
+  ],
+  "287": [
+   "Kun je nog tien kopieën maken van dit document?",
+   "Wil je dit nog een paar keer kopiëren? We hebben er te weinig."
+  ],
+  "288": [
+   "Ik vind volleybal een leuk idee, maar wandelen is ook goed voor mensen die niet sportief zijn.",
+   "Prima ideeën! Volleyballen op het strand is gezellig, en een wandeling langs de zee is rustig."
+  ],
+  "289": [
+   "Ik kies een klein bedrijf, want daar ken je alle collega's en het is gezellig.",
+   "Ik wil liever een klein bedrijf, omdat ik daar ook ander werk kan doen en meer leer."
+  ],
+  "290": [
+   "Ik vind het leukst om kaartjes te controleren, want dan zie ik alle bezoekers binnenkomen.",
+   "Ik vind het leuk om in de pauze drankjes te verkopen. Dan praat ik met veel mensen."
+  ],
+  "291": [
+   "Eerst vertellen de kinderen over hun lievelingsdier. Daarna lees ik een verhaal over dieren voor. Tot slot zoeken ze samen boeken over dieren.",
+   "Ik laat de kinderen over hun favoriete dier praten, ik lees een boek voor en ze gaan dierenboeken zoeken."
+  ],
+  "292": [
+   "Ik vind thuisonderwijs geen goed idee. Kinderen moeten met andere kinderen spelen en leren samenwerken.",
+   "Ik vind het goed, omdat ouders hun kind goed kennen. Bovendien kan het kind in zijn eigen tempo leren."
+  ],
+  "293": [
+   "Ik reis elke dag lang naar kantoor. Als ik thuiswerk, heb ik meer tijd.",
+   "Thuis kan ik me beter concentreren, want er is minder lawaai."
+  ],
+  "294": [
+   "Eerst heb ik de lakens gestreken. Daarna heb ik het bed opgemaakt.",
+   "Ik heb lakens gestreken en het bed klaargemaakt."
+  ],
+  "295": [
+   "Oefen je presentatie een paar keer voor de spiegel. En adem diep in en uit voordat je begint.",
+   "Maak een spiekbriefje met de belangrijkste punten. Bovendien helpt het als je eerst even gaat wandelen."
+  ],
+  "296": [
+   "Ik vind Amsterdam beter. Alle toeristen willen naar Amsterdam, en er is veel te zien.",
+   "Een folder over onbekende plaatsen, omdat Amsterdam al te druk is. Bovendien zijn er genoeg folders over Amsterdam."
+  ],
+  "297": [
+   "Eerst zetten jullie de spullen op het podium. Daarna leren jullie je tekst uit je hoofd. En tot slot trekken jullie je kostuums aan.",
+   "Jullie moeten het toneel klaarmaken, de tekst oefenen en je verkleden."
+  ],
+  "298": [
+   "Sorry, maar de trui is gedragen. Hij is vies en er zit een gat in.",
+   "Dat lukt helaas niet, want de trui is beschadigd en niet meer schoon."
+  ],
+  "299": [
+   "Zet eerst de planten buiten. Daarna leg je de zakken aarde in de winkel. En tot slot help je bij de kassa.",
+   "Je kunt de planten naar buiten brengen, de zakken met aarde neerzetten en dan achter de kassa gaan."
+  ],
+  "300": [
+   "Ja, je moet morgen je zwembroek en een handdoek meenemen.",
+   "Neem morgen een handdoek en zwemkleding mee, want we gaan zwemmen."
+  ],
+  "301": [
+   "Ik vind theorieles fijner. Ik wil begrijpen hoe een motor werkt. En in de klas kan ik vragen stellen aan de docent.",
+   "Praktijk is fijner, omdat ik dan echt aan een auto werk. Bovendien onthoud ik het dan beter."
+  ],
+  "302": [
+   "Ik kies het restaurant. Dan kunnen we gezellig met elkaar praten.",
+   "Een etentje in een restaurant, want ik houd niet van wandelen als het koud is."
+  ],
+  "303": [
+   "Ik eet liever in een restaurant, want dan hoef ik niet te koken en af te wassen.",
+   "Thuis, omdat ik zelf gezond kan koken."
+  ],
+  "304": [
+   "Ik ga liever naar de film. In een café is het te druk en te lawaaierig.",
+   "Ik kies voor SingSing in het café. Live muziek is veel leuker dan een film."
+  ],
+  "305": [
+   "Hoeveel kamers heeft het hotel?",
+   "Wat voor gasten komen er vooral in uw hotel?"
+  ],
+  "306": [
+   "We zijn naar het strand geweest met de kinderen. We hebben zandkastelen gebouwd.",
+   "Ik ben met mijn gezin naar zee geweest. De kinderen hebben veel op het strand gespeeld."
+  ],
+  "307": [
+   "Er is een zwembad en een speeltuin.",
+   "Ja hoor, de kinderen kunnen er zwemmen en in de speeltuin spelen."
+  ],
+  "308": [
+   "Doe eerst je gordel om. Zet daarnaast je stoel rechtop. En je bagage moet goed opgeborgen zijn.",
+   "Passagiers maken hun riem vast, ze zetten de stoel rechtop en ze bergen hun tas goed op."
+  ],
+  "309": [
+   "Ik vind het niet goed. Je kunt met je telefoon ook dingen opzoeken voor de les.",
+   "Ik vind het een goede regel, omdat studenten dan beter opletten."
+  ],
+  "310": [
+   "Rood is te donker voor een kamer. Kies liever wit of lichtblauw.",
+   "Mooi, maar het is wel een heel felle kleur."
+  ],
+  "311": [
+   "Dat pak beschermt uw kleding. Er zit hier overal verf.",
+   "In de fabriek kan er verf op u komen. Daarom moet u dit pak aan."
+  ],
+  "312": [
+   "De paraplu is rood en heeft zwarte stippen.",
+   "Het is een rode paraplu met zwarte stippen erop."
+  ],
+  "313": [
+   "Eerst stop je de spullen in dozen. Daarna zetten we samen de dozen in de wagen. Tot slot rijd je naar het nieuwe huis.",
+   "Je moet inpakken, met mij de dozen inladen en dan naar het nieuwe adres rijden."
+  ],
+  "314": [
+   "Het was leuk. Mijn kinderen hebben me veel cadeautjes gegeven.",
+   "Heel gezellig! Ik kreeg allemaal cadeaus van de kinderen."
+  ],
+  "315": [
+   "Je moet het eerst printen en daarna op papier aan de docent geven.",
+   "Print het verslag en breng het naar de docent."
+  ],
+  "316": [
+   "Kijk eerst of je verslag nog in je mail of in de cloud staat. Misschien heb je het daar opgeslagen.",
+   "Ga met je computer naar de ICT-afdeling van school. Ze kunnen je bestand misschien terughalen."
+  ],
+  "317": [
+   "Twee jongens hebben de bushalte kapotgeslagen met stokken.",
+   "Ik zag twee jongens met stokken. Ze sloegen het glas van de bushalte kapot."
+  ],
+  "318": [
+   "Laten we het vandaag doen, want volgende week hebben we veel ander werk.",
+   "Ik doe het liever vandaag, omdat de leden de informatie snel moeten krijgen."
+  ],
+  "319": [
+   "Ik stofzuig de kamers en ik geef de planten water.",
+   "Ik maak de kamers schoon met de stofzuiger en ik zorg voor de planten."
+  ],
+  "320": [
+   "Wilt u goed op uw kind letten? De vijver is diep en gevaarlijk. Bovendien liggen hier veel scherpe stenen.",
+   "Kunt u uw kind binnen houden zolang ik werk? Het water is gevaarlijk voor een klein kind, en ik moet met zware machines werken."
+  ],
+  "321": [
+   "We hebben mensen nodig voor de nieuwsbrief. Daarnaast zoeken we trainers. En we zoeken ook hulp in de kantine.",
+   "Je kunt de nieuwsbrief maken, training geven of in de kantine werken."
+  ],
+  "322": [
+   "Ik ga liever naar een middelbare school. Met grote kinderen kun je beter praten over criminaliteit en gevaar.",
+   "Liever de basisschool, want kleine kinderen vinden de politie heel spannend. Ze stellen leuke vragen."
+  ],
+  "323": [
+   "Eerst pakt u een dienblad en een bord. Daarna kiest u wat u wilt. Tot slot betaalt u bij de kassa.",
+   "U kunt zelf eten pakken. Neem een bord, kies uw eten en betaal aan het eind bij de kassa."
+  ],
+  "324": [
+   "Ik rijd liever korte afstanden in de stad. Dan ben ik elke avond thuis. Bovendien vind ik het niet leuk om lang alleen te zijn.",
+   "Korte ritten, want ik vind het druk in de stad wel leuk. En ik zie dan veel klanten."
+  ],
+  "325": [
+   "Ik vind het niet zo fijn. Ik wil zelf kiezen wanneer ik vakantie neem.",
+   "Ik vind het een goede regel, omdat iedereen dan tegelijk rust heeft."
+  ],
+  "326": [
+   "Ik begrijp dat het druk is, maar ik zie mijn vriendin maar één keer per jaar. Ik kan wel extra uren werken in de week ervoor.",
+   "Ik heb nog genoeg vakantiedagen. Bovendien kan een collega mijn werk overnemen, en ik werk daarna een weekend extra."
+  ],
+  "327": [
+   "Je leert nieuwe mensen kennen. Bovendien kun je het op je cv zetten.",
+   "Je blijft actief en je leert nieuwe dingen. Misschien vind je via het vrijwilligerswerk zelfs een baan."
+  ],
+  "328": [
+   "Ik kies de late dienst. 's Ochtends breng ik mijn kinderen naar school. Bovendien ben ik geen ochtendmens.",
+   "De late dienst, want dan kan ik uitslapen. En 's ochtends kan ik nog boodschappen doen."
+  ],
+  "329": [
+   "Ik kies de computerwinkel, want ik wil meer leren over computers.",
+   "De computerwinkel lijkt me leuker, omdat ik technische dingen interessant vind."
+  ],
+  "330": [
+   "Ik vind het niet nodig. In de pauze wil ik rustig zitten en eten.",
+   "Ik vind het een goed idee, omdat je na een wandeling weer fris bent om te werken."
+  ],
+  "331": [
+   "Ik kies de kinderen. Kinderen zijn nieuwsgierig, en ik kan ze veel leren over de natuur.",
+   "Liever met kinderen, want dat is vrolijk. Bovendien wil ik later met kinderen werken."
+  ],
+  "332": [
+   "Ga toch! Je hebt goed geleerd. En als je niet gaat, krijg je zeker een onvoldoende.",
+   "Probeer het gewoon. Je kunt altijd een herkansing doen."
+  ],
+  "333": [
+   "Ik kies zwemmen. Het is goed voor je hele lichaam. Bovendien krijg je er geen pijn aan je knieën van.",
+   "Zwemmen, want ik houd van water. En je kunt het ook in de winter doen, in een binnenbad."
+  ],
+  "334": [
+   "Voetballen is beter, want we kunnen buiten op het veld spelen. Bovendien hoeven we geen zwembad te huren.",
+   "Ik denk dat voetbal een betere keuze is, omdat de kinderen dan leren samenspelen. En het is veiliger dan zwemmen."
+  ],
+  "335": [
+   "Ik kies kok, want ik kook graag voor andere mensen.",
+   "Het beroep van kok past bij mij, omdat ik creatief ben in de keuken."
+  ],
+  "336": [
+   "Au, ik heb me in mijn vinger gesneden. Heb je een pleister?",
+   "Ik heb me gesneden met het mes. Kun je de verbanddoos pakken?"
+  ],
+  "337": [
+   "We moeten de bladeren bij elkaar vegen en ze in de container doen.",
+   "Eerst vegen we de bladeren. Dan gooien we ze in de container."
+  ],
+  "338": [
+   "Je bent al de hele week aan het werk. Je moet ook tijd hebben voor je vrienden en je familie.",
+   "Dan word je te moe. Rust is belangrijker dan geld."
+  ],
+  "339": [
+   "Hij heeft met de andere kinderen liedjes gezongen. Daarna heeft hij met de brandweerauto gespeeld. Maar hij heeft ook een beetje ruzie gehad met een ander jongetje.",
+   "Uw zoon heeft gezongen, met de brandweerauto gespeeld en helaas ook ruzie gemaakt."
+  ],
+  "340": [
+   "Ik wil eerst een diploma halen. Met een diploma vind ik later een betere baan.",
+   "Ik haal liever eerst mijn diploma, omdat ik dan meer verdien."
+  ],
+  "341": [
+   "Vraag je docent of je een paar dagen extra tijd mag hebben.",
+   "Maak een planning en werk elke dag een paar uur aan je werkstuk."
+  ],
+  "342": [
+   "Plak eerst de plaatjes in het document. Daarna maak je kopieën. En tot slot maak je er boekjes van.",
+   "Je kunt de foto's in het werkstuk zetten, het kopiëren en er boekjes van maken."
+  ],
+  "343": [
+   "Eerst zet je de deur terug. Daarna maak je er een slot op. Tot slot hang je de bel naast de deur.",
+   "Je kunt de deur weer plaatsen, het slot monteren en de deurbel aansluiten."
+  ],
+  "344": [
+   "Maak kaartjes met het Engelse woord aan de ene kant en het Nederlandse woord aan de andere kant.",
+   "Gebruik een app om elke dag tien minuten woorden te oefenen."
+  ],
+  "345": [
+   "Ga met gekruiste benen op de grond zitten. Raak dan met je linkerhand je rechterknie aan. Daarna doe je hetzelfde met je rechterhand en je linkerknie.",
+   "Je zit op de vloer met je benen gekruist. Je linkerhand gaat naar je rechterknie, en daarna je rechterhand naar je linkerknie."
+  ],
+  "346": [
+   "Ik kies zaterdag, want op zondag gaan we altijd naar familie.",
+   "Ik werk liever op zaterdag. Dan heb ik de zondag om uit te rusten."
+  ],
+  "347": [
+   "Hallo, er is een wiel van het bed kapot. Kunt u even komen?",
+   "Ik kan het bed niet verplaatsen, het wiel is stuk. Kunt u helpen?"
+  ],
+  "348": [
+   "Vandaag moet je groente snijden voor de soep.",
+   "Wil je al deze groente schoonmaken en snijden?"
+  ],
+  "349": [
+   "Je moet mevrouw Melders helpen met wassen. Daarna help je haar met aankleden.",
+   "Bij mevrouw Melders moet je haar wassen en aankleden."
+  ],
+  "350": [
+   "Dat vind ik goed. Op zaterdag heb ik meer tijd om mijn kind te brengen.",
+   "Dat is lastig, want op zaterdagochtend werk ik. Kan het niet op een andere middag?"
+  ],
+  "1001": [
+   "Ik zou een nette broek en een overhemd aantrekken. Dan laat je zien dat je de baan echt wilt.",
+   "Doe dat niet. Een oude spijkerbroek ziet er slordig uit, en de werkgever ziet je kleding als eerste."
+  ],
+  "1002": [
+   "Ik werk liever 's middags, want 's ochtends breng ik mijn kinderen naar school.",
+   "'s Ochtends, omdat ik dan meer energie heb."
+  ],
+  "1003": [
+   "Sorry meneer, hier verkopen we alleen koffie. Voor een broodje kaas moet u naar de balie daar.",
+   "Die broodjes kunt u bij de andere balie bestellen. Dat is daar, naast de deur."
+  ],
+  "1004": [
+   "Ja, ik ga de avondopleiding doen, want overdag werk ik.",
+   "Ja, dat lijkt me het beste. Dan kan ik overdag geld verdienen."
+  ],
+  "1005": [
+   "Wilt u de kat elke ochtend eten geven? En maak de kattenbak twee keer per week schoon.",
+   "U moet het water elke dag verversen en de kat 's avonds eten geven."
+  ],
+  "1006": [
+   "Ach, wat naar voor u. Wilt u er even over praten?",
+   "Dat vind ik heel vervelend, mevrouw Verbeek. Kan ik iets voor u doen?"
+  ],
+  "1007": [
+   "Ja hoor, geeft u maar. Mijn buurman komt het vanavond wel halen.",
+   "Geen probleem. Ik leg een briefje bij hem in de bus."
+  ],
+  "1008": [
+   "Goedemorgen, u spreekt met ... Ik sta in de file, dus ik kom twintig minuten te laat. Is dat een probleem?",
+   "Hallo, ik heb om tien uur een afspraak, maar er is een file. Kan ik iets later komen, of moet ik een nieuwe afspraak maken?"
+  ],
+  "1009": [
+   "Maak samenvattingen van elk hoofdstuk. En leer samen met een medestudent, dan kunnen jullie elkaar overhoren.",
+   "Begin een week eerder met leren. Bovendien moet je goed slapen voor de toets."
+  ],
+  "1010": [
+   "Ik kies Parijs. Er zijn veel bekende musea. Bovendien wil ik de Eiffeltoren graag zien.",
+   "Parijs, want het is een prachtige stad en je kunt er heerlijk eten. En met de trein ben je er snel."
+  ],
+  "1011": [
+   "Leg eerst je papier op het glas. Daarna kies je hoeveel kopieën je wilt. En tot slot druk je op start.",
+   "Je doet de klep open en legt het papier erop. Dan typ je het aantal in. Daarna druk je op de groene knop."
+  ],
+  "1012": [
+   "Eerst schrijft u uw naam in het bezoekersboek. Daarna krijgt u een pasje. Dan kunt u even gaan zitten, mevrouw De Vries komt u halen.",
+   "Wilt u zich hier aanmelden? Ik geef u een bezoekerspas. Neemt u daarna plaats in de wachtruimte."
+  ],
+  "1013": [
+   "Er zijn veel stopcontacten voor je laptop. Bovendien zijn er grote ramen en mooie planten.",
+   "Het is een moderne ruimte met comfortabele stoelen en een printer. Het is er stil, dus je kunt goed studeren."
+  ],
+  "1014": [
+   "Kies voetbal. Dan sport je samen met anderen, en dat is gezellig. Bovendien heb je een vaste training, dus je gaat echt.",
+   "Ik zou voetbal kiezen, want in een team krijg je nieuwe vrienden. En de trainer helpt je om beter te worden."
+  ],
+  "1015": [
+   "Ik vind het niet erg. Een goede juf is net zo goed als een goede meester. Het gaat om de kwaliteit.",
+   "Ik vind het een probleem. Jongens hebben ook een man als voorbeeld nodig. Bovendien is een team met mannen en vrouwen beter."
+  ],
+  "1016": [
+   "Ik help de bewoners met boodschappen doen. En ik praat met ze als ze problemen hebben.",
+   "Ik help met schoonmaken en ik maak een planning voor de week met de bewoners."
+  ],
+  "1017": [
+   "Ik kies een nieuwe telefoon. Mijn telefoon is oud en traag. Bovendien gebruik ik mijn telefoon elke dag.",
+   "Een telefoon, want ik heb al een laptop. En met een nieuwe telefoon kan ik betere foto's maken."
+  ],
+  "1018": [
+   "Ja, doe het! Je bespaart geld op benzine. Bovendien ben je fit als je op je werk komt.",
+   "Goed idee, want fietsen is goed voor je hart. En het is ook beter voor het milieu."
+  ]
+ }
+}
