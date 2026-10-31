@@ -21,7 +21,11 @@
 .qrow .meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
 /* One task, like the exam screen: situation, the other person's line, picture, answer box */
 .task{display:flex;flex-direction:column;gap:14px}
-.situatie{white-space:pre-line;font-size:16px;line-height:1.65}
+.situatie{font-size:16px;line-height:1.65}
+.situatie span{display:block}
+.situatie .opdr{font-weight:700}                         /* the actual task sentence, bold like in the real exam */
+.situatie u{text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--accent)}
+.situatie .meta{color:var(--muted);font-size:14px}       /* "U hoort eerst ...", "U krijgt eerst de tijd ..." */
 .bubble{background:var(--blue-soft);color:var(--blue);border-radius:12px;padding:10px 14px;font-weight:600;align-self:flex-start;max-width:100%}
 .task img{max-width:100%;max-height:340px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#fff;align-self:flex-start}
 .answer{width:100%;min-height:120px;font:16px/1.6 var(--body);border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);color:var(--ink);resize:vertical}
@@ -230,6 +234,9 @@ function vBank() {
 }
 // Help box: what this speech act asks, patterns, example answers (voorbeeld + alternatives), pitfall.
 // Closed by default everywhere; the learner opens it when stuck.
+// Where the first model answer comes from: most tasks and answers are from ad-appel.nl
+const srcLabel = bron => bron.startsWith("ad-appel") ? "ad-appel cevabı" + (bron.includes("officieel") ? " (resmî sınav görevi)" : "")
+  : bron.startsWith("officieel") ? "resmî sınav görevi (yeniden yazıldı)" : "örnek cevap (bu site)";
 function hintBox(q, { open = false } = {}) {
   const h = HU.handelingen[q.handeling] || {}, eis = eisText(q.eis);
   const answers = [q.voorbeeld, ...(HU.alt[q.id] || [])].filter(Boolean);
@@ -238,12 +245,25 @@ function hintBox(q, { open = false } = {}) {
     ${h.wat ? `<p><b>${hLabel(q.handeling)}:</b> ${esc(h.wat)}</p>` : ""}
     ${eis.length ? `<p><b>Bu görevde şart:</b> <span lang="nl">${eis.map(esc).join(", ")}</span>. Eksik kalırsa içerik puanı düşer.</p>` : ""}
     ${h.kaliplar ? `<p><b>Kullanabileceğin kalıplar</b></p><ul>${h.kaliplar.map(k => `<li class="kal" lang="nl">${esc(k)}</li>`).join("")}</ul>` : ""}
-    <p><b>Örnek cevaplar</b> <span class="muted" style="font-size:13px">(hepsi doğru; birini seç, kendi durumuna uyarla)</span></p>
-    <ol>${answers.map(a => `<li class="model" lang="nl">${esc(a)}</li>`).join("")}</ol>
+    <p><b>Örnek cevaplar</b> <span class="muted" style="font-size:13px">(ilki görevin kaynağından, diğerleri bu sitede yazıldı; birini seç, kendi durumuna uyarla)</span></p>
+    <ol>${answers.map((a, i) => `<li class="model" lang="nl"><span class="chip ${i ? "" : "accent"}" lang="tr" style="font-size:11.5px;margin-bottom:4px">${i ? "ek örnek (bu site)" : srcLabel(q.bron)}</span>\n${esc(a)}</li>`).join("")}</ol>
     ${h.tip ? `<p><b>Taktik:</b> ${esc(h.tip)}</p>` : ""}
     ${q.hulp?.valkuil || h.valkuil ? `<p class="kwarn"><b>Tuzak:</b> ${esc(q.hulp?.valkuil || h.valkuil)}</p>` : ""}
     ${words ? `<p style="white-space:pre-line"><b>Kelimeler:</b>\n<span lang="nl">${esc(words)}</span></p>` : ""}
   </details>`;
+}
+// Situation text with emphasis: the task sentences in bold, the requirement words (twee, alle, geen, ook ...)
+// underlined, and the procedural lines (hear first / preparation time) muted. Works on escaped text only.
+const OPDR = /^(Vertel|Geef|Overtuig|Gebruik|Noem|Kijk|Bekijk|Leg|Beschrijf|Stel|Doe|Zeg|Vraag|Reageer|Kies|Troost|Wat (zegt|vraagt|vindt|kiest|doet) u)\b/;
+const META = /^(U hoort eerst|U krijgt eerst|Luister (daarna|eerst|naar)|Begin na|Neem de tijd)/;
+const EIS = /\b(één|twee|drie|vier|ten minste|minstens|alle|beide|geen|niet|waarom|ook|liever|het best|het beste|het liefst)\b/gi;
+function situatieHtml(text) {
+  return text.trim().split("\n").filter(l => l.trim()).map(l => {
+    const t = l.trim(), e = esc(t);
+    if (META.test(t)) return `<span class="meta">${e}</span>`;
+    if (OPDR.test(t) || (/\?$/.test(t) && /\bu\b/.test(t))) return `<span class="opdr">${e.replace(EIS, "<u>$1</u>")}</span>`;
+    return `<span>${e}</span>`;
+  }).join("");
 }
 // The task itself (used by the bank and by the exam)
 function vTask(q, answer, { disabled = false } = {}) {
@@ -252,7 +272,7 @@ function vTask(q, answer, { disabled = false } = {}) {
     <div class="row"><span class="chip ${q.type === "kort" ? "" : "blue"}">${q.type === "kort" ? "kısa görev · max 3 puan" : "orta görev · max 13 puan"}</span>
       <span class="chip">${hLabel(q.handeling)}</span>${eisText(q.eis).map(t => `<span class="chip accent" lang="nl">${esc(t)}</span>`).join("")}</div>
     <h2 lang="nl">${esc(q.title)}</h2>
-    <div class="situatie" lang="nl">${esc(q.situatie.trim())}</div>
+    <div class="situatie" lang="nl">${situatieHtml(q.situatie)}</div>
     ${q.image ? `<img src="${esc(q.image)}" alt="Görev resmi" loading="lazy">` : ""}
     ${q.vraag ? `<div class="bubble" lang="nl">${esc(q.vraag.trim())}</div>` : ""}
     <textarea class="answer" id="answer" lang="nl" spellcheck="true" placeholder="Cevabını buraya yaz…" ${disabled ? "disabled" : ""}>${esc(answer || "")}</textarea>
@@ -356,7 +376,7 @@ function vResult() {
     ${copyPanel("Puanlatma metni", x.text, `İçinde: puanlama talimatı, resmî kuralların tamamı${x.total === 16 ? ", 500'lük skor tablosu" : ""} ve ${x.total} görevin her biri (durum, soru, senin cevabın, örnek cevap). Konudan habersiz yeni bir sohbet de bununla puanlayabilir.`)}
     <section class="panel"><h3 style="margin:0 0 8px">Cevaplarını örneklerle karşılaştır</h3>
       ${(x.items || []).map(it => { const q = byId[it.id]; return `<details style="border-bottom:1px solid var(--line);padding:8px 0"><summary style="cursor:pointer"><b>${it.nr}.</b> <span lang="nl">${esc(q.title)}</span> <span class="chip">${hLabel(q.handeling)}</span>${it.answer.trim() ? "" : ` <span class="chip accent">boş</span>`}</summary>
-        <div class="situatie" lang="nl" style="font-size:14.5px;margin:8px 0">${esc(q.situatie.trim())}</div>
+        <div class="situatie" lang="nl" style="font-size:14.5px;margin:8px 0">${situatieHtml(q.situatie)}</div>
         <p style="margin:6px 0"><b>Senin cevabın:</b></p><div lang="nl" style="white-space:pre-line">${esc(it.answer || "—")}</div>
         <div style="margin-top:10px">${hintBox(q, { open: true })}</div></details>`; }).join("")}</section>
     <div class="row"><button class="btn" data-act="back">Denemelere dön</button></div>`;

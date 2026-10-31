@@ -16,25 +16,61 @@ ALGEMEEN = {
 }
 
 # E-mail / letter skeleton (tasks 10-12 and often 9). Standard Dutch letter phrases; presented as
-# "phrases that work", not as something the official model requires.
+# "phrases that work", not as something the official model requires. Every phrase is [Dutch, Turkish].
 BRIEF = {
     "delen": [
-        # [part, informal (je), formal (u)]
-        ["Hitap", "Beste Ahmet, / Hoi Lisa,", "Geachte heer De Vries, / Geachte mevrouw Jansen, / Geachte heer/mevrouw,"],
-        ["Açılış: neden yazıyorum", "Bedankt voor je mail. / Ik schrijf je omdat …", "Ik schrijf u omdat … / Ik wil u laten weten dat … / Naar aanleiding van …"],
-        ["Gövde", "Görevdeki noktalar, her biri bir cümle; eerst / daarna / ook / want / omdat ile bağla", "Aynısı"],
-        ["Kapanış cümlesi", "Ik houd je op de hoogte. / Laat je het me weten? / Ik hoor graag van je.", "Ik hoor graag van u. / Ik houd u op de hoogte. / Alvast bedankt voor uw hulp."],
-        ["Selam", "Groetjes, / Hartelijke groet, + adın", "Met vriendelijke groet, + adın"],
+        {"deel": "Hitap", "wanneer": "Mektubun ilk satırı, sonuna virgül. Adı biliyorsan adını yaz.",
+         "je": [["Beste Ahmet,", "Sevgili / Merhaba Ahmet,"], ["Hoi Lisa,", "Selam Lisa, (çok samimi)"]],
+         "u": [["Geachte heer De Vries,", "Sayın Bay De Vries, (soyadıyla)"], ["Geachte mevrouw Jansen,", "Sayın Bayan Jansen,"],
+               ["Geachte heer/mevrouw,", "Sayın yetkili, (adı bilmiyorsan)"]]},
+        {"deel": "Açılış", "wanneer": "İlk cümle: neden yazdığını söyle. Bir mesaja cevap veriyorsan önce teşekkür et.",
+         "je": [["Bedankt voor je mail.", "Mailin için teşekkürler."], ["Ik schrijf je omdat …", "Sana yazıyorum, çünkü …"]],
+         "u": [["Ik schrijf u omdat …", "Size yazıyorum, çünkü …"], ["Ik wil u laten weten dat …", "Size … olduğunu bildirmek istiyorum."],
+               ["Naar aanleiding van uw advertentie …", "İlanınızla ilgili olarak …"]]},
+        {"deel": "Gövde", "wanneer": "Görevdeki her nokta için en az bir cümle. Cümleleri bağlantı kelimeleriyle birleştir.",
+         "je": [["eerst / daarna / tot slot", "önce / sonra / son olarak"], ["want / omdat / daarom", "çünkü / çünkü (fiil sona) / bu yüzden"],
+                ["ook / bovendien / maar", "ayrıca / üstelik / ama"]],
+         "u": []},
+        {"deel": "Kapanış cümlesi", "wanneer": "Selamdan hemen önce, tek cümle. Cevap bekliyorsan, haber vereceksen ya da teşekkür ediyorsan.",
+         "je": [["Ik houd je op de hoogte.", "Seni gelişmelerden haberdar edeceğim."], ["Laat je het me weten?", "Bana haber verir misin?"],
+                ["Ik hoor graag van je.", "Senden haber bekliyorum."], ["Tot snel!", "Görüşmek üzere!"]],
+         "u": [["Ik hoor graag van u.", "Sizden haber bekliyorum."], ["Ik houd u op de hoogte.", "Sizi gelişmelerden haberdar edeceğim."],
+               ["Alvast bedankt voor uw hulp.", "Yardımınız için şimdiden teşekkürler."], ["Ik zie uw antwoord graag tegemoet.", "Cevabınızı bekliyorum. (çok resmî)"]]},
+        {"deel": "Selam", "wanneer": "Son satır, sonra alt satıra adın.",
+         "je": [["Groetjes,", "Sevgiler,"], ["Hartelijke groet,", "İçten selamlar,"]],
+         "u": [["Met vriendelijke groet,", "Saygılarımla,"]]},
     ],
     "situaties": [
-        ["Davete evet", ["Wat leuk! Ik kom graag.", "Bedankt voor de uitnodiging."]],
-        ["Davete hayır", ["Helaas kan ik niet komen, want …", "Misschien kunnen we een andere keer afspreken?"]],
-        ["Şikâyet", ["Ik ben niet tevreden over …", "Ik wil graag dat u …", "Kunt u … oplossen?"]],
-        ["Bilgi isteme", ["Ik wil graag weten …", "Kunt u mij vertellen …?"]],
-        ["Özür", ["Het spijt me dat …", "Nogmaals sorry."]],
-        ["Teşekkür", ["Bedankt voor …", "Ik vond het erg leuk / fijn."]],
+        ["Davete evet", [["Wat leuk! Ik kom graag.", "Ne güzel! Seve seve gelirim."], ["Bedankt voor de uitnodiging.", "Davet için teşekkürler."]]],
+        ["Davete hayır", [["Helaas kan ik niet komen, want …", "Maalesef gelemiyorum, çünkü …"], ["Misschien kunnen we een andere keer afspreken?", "Belki başka bir zaman buluşabiliriz?"]]],
+        ["Şikâyet", [["Ik ben niet tevreden over …", "… konusunda memnun değilim."], ["Ik wil graag dat u …", "… yapmanızı istiyorum."], ["Kunt u … oplossen?", "… sorununu çözebilir misiniz?"]]],
+        ["Bilgi isteme", [["Ik wil graag weten …", "… öğrenmek istiyorum."], ["Kunt u mij vertellen …?", "Bana … söyleyebilir misiniz?"]]],
+        ["Özür", [["Het spijt me dat …", "… için üzgünüm."], ["Nogmaals sorry.", "Tekrar özür dilerim."]]],
+        ["Teşekkür", [["Bedankt voor …", "… için teşekkürler."], ["Ik vond het erg leuk / fijn.", "Çok hoşuma gitti / çok güzeldi."]]],
     ],
-    "voorbeeld": "Beste Sanne,\n\nBedankt voor je uitnodiging voor je verjaardag. Helaas kan ik niet komen, want ik moet zaterdag werken. Misschien kunnen we volgende week samen koffie drinken?\n\nIk houd je op de hoogte.\n\nGroetjes,\nAyşe",
+    # Example tasks in the style of the exam (invented names), each with a full answer
+    "voorbeelden": [
+        {"titel": "Davete hayır (je)",
+         "opdracht": "Uw collega Sanne viert zaterdag haar verjaardag. U kunt niet komen. Schrijf een e-mail aan Sanne. Schrijf in de e-mail:\n- dat u niet kunt komen en waarom\n- een voorstel om een andere keer af te spreken",
+         "tr": "İş arkadaşın Sanne cumartesi doğum gününü kutluyor, gidemiyorsun. Gelemediğini, nedenini ve başka bir zaman için öneri yaz.",
+         "antwoord": "Beste Sanne,\n\nBedankt voor je uitnodiging voor je verjaardag. Helaas kan ik niet komen, want ik moet zaterdag werken. Misschien kunnen we volgende week samen koffie drinken?\n\nIk houd je op de hoogte.\n\nGroetjes,\nAyşe"},
+        {"titel": "Şikâyet (u)",
+         "opdracht": "U heeft bij webwinkel Huisenzo een lamp besteld. De lamp is kapot aangekomen. Schrijf een e-mail aan de klantenservice. Schrijf in de e-mail:\n- wat u heeft besteld en wanneer\n- wat het probleem is\n- wat u wilt dat de winkel doet",
+         "tr": "İnternet mağazasından lamba aldın, kırık geldi. Müşteri hizmetlerine ne zaman ne aldığını, sorunu ve ne istediğini yaz.",
+         "antwoord": "Geachte heer/mevrouw,\n\nIk schrijf u omdat ik niet tevreden ben over mijn bestelling. Op 3 maart heb ik bij u een lamp besteld. Gisteren kwam het pakket, maar de lamp was kapot. Het glas was gebroken. Ik wil graag dat u mij een nieuwe lamp stuurt. Als dat niet kan, wil ik mijn geld terug.\n\nIk hoor graag van u.\n\nMet vriendelijke groet,\nAyşe Kaya"},
+        {"titel": "Bilgi isteme (u)",
+         "opdracht": "U wilt op zwemles bij zwembad De Golf. Schrijf een e-mail aan het zwembad. Schrijf in de e-mail:\n- waarom u op zwemles wilt\n- twee vragen over de les",
+         "tr": "Yüzme kursuna yazılmak istiyorsun. Havuza neden kursa gitmek istediğini ve kurs hakkında iki soru yaz.",
+         "antwoord": "Geachte heer/mevrouw,\n\nIk wil graag op zwemles bij De Golf, omdat ik nooit heb leren zwemmen. Ik wil met mijn kinderen naar het strand kunnen gaan. Kunt u mij vertellen op welke dagen de lessen zijn? Ik wil ook graag weten hoeveel een les kost.\n\nAlvast bedankt voor uw antwoord.\n\nMet vriendelijke groet,\nAyşe Kaya"},
+        {"titel": "Gelemeyeceğini bildirme (u)",
+         "opdracht": "U volgt een cursus Nederlands. Morgen kunt u niet naar de les, want uw kind is ziek. Schrijf een e-mail aan uw docent, meneer Bakker. Schrijf in de e-mail:\n- dat u morgen niet komt en waarom\n- wat u wilt vragen over het huiswerk",
+         "tr": "Hollandaca kursundasın, çocuğun hasta olduğu için yarın gidemiyorsun. Öğretmenine gelemeyeceğini, nedenini ve ödevle ilgili sorunu yaz.",
+         "antwoord": "Geachte heer Bakker,\n\nIk wil u laten weten dat ik morgen niet naar de les kan komen. Mijn dochter is ziek en ze moet thuisblijven. Kunt u mij laten weten welk huiswerk we moeten maken? Dan kan ik het thuis doen.\n\nIk houd u op de hoogte.\n\nMet vriendelijke groet,\nAyşe Kaya"},
+        {"titel": "Teşekkür + davet (je)",
+         "opdracht": "Uw buurman Peter heeft op uw kat gepast toen u op vakantie was. Schrijf een kaartje aan Peter. Schrijf in het kaartje:\n- waarvoor u hem bedankt\n- hoe uw vakantie was\n- een uitnodiging om bij u te komen eten",
+         "tr": "Komşun Peter tatildeyken kedine baktı. Ona teşekkür kartı yaz: neye teşekkür ettiğini, tatilin nasıl geçtiğini ve yemeğe davetini yaz.",
+         "antwoord": "Beste Peter,\n\nBedankt dat je op onze kat hebt gepast. Dat was heel lief van je! Onze vakantie in Spanje was heerlijk. Het was warm en we hebben veel gezwommen. Kom je zaterdag bij ons eten? Ik maak een Turks gerecht.\n\nLaat je het me weten?\n\nGroetjes,\nAyşe"},
+    ],
 }
 
 KALIPLAR = {

@@ -43,6 +43,12 @@
 .kwarn{font-size:14px;color:var(--bad)}
 .sitgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .sitgrid div{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kal li small{display:block;color:var(--muted);font-size:13px}      /* Turkish meaning under each Dutch phrase */
+.deel{border-top:1px solid var(--line);padding:12px 0}
+.deel .when{color:var(--muted);font-size:14px;margin:2px 0 8px}
+.vb{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:8px}
+.vb summary{cursor:pointer;font-weight:600}
+.vb .opd{white-space:pre-line;background:var(--sunk);border-radius:8px;padding:8px 10px;font-size:15px;margin:8px 0}
 details.hintbox{margin-top:10px;border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;background:var(--surface)}
 details.hintbox summary{cursor:pointer;font-weight:600;color:var(--accent)}
 </style>
@@ -124,12 +130,15 @@ const isEmpty = (t, a) => t.velden ? !t.velden.some((_, i) => ((a || {})[i] || "
 // ---------- Tactics: one simple page + hint box ----------
 const K = D.kaliplar, A = D.algemeen, BR = D.brief;
 const isLetter = t => t.soort !== "zin";   // form + texts: the letter skeleton applies
+// Dutch phrase with its Turkish meaning underneath
+const phr = list => `<ul class="kal">${list.map(([nl, tr]) => `<li><span lang="nl">${esc(nl)}</span><small>${esc(tr)}</small></li>`).join("")}</ul>`;
+// One part of the letter: when to use it + phrases for je (informal) and u (formal)
+const deelHtml = d => `<div class="deel"><b>${esc(d.deel)}</b><p class="when">${esc(d.wanneer)}</p>
+  ${d.u.length ? `<div class="two"><div><span class="eyebrow">je · arkadaş, komşu, iş arkadaşı</span>${phr(d.je)}</div><div><span class="eyebrow">u · şirket, belediye, okul, tanımadığın kişi</span>${phr(d.u)}</div></div>` : phr(d.je)}</div>`;
 // Hint box: patterns of this task type; for letters also the opening/closing lines (je or u)
 function hintBox(t, open = false) {
   const c = K[t.kalip];
-  const letter = isLetter(t) ? `<span class="eyebrow" style="margin-top:6px">Mektup iskeleti</span>
-    <div class="tscroll"><table class="ktab"><tr><th></th><th>je (samimi)</th><th>u (resmî)</th></tr>
-    ${BR.delen.filter(d => d[0] !== "Gövde").map(([n, je, u]) => `<tr><td class="first">${esc(n)}</td><td lang="nl">${esc(je)}</td><td lang="nl">${esc(u)}</td></tr>`).join("")}</table></div>` : "";
+  const letter = isLetter(t) ? `<span class="eyebrow" style="margin-top:6px">Mektup iskeleti</span>${BR.delen.filter(d => d.deel !== "Gövde").map(deelHtml).join("")}` : "";
   return `<details class="hintbox" ${open ? "open" : ""}><summary>💡 İpucu: ${esc(c.titel)}</summary>
     <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
       <p style="margin:0;font-size:14.5px">${esc(c.wat)}</p>
@@ -144,12 +153,15 @@ function vTaktik() {
     <section class="panel"><span class="eyebrow">Taktik</span><h2 style="margin:4px 0 8px">3 kural</h2>
       <ol style="margin:0;padding-left:20px;line-height:1.8">${A.regels.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>
     <section class="panel"><span class="eyebrow">Görev 10–12 (ve çoğu zaman 9)</span><h2 style="margin:4px 0 8px">E-posta / mektup iskeleti</h2>
-      <p class="muted" style="margin:0 0 10px;font-size:14.5px">Her mektup aynı 5 parça. Bunları ezberle, sınavda sadece gövdeyi düşün. Bunlar Hollandaca mektupta çok kullanılan standart ifadeler; zorunlu değiller ama işe yararlar.</p>
-      <div class="tscroll"><table class="ktab"><tr><th>Parça</th><th>Arkadaş, komşu (je)</th><th>Şirket, belediye, okul (u)</th></tr>
-        ${BR.delen.map(([n, je, u]) => `<tr><td class="first">${esc(n)}</td><td ${n === "Gövde" ? "" : `class="nl" lang="nl"`}>${esc(je)}</td><td ${n === "Gövde" ? "" : `class="nl" lang="nl"`}>${esc(u)}</td></tr>`).join("")}</table></div>
-      <div class="kex" lang="nl" style="margin-top:12px"><b>Örnek:</b>\n${esc(BR.voorbeeld)}</div></section>
+      <p class="muted" style="margin:0 0 4px;font-size:14.5px">Her mektup aynı 5 parça, bu sırayla. Önce kime yazdığına bak: arkadaşa <b>je</b>, resmî birine <b>u</b>, sonra o sütundaki kalıpları kullan. Bunlar Hollandaca mektupta çok kullanılan standart ifadeler; zorunlu değiller ama işe yararlar.</p>
+      ${BR.delen.map(deelHtml).join("")}</section>
     <section class="panel"><h2 style="margin:0 0 10px">Duruma göre hazır cümleler</h2>
-      <div class="sitgrid">${BR.situaties.map(([n, zs]) => `<div><b>${esc(n)}</b><ul class="kal" lang="nl" style="margin-top:6px">${zs.map(z => `<li>${esc(z)}</li>`).join("")}</ul></div>`).join("")}</div></section>
+      <div class="sitgrid">${BR.situaties.map(([n, zs]) => `<div><b>${esc(n)}</b><div style="margin-top:6px">${phr(zs)}</div></div>`).join("")}</div></section>
+    <section class="panel"><h2 style="margin:0 0 6px">Örnek görevler ve cevaplar</h2>
+      <p class="muted" style="margin:0;font-size:14.5px">Sınav tarzında ${BR.voorbeelden.length} görev. Önce görevi okuyup kendin yaz, sonra cevabı aç. Kalıpların nerede kullanıldığına dikkat et.</p>
+      ${BR.voorbeelden.map((v, i) => `<details class="vb" ${i ? "" : "open"}><summary>${i + 1}. ${esc(v.titel)}</summary>
+        <div class="opd" lang="nl">${esc(v.opdracht)}</div><p class="muted" style="margin:0 0 8px;font-size:14px">🇹🇷 ${esc(v.tr)}</p>
+        <div class="kex" lang="nl"><b>Cevap:</b>\n${esc(v.antwoord)}</div></details>`).join("")}</section>
     <section class="panel"><span class="eyebrow">Görev 1–8</span><h2 style="margin:4px 0 8px">Cümle görevleri</h2>
       <p class="muted" style="margin:0 0 10px;font-size:14.5px">Tek cümle yeter. İstenen yapı yoksa gramer puanı 0.</p>
       <div class="tscroll"><table class="ktab"><tr><th>Nr</th><th>Ne isteniyor</th><th>Kalıp</th><th>Tuzak</th></tr>
