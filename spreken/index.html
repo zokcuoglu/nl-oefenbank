@@ -44,6 +44,14 @@
 .rule details{margin:4px 0 10px} .rule summary{cursor:pointer;color:var(--muted);font-size:13px}
 .rule .nl{font-size:13.5px;color:var(--muted);margin-top:4px}
 .switch{display:inline-flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+/* Optional help box under every task (closed by default; in the exam the learner opens it only if wanted) */
+details.hintbox{border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;background:var(--surface)}
+details.hintbox summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.hintbox .kal{font-family:var(--mono);font-size:13.5px;background:var(--sunk);border-radius:6px;padding:6px 9px;margin:4px 0;list-style:none}
+.hintbox ul{padding:0;margin:6px 0}
+.hintbox ol{margin:6px 0;padding-left:20px} .hintbox ol li{margin:6px 0}
+.hintbox .kwarn{color:var(--bad);font-size:14px}
+.hintbox p{margin:8px 0;font-size:14.5px}
 </style>
 <script>
 // Watchdog: if the login module has not loaded after 10 s (network block, old cache), explain it on screen
@@ -84,10 +92,12 @@ const app = document.getElementById("app");
 const { user, profile } = await gate({ area: "nt2", title: "Spreken I (B1)", seen: "spreken" });
 document.getElementById("ub").innerHTML = userBox(user, profile);
 
-let D, R;
+let D, R, HU;
 try {
   [D, R] = await Promise.all(["../data/spreken.json", "../data/spreken-regels.json"].map(u => fetch(u, { cache: "no-cache" }).then(r => r.json())));
 } catch (e) { app.innerHTML = `<div class="notice">Sorular yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+// Hint content (speech-act patterns + extra model answers). Optional: the page still works without it.
+HU = await fetch("../data/spreken-hulp.json", { cache: "no-cache" }).then(r => r.json()).catch(() => ({ handelingen: {}, alt: {} }));
 const byId = Object.fromEntries(D.vragen.map(q => [q.id, q]));
 let attempts = await loadAttempts(user.uid, "spreken").catch(() => []);
 
@@ -218,8 +228,25 @@ function vBank() {
       ${S.oefen[q.id]?.trim() ? `<span class="chip ok">yazıldı</span>` : ""}</a>`).join("") || `<p class="muted">Bu filtreyle görev yok.</p>`}
   </section>`;
 }
+// Help box: what this speech act asks, patterns, example answers (voorbeeld + alternatives), pitfall.
+// Closed by default everywhere; the learner opens it when stuck.
+function hintBox(q, { open = false } = {}) {
+  const h = HU.handelingen[q.handeling] || {}, eis = eisText(q.eis);
+  const answers = [q.voorbeeld, ...(HU.alt[q.id] || [])].filter(Boolean);
+  const words = q.hulp?.structuren;
+  return `<details class="hintbox" ${open ? "open" : ""}><summary>💡 İpucu ve örnek cevaplar</summary>
+    ${h.wat ? `<p><b>${hLabel(q.handeling)}:</b> ${esc(h.wat)}</p>` : ""}
+    ${eis.length ? `<p><b>Bu görevde şart:</b> <span lang="nl">${eis.map(esc).join(", ")}</span>. Eksik kalırsa içerik puanı düşer.</p>` : ""}
+    ${h.kaliplar ? `<p><b>Kullanabileceğin kalıplar</b></p><ul>${h.kaliplar.map(k => `<li class="kal" lang="nl">${esc(k)}</li>`).join("")}</ul>` : ""}
+    <p><b>Örnek cevaplar</b> <span class="muted" style="font-size:13px">(hepsi doğru; birini seç, kendi durumuna uyarla)</span></p>
+    <ol>${answers.map(a => `<li class="model" lang="nl">${esc(a)}</li>`).join("")}</ol>
+    ${h.tip ? `<p><b>Taktik:</b> ${esc(h.tip)}</p>` : ""}
+    ${q.hulp?.valkuil || h.valkuil ? `<p class="kwarn"><b>Tuzak:</b> ${esc(q.hulp?.valkuil || h.valkuil)}</p>` : ""}
+    ${words ? `<p style="white-space:pre-line"><b>Kelimeler:</b>\n<span lang="nl">${esc(words)}</span></p>` : ""}
+  </details>`;
+}
 // The task itself (used by the bank and by the exam)
-function vTask(q, answer, { disabled = false, showModel = false } = {}) {
+function vTask(q, answer, { disabled = false } = {}) {
   const n = sentences(answer || "");
   return `<div class="task">
     <div class="row"><span class="chip ${q.type === "kort" ? "" : "blue"}">${q.type === "kort" ? "kısa görev · max 3 puan" : "orta görev · max 13 puan"}</span>
@@ -231,8 +258,7 @@ function vTask(q, answer, { disabled = false, showModel = false } = {}) {
     <textarea class="answer" id="answer" lang="nl" spellcheck="true" placeholder="Cevabını buraya yaz…" ${disabled ? "disabled" : ""}>${esc(answer || "")}</textarea>
     <div class="hint" id="hint"><span>Sınavda konuşma süren: ${spreektijd(q)} sn</span>
       ${q.type === "middel" ? `<span class="${n >= 3 ? "ok" : "warn"}">${n} cümle${n >= 3 ? " ✓" : " (hedef: en az 3)"}</span>` : ""}</div>
-    ${showModel ? `<details><summary class="muted" style="cursor:pointer">Örnek cevabı göster</summary><div class="model" lang="nl" style="margin-top:8px">${esc(q.voorbeeld)}</div>
-      ${q.hulp ? `<div style="margin-top:10px;font-size:14px">${q.hulp.taalhulp ? `<p><b>Kalıp:</b> <span lang="nl">${esc(q.hulp.taalhulp)}</span></p>` : ""}${q.hulp.valkuil ? `<p><b>Tuzak:</b> ${esc(q.hulp.valkuil)}</p>` : ""}${q.hulp.structuren ? `<p style="white-space:pre-line"><b>Kelimeler:</b>\n${esc(q.hulp.structuren)}</p>` : ""}</div>` : ""}</details>` : ""}
+    ${hintBox(q)}
   </div>`;
 }
 function vOne(id) {
@@ -240,7 +266,7 @@ function vOne(id) {
   const list = filtered(), i = list.findIndex(x => x.id === q.id);
   const prev = list[i - 1], next = list[i + 1];
   return `<div class="row"><a href="./">← Soru bankası</a><span class="muted" style="margin-left:auto;font-size:13px">#${q.id} · ${q.bron}</span></div>
-    <section class="panel">${vTask(q, S.oefen[q.id], { showModel: true })}</section>
+    <section class="panel">${vTask(q, S.oefen[q.id])}</section>
     <div class="row">${prev ? `<a class="btn" href="?v=${prev.id}" style="text-decoration:none">← Önceki</a>` : ""}
       ${next ? `<a class="btn primary" href="?v=${next.id}" style="text-decoration:none;margin-left:auto">Sonraki →</a>` : ""}</div>`;
 }
@@ -250,7 +276,7 @@ function vExamList() {
   const done = nr => attempts.filter(a => a.test === "examen-" + nr);
   return `<section class="panel"><span class="eyebrow">8 kısa + 8 orta görev</span>
     <h2 style="margin:4px 0 8px">Deneme sınavları</h2>
-    <p class="muted" style="margin:0 0 12px;max-width:70ch">Gerçek sınav sırasıyla: önce 8 kısa görev (hazırlık yok, 20 sn konuşma), sonra 8 orta görev (15 sn hazırlık, 30 sn konuşma). Örnek cevaplar sınav sırasında gizli. Bitirince bütün cevapların, resmî kurallarla birlikte tek bir metin olarak kopyalanır.</p>
+    <p class="muted" style="margin:0 0 12px;max-width:70ch">Gerçek sınav sırasıyla: önce 8 kısa görev (hazırlık yok, 20 sn konuşma), sonra 8 orta görev (15 sn hazırlık, 30 sn konuşma). Her görevin altında kapalı bir “💡 İpucu” kutusu var: takılırsan aç (kalıplar + 3–4 örnek cevap), ama gerçek sınavda bu yardım yok. Bitince her görevi örneklerle karşılaştırabilirsin. Bitirince bütün cevapların, resmî kurallarla birlikte tek bir metin olarak kopyalanır.</p>
     <label class="switch"><input type="checkbox" data-act="prep" ${S.prep ? "checked" : ""}> Orta görevlerden önce 15 saniyelik hazırlık süresi</label></section>
   <section class="panel"><span class="eyebrow">Soru bankasından</span>
     <h3 style="margin:4px 0 6px">Rastgele deneme</h3>
@@ -316,7 +342,8 @@ async function finishExam() {
   const attempt = { kind: "examen", test: r.ids ? "rastgele-" + ids.length : "examen-" + r.nr, title: r.ids ? `Spreken rastgele deneme (${ids.length})` : "Spreken deneme " + r.nr, started_at: r.started, finished_at: new Date().toISOString(),
     score: 0, total: 0, answered,       // total 0: no automatic score, the AI scores it
     answers: items.map(x => ({ qid: String(x.q.id), text: x.answer.slice(0, 600) })) };
-  S.result = { title: runTitle(r), total: ids.length, answered, text: buildPrompt(items, "exam"), saved: false };
+  S.result = { title: runTitle(r), total: ids.length, answered, text: buildPrompt(items, "exam"), saved: false,
+    items: items.map(x => ({ id: x.q.id, nr: x.nr, answer: x.answer })) };
   S.run = null; saveRun(); render(); scrollTo(0, 0);
   try { await saveAttempt(user.uid, "spreken", attempt); attempts.unshift(attempt); S.result.saved = true; } catch (e) { console.warn(e); }
   render();
@@ -327,6 +354,11 @@ function vResult() {
       <h2 style="margin:4px 0 6px">${x.answered}/${x.total} görev cevaplandı</h2>
       <p class="muted" style="margin:0">${x.saved ? "Profiline kaydedildi." : "Kaydediliyor…"} Puanı yapay zekâ verecek: metni kopyala, yeni bir sohbete yapıştır.</p></section>
     ${copyPanel("Puanlatma metni", x.text, `İçinde: puanlama talimatı, resmî kuralların tamamı${x.total === 16 ? ", 500'lük skor tablosu" : ""} ve ${x.total} görevin her biri (durum, soru, senin cevabın, örnek cevap). Konudan habersiz yeni bir sohbet de bununla puanlayabilir.`)}
+    <section class="panel"><h3 style="margin:0 0 8px">Cevaplarını örneklerle karşılaştır</h3>
+      ${(x.items || []).map(it => { const q = byId[it.id]; return `<details style="border-bottom:1px solid var(--line);padding:8px 0"><summary style="cursor:pointer"><b>${it.nr}.</b> <span lang="nl">${esc(q.title)}</span> <span class="chip">${hLabel(q.handeling)}</span>${it.answer.trim() ? "" : ` <span class="chip accent">boş</span>`}</summary>
+        <div class="situatie" lang="nl" style="font-size:14.5px;margin:8px 0">${esc(q.situatie.trim())}</div>
+        <p style="margin:6px 0"><b>Senin cevabın:</b></p><div lang="nl" style="white-space:pre-line">${esc(it.answer || "—")}</div>
+        <div style="margin-top:10px">${hintBox(q, { open: true })}</div></details>`; }).join("")}</section>
     <div class="row"><button class="btn" data-act="back">Denemelere dön</button></div>`;
 }
 

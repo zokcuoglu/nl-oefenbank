@@ -31,6 +31,17 @@
 .model{white-space:pre-wrap;background:var(--ok-soft);border-radius:10px;padding:10px 12px;font-size:15.5px;line-height:1.6}
 .check{display:flex;gap:8px;align-items:flex-start;font-size:15px;cursor:pointer;margin:6px 0} .check input{margin-top:4px}
 .copybox{width:100%;min-height:160px;font-family:var(--mono);font-size:12px;margin-top:8px}
+/* Tactics: pattern cards and the hint box under each task */
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.kcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.kcard h3{margin:0;font-size:17px} .kcard .nr{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.kal{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.kal li{background:var(--accent-soft);border-radius:6px;padding:5px 9px;font-size:15px}
+.kal.hide li span{filter:blur(5px);cursor:pointer} .kal.hide li span:hover{filter:none}
+.kex{font-size:14.5px;background:var(--ok-soft);border-radius:6px;padding:6px 9px}
+.kwarn{font-size:14px;color:var(--bad)}
+details.hintbox{margin-top:10px;border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;background:var(--surface)}
+details.hintbox summary{cursor:pointer;font-weight:600;color:var(--accent)}
 </style>
 <script>
 // Watchdog: explain on screen when the login module cannot load (network block)
@@ -57,6 +68,8 @@ setTimeout(function () {
 // no spellchecker. One task or a full practice exam. After "Bitir": your answer next to a model answer, a self-check
 // (sentence tasks: does it do the task + the required construction; texts: all required elements), and a prompt with the
 // official CvTE scoring rules and the 47-point score table to paste into Claude or ChatGPT.
+// Tactics page (?taktik): the 12 task types with patterns to learn by heart (data from kaliplar.py); every task has a
+// closed hint box with its type's patterns, during the exam (open it if you want) and in the result.
 // Saved as attempt (module "schrijven-b1") after the self-check: score = ticked items / all items (self-assessment).
 import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
 
@@ -75,25 +88,89 @@ const R = D.regels, byId = {}, examOf = {};
 D.examens.forEach(e => e.taken.forEach(t => { byId[t.id] = t; examOf[t.id] = e.id; }));
 const examById = Object.fromEntries(D.examens.map(e => [e.id, e]));
 let attempts = await loadAttempts(user.uid, "schrijven-b1").catch(() => []);
-const S = { run: null, timer: null };
+const S = { run: null, timer: null, hide: false, hintOpen: false };
+// A run is an "exam" (navigation dots, hint box closed) for the fixed mock exams and for random exams
+const isExam = r => !!examById[r.test] || !!r.random;
+
+// ---------- Random exams from the 36 tasks ----------
+// Size n: 4 → 2 sentence + 2 long, 8 → 4 + 4, 12 → 8 + 4 (= the official structure, so the 47-point table applies).
+// Every task type (kalip) appears at most once, the task of each type comes from a random exam, and
+// tasks already written before go to the back. Time = 5 min per sentence task + 15 min per long task (12 → 100 min).
+const RANDOM_SIZES = [4, 8, 12];
+const ZIN = n => n / 2 + (n === 12 ? 2 : 0);   // number of sentence tasks: 2, 4, 8
+function randomIds(n) {
+  const all = D.examens.flatMap(e => e.taken), done = new Set(attempts.flatMap(a => (a.answers || []).map(x => x.qid)));
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const pickOf = k => shuffle(all.filter(t => t.kalip === k)).sort((a, b) => done.has(a.id) - done.has(b.id))[0];
+  const kinds = soort => [...new Set(all.filter(t => soort(t)).map(t => t.kalip))];
+  const zin = shuffle(kinds(t => t.soort === "zin")).slice(0, ZIN(n));
+  const lang = shuffle(kinds(t => t.soort !== "zin")).slice(0, n - ZIN(n));
+  return [...zin, ...lang].map(pickOf).sort((a, b) => a.nr - b.nr).map(t => t.id);
+}
+function startRandom(n) {
+  const ids = randomIds(n), min = ids.reduce((m, id) => m + (byId[id].soort === "zin" ? 5 : 15), 0);
+  startRun("rastgele-" + n, ids, min); S.run.random = true;
+  history.pushState(null, "", "./"); render(); scrollTo(0, 0);
+}
 
 // Self-check items per task: sentence task = task done + construction; form/text = the required elements
 const checks = t => t.soort === "zin" ? [t.adequaat, t.gram_tekst ? `Ik gebruik ${t.gram_tekst}.` : "De zin is grammaticaal correct (woordvolgorde!)."] : t.elementen;
 const answerText = (t, a) => t.velden ? t.velden.map(([l], i) => `${l}: ${(a || {})[i] || ""}`).join("\n") : (a || "");
 const isEmpty = (t, a) => t.velden ? !t.velden.some((_, i) => ((a || {})[i] || "").trim()) : !(a || "").trim();
 
+// ---------- Tactics: pattern card per task type ----------
+const K = D.kaliplar, A = D.algemeen;
+const typeNrs = k => [...new Set(D.examens.flatMap(e => e.taken.filter(t => t.kalip === k).map(t => t.nr)))];
+function kCard(k, { hide = false, compact = false } = {}) {
+  const c = K[k];
+  return `<div class="${compact ? "" : "kcard"}">
+    ${compact ? "" : `<span class="nr">Opdracht ${typeNrs(k).join(", ")}</span><h3>${esc(c.titel)}</h3>`}
+    <p style="margin:0;font-size:14.5px">${esc(c.wat)}</p>
+    <span class="eyebrow" style="margin:4px 0 0">Ezberle</span>
+    <ul class="kal ${hide ? "hide" : ""}" lang="nl">${c.kaliplar.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul>
+    <div class="kex" lang="nl"><b>Örnek:</b> ${esc(c.voorbeeld)}</div>
+    <ul style="margin:0;padding-left:18px;font-size:14px">${c.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+    <div class="kwarn">⚠ ${esc(c.valkuil)}</div>
+    ${compact ? "" : `<a href="?kalip=${k}" style="font-size:13.5px">Bu tipte görevleri çöz →</a>`}</div>`;
+}
+const hintBox = (t, open = false) => `<details class="hintbox" ${open ? "open" : ""}><summary>💡 İpucu: ${esc(K[t.kalip].titel)}</summary>${kCard(t.kalip, { compact: true })}</details>`;
+function vTaktik() {
+  const hide = S.hide;
+  return `<p style="margin:0"><a href="./">← Görevler</a></p>
+    <section class="panel"><span class="eyebrow">Taktik ve kalıplar</span><h2 style="margin:4px 0 8px">Sınavın kalıpları</h2>
+      <p class="muted" style="margin:0;max-width:72ch">Schrijven I'de görevler her sınavda aynı sırayla gelir: 1 neden, 2 yan cümle, 3 sonuç + devrik cümle, 4 'te + mastar', 5 başka çözüm, 6 fikir, 7 talimat, 8 duyuru, 9 form, 10 resimlerle e-posta, 11 şikâyet, 12 karşılaştırma. Her tipin kalıplarını ezberlersen sınavda sadece boşlukları doldurursun.</p>
+      <label class="check" style="margin-top:10px"><input type="checkbox" data-act="hide" ${hide ? "checked" : ""}><span>Ezber modu: kalıpları bulanıklaştır (üzerine gelince görünür)</span></label></section>
+    <section class="panel"><span class="eyebrow">${esc(A.titel)}</span><ul style="margin:8px 0 0;padding-left:20px;line-height:1.7">${A.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <div class="two" style="margin-top:10px"><div><b>Başlangıç</b><ul class="kal ${hide ? "hide" : ""}" lang="nl" style="margin-top:6px">${A.aanhef.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div>
+        <div><b>Bitiş</b><ul class="kal ${hide ? "hide" : ""}" lang="nl" style="margin-top:6px">${A.slot.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div></div></section>
+    <div class="kgrid">${Object.keys(K).map(k => kCard(k, { hide })).join("")}</div>`;
+}
+function vKalip(k) {
+  const ts = D.examens.flatMap(e => e.taken.filter(t => t.kalip === k));
+  return `<p style="margin:0"><a href="?taktik">← Taktik ve kalıplar</a></p>
+    <section class="panel">${kCard(k)}</section>
+    <section class="panel"><div class="sectionhead"><h3>Bu tipte ${ts.length} görev</h3></div>${ts.map(t => `<a class="taskrow" href="?t=${t.id}"><span class="nr">${t.nr}</span><span><b lang="nl">${esc(t.titel)}</b></span><span class="chip">${esc(examById[examOf[t.id]].titel.replace("Schrijven I ", ""))}</span></a>`).join("")}</section>`;
+}
+
 // ---------- List ----------
 function vList() {
   const row = (t) => { const l = attempts.find(a => a.test === t.id);
     return `<a class="taskrow" href="?t=${t.id}"><span class="nr">${t.nr}</span><span><b lang="nl">${esc(t.titel)}</b><br><span class="muted" style="font-size:13px">${SOORT[t.soort]} · max ${t.max} punt${t.gram_tekst ? " · " + esc(t.gram_tekst) : ""}</span></span>
       ${l ? `<span class="chip num">✓ ${l.score}/${l.total}</span>` : `<span class="chip">yeni</span>`}</a>`; };
-  return `<section class="panel"><span class="eyebrow">Staatsexamen NT2 Programma I</span><h2 style="margin:4px 0 8px">Yazma sınavına hazırlık</h2>
+  return `<a class="panel" href="?taktik" style="display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit;border:2px solid var(--accent)">
+      <span style="font-size:30px">🧠</span><span><b style="font-size:17px">Taktik ve kalıplar</b><br><span class="muted" style="font-size:14px">12 görev tipinin ezberlenecek kalıpları, örnekleri ve tuzakları — sınava girmeden önce mutlaka çalış.</span></span>
+      <span class="btn primary" style="margin-left:auto">Aç</span></a>
+    <section class="panel"><span class="eyebrow">Staatsexamen NT2 Programma I</span><h2 style="margin:4px 0 8px">Yazma sınavına hazırlık</h2>
       <p class="muted" style="margin:0;max-width:70ch">Schrijven I bilgisayarda, 100 dakika, yazım denetimi yok. 12 görev: 8 cümle görevi (bazılarında belirli bir yapı istenir: ana cümle, yan cümle, devrik cümle, 'te + mastar'), 1 form ve 3 kısa metin. Toplam 47 puan; 2025 örnek sınavında geçme sınırı 25 puan (= 503). Deneme sınavlarımız aynı yapıda. Bitirince cevabını örnek cevapla karşılaştırır, kontrol listesini işaretler ve istersen resmî kurallarla yapay zekâya puanlatırsın. Görevler bu sınav tarzında yazılmış alıştırmalardır; isimler uydurmadır.</p></section>
     <section class="panel"><span class="eyebrow">Puanlama kısaca (CvTE 2025)</span><ul style="margin:8px 0 0;padding-left:20px;line-height:1.7">
       <li><b>Görev 1–8:</b> görevi yapıyor mu (0–1) + gramer (0–1). İstenen yapı yoksa gramer puanı 0. Kelime sırası her zaman doğru olmalı.</li>
       <li><b>Görev 9 (form):</b> her alan dolu = 2 puan başlangıç (en çok 3) + gramer 0–2 + imla + kelime seçimi = en çok 7.</li>
       <li><b>Görev 10–12:</b> istenen her nokta varsa 2 puan başlangıç (en çok 3) + gramer 0–2 + imla + bağlantı kelimeleri + kelime seçimi = en çok 8. Resim ya da tablo e-postaya eklenmiyor: metin onlarsız anlaşılmalı.</li>
       <li>Görevdeki cümleleri <b>olduğu gibi kopyalama</b>: puan almaz. de/het hatası sayılmaz, artikeli unutmak sayılır.</li></ul></section>
+    <section class="panel"><span class="eyebrow">36 görevden</span><h3 style="margin:4px 0 6px">Rastgele deneme</h3>
+      <p class="muted" style="margin:0 0 10px;max-width:72ch">Her seferinde yeni bir seçki, gerçek sınav sırasıyla (önce cümle görevleri, sonra uzun görevler). Her görev tipi en fazla bir kez gelir; daha önce yazdığın görevler en sona bırakılır. 12 görevlik deneme resmî sınavla aynı yapıda (8 cümle + form + 3 metin, 100 dk). Sınav sırasında “💡 İpucu” kutusu kapalı durur, istersen açarsın.</p>
+      <div class="row">${RANDOM_SIZES.map(n => `<button class="btn ${n === 12 ? "primary" : ""}" data-act="random" data-n="${n}">${n} görev <span class="muted" style="font-size:12.5px">(${ZIN(n)} cümle + ${n - ZIN(n)} uzun · ${ZIN(n) * 5 + (n - ZIN(n)) * 15} dk)</span></button>`).join("")}</div>
+      ${attempts.some(a => (a.test || "").startsWith("rastgele")) ? `<p class="muted" style="font-size:13px;margin:10px 0 0">Rastgele denemeler: ${attempts.filter(a => (a.test || "").startsWith("rastgele")).length} kez</p>` : ""}</section>
     ${D.examens.map(e => { const l = attempts.find(a => a.test === e.id);
       return `<section class="panel"><div class="sectionhead"><h3 lang="nl">${esc(e.titel)}</h3><span class="row">${l ? `<span class="chip num">son: ${new Date(l.finished_at).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}</span>` : ""}
         <a class="btn primary" style="text-decoration:none" href="?examen=${e.id}">Tam sınav (${e.minuten} dk)</a></span></div>${e.taken.map(row).join("")}</section>`; }).join("")}`;
@@ -121,13 +198,13 @@ function input(t, a) {
     <p class="muted num" style="font-size:13px;margin:4px 0 0" id="wc">${words(a || "")} kelime</p>`;
 }
 function vRun() {
-  const r = S.run, exam = !!examById[r.test];
+  const r = S.run, exam = isExam(r);
   const head = `<div class="timerbar">
-      ${exam ? `<div class="dots">${r.ids.map((id, i) => `${i === 8 || i === 9 ? `<span class="sep"></span>` : ""}<button class="${i === r.cur ? "on" : ""} ${!r.done && !isEmpty(byId[id], r.ans[id]) ? "done" : ""}" data-act="go" data-i="${i}">${i + 1}</button>`).join("")}</div>` : `<a href="./">← Görevler</a>`}
+      ${exam ? `<div class="dots">${r.ids.map((id, i) => `${i && byId[id].soort !== byId[r.ids[i - 1]].soort ? `<span class="sep"></span>` : ""}<button class="${i === r.cur ? "on" : ""} ${!r.done && !isEmpty(byId[id], r.ans[id]) ? "done" : ""}" data-act="go" data-i="${i}">${i + 1}</button>`).join("")}</div>` : `<a href="./">← Görevler</a>`}
       <span style="margin-left:auto" class="row">${!r.done && r.timerOn ? `<span class="timer" id="timer">${mmss(left())}</span>` : ""}
         ${r.done ? `<a class="btn" href="./" style="text-decoration:none">Görevlere dön</a><button class="btn" data-act="again">Tekrar yaz</button>` : `<button class="btn primary" data-act="finish">Bitir</button>`}</span></div><div id="finishmsg"></div>`;
   if (!r.done) { const t = byId[r.ids[r.cur]];
-    return head + `<section class="panel">${situation(t)}<div style="margin-top:14px">${input(t, r.ans[t.id])}</div>
+    return head + `<section class="panel">${situation(t)}${hintBox(t, !exam && S.hintOpen)}<div style="margin-top:14px">${input(t, r.ans[t.id])}</div>
       ${exam ? `<div class="row" style="margin-top:12px">${r.cur > 0 ? `<button class="btn" data-act="go" data-i="${r.cur - 1}">‹ Önceki</button>` : ""}${r.cur < r.ids.length - 1 ? `<button class="btn primary" data-act="go" data-i="${r.cur + 1}">Sonraki →</button>` : ""}</div>` : ""}</section>`; }
   const total = r.ids.reduce((n, id) => n + checks(byId[id]).length, 0), ok = r.ids.reduce((n, id) => n + (r.checks[id] || []).filter(Boolean).length, 0);
   return head + `<section class="panel"><div class="row" style="gap:16px;align-items:flex-end"><div class="bigscore num" style="font-size:40px;font-weight:700">${ok}/${total}</div>
@@ -138,6 +215,7 @@ function vRun() {
       return `<section class="panel">${situation(t)}
         <div class="two" style="margin-top:12px"><div><span class="eyebrow">Senin cevabın</span><div class="mine" lang="nl">${isEmpty(t, a) ? `<span class="muted">(boş)</span>` : esc(answerText(t, a))}</div></div>
           <div><span class="eyebrow">Örnek cevap</span><div class="model" lang="nl">${esc(t.voorbeeld)}</div></div></div>
+        ${hintBox(t)}
         <div style="margin-top:10px"><span class="eyebrow">Cevabımda var</span>${checks(t).map((c, k) => `<label class="check"><input type="checkbox" data-act="chk" data-id="${id}" data-k="${k}" ${(r.checks[id] || [])[k] ? "checked" : ""}><span lang="nl">${esc(c)}</span></label>`).join("")}</div></section>`; }).join("")}
     <section class="panel"><h3>Yapay zekâ ile puanla</h3>
       <p class="muted" style="margin:6px 0 10px;font-size:14px">Metni kopyala, yeni bir Claude veya ChatGPT sohbetine yapıştır. İçinde resmî CvTE puanlama kuralları${r.ids.length === 12 ? ", 47 puanlık skor tablosu" : ""}, görevler, senin cevapların ve örnek cevaplar var.</p>
@@ -173,7 +251,7 @@ function prompt(r) {
 function finish(timeout = false) { const r = S.run; if (r.done) return; r.done = true; r.timeout = timeout; clearInterval(S.timer); r.used = Math.floor((Date.now() - r.started) / 1000); render(); scrollTo(0, 0); }
 async function save() {
   const r = S.run, total = r.ids.reduce((n, id) => n + checks(byId[id]).length, 0);
-  const attempt = { kind: examById[r.test] ? "examen" : "taak", test: r.test, title: examById[r.test]?.titel || byId[r.test].titel,
+  const attempt = { kind: isExam(r) ? "examen" : "taak", test: r.test, title: examById[r.test]?.titel || (r.random ? `Schrijven I rastgele deneme (${r.ids.length} görev)` : byId[r.test].titel),
     started_at: new Date(r.started).toISOString(), finished_at: new Date().toISOString(), duration_s: r.used, timed: r.timerOn, self_check: true,
     score: r.ids.reduce((n, id) => n + (r.checks[id] || []).filter(Boolean).length, 0), total,
     answers: r.ids.map(id => ({ qid: id, chosen: answerText(byId[id], r.ans[id]).slice(0, 1500), correct: false })) };
@@ -188,6 +266,8 @@ function render() {
   const ex = examById[p.get("examen")];
   if (ex) { startRun(ex.id, ex.taken.map(t => t.id), ex.minuten); app.innerHTML = vRun(); return; }
   if (byId[p.get("t")]) { startRun(p.get("t"), [p.get("t")], 0); app.innerHTML = vRun(); return; }
+  if (p.has("taktik")) { app.innerHTML = vTaktik(); return; }
+  if (K[p.get("kalip")]) { app.innerHTML = vKalip(p.get("kalip")); return; }
   app.innerHTML = vList();
 }
 app.addEventListener("input", e => {
@@ -197,6 +277,7 @@ app.addEventListener("input", e => {
   if (e.target.dataset.field !== undefined) r.ans[t.id] = { ...(r.ans[t.id] || {}), [e.target.dataset.field]: e.target.value };
 });
 app.addEventListener("change", e => {
+  if (e.target.dataset.act === "hide") { S.hide = e.target.checked; render(); return; }
   const el = e.target.closest("[data-act=chk]"); if (!el) return;
   const c = S.run.checks[el.dataset.id] = S.run.checks[el.dataset.id] || []; c[+el.dataset.k] = el.checked;
   const y = scrollY; render(); scrollTo(0, y);
@@ -205,17 +286,19 @@ app.addEventListener("click", async e => {
   const el = e.target.closest("[data-act]"); if (!el) return;
   const r = S.run;
   switch (el.dataset.act) {
+    case "random": startRandom(+el.dataset.n); break;
     case "go": r.cur = +el.dataset.i; render(); scrollTo(0, 0); break;
     case "save": if (!r.saved) { el.disabled = true; await save(); } break;
     case "finish": { const open = r.ids.filter(id => isEmpty(byId[id], r.ans[id])).length, box = document.getElementById("finishmsg");
       if (open && !el.dataset.sure) { box.innerHTML = `<div class="notice" style="margin:8px 0">${open} görev boş. Yine de bitirmek istiyor musun? <button class="btn primary" data-act="finish" data-sure="1" style="margin-left:8px">Evet, bitir</button></div>`; break; }
       finish(); break; }
-    case "again": { const t = r.test; S.run = null; startRun(t, examById[t]?.taken.map(x => x.id) || [t], examById[t]?.minuten || 0); render(); scrollTo(0, 0); break; }
+    case "again": { const t = r.test; if (r.random) { startRandom(r.ids.length); break; } S.run = null; startRun(t, examById[t]?.taken.map(x => x.id) || [t], examById[t]?.minuten || 0); render(); scrollTo(0, 0); break; }
     case "copy": { const st = document.getElementById("copystatus");
       try { await navigator.clipboard.writeText(document.getElementById("copybox").value); st.innerHTML = `<span class="chip ok">Kopyalandı</span> Şimdi yeni bir Claude veya ChatGPT sohbetine yapıştır.`; }
       catch (err) { st.innerHTML = `<span class="chip warn">Otomatik kopyalanamadı</span> "Metni göster"e tıklayıp kutudaki metni kopyala.`; } break; }
   }
 });
+app.addEventListener("toggle", e => { if (e.target.classList?.contains("hintbox") && S.run && !isExam(S.run) && !S.run.done) S.hintOpen = e.target.open; }, true);
 addEventListener("popstate", () => { S.run = null; render(); });
 render();
 </script>
