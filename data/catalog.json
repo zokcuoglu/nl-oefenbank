@@ -189,6 +189,38 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-kruiswoord",
+      "area": "slimspel",
+      "title": "Kruiswoord",
+      "desc": "Günün çengel bulmacası: her gün her seviyeden bir tane, herkes için aynı. Makkelijk'te emoji ipuçları.",
+      "href": "../slimspel/kruiswoord/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-memory",
+      "area": "slimspel",
+      "title": "Memory",
+      "desc": "Eşleri bul: ülke–başkent, hayvan–yavrusu, İngilizce–Hollandaca, çarpım tablosu.",
+      "href": "../slimspel/memory/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-snake",
+      "area": "slimspel",
+      "title": "Snake",
+      "desc": "Yılan doğru cevabı yiyerek büyür: çarpım tablosu ya da 100'e kadar toplama-çıkarma.",
+      "href": "../slimspel/snake/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-2048",
+      "area": "slimspel",
+      "title": "2048",
+      "desc": "Aynı sayıları birleştirerek 2048'e ulaş.",
+      "href": "../slimspel/2048/",
+      "status": "ready"
+    },
+    {
       "id": "woorden-groep4",
       "area": "kids",
       "group": "groep4",
