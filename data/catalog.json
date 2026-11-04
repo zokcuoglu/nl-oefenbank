@@ -157,6 +157,14 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-woordle-tr",
+      "area": "slimspel",
+      "title": "Woordle (Türkçe)",
+      "desc": "Günün Türkçe kelimesini 6 denemede bul. Herkes aynı kelimeyi oynar; günlük, haftalık ve aylık sıralama.",
+      "href": "../slimspel/woordle/?taal=tr",
+      "status": "ready"
+    },
+    {
       "id": "slimspel-sudoku",
       "area": "slimspel",
       "title": "Sudoku",

@@ -46,7 +46,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `spreken/` + `data/spreken.json`, `data/spreken-hulp.json` | Spreken I (B1): 368 tasks, 23 mock exams + random exams of 4/8/12/16 tasks, AI scoring prompt; optional hint box per task with speech-act patterns and 3+ model answers (`scripts/content/spreken/build_spreken_hulp.py` merges `alt_1..6.py` and `handelingen.py`) |
 | `js/stats.js` | Statistics helpers for the profile and admin pages |
 | `manifest.json`, `icons/` | "Add to home screen" on phones |
-| `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules (also covers the Slimspel daily ranking: `leaderboard/{day}/entries`) |
+| `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules (also covers the Slimspel daily ranking `leaderboard/{day}/entries` and the Woordle results `woordle_plays`) |
 
 ## E-mail
 
