@@ -22,7 +22,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 
 | Path | What it is |
 |---|---|
-| `index.html` | Home: exercise cards, filtered by account type |
+| `index.html` | Home with two tabs: *Çalışma* (exercise cards, filtered by account type) and *Günün oyunları* (`#oyunlar`: Woordle in Turkish and Dutch, using `slimspel/woordle/game.js`) |
 | `profile.html` | Own name, groep, exam dates, progress |
 | `admin.html` | Admin only: change type and role of every account |
 | `js/core.js` | Shared: Firebase config, login gate, profile and attempt helpers |

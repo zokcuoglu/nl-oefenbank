@@ -1,5 +1,5 @@
 {
-  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon. NT2 modules may have niveau \"B1\" or \"A2\" (inburgering); the home page shows the ones matching the exam level on the profile. No niveau = both (KNM).",
+  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon. NT2 modules may have niveau \"B1\" or \"A2\" (inburgering); the home page shows the ones matching the exam level on the profile. No niveau = both (KNM). home: false = not shown as a card on the home page (still used for titles in mail/admin).",
   "areas": {
     "nt2": {
       "title": "NT2 sınavları",
@@ -160,9 +160,10 @@
       "id": "slimspel-woordle-tr",
       "area": "slimspel",
       "title": "Woordle (Türkçe)",
-      "desc": "Günün Türkçe kelimesini 6 denemede bul. Herkes aynı kelimeyi oynar; günlük, haftalık ve aylık sıralama.",
-      "href": "../slimspel/woordle/?taal=tr",
-      "status": "ready"
+      "desc": "Ana sayfadaki 'Günün oyunları' sekmesinde.",
+      "href": "#oyunlar",
+      "status": "ready",
+      "home": false
     },
     {
       "id": "slimspel-sudoku",

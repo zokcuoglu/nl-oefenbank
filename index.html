@@ -27,14 +27,44 @@ setTimeout(function () {
   <div class="wrap">
     <div class="brand"><small>Hollandaca çalışma</small><h1>NL Oefenbank</h1></div>
     <div class="navlinks" id="ub"></div>
+    <!-- Two tabs; the choice is kept in the address (#oyunlar), so a reload or a shared link opens the same tab -->
+    <nav class="tabs hometabs" role="tablist">
+      <button class="tab" role="tab" data-tab="calisma" aria-selected="true">Çalışma</button>
+      <button class="tab" role="tab" data-tab="oyunlar" aria-selected="false">Günün oyunları</button>
+    </nav>
   </div>
 </header>
-<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+<div class="wrap">
+  <main id="app"><p class="muted">Yükleniyor…</p></main>
+  <main id="games" hidden>
+    <section class="panel">
+      <span class="eyebrow">Günün oyunları</span>
+      <h2 style="margin-top:4px">Her gün yeni kelimeler</h2>
+      <p class="muted" style="margin:6px 0 0;max-width:62ch">Herkes aynı kelimeyi oynar; sonunda istatistiklerini ve günlük, haftalık, aylık sıralamayı görürsün. Hollandaca Woordle Slimspel'dekiyle aynıdır.</p>
+      <nav class="gamelang" role="tablist" style="margin-top:12px">
+        <button role="tab" data-lang="tr" class="on" aria-selected="true">Woordle · Türkçe</button>
+        <button role="tab" data-lang="nl" aria-selected="false">Woordle · Hollandaca</button>
+      </nav>
+    </section>
+    <div id="game-tr"></div>
+    <div id="game-nl" hidden></div>
+  </main>
+</div>
+<style>
+/* site.css gives main display:flex, which beats the hidden attribute: make hidden win again */
+[hidden]{display:none!important}
+/* Home tabs sit under the brand row, full width */
+.hometabs{flex-basis:100%;margin-top:-4px}
+/* Language switch for the games */
+.gamelang{display:flex;gap:6px;flex-wrap:wrap}
+.gamelang button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:500}
+.gamelang button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+</style>
 
 <script type="module">
 // Home page: shows the exercise catalog filtered by account type.
 // Adults see NT2 + kids; child accounts see only the kids area.
-import { gate, userBox, esc, loadAllAttempts, ROOT } from "./js/core.js";
+import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays } from "./js/core.js";
 
 const app = document.getElementById("app");
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); } catch (e) { return ""; } };
@@ -92,7 +122,35 @@ app.innerHTML = `
   <div class="area-head"><h2>${esc(cat.areas.kids.title)}</h2><span class="muted">${esc(cat.areas.kids.desc)}</span></div>
   ${kidsSection()}
   <div class="area-head"><h2>${esc(cat.areas.slimspel.title)}</h2><span class="muted">${esc(cat.areas.slimspel.desc)} <a href="${ROOT}../slimspel/">Tüm oyunlar →</a></span></div>
-  <section class="cards">${cat.modules.filter(m => m.area === "slimspel").map(card).join("")}</section>`;
+  <section class="cards">${cat.modules.filter(m => m.area === "slimspel" && m.home !== false).map(card).join("")}</section>`;
+
+// ---------- Tabs: "Çalışma" (the cards above) and "Günün oyunları" (Woordle, in this page) ----------
+// The Woordle game is shared with Slimspel (slimspel/woordle/game.js): same words, statistics and rankings.
+// It gets this site's own save/load functions. Each language is loaded the first time it is opened.
+const mounted = {};
+async function showLang(lang) {
+  document.querySelectorAll(".gamelang button").forEach(b => { const on = b.dataset.lang === lang; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
+  ["tr", "nl"].forEach(l => document.getElementById("game-" + l).hidden = l !== lang);
+  try { localStorage.setItem("nloefenbank:gamelang", lang); } catch {}
+  if (mounted[lang]) return;
+  mounted[lang] = true;
+  const box = document.getElementById("game-" + lang);
+  box.innerHTML = `<p class="muted">Yükleniyor…</p>`;
+  try {
+    const { mountWoordle } = await import(`${ROOT}../slimspel/woordle/game.js`);
+    await mountWoordle(box, { lang, user, profile, api: { saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays } });
+  } catch (e) { mounted[lang] = false; box.innerHTML = `<div class="notice">Oyun yüklenemedi: ${esc(e.message)}</div>`; }
+}
+function showTab(tab) {
+  document.querySelectorAll(".hometabs .tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
+  app.hidden = tab !== "calisma";
+  document.getElementById("games").hidden = tab !== "oyunlar";
+  if (tab === "oyunlar") { let l = "tr"; try { l = localStorage.getItem("nloefenbank:gamelang") || "tr"; } catch {} showLang(l); }
+}
+document.querySelectorAll(".hometabs .tab").forEach(b => b.onclick = () => { history.replaceState(null, "", b.dataset.tab === "oyunlar" ? "#oyunlar" : location.pathname); showTab(b.dataset.tab); });
+document.querySelectorAll(".gamelang button").forEach(b => b.onclick = () => showLang(b.dataset.lang));
+addEventListener("hashchange", () => showTab(location.hash === "#oyunlar" ? "oyunlar" : "calisma"));
+showTab(location.hash === "#oyunlar" ? "oyunlar" : "calisma");
 </script>
 </body>
 </html>
