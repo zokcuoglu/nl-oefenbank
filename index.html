@@ -131,6 +131,7 @@ const GAMES = [
   { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js`)).mountWoordle(box, { lang: "tr", user, profile, api }) },
   { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js`)).mountWoordle(box, { lang: "nl", user, profile, api }) },
   { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api }) },
+  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js")).mountWerkwoorden(box, { user, profile, api }) },
 ];
 document.getElementById("gamenav").innerHTML = GAMES.map(g => `<button role="tab" data-game="${g.id}" aria-selected="false">${g.title}</button>`).join("");
 document.getElementById("gamebox").innerHTML = GAMES.map(g => `<div id="game-${g.id}" hidden></div>`).join("");
