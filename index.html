@@ -125,11 +125,13 @@ app.innerHTML = `
 // ---------- Tabs: "Çalışma" (the cards above) and "Günün oyunları" (daily games, in this page) ----------
 // Each game is a module with a mount function; it gets this site's own save/load functions.
 // Woordle is shared with Slimspel (slimspel/woordle/game.js): same words, statistics and rankings.
+// WDL_V: raise it after each change to game.js, so browsers fetch the new file instead of an old copy.
+const WDL_V = "2026-11-04b";
 // The other games live in oyunlar/. Each game is loaded the first time it is opened.
 const api = { saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays };
 const GAMES = [
-  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js`)).mountWoordle(box, { lang: "tr", user, profile, api }) },
-  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js`)).mountWoordle(box, { lang: "nl", user, profile, api }) },
+  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api }) },
+  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api }) },
   { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api }) },
   { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js")).mountWerkwoorden(box, { user, profile, api }) },
 ];
