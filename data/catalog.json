@@ -157,6 +157,46 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-sudoku",
+      "area": "slimspel",
+      "title": "Sudoku",
+      "desc": "Günün bulmacası: her gün her seviyeden bir tane, herkes için aynı. 4×4 ve 6×6.",
+      "href": "../slimspel/sudoku/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-kruiswoord",
+      "area": "slimspel",
+      "title": "Kruiswoord",
+      "desc": "Günün çengel bulmacası: her gün her seviyeden bir tane, herkes için aynı. Makkelijk'te emoji ipuçları.",
+      "href": "../slimspel/kruiswoord/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-kriskras",
+      "area": "slimspel",
+      "title": "Kriskras",
+      "desc": "Günün kelime yerleştirme bulmacası: listedeki kelimeleri tabloda doğru yere koy.",
+      "href": "../slimspel/kriskras/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-woordzoeker",
+      "area": "slimspel",
+      "title": "Woordzoeker",
+      "desc": "Günün kelime avı: her gün her seviyeden bir tane, herkes için aynı. Dieren, landen, voetbal ve daha fazlası.",
+      "href": "../slimspel/woordzoeker/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-blokjes",
+      "area": "slimspel",
+      "title": "Blokjes",
+      "desc": "Günün şekil bulmacası: blokları çerçeveye boşluksuz yerleştir. Her gün yeni, herkes için aynı.",
+      "href": "../slimspel/blokjes/",
+      "status": "ready"
+    },
+    {
       "id": "slimspel-tafels",
       "area": "slimspel",
       "title": "Tafels",
@@ -173,30 +213,6 @@
       "status": "ready"
     },
     {
-      "id": "slimspel-sudoku",
-      "area": "slimspel",
-      "title": "Sudoku",
-      "desc": "Günün bulmacası: her gün her seviyeden bir tane, herkes için aynı. 4×4 ve 6×6.",
-      "href": "../slimspel/sudoku/",
-      "status": "ready"
-    },
-    {
-      "id": "slimspel-woordzoeker",
-      "area": "slimspel",
-      "title": "Woordzoeker",
-      "desc": "Günün kelime avı: her gün her seviyeden bir tane, herkes için aynı. Dieren, landen, voetbal ve daha fazlası.",
-      "href": "../slimspel/woordzoeker/",
-      "status": "ready"
-    },
-    {
-      "id": "slimspel-kruiswoord",
-      "area": "slimspel",
-      "title": "Kruiswoord",
-      "desc": "Günün çengel bulmacası: her gün her seviyeden bir tane, herkes için aynı. Makkelijk'te emoji ipuçları.",
-      "href": "../slimspel/kruiswoord/",
-      "status": "ready"
-    },
-    {
       "id": "slimspel-memory",
       "area": "slimspel",
       "title": "Memory",
@@ -210,6 +226,14 @@
       "title": "Snake",
       "desc": "Yılan doğru cevabı yiyerek büyür: çarpım tablosu ya da 100'e kadar toplama-çıkarma.",
       "href": "../slimspel/snake/",
+      "status": "ready"
+    },
+    {
+      "id": "slimspel-schuifpuzzel",
+      "area": "slimspel",
+      "title": "Schuifpuzzel",
+      "desc": "Kaydırmalı bulmaca: sayıları boş kare üzerinden sıraya diz. 3×3, 4×4, 5×5.",
+      "href": "../slimspel/schuifpuzzel/",
       "status": "ready"
     },
     {
