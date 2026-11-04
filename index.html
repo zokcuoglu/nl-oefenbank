@@ -64,7 +64,9 @@ setTimeout(function () {
 <script type="module">
 // Home page: shows the exercise catalog filtered by account type.
 // Adults see NT2 + kids; child accounts see only the kids area.
-import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays } from "./js/core.js";
+import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts } from "./js/core.js";
+// New functions go in their own file, not in core.js (an older core.js may still be cached; see woordle-api.js)
+import { saveWoordlePlay, loadWoordlePlays } from "./js/woordle-api.js";
 
 const app = document.getElementById("app");
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); } catch (e) { return ""; } };
