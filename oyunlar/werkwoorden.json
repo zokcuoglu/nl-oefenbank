@@ -1,0 +1,1083 @@
+{
+ "bron": "Hand-written list of common irregular Dutch verbs (checked against standard NT2 tables).",
+ "werkwoorden": [
+  {
+   "inf": "zijn",
+   "imp": [
+    "was"
+   ],
+   "impMv": "waren",
+   "vd": "geweest",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "olmak"
+  },
+  {
+   "inf": "hebben",
+   "imp": [
+    "had"
+   ],
+   "impMv": "hadden",
+   "vd": "gehad",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "sahip olmak"
+  },
+  {
+   "inf": "gaan",
+   "imp": [
+    "ging"
+   ],
+   "impMv": "gingen",
+   "vd": "gegaan",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "gitmek"
+  },
+  {
+   "inf": "komen",
+   "imp": [
+    "kwam"
+   ],
+   "impMv": "kwamen",
+   "vd": "gekomen",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "gelmek"
+  },
+  {
+   "inf": "doen",
+   "imp": [
+    "deed"
+   ],
+   "impMv": "deden",
+   "vd": "gedaan",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yapmak"
+  },
+  {
+   "inf": "zien",
+   "imp": [
+    "zag"
+   ],
+   "impMv": "zagen",
+   "vd": "gezien",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "görmek"
+  },
+  {
+   "inf": "eten",
+   "imp": [
+    "at"
+   ],
+   "impMv": "aten",
+   "vd": "gegeten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yemek"
+  },
+  {
+   "inf": "drinken",
+   "imp": [
+    "dronk"
+   ],
+   "impMv": "dronken",
+   "vd": "gedronken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "içmek"
+  },
+  {
+   "inf": "lezen",
+   "imp": [
+    "las"
+   ],
+   "impMv": "lazen",
+   "vd": "gelezen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "okumak"
+  },
+  {
+   "inf": "schrijven",
+   "imp": [
+    "schreef"
+   ],
+   "impMv": "schreven",
+   "vd": "geschreven",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yazmak"
+  },
+  {
+   "inf": "spreken",
+   "imp": [
+    "sprak"
+   ],
+   "impMv": "spraken",
+   "vd": "gesproken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "konuşmak"
+  },
+  {
+   "inf": "zeggen",
+   "imp": [
+    "zei"
+   ],
+   "impMv": "zeiden",
+   "vd": "gezegd",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "söylemek"
+  },
+  {
+   "inf": "geven",
+   "imp": [
+    "gaf"
+   ],
+   "impMv": "gaven",
+   "vd": "gegeven",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "vermek"
+  },
+  {
+   "inf": "nemen",
+   "imp": [
+    "nam"
+   ],
+   "impMv": "namen",
+   "vd": "genomen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "almak"
+  },
+  {
+   "inf": "krijgen",
+   "imp": [
+    "kreeg"
+   ],
+   "impMv": "kregen",
+   "vd": "gekregen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "almak, edinmek"
+  },
+  {
+   "inf": "vinden",
+   "imp": [
+    "vond"
+   ],
+   "impMv": "vonden",
+   "vd": "gevonden",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "bulmak"
+  },
+  {
+   "inf": "lopen",
+   "imp": [
+    "liep"
+   ],
+   "impMv": "liepen",
+   "vd": "gelopen",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "yürümek"
+  },
+  {
+   "inf": "rijden",
+   "imp": [
+    "reed"
+   ],
+   "impMv": "reden",
+   "vd": "gereden",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "(araç) sürmek"
+  },
+  {
+   "inf": "vliegen",
+   "imp": [
+    "vloog"
+   ],
+   "impMv": "vlogen",
+   "vd": "gevlogen",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "uçmak"
+  },
+  {
+   "inf": "zwemmen",
+   "imp": [
+    "zwom"
+   ],
+   "impMv": "zwommen",
+   "vd": "gezwommen",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "yüzmek"
+  },
+  {
+   "inf": "springen",
+   "imp": [
+    "sprong"
+   ],
+   "impMv": "sprongen",
+   "vd": "gesprongen",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "zıplamak"
+  },
+  {
+   "inf": "klimmen",
+   "imp": [
+    "klom"
+   ],
+   "impMv": "klommen",
+   "vd": "geklommen",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "tırmanmak"
+  },
+  {
+   "inf": "varen",
+   "imp": [
+    "voer"
+   ],
+   "impMv": "voeren",
+   "vd": "gevaren",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "(gemiyle) gitmek"
+  },
+  {
+   "inf": "kruipen",
+   "imp": [
+    "kroop"
+   ],
+   "impMv": "kropen",
+   "vd": "gekropen",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "emeklemek"
+  },
+  {
+   "inf": "vallen",
+   "imp": [
+    "viel"
+   ],
+   "impMv": "vielen",
+   "vd": "gevallen",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "düşmek"
+  },
+  {
+   "inf": "blijven",
+   "imp": [
+    "bleef"
+   ],
+   "impMv": "bleven",
+   "vd": "gebleven",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "kalmak"
+  },
+  {
+   "inf": "worden",
+   "imp": [
+    "werd"
+   ],
+   "impMv": "werden",
+   "vd": "geworden",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "olmak, dönüşmek"
+  },
+  {
+   "inf": "sterven",
+   "imp": [
+    "stierf"
+   ],
+   "impMv": "stierven",
+   "vd": "gestorven",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "ölmek"
+  },
+  {
+   "inf": "beginnen",
+   "imp": [
+    "begon"
+   ],
+   "impMv": "begonnen",
+   "vd": "begonnen",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "başlamak"
+  },
+  {
+   "inf": "stijgen",
+   "imp": [
+    "steeg"
+   ],
+   "impMv": "stegen",
+   "vd": "gestegen",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "yükselmek"
+  },
+  {
+   "inf": "schrikken",
+   "imp": [
+    "schrok"
+   ],
+   "impMv": "schrokken",
+   "vd": "geschrokken",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "irkilmek, korkmak"
+  },
+  {
+   "inf": "verdwijnen",
+   "imp": [
+    "verdween"
+   ],
+   "impMv": "verdwenen",
+   "vd": "verdwenen",
+   "hulp": [
+    "zijn"
+   ],
+   "tr": "kaybolmak"
+  },
+  {
+   "inf": "vergeten",
+   "imp": [
+    "vergat"
+   ],
+   "impMv": "vergaten",
+   "vd": "vergeten",
+   "hulp": [
+    "hebben",
+    "zijn"
+   ],
+   "tr": "unutmak"
+  },
+  {
+   "inf": "kopen",
+   "imp": [
+    "kocht"
+   ],
+   "impMv": "kochten",
+   "vd": "gekocht",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "satın almak"
+  },
+  {
+   "inf": "verkopen",
+   "imp": [
+    "verkocht"
+   ],
+   "impMv": "verkochten",
+   "vd": "verkocht",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "satmak"
+  },
+  {
+   "inf": "brengen",
+   "imp": [
+    "bracht"
+   ],
+   "impMv": "brachten",
+   "vd": "gebracht",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "getirmek"
+  },
+  {
+   "inf": "denken",
+   "imp": [
+    "dacht"
+   ],
+   "impMv": "dachten",
+   "vd": "gedacht",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "düşünmek"
+  },
+  {
+   "inf": "zoeken",
+   "imp": [
+    "zocht"
+   ],
+   "impMv": "zochten",
+   "vd": "gezocht",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "aramak"
+  },
+  {
+   "inf": "mogen",
+   "imp": [
+    "mocht"
+   ],
+   "impMv": "mochten",
+   "vd": "gemogen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "izinli olmak"
+  },
+  {
+   "inf": "kunnen",
+   "imp": [
+    "kon"
+   ],
+   "impMv": "konden",
+   "vd": "gekund",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "-ebilmek"
+  },
+  {
+   "inf": "willen",
+   "imp": [
+    "wilde",
+    "wou"
+   ],
+   "impMv": "wilden",
+   "vd": "gewild",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "istemek"
+  },
+  {
+   "inf": "moeten",
+   "imp": [
+    "moest"
+   ],
+   "impMv": "moesten",
+   "vd": "gemoeten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "zorunda olmak"
+  },
+  {
+   "inf": "weten",
+   "imp": [
+    "wist"
+   ],
+   "impMv": "wisten",
+   "vd": "geweten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "bilmek"
+  },
+  {
+   "inf": "slapen",
+   "imp": [
+    "sliep"
+   ],
+   "impMv": "sliepen",
+   "vd": "geslapen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "uyumak"
+  },
+  {
+   "inf": "roepen",
+   "imp": [
+    "riep"
+   ],
+   "impMv": "riepen",
+   "vd": "geroepen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "seslenmek"
+  },
+  {
+   "inf": "laten",
+   "imp": [
+    "liet"
+   ],
+   "impMv": "lieten",
+   "vd": "gelaten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "bırakmak"
+  },
+  {
+   "inf": "houden",
+   "imp": [
+    "hield"
+   ],
+   "impMv": "hielden",
+   "vd": "gehouden",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "tutmak"
+  },
+  {
+   "inf": "hangen",
+   "imp": [
+    "hing"
+   ],
+   "impMv": "hingen",
+   "vd": "gehangen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "asılı olmak, asmak"
+  },
+  {
+   "inf": "vangen",
+   "imp": [
+    "ving"
+   ],
+   "impMv": "vingen",
+   "vd": "gevangen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yakalamak"
+  },
+  {
+   "inf": "staan",
+   "imp": [
+    "stond"
+   ],
+   "impMv": "stonden",
+   "vd": "gestaan",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "ayakta durmak"
+  },
+  {
+   "inf": "slaan",
+   "imp": [
+    "sloeg"
+   ],
+   "impMv": "sloegen",
+   "vd": "geslagen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "vurmak"
+  },
+  {
+   "inf": "dragen",
+   "imp": [
+    "droeg"
+   ],
+   "impMv": "droegen",
+   "vd": "gedragen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "taşımak, giymek"
+  },
+  {
+   "inf": "vragen",
+   "imp": [
+    "vroeg"
+   ],
+   "impMv": "vroegen",
+   "vd": "gevraagd",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "sormak"
+  },
+  {
+   "inf": "lachen",
+   "imp": [
+    "lachte"
+   ],
+   "impMv": "lachten",
+   "vd": "gelachen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "gülmek"
+  },
+  {
+   "inf": "bakken",
+   "imp": [
+    "bakte"
+   ],
+   "impMv": "bakten",
+   "vd": "gebakken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "(fırında) pişirmek"
+  },
+  {
+   "inf": "wassen",
+   "imp": [
+    "waste"
+   ],
+   "impMv": "wasten",
+   "vd": "gewassen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yıkamak"
+  },
+  {
+   "inf": "zitten",
+   "imp": [
+    "zat"
+   ],
+   "impMv": "zaten",
+   "vd": "gezeten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "oturmak"
+  },
+  {
+   "inf": "liggen",
+   "imp": [
+    "lag"
+   ],
+   "impMv": "lagen",
+   "vd": "gelegen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yatmak, uzanmak"
+  },
+  {
+   "inf": "kijken",
+   "imp": [
+    "keek"
+   ],
+   "impMv": "keken",
+   "vd": "gekeken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "bakmak"
+  },
+  {
+   "inf": "bijten",
+   "imp": [
+    "beet"
+   ],
+   "impMv": "beten",
+   "vd": "gebeten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "ısırmak"
+  },
+  {
+   "inf": "kiezen",
+   "imp": [
+    "koos"
+   ],
+   "impMv": "kozen",
+   "vd": "gekozen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "seçmek"
+  },
+  {
+   "inf": "verliezen",
+   "imp": [
+    "verloor"
+   ],
+   "impMv": "verloren",
+   "vd": "verloren",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kaybetmek"
+  },
+  {
+   "inf": "begrijpen",
+   "imp": [
+    "begreep"
+   ],
+   "impMv": "begrepen",
+   "vd": "begrepen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "anlamak"
+  },
+  {
+   "inf": "helpen",
+   "imp": [
+    "hielp"
+   ],
+   "impMv": "hielpen",
+   "vd": "geholpen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yardım etmek"
+  },
+  {
+   "inf": "trekken",
+   "imp": [
+    "trok"
+   ],
+   "impMv": "trokken",
+   "vd": "getrokken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "çekmek"
+  },
+  {
+   "inf": "breken",
+   "imp": [
+    "brak"
+   ],
+   "impMv": "braken",
+   "vd": "gebroken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kırmak"
+  },
+  {
+   "inf": "stelen",
+   "imp": [
+    "stal"
+   ],
+   "impMv": "stalen",
+   "vd": "gestolen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "çalmak (hırsızlık)"
+  },
+  {
+   "inf": "zingen",
+   "imp": [
+    "zong"
+   ],
+   "impMv": "zongen",
+   "vd": "gezongen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "şarkı söylemek"
+  },
+  {
+   "inf": "winnen",
+   "imp": [
+    "won"
+   ],
+   "impMv": "wonnen",
+   "vd": "gewonnen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kazanmak"
+  },
+  {
+   "inf": "sluiten",
+   "imp": [
+    "sloot"
+   ],
+   "impMv": "sloten",
+   "vd": "gesloten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kapatmak"
+  },
+  {
+   "inf": "schieten",
+   "imp": [
+    "schoot"
+   ],
+   "impMv": "schoten",
+   "vd": "geschoten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "ateş etmek, şut çekmek"
+  },
+  {
+   "inf": "wegen",
+   "imp": [
+    "woog"
+   ],
+   "impMv": "wogen",
+   "vd": "gewogen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "tartmak"
+  },
+  {
+   "inf": "wijzen",
+   "imp": [
+    "wees"
+   ],
+   "impMv": "wezen",
+   "vd": "gewezen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "(parmakla) göstermek"
+  },
+  {
+   "inf": "snijden",
+   "imp": [
+    "sneed"
+   ],
+   "impMv": "sneden",
+   "vd": "gesneden",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kesmek"
+  },
+  {
+   "inf": "lijken",
+   "imp": [
+    "leek"
+   ],
+   "impMv": "leken",
+   "vd": "geleken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "benzemek"
+  },
+  {
+   "inf": "blazen",
+   "imp": [
+    "blies"
+   ],
+   "impMv": "bliezen",
+   "vd": "geblazen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "üflemek"
+  },
+  {
+   "inf": "gieten",
+   "imp": [
+    "goot"
+   ],
+   "impMv": "goten",
+   "vd": "gegoten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "dökmek"
+  },
+  {
+   "inf": "buigen",
+   "imp": [
+    "boog"
+   ],
+   "impMv": "bogen",
+   "vd": "gebogen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "eğmek"
+  },
+  {
+   "inf": "meten",
+   "imp": [
+    "mat"
+   ],
+   "impMv": "maten",
+   "vd": "gemeten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "ölçmek"
+  },
+  {
+   "inf": "vechten",
+   "imp": [
+    "vocht"
+   ],
+   "impMv": "vochten",
+   "vd": "gevochten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kavga etmek"
+  },
+  {
+   "inf": "ruiken",
+   "imp": [
+    "rook"
+   ],
+   "impMv": "roken",
+   "vd": "geroken",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "koklamak"
+  },
+  {
+   "inf": "genieten",
+   "imp": [
+    "genoot"
+   ],
+   "impMv": "genoten",
+   "vd": "genoten",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "keyif almak"
+  },
+  {
+   "inf": "bewegen",
+   "imp": [
+    "bewoog"
+   ],
+   "impMv": "bewogen",
+   "vd": "bewogen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "hareket etmek"
+  },
+  {
+   "inf": "zwijgen",
+   "imp": [
+    "zweeg"
+   ],
+   "impMv": "zwegen",
+   "vd": "gezwegen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "susmak"
+  },
+  {
+   "inf": "graven",
+   "imp": [
+    "groef"
+   ],
+   "impMv": "groeven",
+   "vd": "gegraven",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "kazmak"
+  },
+  {
+   "inf": "bidden",
+   "imp": [
+    "bad"
+   ],
+   "impMv": "baden",
+   "vd": "gebeden",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "dua etmek"
+  },
+  {
+   "inf": "liegen",
+   "imp": [
+    "loog"
+   ],
+   "impMv": "logen",
+   "vd": "gelogen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "yalan söylemek"
+  },
+  {
+   "inf": "schijnen",
+   "imp": [
+    "scheen"
+   ],
+   "impMv": "schenen",
+   "vd": "geschenen",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "parlamak"
+  },
+  {
+   "inf": "vriezen",
+   "imp": [
+    "vroor"
+   ],
+   "impMv": "vroren",
+   "vd": "gevroren",
+   "hulp": [
+    "hebben"
+   ],
+   "tr": "donmak (hava)"
+  }
+ ]
+}
