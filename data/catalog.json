@@ -189,6 +189,14 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-woordle",
+      "area": "slimspel",
+      "title": "Woordle",
+      "desc": "Günün kelimesini 6 denemede bul (4, 5 ya da 6 harf). Kelimeler bizim listelerden; sonunda Türkçe anlamı çıkar.",
+      "href": "../slimspel/woordle/",
+      "status": "ready"
+    },
+    {
       "id": "slimspel-blokjes",
       "area": "slimspel",
       "title": "Blokjes",
