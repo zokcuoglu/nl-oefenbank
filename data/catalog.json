@@ -181,6 +181,14 @@
       "status": "ready"
     },
     {
+      "id": "slimspel-paspuzzel",
+      "area": "slimspel",
+      "title": "Paspuzzel",
+      "desc": "Bulmaca dergilerindeki gibi: listedeki kelimeleri sık bir tabloya yerleştir, en altta çözüm kelimesi çıkar. Her gün yeni.",
+      "href": "../slimspel/paspuzzel/",
+      "status": "ready"
+    },
+    {
       "id": "slimspel-kriskras",
       "area": "slimspel",
       "title": "Kriskras",
