@@ -39,15 +39,11 @@ setTimeout(function () {
   <main id="games" hidden>
     <section class="panel">
       <span class="eyebrow">Günün oyunları</span>
-      <h2 style="margin-top:4px">Her gün yeni kelimeler</h2>
-      <p class="muted" style="margin:6px 0 0;max-width:62ch">Herkes aynı kelimeyi oynar; sonunda istatistiklerini ve günlük, haftalık, aylık sıralamayı görürsün. Hollandaca Woordle Slimspel'dekiyle aynıdır.</p>
-      <nav class="gamelang" role="tablist" style="margin-top:12px">
-        <button role="tab" data-lang="tr" class="on" aria-selected="true">Woordle · Türkçe</button>
-        <button role="tab" data-lang="nl" aria-selected="false">Woordle · Hollandaca</button>
-      </nav>
+      <h2 style="margin-top:4px">Her gün yeni oyunlar</h2>
+      <p class="muted" style="margin:6px 0 0;max-width:62ch">Herkes aynı oyunu oynar; sonunda istatistiklerini ve günlük, haftalık, aylık sıralamayı görürsün. Hollandaca Woordle Slimspel'dekiyle aynıdır.</p>
+      <nav class="gamelang" role="tablist" style="margin-top:12px" id="gamenav"></nav>
     </section>
-    <div id="game-tr"></div>
-    <div id="game-nl" hidden></div>
+    <div id="gamebox"></div>
   </main>
 </div>
 <style>
@@ -126,31 +122,39 @@ app.innerHTML = `
   <div class="area-head"><h2>${esc(cat.areas.slimspel.title)}</h2><span class="muted">${esc(cat.areas.slimspel.desc)} <a href="${ROOT}../slimspel/">Tüm oyunlar →</a></span></div>
   <section class="cards">${cat.modules.filter(m => m.area === "slimspel" && m.home !== false).map(card).join("")}</section>`;
 
-// ---------- Tabs: "Çalışma" (the cards above) and "Günün oyunları" (Woordle, in this page) ----------
-// The Woordle game is shared with Slimspel (slimspel/woordle/game.js): same words, statistics and rankings.
-// It gets this site's own save/load functions. Each language is loaded the first time it is opened.
+// ---------- Tabs: "Çalışma" (the cards above) and "Günün oyunları" (daily games, in this page) ----------
+// Each game is a module with a mount function; it gets this site's own save/load functions.
+// Woordle is shared with Slimspel (slimspel/woordle/game.js): same words, statistics and rankings.
+// The other games live in oyunlar/. Each game is loaded the first time it is opened.
+const api = { saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays };
+const GAMES = [
+  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js`)).mountWoordle(box, { lang: "tr", user, profile, api }) },
+  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js`)).mountWoordle(box, { lang: "nl", user, profile, api }) },
+  { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api }) },
+];
+document.getElementById("gamenav").innerHTML = GAMES.map(g => `<button role="tab" data-game="${g.id}" aria-selected="false">${g.title}</button>`).join("");
+document.getElementById("gamebox").innerHTML = GAMES.map(g => `<div id="game-${g.id}" hidden></div>`).join("");
 const mounted = {};
-async function showLang(lang) {
-  document.querySelectorAll(".gamelang button").forEach(b => { const on = b.dataset.lang === lang; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
-  ["tr", "nl"].forEach(l => document.getElementById("game-" + l).hidden = l !== lang);
-  try { localStorage.setItem("nloefenbank:gamelang", lang); } catch {}
-  if (mounted[lang]) return;
-  mounted[lang] = true;
-  const box = document.getElementById("game-" + lang);
+async function showGame(id) {
+  if (!GAMES.some(g => g.id === id)) id = GAMES[0].id;
+  document.querySelectorAll("#gamenav button").forEach(b => { const on = b.dataset.game === id; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
+  GAMES.forEach(g => document.getElementById("game-" + g.id).hidden = g.id !== id);
+  try { localStorage.setItem("nloefenbank:game", id); } catch {}
+  if (mounted[id]) return;
+  mounted[id] = true;
+  const box = document.getElementById("game-" + id);
   box.innerHTML = `<p class="muted">Yükleniyor…</p>`;
-  try {
-    const { mountWoordle } = await import(`${ROOT}../slimspel/woordle/game.js`);
-    await mountWoordle(box, { lang, user, profile, api: { saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays } });
-  } catch (e) { mounted[lang] = false; box.innerHTML = `<div class="notice">Oyun yüklenemedi: ${esc(e.message)}</div>`; }
+  try { await GAMES.find(g => g.id === id).load(box); }
+  catch (e) { mounted[id] = false; box.innerHTML = `<div class="notice">Oyun yüklenemedi: ${esc(e.message)}</div>`; }
 }
 function showTab(tab) {
   document.querySelectorAll(".hometabs .tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
   app.hidden = tab !== "calisma";
   document.getElementById("games").hidden = tab !== "oyunlar";
-  if (tab === "oyunlar") { let l = "tr"; try { l = localStorage.getItem("nloefenbank:gamelang") || "tr"; } catch {} showLang(l); }
+  if (tab === "oyunlar") { let g = ""; try { g = localStorage.getItem("nloefenbank:game") || ""; } catch {} showGame(g); }
 }
 document.querySelectorAll(".hometabs .tab").forEach(b => b.onclick = () => { history.replaceState(null, "", b.dataset.tab === "oyunlar" ? "#oyunlar" : location.pathname); showTab(b.dataset.tab); });
-document.querySelectorAll(".gamelang button").forEach(b => b.onclick = () => showLang(b.dataset.lang));
+document.querySelectorAll("#gamenav button").forEach(b => b.onclick = () => showGame(b.dataset.game));
 addEventListener("hashchange", () => showTab(location.hash === "#oyunlar" ? "oyunlar" : "calisma"));
 showTab(location.hash === "#oyunlar" ? "oyunlar" : "calisma");
 </script>

@@ -18,6 +18,8 @@ rules_version = '2';
 //                    their own entry once, approved accounts read it
 // woordle_plays/{lang-level-day-uid} : Woordle result of one person for one day's word (everyone, also adults),
 //                    written once by that person, read by approved accounts (statistics and day/week/month rankings)
+// dagspel_plays/{game-level-day-uid} : result of one person for one daily game of the "Günün oyunları" tab
+//                    (de/het, werkwoorden, kruiswoord NT2, verbanden); written once by that person, read by approved accounts
 // The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -138,6 +140,26 @@ service cloud.firestore {
         && request.resource.data.name is string && request.resource.data.name.size() <= 40
         && request.resource.data.won is bool
         && request.resource.data.guesses is int && request.resource.data.guesses >= 1 && request.resource.data.guesses <= 6
+        && request.resource.data.time_s is int && request.resource.data.time_s >= 0 && request.resource.data.time_s <= 86400
+        && request.resource.data.at is string;
+      allow delete: if isAdmin();
+      allow update: if false;
+    }
+
+    // Daily games of the "Günün oyunları" tab: one document per person, game, level and day; written once.
+    // id = "<game>-<level>-<day>-<uid>", e.g. "dehet-dag-2026-11-04-abc123".
+    match /dagspel_plays/{playId} {
+      allow read: if signedIn() && isApproved(request.auth.uid);
+      allow create: if signedIn() && isApproved(request.auth.uid)
+        && request.resource.data.keys().hasOnly(['uid', 'name', 'game', 'level', 'day', 'score', 'total', 'time_s', 'at'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.game in ['dehet', 'werkwoorden', 'kruiswoord', 'verbanden']
+        && request.resource.data.level is string && request.resource.data.level.matches('^[a-z0-9]{1,12}$')
+        && request.resource.data.day is string && request.resource.data.day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && playId == request.resource.data.game + '-' + request.resource.data.level + '-' + request.resource.data.day + '-' + request.auth.uid
+        && request.resource.data.name is string && request.resource.data.name.size() <= 40
+        && request.resource.data.score is int && request.resource.data.score >= 0 && request.resource.data.score <= 500
+        && request.resource.data.total is int && request.resource.data.total >= 0 && request.resource.data.total <= 500
         && request.resource.data.time_s is int && request.resource.data.time_s >= 0 && request.resource.data.time_s <= 86400
         && request.resource.data.at is string;
       allow delete: if isAdmin();
