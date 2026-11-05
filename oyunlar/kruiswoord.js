@@ -38,7 +38,10 @@ const CSS = `
 .kw .clues li.done{color:var(--og-muted);text-decoration:line-through;background:var(--og-ok-soft);border-color:var(--og-ok-soft)}
 .kw .clues .num{font-weight:700;min-width:20px}
 .kw .clues .len{color:var(--og-muted);font-size:13px;white-space:nowrap}
-.kw .clues .txt{flex:1}
+.kw .clues .txt{flex:1;display:flex;flex-direction:column;gap:1px}
+.kw .clues .zin{font-style:italic;font-size:14.5px}
+.kw .clues .zt{font-size:12.5px;color:var(--og-muted)}
+.kw .clues li.done .zin,.kw .clues li.done .zt{display:none}
 .kw .tools{display:flex;gap:10px;flex-wrap:wrap}
 .kw .kbd{position:fixed;left:-200px;top:0;width:40px;height:20px;opacity:0}
 .kw .choice{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
@@ -85,7 +88,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   const $ = r => root.querySelector(`[data-r="${r}"]`);
 
   let bank;
-  try { bank = await fetch(new URL("./kruiswoord-nt2.json", import.meta.url)).then(r => r.json()); }
+  try { bank = await fetch(new URL("./kruiswoord-nt2.json", import.meta.url), { cache: "no-cache" }).then(r => r.json()); }
   catch { root.innerHTML = `<p class="notice">Kelimeler yüklenemedi. Sayfayı yenile.</p>`; return; }
   let history = [];
   try { history = (await api.loadAttempts(user.uid, MODULE)).filter(h => h.day); } catch {}
@@ -95,6 +98,9 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   let S = null;
   const doneToday = lv => history.find(h => h.test === lv && h.day === today());
   const progressKey = lv => `${GAME}:progress:${lv}:${today()}`;
+  // Example sentences live in the snapshot next to each word (z, zt); the puzzle engine only passes w and c on
+  const SENT = new Map(bank.words.map(x => [x.w + "|" + x.c, x]));
+  const sentenceOf = x => SENT.get(x.w + "|" + x.c);
   const puzzleOf = (day, lv) => makePuzzle(LEVELS[lv].cfg, { words: bank.words.filter(x => LEVELS[lv].niv.includes(x.n)) },
     seededRandom(`${day}|kruiswoord-nt2|${lv}`));
 
@@ -148,7 +154,9 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       ? `<div class="sq on" data-i="${i}">${numAt[i] ? `<span class="n">${numAt[i]}</span>` : ""}<span class="l"></span></div>`
       : `<div class="sq"></div>`).join("");
     $("cw").querySelectorAll(".sq.on").forEach(el => el.onclick = () => pickCell(Number(el.dataset.i)));
-    const li = (x, k) => `<li data-k="${k}"><span class="num">${x.num}</span><span class="txt">${esc(x.c)}</span><span class="len">(${x.w.length})</span></li>`;
+    // Clue = Turkish meaning + a Dutch example sentence with the answer blanked (and its Turkish), when the word list has one
+    const li = (x, k) => { const ex = sentenceOf(x);
+      return `<li data-k="${k}"><span class="num">${x.num}</span><span class="txt">${esc(x.c)}${ex?.z ? `<span class="zin" lang="nl">${esc(ex.z)}</span>${ex.zt ? `<span class="zt">${esc(ex.zt)}</span>` : ""}` : ""}</span><span class="len">(${x.w.length})</span></li>`; };
     $("cluesH").innerHTML = P.words.map((x, k) => x.dir === "H" ? li(x, k) : "").join("");
     $("cluesV").innerHTML = P.words.map((x, k) => x.dir === "V" ? li(x, k) : "").join("");
     root.querySelectorAll(".clues li").forEach(el => el.onclick = () => { S.word = Number(el.dataset.k); S.cell = firstOpen(S.word); draw(); focusKbd(); });
@@ -283,7 +291,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       $("resultText").textContent = `${LEVELS[S.level].title} · ${S.P.words.length} kelime · süre ${fmt(time_s)} · ` + (hints ? `${hints} ipucu` : "ipucusuz");
       $("share2").onclick = () => shareText($("share2"), textOf(attempt));
       // The words with their meaning, to learn them
-      $("list").innerHTML = S.P.words.map((x, k) => `<li><span><b>${esc(x.w.toLowerCase())}</b>${wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}</span></li>`).join("");
+      $("list").innerHTML = S.P.words.map((x, k) => `<li><span><b>${esc(x.w.toLowerCase())}</b>${wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(sentenceOf(x).z.replace("___", x.w.toLowerCase()))}</i>` : ""}</span></li>`).join("");
       drawMine($("mine2"));
       posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: RANK_LEVELS, user }); });
     }, 900);

@@ -1,5 +1,5 @@
 // Günün düzensiz fiilleri: 5 irregular verbs a day (the same for everybody).
-// For each verb the player types the past tense ("Gisteren ik ___") and picks heb/ben + types the participle.
+// For each verb the player types the past tense ("Ik ___ gisteren") and picks heb/ben + types the participle.
 // 2 points per verb: 1 for the past tense, 1 for auxiliary + participle together.
 // Verbs: werkwoorden.json (next to this file). Where both hebben and zijn are right (lopen, rijden, vergeten…), both count.
 import { shareText, trDate, squares } from "./share.js";
@@ -10,7 +10,7 @@ const CSS = `
 .ww .verb{font-family:var(--og-font);font-weight:700;font-size:clamp(32px,8vw,46px);text-align:center;margin:10px 0 2px}
 .ww .tr{text-align:center;color:var(--og-muted);margin-bottom:16px}
 .ww .row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;margin:10px 0;font-size:19px}
-.ww .row input{font:inherit;font-size:19px;width:11em;max-width:60vw;padding:8px 10px;border-radius:8px;border:2px solid var(--og-line);background:var(--og-card);color:var(--og-ink)}
+.ww .row input{font:inherit;font-size:19px;width:7.5em;max-width:46vw;padding:8px 10px;border-radius:8px;border:2px solid var(--og-line);background:var(--og-card);color:var(--og-ink)}
 .ww .row input:focus{outline:none;border-color:var(--og-accent)}
 .ww .row input.right{border-color:var(--og-ok);background:var(--og-ok-soft)}
 .ww .row input.wrong{border-color:var(--og-bad);background:var(--og-bad-soft)}
@@ -26,7 +26,14 @@ const CSS = `
 .ww .tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:15px}
 .ww .tbl td,.ww .tbl th{padding:6px 8px;border-bottom:1px solid var(--og-line);text-align:left}
 .ww .tbl td.no{color:var(--og-bad)}
-.ww .tip{font-size:14px;color:var(--og-muted);margin-top:14px}`;
+.ww .tip{font-size:14px;color:var(--og-muted);margin-top:14px}
+.ww .example{border:2px dashed var(--og-line);border-radius:12px;padding:12px 14px;margin:12px 0;display:grid;gap:6px}
+.ww .example .hd{font-weight:700;font-family:var(--og-font)}
+.ww .steps{margin:6px 0 0;padding-left:20px;display:grid;gap:4px}
+.ww .lab{text-align:center;font-weight:700;font-size:14px;margin-top:14px;color:var(--og-ink)}
+.ww .lab small{display:block;font-weight:400;color:var(--og-muted)}
+.ww .rule{text-align:center;font-size:13.5px;color:var(--og-muted);margin-top:-2px}
+.ww .full{text-align:center;margin-top:8px;font-size:15px;background:var(--og-sunk);border-radius:8px;padding:8px}`;
 
 // Lower case, single spaces, no spaces at the ends: "  Liep " counts as "liep"
 const norm = s => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
@@ -47,9 +54,19 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
   root.innerHTML = `
     <section data-r="setup">
       <h2 class="ot">Günün düzensiz fiilleri</h2>
-      <p class="sub">Her gün 5 düzensiz fiil (onregelmatige werkwoorden), herkes için aynı. Her fiil için geçmiş zamanı yaz
-        (<i>Gisteren ik <b>liep</b></i>), sonra <b>heb</b> ya da <b>ben</b> seç ve voltooid deelwoord'u yaz (<i>Ik <b>heb gelopen</b></i>).
-        Her fiil 2 puan.</p>
+      <p class="sub">Her gün 5 düzensiz fiil (<i>onregelmatige werkwoorden</i>), herkes için aynı. Bu fiiller geçmiş zamanda
+        kurala uymaz (<i>lopen</i> → <i>loopte</i> değil <b>liep</b>), o yüzden ezberlemek gerekir. Her fiil için iki şey soruluyor:</p>
+      <div class="example">
+        <div class="hd">Örnek: lopen · yürümek</div>
+        <div>① <b>Verleden tijd</b> (geçmiş zaman): <i>Ik <b>liep</b> gisteren.</i> — Dün yürüdüm.</div>
+        <div>② <b>Perfectum</b> (heb/ben + voltooid deelwoord): <i>Ik <b>heb gelopen</b>.</i> — Yürüdüm.</div>
+        <ol class="steps">
+          <li>Birinci kutuya geçmiş zamanı yaz: <b>liep</b></li>
+          <li><b>heb</b> ya da <b>ben</b> butonuna bas</li>
+          <li>İkinci kutuya voltooid deelwoord'u yaz: <b>gelopen</b> → Kontrol et</li>
+        </ol>
+      </div>
+      <p class="sub">Her fiil 2 puan: 1 geçmiş zaman, 1 perfectum (heb/ben ve deelwoord birlikte doğruysa).</p>
       <p class="today" data-r="today" hidden></p>
       <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
@@ -60,10 +77,14 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
       <div class="pan">
         <div class="verb" data-r="verb"></div>
         <div class="tr" data-r="tr"></div>
-        <div class="row">Gisteren ik <input data-r="imp" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+        <div class="lab">① Verleden tijd <small>geçmiş zaman</small></div>
+        <div class="row">Ik <input data-r="imp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="liep" aria-label="geçmiş zaman"> gisteren.</div>
+        <div class="lab">② Perfectum <small>heb ya da ben seç + voltooid deelwoord yaz</small></div>
         <div class="row">Ik <span class="aux"><button data-aux="hebben">heb</button><button data-aux="zijn">ben</button></span>
-          <input data-r="vd" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+          <input data-r="vd" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gelopen" aria-label="voltooid deelwoord">.</div>
+        <div class="rule">Çoğu fiil <b>heb</b> alır. Yer değiştirme (gaan, komen) ya da durum değişimi (worden, sterven) → <b>ben</b>.</div>
         <div class="fix" data-r="fix"></div>
+        <div class="full" data-r="full" hidden></div>
         <div class="act"><button class="bt pri" data-r="check">Kontrol et</button></div>
         <div class="dots" data-r="dots"></div>
       </div>
@@ -73,7 +94,7 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
         <div class="big" data-r="result"></div>
         <p class="sub" data-r="resultText"></p>
         <button class="bt" data-r="share2">📤 Paylaş</button>
-        <table class="tbl"><thead><tr><th>Fiil</th><th>Geçmiş</th><th>Perfectum</th></tr></thead><tbody data-r="list"></tbody></table>
+        <table class="tbl"><thead><tr><th>Fiil</th><th>Verleden tijd<br><small>ik / wij</small></th><th>Perfectum</th></tr></thead><tbody data-r="list"></tbody></table>
         <p class="tip">İpucu: hareket bildiren fiiller (lopen, rijden, zwemmen…) bir yere gidiyorsan <b>zijn</b>, sadece hareketi anlatıyorsan <b>hebben</b> alır:
           <i>Ik ben naar school gelopen</i> / <i>Ik heb veel gelopen</i>.</p>
       </div>
@@ -137,13 +158,15 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
     $("tr").textContent = v.tr;
     for (const r of ["imp", "vd"]) { $(r).value = ""; $(r).className = ""; $(r).disabled = false; }
     root.querySelectorAll("[data-aux]").forEach(b => b.classList.remove("on"));
-    $("fix").textContent = ""; $("fix").className = "fix";
+    $("fix").textContent = ""; $("fix").className = "fix"; $("full").hidden = true;
     $("check").textContent = "Kontrol et";
     $("dots").innerHTML = S.list.map((_, k) => {
       const a = S.answers[k]; if (!a) return "<i></i>";
       const p = (a.impOk ? 1 : 0) + (a.perfOk ? 1 : 0);
       return `<i class="${p === 2 ? "ok" : p === 1 ? "half" : "no"}"></i>`;
     }).join("");
+    // Grey example in the boxes only for the very first verb
+    $("imp").placeholder = i === 0 ? "liep" : ""; $("vd").placeholder = i === 0 ? "gelopen" : "";
     $("imp").focus();
   }
 
@@ -166,11 +189,14 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
     $("vd").className = perfOk ? "right" : "wrong";
     $("imp").disabled = $("vd").disabled = true;
     const fixes = [];
-    if (!impOk) fixes.push(`Gisteren ik ${impText(v)}`);
+    if (!impOk) fixes.push(`Ik ${impText(v)} gisteren`);
     if (!perfOk) fixes.push(`Ik ${perfText(v)}`);
     $("fix").className = fixes.length ? "fix" : "fix ok";
     $("fix").textContent = fixes.length ? "Doğrusu: " + fixes.join(" · ") : v.hulp.length > 1 ? "Doğru! (heb ve ben ikisi de olur)" : "Doğru!";
     flash($("verb"), fixes.length ? "shake" : "pop");
+    // The whole verb at once: present, past (singular / plural), perfectum
+    $("full").hidden = false;
+    $("full").innerHTML = `<b>${esc(v.inf)}</b> → ${esc(impText(v))}${v.impMv ? ` / ${esc(v.impMv)} (wij, jullie, zij)` : ""} → ${esc(perfText(v))}`;
     $("check").textContent = S.answers.length >= S.list.length ? "Sonucu gör" : "Sonraki fiil";
     $("check").focus();
     saveProgress();
@@ -199,7 +225,7 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
     $("list").innerHTML = S.list.map((v, k) => {
       const a = S.answers[k];
       return `<tr><td><b>${esc(v.inf)}</b><br><span class="small" style="margin:0">${esc(v.tr)}</span></td>
-        <td class="${a.impOk ? "" : "no"}">${esc(impText(v))}</td><td class="${a.perfOk ? "" : "no"}">${esc(perfText(v))}</td></tr>`;
+        <td class="${a.impOk ? "" : "no"}">${esc(impText(v))}${v.impMv ? ` / ${esc(v.impMv)}` : ""}</td><td class="${a.perfOk ? "" : "no"}">${esc(perfText(v))}</td></tr>`;
     }).join("");
     drawStats($("stats2"), history);
     posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: { dag: "" }, user }); });

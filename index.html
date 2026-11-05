@@ -135,8 +135,8 @@ const GAMES = [
   { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api, shareUrl: gameUrl("woordle-tr") }) },
   { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
   { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
-  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
-  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
+  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js?v=2")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
+  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=2")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
 ];
 document.getElementById("gamenav").innerHTML = GAMES.map(g => `<button role="tab" data-game="${g.id}" aria-selected="false">${g.title}</button>`).join("");
 document.getElementById("gamebox").innerHTML = GAMES.map(g => `<div id="game-${g.id}" hidden></div>`).join("");
