@@ -75,6 +75,27 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
         allow update: if false;
       }
+
+      // Play time of a child per day (slimspel/js/speeltijd.js): { used_s, extra_s, updated_at }.
+      // The child's page only adds seconds (used_s never goes down); only the admin sets extra_s (extra minutes).
+      match /speeltijd/{day} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+          && ((isOwner(uid)
+                && request.resource.data.keys().hasOnly(['used_s', 'updated_at'])
+                && request.resource.data.used_s is int && request.resource.data.used_s >= 0 && request.resource.data.used_s <= 86400)
+            || (isAdmin()
+                && request.resource.data.keys().hasOnly(['used_s', 'extra_s', 'updated_at'])
+                && request.resource.data.extra_s is int && request.resource.data.extra_s >= 0 && request.resource.data.extra_s <= 36000));
+        allow update: if (isOwner(uid)
+            && changed().hasOnly(['used_s', 'updated_at'])
+            && request.resource.data.used_s is int
+            && request.resource.data.used_s >= resource.data.get('used_s', 0) && request.resource.data.used_s <= 86400)
+          || (isAdmin()
+            && changed().hasOnly(['extra_s', 'updated_at'])
+            && request.resource.data.extra_s is int && request.resource.data.extra_s >= 0 && request.resource.data.extra_s <= 36000);
+        allow delete: if isAdmin();
+      }
     }
 
     // Announcements: only admins write and read them; the mailer job sends them

@@ -2,6 +2,7 @@
 // For each verb the player types the past tense ("Gisteren ik ___") and picks heb/ben + types the participle.
 // 2 points per verb: 1 for the past tense, 1 for auxiliary + participle together.
 // Verbs: werkwoorden.json (next to this file). Where both hebben and zijn are right (lopen, rijden, vergeten…), both count.
+import { shareText, trDate, squares } from "./share.js";
 import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash } from "./common.js";
 
 const GAME = "werkwoorden", MODULE = "oyun-werkwoorden", LEVEL = "dag", COUNT = 5;
@@ -34,7 +35,13 @@ const auxWord = h => h === "zijn" ? "ben" : "heb";
 const impText = v => v.imp.join(" / ");
 const perfText = v => `${v.hulp.map(auxWord).join("/")} ${v.vd}`;
 
-export async function mountWerkwoorden(root, { user, profile, api }) {
+export async function mountWerkwoorden(root, { user, profile, api, shareUrl = location.href }) {
+  // Result as squares, two per verb (past tense, perfectum): "Düzensiz fiiller · 5 Kasım · 8/10" + 🟩🟩 🟩🟥 … + link
+  const textOf = att => {
+    const pairs = [];
+    for (let i = 0; i < att.answers.length; i += 2) pairs.push(squares(att.answers.slice(i, i + 2).map(a => a.correct)));
+    return `Düzensiz fiiller · ${trDate(att.day)} · ${att.score}/${att.total}\n${pairs.join(" ")}\n${shareUrl}`;
+  };
   injectCss(CSS, "og-ww-css");
   root.classList.add("og", "ww");
   root.innerHTML = `
@@ -44,6 +51,7 @@ export async function mountWerkwoorden(root, { user, profile, api }) {
         (<i>Gisteren ik <b>liep</b></i>), sonra <b>heb</b> ya da <b>ben</b> seç ve voltooid deelwoord'u yaz (<i>Ik <b>heb gelopen</b></i>).
         Her fiil 2 puan.</p>
       <p class="today" data-r="today" hidden></p>
+      <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
       <div class="grid2"><div class="pan" data-r="stats"></div><div class="pan" data-r="rank"></div></div>
     </section>
@@ -64,6 +72,7 @@ export async function mountWerkwoorden(root, { user, profile, api }) {
       <div class="pan">
         <div class="big" data-r="result"></div>
         <p class="sub" data-r="resultText"></p>
+        <button class="bt" data-r="share2">📤 Paylaş</button>
         <table class="tbl"><thead><tr><th>Fiil</th><th>Geçmiş</th><th>Perfectum</th></tr></thead><tbody data-r="list"></tbody></table>
         <p class="tip">İpucu: hareket bildiren fiiller (lopen, rijden, zwemmen…) bir yere gidiyorsan <b>zijn</b>, sadece hareketi anlatıyorsan <b>hebben</b> alır:
           <i>Ik ben naar school gelopen</i> / <i>Ik heb veel gelopen</i>.</p>
@@ -88,6 +97,8 @@ export async function mountWerkwoorden(root, { user, profile, api }) {
     const done = playedToday();
     $("today").hidden = !done;
     if (done) $("today").textContent = `Bugün ${done.score}/${done.total} puan aldın. Yarın yeni fiiller var!`;
+    $("share1").hidden = !(done && done.answers?.length);
+    $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
     drawStats($("stats"), history);
@@ -182,6 +193,7 @@ export async function mountWerkwoorden(root, { user, profile, api }) {
     api.saveAttempt(user.uid, MODULE, attempt).catch(e => $("resultText").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${esc(e.code || "hata")}).</p>`));
     const posted = savePlay(user, profile, { game: GAME, level: LEVEL, day, score, total, time_s }).catch(() => {});
     show("done");
+    $("share2").onclick = () => shareText($("share2"), textOf(attempt));
     $("result").textContent = score === total ? "Hepsi doğru!" : score >= 8 ? "Çok iyi!" : score >= 5 ? "İyi gidiyor." : "Yarın daha iyi olacak!";
     $("resultText").textContent = `${score}/${total} puan · süre ${fmt(time_s)}`;
     $("list").innerHTML = S.list.map((v, k) => {

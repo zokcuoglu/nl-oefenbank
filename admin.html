@@ -45,7 +45,7 @@ setTimeout(function () {
 // The page is hidden from non-admins, and firestore.rules also refuse their reads and writes.
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
 import { summarize, pct, recentRounds, dayBars, scoreChips } from "./js/stats.js";
-import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit, increment } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
 const { user, profile } = await gate({ area: "admin" });
@@ -58,6 +58,10 @@ const ROLE_HELP = {
   admin: "Her şeyi görür, bu ekrandan tip ve rol atar."
 };
 let users = [], news = [], newsErr = "";
+// Play time of children: 15 minutes a day (same number as slimspel/js/speeltijd.js) plus extra given here
+const PLAY_LIMIT_S = 15 * 60;
+const todayNL = () => new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
+let play = {}, playErr = "";
 // The page has three tabs; the choice is kept in the URL hash (#istatistik) so a reload stays on the same tab
 const TABS = { hesaplar: "Hesaplar", istatistik: "İstatistik", eposta: "E-posta" };
 let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : "hesaplar";
@@ -96,6 +100,14 @@ async function load() {
     const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
     stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); rawAtt = Object.fromEntries(users.map((u, i) => [u.uid, all[i]])); statsErr = "";
   } catch (e) { statsErr = e.code || e.message; }
+  // Children's play time today (slimspel/js/speeltijd.js): users/{uid}/speeltijd/{today}
+  play = {}; playErr = "";
+  try {
+    await Promise.all(users.filter(u => u.type === "child").map(async u => {
+      const sn = await getDoc(doc(db, "users", u.uid, "speeltijd", todayNL()));
+      play[u.uid] = { used_s: 0, extra_s: 0, ...(sn.exists() ? sn.data() : {}) };
+    }));
+  } catch (e) { playErr = e.code || e.message; }
   // Weekly summary log (written by the mailer job); a failure here only hides those rows
   try { weeklyLog = (await getDocs(collection(db, "mail_log"))).docs.map(d => d.data()); logErr = ""; } catch (e) { weeklyLog = []; logErr = e.code || e.message; }
   render();
@@ -299,8 +311,24 @@ function render() {
         <td><button class="btn" data-i="${i}">Kaydet</button> <span id="m${i}"></span></td></tr>`).join("")}
       </tbody></table></div>
       <p class="muted" style="font-size:13px;margin:10px 0 0">Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider. Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>
+    ${playHtml()}
     <details class="panel fold"><summary><h3>Roller ne demek?</h3></summary>
       <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></details>`);
+}
+
+// Play time today per child, with a button for 10 extra minutes (only for today)
+function playHtml() {
+  const kids = users.filter(u => u.type === "child" && statusOf(u) === "approved");
+  if (!kids.length) return "";
+  const mins = s => Math.round(s / 60);
+  return `<section class="panel"><div class="sectionhead"><h3>Bugünkü oyun süresi</h3><span class="muted">günde ${mins(PLAY_LIMIT_S)} dk · hafta içi 13:00–19:30, hafta sonu 09:00–19:30 · Slimspel ve Günün oyunları</span></div>
+    ${playErr ? `<div class="notice">Oyun süresi okunamadı: <b>${esc(playErr)}</b>. firestore.rules güncel olmayabilir.</div>` : `
+    <div class="tablewrap"><table><thead><tr><th>Öğrenci</th><th class="r">Oynadı</th><th class="r">Hakkı</th><th></th></tr></thead><tbody>
+    ${kids.map(u => { const p = play[u.uid] || { used_s: 0, extra_s: 0 }, lim = PLAY_LIMIT_S + (p.extra_s || 0);
+      return `<tr><td><b>${esc(u.name || u.email || u.uid)}</b></td><td class="r num">${mins(Math.min(p.used_s, lim))} dk</td>
+        <td class="r num">${mins(lim)} dk${p.extra_s ? ` <span class="muted">(+${mins(p.extra_s)})</span>` : ""}</td>
+        <td><button class="btn" data-extra="${esc(u.uid)}">+10 dk bugün</button> <span id="x-${esc(u.uid)}"></span></td></tr>`; }).join("")}
+    </tbody></table></div>`}</section>`;
 }
 
 // E-mail tab: write an announcement, the schedule, and what was sent
@@ -327,6 +355,16 @@ app.addEventListener("click", async e => {
   if (wb) { who = wb.dataset.who; render(); return; }
   if (e.target.id === "n-send") return queueNews();
   if (e.target.id === "sc-save") return saveSched();
+  // +10 minutes play time for this child, today only (the child's page sees it at once)
+  const xb = e.target.closest("[data-extra]");
+  if (xb) {
+    const uid = xb.dataset.extra; xb.disabled = true;
+    try {
+      await setDoc(doc(db, "users", uid, "speeltijd", todayNL()), { extra_s: increment(600), updated_at: new Date().toISOString() }, { merge: true });
+      play[uid] = { used_s: 0, extra_s: 0, ...(play[uid] || {}) }; play[uid].extra_s += 600; render();
+    } catch (err) { xb.disabled = false; document.getElementById("x-" + uid).innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
+    return;
+  }
   // Person row: show or hide the details row under it
   const pb = e.target.closest("[data-person]");
   if (pb) { const row = document.getElementById("pd-" + pb.dataset.person), open = row.hidden; row.hidden = !open;

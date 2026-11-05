@@ -60,7 +60,7 @@ setTimeout(function () {
 <script type="module">
 // Home page: shows the exercise catalog filtered by account type.
 // Adults see NT2 + kids; child accounts see only the kids area.
-import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts } from "./js/core.js";
+import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts, db } from "./js/core.js";
 // New functions go in their own file, not in core.js (an older core.js may still be cached; see woordle-api.js)
 import { saveWoordlePlay, loadWoordlePlays } from "./js/woordle-api.js";
 
@@ -126,14 +126,16 @@ app.innerHTML = `
 // Each game is a module with a mount function; it gets this site's own save/load functions.
 // Woordle is shared with Slimspel (slimspel/woordle/game.js): same words, statistics and rankings.
 // WDL_V: raise it after each change to game.js, so browsers fetch the new file instead of an old copy.
-const WDL_V = "2026-11-04b";
+const WDL_V = "2026-11-05";
 // The other games live in oyunlar/. Each game is loaded the first time it is opened.
 const api = { saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays };
+// Link that opens one game directly (used in the "Paylaş" text): ...nl-oefenbank/#oyunlar/<id>
+const gameUrl = id => location.origin + location.pathname + "#oyunlar/" + id;
 const GAMES = [
-  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api }) },
-  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api }) },
-  { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api }) },
-  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js")).mountWerkwoorden(box, { user, profile, api }) },
+  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api, shareUrl: gameUrl("woordle-tr") }) },
+  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
+  { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
+  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
 ];
 document.getElementById("gamenav").innerHTML = GAMES.map(g => `<button role="tab" data-game="${g.id}" aria-selected="false">${g.title}</button>`).join("");
 document.getElementById("gamebox").innerHTML = GAMES.map(g => `<div id="game-${g.id}" hidden></div>`).join("");
@@ -143,6 +145,7 @@ async function showGame(id) {
   document.querySelectorAll("#gamenav button").forEach(b => { const on = b.dataset.game === id; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
   GAMES.forEach(g => document.getElementById("game-" + g.id).hidden = g.id !== id);
   try { localStorage.setItem("nloefenbank:game", id); } catch {}
+  history.replaceState(null, "", "#oyunlar/" + id);   // the address bar then links straight to this game
   if (mounted[id]) return;
   mounted[id] = true;
   const box = document.getElementById("game-" + id);
@@ -150,16 +153,28 @@ async function showGame(id) {
   try { await GAMES.find(g => g.id === id).load(box); }
   catch (e) { mounted[id] = false; box.innerHTML = `<div class="notice">Oyun yüklenemedi: ${esc(e.message)}</div>`; }
 }
+// "#oyunlar" = games tab; "#oyunlar/<id>" = games tab with that game open (links in shared results)
+const hashTab = () => location.hash.startsWith("#oyunlar") ? "oyunlar" : "calisma";
+const hashGame = () => location.hash.startsWith("#oyunlar/") ? decodeURIComponent(location.hash.slice(9)) : "";
 function showTab(tab) {
   document.querySelectorAll(".hometabs .tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
   app.hidden = tab !== "calisma";
   document.getElementById("games").hidden = tab !== "oyunlar";
-  if (tab === "oyunlar") { let g = ""; try { g = localStorage.getItem("nloefenbank:game") || ""; } catch {} showGame(g); }
+  if (tab === "oyunlar") { let g = hashGame(); if (!g) try { g = localStorage.getItem("nloefenbank:game") || ""; } catch {} showGame(g); }
+  window.__playtime?.draw();   // play-time clock only shows on the games tab
 }
 document.querySelectorAll(".hometabs .tab").forEach(b => b.onclick = () => { history.replaceState(null, "", b.dataset.tab === "oyunlar" ? "#oyunlar" : location.pathname); showTab(b.dataset.tab); });
 document.querySelectorAll("#gamenav button").forEach(b => b.onclick = () => showGame(b.dataset.game));
-addEventListener("hashchange", () => showTab(location.hash === "#oyunlar" ? "oyunlar" : "calisma"));
-showTab(location.hash === "#oyunlar" ? "oyunlar" : "calisma");
+addEventListener("hashchange", () => showTab(hashTab()));
+showTab(hashTab());
+
+// Children: the games tab counts toward the 15 minutes a day of play time and has set hours (shared with Slimspel).
+// Studying in the "Çalışma" tab is never limited. Loaded on its own so a problem there never stops the page.
+if (profile.type === "child") import(`${ROOT}../slimspel/js/speeltijd.js?v=1`).then(m => m.startPlaytime({
+  db, user, profile, lang: "tr",
+  isOn: () => !document.getElementById("games").hidden,
+  onLeave: () => { history.replaceState(null, "", location.pathname); showTab("calisma"); }
+})).catch(() => {});
 </script>
 </body>
 </html>

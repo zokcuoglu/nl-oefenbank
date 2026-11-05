@@ -1,5 +1,6 @@
 // Günün de/het'i: 10 nouns a day (the same for everybody), choose "de" or "het".
 // Words: all nouns with de/het in the nl-oefenbank word pool (data/woorden.json), read live.
+import { shareText, trDate, squares } from "./share.js";
 import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash } from "./common.js";
 
 const GAME = "dehet", MODULE = "oyun-dehet", LEVEL = "dag", COUNT = 10;
@@ -19,7 +20,9 @@ const CSS = `
 .dh .list li.no{background:var(--og-bad-soft)}
 .dh .tip{font-size:14px;color:var(--og-muted);margin-top:14px}`;
 
-export async function mountDeHet(root, { user, profile, api }) {
+export async function mountDeHet(root, { user, profile, api, shareUrl = location.href }) {
+  // Result as squares, one per word: "de/het · 5 Kasım · 8/10" + 🟩🟥… + link
+  const textOf = att => `de/het · ${trDate(att.day)} · ${att.score}/${att.total}\n${squares(att.answers.map(a => a.correct))}\n${shareUrl}`;
   injectCss(CSS, "og-dehet-css");
   root.classList.add("og", "dh");
   root.innerHTML = `
@@ -27,6 +30,7 @@ export async function mountDeHet(root, { user, profile, api }) {
       <h2 class="ot">Günün de/het'i</h2>
       <p class="sub">Her gün 10 kelime, herkes için aynı. Kelimenin önüne <b>de</b> mi gelir, <b>het</b> mi? Klavyeden <b>D</b> ve <b>H</b> tuşlarıyla da cevaplayabilirsin.</p>
       <p class="today" data-r="today" hidden></p>
+      <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
       <div class="grid2"><div class="pan" data-r="stats"></div><div class="pan" data-r="rank"></div></div>
     </section>
@@ -43,6 +47,7 @@ export async function mountDeHet(root, { user, profile, api }) {
       <div class="pan">
         <div class="big" data-r="result"></div>
         <p class="sub" data-r="resultText"></p>
+        <button class="bt" data-r="share2">📤 Paylaş</button>
         <ul class="list" data-r="list"></ul>
         <p class="tip">İpucu: <b>het</b> alan kelimeler daha az; küçültme ekli kelimeler (-je, -tje) her zaman <b>het</b> alır.</p>
       </div>
@@ -72,6 +77,8 @@ export async function mountDeHet(root, { user, profile, api }) {
     const done = playedToday();
     $("today").hidden = !done;
     if (done) $("today").textContent = `Bugün ${done.score}/${done.total} yaptın. Yarın yeni kelimeler var!`;
+    $("share1").hidden = !(done && done.answers?.length);
+    $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
     drawStats($("stats"), history);
@@ -132,6 +139,7 @@ export async function mountDeHet(root, { user, profile, api }) {
     api.saveAttempt(user.uid, MODULE, attempt).catch(e => $("resultText").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${esc(e.code || "hata")}).</p>`));
     const posted = savePlay(user, profile, { game: GAME, level: LEVEL, day, score, total, time_s }).catch(() => {});
     show("done");
+    $("share2").onclick = () => shareText($("share2"), textOf(attempt));
     $("result").textContent = score === total ? "Hepsi doğru!" : score >= 8 ? "Çok iyi!" : score >= 5 ? "İyi gidiyor." : "Yarın daha iyi olacak!";
     $("resultText").textContent = `${score}/${total} doğru · süre ${fmt(time_s)}`;
     $("list").innerHTML = S.list.map((q, k) => `<li class="${S.answers[k].ok ? "" : "no"}"><span><b>${q.art}</b> ${esc(q.w)}</span><span class="small" style="margin:0">${esc(q.tr)}</span></li>`).join("");
