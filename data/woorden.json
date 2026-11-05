@@ -14204,6 +14204,74 @@
 ]
 },
 {
+"id": "w435",
+"bron": "werk",
+"nl": "de gozer",
+"soort": "woord",
+"tr": "adam, herif, oğlan (samimi)",
+"niveau": "B2",
+"groep": "6",
+"thema": "algemeen",
+"voorbeeld": "Het is een prima gozer.",
+"voorbeeld_tr": "İyi adamdır.",
+"uitleg": "İngilizce: guy, dude, bloke. Almanca: Kerl, Typ. Etimoloji: eski Amsterdam argosu Bargoens'tan; Yidiş 'chosen' (damat) < İbranice 'ḥatan'. Anlam 'damat'tan 'delikanlı, adam'a kaymış. Resmî yazıda kullanılmaz; resmîsi: de man, de jongen.",
+"voorbeeld_door": "notities",
+"meer": [
+{
+"nl": "Ken je die gozer?",
+"tr": "O adamı tanıyor musun?"
+},
+{
+"nl": "Die gozer van IT heeft het opgelost.",
+"tr": "IT'deki o adam sorunu çözdü."
+},
+{
+"nl": "Wat een aardige gozer!",
+"tr": "Ne kadar hoş bir adam!"
+}
+],
+"tur": "zn",
+"subthema": "",
+"register": "informeel",
+"in_nieuws": []
+},
+{
+"id": "w436",
+"bron": "werk",
+"nl": "zich vermaken",
+"soort": "woord",
+"tr": "eğlenmek, iyi vakit geçirmek, oyalanmak",
+"niveau": "B1",
+"groep": "5",
+"thema": "algemeen",
+"voorbeeld": "Vermaak je je een beetje?",
+"voorbeeld_tr": "Biraz eğleniyor musun? / İyi vakit geçiriyor musun?",
+"uitleg": "Dönüşlü fiil: ik vermaak me, jij vermaakt je; soruda -t düşer: Vermaak jij je ...? Ayrılmaz (ver-): vermaakt. ver- + maken: 'hoşnut edecek bir şey yapmak'. İngilizce: to enjoy oneself, to have fun; Almanca: sich amüsieren / sich vergnügen. het vermaak = eğlence. Başka anlamlar: vermaken = giysiyi tadil ettirmek; vermaken aan = vasiyetle bırakmak (Almanca vermachen ile aynı kök).",
+"voorbeeld_door": "notities",
+"meer": [
+{
+"nl": "We hebben ons prima vermaakt.",
+"tr": "Çok iyi vakit geçirdik."
+},
+{
+"nl": "De kinderen vermaken zich wel.",
+"tr": "Çocuklar kendi kendilerine oyalanırlar."
+},
+{
+"nl": "Ik laat mijn broek vermaken.",
+"tr": "Pantolonumu tadil ettiriyorum."
+},
+{
+"nl": "In het centrum is genoeg vermaak.",
+"tr": "Merkezde yeterince eğlence var."
+}
+],
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"in_nieuws": []
+},
+{
 "id": "s001",
 "bron": "school",
 "nl": "buitensporig",
