@@ -1,0 +1,2190 @@
+{
+"_about": "Snapshot of NL Oefenbank words (data/woorden.json, niveau A0-B1, single words of 3-9 letters, no IJ) for the daily NT2 crossword. w = answer, c = Turkish clue, n = niveau. A fixed copy so today's puzzle does not change when the word list changes; rebuild it only between days.",
+"words": [
+{
+"w": "HALLO",
+"c": "merhaba (ünlem)",
+"n": "A0"
+},
+{
+"w": "HOI",
+"c": "selam (ünlem)",
+"n": "A0"
+},
+{
+"w": "DAG",
+"c": "hoşça kal; merhaba; gün (ünlem)",
+"n": "A0"
+},
+{
+"w": "DOEI",
+"c": "bay bay (ünlem)",
+"n": "A0"
+},
+{
+"w": "SORRY",
+"c": "pardon, özür dilerim (ünlem)",
+"n": "A0"
+},
+{
+"w": "NEE",
+"c": "hayır (ünlem)",
+"n": "A0"
+},
+{
+"w": "GOED",
+"c": "iyi (sıfat)",
+"n": "A0"
+},
+{
+"w": "JOUW",
+"c": "senin (küçük kelime)",
+"n": "A0"
+},
+{
+"w": "EEN",
+"c": "bir (sayı)",
+"n": "A0"
+},
+{
+"w": "TWEE",
+"c": "iki (sayı)",
+"n": "A0"
+},
+{
+"w": "DRIE",
+"c": "üç (sayı)",
+"n": "A0"
+},
+{
+"w": "VIER",
+"c": "dört (sayı)",
+"n": "A0"
+},
+{
+"w": "ZES",
+"c": "altı (sayı)",
+"n": "A0"
+},
+{
+"w": "ZEVEN",
+"c": "yedi (sayı)",
+"n": "A0"
+},
+{
+"w": "ACHT",
+"c": "sekiz (sayı)",
+"n": "A0"
+},
+{
+"w": "NEGEN",
+"c": "dokuz (sayı)",
+"n": "A0"
+},
+{
+"w": "TIEN",
+"c": "on (sayı)",
+"n": "A0"
+},
+{
+"w": "ROOD",
+"c": "kırmızı (sıfat)",
+"n": "A0"
+},
+{
+"w": "BLAUW",
+"c": "mavi (sıfat)",
+"n": "A0"
+},
+{
+"w": "GEEL",
+"c": "sarı (sıfat)",
+"n": "A0"
+},
+{
+"w": "GROEN",
+"c": "yeşil (sıfat)",
+"n": "A0"
+},
+{
+"w": "WIT",
+"c": "beyaz (sıfat)",
+"n": "A0"
+},
+{
+"w": "ZWART",
+"c": "siyah (sıfat)",
+"n": "A0"
+},
+{
+"w": "ORANJE",
+"c": "turuncu (sıfat)",
+"n": "A0"
+},
+{
+"w": "BRUIN",
+"c": "kahverengi (sıfat)",
+"n": "A0"
+},
+{
+"w": "ROZE",
+"c": "pembe (sıfat)",
+"n": "A0"
+},
+{
+"w": "MOEDER",
+"c": "anne (isim, de)",
+"n": "A0"
+},
+{
+"w": "VADER",
+"c": "baba (isim, de)",
+"n": "A0"
+},
+{
+"w": "BROER",
+"c": "erkek kardeş, ağabey (isim, de)",
+"n": "A0"
+},
+{
+"w": "ZUS",
+"c": "kız kardeş, abla (isim, de)",
+"n": "A0"
+},
+{
+"w": "BABY",
+"c": "bebek (isim, de)",
+"n": "A0"
+},
+{
+"w": "KIND",
+"c": "çocuk (isim, het)",
+"n": "A0"
+},
+{
+"w": "OMA",
+"c": "büyükanne (isim, de)",
+"n": "A0"
+},
+{
+"w": "OPA",
+"c": "büyükbaba (isim, de)",
+"n": "A0"
+},
+{
+"w": "MAN",
+"c": "adam; koca (isim, de)",
+"n": "A0"
+},
+{
+"w": "VROUW",
+"c": "kadın; eş (isim, de)",
+"n": "A0"
+},
+{
+"w": "JONGEN",
+"c": "erkek çocuk (isim, de)",
+"n": "A0"
+},
+{
+"w": "MEISJE",
+"c": "kız çocuk (isim, het)",
+"n": "A0"
+},
+{
+"w": "HOOFD",
+"c": "baş, kafa (isim, het)",
+"n": "A0"
+},
+{
+"w": "OOG",
+"c": "göz (isim, het)",
+"n": "A0"
+},
+{
+"w": "NEUS",
+"c": "burun (isim, de)",
+"n": "A0"
+},
+{
+"w": "MOND",
+"c": "ağız (isim, de)",
+"n": "A0"
+},
+{
+"w": "OOR",
+"c": "kulak (isim, het)",
+"n": "A0"
+},
+{
+"w": "HAND",
+"c": "el (isim, de)",
+"n": "A0"
+},
+{
+"w": "VOET",
+"c": "ayak (isim, de)",
+"n": "A0"
+},
+{
+"w": "ARM",
+"c": "kol (isim, de)",
+"n": "A0"
+},
+{
+"w": "BEEN",
+"c": "bacak (isim, het)",
+"n": "A0"
+},
+{
+"w": "HAAR",
+"c": "saç (isim, het)",
+"n": "A0"
+},
+{
+"w": "BUIK",
+"c": "karın (isim, de)",
+"n": "A0"
+},
+{
+"w": "TAND",
+"c": "diş (isim, de)",
+"n": "A0"
+},
+{
+"w": "WATER",
+"c": "su (isim, het)",
+"n": "A0"
+},
+{
+"w": "MELK",
+"c": "süt (isim, de)",
+"n": "A0"
+},
+{
+"w": "BROOD",
+"c": "ekmek (isim, het)",
+"n": "A0"
+},
+{
+"w": "APPEL",
+"c": "elma (isim, de)",
+"n": "A0"
+},
+{
+"w": "BANAAN",
+"c": "muz (isim, de)",
+"n": "A0"
+},
+{
+"w": "KAAS",
+"c": "peynir (isim, de)",
+"n": "A0"
+},
+{
+"w": "SOEP",
+"c": "çorba (isim, de)",
+"n": "A0"
+},
+{
+"w": "THEE",
+"c": "çay (isim, de)",
+"n": "A0"
+},
+{
+"w": "SAP",
+"c": "meyve suyu (isim, het)",
+"n": "A0"
+},
+{
+"w": "KOEKJE",
+"c": "bisküvi, kurabiye (isim, het)",
+"n": "A0"
+},
+{
+"w": "LEKKER",
+"c": "lezzetli; güzel (sıfat)",
+"n": "A0"
+},
+{
+"w": "HONGER",
+"c": "açlık (isim, de)",
+"n": "A0"
+},
+{
+"w": "DORST",
+"c": "susuzluk (isim, de)",
+"n": "A0"
+},
+{
+"w": "HUIS",
+"c": "ev (isim, het)",
+"n": "A0"
+},
+{
+"w": "DEUR",
+"c": "kapı (isim, de)",
+"n": "A0"
+},
+{
+"w": "RAAM",
+"c": "pencere (isim, het)",
+"n": "A0"
+},
+{
+"w": "TAFEL",
+"c": "masa (isim, de)",
+"n": "A0"
+},
+{
+"w": "STOEL",
+"c": "sandalye (isim, de)",
+"n": "A0"
+},
+{
+"w": "BED",
+"c": "yatak (isim, het)",
+"n": "A0"
+},
+{
+"w": "KEUKEN",
+"c": "mutfak (isim, de)",
+"n": "A0"
+},
+{
+"w": "KAMER",
+"c": "oda (isim, de)",
+"n": "A0"
+},
+{
+"w": "LAMP",
+"c": "lamba (isim, de)",
+"n": "A0"
+},
+{
+"w": "SCHOOL",
+"c": "okul (isim, de)",
+"n": "A0"
+},
+{
+"w": "BOEK",
+"c": "kitap (isim, het)",
+"n": "A0"
+},
+{
+"w": "PEN",
+"c": "tükenmez kalem (isim, de)",
+"n": "A0"
+},
+{
+"w": "POTLOOD",
+"c": "kurşun kalem (isim, het)",
+"n": "A0"
+},
+{
+"w": "TAS",
+"c": "çanta (isim, de)",
+"n": "A0"
+},
+{
+"w": "KLAS",
+"c": "sınıf (isim, de)",
+"n": "A0"
+},
+{
+"w": "HOND",
+"c": "köpek (isim, de)",
+"n": "A0"
+},
+{
+"w": "KAT",
+"c": "kedi (isim, de)",
+"n": "A0"
+},
+{
+"w": "VOGEL",
+"c": "kuş (isim, de)",
+"n": "A0"
+},
+{
+"w": "VIS",
+"c": "balık (isim, de)",
+"n": "A0"
+},
+{
+"w": "PAARD",
+"c": "at (isim, het)",
+"n": "A0"
+},
+{
+"w": "KOE",
+"c": "inek (isim, de)",
+"n": "A0"
+},
+{
+"w": "HEBBEN",
+"c": "sahip olmak (fiil)",
+"n": "A0"
+},
+{
+"w": "GAAN",
+"c": "gitmek (fiil)",
+"n": "A0"
+},
+{
+"w": "KOMEN",
+"c": "gelmek (fiil)",
+"n": "A0"
+},
+{
+"w": "ETEN",
+"c": "yemek (fiil)",
+"n": "A0"
+},
+{
+"w": "DRINKEN",
+"c": "içmek (fiil)",
+"n": "A0"
+},
+{
+"w": "SLAPEN",
+"c": "uyumak (fiil)",
+"n": "A0"
+},
+{
+"w": "SPELEN",
+"c": "oynamak (fiil)",
+"n": "A0"
+},
+{
+"w": "LEZEN",
+"c": "okumak (fiil)",
+"n": "A0"
+},
+{
+"w": "ZIEN",
+"c": "görmek (fiil)",
+"n": "A0"
+},
+{
+"w": "LOPEN",
+"c": "yürümek (fiil)",
+"n": "A0"
+},
+{
+"w": "RENNEN",
+"c": "koşmak (fiil)",
+"n": "A0"
+},
+{
+"w": "ZITTEN",
+"c": "oturmak (fiil)",
+"n": "A0"
+},
+{
+"w": "STAAN",
+"c": "ayakta durmak (fiil)",
+"n": "A0"
+},
+{
+"w": "WILLEN",
+"c": "istemek (fiil)",
+"n": "A0"
+},
+{
+"w": "HELPEN",
+"c": "yardım etmek (fiil)",
+"n": "A0"
+},
+{
+"w": "PRATEN",
+"c": "konuşmak (fiil)",
+"n": "A0"
+},
+{
+"w": "WASSEN",
+"c": "yıkamak (fiil)",
+"n": "A0"
+},
+{
+"w": "MAKEN",
+"c": "yapmak (fiil)",
+"n": "A0"
+},
+{
+"w": "GROOT",
+"c": "büyük (sıfat)",
+"n": "A0"
+},
+{
+"w": "KLEIN",
+"c": "küçük (sıfat)",
+"n": "A0"
+},
+{
+"w": "WARM",
+"c": "sıcak (sıfat)",
+"n": "A0"
+},
+{
+"w": "KOUD",
+"c": "soğuk (sıfat)",
+"n": "A0"
+},
+{
+"w": "BOOS",
+"c": "kızgın (sıfat)",
+"n": "A0"
+},
+{
+"w": "MOE",
+"c": "yorgun (sıfat)",
+"n": "A0"
+},
+{
+"w": "MOOI",
+"c": "güzel (sıfat)",
+"n": "A0"
+},
+{
+"w": "NIEUW",
+"c": "yeni (sıfat)",
+"n": "A0"
+},
+{
+"w": "OUD",
+"c": "eski; yaşlı (sıfat)",
+"n": "A0"
+},
+{
+"w": "VEEL",
+"c": "çok (sayı)",
+"n": "A0"
+},
+{
+"w": "WEINIG",
+"c": "az (sayı)",
+"n": "A0"
+},
+{
+"w": "HIER",
+"c": "burada (zarf)",
+"n": "A0"
+},
+{
+"w": "DAAR",
+"c": "orada (zarf)",
+"n": "A0"
+},
+{
+"w": "ONDER",
+"c": "altında (küçük kelime)",
+"n": "A0"
+},
+{
+"w": "BUITEN",
+"c": "dışarıda (zarf)",
+"n": "A0"
+},
+{
+"w": "BINNEN",
+"c": "içeride (zarf)",
+"n": "A0"
+},
+{
+"w": "WIE",
+"c": "kim (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "WAT",
+"c": "ne (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "WAAR",
+"c": "nerede (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "WANNEER",
+"c": "ne zaman (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "WAAROM",
+"c": "neden (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "HOE",
+"c": "nasıl (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "HOEVEEL",
+"c": "kaç, ne kadar (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "WELK",
+"c": "hangi (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "ELF",
+"c": "on bir (sayı)",
+"n": "A1"
+},
+{
+"w": "TWAALF",
+"c": "on iki (sayı)",
+"n": "A1"
+},
+{
+"w": "TWINTIG",
+"c": "yirmi (sayı)",
+"n": "A1"
+},
+{
+"w": "DERTIG",
+"c": "otuz (sayı)",
+"n": "A1"
+},
+{
+"w": "HONDERD",
+"c": "yüz (sayı)",
+"n": "A1"
+},
+{
+"w": "WEEK",
+"c": "hafta (isim, de)",
+"n": "A1"
+},
+{
+"w": "MAAND",
+"c": "ay (isim, de)",
+"n": "A1"
+},
+{
+"w": "JAAR",
+"c": "yıl (isim, het)",
+"n": "A1"
+},
+{
+"w": "VANDAAG",
+"c": "bugün (zarf)",
+"n": "A1"
+},
+{
+"w": "MORGEN",
+"c": "yarın; sabah (zarf)",
+"n": "A1"
+},
+{
+"w": "GISTEREN",
+"c": "dün (zarf)",
+"n": "A1"
+},
+{
+"w": "STRAKS",
+"c": "birazdan (zarf)",
+"n": "A1"
+},
+{
+"w": "OCHTEND",
+"c": "sabah (isim, de)",
+"n": "A1"
+},
+{
+"w": "MIDDAG",
+"c": "öğle, öğleden sonra (isim, de)",
+"n": "A1"
+},
+{
+"w": "AVOND",
+"c": "akşam (isim, de)",
+"n": "A1"
+},
+{
+"w": "NACHT",
+"c": "gece (isim, de)",
+"n": "A1"
+},
+{
+"w": "UUR",
+"c": "saat (süre) (isim, het)",
+"n": "A1"
+},
+{
+"w": "KLOK",
+"c": "saat (duvar) (isim, de)",
+"n": "A1"
+},
+{
+"w": "HALF",
+"c": "yarım; buçuk (zarf)",
+"n": "A1"
+},
+{
+"w": "KWARTIER",
+"c": "çeyrek saat (isim, het)",
+"n": "A1"
+},
+{
+"w": "MAANDAG",
+"c": "pazartesi (isim)",
+"n": "A1"
+},
+{
+"w": "DINSDAG",
+"c": "salı (isim)",
+"n": "A1"
+},
+{
+"w": "WOENSDAG",
+"c": "çarşamba (isim)",
+"n": "A1"
+},
+{
+"w": "DONDERDAG",
+"c": "perşembe (isim)",
+"n": "A1"
+},
+{
+"w": "ZATERDAG",
+"c": "cumartesi (isim)",
+"n": "A1"
+},
+{
+"w": "ZONDAG",
+"c": "pazar (isim)",
+"n": "A1"
+},
+{
+"w": "JANUARI",
+"c": "ocak (isim)",
+"n": "A1"
+},
+{
+"w": "JULI",
+"c": "temmuz (isim)",
+"n": "A1"
+},
+{
+"w": "DECEMBER",
+"c": "aralık (isim)",
+"n": "A1"
+},
+{
+"w": "LENTE",
+"c": "ilkbahar (isim, de)",
+"n": "A1"
+},
+{
+"w": "ZOMER",
+"c": "yaz (isim, de)",
+"n": "A1"
+},
+{
+"w": "HERFST",
+"c": "sonbahar (isim, de)",
+"n": "A1"
+},
+{
+"w": "WINTER",
+"c": "kış (isim, de)",
+"n": "A1"
+},
+{
+"w": "ZON",
+"c": "güneş (isim, de)",
+"n": "A1"
+},
+{
+"w": "REGEN",
+"c": "yağmur (isim, de)",
+"n": "A1"
+},
+{
+"w": "WIND",
+"c": "rüzgâr (isim, de)",
+"n": "A1"
+},
+{
+"w": "SNEEUW",
+"c": "kar (isim, de)",
+"n": "A1"
+},
+{
+"w": "NAT",
+"c": "ıslak (sıfat)",
+"n": "A1"
+},
+{
+"w": "DROOG",
+"c": "kuru (sıfat)",
+"n": "A1"
+},
+{
+"w": "JAS",
+"c": "mont, palto (isim, de)",
+"n": "A1"
+},
+{
+"w": "BROEK",
+"c": "pantolon (isim, de)",
+"n": "A1"
+},
+{
+"w": "TRUI",
+"c": "kazak (isim, de)",
+"n": "A1"
+},
+{
+"w": "SCHOEN",
+"c": "ayakkabı (isim, de)",
+"n": "A1"
+},
+{
+"w": "SOK",
+"c": "çorap (isim, de)",
+"n": "A1"
+},
+{
+"w": "JURK",
+"c": "elbise (isim, de)",
+"n": "A1"
+},
+{
+"w": "MUTS",
+"c": "bere (isim, de)",
+"n": "A1"
+},
+{
+"w": "AANDOEN",
+"c": "giymek (fiil)",
+"n": "A1"
+},
+{
+"w": "FIETS",
+"c": "bisiklet (isim, de)",
+"n": "A1"
+},
+{
+"w": "AUTO",
+"c": "araba (isim, de)",
+"n": "A1"
+},
+{
+"w": "BUS",
+"c": "otobüs (isim, de)",
+"n": "A1"
+},
+{
+"w": "TREIN",
+"c": "tren (isim, de)",
+"n": "A1"
+},
+{
+"w": "STRAAT",
+"c": "sokak (isim, de)",
+"n": "A1"
+},
+{
+"w": "LINKS",
+"c": "sol, solda (zarf)",
+"n": "A1"
+},
+{
+"w": "RECHTS",
+"c": "sağ, sağda (zarf)",
+"n": "A1"
+},
+{
+"w": "RECHTDOOR",
+"c": "dümdüz (zarf)",
+"n": "A1"
+},
+{
+"w": "VER",
+"c": "uzak (zarf)",
+"n": "A1"
+},
+{
+"w": "WINKEL",
+"c": "dükkân, mağaza (isim, de)",
+"n": "A1"
+},
+{
+"w": "KOPEN",
+"c": "satın almak (fiil)",
+"n": "A1"
+},
+{
+"w": "BETALEN",
+"c": "ödemek (fiil)",
+"n": "A1"
+},
+{
+"w": "GELD",
+"c": "para (isim, het)",
+"n": "A1"
+},
+{
+"w": "EURO",
+"c": "avro (isim, de)",
+"n": "A1"
+},
+{
+"w": "DUUR",
+"c": "pahalı (sıfat)",
+"n": "A1"
+},
+{
+"w": "GOEDKOOP",
+"c": "ucuz (sıfat)",
+"n": "A1"
+},
+{
+"w": "DOKTER",
+"c": "doktor (isim, de)",
+"n": "A1"
+},
+{
+"w": "ZIEK",
+"c": "hasta (sıfat)",
+"n": "A1"
+},
+{
+"w": "BETER",
+"c": "daha iyi; iyileşmiş (sıfat)",
+"n": "A1"
+},
+{
+"w": "VRIEND",
+"c": "arkadaş (erkek) (isim, de)",
+"n": "A1"
+},
+{
+"w": "BUURMAN",
+"c": "komşu (erkek) (isim, de)",
+"n": "A1"
+},
+{
+"w": "WERK",
+"c": "iş (isim, het)",
+"n": "A1"
+},
+{
+"w": "WERKEN",
+"c": "çalışmak (fiil)",
+"n": "A1"
+},
+{
+"w": "POLITIE",
+"c": "polis (isim, de)",
+"n": "A1"
+},
+{
+"w": "KUNNEN",
+"c": "-ebilmek (fiil)",
+"n": "A1"
+},
+{
+"w": "MOETEN",
+"c": "-meli, zorunda olmak (fiil)",
+"n": "A1"
+},
+{
+"w": "MOGEN",
+"c": "izinli olmak (fiil)",
+"n": "A1"
+},
+{
+"w": "WETEN",
+"c": "bilmek (fiil)",
+"n": "A1"
+},
+{
+"w": "DENKEN",
+"c": "düşünmek (fiil)",
+"n": "A1"
+},
+{
+"w": "ZEGGEN",
+"c": "söylemek (fiil)",
+"n": "A1"
+},
+{
+"w": "VRAGEN",
+"c": "sormak; istemek (fiil)",
+"n": "A1"
+},
+{
+"w": "GEVEN",
+"c": "vermek (fiil)",
+"n": "A1"
+},
+{
+"w": "NEMEN",
+"c": "almak (fiil)",
+"n": "A1"
+},
+{
+"w": "ZOEKEN",
+"c": "aramak (fiil)",
+"n": "A1"
+},
+{
+"w": "VINDEN",
+"c": "bulmak; bence ... olmak (fiil)",
+"n": "A1"
+},
+{
+"w": "WONEN",
+"c": "oturmak, yaşamak (evde) (fiil)",
+"n": "A1"
+},
+{
+"w": "LEREN",
+"c": "öğrenmek; öğretmek (fiil)",
+"n": "A1"
+},
+{
+"w": "TEKENEN",
+"c": "resim çizmek (fiil)",
+"n": "A1"
+},
+{
+"w": "LUISTEREN",
+"c": "dinlemek (fiil)",
+"n": "A1"
+},
+{
+"w": "WACHTEN",
+"c": "beklemek (fiil)",
+"n": "A1"
+},
+{
+"w": "BELLEN",
+"c": "aramak (telefon); zil çalmak (fiil)",
+"n": "A1"
+},
+{
+"w": "KOKEN",
+"c": "yemek pişirmek (fiil)",
+"n": "A1"
+},
+{
+"w": "FIETSEN",
+"c": "bisiklet sürmek (fiil)",
+"n": "A1"
+},
+{
+"w": "ZWEMMEN",
+"c": "yüzmek (fiil)",
+"n": "A1"
+},
+{
+"w": "BEGINNEN",
+"c": "başlamak (fiil)",
+"n": "A1"
+},
+{
+"w": "STOPPEN",
+"c": "durmak, bırakmak (fiil)",
+"n": "A1"
+},
+{
+"w": "OPENMAKEN",
+"c": "açmak (fiil)",
+"n": "A1"
+},
+{
+"w": "DICHTDOEN",
+"c": "kapatmak (fiil)",
+"n": "A1"
+},
+{
+"w": "LEUK",
+"c": "hoş, eğlenceli (sıfat)",
+"n": "A1"
+},
+{
+"w": "LIEF",
+"c": "tatlı, sevimli (sıfat)",
+"n": "A1"
+},
+{
+"w": "SNEL",
+"c": "hızlı (sıfat)",
+"n": "A1"
+},
+{
+"w": "LANGZAAM",
+"c": "yavaş (sıfat)",
+"n": "A1"
+},
+{
+"w": "LANG",
+"c": "uzun (sıfat)",
+"n": "A1"
+},
+{
+"w": "KORT",
+"c": "kısa (sıfat)",
+"n": "A1"
+},
+{
+"w": "ZWAAR",
+"c": "ağır (sıfat)",
+"n": "A1"
+},
+{
+"w": "LICHT",
+"c": "hafif; açık (renk) (sıfat)",
+"n": "A1"
+},
+{
+"w": "VIES",
+"c": "kirli; iğrenç (sıfat)",
+"n": "A1"
+},
+{
+"w": "SCHOON",
+"c": "temiz (sıfat)",
+"n": "A1"
+},
+{
+"w": "OPEN",
+"c": "açık (sıfat)",
+"n": "A1"
+},
+{
+"w": "DICHT",
+"c": "kapalı (sıfat)",
+"n": "A1"
+},
+{
+"w": "VOL",
+"c": "dolu (sıfat)",
+"n": "A1"
+},
+{
+"w": "LEEG",
+"c": "boş (sıfat)",
+"n": "A1"
+},
+{
+"w": "EERST",
+"c": "önce (zarf)",
+"n": "A1"
+},
+{
+"w": "DAN",
+"c": "sonra; o zaman (zarf)",
+"n": "A1"
+},
+{
+"w": "DAARNA",
+"c": "ondan sonra (zarf)",
+"n": "A1"
+},
+{
+"w": "OOK",
+"c": "de, da (ayrıca) (zarf)",
+"n": "A1"
+},
+{
+"w": "NIET",
+"c": "değil (fiil/sıfatla) (zarf)",
+"n": "A1"
+},
+{
+"w": "GEEN",
+"c": "hiç ... yok (isimle) (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "MAAR",
+"c": "ama (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "WANT",
+"c": "çünkü (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "OMDAT",
+"c": "çünkü (fiil sona) (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "MET",
+"c": "ile (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "ZONDER",
+"c": "-sız, olmadan (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "NAAST",
+"c": "yanında (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "ACHTER",
+"c": "arkasında (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "VOOR",
+"c": "önünde; için (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "TUSSEN",
+"c": "arasında (küçük kelime)",
+"n": "A1"
+},
+{
+"w": "PASKAMER",
+"c": "deneme kabini (isim, de)",
+"n": "A2"
+},
+{
+"w": "AFREKENEN",
+"c": "hesabı ödemek (fiil)",
+"n": "A2"
+},
+{
+"w": "KASSA",
+"c": "kasa (isim, de)",
+"n": "A1"
+},
+{
+"w": "BONNETJE",
+"c": "fiş (isim, het)",
+"n": "A2"
+},
+{
+"w": "RUILEN",
+"c": "değiştirmek (ürünü) (fiil)",
+"n": "A2"
+},
+{
+"w": "HELDER",
+"c": "net, berrak, anlaşılır (sıfat)",
+"n": "A2"
+},
+{
+"w": "ACHTERAF",
+"c": "sonradan, geriye dönük (zarf)",
+"n": "B1"
+},
+{
+"w": "VERTRAGEN",
+"c": "geciktirmek, yavaşlatmak (fiil)",
+"n": "B1"
+},
+{
+"w": "RIT",
+"c": "sefer, yolculuk (isim, de)",
+"n": "A2"
+},
+{
+"w": "HALTE",
+"c": "durak (isim, de)",
+"n": "A1"
+},
+{
+"w": "VOERTUIG",
+"c": "araç (isim, het)",
+"n": "B1"
+},
+{
+"w": "CHAUFFEUR",
+"c": "şoför (isim, de)",
+"n": "A1"
+},
+{
+"w": "BRON",
+"c": "kaynak (isim, de)",
+"n": "A2"
+},
+{
+"w": "VOLGORDE",
+"c": "sıra (isim, de)",
+"n": "A2"
+},
+{
+"w": "PUNTJE",
+"c": "not edilecek açık madde (isim, het)",
+"n": "B1"
+},
+{
+"w": "VRAAGJE",
+"c": "kısa bir soru (nezaket) (isim, het)",
+"n": "A2"
+},
+{
+"w": "MINUUTJE",
+"c": "bir dakikacık (rica) (isim, het)",
+"n": "A2"
+},
+{
+"w": "DINGETJES",
+"c": "ufak tefek şeyler / işler (isim, de)",
+"n": "A2"
+},
+{
+"w": "KLUSJE",
+"c": "küçük iş, ufak görev (isim, het)",
+"n": "B1"
+},
+{
+"w": "NOU",
+"c": "şey, eee (dolgu) (ünlem)",
+"n": "A2"
+},
+{
+"w": "GEWOON",
+"c": "sadece, öylece (dolgu); normal (zarf)",
+"n": "A2"
+},
+{
+"w": "EVEN",
+"c": "bir, kısaca (yumuşatma) (zarf)",
+"n": "A2"
+},
+{
+"w": "SOWIESO",
+"c": "zaten, her halükârda (zarf)",
+"n": "B1"
+},
+{
+"w": "TOCH",
+"c": "yine de; değil mi? (zarf)",
+"n": "A2"
+},
+{
+"w": "STAKING",
+"c": "grev (isim, de)",
+"n": "B1"
+},
+{
+"w": "VAKANTIE",
+"c": "tatil (isim, de)",
+"n": "A1"
+},
+{
+"w": "OVERLEG",
+"c": "istişare, görüşme, toplantı (isim, het)",
+"n": "B1"
+},
+{
+"w": "AFSPRAAK",
+"c": "randevu; anlaşma (isim, de)",
+"n": "A1"
+},
+{
+"w": "COLLEGA",
+"c": "iş arkadaşı (isim, de)",
+"n": "A1"
+},
+{
+"w": "WERKGEVER",
+"c": "işveren (isim, de)",
+"n": "A2"
+},
+{
+"w": "ALVAST",
+"c": "şimdiden, önceden (zarf)",
+"n": "B1"
+},
+{
+"w": "CONCREET",
+"c": "somut (sıfat)",
+"n": "B1"
+},
+{
+"w": "FLINK",
+"c": "epeyce, ciddi şekilde (sıfat)",
+"n": "B1"
+},
+{
+"w": "ZULKE",
+"c": "öyle (çoğul) (küçük kelime)",
+"n": "B1"
+},
+{
+"w": "VERWARD",
+"c": "kafası karışık (sıfat)",
+"n": "B1"
+},
+{
+"w": "AFRONDEN",
+"c": "tamamlamak, bitirmek (fiil)",
+"n": "B1"
+},
+{
+"w": "DOORGEVEN",
+"c": "devretmek, iletmek (fiil)",
+"n": "B1"
+},
+{
+"w": "BEHALVE",
+"c": "hariç, dışında (küçük kelime)",
+"n": "A2"
+},
+{
+"w": "ANDERS",
+"c": "yoksa, aksi halde (zarf)",
+"n": "A2"
+},
+{
+"w": "OMVALLEN",
+"c": "devrilmek; (sistem) çökmek (fiil)",
+"n": "B1"
+},
+{
+"w": "HANDIG",
+"c": "pratik, işe yarar (sıfat)",
+"n": "A2"
+},
+{
+"w": "BENIEUWD",
+"c": "merakla bekleyen (sıfat)",
+"n": "B1"
+},
+{
+"w": "DOORGAAN",
+"c": "devam etmek; gerçekleşmek (fiil)",
+"n": "A2"
+},
+{
+"w": "MEEVALLEN",
+"c": "beklenenden iyi çıkmak (fiil)",
+"n": "B1"
+},
+{
+"w": "AFSPREKEN",
+"c": "sözleşmek, buluşma ayarlamak (fiil)",
+"n": "A2"
+},
+{
+"w": "VERWARREN",
+"c": "kafa karıştırmak (fiil)",
+"n": "B1"
+},
+{
+"w": "BALLENHOK",
+"c": "top deposu, malzeme kulübesi (isim, het)",
+"n": "B1"
+},
+{
+"w": "MEZELF",
+"c": "kendim (küçük kelime)",
+"n": "A2"
+},
+{
+"w": "JEZELF",
+"c": "kendin (küçük kelime)",
+"n": "A2"
+},
+{
+"w": "ZICHZELF",
+"c": "kendisi, kendileri (küçük kelime)",
+"n": "B1"
+},
+{
+"w": "ONSZELF",
+"c": "kendimiz (küçük kelime)",
+"n": "B1"
+},
+{
+"w": "INTUSSEN",
+"c": "bu arada (daha resmî) (zarf)",
+"n": "B1"
+},
+{
+"w": "DAARNAAST",
+"c": "bunun yanında, ayrıca (zarf)",
+"n": "B1"
+},
+{
+"w": "VERDER",
+"c": "ayrıca, bundan başka; daha ileri (zarf)",
+"n": "A2"
+},
+{
+"w": "BEWAREN",
+"c": "saklamak (fiil)",
+"n": "A2"
+},
+{
+"w": "VANWEGE",
+"c": "... nedeniyle (küçük kelime)",
+"n": "B1"
+},
+{
+"w": "VERZETTEN",
+"c": "ertelemek, tarihini değiştirmek (fiil)",
+"n": "B1"
+},
+{
+"w": "AANPAKKEN",
+"c": "ele almak, girişmek (fiil)",
+"n": "B1"
+},
+{
+"w": "MEEDENKEN",
+"c": "birlikte düşünmek, fikir vermek (fiil)",
+"n": "B1"
+},
+{
+"w": "STRENG",
+"c": "sert, katı (sıfat)",
+"n": "A2"
+},
+{
+"w": "VERLOPEN",
+"c": "süresi dolmak; ilerlemek, geçmek (fiil)",
+"n": "B1"
+},
+{
+"w": "ENTREE",
+"c": "giriş (ücreti) (isim, de)",
+"n": "A2"
+},
+{
+"w": "TOF",
+"c": "harika, süper (sıfat)",
+"n": "A2"
+},
+{
+"w": "BERICHT",
+"c": "mesaj (isim, het)",
+"n": "A1"
+},
+{
+"w": "BEVALLEN",
+"c": "hoşuna gitmek, memnun kalmak (fiil)",
+"n": "B1"
+},
+{
+"w": "AANMAKEN",
+"c": "oluşturmak, açmak; (ateş) yakmak (fiil)",
+"n": "B1"
+},
+{
+"w": "UITMAKEN",
+"c": "fark etmek; ayrılmak; karar vermek (fiil)",
+"n": "B1"
+},
+{
+"w": "MEEMAKEN",
+"c": "yaşamak, başından geçmek (fiil)",
+"n": "B1"
+},
+{
+"w": "ONDANKS",
+"c": "-e rağmen (küçük kelime)",
+"n": "B1"
+},
+{
+"w": "OVERNEMEN",
+"c": "devralmak (fiil)",
+"n": "B1"
+},
+{
+"w": "STIEKEM",
+"c": "gizlice, çaktırmadan (sıfat)",
+"n": "B1"
+},
+{
+"w": "RODDELEN",
+"c": "dedikodu yapmak (fiil)",
+"n": "B1"
+},
+{
+"w": "TEGENOVER",
+"c": "karşısında; -e karşı (tutum) (küçük kelime)",
+"n": "A2"
+},
+{
+"w": "ZODRA",
+"c": "-ir -mez, -diği anda (küçük kelime)",
+"n": "B1"
+},
+{
+"w": "ONGEMAK",
+"c": "rahatsızlık, zahmet (isim, het)",
+"n": "B1"
+},
+{
+"w": "AANNEMEN",
+"c": "varsaymak; kabul etmek; işe almak; (telefonu) açmak (fiil)",
+"n": "B1"
+},
+{
+"w": "AANPASSEN",
+"c": "uyarlamak, değiştirmek, düzenlemek (fiil)",
+"n": "B1"
+},
+{
+"w": "TOEPASSEN",
+"c": "uygulamak (kural, yöntem) (fiil)",
+"n": "B1"
+},
+{
+"w": "AANVRAGEN",
+"c": "talep etmek, başvurmak (izin, erişim) (fiil)",
+"n": "B1"
+},
+{
+"w": "INPLANNEN",
+"c": "planlamak, takvime koymak (fiil)",
+"n": "B1"
+},
+{
+"w": "TESTEN",
+"c": "test etmek (fiil)",
+"n": "A2"
+},
+{
+"w": "VERZOEK",
+"c": "rica, talep (isim, het)",
+"n": "B1"
+},
+{
+"w": "BUI",
+"c": "kısa süreli yağış (isim, de)",
+"n": "B1"
+},
+{
+"w": "HEFTIG",
+"c": "çok şiddetli (sıfat)",
+"n": "B1"
+},
+{
+"w": "HITTEGOLF",
+"c": "sıcak hava dalgası (isim, de)",
+"n": "B1"
+},
+{
+"w": "KLIMAAT",
+"c": "iklim (isim, het)",
+"n": "B1"
+},
+{
+"w": "NEERSLAG",
+"c": "yağış (isim, de)",
+"n": "B1"
+},
+{
+"w": "OPWARMEN",
+"c": "ısınmak (fiil)",
+"n": "B1"
+},
+{
+"w": "PERIODE",
+"c": "dönem, süre (isim, de)",
+"n": "A2"
+},
+{
+"w": "RISICO",
+"c": "risk (isim, het)",
+"n": "B1"
+},
+{
+"w": "STORTBUI",
+"c": "şiddetli sağanak (isim, de)",
+"n": "B1"
+},
+{
+"w": "KROKET",
+"c": "kroket (isim, de)",
+"n": "A1"
+},
+{
+"w": "FABRIEK",
+"c": "fabrika (isim, de)",
+"n": "A1"
+},
+{
+"w": "GEHEIM",
+"c": "gizli (sıfat)",
+"n": "A1"
+},
+{
+"w": "KNAPPERIG",
+"c": "çıtır (sıfat)",
+"n": "A1"
+},
+{
+"w": "VULLING",
+"c": "iç dolgu (isim, de)",
+"n": "A2"
+},
+{
+"w": "RAGOUT",
+"c": "ragu (kroketin içi) (isim, de)",
+"n": "A2"
+},
+{
+"w": "KETEL",
+"c": "kazan (isim, de)",
+"n": "A2"
+},
+{
+"w": "BOUILLON",
+"c": "et/sebze suyu (isim, de)",
+"n": "A2"
+},
+{
+"w": "VLOEIBAAR",
+"c": "sıvı, akışkan (sıfat)",
+"n": "A2"
+},
+{
+"w": "STEVIG",
+"c": "sıkı, katı (sıfat)",
+"n": "A2"
+},
+{
+"w": "KOELCEL",
+"c": "soğuk hava odası (isim, de)",
+"n": "B1"
+},
+{
+"w": "TRECHTER",
+"c": "huni (isim, de)",
+"n": "B1"
+},
+{
+"w": "PERSEN",
+"c": "preslemek (fiil)",
+"n": "B1"
+},
+{
+"w": "WOLK",
+"c": "bulut (isim, de)",
+"n": "A1"
+},
+{
+"w": "DRUPPEL",
+"c": "damla (isim, de)",
+"n": "A1"
+},
+{
+"w": "WEER",
+"c": "hava durumu (isim, het)",
+"n": "A1"
+},
+{
+"w": "WATERDAMP",
+"c": "su buharı (isim, de)",
+"n": "A2"
+},
+{
+"w": "AFKOELEN",
+"c": "soğumak (fiil)",
+"n": "A2"
+},
+{
+"w": "PROEFJE",
+"c": "küçük deney (isim, het)",
+"n": "A2"
+},
+{
+"w": "ONTSTAAN",
+"c": "oluşmak (fiil)",
+"n": "B1"
+},
+{
+"w": "GLUTEN",
+"c": "glüten (isim, de)",
+"n": "A1"
+},
+{
+"w": "DEEG",
+"c": "hamur (isim, het)",
+"n": "A1"
+},
+{
+"w": "LUCHTIG",
+"c": "kabarık, hafif (sıfat)",
+"n": "A1"
+},
+{
+"w": "KNEDEN",
+"c": "yoğurmak (fiil)",
+"n": "A2"
+},
+{
+"w": "GRAAN",
+"c": "tahıl (isim, het)",
+"n": "A2"
+},
+{
+"w": "EIWIT",
+"c": "protein; yumurta akı (isim, het)",
+"n": "A2"
+},
+{
+"w": "UITREKKEN",
+"c": "germek (fiil)",
+"n": "A2"
+},
+{
+"w": "KLEVEN",
+"c": "yapışmak (fiil)",
+"n": "B1"
+},
+{
+"w": "SLIERT",
+"c": "uzun ince şerit (isim, de)",
+"n": "B1"
+},
+{
+"w": "ZETMEEL",
+"c": "nişasta (isim, het)",
+"n": "B1"
+},
+{
+"w": "KUILTJE",
+"c": "küçük çukur (isim, het)",
+"n": "B1"
+},
+{
+"w": "COMPUTER",
+"c": "bilgisayar (isim, de)",
+"n": "A1"
+},
+{
+"w": "SCHAP",
+"c": "raf (isim, het)",
+"n": "A2"
+},
+{
+"w": "KRAT",
+"c": "kasa (isim, de)",
+"n": "A2"
+},
+{
+"w": "BESTELLEN",
+"c": "sipariş etmek (fiil)",
+"n": "A2"
+},
+{
+"w": "VOORRAAD",
+"c": "stok (isim, de)",
+"n": "B1"
+},
+{
+"w": "STORING",
+"c": "arıza (isim, de)",
+"n": "B1"
+},
+{
+"w": "HACKER",
+"c": "bilgisayar korsanı (isim, de)",
+"n": "B1"
+},
+{
+"w": "WOLF",
+"c": "kurt (isim, de)",
+"n": "A1"
+},
+{
+"w": "BOS",
+"c": "orman (isim, het)",
+"n": "A1"
+},
+{
+"w": "WANDELEN",
+"c": "yürüyüş yapmak (fiil)",
+"n": "A1"
+},
+{
+"w": "WEGRENNEN",
+"c": "koşarak kaçmak (fiil)",
+"n": "A2"
+},
+{
+"w": "ROOFDIER",
+"c": "yırtıcı hayvan (isim, het)",
+"n": "B1"
+},
+{
+"w": "WENKBRAUW",
+"c": "kaş (isim, de)",
+"n": "B1"
+},
+{
+"w": "ACHTERUIT",
+"c": "geriye doğru (zarf)",
+"n": "B1"
+},
+{
+"w": "ZEEHOND",
+"c": "fok (isim, de)",
+"n": "A1"
+},
+{
+"w": "STRAND",
+"c": "plaj (isim, het)",
+"n": "A1"
+},
+{
+"w": "OPVANG",
+"c": "barınak, bakımevi (isim, de)",
+"n": "A2"
+},
+{
+"w": "VERHUIZEN",
+"c": "taşınmak (fiil)",
+"n": "A2"
+},
+{
+"w": "KAARTJE",
+"c": "bilet (isim, het)",
+"n": "A2"
+},
+{
+"w": "SCHULD",
+"c": "borç (isim, de)",
+"n": "A2"
+},
+{
+"w": "BEZOEKER",
+"c": "ziyaretçi (isim, de)",
+"n": "A2"
+},
+{
+"w": "OPVANGEN",
+"c": "bakımını üstlenmek, barındırmak (fiil)",
+"n": "B1"
+},
+{
+"w": "VERZORGEN",
+"c": "bakmak (fiil)",
+"n": "B1"
+},
+{
+"w": "ONDERZOEK",
+"c": "araştırma (isim, het)",
+"n": "B1"
+},
+{
+"w": "SCHENKEN",
+"c": "bağışlamak (fiil)",
+"n": "B1"
+},
+{
+"w": "GEMEENTE",
+"c": "belediye (isim, de)",
+"n": "B1"
+},
+{
+"w": "PROVINCIE",
+"c": "il (isim, de)",
+"n": "B1"
+},
+{
+"w": "MUZIEK",
+"c": "müzik (isim, de)",
+"n": "A1"
+},
+{
+"w": "DRAAIEN",
+"c": "çevirmek (fiil)",
+"n": "A1"
+},
+{
+"w": "DANSEN",
+"c": "dans etmek (fiil)",
+"n": "A1"
+},
+{
+"w": "GAATJE",
+"c": "küçük delik (isim, het)",
+"n": "A1"
+},
+{
+"w": "FEEST",
+"c": "kutlama, parti (isim, het)",
+"n": "A1"
+},
+{
+"w": "LIEDJE",
+"c": "şarkı (isim, het)",
+"n": "A1"
+},
+{
+"w": "POPULAIR",
+"c": "popüler (sıfat)",
+"n": "A2"
+},
+{
+"w": "VIEREN",
+"c": "kutlamak (fiil)",
+"n": "A2"
+},
+{
+"w": "LUCHT",
+"c": "hava (isim, de)",
+"n": "A2"
+},
+{
+"w": "BUIS",
+"c": "boru (isim, de)",
+"n": "A2"
+},
+{
+"w": "RITME",
+"c": "ritim (isim, het)",
+"n": "A2"
+},
+{
+"w": "VAK",
+"c": "meslek, zanaat (isim, het)",
+"n": "A2"
+},
+{
+"w": "BLAASBALG",
+"c": "körük (isim, de)",
+"n": "B1"
+},
+{
+"w": "TOETS",
+"c": "tuş (isim, de)",
+"n": "B1"
+},
+{
+"w": "INDRUKKEN",
+"c": "bastırmak (fiil)",
+"n": "B1"
+},
+{
+"w": "LEEGLOPEN",
+"c": "boşalmak, sönmek (fiil)",
+"n": "B1"
+},
+{
+"w": "AANHOUDEN",
+"c": "sürdürmek (fiil)",
+"n": "B1"
+},
+{
+"w": "TROMMEL",
+"c": "davul (isim, de)",
+"n": "B1"
+},
+{
+"w": "DOOS",
+"c": "kutu (isim, de)",
+"n": "A1"
+},
+{
+"w": "KARTON",
+"c": "karton (isim, het)",
+"n": "A1"
+},
+{
+"w": "PLAT",
+"c": "yassı, düz (sıfat)",
+"n": "A1"
+},
+{
+"w": "VOUWEN",
+"c": "katlamak (fiil)",
+"n": "A2"
+},
+{
+"w": "MAAT",
+"c": "ölçü, beden (isim, de)",
+"n": "A2"
+},
+{
+"w": "DRUKKEN",
+"c": "basmak (fiil)",
+"n": "B1"
+},
+{
+"w": "VEL",
+"c": "tabaka (isim, het)",
+"n": "B1"
+},
+{
+"w": "BEDENKEN",
+"c": "düşünüp bulmak (fiil)",
+"n": "B1"
+},
+{
+"w": "KLOPPEN",
+"c": "doğru olmak (fiil)",
+"n": "B1"
+},
+{
+"w": "ONTWERP",
+"c": "tasarım (isim, het)",
+"n": "B1"
+},
+{
+"w": "VOELEN",
+"c": "dokunarak hissetmek (fiil)",
+"n": "A1"
+},
+{
+"w": "NEP",
+"c": "sahte (sıfat)",
+"n": "A2"
+},
+{
+"w": "KATOEN",
+"c": "pamuk (isim, het)",
+"n": "A2"
+},
+{
+"w": "SALARIS",
+"c": "maaş (isim, het)",
+"n": "A2"
+},
+{
+"w": "UITGEVEN",
+"c": "harcamak (fiil)",
+"n": "A2"
+},
+{
+"w": "DIGITAAL",
+"c": "dijital (sıfat)",
+"n": "B1"
+},
+{
+"w": "VEZEL",
+"c": "lif (isim, de)",
+"n": "B1"
+},
+{
+"w": "WATERMERK",
+"c": "filigran (isim, het)",
+"n": "B1"
+},
+{
+"w": "FLEXIBEL",
+"c": "esnek (sıfat)",
+"n": "B1"
+},
+{
+"w": "HOEWEL",
+"c": "-e rağmen (küçük kelime)",
+"n": "B1"
+}
+]
+}
