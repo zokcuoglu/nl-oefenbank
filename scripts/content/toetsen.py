@@ -85,4 +85,5 @@ TOETSEN = [
     {"id": "toets-8", "nr": 8, "tot": 10, "titel": "Toets 8 · Nieuws 1–10", "extra": []},
     {"id": "toets-9", "nr": 9, "tot": 11, "titel": "Toets 9 · Nieuws 1–11", "extra": []},
     {"id": "toets-10", "nr": 10, "tot": 12, "titel": "Toets 10 · Nieuws 1–12", "extra": []},
+    {"id": "toets-11", "nr": 11, "tot": 13, "titel": "Toets 11 · Nieuws 1–13", "extra": []},
 ]

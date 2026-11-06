@@ -5584,7 +5584,8 @@
 "in_nieuws": [
 "wolken",
 "wolf",
-"draaiorgel"
+"draaiorgel",
+"ober"
 ]
 },
 {
@@ -5694,7 +5695,8 @@
 "pieterburen",
 "draaiorgel",
 "bankbiljet",
-"station"
+"station",
+"ober"
 ]
 },
 {
@@ -6513,7 +6515,9 @@
 "tur": "vaste_comb",
 "subthema": "vergadering",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"ober"
+]
 },
 {
 "id": "w052",
@@ -6740,7 +6744,8 @@
 "albertheijn",
 "draaiorgel",
 "bankbiljet",
-"pensioen"
+"pensioen",
+"ober"
 ]
 },
 {
@@ -6872,7 +6877,8 @@
 "draaiorgel",
 "bankbiljet",
 "fossiel",
-"station"
+"station",
+"ober"
 ]
 },
 {
@@ -7987,7 +7993,9 @@
 "tur": "sch_ww",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"ober"
+]
 },
 {
 "id": "w126",
@@ -8796,7 +8804,8 @@
 "doosjes",
 "bankbiljet",
 "station",
-"pensioen"
+"pensioen",
+"ober"
 ]
 },
 {
@@ -8961,7 +8970,8 @@
 "wolken",
 "wolf",
 "pieterburen",
-"draaiorgel"
+"draaiorgel",
+"ober"
 ]
 },
 {
@@ -8985,7 +8995,8 @@
 "kroket",
 "albertheijn",
 "doosjes",
-"bankbiljet"
+"bankbiljet",
+"ober"
 ]
 },
 {
@@ -9563,7 +9574,8 @@
 "subthema": "",
 "register": "informeel",
 "in_nieuws": [
-"pieterburen"
+"pieterburen",
+"ober"
 ]
 },
 {
@@ -9890,7 +9902,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"wolf"
+"wolf",
+"ober"
 ]
 },
 {
@@ -10001,7 +10014,8 @@
 "pieterburen",
 "bankbiljet",
 "station",
-"pensioen"
+"pensioen",
+"ober"
 ]
 },
 {
@@ -10302,7 +10316,8 @@
 "pieterburen",
 "doosjes",
 "fossiel",
-"station"
+"station",
+"ober"
 ]
 },
 {
@@ -11525,7 +11540,9 @@
 "tur": "vaste_comb",
 "subthema": "",
 "register": "formeel",
-"in_nieuws": []
+"in_nieuws": [
+"ober"
+]
 },
 {
 "id": "w305",
@@ -11800,7 +11817,9 @@
 "tur": "zn",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"ober"
+]
 },
 {
 "id": "w319",
@@ -13112,7 +13131,8 @@
 "doosjes",
 "bankbiljet",
 "station",
-"pensioen"
+"pensioen",
+"ober"
 ]
 },
 {
@@ -14865,7 +14885,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"wolf"
+"wolf",
+"ober"
 ]
 },
 {
@@ -22049,6 +22070,512 @@
 "voorbeeld": "De nieuwe directeur maakte korte metten met de oude regels.",
 "voorbeeld_tr": "Yeni müdür eski kurallara kesin bir son verdi.",
 "uitleg": "Bir şeyi hızlı ve kararlı şekilde ortadan kaldırmak."
+},
+{
+"id": "n-ober-w1",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de ober",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "garson",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iemand die in een restaurant eten en drinken brengt",
+"voorbeeld": "De ober brengt de koffie.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w2",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de bal",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "top",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "rond ding waarmee je speelt",
+"voorbeeld": "Gooi de bal naar mij!",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w3",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de droom",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "hayal",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(hier) iets wat je heel graag wilt",
+"voorbeeld": "Zijn droom is profvoetballer worden.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w4",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de slagroom",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "krem şanti",
+"niveau": "A2",
+"groep": "3",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geklopte room, zoet en wit",
+"voorbeeld": "Wil je slagroom op je taart?",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w5",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de club",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "kulüp",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(hier) vereniging, team",
+"voorbeeld": "Bij welke club speel je?",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w6",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "oud",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "yaşlı",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(hier) veel jaren geleefd",
+"voorbeeld": "U bent te oud voor profvoetbal.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w7",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "waardeloos",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "berbat",
+"niveau": "B1",
+"groep": "6",
+"thema": "algemeen",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "heel slecht",
+"voorbeeld": "Je voetbalt waardeloos.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w8",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de vereniging",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "dernek, kulüp",
+"niveau": "B1",
+"groep": "6",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "club van mensen met dezelfde hobby",
+"voorbeeld": "Hij zit bij een voetbalvereniging.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w9",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de blessure",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "sakatlık",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "pijn of wond door sport",
+"voorbeeld": "Hij kan niet spelen door een blessure.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w10",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "de carrière",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "kariyer",
+"niveau": "B1",
+"groep": "8",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "hoe je werk zich in de loop van je leven ontwikkelt",
+"voorbeeld": "Ze heeft een mooie carrière als arts.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w11",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "vreemd",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "tuhaf",
+"niveau": "B1",
+"groep": "5",
+"thema": "algemeen",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "anders dan normaal, raar",
+"voorbeeld": "Dat is niet heel vreemd.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w12",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "stimuleren",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "teşvik etmek",
+"niveau": "B1",
+"groep": "8",
+"thema": "algemeen",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "aanmoedigen, iemand helpen om iets te doen",
+"voorbeeld": "Mijn ouders stimuleerden me om te lezen.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w13",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "oppakken",
+"soort": "woord",
+"woordsoort": "sch ww",
+"tr": "yeniden ele almak",
+"niveau": "B1",
+"groep": "8",
+"thema": "algemeen",
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(hier) weer beginnen met iets",
+"voorbeeld": "Na de vakantie pak ik mijn studie weer op.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w14",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "tegenhouden",
+"soort": "woord",
+"woordsoort": "sch ww",
+"tr": "engel olmak, durdurmak",
+"niveau": "B1",
+"groep": "6",
+"thema": "algemeen",
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "zorgen dat iemand iets niet kan doen",
+"voorbeeld": "De politie houdt de auto tegen.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w15",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "rondbellen",
+"soort": "woord",
+"woordsoort": "sch ww",
+"tr": "tek tek aramak",
+"niveau": "B2",
+"groep": "8",
+"thema": "algemeen",
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "veel mensen of bedrijven één voor één bellen",
+"voorbeeld": "Ik heb rondgebeld, maar niemand heeft tijd.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w16",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "sportief",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "sporcu ruhlu",
+"niveau": "B2",
+"groep": "7",
+"thema": "algemeen",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(hier) die graag en goed sport",
+"voorbeeld": "Mijn zus is heel sportief.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w17",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "het lijf",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "vücut",
+"niveau": "B2",
+"groep": "8",
+"thema": "algemeen",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "lichaam",
+"voorbeeld": "Je lijf is niet in vorm.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w18",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "koesteren",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "sevgiyle korumak",
+"niveau": "C1",
+"groep": "vo",
+"thema": "algemeen",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "met liefde bewaren of beschermen",
+"voorbeeld": "Ze koestert de foto van haar oma.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-w19",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "kieskeurig",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "seçici, titiz",
+"niveau": "C1",
+"groep": "vo",
+"thema": "algemeen",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "die niet alles goed vindt, die veel eisen heeft",
+"voorbeeld": "Hij is kieskeurig met eten.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-ober-u1",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "in je eentje",
+"soort": "uitdrukking",
+"tr": "tek başına",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"tur": "vaste_comb",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Ze woont in haar eentje in een groot huis.",
+"voorbeeld_tr": "Büyük bir evde tek başına yaşıyor.",
+"uitleg": "Kimse olmadan, yalnız. Kişiye göre değişir: in mijn eentje, in zijn eentje. Skeçte freestyle anlatılırken: 'in je eentje zonder veel regels de bal hoog houden'."
+},
+{
+"id": "n-ober-u2",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "iets hoog houden",
+"soort": "uitdrukking",
+"tr": "bir şeyi yüksek/canlı tutmak",
+"niveau": "B1",
+"groep": "6",
+"thema": "algemeen",
+"tur": "vaste_comb",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "De spelers houden de bal zo lang mogelijk hoog.",
+"voorbeeld_tr": "Oyuncular topu olabildiğince uzun havada tutuyor.",
+"uitleg": "Gerçek anlam: topu havada tutmak. Garson espri yapıyor: 'Ik hou de gezelligheid hoog' (keyfi yüksek tutuyorum). 'De naam hoog houden' = adına layık olmak."
+},
+{
+"id": "n-ober-u3",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "je droom leven / koesteren",
+"soort": "uitdrukking",
+"tr": "hayalini yaşamak / hayalini beslemek",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Hij werd kok in Italië: hij leeft zijn droom.",
+"voorbeeld_tr": "İtalya'da aşçı oldu: hayalini yaşıyor.",
+"uitleg": "Skeçte: 'Koester je droom, knul' ve 'Als jij je droom maar leeft, Abel.' 'Koesteren' = sevgiyle korumak."
+},
+{
+"id": "n-ober-u4",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "desnoods",
+"soort": "uitdrukking",
+"tr": "gerekirse, olmadı",
+"niveau": "B2",
+"groep": "8",
+"thema": "algemeen",
+"tur": "bw",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "We gaan met de auto, of desnoods met de bus.",
+"voorbeeld_tr": "Arabayla gideriz, olmadı otobüsle.",
+"uitleg": "En iyi seçenek olmazsa kabul edilecek seçenek için. Garson: 'Ajax denk ik. Anders Feyenoord, Waalwijk desnoods.'"
+},
+{
+"id": "n-ober-u5",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "in een deuk liggen",
+"soort": "uitdrukking",
+"tr": "gülmekten kırılmak",
+"niveau": "B2",
+"groep": "8",
+"thema": "algemeen",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Het publiek lag in een deuk om zijn grappen.",
+"voorbeeld_tr": "Seyirciler espriler yüzünden gülmekten kırıldı.",
+"uitleg": "Çok gülmek. Skeçte daha basit hali var: 'Zelfs Waalwijk moest hard lachen.'"
+},
+{
+"id": "n-ober-u6",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "het ver schoppen",
+"soort": "uitdrukking",
+"tr": "çok başarılı olmak, çok yükselmek",
+"niveau": "B2",
+"groep": "vo",
+"thema": "algemeen",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Die jongen is slim; hij gaat het ver schoppen.",
+"voorbeeld_tr": "O çocuk zeki; çok başarılı olacak.",
+"uitleg": "Hayatta ya da kariyerde çok başarılı olmak. Skeçteki espri: 'schoppen' aynı zamanda topa vurmak demek."
+},
+{
+"id": "n-ober-u7",
+"bron": "nieuws",
+"item": "ober",
+"nr": 13,
+"nl": "als water van een eend afglijden",
+"soort": "uitdrukking",
+"tr": "hiç etkilememek, vız gelmek",
+"niveau": "C1",
+"groep": "vo",
+"thema": "algemeen",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Alle kritiek glijdt als water van een eend van hem af.",
+"voorbeeld_tr": "Bütün eleştiriler ona vız geliyor.",
+"uitleg": "Eleştiri ya da kötü söz birini hiç etkilemiyorsa. Garson 'waardeloos' denmesine rağmen hayalinden vazgeçmedi."
 }
 ]
 }
