@@ -63,7 +63,7 @@ REGISTERS = {"formeel": "Formeel · resmi", "neutraal": "Neutraal · nötr", "in
 
 # News words: topic per news item (a new item must be added here, or the build stops)
 NIEUWS_THEMA = {"kroket": "eten", "wolken": "weer", "gluten": "eten", "albertheijn": "winkel", "wolf": "natuur",
-                "pieterburen": "natuur", "draaiorgel": "maatschappij", "doosjes": "maatschappij", "bankbiljet": "maatschappij"}
+                "pieterburen": "natuur", "draaiorgel": "maatschappij", "doosjes": "maatschappij", "bankbiljet": "maatschappij", "fossiel": "natuur"}
 # News words: woordsoort in the news files -> tur. Separable verbs are written "sch ww" in the news files.
 WOORDSOORT_TUR = {"zn": "zn", "zn (mv)": "zn", "ww": "ww", "sch ww": "sch_ww", "bn": "bn", "bw": "bw", "vw": "klein",
                   "uitdr": "uitdr", "voorvoegsel": "structuur"}
@@ -72,7 +72,8 @@ NIEUWS_TUR = {"angstvallig": "bw", "laagdrempelig": "bn", "zonneklaar": "bn", "v
               "beduidend": "bn", "hoewel": "klein", "lievelings-": "structuur", "keilekker (kei-)": "bn", "de koukleum": "zn",
               "in aanraking komen met": "vaste_comb", "ergens bij stilstaan": "vaste_comb", "betrokken zijn bij": "vaste_comb",
               "oog in oog staan met": "vaste_comb", "ergens van staan te kijken": "vaste_comb", "volgens mij": "vaste_comb",
-              "in principe": "vaste_comb", "uit voorzorg": "vaste_comb", "aan de lijn": "vaste_comb", "wegwezen!": "tw"}
+              "in principe": "vaste_comb", "uit voorzorg": "vaste_comb", "aan de lijn": "vaste_comb", "wegwezen!": "tw",
+              "er is … te zien": "structuur", "voor het eerst": "vaste_comb", "op elkaar leven": "vaste_comb"}
 NIEUWS_INFORMEEL = {"keilekker (kei-)", "wegwezen!", "hartstikke (leuk, goed …)", "mazzel hebben"}
 SOORT = {"woord", "uitdrukking", "zin", "structuur", "afkorting"}
 TEXT_LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1", "c2"]

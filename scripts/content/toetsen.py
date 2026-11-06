@@ -81,5 +81,6 @@ TOETSEN = [
             {"id": "t7m4", "type": "gap", "niveau": "B2", "cat": "uitdrukkingen", "vraag": "Orgeldraaien lijkt makkelijk, maar het is een vak ___.",
              "opties": ["apart", "alleen", "anders"], "juist": 0, "uitleg": "Een vak apart = iets waar veel kunde voor nodig is (nieuws 7)."},
         ],
-    }
+    },
+    {"id": "toets-8", "nr": 8, "tot": 10, "titel": "Toets 8 · Nieuws 1–10", "extra": []},
 ]
