@@ -5665,7 +5665,9 @@
 "tur": "uitdr",
 "subthema": "vergadering",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"station"
+]
 },
 {
 "id": "w009",
@@ -5691,7 +5693,8 @@
 "wolf",
 "pieterburen",
 "draaiorgel",
-"bankbiljet"
+"bankbiljet",
+"station"
 ]
 },
 {
@@ -5811,7 +5814,8 @@
 "albertheijn",
 "wolf",
 "pieterburen",
-"doosjes"
+"doosjes",
+"pensioen"
 ]
 },
 {
@@ -6469,7 +6473,9 @@
 "tur": "structuur",
 "subthema": "e-mail",
 "register": "formeel",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w050",
@@ -6647,7 +6653,9 @@
 "tur": "zn",
 "subthema": "",
 "register": "informeel",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w059",
@@ -6731,7 +6739,8 @@
 "wolken",
 "albertheijn",
 "draaiorgel",
-"bankbiljet"
+"bankbiljet",
+"pensioen"
 ]
 },
 {
@@ -6862,7 +6871,8 @@
 "wolf",
 "draaiorgel",
 "bankbiljet",
-"fossiel"
+"fossiel",
+"station"
 ]
 },
 {
@@ -7075,7 +7085,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"wolf"
+"wolf",
+"pensioen"
 ]
 },
 {
@@ -7590,7 +7601,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"pieterburen"
+"pieterburen",
+"pensioen"
 ]
 },
 {
@@ -7657,7 +7669,8 @@
 "draaiorgel",
 "doosjes",
 "bankbiljet",
-"fossiel"
+"fossiel",
+"pensioen"
 ]
 },
 {
@@ -7717,7 +7730,9 @@
 "tur": "uitdr",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w113",
@@ -7736,7 +7751,9 @@
 "tur": "bn",
 "subthema": "",
 "register": "informeel",
-"in_nieuws": []
+"in_nieuws": [
+"station"
+]
 },
 {
 "id": "w114",
@@ -8008,7 +8025,9 @@
 "tur": "zn",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w128",
@@ -8420,7 +8439,9 @@
 "wolf",
 "pieterburen",
 "doosjes",
-"fossiel"
+"fossiel",
+"station",
+"pensioen"
 ]
 },
 {
@@ -8773,7 +8794,9 @@
 "in_nieuws": [
 "gluten",
 "doosjes",
-"bankbiljet"
+"bankbiljet",
+"station",
+"pensioen"
 ]
 },
 {
@@ -8894,7 +8917,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"kroket"
+"kroket",
+"station"
 ]
 },
 {
@@ -9001,7 +9025,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"wolf"
+"wolf",
+"station"
 ]
 },
 {
@@ -9041,7 +9066,8 @@
 "subthema": "vergadering",
 "register": "neutraal",
 "in_nieuws": [
-"albertheijn"
+"albertheijn",
+"station"
 ]
 },
 {
@@ -9398,7 +9424,9 @@
 "tur": "sch_ww",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w198",
@@ -9946,7 +9974,8 @@
 "in_nieuws": [
 "kroket",
 "wolf",
-"pieterburen"
+"pieterburen",
+"pensioen"
 ]
 },
 {
@@ -9970,7 +9999,9 @@
 "gluten",
 "wolf",
 "pieterburen",
-"bankbiljet"
+"bankbiljet",
+"station",
+"pensioen"
 ]
 },
 {
@@ -10270,7 +10301,8 @@
 "wolf",
 "pieterburen",
 "doosjes",
-"fossiel"
+"fossiel",
+"station"
 ]
 },
 {
@@ -10844,7 +10876,9 @@
 "tur": "sch_ww",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w272",
@@ -11273,7 +11307,9 @@
 "tur": "ww",
 "subthema": "",
 "register": "formeel",
-"in_nieuws": []
+"in_nieuws": [
+"station"
+]
 },
 {
 "id": "w294",
@@ -11352,7 +11388,8 @@
 "in_nieuws": [
 "wolf",
 "draaiorgel",
-"fossiel"
+"fossiel",
+"station"
 ]
 },
 {
@@ -11583,7 +11620,9 @@
 "tur": "vaste_comb",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"station"
+]
 },
 {
 "id": "w310",
@@ -11602,7 +11641,9 @@
 "tur": "uitdr",
 "subthema": "",
 "register": "formeel",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w311",
@@ -11641,7 +11682,8 @@
 "subthema": "e-mail",
 "register": "neutraal",
 "in_nieuws": [
-"albertheijn"
+"albertheijn",
+"pensioen"
 ]
 },
 {
@@ -13068,7 +13110,9 @@
 "pieterburen",
 "draaiorgel",
 "doosjes",
-"bankbiljet"
+"bankbiljet",
+"station",
+"pensioen"
 ]
 },
 {
@@ -13265,7 +13309,8 @@
 "subthema": "",
 "register": "neutraal",
 "in_nieuws": [
-"kroket"
+"kroket",
+"pensioen"
 ]
 },
 {
@@ -13576,7 +13621,8 @@
 "in_nieuws": [
 "wolken",
 "gluten",
-"draaiorgel"
+"draaiorgel",
+"station"
 ]
 },
 {
@@ -13615,7 +13661,9 @@
 "tur": "zn",
 "subthema": "e-mail",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"station"
+]
 },
 {
 "id": "w415",
@@ -13670,7 +13718,9 @@
 "tur": "sch_ww",
 "subthema": "vergadering",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w417",
@@ -14180,7 +14230,9 @@
 "tur": "zn",
 "subthema": "",
 "register": "neutraal",
-"in_nieuws": []
+"in_nieuws": [
+"pensioen"
+]
 },
 {
 "id": "w434",
@@ -20887,6 +20939,1116 @@
 "voorbeeld": "Dinosaurussen spreken kinderen erg tot de verbeelding.",
 "voorbeeld_tr": "Dinozorlar çocukların hayal gücünü çok harekete geçirir.",
 "uitleg": "İnsanları heyecanlandıran, merak uyandıran bir şey için."
+},
+{
+"id": "n-station-w1",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "het station",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "istasyon",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "plek waar de trein stopt",
+"voorbeeld": "Ik wacht op het station.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w2",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "oud",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "eski",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "maatschappij",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "niet nieuw; al lang",
+"voorbeeld": "Het station is heel oud.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w3",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "de kelder",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "bodrum",
+"niveau": "A2",
+"groep": "3",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "ruimte onder een huis, onder de grond",
+"voorbeeld": "De fietsen staan in de kelder.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w4",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "het spoor",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "demiryolu",
+"niveau": "A2",
+"groep": "5",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "de rails waar een trein over rijdt",
+"voorbeeld": "Er komt een nieuw spoor.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w5",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "de oorlog",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "savaş",
+"niveau": "A2",
+"groep": "5",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "tijd waarin landen of groepen met wapens vechten",
+"voorbeeld": "Mijn opa vertelt over de oorlog.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w6",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "redden",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "kurtarmak",
+"niveau": "A2",
+"groep": "5",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iemand uit gevaar halen",
+"voorbeeld": "De brandweer redt de kat.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w7",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "verstoppen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "saklamak",
+"niveau": "A2",
+"groep": "3",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iets of iemand op een plek zetten waar niemand het ziet",
+"voorbeeld": "De kinderen verstoppen zich achter de boom.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w8",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "de geschiedenis",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "tarih",
+"niveau": "A2",
+"groep": "5",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "wat er vroeger gebeurd is",
+"voorbeeld": "Ik lees graag over geschiedenis.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w9",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "beschermen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "korumak",
+"niveau": "B1",
+"groep": "6",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "zorgen dat iets of iemand niets overkomt",
+"voorbeeld": "Het monument moet beschermd worden.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w10",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "het monument",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "koruma altındaki tarihi yapı",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(hier) oud gebouw dat beschermd wordt",
+"voorbeeld": "De molen is een monument.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w11",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "slopen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "yıkmak",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "een gebouw helemaal afbreken",
+"voorbeeld": "Het oude huis wordt gesloopt.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w12",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "verplaatsen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "yerini değiştirmek",
+"niveau": "B1",
+"groep": "6",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iets naar een andere plek brengen",
+"voorbeeld": "Kun je de tafel even verplaatsen?",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w13",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "opschuiven",
+"soort": "woord",
+"woordsoort": "sch ww",
+"tr": "kaydırmak, kaymak",
+"niveau": "B1",
+"groep": "5",
+"thema": "maatschappij",
+"tur": "sch_ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iets of jezelf een stukje opzij bewegen",
+"voorbeeld": "Schuif eens wat op, dan kan ik ook zitten.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w14",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "voorzichtig",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "dikkatli",
+"niveau": "B1",
+"groep": "4",
+"thema": "maatschappij",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "met aandacht, zodat er niets misgaat",
+"voorbeeld": "Doe voorzichtig met dat glas!",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w15",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "ontsnappen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "kaçmak",
+"niveau": "B1",
+"groep": "6",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "weglopen uit een plek waar je vast zit",
+"voorbeeld": "De hond is uit de tuin ontsnapt.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w16",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "de gevangene",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "mahkum, tutuklu",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iemand die vastzit (in een gevangenis of kamp)",
+"voorbeeld": "De gevangenen mochten niet naar buiten.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w17",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "behouden",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "korumak, muhafaza etmek",
+"niveau": "B2",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "bewaren, niet laten verdwijnen",
+"voorbeeld": "Het gebouw blijft behouden.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w18",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "het karwei",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "iş, angarya",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(zwaar) werk dat gedaan moet worden",
+"voorbeeld": "Verhuizen is een flink karwei.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w19",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "ongezien",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "görünmeden",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "zonder dat iemand het ziet",
+"voorbeeld": "Hij liep ongezien naar buiten.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w20",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "het erfgoed",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "kültürel miras",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "wat we van vroeger hebben gekregen en willen bewaren",
+"voorbeeld": "Oude gebouwen zijn ons erfgoed.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-w21",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "deporteren",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "sürgün etmek",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "mensen met dwang naar een andere plek brengen",
+"voorbeeld": "In de oorlog werden duizenden mensen gedeporteerd.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-station-u1",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "stukje voor stukje",
+"soort": "uitdrukking",
+"tr": "azar azar, parça parça",
+"niveau": "A2",
+"groep": "4",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Stukje voor stukje leer ik Nederlands.",
+"voorbeeld_tr": "Azar azar Hollandaca öğreniyorum.",
+"uitleg": "Bir şeyin küçük adımlarla, yavaş yavaş olması. Videoda: 'En stukje voor stukje is het station opgeschoven.'"
+},
+{
+"id": "n-station-u2",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "een lastig karwei",
+"soort": "uitdrukking",
+"tr": "zor bir iş",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "De kast in elkaar zetten was een lastig karwei.",
+"voorbeeld_tr": "Dolabı kurmak zor bir işti.",
+"uitleg": "'Het karwei' = yapılması gereken (genelde fiziksel) iş. Videoda: 'En dat was een heel lastig karwei.'"
+},
+{
+"id": "n-station-u3",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "af en aan lopen",
+"soort": "uitdrukking",
+"tr": "sürekli gidip gelmek",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Bij de bakker liepen de klanten de hele ochtend af en aan.",
+"voorbeeld_tr": "Fırında müşteriler bütün sabah gidip geldi.",
+"uitleg": "İnsanların bir yere durmadan gelip gitmesi. Videoda torun: 'De Duitse soldaten liepen af en aan.'"
+},
+{
+"id": "n-station-u4",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "met gevaar voor eigen leven",
+"soort": "uitdrukking",
+"tr": "kendi hayatını tehlikeye atarak",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "De brandweerman redde het kind met gevaar voor eigen leven.",
+"voorbeeld_tr": "İtfaiyeci kendi hayatını tehlikeye atarak çocuğu kurtardı.",
+"uitleg": "Başkasını kurtarmak için kendi hayatını riske atmak. Videoda torun dedesi için söylüyor."
+},
+{
+"id": "n-station-u5",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "van zijn plaats komen",
+"soort": "uitdrukking",
+"tr": "yerinden oynamak",
+"niveau": "B2",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Die zware kast komt niet van zijn plaats.",
+"voorbeeld_tr": "O ağır dolap yerinden oynamıyor.",
+"uitleg": "Bir şeyin bulunduğu yerden hareket etmesi. Genelde olumsuz: 'Hij komt niet van zijn plaats' = yerinden kalkmıyor."
+},
+{
+"id": "n-station-u6",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "in handen zijn van",
+"soort": "uitdrukking",
+"tr": "… elinde olmak, … kontrolünde olmak",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "vaste_comb",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Het bedrijf is al drie generaties in handen van dezelfde familie.",
+"voorbeeld_tr": "Şirket üç kuşaktır aynı ailenin elinde.",
+"uitleg": "Bir şeyin birinin kontrolünde ya da mülkiyetinde olması."
+},
+{
+"id": "n-station-u7",
+"bron": "nieuws",
+"item": "station",
+"nr": 11,
+"nl": "zij het",
+"soort": "uitdrukking",
+"tr": "gerçi, ancak, -sa da",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "klein",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Hij kwam toch, zij het een uur te laat.",
+"voorbeeld_tr": "Bir saat geç de olsa yine de geldi.",
+"uitleg": "Resmi yazı dilinde küçük bir kısıtlama eklemek için: 'Het blijft bewaard, zij het 13 meter verderop.'"
+},
+{
+"id": "n-pensioen-w1",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het geld",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "para",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "munten en biljetten waarmee je betaalt",
+"voorbeeld": "Ik spaar geld voor een fiets.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w2",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de maand",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "ay",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "deel van het jaar, ongeveer 30 dagen",
+"voorbeeld": "Ik krijg elke maand salaris.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w3",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "reizen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "seyahat etmek",
+"niveau": "A1",
+"groep": "3",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "naar andere plaatsen of landen gaan",
+"voorbeeld": "Mijn moeder reist graag.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w4",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het kleinkind",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "torun",
+"niveau": "A2",
+"groep": "4",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "kind van je zoon of dochter",
+"voorbeeld": "Oma past op haar kleinkinderen.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w5",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het pensioen",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "emekli maaşı",
+"niveau": "A2",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geld dat je krijgt als je oud bent en niet meer werkt",
+"voorbeeld": "Hij leeft van zijn pensioen.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w6",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "sparen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "biriktirmek",
+"niveau": "A2",
+"groep": "4",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geld bewaren en niet uitgeven",
+"voorbeeld": "Ik spaar voor een nieuwe auto.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w7",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de regel",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "kural",
+"niveau": "A2",
+"groep": "3",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "afspraak over wat mag en wat moet",
+"voorbeeld": "Er komen nieuwe regels.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w8",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het salaris",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "maaş",
+"niveau": "A2",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geld dat je elke maand voor je werk krijgt",
+"voorbeeld": "Mijn salaris is omhooggegaan.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w9",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het onderwijs",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "eğitim",
+"niveau": "B1",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "les geven op scholen",
+"voorbeeld": "Zij werkte veertig jaar in het onderwijs.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w10",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de uitkering",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "ödenek, yardım",
+"niveau": "B1",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geld dat je van de overheid of een fonds krijgt",
+"voorbeeld": "Hij krijgt een uitkering omdat hij ziek is.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w11",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het bedrag",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "tutar",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "hoeveelheid geld",
+"voorbeeld": "Het bedrag verschilt per persoon.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w12",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "storten",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "(para) yatırmak",
+"niveau": "B1",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geld op een rekening zetten",
+"voorbeeld": "Ik stort het geld op je rekening.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w13",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "gelden",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "geçerli olmak",
+"niveau": "B1",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "(een regel) van toepassing zijn",
+"voorbeeld": "Deze regels gelden vanaf januari.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w14",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "verschillen",
+"soort": "woord",
+"woordsoort": "ww",
+"tr": "farklı olmak",
+"niveau": "B1",
+"groep": "6",
+"thema": "maatschappij",
+"tur": "ww",
+"subthema": "",
+"register": "neutraal",
+"definitie": "niet hetzelfde zijn",
+"voorbeeld": "De prijzen verschillen per winkel.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w15",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de vrijwilliger",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "gönüllü",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iemand die werkt zonder geld te krijgen",
+"voorbeeld": "De vrijwilligers helpen in het museum.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w16",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de gepensioneerde",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "emekli",
+"niveau": "B2",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iemand die met pensioen is",
+"voorbeeld": "Veel gepensioneerden reizen graag.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w17",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het pensioenfonds",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "emeklilik fonu",
+"niveau": "B2",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "organisatie die geld spaart en betaalt voor pensioenen",
+"voorbeeld": "Mijn werkgever betaalt aan een pensioenfonds.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w18",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de reserve",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "yedek",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "geld of iets anders dat je bewaart voor later",
+"voorbeeld": "Het fonds had een grote reserve.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w19",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "eenmalig",
+"soort": "woord",
+"woordsoort": "bn",
+"tr": "bir kereye mahsus",
+"niveau": "B2",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "bn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "maar één keer",
+"voorbeeld": "Je krijgt een eenmalige extra betaling.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w20",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "de voorwaarde",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "şart",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "iets wat eerst moet, voordat iets anders kan",
+"voorbeeld": "Een voorwaarde is dat je lid bent.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-w21",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het stelsel",
+"soort": "woord",
+"woordsoort": "zn",
+"tr": "sistem",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"definitie": "systeem van regels",
+"voorbeeld": "Het nieuwe pensioenstelsel begint in januari.",
+"voorbeeld_tr": "",
+"uitleg": ""
+},
+{
+"id": "n-pensioen-u1",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "met pensioen gaan",
+"soort": "uitdrukking",
+"tr": "emekli olmak",
+"niveau": "A2",
+"groep": "5",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Mijn vader gaat volgend jaar met pensioen.",
+"voorbeeld_tr": "Babam gelecek yıl emekli oluyor.",
+"uitleg": "Çalışmayı bırakıp emekli maaşı almaya başlamak. Videoda: 'In Nederland ga je nu op je 67e met pensioen.' 'Met pensioen zijn' = emekli olmak (durum)."
+},
+{
+"id": "n-pensioen-u2",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "dat komt door …",
+"soort": "uitdrukking",
+"tr": "bunun sebebi …",
+"niveau": "A2",
+"groep": "4",
+"thema": "maatschappij",
+"tur": "vaste_comb",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Ik ben moe. Dat komt door de drukke week.",
+"voorbeeld_tr": "Yorgunum. Bunun sebebi yoğun hafta.",
+"uitleg": "Bir şeyin sebebini söylemek için. Videoda: 'Dat komt door nieuwe regels.'"
+},
+{
+"id": "n-pensioen-u3",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "geld apart zetten",
+"soort": "uitdrukking",
+"tr": "para ayırmak, kenara koymak",
+"niveau": "B1",
+"groep": "7",
+"thema": "maatschappij",
+"tur": "vaste_comb",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Elke maand zet ik vijftig euro apart voor de vakantie.",
+"voorbeeld_tr": "Her ay tatil için elli euro ayırıyorum.",
+"uitleg": "Paranın bir kısmını sonra kullanmak için ayırmak. Videoda: 'wordt een bedrag van het salaris apart gezet'."
+},
+{
+"id": "n-pensioen-u4",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "het geld gaat op aan …",
+"soort": "uitdrukking",
+"tr": "para … için harcanıp gidiyor",
+"niveau": "B1",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Mijn hele salaris gaat op aan huur en boodschappen.",
+"voorbeeld_tr": "Bütün maaşım kira ve alışverişe gidiyor.",
+"uitleg": "'Opgaan aan' = paranın bir şeye harcanması. Videoda: 'Het gaat dan op aan extra dingetjes.'"
+},
+{
+"id": "n-pensioen-u5",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "op stap gaan",
+"soort": "uitdrukking",
+"tr": "gezmeye çıkmak, dışarı çıkmak",
+"niveau": "B1",
+"groep": "6",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Zaterdag gaan we met de kinderen op stap.",
+"voorbeeld_tr": "Cumartesi çocuklarla gezmeye çıkıyoruz.",
+"uitleg": "Eğlenmek için evden çıkmak (yürüyüş, kafe, gezi). Videoda: 'vaker nog met mijn man op stap'."
+},
+{
+"id": "n-pensioen-u6",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "een meevaller",
+"soort": "uitdrukking",
+"tr": "beklenmedik iyi şey, şans",
+"niveau": "B2",
+"groep": "8",
+"thema": "maatschappij",
+"tur": "zn",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "De belastingteruggave was een mooie meevaller.",
+"voorbeeld_tr": "Vergi iadesi güzel bir sürpriz oldu.",
+"uitleg": "Beklenenden daha iyi olan bir şey, özellikle para. Tersi: 'een tegenvaller'."
+},
+{
+"id": "n-pensioen-u7",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "iets achter de hand houden",
+"soort": "uitdrukking",
+"tr": "bir şeyi yedekte tutmak",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "Het is verstandig om wat geld achter de hand te houden.",
+"voorbeeld_tr": "Biraz parayı yedekte tutmak akıllıca.",
+"uitleg": "Gerektiğinde kullanmak için bir şeyi (para, plan) saklamak. Videodaki 'als reserve bewaard' ile aynı anlam."
+},
+{
+"id": "n-pensioen-u8",
+"bron": "nieuws",
+"item": "pensioen",
+"nr": 12,
+"nl": "korte metten maken met",
+"soort": "uitdrukking",
+"tr": "… a kesin son vermek",
+"niveau": "C1",
+"groep": "vo",
+"thema": "maatschappij",
+"tur": "uitdr",
+"subthema": "",
+"register": "neutraal",
+"voorbeeld": "De nieuwe directeur maakte korte metten met de oude regels.",
+"voorbeeld_tr": "Yeni müdür eski kurallara kesin bir son verdi.",
+"uitleg": "Bir şeyi hızlı ve kararlı şekilde ortadan kaldırmak."
 }
 ]
 }
