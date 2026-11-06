@@ -1,0 +1,1490 @@
+{
+ "_about": "Bağlantılar (verbanden) groups. d = difficulty 1-4 (one group of each per day), k = kinds (groups sharing a kind never meet), x = kinds a group must not meet, r = checkable rule (het, je, ui, ij, oo, len3). nl = word with article for nouns (only the bare word is shown), tr = Turkish meaning. Changing this file changes the daily puzzles: only do it between days.",
+ "groups": [
+  {
+   "d": 1,
+   "t": "Meyveler",
+   "k": [
+    "eten"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de appel",
+     "tr": "elma"
+    },
+    {
+     "nl": "de peer",
+     "tr": "armut"
+    },
+    {
+     "nl": "de banaan",
+     "tr": "muz"
+    },
+    {
+     "nl": "de druif",
+     "tr": "üzüm"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Renkler",
+   "k": [
+    "kleur"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "rood",
+     "tr": "kırmızı"
+    },
+    {
+     "nl": "blauw",
+     "tr": "mavi"
+    },
+    {
+     "nl": "geel",
+     "tr": "sarı"
+    },
+    {
+     "nl": "groen",
+     "tr": "yeşil"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Evcil hayvanlar",
+   "k": [
+    "dier"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de hond",
+     "tr": "köpek"
+    },
+    {
+     "nl": "de kat",
+     "tr": "kedi"
+    },
+    {
+     "nl": "het konijn",
+     "tr": "tavşan"
+    },
+    {
+     "nl": "de cavia",
+     "tr": "kobay"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Çiftlik hayvanları",
+   "k": [
+    "dier"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de koe",
+     "tr": "inek"
+    },
+    {
+     "nl": "het varken",
+     "tr": "domuz"
+    },
+    {
+     "nl": "het schaap",
+     "tr": "koyun"
+    },
+    {
+     "nl": "de geit",
+     "tr": "keçi"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Taşıtlar",
+   "k": [
+    "vervoer"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de fiets",
+     "tr": "bisiklet"
+    },
+    {
+     "nl": "de trein",
+     "tr": "tren"
+    },
+    {
+     "nl": "de bus",
+     "tr": "otobüs"
+    },
+    {
+     "nl": "de auto",
+     "tr": "araba"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Aile",
+   "k": [
+    "mens"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de moeder",
+     "tr": "anne"
+    },
+    {
+     "nl": "de vader",
+     "tr": "baba"
+    },
+    {
+     "nl": "de broer",
+     "tr": "erkek kardeş"
+    },
+    {
+     "nl": "de zus",
+     "tr": "kız kardeş"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Sayılar",
+   "k": [
+    "getal"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "twee",
+     "tr": "iki"
+    },
+    {
+     "nl": "vijf",
+     "tr": "beş"
+    },
+    {
+     "nl": "acht",
+     "tr": "sekiz"
+    },
+    {
+     "nl": "tien",
+     "tr": "on"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Haftanın günleri",
+   "k": [
+    "tijd"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "maandag",
+     "tr": "pazartesi"
+    },
+    {
+     "nl": "dinsdag",
+     "tr": "salı"
+    },
+    {
+     "nl": "vrijdag",
+     "tr": "cuma"
+    },
+    {
+     "nl": "zondag",
+     "tr": "pazar"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Mevsimler",
+   "k": [
+    "tijd"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de lente",
+     "tr": "ilkbahar"
+    },
+    {
+     "nl": "de zomer",
+     "tr": "yaz"
+    },
+    {
+     "nl": "de herfst",
+     "tr": "sonbahar"
+    },
+    {
+     "nl": "de winter",
+     "tr": "kış"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "İçecekler",
+   "k": [
+    "eten"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de melk",
+     "tr": "süt"
+    },
+    {
+     "nl": "de thee",
+     "tr": "çay"
+    },
+    {
+     "nl": "de koffie",
+     "tr": "kahve"
+    },
+    {
+     "nl": "het sap",
+     "tr": "meyve suyu"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Mobilya",
+   "k": [
+    "huis"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de stoel",
+     "tr": "sandalye"
+    },
+    {
+     "nl": "de tafel",
+     "tr": "masa"
+    },
+    {
+     "nl": "de kast",
+     "tr": "dolap"
+    },
+    {
+     "nl": "het bed",
+     "tr": "yatak"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Giysiler",
+   "k": [
+    "kleding"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de jas",
+     "tr": "mont"
+    },
+    {
+     "nl": "de broek",
+     "tr": "pantolon"
+    },
+    {
+     "nl": "de trui",
+     "tr": "kazak"
+    },
+    {
+     "nl": "de rok",
+     "tr": "etek"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Hava durumu",
+   "k": [
+    "natuur"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de regen",
+     "tr": "yağmur"
+    },
+    {
+     "nl": "de zon",
+     "tr": "güneş"
+    },
+    {
+     "nl": "de wind",
+     "tr": "rüzgâr"
+    },
+    {
+     "nl": "de sneeuw",
+     "tr": "kar"
+    }
+   ]
+  },
+  {
+   "d": 1,
+   "t": "Vücut",
+   "k": [
+    "lichaam"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de arm",
+     "tr": "kol"
+    },
+    {
+     "nl": "het been",
+     "tr": "bacak"
+    },
+    {
+     "nl": "de neus",
+     "tr": "burun"
+    },
+    {
+     "nl": "de knie",
+     "tr": "diz"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Yüzümüzde",
+   "k": [
+    "lichaam"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "het oog",
+     "tr": "göz"
+    },
+    {
+     "nl": "het oor",
+     "tr": "kulak"
+    },
+    {
+     "nl": "de mond",
+     "tr": "ağız"
+    },
+    {
+     "nl": "de wang",
+     "tr": "yanak"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Sebzeler",
+   "k": [
+    "eten"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de wortel",
+     "tr": "havuç"
+    },
+    {
+     "nl": "de ui",
+     "tr": "soğan"
+    },
+    {
+     "nl": "de tomaat",
+     "tr": "domates"
+    },
+    {
+     "nl": "de paprika",
+     "tr": "biber"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Kuşlar",
+   "k": [
+    "dier"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de eend",
+     "tr": "ördek"
+    },
+    {
+     "nl": "de uil",
+     "tr": "baykuş"
+    },
+    {
+     "nl": "de meeuw",
+     "tr": "martı"
+    },
+    {
+     "nl": "de kip",
+     "tr": "tavuk"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Denizde yaşar",
+   "k": [
+    "dier"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de vis",
+     "tr": "balık"
+    },
+    {
+     "nl": "de walvis",
+     "tr": "balina"
+    },
+    {
+     "nl": "de krab",
+     "tr": "yengeç"
+    },
+    {
+     "nl": "de haai",
+     "tr": "köpekbalığı"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Böcekler",
+   "k": [
+    "dier"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de mier",
+     "tr": "karınca"
+    },
+    {
+     "nl": "de bij",
+     "tr": "arı"
+    },
+    {
+     "nl": "de vlinder",
+     "tr": "kelebek"
+    },
+    {
+     "nl": "de spin",
+     "tr": "örümcek"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Mutfakta",
+   "k": [
+    "huis"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de pan",
+     "tr": "tava"
+    },
+    {
+     "nl": "de lepel",
+     "tr": "kaşık"
+    },
+    {
+     "nl": "de vork",
+     "tr": "çatal"
+    },
+    {
+     "nl": "het mes",
+     "tr": "bıçak"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Aletler",
+   "k": [
+    "gereedschap"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de hamer",
+     "tr": "çekiç"
+    },
+    {
+     "nl": "de zaag",
+     "tr": "testere"
+    },
+    {
+     "nl": "de schroef",
+     "tr": "vida"
+    },
+    {
+     "nl": "de spijker",
+     "tr": "çivi"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Okul çantasında",
+   "k": [
+    "school"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "het schrift",
+     "tr": "defter"
+    },
+    {
+     "nl": "de pen",
+     "tr": "tükenmez kalem"
+    },
+    {
+     "nl": "de gum",
+     "tr": "silgi"
+    },
+    {
+     "nl": "de liniaal",
+     "tr": "cetvel"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Meslekler",
+   "k": [
+    "mens"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de dokter",
+     "tr": "doktor"
+    },
+    {
+     "nl": "de bakker",
+     "tr": "fırıncı"
+    },
+    {
+     "nl": "de juf",
+     "tr": "öğretmen (kadın)"
+    },
+    {
+     "nl": "de kapper",
+     "tr": "kuaför"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Sporlar",
+   "k": [
+    "spel"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "voetbal",
+     "tr": "futbol"
+    },
+    {
+     "nl": "tennis",
+     "tr": "tenis"
+    },
+    {
+     "nl": "hockey",
+     "tr": "hokey"
+    },
+    {
+     "nl": "judo",
+     "tr": "judo"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Müzik aletleri",
+   "k": [
+    "spel"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de gitaar",
+     "tr": "gitar"
+    },
+    {
+     "nl": "de piano",
+     "tr": "piyano"
+    },
+    {
+     "nl": "de trommel",
+     "tr": "davul"
+    },
+    {
+     "nl": "de fluit",
+     "tr": "flüt"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Kahvaltıda",
+   "k": [
+    "eten"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "het brood",
+     "tr": "ekmek"
+    },
+    {
+     "nl": "de kaas",
+     "tr": "peynir"
+    },
+    {
+     "nl": "het ei",
+     "tr": "yumurta"
+    },
+    {
+     "nl": "de boter",
+     "tr": "tereyağı"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Evin odaları",
+   "k": [
+    "huis"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de keuken",
+     "tr": "mutfak"
+    },
+    {
+     "nl": "de badkamer",
+     "tr": "banyo"
+    },
+    {
+     "nl": "de slaapkamer",
+     "tr": "yatak odası"
+    },
+    {
+     "nl": "de zolder",
+     "tr": "çatı katı"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Evin parçaları",
+   "k": [
+    "huis"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de deur",
+     "tr": "kapı"
+    },
+    {
+     "nl": "het raam",
+     "tr": "pencere"
+    },
+    {
+     "nl": "het dak",
+     "tr": "çatı"
+    },
+    {
+     "nl": "de muur",
+     "tr": "duvar"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Bahçede büyür",
+   "k": [
+    "natuur"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de boom",
+     "tr": "ağaç"
+    },
+    {
+     "nl": "de bloem",
+     "tr": "çiçek"
+    },
+    {
+     "nl": "het gras",
+     "tr": "çim"
+    },
+    {
+     "nl": "de struik",
+     "tr": "çalı"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Duygular",
+   "k": [
+    "sifat"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "blij",
+     "tr": "mutlu"
+    },
+    {
+     "nl": "boos",
+     "tr": "kızgın"
+    },
+    {
+     "nl": "bang",
+     "tr": "korkmuş"
+    },
+    {
+     "nl": "verdrietig",
+     "tr": "üzgün"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Boyut",
+   "k": [
+    "sifat"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "groot",
+     "tr": "büyük"
+    },
+    {
+     "nl": "klein",
+     "tr": "küçük"
+    },
+    {
+     "nl": "lang",
+     "tr": "uzun"
+    },
+    {
+     "nl": "kort",
+     "tr": "kısa"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Yönler",
+   "k": [
+    "plaats"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "links",
+     "tr": "sol"
+    },
+    {
+     "nl": "rechts",
+     "tr": "sağ"
+    },
+    {
+     "nl": "boven",
+     "tr": "yukarı"
+    },
+    {
+     "nl": "onder",
+     "tr": "aşağı"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Hollanda şehirleri",
+   "k": [
+    "plaats"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "Leiden",
+     "tr": "Leiden (şehir)"
+    },
+    {
+     "nl": "Utrecht",
+     "tr": "Utrecht (şehir)"
+    },
+    {
+     "nl": "Delft",
+     "tr": "Delft (şehir)"
+    },
+    {
+     "nl": "Haarlem",
+     "tr": "Haarlem (şehir)"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Ülkeler",
+   "k": [
+    "plaats"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "Turkije",
+     "tr": "Türkiye"
+    },
+    {
+     "nl": "Duitsland",
+     "tr": "Almanya"
+    },
+    {
+     "nl": "Frankrijk",
+     "tr": "Fransa"
+    },
+    {
+     "nl": "België",
+     "tr": "Belçika"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Tatlılar",
+   "k": [
+    "eten"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de taart",
+     "tr": "pasta"
+    },
+    {
+     "nl": "het koekje",
+     "tr": "kurabiye"
+    },
+    {
+     "nl": "het ijsje",
+     "tr": "dondurma"
+    },
+    {
+     "nl": "de drop",
+     "tr": "meyankökü şekeri"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Aylar",
+   "k": [
+    "tijd"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "januari",
+     "tr": "ocak"
+    },
+    {
+     "nl": "maart",
+     "tr": "mart"
+    },
+    {
+     "nl": "juli",
+     "tr": "temmuz"
+    },
+    {
+     "nl": "oktober",
+     "tr": "ekim"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Sinterklaas",
+   "k": [
+    "feest"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de pepernoot",
+     "tr": "pepernoot kurabiyesi"
+    },
+    {
+     "nl": "de mijter",
+     "tr": "piskopos başlığı"
+    },
+    {
+     "nl": "de staf",
+     "tr": "asa"
+    },
+    {
+     "nl": "de stoomboot",
+     "tr": "buharlı gemi"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Doğum günü",
+   "k": [
+    "feest"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "het cadeau",
+     "tr": "hediye"
+    },
+    {
+     "nl": "de ballon",
+     "tr": "balon"
+    },
+    {
+     "nl": "de slinger",
+     "tr": "süs zinciri"
+    },
+    {
+     "nl": "de kaars",
+     "tr": "mum"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Plajda",
+   "k": [
+    "natuur"
+   ],
+   "x": [
+    "dier"
+   ],
+   "w": [
+    {
+     "nl": "het strand",
+     "tr": "plaj"
+    },
+    {
+     "nl": "het zand",
+     "tr": "kum"
+    },
+    {
+     "nl": "de schelp",
+     "tr": "deniz kabuğu"
+    },
+    {
+     "nl": "de parasol",
+     "tr": "güneş şemsiyesi"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Zaman birimleri",
+   "k": [
+    "tijd"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de seconde",
+     "tr": "saniye"
+    },
+    {
+     "nl": "de minuut",
+     "tr": "dakika"
+    },
+    {
+     "nl": "het uur",
+     "tr": "saat"
+    },
+    {
+     "nl": "de week",
+     "tr": "hafta"
+    }
+   ]
+  },
+  {
+   "d": 2,
+   "t": "Şekiller",
+   "k": [
+    "vorm"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "de cirkel",
+     "tr": "daire"
+    },
+    {
+     "nl": "het vierkant",
+     "tr": "kare"
+    },
+    {
+     "nl": "de driehoek",
+     "tr": "üçgen"
+    },
+    {
+     "nl": "de ster",
+     "tr": "yıldız"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Hareket fiilleri",
+   "k": [
+    "werkwoord"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "lopen",
+     "tr": "yürümek"
+    },
+    {
+     "nl": "rennen",
+     "tr": "koşmak"
+    },
+    {
+     "nl": "springen",
+     "tr": "zıplamak"
+    },
+    {
+     "nl": "zwemmen",
+     "tr": "yüzmek"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Mutfak fiilleri",
+   "k": [
+    "werkwoord"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "koken",
+     "tr": "yemek pişirmek"
+    },
+    {
+     "nl": "bakken",
+     "tr": "fırında pişirmek"
+    },
+    {
+     "nl": "snijden",
+     "tr": "kesmek"
+    },
+    {
+     "nl": "roeren",
+     "tr": "karıştırmak"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Okulda yapılır",
+   "k": [
+    "werkwoord",
+    "school"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "lezen",
+     "tr": "okumak"
+    },
+    {
+     "nl": "schrijven",
+     "tr": "yazmak"
+    },
+    {
+     "nl": "rekenen",
+     "tr": "hesap yapmak"
+    },
+    {
+     "nl": "tekenen",
+     "tr": "resim çizmek"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Hayvan sesleri",
+   "k": [
+    "werkwoord"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "blaffen",
+     "tr": "havlamak"
+    },
+    {
+     "nl": "miauwen",
+     "tr": "miyavlamak"
+    },
+    {
+     "nl": "loeien",
+     "tr": "böğürmek"
+    },
+    {
+     "nl": "kwaken",
+     "tr": "vaklamak"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Ayrılabilen fiiller",
+   "k": [
+    "werkwoord"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "opstaan",
+     "tr": "kalkmak"
+    },
+    {
+     "nl": "opbellen",
+     "tr": "telefonla aramak"
+    },
+    {
+     "nl": "meedoen",
+     "tr": "katılmak"
+    },
+    {
+     "nl": "afwassen",
+     "tr": "bulaşık yıkamak"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Düzensiz geçmiş zaman",
+   "k": [
+    "werkwoord"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "liep",
+     "tr": "yürüdü (lopen)"
+    },
+    {
+     "nl": "at",
+     "tr": "yedi (eten)"
+    },
+    {
+     "nl": "zag",
+     "tr": "gördü (zien)"
+    },
+    {
+     "nl": "ging",
+     "tr": "gitti (gaan)"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Soru kelimeleri",
+   "k": [
+    "taal"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "wie",
+     "tr": "kim"
+    },
+    {
+     "nl": "wat",
+     "tr": "ne"
+    },
+    {
+     "nl": "waar",
+     "tr": "nerede"
+    },
+    {
+     "nl": "waarom",
+     "tr": "neden"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Zamirler",
+   "k": [
+    "taal"
+   ],
+   "x": [],
+   "w": [
+    {
+     "nl": "ik",
+     "tr": "ben"
+    },
+    {
+     "nl": "jij",
+     "tr": "sen"
+    },
+    {
+     "nl": "wij",
+     "tr": "biz"
+    },
+    {
+     "nl": "zij",
+     "tr": "o / onlar"
+    }
+   ]
+  },
+  {
+   "d": 3,
+   "t": "Selamlaşma",
+   "k": [
+    "taal"
+   ],
+   "x": [
+    "tijd"
+   ],
+   "w": [
+    {
+     "nl": "hallo",
+     "tr": "merhaba"
+    },
+    {
+     "nl": "doei",
+     "tr": "bay bay"
+    },
+    {
+     "nl": "dag",
+     "tr": "hoşça kal"
+    },
+    {
+     "nl": "hoi",
+     "tr": "selam"
+    }
+   ]
+  },
+  {
+   "d": 4,
+   "t": "'het' alan kelimeler",
+   "k": [
+    "r"
+   ],
+   "x": [
+    "tijd",
+    "mens"
+   ],
+   "r": "het",
+   "w": [
+    {
+     "nl": "het geld",
+     "tr": "para"
+    },
+    {
+     "nl": "het werk",
+     "tr": "iş"
+    },
+    {
+     "nl": "het jaar",
+     "tr": "yıl"
+    },
+    {
+     "nl": "het meisje",
+     "tr": "kız çocuk"
+    }
+   ]
+  },
+  {
+   "d": 4,
+   "t": "-je ile biten küçültmeler",
+   "k": [
+    "r"
+   ],
+   "x": [
+    "huis",
+    "eten"
+   ],
+   "r": "je",
+   "w": [
+    {
+     "nl": "het kopje",
+     "tr": "fincan"
+    },
+    {
+     "nl": "het mandje",
+     "tr": "küçük sepet"
+    },
+    {
+     "nl": "het potje",
+     "tr": "küçük kavanoz"
+    },
+    {
+     "nl": "het zakje",
+     "tr": "küçük poşet"
+    }
+   ]
+  },
+  {
+   "d": 4,
+   "t": "İçinde 'ui' var",
+   "k": [
+    "r"
+   ],
+   "x": [
+    "lichaam",
+    "dier",
+    "natuur"
+   ],
+   "r": "ui",
+   "w": [
+    {
+     "nl": "de muis",
+     "tr": "fare"
+    },
+    {
+     "nl": "de buik",
+     "tr": "karın"
+    },
+    {
+     "nl": "de duim",
+     "tr": "başparmak"
+    },
+    {
+     "nl": "de tuin",
+     "tr": "bahçe"
+    }
+   ]
+  },
+  {
+   "d": 4,
+   "t": "İçinde 'ij' var",
+   "k": [
+    "r"
+   ],
+   "x": [
+    "tijd",
+    "eten"
+   ],
+   "r": "ij",
+   "w": [
+    {
+     "nl": "de tijd",
+     "tr": "zaman"
+    },
+    {
+     "nl": "het ijs",
+     "tr": "buz, dondurma"
+    },
+    {
+     "nl": "de prijs",
+     "tr": "fiyat"
+    },
+    {
+     "nl": "de lijn",
+     "tr": "çizgi"
+    }
+   ]
+  },
+  {
+   "d": 4,
+   "t": "İçinde 'oo' var",
+   "k": [
+    "r"
+   ],
+   "x": [
+    "eten"
+   ],
+   "r": "oo",
+   "w": [
+    {
+     "nl": "de droom",
+     "tr": "rüya"
+    },
+    {
+     "nl": "de hoop",
+     "tr": "umut"
+    },
+    {
+     "nl": "de boog",
+     "tr": "kemer, yay"
+    },
+    {
+     "nl": "de room",
+     "tr": "krema"
+    }
+   ]
+  },
+  {
+   "d": 4,
+   "t": "Hepsi 3 harfli",
+   "k": [
+    "r"
+   ],
+   "x": [
+    "spel",
+    "huis"
+   ],
+   "r": "len3",
+   "w": [
+    {
+     "nl": "de bal",
+     "tr": "top"
+    },
+    {
+     "nl": "het pad",
+     "tr": "patika"
+    },
+    {
+     "nl": "de mok",
+     "tr": "kupa"
+    },
+    {
+     "nl": "de dam",
+     "tr": "baraj"
+    }
+   ]
+  }
+ ]
+}
