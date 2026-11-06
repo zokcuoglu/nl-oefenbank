@@ -70,7 +70,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
         <div class="clues">
           <h3>Yatay →</h3><ol data-r="cluesH"></ol>
           <h3>Dikey ↓</h3><ol data-r="cluesV"></ol>
-          <div class="tools"><button class="bt" data-r="hint">İpucu (1 harf)</button><button class="bt" data-r="stop">← Geri</button></div>
+          <div class="tools"><button class="bt" data-r="hint">İpucu</button><button class="bt" data-r="stop">← Geri</button></div>
         </div>
       </div>
       <input class="kbd" data-r="kbd" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="harf yaz">
@@ -161,6 +161,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     $("cluesV").innerHTML = P.words.map((x, k) => x.dir === "V" ? li(x, k) : "").join("");
     root.querySelectorAll(".clues li").forEach(el => el.onclick = () => { S.word = Number(el.dataset.k); S.cell = firstOpen(S.word); draw(); focusKbd(); });
     show("play");
+    hintLabel();
     draw();
     focusKbd();
   }
@@ -262,13 +263,20 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     else if (document.activeElement !== $("kbd") && /^[a-zA-Z]$/.test(e.key)) { type(e.key.toUpperCase()); focusKbd(); }
   });
   // Hint: fills one letter (the selected cell if wrong/empty, else the first wrong cell of the word, else anywhere)
+  // At most 3 hint letters per puzzle: with unlimited hints the daily puzzle (and the ranking) means nothing
+  const MAX_HINTS = 3;
+  function hintLabel() {
+    const left = Math.max(0, MAX_HINTS - S.hinted.size);
+    $("hint").textContent = `İpucu (${left} kaldı)`;
+    $("hint").disabled = left === 0;
+  }
   $("hint").onclick = () => {
-    if (!S || S.done) return;
+    if (!S || S.done || S.hinted.size >= MAX_HINTS) return;
     const wrong = i => S.grid[i] !== S.P.solution[i];
     let i = wrong(S.cell) ? S.cell : S.P.words[S.word].cells.find(wrong);
     if (i === undefined) i = S.P.solution.findIndex((ch, j) => ch && wrong(j));
     if (i < 0) return;
-    S.grid[i] = S.P.solution[i]; S.hinted.add(i); S.cell = i;
+    S.grid[i] = S.P.solution[i]; S.hinted.add(i); S.cell = i; hintLabel();
     afterChange(); focusKbd();
   };
   $("stop").onclick = () => { saveProgress(); clearInterval(S.timer); show("setup"); drawSetup(); };
