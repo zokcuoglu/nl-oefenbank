@@ -110,7 +110,9 @@ try {
 } catch (e) { console.warn("nieuws_sent", e); }
 S.attempts = await loadAttempts(user.uid, "nieuws").catch(() => []);
 
-// Before the first mail goes out everything is visible; after that only mailed items (admins see all)
+// Before the first mail goes out everything is visible; after that only mailed items.
+// Admins see every item by default (also the ones not mailed yet); the button switches to the member view.
+S.showAll = isAdmin(profile);
 const published = id => !S.sent.length || S.showAll || S.sent.some(x => x.item_id === id);
 const sentDate = id => S.sent.find(x => x.item_id === id)?.date;
 const best = test => S.attempts.filter(a => a.test === test).reduce((b, a) => Math.max(b, a.total ? a.score / a.total : 0), -1);
@@ -123,7 +125,7 @@ function vList() {
   const row = item => `<a class="newsrow" href="?id=${encodeURIComponent(item.id)}">
       ${item.afbeelding_url ? `<img src="${esc(item.afbeelding_url)}" alt="" loading="lazy">` : "<span></span>"}
       <span style="min-width:0"><span class="muted num" style="font-family:var(--mono);font-size:12px">#${item.nr}</span> <b lang="nl">${esc(item.titel)}</b><br>
-        <span class="muted" style="font-size:13px">${esc(item.bron || "")} · video ${esc(item.niveau_video || "")}${sentDate(item.id) ? " · " + esc(fmtDate(sentDate(item.id))) : ""}</span></span>
+        <span class="muted" style="font-size:13px">${esc(item.bron || "")} · video ${esc(item.niveau_video || "")}${sentDate(item.id) ? " · " + esc(fmtDate(sentDate(item.id))) : S.sent.length ? ' · <span class="chip warn">henüz yayınlanmadı</span>' : ""}</span></span>
       ${scoreChips(S.attempts, item.id)}</a>`;
   // A mixed test sits right under the newest item it covers and opens when that item is published
   const toets = t => { const b = best(t.id);
@@ -137,7 +139,7 @@ function vList() {
       <p class="muted" style="margin:6px 0 12px;max-width:62ch">Kısa bir video, aynı haber A0'dan C1'e altı seviyede, günlük deyimler, kelimeler, gramer ve quiz. 3. haberden itibaren her yeni haberle birlikte, o ana kadarki bütün haberleri kapsayan bir karma sınav açılır.</p>
       <a class="btn primary" style="text-decoration:none" href="?id=${encodeURIComponent(latest.id)}">Habere git</a></section>` : ""}
     <section class="panel"><div class="sectionhead"><h3>Haberler</h3>
-      ${S.sent.length && isAdmin(profile) ? `<button class="btn ghost" data-act="all">${S.showAll ? "Sadece yayınlananlar" : "Tümünü göster (admin)"}</button>` : ""}</div>
+      ${S.sent.length && isAdmin(profile) ? `<button class="btn ghost" data-act="all">${S.showAll ? "Üye görünümü" : "Tümünü göster (admin)"}</button>` : ""}</div>
       ${visible.map(i => row(i) + toetsAfter(i)).join("") || `<p class="muted">Henüz yayınlanan haber yok.</p>`}
       <p class="muted" style="font-size:13px;margin:10px 0 0">Renkli etiketler: quiz'i hangi seviyeye kadar çözdüğün ve en iyi sonucun. Bir hafta tekrar etmezsen puan yavaş yavaş düşer (↻, kesikli çerçeve; 30 günde yarıya iner). Tekrar çözünce yeniden yükselir.</p></section>`;
 }
