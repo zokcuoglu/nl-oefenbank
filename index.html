@@ -141,7 +141,7 @@ const GAMES = [
   { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
   { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
   { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js?v=2")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
-  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=2")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
+  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=3")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
   { id: "verbanden", title: "Bağlantılar", load: async box => (await import("./oyunlar/verbanden.js")).mountVerbanden(box, { user, profile, api, shareUrl: gameUrl("verbanden") }) },
 ];
 document.getElementById("gamenav").innerHTML = GAMES.map(g => `<button role="tab" data-game="${g.id}" aria-selected="false">${g.title}</button>`).join("");
