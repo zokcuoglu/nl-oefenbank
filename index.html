@@ -95,9 +95,14 @@ function card(m) {
 }
 
 function kidsSection() {
-  const groups = Object.keys(cat.groups);
-  // A child's own groep comes first
-  if (profile.groep && groups.includes(profile.groep)) groups.sort((a, b) => (b === profile.groep) - (a === profile.groep));
+  let groups = Object.keys(cat.groups);
+  // A child account sees only its own groep; without a groep it sees none and is told to ask the admin
+  if (profile.type === "child") {
+    groups = groups.filter(g => g === profile.groep);
+    if (!groups.length) return `<div class="notice">Grubun henüz ayarlanmamış. Yöneticiden profiline grubunu eklemesini iste.</div>`;
+  }
+  // Adults: their own groep (if set) comes first
+  else if (profile.groep && groups.includes(profile.groep)) groups.sort((a, b) => (b === profile.groep) - (a === profile.groep));
   return groups.map(g => {
     const ms = cat.modules.filter(m => m.area === "kids" && m.group === g);
     return `<section><div class="area-head"><h3>${esc(cat.groups[g])}${g === profile.groep ? ` <span class="chip accent">senin grubun</span>` : ""}</h3></div>
@@ -156,7 +161,9 @@ async function showGame(id) {
   catch (e) { mounted[id] = false; box.innerHTML = `<div class="notice">Oyun yüklenemedi: ${esc(e.message)}</div>`; }
 }
 // "#oyunlar" = games tab; "#oyunlar/<id>" = games tab with that game open (links in shared results)
-const hashTab = () => location.hash.startsWith("#oyunlar") ? "oyunlar" : "calisma";
+const noGames = profile.type === "child";
+if (noGames) document.querySelector(".hometabs").hidden = true;
+const hashTab = () => !noGames && location.hash.startsWith("#oyunlar") ? "oyunlar" : "calisma";
 const hashGame = () => location.hash.startsWith("#oyunlar/") ? decodeURIComponent(location.hash.slice(9)) : "";
 function showTab(tab) {
   document.querySelectorAll(".hometabs .tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
