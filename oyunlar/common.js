@@ -1,4 +1,4 @@
-// Shared parts of the daily games in the "Günün oyunları" tab (de/het, werkwoorden, kruiswoord NT2, verbanden):
+// Shared parts of the daily games in the "Günün oyunları" tab (de/het, werkwoorden, kruiswoord NT2, verbanden, voorzetsels, er + edat):
 // today's date, the daily pick, saving results for the rankings, the ranking and statistics boxes, and styles.
 // Only imports `db` from core.js (an old name), so an older cached core.js cannot break the page.
 import { db } from "../js/core.js";
@@ -28,11 +28,12 @@ export function dropOldProgress(game) {
 }
 
 // ---------- Results for the rankings (firestore.rules: dagspel_plays) ----------
-export function savePlay(user, profile, { game, level, day, score, total, time_s }) {
+// wrong (optional): ids of the questions this person got wrong, so the next day can bring back the most missed ones
+export function savePlay(user, profile, { game, level, day, score, total, time_s, wrong }) {
   const name = (profile.name || user.displayName || "?").trim().split(/\s+/)[0];
   return setDoc(doc(db, "dagspel_plays", `${game}-${level}-${day}-${user.uid}`), {
     uid: user.uid, name: name.slice(0, 40), game, level, day, score: Math.round(score), total: Math.round(total),
-    time_s: Math.max(0, Math.round(time_s)), at: new Date().toISOString()
+    time_s: Math.max(0, Math.round(time_s)), at: new Date().toISOString(), ...(wrong ? { wrong: wrong.slice(0, 20) } : {})
   });
 }
 export async function loadPlays(game, fromDay) {

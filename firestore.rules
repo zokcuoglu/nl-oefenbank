@@ -19,7 +19,8 @@ rules_version = '2';
 // woordle_plays/{lang-level-day-uid} : Woordle result of one person for one day's word (everyone, also adults),
 //                    written once by that person, read by approved accounts (statistics and day/week/month rankings)
 // dagspel_plays/{game-level-day-uid} : result of one person for one daily game of the "Günün oyunları" tab
-//                    (de/het, werkwoorden, kruiswoord NT2, verbanden); written once by that person, read by approved accounts
+//                    (de/het, werkwoorden, kruiswoord NT2, verbanden, voorzetsels, erop); written once by that person, read by approved accounts
+//                    optional field wrong = ids of the questions answered wrong (voorzetsels, erop)
 // The very first admin is set by hand in the Firebase Console (role = "admin").
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -172,9 +173,11 @@ service cloud.firestore {
     match /dagspel_plays/{playId} {
       allow read: if signedIn() && isApproved(request.auth.uid);
       allow create: if signedIn() && isApproved(request.auth.uid)
-        && request.resource.data.keys().hasOnly(['uid', 'name', 'game', 'level', 'day', 'score', 'total', 'time_s', 'at'])
+        && request.resource.data.keys().hasOnly(['uid', 'name', 'game', 'level', 'day', 'score', 'total', 'time_s', 'at', 'wrong'])
         && request.resource.data.uid == request.auth.uid
-        && request.resource.data.game in ['dehet', 'werkwoorden', 'kruiswoord', 'verbanden']
+        && request.resource.data.game in ['dehet', 'werkwoorden', 'kruiswoord', 'verbanden', 'voorzetsels', 'erop']
+        // wrong (optional): ids of the questions answered wrong, used to bring the most missed ones back the next day
+        && (!('wrong' in request.resource.data) || (request.resource.data.wrong is list && request.resource.data.wrong.size() <= 20))
         && request.resource.data.level is string && request.resource.data.level.matches('^[a-z0-9]{1,12}$')
         && request.resource.data.day is string && request.resource.data.day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
         && playId == request.resource.data.game + '-' + request.resource.data.level + '-' + request.resource.data.day + '-' + request.auth.uid
