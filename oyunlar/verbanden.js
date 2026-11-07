@@ -28,6 +28,9 @@ const CSS = `
 .vb .list .g h4{margin:0 0 6px;font-family:var(--og-font);font-size:15px;color:#1d2a4d}
 .vb .list .g ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:14px;color:#1d2a4d}
 @media (max-width:520px){.vb .list .g ul{grid-template-columns:1fr}}
+.vb .example{border:2px dashed var(--og-line);border-radius:12px;padding:12px 14px;margin:12px 0;display:grid;gap:6px}
+.vb .example .hd{font-weight:700;font-family:var(--og-font)}
+.vb .steps{margin:2px 0 0;padding-left:20px;display:grid;gap:4px}
 .og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
 .og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
 .og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
@@ -75,9 +78,21 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
   root.innerHTML = `
     <section data-r="setup">
       <h2 class="ot">Günün bağlantıları</h2>
-      <p class="sub">16 Hollandaca kelime var. Bunları 4'erli 4 gruba ayır: 4 kelime seç ve <b>Kontrol et</b>'e bas.
-        4 yanlış hakkın var. Gruplar kolaydan (sarı) zora (mor) doğru gider; bazıları anlamla, bazıları yazılışla ilgilidir.
-        Her gün yeni bulmaca, herkes için aynı.</p>
+      <p class="sub">Her gün yeni bulmaca, herkes için aynı.</p>
+      <div class="example">
+        <div class="hd">Nasıl oynanır?</div>
+        <div>Ekranda 16 kelime var. Bunlar gizli 4 grubun kelimeleri; her grupta 4 kelime var.</div>
+        <div><b>Örnek:</b> <i>rood, blauw, geel, groen</i> → <b>Renkler</b></div>
+        <ol class="steps">
+          <li>Aynı gruba ait olduğunu düşündüğün 4 kelimeye dokun.</li>
+          <li><b>Kontrol et</b>'e bas.</li>
+          <li>Doğruysa grup renklenip üste çıkar. Yanlışsa 1 hakkın gider (toplam 4 hak).
+            <b>"Bir kelime eksik!"</b> yazıyorsa 4 kelimenin 3'ü doğru demektir.</li>
+        </ol>
+        <div><b>Dikkat:</b> Bazı kelimeler iki gruba da uyuyormuş gibi görünür, bu bir tuzak. Bazı gruplar anlamla değil
+          yazılışla ilgilidir: hepsi <i>het</i> alır, hepsi <i>-je</i> ile biter gibi.</div>
+        <div class="small">Renkler zorluğu gösterir: sarı en kolay, sonra yeşil, mavi, mor en zor.</div>
+      </div>
       <p class="today" data-r="today" hidden></p>
       <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
