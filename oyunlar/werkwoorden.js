@@ -33,7 +33,14 @@ const CSS = `
 .ww .lab{text-align:center;font-weight:700;font-size:14px;margin-top:14px;color:var(--og-ink)}
 .ww .lab small{display:block;font-weight:400;color:var(--og-muted)}
 .ww .rule{text-align:center;font-size:13.5px;color:var(--og-muted);margin-top:-2px}
-.ww .full{text-align:center;margin-top:8px;font-size:15px;background:var(--og-sunk);border-radius:8px;padding:8px}`;
+.ww .full{text-align:center;margin-top:8px;font-size:15px;background:var(--og-sunk);border-radius:8px;padding:8px}
+.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
+.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
+.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
+.og details.tbox>div{padding-bottom:16px}`;
+// Collapsible box with today's answers on the start screen (after playing), to learn from them
+const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+
 
 // Lower case, single spaces, no spaces at the ends: "  Liep " counts as "liep"
 const norm = s => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
@@ -70,6 +77,7 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
       <p class="today" data-r="today" hidden></p>
       <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
+      <div data-r="todayBox"></div>
       <div class="grid2"><div class="pan" data-r="stats"></div><div class="pan" data-r="rank"></div></div>
     </section>
     <section data-r="play" hidden>
@@ -114,6 +122,11 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
   const playedToday = () => history.find(h => h.day === today());
   let S = null;
 
+  // One row per verb: right forms; red where the answer was wrong (ok = { imp, perf } per verb)
+  const rowsHtml = (list, oks) => list.map((v, k) => `<tr><td><b>${esc(v.inf)}</b><br><span class="small" style="margin:0">${esc(v.tr)}</span></td>
+      <td class="${oks[k].imp ? "" : "no"}">${esc(impText(v))}${v.impMv ? ` / ${esc(v.impMv)}` : ""}</td><td class="${oks[k].perf ? "" : "no"}">${esc(perfText(v))}</td></tr>`).join("");
+  const tableHtml = rows => `<table class="tbl"><thead><tr><th>Fiil</th><th>Verleden tijd<br><small>ik / wij</small></th><th>Perfectum</th></tr></thead><tbody>${rows}</tbody></table>`;
+
   function drawSetup() {
     const done = playedToday();
     $("today").hidden = !done;
@@ -122,6 +135,12 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
     $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
+    // After playing: today's verbs again, with what was right and wrong (answers are saved per verb as "<inf>:imp" / "<inf>:perf")
+    if (done?.answers?.length) {
+      const got = new Map(done.answers.map(a => [a.qid, a.correct]));
+      const list = [...new Set(done.answers.map(a => a.qid.split(":")[0]))].map(inf => verbs.find(v => v.inf === inf)).filter(Boolean);
+      $("todayBox").innerHTML = todayBox(tableHtml(rowsHtml(list, list.map(v => ({ imp: got.get(`${v.inf}:imp`), perf: got.get(`${v.inf}:perf`) })))));
+    } else $("todayBox").innerHTML = "";
     drawStats($("stats"), history);
     drawRanking($("rank"), { game: GAME, levels: { dag: "" }, user });
   }
@@ -222,11 +241,8 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
     $("share2").onclick = () => shareText($("share2"), textOf(attempt));
     $("result").textContent = score === total ? "Hepsi doğru!" : score >= 8 ? "Çok iyi!" : score >= 5 ? "İyi gidiyor." : "Yarın daha iyi olacak!";
     $("resultText").textContent = `${score}/${total} puan · süre ${fmt(time_s)}`;
-    $("list").innerHTML = S.list.map((v, k) => {
-      const a = S.answers[k];
-      return `<tr><td><b>${esc(v.inf)}</b><br><span class="small" style="margin:0">${esc(v.tr)}</span></td>
-        <td class="${a.impOk ? "" : "no"}">${esc(impText(v))}${v.impMv ? ` / ${esc(v.impMv)}` : ""}</td><td class="${a.perfOk ? "" : "no"}">${esc(perfText(v))}</td></tr>`;
-    }).join("");
+    $("list").innerHTML = rowsHtml(S.list, S.answers.map(a => ({ imp: a.impOk, perf: a.perfOk })));
+    drawSetup();   // the start screen now shows today's answers too
     drawStats($("stats2"), history);
     posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: { dag: "" }, user }); });
   }

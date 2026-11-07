@@ -52,7 +52,14 @@ const CSS = `
 .vz .review li.no{background:var(--og-bad-soft);border-left-color:var(--og-bad)}
 .vz .review .s{font-size:16px;line-height:1.5}
 .vz .review .m{font-size:13.5px;color:var(--og-muted);margin-top:3px}
-.vz .review s{color:var(--og-bad)}`;
+.vz .review s{color:var(--og-bad)}
+.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
+.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
+.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
+.og details.tbox>div{padding-bottom:16px}`;
+// Collapsible box with today's answers on the start screen (after playing), to learn from them
+const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+
 
 // Lower case, no spaces, curly quotes made straight: " Aan " counts as "aan"
 const norm = s => String(s || "").trim().toLowerCase().replace(/\s+/g, "");
@@ -94,7 +101,7 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
       <p class="today" data-r="today" hidden></p>
       <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
-      <div class="pan" data-r="todayReview" style="margin-top:18px" hidden></div>
+      <div data-r="todayBox"></div>
       <div class="grid2"><div class="pan" data-r="stats"></div><div class="pan" data-r="rank"></div></div>
     </section>
     <section data-r="play" hidden>
@@ -148,8 +155,7 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
     // Today's answers stay visible after playing
-    $("todayReview").hidden = !(done && done.answers?.length);
-    if (done?.answers?.length) $("todayReview").innerHTML = `<h3>Bugünkü cevapların</h3><ul class="review">${reviewHtml(done.answers)}</ul>`;
+    $("todayBox").innerHTML = done?.answers?.length ? todayBox(`<ul class="review">${reviewHtml(done.answers)}</ul>`) : "";
     drawStats($("stats"), history);
     drawRanking($("rank"), { game, levels: { dag: "" }, user });
   }

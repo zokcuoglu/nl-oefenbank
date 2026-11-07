@@ -27,7 +27,14 @@ const CSS = `
 .vb .list .g{border-radius:10px;padding:10px 12px}
 .vb .list .g h4{margin:0 0 6px;font-family:var(--og-font);font-size:15px;color:#1d2a4d}
 .vb .list .g ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:14px;color:#1d2a4d}
-@media (max-width:520px){.vb .list .g ul{grid-template-columns:1fr}}`;
+@media (max-width:520px){.vb .list .g ul{grid-template-columns:1fr}}
+.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
+.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
+.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
+.og details.tbox>div{padding-bottom:16px}`;
+// Collapsible box with today's answers on the start screen (after playing), to learn from them
+const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+
 
 // Small seeded random from a text (same text → same numbers), for the daily choice
 function rng(seed) {
@@ -74,6 +81,7 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
       <p class="today" data-r="today" hidden></p>
       <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
+      <div data-r="todayBox"></div>
       <div class="grid2"><div class="pan" data-r="stats"></div><div class="pan" data-r="rank"></div></div>
     </section>
     <section data-r="play" hidden>
@@ -110,6 +118,10 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
   const textOf = att => `Bağlantılar · ${trDate(att.day)} · ${att.found}/4 grup${att.mistakes ? ` · ${att.mistakes} hata` : " · hatasız"}\n` +
     (att.rows || []).map(r => [...r].map(d => SQUARE[d]).join("")).join("\n") + `\n${shareUrl}`;
 
+  // All groups of the day with the meaning of every word; ✓ found, ✗ not found
+  const groupsHtml = (gs, found) => gs.map((g, gi) => `<div class="g" style="background:${COLORS[g.d]}"><h4>${found.includes(gi) ? "✓" : "✗"} ${esc(g.t)}</h4>
+        <ul>${g.w.map(w => `<li><b>${esc(w.nl)}</b> = ${esc(w.tr)}</li>`).join("")}</ul></div>`).join("");
+
   function drawSetup() {
     const done = playedToday();
     $("today").hidden = !done;
@@ -118,6 +130,13 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
     if (done) $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
+    // After playing: today's groups again (the same for everybody, so they can be made again); found = answers marked correct
+    let box = "";
+    if (done?.answers?.length) try {
+      const gs = dailyGroups(groups, today());
+      box = todayBox(`<div class="list">${groupsHtml(gs, gs.map((g, gi) => done.answers.find(a => a.qid === g.t)?.correct ? gi : -1))}</div>`);
+    } catch {}
+    $("todayBox").innerHTML = box;
     drawStats($("stats"), history);
     drawRanking($("rank"), { game: GAME, levels: { dag: "" }, user });
   }
@@ -195,8 +214,8 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
       $("resultText").textContent = `${found}/4 grup · ${S.mistakes} hata · ${score}/${total} puan · süre ${fmt(time_s)}`;
       $("share2").onclick = () => shareText($("share2"), textOf(attempt));
       // All groups with the meaning of every word (nouns with de/het), to learn them
-      $("list").innerHTML = S.gs.map((g, gi) => `<div class="g" style="background:${COLORS[g.d]}"><h4>${S.found.includes(gi) ? "✓" : "✗"} ${esc(g.t)}</h4>
-        <ul>${g.w.map(w => `<li><b>${esc(w.nl)}</b> = ${esc(w.tr)}</li>`).join("")}</ul></div>`).join("");
+      $("list").innerHTML = groupsHtml(S.gs, S.found);
+      drawSetup();   // the start screen now shows today's groups too
       drawStats($("stats2"), history);
       posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: { dag: "" }, user }); });
     }, found === 4 ? 700 : 300);

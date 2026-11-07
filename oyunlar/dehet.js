@@ -18,7 +18,14 @@ const CSS = `
 .dh .list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
 .dh .list li{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:8px;background:var(--og-sunk)}
 .dh .list li.no{background:var(--og-bad-soft)}
-.dh .tip{font-size:14px;color:var(--og-muted);margin-top:14px}`;
+.dh .tip{font-size:14px;color:var(--og-muted);margin-top:14px}
+.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
+.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
+.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
+.og details.tbox>div{padding-bottom:16px}`;
+// Collapsible box with today's answers on the start screen (after playing), to learn from them
+const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+
 
 export async function mountDeHet(root, { user, profile, api, shareUrl = location.href }) {
   // Result as squares, one per word: "de/het · 5 Kasım · 8/10" + 🟩🟥… + link
@@ -32,6 +39,7 @@ export async function mountDeHet(root, { user, profile, api, shareUrl = location
       <p class="today" data-r="today" hidden></p>
       <button class="bt" data-r="share1" hidden>📤 Paylaş</button>
       <div style="margin-top:14px"><button class="bt pri" data-r="go">Başla</button></div>
+      <div data-r="todayBox"></div>
       <div class="grid2"><div class="pan" data-r="stats"></div><div class="pan" data-r="rank"></div></div>
     </section>
     <section data-r="play" hidden>
@@ -72,6 +80,8 @@ export async function mountDeHet(root, { user, profile, api, shareUrl = location
   const progressKey = () => `${GAME}:progress:${today()}`;
   const playedToday = () => history.find(h => h.day === today());
   let S = null;
+  // Today's words with the right article; wrong ones in red (oks: right/wrong per word, in order)
+  const reviewHtml = (list, oks) => list.map((q, k) => `<li class="${oks[k] ? "" : "no"}"><span><b>${q.art}</b> ${esc(q.w)}</span><span class="small" style="margin:0">${esc(q.tr)}</span></li>`).join("");
 
   function drawSetup() {
     const done = playedToday();
@@ -81,6 +91,9 @@ export async function mountDeHet(root, { user, profile, api, shareUrl = location
     $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
+    // After playing: today's words again (the daily pick is the same for everybody, so it can be made again)
+    $("todayBox").innerHTML = done?.answers?.length ? todayBox(`<ul class="list">${reviewHtml(
+      pickDaily(words, x => x.w, COUNT, today(), GAME), pickDaily(words, x => x.w, COUNT, today(), GAME).map(q => done.answers.find(a => a.qid === q.w)?.correct))}</ul>`) : "";
     drawStats($("stats"), history);
     drawRanking($("rank"), { game: GAME, levels: { dag: "" }, user });
   }
@@ -142,7 +155,8 @@ export async function mountDeHet(root, { user, profile, api, shareUrl = location
     $("share2").onclick = () => shareText($("share2"), textOf(attempt));
     $("result").textContent = score === total ? "Hepsi doğru!" : score >= 8 ? "Çok iyi!" : score >= 5 ? "İyi gidiyor." : "Yarın daha iyi olacak!";
     $("resultText").textContent = `${score}/${total} doğru · süre ${fmt(time_s)}`;
-    $("list").innerHTML = S.list.map((q, k) => `<li class="${S.answers[k].ok ? "" : "no"}"><span><b>${q.art}</b> ${esc(q.w)}</span><span class="small" style="margin:0">${esc(q.tr)}</span></li>`).join("");
+    $("list").innerHTML = reviewHtml(S.list, S.answers.map(a => a.ok));
+    drawSetup();   // the start screen now shows today's answers too
     drawStats($("stats2"), history);
     posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: { dag: "" }, user }); });
   }
