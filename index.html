@@ -27,9 +27,10 @@ setTimeout(function () {
   <div class="wrap">
     <div class="brand"><small>Hollandaca çalışma</small><h1>NL Oefenbank</h1></div>
     <div class="navlinks" id="ub"></div>
-    <!-- Two tabs; the choice is kept in the address (#oyunlar), so a reload or a shared link opens the same tab -->
+    <!-- Three tabs: general Dutch, NT2 exam practice, daily games. The choice is kept in the address (#nt2, #oyunlar), so a reload or a shared link opens the same tab -->
     <nav class="tabs hometabs" role="tablist">
-      <button class="tab" role="tab" data-tab="calisma" aria-selected="true">Çalışma</button>
+      <button class="tab" role="tab" data-tab="calisma" aria-selected="true">Hollandaca</button>
+      <button class="tab" role="tab" data-tab="nt2" aria-selected="false">NT2 sınavı</button>
       <button class="tab" role="tab" data-tab="oyunlar" aria-selected="false">Günün oyunları</button>
     </nav>
   </div>
@@ -55,6 +56,7 @@ setTimeout(function () {
 .gamelang{display:flex;gap:6px;flex-wrap:wrap}
 .gamelang button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:500}
 .gamelang button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pane{display:flex;flex-direction:column;gap:18px}
 /* Home: quick links, "continue" row, foldable sections */
 .jump{display:flex;gap:6px;flex-wrap:wrap}
 .jump button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:500}
@@ -170,19 +172,25 @@ const slimBody = isChild
   ? `<section class="cards">${slim.map(card).join("")}</section>`
   : `<div class="linklist">${slim.map(m => `<a href="${ROOT}${m.href}">${esc(m.title)}</a>`).join("")}<a href="${ROOT}../slimspel/">Tüm oyunlar →</a></div>`;
 
-const sectionsHtml = [
-  isChild ? "" : section("nt2", cat.areas.nt2.title, `${esc(cat.areas.nt2.desc)} ${levelNote}`, `<section class="cards">${nt2.map(card).join("")}</section>`, true),
+// Two panes inside this page, one per tab: general Dutch ("calisma") and NT2 exam practice ("nt2").
+// Why: learning Dutch for daily life and preparing for the exam are different goals; mixed together the page looked exam-only.
+const generalHtml = [
   isChild ? "" : section("media", cat.areas.media.title, esc(cat.areas.media.desc), `<section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`, true),
   section("kids", cat.areas.kids.title, esc(cat.areas.kids.desc), kidsSection(), isChild),
   section("slimspel", cat.areas.slimspel.title, `${slim.length} oyun · ${esc(cat.areas.slimspel.desc)}`, slimBody, isChild)
 ].join("");
+const nt2Html = isChild ? "" : `<div class="pane" data-pane="nt2" hidden>
+  <div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)} ${levelNote}</span></div>
+  <section class="cards">${nt2.map(card).join("")}</section></div>`;
 
 app.innerHTML = `
   <section class="panel"><span class="eyebrow">Hoş geldin</span><h2 style="margin-top:4px">${esc(profile.name || user.displayName || "")}</h2>
-    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "Bir bölüme gitmek için aşağıdaki düğmeleri kullan. Başlığa tıklayınca bölüm açılır ya da kapanır."}</p>
-    <nav class="jump" style="margin-top:12px">${SECTIONS.map(s => `<button data-jump="${s.id}">${esc(s.title)}</button>`).join("")}</nav></section>
+    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "Genel Hollandaca çalışması “Hollandaca” sekmesinde, sınav hazırlığı “NT2 sınavı” sekmesinde."}</p></section>
   ${recentRow}
-  ${sectionsHtml}`;
+  <div class="pane" data-pane="calisma">
+    <nav class="jump">${SECTIONS.map(s => `<button data-jump="${s.id}">${esc(s.title)}</button>`).join("")}</nav>
+    ${generalHtml}</div>
+  ${nt2Html}`;
 
 // Remember open/closed per section; a quick link opens its section and scrolls to it
 app.querySelectorAll("details.sec").forEach(d => d.addEventListener("toggle", () => {
@@ -234,16 +242,26 @@ async function showGame(id) {
 // "#oyunlar" = games tab; "#oyunlar/<id>" = games tab with that game open (links in shared results)
 const noGames = profile.type === "child";
 if (noGames) document.querySelector(".hometabs").hidden = true;
-const hashTab = () => !noGames && location.hash.startsWith("#oyunlar") ? "oyunlar" : "calisma";
+// Without a hash the page opens on the tab used last time (Hollandaca or NT2 sınavı)
+const TAB_KEY = "nloefenbank:tab";
+const hashTab = () => {
+  if (noGames) return "calisma";
+  if (location.hash.startsWith("#oyunlar")) return "oyunlar";
+  if (location.hash === "#nt2") return "nt2";
+  let t = ""; try { t = localStorage.getItem(TAB_KEY) || ""; } catch {}
+  return t === "nt2" ? "nt2" : "calisma";
+};
 const hashGame = () => location.hash.startsWith("#oyunlar/") ? decodeURIComponent(location.hash.slice(9)) : "";
 function showTab(tab) {
   document.querySelectorAll(".hometabs .tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
-  app.hidden = tab !== "calisma";
+  app.hidden = tab === "oyunlar";
+  app.querySelectorAll("[data-pane]").forEach(p => p.hidden = p.dataset.pane !== tab);
+  if (tab !== "oyunlar") try { localStorage.setItem(TAB_KEY, tab); } catch {}
   document.getElementById("games").hidden = tab !== "oyunlar";
   if (tab === "oyunlar") { let g = hashGame(); if (!g) try { g = localStorage.getItem("nloefenbank:game") || ""; } catch {} showGame(g); }
   window.__playtime?.draw();   // play-time clock only shows on the games tab
 }
-document.querySelectorAll(".hometabs .tab").forEach(b => b.onclick = () => { history.replaceState(null, "", b.dataset.tab === "oyunlar" ? "#oyunlar" : location.pathname); showTab(b.dataset.tab); });
+document.querySelectorAll(".hometabs .tab").forEach(b => b.onclick = () => { history.replaceState(null, "", b.dataset.tab === "oyunlar" ? "#oyunlar" : b.dataset.tab === "nt2" ? "#nt2" : location.pathname); showTab(b.dataset.tab); });
 document.querySelectorAll("#gamenav button").forEach(b => b.onclick = () => showGame(b.dataset.game));
 addEventListener("hashchange", () => showTab(hashTab()));
 showTab(hashTab());

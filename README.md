@@ -22,7 +22,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 
 | Path | What it is |
 |---|---|
-| `index.html` | Home with two tabs: *Çalışma* (exercise cards, filtered by account type) and *Günün oyunları* (`#oyunlar`: Woordle in Turkish and Dutch, using `slimspel/woordle/game.js`) |
+| `index.html` | Home with three tabs: *Hollandaca* (general Dutch: news, words, kids area, Slimspel links, in foldable sections), *NT2 sınavı* (`#nt2`: exam cards for the level on the profile) and *Günün oyunları* (`#oyunlar`: Woordle in Turkish and Dutch, using `slimspel/woordle/game.js`). A "Devam et" row shows the three exercises used last. Child accounts see no tabs, only the kids area and Slimspel |
 | `profile.html` | Own name, groep, exam dates, progress |
 | `admin.html` | Admin only: change type and role of every account |
 | `js/core.js` | Shared: Firebase config, login gate, profile and attempt helpers |
