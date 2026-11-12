@@ -24,9 +24,9 @@ details.deel>summary{cursor:pointer;font-family:var(--display);font-weight:700;f
 @media (max-width:560px){.ex{grid-template-columns:1fr}.ex span{margin-bottom:8px}}
 .qtr2{font-family:var(--display);font-size:22px;font-weight:700;margin:6px 0 14px}
 .tiles{display:flex;flex-wrap:wrap;gap:8px;min-height:44px}
-.tiles button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;font-size:16px}
+.tiles button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;font-size:16px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;position:relative}
 .tiles.picked{border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:12px}
-.tiles.picked button{background:var(--accent-soft);border-color:var(--accent);touch-action:none;cursor:grab;position:relative}
+.tiles.picked button{background:var(--accent-soft);border-color:var(--accent)}
 .typed{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 .fb{margin-top:14px;padding:12px 14px;border-radius:8px;font-size:15px}
 .fb.typo{background:var(--warn-soft)} .fb s{color:var(--bad)}
@@ -166,7 +166,7 @@ function renderQ() {
     q._picked = q._picked || [];
     body = `<span class="eyebrow">Kelimeleri sıraya diz</span><p class="qtr2">${esc(q.tr)}</p>
       <div class="tiles picked" id="picked"></div><div class="tiles" id="pool"></div>
-      <p class="muted" style="margin:12px 0 0;font-size:13px">Kelimeye tıkla: sıraya eklenir. Eklediğin kelimeyi sürükle: yeri değişir. Eklediğin kelimeye tıkla: geri gider.</p>
+      <p class="muted" style="margin:12px 0 0;font-size:13px">Kelimeye tıkla ya da istediğin yere sürükle. Sıradaki bir kelimeyi sürükleyerek yerini değiştir; tıklarsan geri gider.</p>
       <div class="row" style="margin-top:14px"><button class="btn primary" id="check">Kontrol et</button></div>`;
   } else {
     body = `<span class="eyebrow">Hollandaca yaz</span><p class="qtr2">${esc(q.tr)}</p>
@@ -185,30 +185,36 @@ function renderQ() {
     const draw = () => {
       document.getElementById("picked").innerHTML = q._picked.map((p, k) => `<button data-k="${k}" lang="nl">${esc(p.w)}</button>`).join("");
       document.getElementById("pool").innerHTML = q._pool.filter(p => !q._picked.includes(p)).map(p => `<button data-i="${p.i}" lang="nl">${esc(p.w)}</button>`).join("");
-      document.querySelectorAll("#pool button").forEach(b => b.onclick = () => { q._picked.push(q._pool.find(p => p.i === +b.dataset.i)); draw(); });
-      // A placed word: a short click sends it back, dragging moves it to another position (mouse or finger)
-      document.querySelectorAll("#picked button").forEach(b => {
+      // Every word can be clicked or dragged (mouse or finger):
+      // - click a word below: it goes to the end of the answer; click a word in the answer: it goes back
+      // - drag a word (from below or inside the answer) and drop it in the answer row: it lands at that position
+      // - drag a word out of the answer row downwards: it goes back
+      const wire = (btn, from, key) => {
         let drag = null;
-        b.onpointerdown = e => { drag = { x: e.clientX, y: e.clientY, moved: false }; b.setPointerCapture(e.pointerId); };
-        b.onpointermove = e => {
+        btn.onpointerdown = e => { e.preventDefault(); drag = { x: e.clientX, y: e.clientY, moved: false }; btn.setPointerCapture(e.pointerId); };
+        btn.onpointermove = e => {
           if (!drag) return;
           const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-          if (Math.hypot(dx, dy) > 8) drag.moved = true;
-          if (drag.moved) { b.style.transform = `translate(${dx}px,${dy}px)`; b.style.zIndex = 2; }
+          if (Math.hypot(dx, dy) > 6) drag.moved = true;
+          if (drag.moved) { btn.style.transform = `translate(${dx}px,${dy}px)`; btn.style.zIndex = 2; btn.style.boxShadow = "0 4px 14px rgba(0,0,0,.18)"; }
         };
-        b.onpointerup = e => {
+        btn.onpointerup = e => {
           const d = drag; drag = null;
           if (!d) return;
-          const k = +b.dataset.k;
-          if (!d.moved) { q._picked.splice(k, 1); return draw(); }
-          // New position = how many of the other placed words come before the pointer (row above, or same row and further left)
-          const to = [...document.querySelectorAll("#picked button")].filter(o => o !== b).filter(o => { const r = o.getBoundingClientRect(); return r.bottom < e.clientY || (r.top <= e.clientY && r.left + r.width / 2 < e.clientX); }).length;
-          const [item] = q._picked.splice(k, 1);
-          q._picked.splice(to, 0, item);
+          const item = from === "picked" ? q._picked[key] : q._pool.find(p => p.i === key);
+          if (!d.moved) { if (from === "picked") q._picked.splice(key, 1); else q._picked.push(item); return draw(); }
+          const row = document.getElementById("picked").getBoundingClientRect();
+          const inAnswer = e.clientY <= row.bottom + 6;   // dropped in (or above) the answer row
+          // Position = how many of the other placed words come before the pointer (row above, or same row and further left)
+          const to = [...document.querySelectorAll("#picked button")].filter(o => o !== btn).filter(o => { const r = o.getBoundingClientRect(); return r.bottom < e.clientY || (r.top <= e.clientY && r.left + r.width / 2 < e.clientX); }).length;
+          if (from === "picked") q._picked.splice(key, 1);
+          if (inAnswer) q._picked.splice(to, 0, item);
           draw();
         };
-        b.onpointercancel = () => { drag = null; draw(); };
-      });
+        btn.onpointercancel = () => { drag = null; draw(); };
+      };
+      document.querySelectorAll("#pool button").forEach(btn => wire(btn, "pool", +btn.dataset.i));
+      document.querySelectorAll("#picked button").forEach(btn => wire(btn, "picked", +btn.dataset.k));
     };
     draw();
     document.getElementById("check").onclick = () => {
