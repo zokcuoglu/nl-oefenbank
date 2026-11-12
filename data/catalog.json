@@ -13,6 +13,10 @@
       "title": "Slimspel",
       "desc": "Öğretici oyunlar ve bulmacalar. Ayrı sitede açılır, aynı hesapla."
     },
+    "dersler": {
+      "title": "Video dersler",
+      "desc": "Goed Bezig videoları: üstte video, altında konunun özeti ve alıştırmalar."
+    },
     "media": {
       "title": "Lezen en kijken in niveaus",
       "desc": "Haftada bir kısa video ve aynı haber A0'dan C1'e altı seviyede."
@@ -24,6 +28,14 @@
     "groep6": "Groep 6"
   },
   "modules": [
+    {
+      "id": "dersler",
+      "area": "dersler",
+      "title": "Goed Bezig dersleri",
+      "desc": "İlk ders: çok fonksiyonlu “laten” fiili (teklif, yaptırmak, haber vermek). Video, özet ve 16 soru.",
+      "href": "dersler/",
+      "status": "ready"
+    },
     {
       "id": "lezen",
       "area": "nt2",

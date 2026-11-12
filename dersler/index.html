@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Video dersler · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+[hidden]{display:none!important}
+.video{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:10px;overflow:hidden;background:var(--sunk)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+details.deel{border-top:1px solid var(--line);padding:12px 0}
+details.deel:first-of-type{border-top:0}
+details.deel>summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px}
+.deel p{margin:10px 0 0;max-width:68ch}
+.deel ul{margin:10px 0 0;padding-left:20px;max-width:68ch;font-size:14.5px}
+.ex{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:10px;font-size:15px}
+.ex b{font-weight:600} .ex span{color:var(--muted)}
+@media (max-width:560px){.ex{grid-template-columns:1fr}.ex span{margin-bottom:8px}}
+.qtr2{font-family:var(--display);font-size:22px;font-weight:700;margin:6px 0 14px}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;min-height:44px}
+.tiles button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;font-size:16px}
+.tiles.picked{border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:12px}
+.tiles.picked button{background:var(--accent-soft);border-color:var(--accent)}
+.typed{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:8px;font-size:15px}
+.fb.good{background:var(--ok-soft)} .fb.wrong{background:var(--bad-soft)}
+.fb .ans{font-weight:600;font-size:17px;display:block;margin:4px 0}
+a.btn{color:inherit;text-decoration:none}
+.lesrow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.lesrow:last-child{border-bottom:0} .lesrow:hover b{color:var(--accent)}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <a href="./">Video dersler</a></small><h1 id="pagetitle">Video dersler</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Video lessons: a YouTube video on top, a short summary of the topic under it, then exercises about that topic.
+// Why this page exists: watching a lesson is passive; the questions make you produce the sentences yourself.
+// The lessons live in data/dersler.json. "?les=<id>" opens one lesson; without it the page lists all lessons.
+// One finished round is saved as an attempt (module "dersler", test = lesson id), like the other exercise pages.
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
+// Typed answers are compared without capitals, punctuation and double spaces, so "laten we eerlijk zijn!" counts too
+const norm = s => String(s).toLowerCase().replace(/[.,!?;:'"’“”]/g, "").replace(/\s+/g, " ").trim();
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+// Adults only (child accounts go back to the home page), same rule as the other adult pages
+const { user, profile } = await gate({ area: "nt2", title: "Video dersler", seen: "dersler" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+
+let data;
+try { data = await (await fetch("../data/dersler.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Dersler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+const attempts = await loadAttempts(user.uid, "dersler").catch(() => []);
+const lastOf = id => attempts.find(a => a.test === id);
+
+const les = data.lessen.find(l => l.id === new URLSearchParams(location.search).get("les"));
+let run = null;   // the exercise round in progress: { qs, i, answers, started, checked }
+
+// ---------- List of lessons ----------
+function renderList() {
+  app.innerHTML = `<section class="panel"><span class="eyebrow">Video dersler</span>
+    <h2 style="margin-top:4px">Önce izle, sonra kendin kur</h2>
+    <p class="muted" style="margin:6px 0 12px;max-width:62ch">Her derste üstte bir video, altında konunun kısa özeti ve o konudan alıştırmalar var.</p>
+    ${data.lessen.map(l => { const a = lastOf(l.id); return `<a class="lesrow" href="?les=${esc(l.id)}">
+      <span><b>${esc(l.titel)}</b><br><span class="muted" style="font-size:13.5px">${esc(l.serie)} · ${esc(l.kanaal)} · ${l.vragen.length} soru</span></span>
+      <span class="chip num">${a ? `son: ${fmtDate(a.finished_at)} · ${a.score}/${a.total}` : "başlanmadı"}</span></a>`; }).join("")}
+  </section>`;
+}
+
+// ---------- One lesson: video + summary ----------
+function renderLesson() {
+  document.getElementById("pagetitle").textContent = les.titel;
+  const a = lastOf(les.id);
+  app.innerHTML = `
+    <section class="panel">
+      <span class="eyebrow">${esc(les.serie)} · ${esc(les.kanaal)}</span>
+      <div class="video" style="margin-top:10px"><iframe src="https://www.youtube-nocookie.com/embed/${esc(les.video)}" title="${esc(les.titel)}" allowfullscreen loading="lazy"></iframe></div>
+      <p class="muted" style="margin:8px 0 0;font-size:13px">Video ${esc(les.kanaal)} kanalına aittir. <a href="https://www.youtube.com/watch?v=${esc(les.video)}" target="_blank" rel="noopener">YouTube'da aç</a></p>
+    </section>
+    <section class="panel">
+      <span class="eyebrow">Özet</span>
+      <p style="margin:6px 0 4px;max-width:68ch">${esc(les.intro)}</p>
+      ${les.delen.map((d, i) => `<details class="deel"${i === 0 ? " open" : ""}><summary>${esc(d.titel)}</summary>
+        <p>${esc(d.uitleg)}</p>
+        ${d.regels.length ? `<ul>${d.regels.map(r => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}
+        <div class="ex">${d.voorbeelden.map(v => `<b lang="nl">${esc(v.nl)}</b><span>${esc(v.tr)}</span>`).join("")}</div>
+      </details>`).join("")}
+    </section>
+    <section class="panel">
+      <span class="eyebrow">Alıştırma</span>
+      <h2 style="margin-top:4px">${les.vragen.length} soru</h2>
+      <p class="muted" style="margin:6px 0 12px;max-width:62ch">Üç tür soru var: doğru cümleyi seç, kelimeleri sıraya diz, Türkçe cümleyi Hollandaca yaz. Her sorudan sonra doğru cevabı ve nedenini görürsün.</p>
+      <div class="row"><button class="btn primary" id="start">Başla</button>${a ? `<span class="chip num">son: ${fmtDate(a.finished_at)} · ${a.score}/${a.total}</span>` : ""}</div>
+    </section>`;
+  document.getElementById("start").onclick = startRun;
+}
+
+// ---------- Exercise round ----------
+function startRun() {
+  // Easy to hard: first choosing, then ordering, then typing; the order inside each type is random
+  const by = t => shuffle(les.vragen.filter(q => q.type === t));
+  run = { qs: [...by("mc"), ...by("order"), ...by("type")], i: 0, answers: [], started: Date.now() };
+  renderQ(); scrollTo(0, 0);
+}
+
+function renderQ() {
+  const q = run.qs[run.i];
+  const head = `<div class="row" style="justify-content:space-between"><span class="eyebrow">Soru ${run.i + 1} / ${run.qs.length}</span><span class="chip num">${run.answers.filter(a => a.correct).length} doğru</span></div>
+    <div class="progress" style="margin:10px 0 16px"><i style="width:${run.i / run.qs.length * 100}%"></i></div>`;
+  let body = "";
+  if (q.type === "mc") {
+    // Options are shown in random order; "juist" is the index in the data file
+    q._opts = q._opts || shuffle(q.opties.map((t, i) => ({ t, ok: i === q.juist })));
+    body = `<p class="qtr2">${esc(q.vraag)}</p><div style="display:grid;gap:8px">${q._opts.map((o, i) => `<button class="opt" data-i="${i}"><span class="mark">${"ABC"[i]}</span><span lang="nl">${esc(o.t)}</span></button>`).join("")}</div>`;
+  } else if (q.type === "order") {
+    q._pool = q._pool || shuffle(q.woorden.map((w, i) => ({ w, i })));
+    q._picked = q._picked || [];
+    body = `<span class="eyebrow">Kelimeleri sıraya diz</span><p class="qtr2">${esc(q.tr)}</p>
+      <div class="tiles picked" id="picked"></div><div class="tiles" id="pool"></div>
+      <div class="row" style="margin-top:14px"><button class="btn primary" id="check">Kontrol et</button></div>`;
+  } else {
+    body = `<span class="eyebrow">Hollandaca yaz</span><p class="qtr2">${esc(q.tr)}</p>
+      <input class="typed" id="typed" lang="nl" autocomplete="off" autocapitalize="sentences" spellcheck="false" placeholder="Cevabını yaz, Enter'a bas">
+      <div class="row" style="margin-top:14px"><button class="btn primary" id="check">Kontrol et</button></div>`;
+  }
+  app.innerHTML = `<section class="panel">${head}${body}<div id="fb"></div></section>`;
+
+  if (q.type === "mc") app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    const o = q._opts[+b.dataset.i];
+    app.querySelectorAll(".opt").forEach((x, i) => { x.disabled = true; if (q._opts[i].ok) x.classList.add("right"); });
+    if (!o.ok) b.classList.add("wrongpick");
+    finishQ(q, o.t, o.ok, q.opties[q.juist]);
+  });
+  if (q.type === "order") {
+    const draw = () => {
+      document.getElementById("picked").innerHTML = q._picked.map((p, k) => `<button data-k="${k}" lang="nl">${esc(p.w)}</button>`).join("");
+      document.getElementById("pool").innerHTML = q._pool.filter(p => !q._picked.includes(p)).map(p => `<button data-i="${p.i}" lang="nl">${esc(p.w)}</button>`).join("");
+      document.querySelectorAll("#pool button").forEach(b => b.onclick = () => { q._picked.push(q._pool.find(p => p.i === +b.dataset.i)); draw(); });
+      document.querySelectorAll("#picked button").forEach(b => b.onclick = () => { q._picked.splice(+b.dataset.k, 1); draw(); });
+    };
+    draw();
+    document.getElementById("check").onclick = () => {
+      if (q._picked.length < q.woorden.length) return;   // not all words placed yet
+      const given = q._picked.map(p => p.w).join(" ");
+      document.querySelectorAll(".tiles button").forEach(b => b.disabled = true);
+      finishQ(q, given, norm(given) === norm(q.woorden.join(" ")), q.woorden.join(" ") + ".");
+    };
+  }
+  if (q.type === "type") {
+    const inp = document.getElementById("typed");
+    inp.focus();
+    const check = () => {
+      if (!inp.value.trim()) return;
+      inp.disabled = true;
+      finishQ(q, inp.value.trim(), q.antwoorden.some(a => norm(a) === norm(inp.value)), q.antwoorden[0] + ".");
+    };
+    document.getElementById("check").onclick = check;
+    inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); check(); } };
+  }
+}
+
+// Show right/wrong with the model answer and the reason, then wait for "Sonraki"
+function finishQ(q, given, correct, model) {
+  const rec = { qid: q.id, chosen: given.slice(0, 200), correct };
+  run.answers.push(rec);
+  document.getElementById("check")?.remove();
+  const last = run.i === run.qs.length - 1;
+  // A typed sentence can be right in more ways than the list knows: the learner may overrule a "wrong"
+  const overrule = q.type === "type" && !correct ? `<button class="btn" id="ok">Cevabım da doğruydu</button>` : "";
+  document.getElementById("fb").innerHTML = `<div class="fb ${correct ? "good" : "wrong"}"><b>${correct ? "Doğru." : "Olmadı."}</b>
+    <span class="ans" lang="nl">${esc(model)}</span>${esc(q.uitleg)}</div>
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="next">${last ? "Sonucu gör" : "Sonraki"}</button>${overrule}</div>`;
+  document.getElementById("ok")?.addEventListener("click", e => { rec.correct = true; rec.overruled = true; e.target.remove(); document.querySelector(".fb").className = "fb good"; });
+  const next = document.getElementById("next");
+  next.onclick = () => { if (last) finishRun(); else { run.i++; renderQ(); scrollTo(0, 0); } };
+  // Focus a moment later: otherwise the same Enter press that checked a typed answer also presses "Sonraki"
+  setTimeout(() => next.focus(), 50);
+}
+
+async function finishRun() {
+  const score = run.answers.filter(a => a.correct).length;
+  const attempt = { kind: "les", test: les.id, title: les.titel, started_at: new Date(run.started).toISOString(), finished_at: new Date().toISOString(),
+    duration_s: Math.round((Date.now() - run.started) / 1000), score, total: run.qs.length, answers: run.answers };
+  let saved = true;
+  try { await saveAttempt(user.uid, "dersler", attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
+  const wrong = run.qs.filter((q, i) => !run.answers[i].correct);
+  const modelOf = q => q.type === "mc" ? q.opties[q.juist] : q.type === "order" ? q.woorden.join(" ") + "." : q.antwoorden[0] + ".";
+  app.innerHTML = `<section class="panel"><span class="eyebrow">Sonuç</span>
+    <div class="scorebig num" style="margin-top:6px">${score} / ${run.qs.length}</div>
+    ${saved ? "" : `<div class="notice" style="margin-top:10px">Sonuç kaydedilemedi.</div>`}
+    ${wrong.length ? `<h3 style="margin-top:18px">Tekrar bak</h3>${wrong.map(q => { const a = run.answers[run.qs.indexOf(q)]; return `<div class="fb wrong"><span class="muted">${esc(q.vraag || q.tr)}</span>
+      <span class="ans" lang="nl">${esc(modelOf(q))}</span><span class="muted">Senin cevabın: <span lang="nl">${esc(a.chosen)}</span></span><br>${esc(q.uitleg)}</div>`; }).join("")}` : `<p style="margin-top:12px">Hepsi doğru.</p>`}
+    <div class="row" style="margin-top:16px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="?les=${esc(les.id)}">Derse dön</a><a class="btn" href="./">Tüm dersler</a></div></section>`;
+  document.getElementById("again").onclick = () => { les.vragen.forEach(q => { delete q._opts; delete q._pool; delete q._picked; }); startRun(); };
+  scrollTo(0, 0);
+}
+
+if (les) renderLesson(); else renderList();
+</script>
+</body>
+</html>

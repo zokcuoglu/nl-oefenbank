@@ -107,7 +107,7 @@ function card(m) {
     days !== null ? `<span class="chip accent num">sınava ${days} gün</span>` : "",
     last ? `<span class="chip num">son: ${fmtDate(last.finished_at)} · ${last.score}/${last.total}</span>` : (m.status === "ready" ? `<span class="chip">başlanmadı</span>` : "")
   ].join("");
-  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
+  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : m.area === "dersler" ? "Video ders" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
   return m.status === "ready"
     ? `<a class="panel card" href="${ROOT}${m.href}">${inner}</a>`
     : `<article class="panel card soon">${inner}</article>`;
@@ -159,7 +159,7 @@ const byId = Object.fromEntries(cat.modules.map(m => [m.id, m]));
 const recent = [];
 for (const a of attempts) {
   const m = byId[a.module];
-  const allowed = m && m.status === "ready" && !m.href.startsWith("#") && !(isChild && (m.area === "nt2" || m.area === "media"));
+  const allowed = m && m.status === "ready" && !m.href.startsWith("#") && !(isChild && ["nt2", "media", "dersler"].includes(m.area));
   if (allowed && !recent.includes(m)) recent.push(m);
   if (recent.length === 3) break;
 }
@@ -175,6 +175,7 @@ const slimBody = isChild
 // Two panes inside this page, one per tab: general Dutch ("calisma") and NT2 exam practice ("nt2").
 // Why: learning Dutch for daily life and preparing for the exam are different goals; mixed together the page looked exam-only.
 const generalHtml = [
+  isChild ? "" : section("dersler", cat.areas.dersler.title, esc(cat.areas.dersler.desc), `<section class="cards">${cat.modules.filter(m => m.area === "dersler").map(card).join("")}</section>`, true),
   isChild ? "" : section("media", cat.areas.media.title, esc(cat.areas.media.desc), `<section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`, true),
   section("kids", cat.areas.kids.title, esc(cat.areas.kids.desc), kidsSection(), isChild),
   section("slimspel", cat.areas.slimspel.title, `${slim.length} oyun · ${esc(cat.areas.slimspel.desc)}`, slimBody, isChild)

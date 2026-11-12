@@ -1,0 +1,110 @@
+{
+  "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video.",
+  "lessen": [
+    {
+      "id": "laten",
+      "titel": "Çok fonksiyonlu “laten” fiili",
+      "serie": "Hayat Kurtaran Cümleler 7",
+      "kanaal": "Goed Bezig | Sait Faik Gülşen",
+      "video": "RGxiEvp5SFI",
+      "intro": "“Laten” tek anlamlı bir fiil değil. Bu derste üç kullanımı var: teklif etmek (hadi yapalım), bir işi başkasına yaptırmak (tamir ettirmek, kestirmek) ve haber vermek (laten weten). Üçünde de cümlede iki fiil olur ve ikinci fiil mastar olarak sona gider.",
+      "delen": [
+        {
+          "titel": "1. Teklif: Laten we …",
+          "uitleg": "Kalıp: Laten we + (zaman, nesne) + mastar. Mastar en sonda durur. “Hadi … yapalım” demektir.",
+          "regels": [
+            "“Zullen we …?” bir sorudur, daha yumuşaktır. “Laten we …” daha doğrudandır: inisiyatifi sen alırsın. Karşındakinin hayır demeyeceğini biliyorsan kullan.",
+            "“even” cümleyi yumuşatır: Laten we even koffie halen.",
+            "“anders” burada “olmazsa” demektir: Laten we anders morgen bellen.",
+            "Yön belliyse “gaan” düşebilir: Laten we naar buiten (gaan)."
+          ],
+          "voorbeelden": [
+            { "nl": "Laten we beginnen.", "tr": "Hadi başlayalım." },
+            { "nl": "Laten we even pauze nemen.", "tr": "Bir mola verelim." },
+            { "nl": "Laten we naar buiten gaan.", "tr": "Hadi dışarı çıkalım." },
+            { "nl": "Laten we iets drinken.", "tr": "Bir şeyler içelim." },
+            { "nl": "Laten we een goed plan maken.", "tr": "İyi bir plan yapalım." },
+            { "nl": "Laten we eerlijk zijn.", "tr": "Dürüst olalım." },
+            { "nl": "Laten we anders morgen bellen.", "tr": "Olmazsa yarın telefonlaşalım." },
+            { "nl": "Laten we eerst iets eten.", "tr": "Önce bir şeyler yiyelim." },
+            { "nl": "Laten we niet overdrijven.", "tr": "Abartmayalım." },
+            { "nl": "Laten we een rondje lopen.", "tr": "Bir tur atalım." },
+            { "nl": "Laten we even koffie halen.", "tr": "Hadi bir kahve alalım." },
+            { "nl": "Laten we het hopen.", "tr": "Öyle umalım." },
+            { "nl": "Laten we rustig blijven.", "tr": "Sakin kalalım." },
+            { "nl": "Laten we dit afmaken.", "tr": "Hadi bunu bitirelim." }
+          ]
+        },
+        {
+          "titel": "2. Bir işi yaptırmak: laten + mastar",
+          "uitleg": "İşi sen yapmıyorsun, başkasına yaptırıyorsun. Türkçedeki -tır/-dır eki gibi: repareren = tamir etmek, laten repareren = tamir ettirmek.",
+          "regels": [
+            "Çekim: ik laat, jij laat, hij laat, wij laten. Geçmiş: liet, lieten.",
+            "Modal fiil varsa o ikinci sırada durur, “laten + mastar” birlikte sona gider: Ik moet het laten repareren.",
+            "Nesne (het, mijn auto) iki fiilden önce gelir.",
+            "waarderen = değer vermek, takdir etmek. laten waarderen = değerlendirtmek (diploma denkliği).",
+            "Dikkat: laten vallen = düşürmek. Türkçede “yaptırmak” yok ama Hollandacada “laten” var."
+          ],
+          "voorbeelden": [
+            { "nl": "Ik laat mijn auto wassen.", "tr": "Arabamı yıkatıyorum." },
+            { "nl": "Ik moet het laten repareren.", "tr": "Onu tamir ettirmem lazım." },
+            { "nl": "Ik moet mijn diploma laten waarderen.", "tr": "Diplomamın denkliğini almam lazım." },
+            { "nl": "Ik wil mijn huis laten schilderen.", "tr": "Evimi boyatmak istiyorum." },
+            { "nl": "Ik moet mijn auto laten nakijken.", "tr": "Arabama baktırmam lazım." },
+            { "nl": "Sorry dat ik je laat wachten.", "tr": "Seni beklettiğim için kusura bakma." },
+            { "nl": "Ik heb tijd nodig om het te laten bezinken.", "tr": "Bunu sindirmek için zamana ihtiyacım var." },
+            { "nl": "Je laat me schrikken!", "tr": "Beni korkutuyorsun!" },
+            { "nl": "Hij liet ons schrikken.", "tr": "Bizi korkuttu." }
+          ]
+        },
+        {
+          "titel": "3. Geçmiş zaman: heb … laten + mastar",
+          "uitleg": "Geçmiş zamanı “hebben” verir. Sonda iki fiil yan yana durur ve ikisi de mastardır: laten + asıl fiil. “gelaten” denmez.",
+          "regels": [
+            "Doğru: Ik heb het laten repareren. Yanlış: Ik heb het gelaten repareren.",
+            "Kime yaptırdığını “door” ile söylersin: door een collega."
+          ],
+          "voorbeelden": [
+            { "nl": "Ik heb mijn diploma laten waarderen.", "tr": "Diplomamın denkliğini aldım." },
+            { "nl": "Ik heb mijn meubels uit Turkije laten brengen.", "tr": "Mobilyalarımı Türkiye'den getirttim." },
+            { "nl": "Hij heeft een valse ID-kaart laten maken.", "tr": "Sahte kimlik yaptırdı." },
+            { "nl": "Ik heb het laten controleren.", "tr": "Onu kontrol ettirdim." },
+            { "nl": "Ik heb het door een collega laten lezen.", "tr": "Onu bir iş arkadaşıma okuttum." },
+            { "nl": "Ik heb mijn haar laten knippen.", "tr": "Saçımı kestirdim." },
+            { "nl": "Ik heb een kies laten trekken.", "tr": "Azı dişimi çektirdim." },
+            { "nl": "Ik heb mijn telefoon laten vallen.", "tr": "Telefonumu düşürdüm." },
+            { "nl": "Je hebt me laten schrikken.", "tr": "Beni korkuttun." }
+          ]
+        },
+        {
+          "titel": "4. Haber vermek: laten weten",
+          "uitleg": "weten = bilmek, laten weten = bildirmek, haber vermek. Mantık aynı: birinin bilmesini sağlıyorsun.",
+          "regels": [],
+          "voorbeelden": [
+            { "nl": "Ik laat het je morgen weten.", "tr": "Yarın sana haber veririm." },
+            { "nl": "Ik heb het hem laten weten.", "tr": "Ona haber verdim." },
+            { "nl": "Laat het me weten.", "tr": "Bana haber ver." }
+          ]
+        }
+      ],
+      "vragen": [
+        { "id": "l01", "type": "mc", "vraag": "“Hadi başlayalım.” Hangisi doğru?", "opties": ["Laten we beginnen.", "We laten begonnen.", "Laten we begint."], "juist": 0, "uitleg": "Laten we + mastar. Mastar sonda: beginnen." },
+        { "id": "l02", "type": "mc", "vraag": "Karşı tarafa soru sorarak, daha yumuşak teklif eden cümle hangisi?", "opties": ["Laten we koffie halen.", "Zullen we koffie halen?", "Ik laat koffie halen."], "juist": 1, "uitleg": "“Zullen we …?” sorudur ve yumuşaktır. “Laten we …” daha doğrudandır." },
+        { "id": "l03", "type": "mc", "vraag": "“Saçımı kestirdim.” (Kuaför kesti.)", "opties": ["Ik heb mijn haar geknipt.", "Ik heb mijn haar gelaten knippen.", "Ik heb mijn haar laten knippen."], "juist": 2, "uitleg": "Yaptırmak = laten + mastar. Geçmişte: heb … laten knippen. “Ik heb mijn haar geknipt” = kendim kestim." },
+        { "id": "l04", "type": "mc", "vraag": "“Ik heb mijn telefoon laten vallen.” ne demek?", "opties": ["Telefonumu tamir ettirdim.", "Telefonumu düşürdüm.", "Telefonumu evde bıraktım."], "juist": 1, "uitleg": "laten vallen = düşürmek." },
+        { "id": "l05", "type": "mc", "vraag": "“Laten we anders morgen bellen.” cümlesinde “anders” ne demek?", "opties": ["farklı şekilde", "başka biri", "olmazsa"], "juist": 2, "uitleg": "Teklif cümlelerinde “anders” = olmazsa, o zaman." },
+        { "id": "l06", "type": "mc", "vraag": "“Onu tamir ettirdim.” Hangisi doğru?", "opties": ["Ik heb het laten repareren.", "Ik heb het gelaten repareren.", "Ik heb het repareren gelaten."], "juist": 0, "uitleg": "Sonda iki mastar: laten repareren. “gelaten” denmez." },
+        { "id": "l07", "type": "order", "tr": "Önce bir şeyler yiyelim.", "woorden": ["Laten", "we", "eerst", "iets", "eten"], "uitleg": "Laten we + eerst + nesne + mastar." },
+        { "id": "l08", "type": "order", "tr": "Arabama baktırmam lazım.", "woorden": ["Ik", "moet", "mijn", "auto", "laten", "nakijken"], "uitleg": "Modal (moet) ikinci sırada, “laten nakijken” sonda." },
+        { "id": "l09", "type": "order", "tr": "Diplomamın denkliğini aldım.", "woorden": ["Ik", "heb", "mijn", "diploma", "laten", "waarderen"], "uitleg": "heb ikinci sırada, sonda iki mastar: laten waarderen." },
+        { "id": "l10", "type": "order", "tr": "Yarın sana haber veririm.", "woorden": ["Ik", "laat", "het", "je", "morgen", "weten"], "uitleg": "laat ikinci sırada, weten sonda." },
+        { "id": "l11", "type": "order", "tr": "Evimi boyatmak istiyorum.", "woorden": ["Ik", "wil", "mijn", "huis", "laten", "schilderen"], "uitleg": "wil ikinci sırada, “laten schilderen” sonda." },
+        { "id": "l12", "type": "type", "tr": "Dürüst olalım.", "antwoorden": ["Laten we eerlijk zijn"], "uitleg": "Laten we + eerlijk + zijn." },
+        { "id": "l13", "type": "type", "tr": "Sakin kalalım.", "antwoorden": ["Laten we rustig blijven", "Laten we kalm blijven"], "uitleg": "blijven = kalmak. Laten we rustig blijven." },
+        { "id": "l14", "type": "type", "tr": "Onu tamir ettirmem lazım.", "antwoorden": ["Ik moet het laten repareren", "Ik moet dat laten repareren", "Ik moet dit laten repareren", "Ik moet hem laten repareren"], "uitleg": "moet ikinci sırada, laten repareren sonda." },
+        { "id": "l15", "type": "type", "tr": "Bana haber ver.", "antwoorden": ["Laat het me weten", "Laat het mij weten", "Laat me het weten", "Laat het me even weten", "Laat maar weten"], "uitleg": "Emir kipi: Laat het me weten." },
+        { "id": "l16", "type": "type", "tr": "Saçımı kestirdim.", "antwoorden": ["Ik heb mijn haar laten knippen"], "uitleg": "heb … laten knippen: sonda iki mastar." }
+      ]
+    }
+  ]
+}
