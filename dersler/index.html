@@ -26,9 +26,10 @@ details.deel>summary{cursor:pointer;font-family:var(--display);font-weight:700;f
 .tiles{display:flex;flex-wrap:wrap;gap:8px;min-height:44px}
 .tiles button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;font-size:16px}
 .tiles.picked{border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:12px}
-.tiles.picked button{background:var(--accent-soft);border-color:var(--accent)}
+.tiles.picked button{background:var(--accent-soft);border-color:var(--accent);touch-action:none;cursor:grab;position:relative}
 .typed{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 .fb{margin-top:14px;padding:12px 14px;border-radius:8px;font-size:15px}
+.fb.typo{background:var(--warn-soft)} .fb s{color:var(--bad)}
 .fb.good{background:var(--ok-soft)} .fb.wrong{background:var(--bad-soft)}
 .fb .ans{font-weight:600;font-size:17px;display:block;margin:4px 0}
 a.btn{color:inherit;text-decoration:none}
@@ -66,6 +67,29 @@ const app = document.getElementById("app");
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
 // Typed answers are compared without capitals, punctuation and double spaces, so "laten we eerlijk zijn!" counts too
 const norm = s => String(s).toLowerCase().replace(/[.,!?;:'"’“”]/g, "").replace(/\s+/g, " ").trim();
+// Edit distance between two words (how many letters must be changed, added or removed)
+const lev = (a, b) => { const d = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] !== b[j - 1])); return d[a.length][b.length]; };
+// A spelling slip, not a grammar mistake: long enough word, same first letter, only 1 letter off (2 for words of 7+ letters),
+// and not just a shorter or longer form of the same word ("wacht" for "wachten" is a verb-form mistake, so it stays wrong).
+const isSlip = (typed, right) => right.length >= 4 && typed[0] === right[0] && !right.startsWith(typed) && !typed.startsWith(right)
+  && lev(typed, right) <= (right.length >= 7 ? 2 : 1);
+// Compare a typed sentence with the accepted answers:
+// "ok" = the same; "typo" = right sentence with spelling slips (counts as right, the slips are shown);
+// "order" = right words in the wrong order (wrong, but says so); "wrong" = anything else.
+function judge(given, answers) {
+  const g = norm(given).split(" ");
+  let best = { kind: "wrong", model: answers[0] };
+  for (const ans of answers) {
+    const a = norm(ans).split(" ");
+    if (a.join(" ") === g.join(" ")) return { kind: "ok", model: ans };
+    if (a.length !== g.length) continue;
+    const diff = a.map((w, i) => [g[i], w]).filter(([t, w]) => t !== w);
+    if (diff.every(([t, w]) => isSlip(t, w))) { if (best.kind !== "typo") best = { kind: "typo", model: ans, slips: diff }; }
+    else if (best.kind === "wrong" && [...a].sort().join(" ") === [...g].sort().join(" ")) best = { kind: "order", model: ans };
+  }
+  return best;
+}
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
 // Adults only (child accounts go back to the home page), same rule as the other adult pages
@@ -142,6 +166,7 @@ function renderQ() {
     q._picked = q._picked || [];
     body = `<span class="eyebrow">Kelimeleri sıraya diz</span><p class="qtr2">${esc(q.tr)}</p>
       <div class="tiles picked" id="picked"></div><div class="tiles" id="pool"></div>
+      <p class="muted" style="margin:12px 0 0;font-size:13px">Kelimeye tıkla: sıraya eklenir. Eklediğin kelimeyi sürükle: yeri değişir. Eklediğin kelimeye tıkla: geri gider.</p>
       <div class="row" style="margin-top:14px"><button class="btn primary" id="check">Kontrol et</button></div>`;
   } else {
     body = `<span class="eyebrow">Hollandaca yaz</span><p class="qtr2">${esc(q.tr)}</p>
@@ -161,7 +186,29 @@ function renderQ() {
       document.getElementById("picked").innerHTML = q._picked.map((p, k) => `<button data-k="${k}" lang="nl">${esc(p.w)}</button>`).join("");
       document.getElementById("pool").innerHTML = q._pool.filter(p => !q._picked.includes(p)).map(p => `<button data-i="${p.i}" lang="nl">${esc(p.w)}</button>`).join("");
       document.querySelectorAll("#pool button").forEach(b => b.onclick = () => { q._picked.push(q._pool.find(p => p.i === +b.dataset.i)); draw(); });
-      document.querySelectorAll("#picked button").forEach(b => b.onclick = () => { q._picked.splice(+b.dataset.k, 1); draw(); });
+      // A placed word: a short click sends it back, dragging moves it to another position (mouse or finger)
+      document.querySelectorAll("#picked button").forEach(b => {
+        let drag = null;
+        b.onpointerdown = e => { drag = { x: e.clientX, y: e.clientY, moved: false }; b.setPointerCapture(e.pointerId); };
+        b.onpointermove = e => {
+          if (!drag) return;
+          const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+          if (Math.hypot(dx, dy) > 8) drag.moved = true;
+          if (drag.moved) { b.style.transform = `translate(${dx}px,${dy}px)`; b.style.zIndex = 2; }
+        };
+        b.onpointerup = e => {
+          const d = drag; drag = null;
+          if (!d) return;
+          const k = +b.dataset.k;
+          if (!d.moved) { q._picked.splice(k, 1); return draw(); }
+          // New position = how many of the other placed words come before the pointer (row above, or same row and further left)
+          const to = [...document.querySelectorAll("#picked button")].filter(o => o !== b).filter(o => { const r = o.getBoundingClientRect(); return r.bottom < e.clientY || (r.top <= e.clientY && r.left + r.width / 2 < e.clientX); }).length;
+          const [item] = q._picked.splice(k, 1);
+          q._picked.splice(to, 0, item);
+          draw();
+        };
+        b.onpointercancel = () => { drag = null; draw(); };
+      });
     };
     draw();
     document.getElementById("check").onclick = () => {
@@ -177,7 +224,10 @@ function renderQ() {
     const check = () => {
       if (!inp.value.trim()) return;
       inp.disabled = true;
-      finishQ(q, inp.value.trim(), q.antwoorden.some(a => norm(a) === norm(inp.value)), q.antwoorden[0] + ".");
+      const j = judge(inp.value, q.antwoorden);
+      const note = j.kind === "typo" ? `Cümle doğru, sadece yazım hatası var: ${j.slips.map(([t, w]) => `<s>${esc(t)}</s> → <b lang="nl">${esc(w)}</b>`).join(", ")}`
+        : j.kind === "order" ? "Kelimeler doğru ama sıraları yanlış." : "";
+      finishQ(q, inp.value.trim(), j.kind === "ok" || j.kind === "typo", j.model + ".", note, j.kind === "typo");
     };
     document.getElementById("check").onclick = check;
     inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); check(); } };
@@ -185,15 +235,15 @@ function renderQ() {
 }
 
 // Show right/wrong with the model answer and the reason, then wait for "Sonraki"
-function finishQ(q, given, correct, model) {
-  const rec = { qid: q.id, chosen: given.slice(0, 200), correct };
+function finishQ(q, given, correct, model, note = "", typo = false) {
+  const rec = { qid: q.id, chosen: given.slice(0, 200), correct, ...(typo ? { typo: true } : {}) };
   run.answers.push(rec);
   document.getElementById("check")?.remove();
   const last = run.i === run.qs.length - 1;
   // A typed sentence can be right in more ways than the list knows: the learner may overrule a "wrong"
   const overrule = q.type === "type" && !correct ? `<button class="btn" id="ok">Cevabım da doğruydu</button>` : "";
-  document.getElementById("fb").innerHTML = `<div class="fb ${correct ? "good" : "wrong"}"><b>${correct ? "Doğru." : "Olmadı."}</b>
-    <span class="ans" lang="nl">${esc(model)}</span>${esc(q.uitleg)}</div>
+  document.getElementById("fb").innerHTML = `<div class="fb ${typo ? "typo" : correct ? "good" : "wrong"}"><b>${typo ? "Neredeyse." : correct ? "Doğru." : "Olmadı."}</b>
+    <span class="ans" lang="nl">${esc(model)}</span>${note ? `<span style="display:block;margin-bottom:4px">${note}</span>` : ""}${esc(q.uitleg)}</div>
     <div class="row" style="margin-top:14px"><button class="btn primary" id="next">${last ? "Sonucu gör" : "Sonraki"}</button>${overrule}</div>`;
   document.getElementById("ok")?.addEventListener("click", e => { rec.correct = true; rec.overruled = true; e.target.remove(); document.querySelector(".fb").className = "fb good"; });
   const next = document.getElementById("next");
