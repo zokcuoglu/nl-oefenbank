@@ -55,6 +55,23 @@ setTimeout(function () {
 .gamelang{display:flex;gap:6px;flex-wrap:wrap}
 .gamelang button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:500}
 .gamelang button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+/* Home: quick links, "continue" row, foldable sections */
+.jump{display:flex;gap:6px;flex-wrap:wrap}
+.jump button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:500}
+.jump button:hover{border-color:var(--accent)}
+.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+a.mini{display:flex;flex-direction:column;gap:4px;padding:12px 14px;color:inherit;text-decoration:none;font-size:14px}
+a.mini:hover{border-color:var(--accent)}
+details.sec{border-top:1px solid var(--line);padding-top:14px;scroll-margin-top:12px}
+details.sec>summary{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;cursor:pointer;list-style:none}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::before{content:"▸";color:var(--muted);font-size:18px;width:14px}
+details.sec[open]>summary::before{content:"▾"}
+details.sec>summary h2{margin:0}
+.secbody{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.linklist{display:flex;gap:8px;flex-wrap:wrap}
+.linklist a{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;color:inherit;text-decoration:none;font-size:14px}
+.linklist a:hover{border-color:var(--accent)}
 </style>
 
 <script type="module">
@@ -114,18 +131,69 @@ const isChild = profile.type === "child";
 // NT2 cards: only those for the exam level chosen on the profile (B1 default; "beide" = all)
 const niveau = profile.examen_niveau || "B1";
 const nt2 = cat.modules.filter(m => m.area === "nt2" && (!m.niveau || niveau === "beide" || m.niveau === niveau));
+// Show the exam cards in a fixed skill order (reading, listening, writing, speaking, KNM) instead of the order they were built in
+const NT2_ORDER = ["lezen", "luisteren", "schrijven", "spreken", "knm"];
+const skillRank = m => { const i = NT2_ORDER.findIndex(s => m.id.startsWith(s)); return i < 0 ? 99 : i; };
+nt2.sort((a, b) => skillRank(a) - skillRank(b));
 const levelNote = `<span class="chip">${niveau === "beide" ? "A2 + B1" : niveau}</span> <a href="${ROOT}profile.html" style="font-size:13px">seviyeyi değiştir</a>`;
+
+// ---------- Home layout: quick links, a "continue" row and foldable sections ----------
+// Why: the page used to be one long list of 30 cards. Now each area is a section that can be folded,
+// and the browser remembers which ones are open. Storage can be unavailable, so it is always in try/catch.
+const SEC_KEY = "nloefenbank:sections";
+let secState = {};
+try { secState = JSON.parse(localStorage.getItem(SEC_KEY) || "{}") || {}; } catch {}
+const SECTIONS = [];   // filled by section(); also used for the quick links at the top
+function section(id, title, note, body, openByDefault) {
+  SECTIONS.push({ id, title });
+  const open = id in secState ? secState[id] : openByDefault;
+  return `<details class="sec" id="sec-${id}" data-sec="${id}"${open ? " open" : ""}>
+    <summary><h2>${esc(title)}</h2><span class="muted">${note}</span></summary>
+    <div class="secbody">${body}</div></details>`;
+}
+
+// "Devam et": the three exercises this person used most recently (attempts arrive newest first)
+const byId = Object.fromEntries(cat.modules.map(m => [m.id, m]));
+const recent = [];
+for (const a of attempts) {
+  const m = byId[a.module];
+  const allowed = m && m.status === "ready" && !m.href.startsWith("#") && !(isChild && (m.area === "nt2" || m.area === "media"));
+  if (allowed && !recent.includes(m)) recent.push(m);
+  if (recent.length === 3) break;
+}
+const recentRow = recent.length ? `<section><span class="eyebrow">Devam et</span>
+  <div class="minis">${recent.map(m => { const l = lastBy[m.id]; return `<a class="panel mini" href="${ROOT}${m.href}"><b>${esc(m.title)}</b><span class="muted num">son: ${fmtDate(l.finished_at)} · ${l.score}/${l.total}</span></a>`; }).join("")}</div></section>` : "";
+
+const slim = cat.modules.filter(m => m.area === "slimspel" && m.home !== false);
+// Adults get the games as a short list of links; children keep the big cards
+const slimBody = isChild
+  ? `<section class="cards">${slim.map(card).join("")}</section>`
+  : `<div class="linklist">${slim.map(m => `<a href="${ROOT}${m.href}">${esc(m.title)}</a>`).join("")}<a href="${ROOT}../slimspel/">Tüm oyunlar →</a></div>`;
+
+const sectionsHtml = [
+  isChild ? "" : section("nt2", cat.areas.nt2.title, `${esc(cat.areas.nt2.desc)} ${levelNote}`, `<section class="cards">${nt2.map(card).join("")}</section>`, true),
+  isChild ? "" : section("media", cat.areas.media.title, esc(cat.areas.media.desc), `<section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`, true),
+  section("kids", cat.areas.kids.title, esc(cat.areas.kids.desc), kidsSection(), isChild),
+  section("slimspel", cat.areas.slimspel.title, `${slim.length} oyun · ${esc(cat.areas.slimspel.desc)}`, slimBody, isChild)
+].join("");
+
 app.innerHTML = `
   <section class="panel"><span class="eyebrow">Hoş geldin</span><h2 style="margin-top:4px">${esc(profile.name || user.displayName || "")}</h2>
-    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "NT2 sınav alıştırmaların ve öğrenci bölümü aşağıda. Sınav tarihlerini profil sayfasından girebilirsin."}</p></section>
-  ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.nt2.title)}</h2><span class="muted">${esc(cat.areas.nt2.desc)} ${levelNote}</span></div>
-    <section class="cards">${nt2.map(card).join("")}</section>`}
-  ${isChild ? "" : `<div class="area-head"><h2>${esc(cat.areas.media.title)}</h2><span class="muted">${esc(cat.areas.media.desc)}</span></div>
-    <section class="cards">${cat.modules.filter(m => m.area === "media").map(card).join("")}</section>`}
-  <div class="area-head"><h2>${esc(cat.areas.kids.title)}</h2><span class="muted">${esc(cat.areas.kids.desc)}</span></div>
-  ${kidsSection()}
-  <div class="area-head"><h2>${esc(cat.areas.slimspel.title)}</h2><span class="muted">${esc(cat.areas.slimspel.desc)} <a href="${ROOT}../slimspel/">Tüm oyunlar →</a></span></div>
-  <section class="cards">${cat.modules.filter(m => m.area === "slimspel" && m.home !== false).map(card).join("")}</section>`;
+    <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "Bir bölüme gitmek için aşağıdaki düğmeleri kullan. Başlığa tıklayınca bölüm açılır ya da kapanır."}</p>
+    <nav class="jump" style="margin-top:12px">${SECTIONS.map(s => `<button data-jump="${s.id}">${esc(s.title)}</button>`).join("")}</nav></section>
+  ${recentRow}
+  ${sectionsHtml}`;
+
+// Remember open/closed per section; a quick link opens its section and scrolls to it
+app.querySelectorAll("details.sec").forEach(d => d.addEventListener("toggle", () => {
+  secState[d.dataset.sec] = d.open;
+  try { localStorage.setItem(SEC_KEY, JSON.stringify(secState)); } catch {}
+}));
+app.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => {
+  const d = document.getElementById("sec-" + b.dataset.jump);
+  d.open = true;
+  d.scrollIntoView({ behavior: "smooth", block: "start" });
+});
 
 // ---------- Tabs: "Çalışma" (the cards above) and "Günün oyunları" (daily games, in this page) ----------
 // Each game is a module with a mount function; it gets this site's own save/load functions.
