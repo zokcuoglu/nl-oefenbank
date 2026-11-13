@@ -42,8 +42,44 @@ export const isAdmin = p => roleOf(p) === "admin";
 // New accounts start as "pending" until an admin approves them; admins are always in
 export const statusOf = p => isAdmin(p) ? "approved" : (p?.status || "pending");
 
+// ---------- "View as" (admins only) ----------
+// An admin can look at the site as an ordinary adult member or as a student of one groep.
+// The choice is kept in this browser only (localStorage); the account in the database does not change.
+// While a view is on, gate() hands the pages a changed copy of the profile, and nothing is written
+// (no attempts, no profile changes, no game results), so trying things out does not end up in the statistics.
+const VIEW_KEY = "nloefenbank:view";
+let preview = false;
+export const isPreview = () => preview;
+function readView() {
+  try { const v = JSON.parse(localStorage.getItem(VIEW_KEY) || "null"); return v && (v.type === "adult" || (v.type === "child" && /^groep[1-8]$/.test(v.groep))) ? v : null; }
+  catch { return null; }
+}
+function setView(v) {
+  try { if (v) localStorage.setItem(VIEW_KEY, JSON.stringify(v)); else localStorage.removeItem(VIEW_KEY); } catch {}
+  // The admin page does not exist for a member or a student: go home; otherwise show the same page in the new view
+  if (v && /admin\.html/.test(location.pathname)) location.href = ROOT; else location.reload();
+}
+// Thin bar at the top of every page, only for admins: choose the view, and see clearly when one is on
+function viewBar(view) {
+  if (document.getElementById("viewbar")) return;
+  const bar = document.createElement("div");
+  bar.id = "viewbar"; if (view) bar.className = "on";
+  const cur = !view ? "admin" : view.type === "adult" ? "adult" : view.groep;
+  bar.innerHTML = `<label>Görünüm <select>
+    <option value="admin">Yönetici (kendi hesabım)</option>
+    <option value="adult">Yetişkin üye</option>
+    ${[1, 2, 3, 4, 5, 6, 7, 8].map(n => `<option value="groep${n}">Öğrenci · Groep ${n}</option>`).join("")}
+  </select></label>${view ? `<span>Siteyi bu kişi gibi görüyorsun. Bu görünümde hiçbir şey kaydedilmez.</span><button type="button">Yönetici görünümüne dön</button>` : ""}`;
+  const sel = bar.querySelector("select");
+  sel.value = cur;
+  sel.onchange = () => setView(sel.value === "admin" ? null : sel.value === "adult" ? { type: "adult" } : { type: "child", groep: sel.value });
+  const back = bar.querySelector("button"); if (back) back.onclick = () => setView(null);
+  document.body.prepend(bar);
+}
+
 // Save one finished round. `module` says which exercise it belongs to.
 export async function saveAttempt(uid, module, attempt) {
+  if (preview) return { id: "preview" };   // "view as": nothing is written
   return addDoc(attemptsCol(uid), { ...attempt, module });
 }
 // Load this user's attempts for one module (old Lezen rounds have no module field)
@@ -64,6 +100,7 @@ export function markSeen(uid, key) {
   return updateProfile(uid, { seen: { [key]: new Date().toISOString() } }).catch(() => {});
 }
 export async function updateProfile(uid, data) {
+  if (preview) return;   // "view as": nothing is written
   return setDoc(userRef(uid), data, { merge: true });
 }
 export function logout() { signOut(auth).then(() => location.href = ROOT); }
@@ -97,6 +134,10 @@ const GATE_CSS = `
 #gate .tile svg{color:#C8551B}
 #gate .err{background:#F6E0DE;color:#B3403A;border-radius:8px;padding:10px 12px}
 @media (prefers-color-scheme:dark){#gate .err{background:#3A1E1C;color:#E58A83}}
+#viewbar{position:sticky;top:0;z-index:150;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:6px 16px;font:13px/1.4 "IBM Plex Sans","Segoe UI",system-ui,sans-serif;background:var(--sunk,#E8ECF1);color:var(--ink,#142033);border-bottom:1px solid var(--line,#D3DAE3)}
+#viewbar.on{background:#F7ECD6;color:#5c3b08;border-bottom-color:#C8551B}
+#viewbar select,#viewbar button{font:inherit;border:1px solid var(--line,#D3DAE3);border-radius:8px;padding:3px 8px;background:#fff;color:#142033;cursor:pointer}
+#viewbar label{display:inline-flex;align-items:center;gap:8px;font-weight:600}
 .ub{display:inline-flex;align-items:center;gap:8px;font-size:13px;flex-wrap:wrap}
 .ub img{width:26px;height:26px;border-radius:50%}
 .ub a{color:inherit}
@@ -148,6 +189,12 @@ export function gate({ area = "any", title = "NL Oefenbank", seen = "" } = {}) {
         if (statusOf(profile) !== "approved") {
           updateProfile(user.uid, { name: profile.name || user.displayName || "", email: user.email || "", photo: user.photoURL || "", last_active: new Date().toISOString() }).catch(() => {});
           showWaiting(user, profile); return;
+        }
+        // "View as": an admin gets the bar on every page; with a view chosen, the pages receive the profile of that kind of user
+        if (isAdmin(profile)) {
+          const view = readView();
+          viewBar(view);
+          if (view) { preview = true; profile = { ...profile, role: "member", type: view.type, groep: view.type === "child" ? view.groep : null, _view: true }; }
         }
         // Child accounts only see the kids area
         if (area === "nt2" && profile.type === "child") { location.href = ROOT; return; }

@@ -30,6 +30,7 @@ export function dropOldProgress(game) {
 // ---------- Results for the rankings (firestore.rules: dagspel_plays) ----------
 // wrong (optional): ids of the questions this person got wrong, so the next day can bring back the most missed ones
 export function savePlay(user, profile, { game, level, day, score, total, time_s, wrong }) {
+  if (profile._view) return Promise.resolve();   // admin in "view as": nothing is written
   const name = (profile.name || user.displayName || "?").trim().split(/\s+/)[0];
   return setDoc(doc(db, "dagspel_plays", `${game}-${level}-${day}-${user.uid}`), {
     uid: user.uid, name: name.slice(0, 40), game, level, day, score: Math.round(score), total: Math.round(total),

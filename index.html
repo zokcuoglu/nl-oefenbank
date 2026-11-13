@@ -269,7 +269,7 @@ showTab(hashTab());
 
 // Children: the games tab counts toward the 15 minutes a day of play time and has set hours (shared with Slimspel).
 // Studying in the "Çalışma" tab is never limited. Loaded on its own so a problem there never stops the page.
-if (profile.type === "child") import(`${ROOT}../slimspel/js/speeltijd.js?v=1`).then(m => m.startPlaytime({
+if (profile.type === "child" && !profile._view) import(`${ROOT}../slimspel/js/speeltijd.js?v=1`).then(m => m.startPlaytime({
   db, user, profile, lang: "tr",
   isOn: () => !document.getElementById("games").hidden,
   onLeave: () => { history.replaceState(null, "", location.pathname); showTab("calisma"); }
