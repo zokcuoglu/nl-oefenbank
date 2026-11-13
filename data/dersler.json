@@ -1,110 +1,1700 @@
 {
-  "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video.",
-  "lessen": [
+ "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video.",
+ "lessen": [
+  {
+   "id": "zullen",
+   "titel": "“Zullen” ve arkadaşları: teklif etmenin 8 yolu",
+   "serie": "Hayat Kurtaran Cümleler 3",
+   "kanaal": "Goed Bezig | Sait Faik Gülşen",
+   "video": "YYGKIBsetp4",
+   "intro": "Burada “zullen” gelecek zaman değil, teklif demek. Derste aynı işi farklı tonlarla yapan sekiz kalıp var. Hepsinde ikinci fiil mastar olarak sona gider; “zullen, laten, kunnen, willen” ile “te” kullanılmaz.",
+   "delen": [
     {
-      "id": "laten",
-      "titel": "Çok fonksiyonlu “laten” fiili",
-      "serie": "Hayat Kurtaran Cümleler 7",
-      "kanaal": "Goed Bezig | Sait Faik Gülşen",
-      "video": "RGxiEvp5SFI",
-      "intro": "“Laten” tek anlamlı bir fiil değil. Bu derste üç kullanımı var: teklif etmek (hadi yapalım), bir işi başkasına yaptırmak (tamir ettirmek, kestirmek) ve haber vermek (laten weten). Üçünde de cümlede iki fiil olur ve ikinci fiil mastar olarak sona gider.",
-      "delen": [
-        {
-          "titel": "1. Teklif: Laten we …",
-          "uitleg": "Kalıp: Laten we + (zaman, nesne) + mastar. Mastar en sonda durur. “Hadi … yapalım” demektir.",
-          "regels": [
-            "“Zullen we …?” bir sorudur, daha yumuşaktır. “Laten we …” daha doğrudandır: inisiyatifi sen alırsın. Karşındakinin hayır demeyeceğini biliyorsan kullan.",
-            "“even” cümleyi yumuşatır: Laten we even koffie halen.",
-            "“anders” burada “olmazsa” demektir: Laten we anders morgen bellen.",
-            "Yön belliyse “gaan” düşebilir: Laten we naar buiten (gaan)."
-          ],
-          "voorbeelden": [
-            { "nl": "Laten we beginnen.", "tr": "Hadi başlayalım." },
-            { "nl": "Laten we even pauze nemen.", "tr": "Bir mola verelim." },
-            { "nl": "Laten we naar buiten gaan.", "tr": "Hadi dışarı çıkalım." },
-            { "nl": "Laten we iets drinken.", "tr": "Bir şeyler içelim." },
-            { "nl": "Laten we een goed plan maken.", "tr": "İyi bir plan yapalım." },
-            { "nl": "Laten we eerlijk zijn.", "tr": "Dürüst olalım." },
-            { "nl": "Laten we anders morgen bellen.", "tr": "Olmazsa yarın telefonlaşalım." },
-            { "nl": "Laten we eerst iets eten.", "tr": "Önce bir şeyler yiyelim." },
-            { "nl": "Laten we niet overdrijven.", "tr": "Abartmayalım." },
-            { "nl": "Laten we een rondje lopen.", "tr": "Bir tur atalım." },
-            { "nl": "Laten we even koffie halen.", "tr": "Hadi bir kahve alalım." },
-            { "nl": "Laten we het hopen.", "tr": "Öyle umalım." },
-            { "nl": "Laten we rustig blijven.", "tr": "Sakin kalalım." },
-            { "nl": "Laten we dit afmaken.", "tr": "Hadi bunu bitirelim." }
-          ]
-        },
-        {
-          "titel": "2. Bir işi yaptırmak: laten + mastar",
-          "uitleg": "İşi sen yapmıyorsun, başkasına yaptırıyorsun. Türkçedeki -tır/-dır eki gibi: repareren = tamir etmek, laten repareren = tamir ettirmek.",
-          "regels": [
-            "Çekim: ik laat, jij laat, hij laat, wij laten. Geçmiş: liet, lieten.",
-            "Modal fiil varsa o ikinci sırada durur, “laten + mastar” birlikte sona gider: Ik moet het laten repareren.",
-            "Nesne (het, mijn auto) iki fiilden önce gelir.",
-            "waarderen = değer vermek, takdir etmek. laten waarderen = değerlendirtmek (diploma denkliği).",
-            "Dikkat: laten vallen = düşürmek. Türkçede “yaptırmak” yok ama Hollandacada “laten” var."
-          ],
-          "voorbeelden": [
-            { "nl": "Ik laat mijn auto wassen.", "tr": "Arabamı yıkatıyorum." },
-            { "nl": "Ik moet het laten repareren.", "tr": "Onu tamir ettirmem lazım." },
-            { "nl": "Ik moet mijn diploma laten waarderen.", "tr": "Diplomamın denkliğini almam lazım." },
-            { "nl": "Ik wil mijn huis laten schilderen.", "tr": "Evimi boyatmak istiyorum." },
-            { "nl": "Ik moet mijn auto laten nakijken.", "tr": "Arabama baktırmam lazım." },
-            { "nl": "Sorry dat ik je laat wachten.", "tr": "Seni beklettiğim için kusura bakma." },
-            { "nl": "Ik heb tijd nodig om het te laten bezinken.", "tr": "Bunu sindirmek için zamana ihtiyacım var." },
-            { "nl": "Je laat me schrikken!", "tr": "Beni korkutuyorsun!" },
-            { "nl": "Hij liet ons schrikken.", "tr": "Bizi korkuttu." }
-          ]
-        },
-        {
-          "titel": "3. Geçmiş zaman: heb … laten + mastar",
-          "uitleg": "Geçmiş zamanı “hebben” verir. Sonda iki fiil yan yana durur ve ikisi de mastardır: laten + asıl fiil. “gelaten” denmez.",
-          "regels": [
-            "Doğru: Ik heb het laten repareren. Yanlış: Ik heb het gelaten repareren.",
-            "Kime yaptırdığını “door” ile söylersin: door een collega."
-          ],
-          "voorbeelden": [
-            { "nl": "Ik heb mijn diploma laten waarderen.", "tr": "Diplomamın denkliğini aldım." },
-            { "nl": "Ik heb mijn meubels uit Turkije laten brengen.", "tr": "Mobilyalarımı Türkiye'den getirttim." },
-            { "nl": "Hij heeft een valse ID-kaart laten maken.", "tr": "Sahte kimlik yaptırdı." },
-            { "nl": "Ik heb het laten controleren.", "tr": "Onu kontrol ettirdim." },
-            { "nl": "Ik heb het door een collega laten lezen.", "tr": "Onu bir iş arkadaşıma okuttum." },
-            { "nl": "Ik heb mijn haar laten knippen.", "tr": "Saçımı kestirdim." },
-            { "nl": "Ik heb een kies laten trekken.", "tr": "Azı dişimi çektirdim." },
-            { "nl": "Ik heb mijn telefoon laten vallen.", "tr": "Telefonumu düşürdüm." },
-            { "nl": "Je hebt me laten schrikken.", "tr": "Beni korkuttun." }
-          ]
-        },
-        {
-          "titel": "4. Haber vermek: laten weten",
-          "uitleg": "weten = bilmek, laten weten = bildirmek, haber vermek. Mantık aynı: birinin bilmesini sağlıyorsun.",
-          "regels": [],
-          "voorbeelden": [
-            { "nl": "Ik laat het je morgen weten.", "tr": "Yarın sana haber veririm." },
-            { "nl": "Ik heb het hem laten weten.", "tr": "Ona haber verdim." },
-            { "nl": "Laat het me weten.", "tr": "Bana haber ver." }
-          ]
-        }
-      ],
-      "vragen": [
-        { "id": "l01", "type": "mc", "vraag": "“Hadi başlayalım.” Hangisi doğru?", "opties": ["Laten we beginnen.", "We laten begonnen.", "Laten we begint."], "juist": 0, "uitleg": "Laten we + mastar. Mastar sonda: beginnen." },
-        { "id": "l02", "type": "mc", "vraag": "Karşı tarafa soru sorarak, daha yumuşak teklif eden cümle hangisi?", "opties": ["Laten we koffie halen.", "Zullen we koffie halen?", "Ik laat koffie halen."], "juist": 1, "uitleg": "“Zullen we …?” sorudur ve yumuşaktır. “Laten we …” daha doğrudandır." },
-        { "id": "l03", "type": "mc", "vraag": "“Saçımı kestirdim.” (Kuaför kesti.)", "opties": ["Ik heb mijn haar geknipt.", "Ik heb mijn haar gelaten knippen.", "Ik heb mijn haar laten knippen."], "juist": 2, "uitleg": "Yaptırmak = laten + mastar. Geçmişte: heb … laten knippen. “Ik heb mijn haar geknipt” = kendim kestim." },
-        { "id": "l04", "type": "mc", "vraag": "“Ik heb mijn telefoon laten vallen.” ne demek?", "opties": ["Telefonumu tamir ettirdim.", "Telefonumu düşürdüm.", "Telefonumu evde bıraktım."], "juist": 1, "uitleg": "laten vallen = düşürmek." },
-        { "id": "l05", "type": "mc", "vraag": "“Laten we anders morgen bellen.” cümlesinde “anders” ne demek?", "opties": ["farklı şekilde", "başka biri", "olmazsa"], "juist": 2, "uitleg": "Teklif cümlelerinde “anders” = olmazsa, o zaman." },
-        { "id": "l06", "type": "mc", "vraag": "“Onu tamir ettirdim.” Hangisi doğru?", "opties": ["Ik heb het laten repareren.", "Ik heb het gelaten repareren.", "Ik heb het repareren gelaten."], "juist": 0, "uitleg": "Sonda iki mastar: laten repareren. “gelaten” denmez." },
-        { "id": "l07", "type": "order", "tr": "Önce bir şeyler yiyelim.", "woorden": ["Laten", "we", "eerst", "iets", "eten"], "uitleg": "Laten we + eerst + nesne + mastar." },
-        { "id": "l08", "type": "order", "tr": "Arabama baktırmam lazım.", "woorden": ["Ik", "moet", "mijn", "auto", "laten", "nakijken"], "uitleg": "Modal (moet) ikinci sırada, “laten nakijken” sonda." },
-        { "id": "l09", "type": "order", "tr": "Diplomamın denkliğini aldım.", "woorden": ["Ik", "heb", "mijn", "diploma", "laten", "waarderen"], "uitleg": "heb ikinci sırada, sonda iki mastar: laten waarderen." },
-        { "id": "l10", "type": "order", "tr": "Yarın sana haber veririm.", "woorden": ["Ik", "laat", "het", "je", "morgen", "weten"], "uitleg": "laat ikinci sırada, weten sonda." },
-        { "id": "l11", "type": "order", "tr": "Evimi boyatmak istiyorum.", "woorden": ["Ik", "wil", "mijn", "huis", "laten", "schilderen"], "uitleg": "wil ikinci sırada, “laten schilderen” sonda." },
-        { "id": "l12", "type": "type", "tr": "Dürüst olalım.", "antwoorden": ["Laten we eerlijk zijn"], "uitleg": "Laten we + eerlijk + zijn." },
-        { "id": "l13", "type": "type", "tr": "Sakin kalalım.", "antwoorden": ["Laten we rustig blijven", "Laten we kalm blijven"], "uitleg": "blijven = kalmak. Laten we rustig blijven." },
-        { "id": "l14", "type": "type", "tr": "Onu tamir ettirmem lazım.", "antwoorden": ["Ik moet het laten repareren", "Ik moet dat laten repareren", "Ik moet dit laten repareren", "Ik moet hem laten repareren"], "uitleg": "moet ikinci sırada, laten repareren sonda." },
-        { "id": "l15", "type": "type", "tr": "Bana haber ver.", "antwoorden": ["Laat het me weten", "Laat het mij weten", "Laat me het weten", "Laat het me even weten", "Laat maar weten"], "uitleg": "Emir kipi: Laat het me weten." },
-        { "id": "l16", "type": "type", "tr": "Saçımı kestirdim.", "antwoorden": ["Ik heb mijn haar laten knippen"], "uitleg": "heb … laten knippen: sonda iki mastar." }
-      ]
+     "titel": "1. Zullen we …? ve Laten we …",
+     "uitleg": "“Zullen we …?” birlikte yapılacak bir şey için kibar, arkadaşça bir sorudur. “Laten we …” aynı teklifin daha enerjik hali: karşındakinin hayır demeyeceğini biliyorsan.",
+     "regels": [
+      "Senden kıdemli birine “Laten we …” garip kaçabilir; ona “Zullen we …?” daha uygun.",
+      "Mastarın önüne “gaan” koyarsan cümle daha hareketli olur: Zullen we iets gaan drinken? (Cümlede zaten “gaan” varsa ikinci kez eklenmez.)",
+      "iets afspreken = buluşup bir şeyler yapmak. een afspraak maken = randevu almak."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Zullen we beginnen?",
+       "tr": "Başlayalım mı?"
+      },
+      {
+       "nl": "Zullen we iets afspreken?",
+       "tr": "Buluşup bir şeyler yapalım mı?"
+      },
+      {
+       "nl": "Zullen we naar buiten gaan?",
+       "tr": "Dışarı çıkalım mı?"
+      },
+      {
+       "nl": "Zullen we snel wat eten?",
+       "tr": "Hızlıca bir şeyler yiyelim mi?"
+      },
+      {
+       "nl": "Zullen we een terrasje pakken?",
+       "tr": "Dışarıda bir masaya oturalım mı?"
+      },
+      {
+       "nl": "Zullen we iets leuks doen?",
+       "tr": "Güzel bir şeyler yapalım mı?"
+      },
+      {
+       "nl": "Zullen we een spelletje doen?",
+       "tr": "Bir oyun oynayalım mı?"
+      },
+      {
+       "nl": "Zullen we het zo doen?",
+       "tr": "Böyle yapalım mı?"
+      },
+      {
+       "nl": "Zullen we morgen even bellen?",
+       "tr": "Yarın bir telefonlaşalım mı?"
+      },
+      {
+       "nl": "Laten we een terrasje pakken!",
+       "tr": "Hadi bir masaya oturalım!"
+      }
+     ]
+    },
+    {
+     "titel": "2. Zal ik …?",
+     "uitleg": "Senin için bir şey yapayım mı? Sadece “ik” ile kullanılır. Gelecek zamanla ilgisi yok, bir tekliftir.",
+     "regels": [
+      "“anders” eklersen “olmazsa … yapayım mı?” olur ve teklif yumuşar: Zal ik anders een berichtje sturen?"
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Zal ik je helpen?",
+       "tr": "Sana yardım edeyim mi?"
+      },
+      {
+       "nl": "Zal ik een foto maken?",
+       "tr": "Bir fotoğraf çekeyim mi?"
+      },
+      {
+       "nl": "Zal ik een tafel reserveren?",
+       "tr": "Bir masa ayırtayım mı?"
+      },
+      {
+       "nl": "Zal ik het voor je regelen?",
+       "tr": "Onu senin için ayarlayayım mı?"
+      },
+      {
+       "nl": "Zal ik iets meenemen?",
+       "tr": "Bir şey getireyim mi?"
+      },
+      {
+       "nl": "Zal ik anders een berichtje sturen?",
+       "tr": "Olmazsa bir mesaj göndereyim mi?"
+      },
+      {
+       "nl": "Zal ik anders tot morgen wachten?",
+       "tr": "Olmazsa yarına kadar bekleyeyim mi?"
+      },
+      {
+       "nl": "Zal ik anders morgen even langskomen?",
+       "tr": "Olmazsa yarın bir uğrayayım mı?"
+      }
+     ]
+    },
+    {
+     "titel": "3. Kunnen we …? ve Wil je …?",
+     "uitleg": "“Kunnen we …?” daha ihtiyatlıdır: bir şeyin mümkün olup olmadığını sorar. “Wil je …?” karşındakinin isteğini sorar.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Kunnen we naar buiten gaan?",
+       "tr": "Dışarı çıkabilir miyiz?"
+      },
+      {
+       "nl": "Kunnen we even bellen?",
+       "tr": "Bir telefonlaşabilir miyiz?"
+      },
+      {
+       "nl": "Kunnen we iets afspreken?",
+       "tr": "Buluşup bir şeyler yapabilir miyiz?"
+      },
+      {
+       "nl": "Wil je iets drinken?",
+       "tr": "Bir şeyler içmek ister misin?"
+      },
+      {
+       "nl": "Wil je straks samen wandelen?",
+       "tr": "Birazdan birlikte yürümek ister misin?"
+      }
+     ]
+    },
+    {
+     "titel": "4. Heb je zin om … te …? ve Heb je zin in …?",
+     "uitleg": "“Canın … istiyor mu?” demenin şevkli yolu. Arkadan fiil gelecekse “om … te + mastar”, isim gelecekse “in + isim” kullanılır.",
+     "regels": [
+      "Fiil: Heb je zin om te wandelen? İsim: Heb je zin in een wandeling?",
+      "Ayrılabilir fiilde “te” araya girer: weggaan → weg te gaan."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Heb je zin om samen naar de stad te gaan?",
+       "tr": "Birlikte şehre gidesin var mı?"
+      },
+      {
+       "nl": "Heb je zin om een wandeling te maken?",
+       "tr": "Bir yürüyüş yapasın var mı?"
+      },
+      {
+       "nl": "Heb je zin om iets leuks te doen?",
+       "tr": "Güzel bir şeyler yapasın var mı?"
+      },
+      {
+       "nl": "Heb je zin in een wandeling?",
+       "tr": "Yürüyüşe ne dersin?"
+      },
+      {
+       "nl": "Heb je zin in koffie?",
+       "tr": "Canın kahve çekiyor mu?"
+      },
+      {
+       "nl": "Heb je zin in een kopje koffie?",
+       "tr": "Bir fincan kahveye ne dersin?"
+      },
+      {
+       "nl": "Heb je zin in iets lekkers?",
+       "tr": "Canın lezzetli bir şeyler çekiyor mu?"
+      },
+      {
+       "nl": "Heb je zin in een ijsje?",
+       "tr": "Dondurma ister misin?"
+      },
+      {
+       "nl": "Heb je zin in een weekendje weg?",
+       "tr": "Hafta sonu bir yerlere kaçmaya ne dersin?"
+      }
+     ]
+    },
+    {
+     "titel": "5. Wat denk je van …? ve Wat dacht je van …?",
+     "uitleg": "Ne yapacağınızı düşünürken ihtiyatlı bir öneri: “… ne dersin?” “Wat dacht je van …?” bir kademe daha kibardır.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Wat denk je van een wandeling?",
+       "tr": "Bir yürüyüşe ne dersin?"
+      },
+      {
+       "nl": "Wat denk je van dit plan?",
+       "tr": "Bu plana ne dersin?"
+      },
+      {
+       "nl": "Wat denk je van vrijdagavond?",
+       "tr": "Cuma akşamına ne dersin?"
+      },
+      {
+       "nl": "Wat dacht je van koffie in het park?",
+       "tr": "Parkta kahveye ne dersin?"
+      },
+      {
+       "nl": "Wat denk je van een weekendje weg?",
+       "tr": "Hafta sonu bir yerlere gitmeye ne dersin?"
+      }
+     ]
     }
-  ]
+   ],
+   "vragen": [
+    {
+     "id": "z01",
+     "type": "mc",
+     "vraag": "“Sana yardım edeyim mi?” Hangisi doğru?",
+     "opties": [
+      "Zullen we je helpen?",
+      "Zal ik je helpen?",
+      "Zal je ik helpen?"
+     ],
+     "juist": 1,
+     "uitleg": "Ben senin için yapayım mı = Zal ik …? Sadece “ik” ile."
+    },
+    {
+     "id": "z02",
+     "type": "mc",
+     "vraag": "“Heb je zin ___ een ijsje?” Boşluğa ne gelir?",
+     "opties": [
+      "om",
+      "in",
+      "te"
+     ],
+     "juist": 1,
+     "uitleg": "Arkadan isim geliyorsa: zin in + isim."
+    },
+    {
+     "id": "z03",
+     "type": "mc",
+     "vraag": "“Heb je zin ___ een wandeling te maken?” Boşluğa ne gelir?",
+     "opties": [
+      "om",
+      "in",
+      "van"
+     ],
+     "juist": 0,
+     "uitleg": "Arkadan fiil geliyorsa: zin om … te + mastar."
+    },
+    {
+     "id": "z04",
+     "type": "mc",
+     "vraag": "Müdürüne yürüyüş teklif edeceksin. Hangisi daha uygun?",
+     "opties": [
+      "Laten we wandelen!",
+      "Zullen we een wandeling maken?",
+      "Wij wandelen nu."
+     ],
+     "juist": 1,
+     "uitleg": "“Laten we” daha doğrudandır; kıdemli birine soru şeklindeki “Zullen we …?” daha uygun."
+    },
+    {
+     "id": "z05",
+     "type": "mc",
+     "vraag": "“Zal ik anders een berichtje sturen?” ne demek?",
+     "opties": [
+      "Başka bir mesaj mı göndereyim?",
+      "Olmazsa bir mesaj göndereyim mi?",
+      "Mesajı başkası mı göndersin?"
+     ],
+     "juist": 1,
+     "uitleg": "Tekliflerde “anders” = olmazsa."
+    },
+    {
+     "id": "z06",
+     "type": "mc",
+     "vraag": "Hangisi “randevu almak” demek?",
+     "opties": [
+      "iets afspreken",
+      "een afspraak maken",
+      "een terrasje pakken"
+     ],
+     "juist": 1,
+     "uitleg": "een afspraak maken = randevu almak. iets afspreken = buluşup bir şeyler yapmak."
+    },
+    {
+     "id": "z07",
+     "type": "order",
+     "tr": "Buluşup bir şeyler yapalım mı?",
+     "woorden": [
+      "Zullen",
+      "we",
+      "iets",
+      "afspreken"
+     ],
+     "einde": "?",
+     "uitleg": "Zullen we + nesne + mastar."
+    },
+    {
+     "id": "z08",
+     "type": "order",
+     "tr": "Bir masa ayırtayım mı?",
+     "woorden": [
+      "Zal",
+      "ik",
+      "een",
+      "tafel",
+      "reserveren"
+     ],
+     "einde": "?",
+     "uitleg": "Zal ik + nesne + mastar."
+    },
+    {
+     "id": "z09",
+     "type": "order",
+     "tr": "Birlikte şehre gidesin var mı?",
+     "woorden": [
+      "Heb",
+      "je",
+      "zin",
+      "om",
+      "samen",
+      "naar",
+      "de",
+      "stad",
+      "te",
+      "gaan"
+     ],
+     "einde": "?",
+     "uitleg": "zin om … te + mastar; “te gaan” sonda."
+    },
+    {
+     "id": "z10",
+     "type": "order",
+     "tr": "Parkta kahveye ne dersin?",
+     "woorden": [
+      "Wat",
+      "dacht",
+      "je",
+      "van",
+      "koffie",
+      "in",
+      "het",
+      "park"
+     ],
+     "einde": "?",
+     "uitleg": "Wat dacht je van + isim."
+    },
+    {
+     "id": "z11",
+     "type": "order",
+     "tr": "Olmazsa yarına kadar bekleyeyim mi?",
+     "woorden": [
+      "Zal",
+      "ik",
+      "anders",
+      "tot",
+      "morgen",
+      "wachten"
+     ],
+     "einde": "?",
+     "uitleg": "anders, “ik”ten hemen sonra; mastar sonda."
+    },
+    {
+     "id": "z12",
+     "type": "type",
+     "tr": "Başlayalım mı?",
+     "antwoorden": [
+      "Zullen we beginnen?",
+      "Zullen we starten?"
+     ],
+     "uitleg": "Zullen we + mastar."
+    },
+    {
+     "id": "z13",
+     "type": "type",
+     "tr": "Bir şeyler içmek ister misin?",
+     "antwoorden": [
+      "Wil je iets drinken?",
+      "Wil je wat drinken?",
+      "Wil jij iets drinken?"
+     ],
+     "uitleg": "Wil je + nesne + mastar."
+    },
+    {
+     "id": "z14",
+     "type": "type",
+     "tr": "Canın kahve çekiyor mu?",
+     "antwoorden": [
+      "Heb je zin in koffie?",
+      "Heb je zin in een kopje koffie?",
+      "Heb jij zin in koffie?"
+     ],
+     "uitleg": "zin in + isim."
+    },
+    {
+     "id": "z15",
+     "type": "type",
+     "tr": "Bir fotoğraf çekeyim mi?",
+     "antwoorden": [
+      "Zal ik een foto maken?",
+      "Zal ik een foto nemen?"
+     ],
+     "uitleg": "Fotoğraf çekmek = een foto maken."
+    },
+    {
+     "id": "z16",
+     "type": "type",
+     "tr": "Bu plana ne dersin?",
+     "antwoorden": [
+      "Wat denk je van dit plan?",
+      "Wat dacht je van dit plan?",
+      "Wat vind je van dit plan?"
+     ],
+     "uitleg": "Wat denk je van + isim."
+    }
+   ]
+  },
+  {
+   "id": "tekliflere-cevap",
+   "titel": "Tekliflere spontan cevap vermek",
+   "serie": "Hayat Kurtaran Cümleler 4",
+   "kanaal": "Goed Bezig | Sait Faik Gülşen",
+   "video": "m-rqeOJpl7E",
+   "intro": "Teklifi anlamak yetmez, tonuna uygun cevap vermek gerekir: şevkli, nötr, kararsız ya da kibarca hayır. Bu cevaplar tek bir soruya ait değil; aynı cümleyi onlarca teklife verebilirsin.",
+   "delen": [
+    {
+     "titel": "1. Evet, isteyerek",
+     "uitleg": "Önce kısa bir tepki ver, sonra istersen bir cümle ekle ya da soruyu geri çevir.",
+     "regels": [
+      "“Zullen we beginnen?” sorusuna “Ja, we zullen beginnen” denmez: düz cümlede “zullen” gelecek zamana döner ve cevap tuhaf olur.",
+      "“Klinkt goed” bir fikre söylenir. “Ziet er goed uit” ancak bir şey gördüğünde söylenir.",
+      "“Ja, waarom niet?” tek başına biraz isteksiz durur; önüne “leuk” gibi bir tepki koy."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ja, leuk!",
+       "tr": "Evet, güzel olur!"
+      },
+      {
+       "nl": "Lijkt me leuk!",
+       "tr": "Bence güzel olur!"
+      },
+      {
+       "nl": "Goed idee!",
+       "tr": "İyi fikir!"
+      },
+      {
+       "nl": "Goed plan!",
+       "tr": "İyi plan!"
+      },
+      {
+       "nl": "Gezellig!",
+       "tr": "Ne hoş olur!"
+      },
+      {
+       "nl": "Ja, laten we dat doen.",
+       "tr": "Evet, hadi öyle yapalım."
+      },
+      {
+       "nl": "Klinkt goed!",
+       "tr": "Kulağa hoş geliyor!"
+      },
+      {
+       "nl": "Daar heb ik zin in.",
+       "tr": "Canım istiyor."
+      },
+      {
+       "nl": "Goed plan, ik heb frisse lucht nodig.",
+       "tr": "İyi plan, temiz havaya ihtiyacım var."
+      },
+      {
+       "nl": "Ik moet eerst iets afmaken.",
+       "tr": "Önce bir şeyi bitirmem lazım."
+      }
+     ]
+    },
+    {
+     "titel": "2. Soruyu geri çevirmek",
+     "uitleg": "Evet dedikten sonra ayrıntıyı karşı tarafa sor. Diyalog böyle akar.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Wanneer kun je?",
+       "tr": "Ne zaman yapabilirsin?"
+      },
+      {
+       "nl": "Waar heb je zin in?",
+       "tr": "Canın ne çekiyor?"
+      },
+      {
+       "nl": "Welk spelletje?",
+       "tr": "Hangi oyun?"
+      },
+      {
+       "nl": "Hoe laat kun je?",
+       "tr": "Saat kaçta yapabilirsin?"
+      },
+      {
+       "nl": "Wat stel je voor?",
+       "tr": "Ne öneriyorsun?"
+      },
+      {
+       "nl": "Heb je al een plan?",
+       "tr": "Bir planın var mı?"
+      },
+      {
+       "nl": "Tot morgen!",
+       "tr": "Yarın görüşürüz!"
+      },
+      {
+       "nl": "Tot zo!",
+       "tr": "Birazdan görüşürüz!"
+      }
+     ]
+    },
+    {
+     "titel": "3. “Zal ik …?” teklifine cevap",
+     "uitleg": "Biri senin için bir şey yapmayı teklif ediyor. Kabul ederken “graag”, reddederken teşekkürle yumuşat.",
+     "regels": [
+      "“hoor” sert cümleyi yumuşatır: Dat is niet nodig, hoor.",
+      "Bir teklifi kabul ederken “alsjeblieft” değil “graag” denir."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ja, graag!",
+       "tr": "Evet, lütfen!"
+      },
+      {
+       "nl": "Heel graag, dat is fijn.",
+       "tr": "Çok isterim, iyi olur."
+      },
+      {
+       "nl": "Wat lief dat je het vraagt.",
+       "tr": "Sorman ne hoş."
+      },
+      {
+       "nl": "Als je tijd hebt.",
+       "tr": "Vaktin varsa."
+      },
+      {
+       "nl": "Dat hoeft niet, hoor.",
+       "tr": "Gerek yok."
+      },
+      {
+       "nl": "Nee hoor, toch bedankt.",
+       "tr": "Yok, yine de teşekkürler."
+      },
+      {
+       "nl": "Ik red het wel.",
+       "tr": "Ben hallederim."
+      },
+      {
+       "nl": "Dat is niet nodig, hoor.",
+       "tr": "Buna gerek yok."
+      },
+      {
+       "nl": "Iets te drinken zou fijn zijn.",
+       "tr": "İçecek bir şeyler iyi olur."
+      },
+      {
+       "nl": "Dat is handig.",
+       "tr": "Bu işe yarar."
+      },
+      {
+       "nl": "We kunnen beter tot morgen wachten.",
+       "tr": "Yarına kadar beklesek daha iyi olur."
+      },
+      {
+       "nl": "Ja, dat is makkelijker.",
+       "tr": "Evet, böylesi daha kolay."
+      }
+     ]
+    },
+    {
+     "titel": "4. Kararsızım",
+     "uitleg": "Hemen evet ya da hayır diyemiyorsan.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Misschien.",
+       "tr": "Belki."
+      },
+      {
+       "nl": "Ik weet het nog niet zeker.",
+       "tr": "Henüz emin değilim."
+      },
+      {
+       "nl": "Ik weet niet of ik kan.",
+       "tr": "Yapabilir miyim bilmiyorum."
+      },
+      {
+       "nl": "Ik moet even overleggen.",
+       "tr": "Bir danışmam lazım."
+      },
+      {
+       "nl": "Ik moet even kijken of het kan.",
+       "tr": "Olur mu bir bakmam lazım."
+      },
+      {
+       "nl": "Ik moet er nog even over nadenken.",
+       "tr": "Biraz daha düşünmem lazım."
+      }
+     ]
+    },
+    {
+     "titel": "5. Kibarca hayır",
+     "uitleg": "Hollandalılar açık cevap ister, ama önce olumlu bir şey söyleyip sonra “maar” ile devam etmek kibardır.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Leuk idee, maar misschien een andere keer.",
+       "tr": "Güzel fikir, ama belki başka sefere."
+      },
+      {
+       "nl": "Lijkt me leuk, maar ik kan nu niet.",
+       "tr": "Güzel olurdu, ama şimdi yapamam."
+      },
+      {
+       "nl": "Klinkt goed, maar ik heb al iets anders.",
+       "tr": "Kulağa hoş geliyor, ama başka bir işim var."
+      },
+      {
+       "nl": "Een andere keer graag.",
+       "tr": "Başka bir sefer seve seve."
+      },
+      {
+       "nl": "Ik sla deze keer even over.",
+       "tr": "Bu sefer pas geçeyim."
+      },
+      {
+       "nl": "Nu lukt het niet, maar de volgende keer ben ik erbij.",
+       "tr": "Şimdi olmuyor, ama gelecek sefer varım."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "c01",
+     "type": "mc",
+     "vraag": "“Zullen we beginnen?” Hangi cevap uygun DEĞİL?",
+     "opties": [
+      "Ja, goed idee!",
+      "Ja, we zullen beginnen.",
+      "Ja, laten we dat doen."
+     ],
+     "juist": 1,
+     "uitleg": "Düz cümlede “zullen” gelecek zaman olur: “evet, başlayacağız”. Teklife böyle cevap verilmez."
+    },
+    {
+     "id": "c02",
+     "type": "mc",
+     "vraag": "İş arkadaşın: “Zal ik je helpen?” Yardım istiyorsun. Ne dersin?",
+     "opties": [
+      "Ja, alsjeblieft.",
+      "Ja, graag!",
+      "Ja, ik zal."
+     ],
+     "juist": 1,
+     "uitleg": "Teklifi kabul ederken “graag” denir."
+    },
+    {
+     "id": "c03",
+     "type": "mc",
+     "vraag": "Biri bir fikir söyledi, henüz bir şey görmedin. Hangisi uygun?",
+     "opties": [
+      "Klinkt goed!",
+      "Ziet er goed uit!",
+      "Smaakt goed!"
+     ],
+     "juist": 0,
+     "uitleg": "Fikre “klinkt goed”. “Ziet er goed uit” ancak bir şey gördüğünde."
+    },
+    {
+     "id": "c04",
+     "type": "mc",
+     "vraag": "“Dat is niet nodig, hoor.” cümlesinde “hoor” ne işe yarar?",
+     "opties": [
+      "Soruya çevirir.",
+      "Cümleyi yumuşatır.",
+      "“Duy” demektir."
+     ],
+     "juist": 1,
+     "uitleg": "“hoor” sert kaçabilecek bir cümleyi yumuşatır."
+    },
+    {
+     "id": "c05",
+     "type": "mc",
+     "vraag": "Yemeğe çağırdılar, bu sefer gitmeyeceksin. Hangisi kibar?",
+     "opties": [
+      "Nee.",
+      "Ik sla deze keer even over.",
+      "Dat wil ik niet."
+     ],
+     "juist": 1,
+     "uitleg": "overslaan = pas geçmek. “deze keer” ve “even” cümleyi yumuşatır."
+    },
+    {
+     "id": "c06",
+     "type": "mc",
+     "vraag": "“Zullen we iets eten?” – “Ja, leuk! ___” Canın ne çekiyor diye nasıl sorarsın?",
+     "opties": [
+      "Waar heb je zin in?",
+      "Wat heb je zin?",
+      "Waarom heb je zin?"
+     ],
+     "juist": 0,
+     "uitleg": "zin hebben in → soru: Waar heb je zin in?"
+    },
+    {
+     "id": "c07",
+     "type": "order",
+     "tr": "Evet, hadi öyle yapalım.",
+     "woorden": [
+      "Ja",
+      "laten",
+      "we",
+      "dat",
+      "doen"
+     ],
+     "einde": ".",
+     "uitleg": "Laten we + dat + doen."
+    },
+    {
+     "id": "c08",
+     "type": "order",
+     "tr": "Önce bir şeyi bitirmem lazım.",
+     "woorden": [
+      "Ik",
+      "moet",
+      "eerst",
+      "iets",
+      "afmaken"
+     ],
+     "einde": ".",
+     "uitleg": "moet ikinci sırada, afmaken sonda."
+    },
+    {
+     "id": "c09",
+     "type": "order",
+     "tr": "Yapabilir miyim bilmiyorum.",
+     "woorden": [
+      "Ik",
+      "weet",
+      "niet",
+      "of",
+      "ik",
+      "kan"
+     ],
+     "einde": ".",
+     "uitleg": "“of” yan cümlesi: fiil (kan) sonda."
+    },
+    {
+     "id": "c10",
+     "type": "order",
+     "tr": "Güzel fikir, ama belki başka sefere.",
+     "woorden": [
+      "Leuk",
+      "idee",
+      "maar",
+      "misschien",
+      "een",
+      "andere",
+      "keer"
+     ],
+     "einde": ".",
+     "uitleg": "Önce olumlu tepki, sonra “maar”."
+    },
+    {
+     "id": "c11",
+     "type": "order",
+     "tr": "Yarına kadar beklesek daha iyi olur.",
+     "woorden": [
+      "We",
+      "kunnen",
+      "beter",
+      "tot",
+      "morgen",
+      "wachten"
+     ],
+     "einde": ".",
+     "uitleg": "kunnen ikinci sırada, wachten sonda."
+    },
+    {
+     "id": "c12",
+     "type": "type",
+     "tr": "İyi fikir!",
+     "antwoorden": [
+      "Goed idee!",
+      "Een goed idee!"
+     ],
+     "uitleg": "Goed idee!"
+    },
+    {
+     "id": "c13",
+     "type": "type",
+     "tr": "Ben hallederim.",
+     "antwoorden": [
+      "Ik red het wel",
+      "Ik red me wel",
+      "Ik regel het wel"
+     ],
+     "uitleg": "redden = kurtarmak, başa çıkmak. Ik red het wel."
+    },
+    {
+     "id": "c14",
+     "type": "type",
+     "tr": "Ne öneriyorsun?",
+     "antwoorden": [
+      "Wat stel je voor?",
+      "Wat stel jij voor?"
+     ],
+     "uitleg": "voorstellen ayrılabilir: stel … voor."
+    },
+    {
+     "id": "c15",
+     "type": "type",
+     "tr": "Henüz emin değilim.",
+     "antwoorden": [
+      "Ik weet het nog niet zeker",
+      "Ik weet het nog niet",
+      "Ik ben nog niet zeker"
+     ],
+     "uitleg": "Ik weet het nog niet zeker."
+    },
+    {
+     "id": "c16",
+     "type": "type",
+     "tr": "Başka bir sefer seve seve.",
+     "antwoorden": [
+      "Een andere keer graag",
+      "Graag een andere keer"
+     ],
+     "uitleg": "Een andere keer graag."
+    }
+   ]
+  },
+  {
+   "id": "misafir",
+   "titel": "Sofradan uğurlamaya: Hollandalı misafir rehberi",
+   "serie": "Hayat Kurtaran Cümleler 6",
+   "kanaal": "Goed Bezig | Sait Faik Gülşen",
+   "video": "XJ3Bp77uapU",
+   "intro": "Evine Hollandalı bir misafir geliyor. Bu derste ev sahibi sensin: davetten uğurlamaya kadar her an için hazır cümleler var. Her durumda bir iki cümle seçip ezberlemen yeter.",
+   "delen": [
+    {
+     "titel": "1. Davetten önce",
+     "uitleg": "Misafir “Zal ik iets meenemen?” diye sorabilir. Sen de yemediği bir şey olup olmadığını sor; bu nezakettir.",
+     "regels": [
+      "rekening houden met = hesaba katmak. Soru cümlesinde “waar … mee” olur."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Nee joh, dat hoeft niet.",
+       "tr": "Yok canım, gerek yok."
+      },
+      {
+       "nl": "Dat is echt niet nodig.",
+       "tr": "Gerçekten gerek yok."
+      },
+      {
+       "nl": "Ik regel alles.",
+       "tr": "Her şeyi ben ayarlıyorum."
+      },
+      {
+       "nl": "Zijn er dingen die je niet eet?",
+       "tr": "Yemediğin şeyler var mı?"
+      },
+      {
+       "nl": "Heb je dieetwensen?",
+       "tr": "Diyetle ilgili bir isteğin var mı?"
+      },
+      {
+       "nl": "Zijn er allergieën waar ik rekening mee moet houden?",
+       "tr": "Dikkat etmem gereken alerji var mı?"
+      }
+     ]
+    },
+    {
+     "titel": "2. Kapıda",
+     "uitleg": "Karşılama, zamanında gelene ya da geç kalana söylenecekler. Birkaç cümleyi üst üste söylemek daha sıcak durur.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Daar ben je!",
+       "tr": "İşte geldin!"
+      },
+      {
+       "nl": "Welkom, kom binnen!",
+       "tr": "Hoş geldin, içeri gel!"
+      },
+      {
+       "nl": "Wat leuk dat jullie er zijn!",
+       "tr": "Gelmeniz ne güzel!"
+      },
+      {
+       "nl": "Je bent lekker op tijd.",
+       "tr": "Tam vaktinde geldin."
+      },
+      {
+       "nl": "Perfecte timing!",
+       "tr": "Tam zamanında!"
+      },
+      {
+       "nl": "Geeft niks, hoor.",
+       "tr": "Önemli değil."
+      },
+      {
+       "nl": "Fijn dat jullie er zijn.",
+       "tr": "İyi ki geldiniz."
+      },
+      {
+       "nl": "Kon je het makkelijk vinden?",
+       "tr": "Kolay bulabildin mi?"
+      },
+      {
+       "nl": "Ja graag, dat zou fijn zijn.",
+       "tr": "Evet lütfen, iyi olur. (“Ayakkabıları çıkarayım mı?” sorusuna)"
+      },
+      {
+       "nl": "Zou je je schoenen willen uitdoen?",
+       "tr": "Ayakkabılarını çıkarabilir misin?"
+      }
+     ]
+    },
+    {
+     "titel": "3. Hediye, ev ve oturma",
+     "uitleg": "Misafir bir şey getirdiyse teşekkür et; sonra oturt ve içecek ikram et.",
+     "regels": [
+      "Yemek güzel görünüyorsa: Wat ziet dat er lekker uit!",
+      "“drankje” sadece alkollü içecek demek değildir, genel bir kelimedir."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ach, dat had niet gehoeven!",
+       "tr": "Ah, hiç gerek yoktu!"
+      },
+      {
+       "nl": "Wat attent van je!",
+       "tr": "Ne kadar düşüncelisin!"
+      },
+      {
+       "nl": "Wat een mooie bloemen!",
+       "tr": "Ne güzel çiçekler!"
+      },
+      {
+       "nl": "Ik zoek er een mooi plekje voor.",
+       "tr": "Buna güzel bir yer bulayım."
+      },
+      {
+       "nl": "Zal ik het huis laten zien?",
+       "tr": "Evi göstereyim mi?"
+      },
+      {
+       "nl": "Ga lekker zitten, hoor.",
+       "tr": "Buyur otur."
+      },
+      {
+       "nl": "Wat wil je drinken: koffie, thee of fris?",
+       "tr": "Ne içersin: kahve, çay, soğuk bir şey?"
+      },
+      {
+       "nl": "Wil je alvast iets drinken?",
+       "tr": "Önden bir şey içer misin?"
+      }
+     ]
+    },
+    {
+     "titel": "4. Hal hatır",
+     "uitleg": "İçecekleri alınca ya da sofrada sorulacak genel sorular.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Hoe is het met je?",
+       "tr": "Nasılsın?"
+      },
+      {
+       "nl": "Hoe gaat het met de kinderen?",
+       "tr": "Çocuklar nasıl?"
+      },
+      {
+       "nl": "Hoe gaat het op school?",
+       "tr": "Okul nasıl gidiyor?"
+      },
+      {
+       "nl": "Hoe gaat het op je werk?",
+       "tr": "İşler nasıl?"
+      },
+      {
+       "nl": "Ben je druk?",
+       "tr": "Yoğun musun?"
+      },
+      {
+       "nl": "Is het vol te houden?",
+       "tr": "Dayanılır gibi mi?"
+      },
+      {
+       "nl": "Druk op het werk, of valt het mee?",
+       "tr": "İş yoğun mu, yoksa idare eder mi?"
+      }
+     ]
+    },
+    {
+     "titel": "5. Sofrada",
+     "uitleg": "Masaya çağırmak, afiyet olsun demek, iltifata cevap vermek ve kaba kaçmadan biraz daha ikram etmek.",
+     "regels": [
+      "lusten = canı çekmek, yemek istemek: Lust je nog een toetje?",
+      "opscheppen = tabağa yemek koymak; een schepje = bir kaşık."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Het eten is klaar, kom lekker aan tafel.",
+       "tr": "Yemek hazır, buyurun masaya."
+      },
+      {
+       "nl": "Eet smakelijk allemaal!",
+       "tr": "Hepinize afiyet olsun!"
+      },
+      {
+       "nl": "Hopelijk smaakt het.",
+       "tr": "Umarım beğenirsiniz."
+      },
+      {
+       "nl": "Val aan!",
+       "tr": "Hadi buyurun, başlayın!"
+      },
+      {
+       "nl": "Fijn dat het smaakt.",
+       "tr": "Beğenmenize sevindim."
+      },
+      {
+       "nl": "Het is met liefde gemaakt.",
+       "tr": "Sevgiyle yapıldı."
+      },
+      {
+       "nl": "Zal ik je het recept sturen?",
+       "tr": "Tarifini sana göndereyim mi?"
+      },
+      {
+       "nl": "Wil je nog een schepje?",
+       "tr": "Bir kaşık daha ister misin?"
+      },
+      {
+       "nl": "Nog een klein beetje misschien?",
+       "tr": "Belki azıcık daha?"
+      },
+      {
+       "nl": "Dat hoor ik graag.",
+       "tr": "Bunu duymak güzel. (“Ik zit vol” diyene)"
+      },
+      {
+       "nl": "Lust je nog een toetje of koffie?",
+       "tr": "Tatlı ya da kahve ister misin?"
+      },
+      {
+       "nl": "Nog een kopje?",
+       "tr": "Bir fincan daha?"
+      },
+      {
+       "nl": "Nee hoor, alles is onder controle.",
+       "tr": "Yok, her şey kontrol altında. (yardım teklifine)"
+      },
+      {
+       "nl": "Dat doe ik straks wel.",
+       "tr": "Onu ben sonra yaparım."
+      }
+     ]
+    },
+    {
+     "titel": "6. Uğurlama ve ertesi gün",
+     "uitleg": "Misafir izin istemez, “gidiyoruz” der: We gaan er weer vandoor. Sen de kısa birkaç cümleyle uğurlarsın. Ertesi gün kısa bir mesaj atmak çok şıktır.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Zullen we naar de bank verhuizen?",
+       "tr": "Koltuklara geçelim mi?"
+      },
+      {
+       "nl": "Bedankt voor jullie komst.",
+       "tr": "Geldiğiniz için teşekkürler."
+      },
+      {
+       "nl": "Het was gezellig.",
+       "tr": "Çok hoş vakit geçirdik."
+      },
+      {
+       "nl": "Leuk om jullie weer te zien.",
+       "tr": "Sizi yeniden görmek güzeldi."
+      },
+      {
+       "nl": "Tot snel!",
+       "tr": "Yakında görüşürüz!"
+      },
+      {
+       "nl": "Rij voorzichtig.",
+       "tr": "Dikkatli sür."
+      },
+      {
+       "nl": "Ik loop even mee.",
+       "tr": "Sizi geçireyim."
+      },
+      {
+       "nl": "Bedankt voor de gezellige avond.",
+       "tr": "Güzel akşam için teşekkürler."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "m01",
+     "type": "mc",
+     "vraag": "Misafir soruyor: “Zal ik iets meenemen?” Bir şey getirmesini istemiyorsun. Ne dersin?",
+     "opties": [
+      "Nee joh, dat hoeft niet.",
+      "Nee, ik zal niet.",
+      "Ja, dat had niet gehoeven."
+     ],
+     "juist": 0,
+     "uitleg": "“Dat hoeft niet” = gerek yok. “joh” samimi ve yumuşak yapar."
+    },
+    {
+     "id": "m02",
+     "type": "mc",
+     "vraag": "Misafir çiçek getirdi. Hangisi uygun?",
+     "opties": [
+      "Geeft niks, hoor.",
+      "Ach, dat had niet gehoeven!",
+      "Val aan!"
+     ],
+     "juist": 1,
+     "uitleg": "“Dat had niet gehoeven” = hiç gerek yoktu (teşekkür anlamında)."
+    },
+    {
+     "id": "m03",
+     "type": "mc",
+     "vraag": "Misafir 10 dakika geç kaldı ve özür diledi. Ne dersin?",
+     "opties": [
+      "Geeft niks, hoor. Fijn dat jullie er zijn.",
+      "Je bent lekker op tijd.",
+      "Dat hoor ik graag."
+     ],
+     "juist": 0,
+     "uitleg": "“Geeft niks” = önemli değil."
+    },
+    {
+     "id": "m04",
+     "type": "mc",
+     "vraag": "Misafir: “Ik zit vol.” (Doydum.) Hangisi hoş bir cevap?",
+     "opties": [
+      "Dat is echt niet nodig.",
+      "Dat hoor ik graag.",
+      "Hoe gaat het op school?"
+     ],
+     "juist": 1,
+     "uitleg": "“Dat hoor ik graag” = bunu duymak güzel."
+    },
+    {
+     "id": "m05",
+     "type": "mc",
+     "vraag": "“Lust je nog een toetje?” ne demek?",
+     "opties": [
+      "Tatlıyı beğendin mi?",
+      "Tatlı ister misin?",
+      "Tatlı kaldı mı?"
+     ],
+     "juist": 1,
+     "uitleg": "lusten = canı çekmek, yemek istemek."
+    },
+    {
+     "id": "m06",
+     "type": "mc",
+     "vraag": "Yemek hazır. Misafirleri masaya nasıl çağırırsın?",
+     "opties": [
+      "Het eten is klaar, kom lekker aan tafel.",
+      "Ga lekker zitten op tafel.",
+      "Het eten wil klaar."
+     ],
+     "juist": 0,
+     "uitleg": "aan tafel komen = masaya gelmek."
+    },
+    {
+     "id": "m07",
+     "type": "order",
+     "tr": "Yemediğin şeyler var mı?",
+     "woorden": [
+      "Zijn",
+      "er",
+      "dingen",
+      "die",
+      "je",
+      "niet",
+      "eet"
+     ],
+     "einde": "?",
+     "uitleg": "“die” yan cümlesi: fiil (eet) sonda."
+    },
+    {
+     "id": "m08",
+     "type": "order",
+     "tr": "Ayakkabılarını çıkarabilir misin?",
+     "woorden": [
+      "Zou",
+      "je",
+      "je",
+      "schoenen",
+      "willen",
+      "uitdoen"
+     ],
+     "einde": "?",
+     "uitleg": "Kibar rica: Zou je … willen + mastar."
+    },
+    {
+     "id": "m09",
+     "type": "order",
+     "tr": "Tarifini sana göndereyim mi?",
+     "woorden": [
+      "Zal",
+      "ik",
+      "je",
+      "het",
+      "recept",
+      "sturen"
+     ],
+     "einde": "?",
+     "uitleg": "Zal ik + je + nesne + mastar."
+    },
+    {
+     "id": "m10",
+     "type": "order",
+     "tr": "Sizi yeniden görmek güzeldi.",
+     "woorden": [
+      "Leuk",
+      "om",
+      "jullie",
+      "weer",
+      "te",
+      "zien"
+     ],
+     "einde": ".",
+     "uitleg": "om … te + mastar; “te zien” sonda."
+    },
+    {
+     "id": "m11",
+     "type": "order",
+     "tr": "Koltuklara geçelim mi?",
+     "woorden": [
+      "Zullen",
+      "we",
+      "naar",
+      "de",
+      "bank",
+      "verhuizen"
+     ],
+     "einde": "?",
+     "uitleg": "de bank = koltuk, kanepe. Zullen we + … + mastar."
+    },
+    {
+     "id": "m12",
+     "type": "type",
+     "tr": "Kolay bulabildin mi?",
+     "antwoorden": [
+      "Kon je het makkelijk vinden?",
+      "Kon je het gemakkelijk vinden?",
+      "Kon je het goed vinden?",
+      "Was het makkelijk te vinden?"
+     ],
+     "uitleg": "Kon je het makkelijk vinden?"
+    },
+    {
+     "id": "m13",
+     "type": "type",
+     "tr": "Hepinize afiyet olsun!",
+     "antwoorden": [
+      "Eet smakelijk allemaal!",
+      "Eet smakelijk!",
+      "Smakelijk eten allemaal!",
+      "Smakelijk eten!"
+     ],
+     "uitleg": "Eet smakelijk (allemaal)!"
+    },
+    {
+     "id": "m14",
+     "type": "type",
+     "tr": "Çocuklar nasıl?",
+     "antwoorden": [
+      "Hoe gaat het met de kinderen?",
+      "Hoe is het met de kinderen?"
+     ],
+     "uitleg": "Hoe gaat het met + kişi."
+    },
+    {
+     "id": "m15",
+     "type": "type",
+     "tr": "Geldiğiniz için teşekkürler.",
+     "antwoorden": [
+      "Bedankt voor jullie komst",
+      "Bedankt voor het komen",
+      "Dank voor jullie komst",
+      "Dank je wel voor jullie komst",
+      "Bedankt dat jullie gekomen zijn"
+     ],
+     "uitleg": "de komst = geliş. Bedankt voor jullie komst."
+    },
+    {
+     "id": "m16",
+     "type": "type",
+     "tr": "Bir fincan daha?",
+     "antwoorden": [
+      "Nog een kopje?",
+      "Nog een kopje koffie?",
+      "Nog een kopje thee?"
+     ],
+     "uitleg": "Fiilsiz, kısa soru: Nog een kopje?"
+    }
+   ]
+  },
+  {
+   "id": "laten",
+   "titel": "Çok fonksiyonlu “laten” fiili",
+   "serie": "Hayat Kurtaran Cümleler 7",
+   "kanaal": "Goed Bezig | Sait Faik Gülşen",
+   "video": "RGxiEvp5SFI",
+   "intro": "“Laten” tek anlamlı bir fiil değil. Bu derste üç kullanımı var: teklif etmek (hadi yapalım), bir işi başkasına yaptırmak (tamir ettirmek, kestirmek) ve haber vermek (laten weten). Üçünde de cümlede iki fiil olur ve ikinci fiil mastar olarak sona gider.",
+   "delen": [
+    {
+     "titel": "1. Teklif: Laten we …",
+     "uitleg": "Kalıp: Laten we + (zaman, nesne) + mastar. Mastar en sonda durur. “Hadi … yapalım” demektir.",
+     "regels": [
+      "“Zullen we …?” bir sorudur, daha yumuşaktır. “Laten we …” daha doğrudandır: inisiyatifi sen alırsın. Karşındakinin hayır demeyeceğini biliyorsan kullan.",
+      "“even” cümleyi yumuşatır: Laten we even koffie halen.",
+      "“anders” burada “olmazsa” demektir: Laten we anders morgen bellen.",
+      "Yön belliyse “gaan” düşebilir: Laten we naar buiten (gaan)."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Laten we beginnen.",
+       "tr": "Hadi başlayalım."
+      },
+      {
+       "nl": "Laten we even pauze nemen.",
+       "tr": "Bir mola verelim."
+      },
+      {
+       "nl": "Laten we naar buiten gaan.",
+       "tr": "Hadi dışarı çıkalım."
+      },
+      {
+       "nl": "Laten we iets drinken.",
+       "tr": "Bir şeyler içelim."
+      },
+      {
+       "nl": "Laten we een goed plan maken.",
+       "tr": "İyi bir plan yapalım."
+      },
+      {
+       "nl": "Laten we eerlijk zijn.",
+       "tr": "Dürüst olalım."
+      },
+      {
+       "nl": "Laten we anders morgen bellen.",
+       "tr": "Olmazsa yarın telefonlaşalım."
+      },
+      {
+       "nl": "Laten we eerst iets eten.",
+       "tr": "Önce bir şeyler yiyelim."
+      },
+      {
+       "nl": "Laten we niet overdrijven.",
+       "tr": "Abartmayalım."
+      },
+      {
+       "nl": "Laten we een rondje lopen.",
+       "tr": "Bir tur atalım."
+      },
+      {
+       "nl": "Laten we even koffie halen.",
+       "tr": "Hadi bir kahve alalım."
+      },
+      {
+       "nl": "Laten we het hopen.",
+       "tr": "Öyle umalım."
+      },
+      {
+       "nl": "Laten we rustig blijven.",
+       "tr": "Sakin kalalım."
+      },
+      {
+       "nl": "Laten we dit afmaken.",
+       "tr": "Hadi bunu bitirelim."
+      }
+     ]
+    },
+    {
+     "titel": "2. Bir işi yaptırmak: laten + mastar",
+     "uitleg": "İşi sen yapmıyorsun, başkasına yaptırıyorsun. Türkçedeki -tır/-dır eki gibi: repareren = tamir etmek, laten repareren = tamir ettirmek.",
+     "regels": [
+      "Çekim: ik laat, jij laat, hij laat, wij laten. Geçmiş: liet, lieten.",
+      "Modal fiil varsa o ikinci sırada durur, “laten + mastar” birlikte sona gider: Ik moet het laten repareren.",
+      "Nesne (het, mijn auto) iki fiilden önce gelir.",
+      "waarderen = değer vermek, takdir etmek. laten waarderen = değerlendirtmek (diploma denkliği).",
+      "Dikkat: laten vallen = düşürmek. Türkçede “yaptırmak” yok ama Hollandacada “laten” var."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik laat mijn auto wassen.",
+       "tr": "Arabamı yıkatıyorum."
+      },
+      {
+       "nl": "Ik moet het laten repareren.",
+       "tr": "Onu tamir ettirmem lazım."
+      },
+      {
+       "nl": "Ik moet mijn diploma laten waarderen.",
+       "tr": "Diplomamın denkliğini almam lazım."
+      },
+      {
+       "nl": "Ik wil mijn huis laten schilderen.",
+       "tr": "Evimi boyatmak istiyorum."
+      },
+      {
+       "nl": "Ik moet mijn auto laten nakijken.",
+       "tr": "Arabama baktırmam lazım."
+      },
+      {
+       "nl": "Sorry dat ik je laat wachten.",
+       "tr": "Seni beklettiğim için kusura bakma."
+      },
+      {
+       "nl": "Ik heb tijd nodig om het te laten bezinken.",
+       "tr": "Bunu sindirmek için zamana ihtiyacım var."
+      },
+      {
+       "nl": "Je laat me schrikken!",
+       "tr": "Beni korkutuyorsun!"
+      },
+      {
+       "nl": "Hij liet ons schrikken.",
+       "tr": "Bizi korkuttu."
+      }
+     ]
+    },
+    {
+     "titel": "3. Geçmiş zaman: heb … laten + mastar",
+     "uitleg": "Geçmiş zamanı “hebben” verir. Sonda iki fiil yan yana durur ve ikisi de mastardır: laten + asıl fiil. “gelaten” denmez.",
+     "regels": [
+      "Doğru: Ik heb het laten repareren. Yanlış: Ik heb het gelaten repareren.",
+      "Kime yaptırdığını “door” ile söylersin: door een collega."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik heb mijn diploma laten waarderen.",
+       "tr": "Diplomamın denkliğini aldım."
+      },
+      {
+       "nl": "Ik heb mijn meubels uit Turkije laten brengen.",
+       "tr": "Mobilyalarımı Türkiye'den getirttim."
+      },
+      {
+       "nl": "Hij heeft een valse ID-kaart laten maken.",
+       "tr": "Sahte kimlik yaptırdı."
+      },
+      {
+       "nl": "Ik heb het laten controleren.",
+       "tr": "Onu kontrol ettirdim."
+      },
+      {
+       "nl": "Ik heb het door een collega laten lezen.",
+       "tr": "Onu bir iş arkadaşıma okuttum."
+      },
+      {
+       "nl": "Ik heb mijn haar laten knippen.",
+       "tr": "Saçımı kestirdim."
+      },
+      {
+       "nl": "Ik heb een kies laten trekken.",
+       "tr": "Azı dişimi çektirdim."
+      },
+      {
+       "nl": "Ik heb mijn telefoon laten vallen.",
+       "tr": "Telefonumu düşürdüm."
+      },
+      {
+       "nl": "Je hebt me laten schrikken.",
+       "tr": "Beni korkuttun."
+      }
+     ]
+    },
+    {
+     "titel": "4. Haber vermek: laten weten",
+     "uitleg": "weten = bilmek, laten weten = bildirmek, haber vermek. Mantık aynı: birinin bilmesini sağlıyorsun.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Ik laat het je morgen weten.",
+       "tr": "Yarın sana haber veririm."
+      },
+      {
+       "nl": "Ik heb het hem laten weten.",
+       "tr": "Ona haber verdim."
+      },
+      {
+       "nl": "Laat het me weten.",
+       "tr": "Bana haber ver."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "l01",
+     "type": "mc",
+     "vraag": "“Hadi başlayalım.” Hangisi doğru?",
+     "opties": [
+      "Laten we beginnen.",
+      "We laten begonnen.",
+      "Laten we begint."
+     ],
+     "juist": 0,
+     "uitleg": "Laten we + mastar. Mastar sonda: beginnen."
+    },
+    {
+     "id": "l02",
+     "type": "mc",
+     "vraag": "Karşı tarafa soru sorarak, daha yumuşak teklif eden cümle hangisi?",
+     "opties": [
+      "Laten we koffie halen.",
+      "Zullen we koffie halen?",
+      "Ik laat koffie halen."
+     ],
+     "juist": 1,
+     "uitleg": "“Zullen we …?” sorudur ve yumuşaktır. “Laten we …” daha doğrudandır."
+    },
+    {
+     "id": "l03",
+     "type": "mc",
+     "vraag": "“Saçımı kestirdim.” (Kuaför kesti.)",
+     "opties": [
+      "Ik heb mijn haar geknipt.",
+      "Ik heb mijn haar gelaten knippen.",
+      "Ik heb mijn haar laten knippen."
+     ],
+     "juist": 2,
+     "uitleg": "Yaptırmak = laten + mastar. Geçmişte: heb … laten knippen. “Ik heb mijn haar geknipt” = kendim kestim."
+    },
+    {
+     "id": "l04",
+     "type": "mc",
+     "vraag": "“Ik heb mijn telefoon laten vallen.” ne demek?",
+     "opties": [
+      "Telefonumu tamir ettirdim.",
+      "Telefonumu düşürdüm.",
+      "Telefonumu evde bıraktım."
+     ],
+     "juist": 1,
+     "uitleg": "laten vallen = düşürmek."
+    },
+    {
+     "id": "l05",
+     "type": "mc",
+     "vraag": "“Laten we anders morgen bellen.” cümlesinde “anders” ne demek?",
+     "opties": [
+      "farklı şekilde",
+      "başka biri",
+      "olmazsa"
+     ],
+     "juist": 2,
+     "uitleg": "Teklif cümlelerinde “anders” = olmazsa, o zaman."
+    },
+    {
+     "id": "l06",
+     "type": "mc",
+     "vraag": "“Onu tamir ettirdim.” Hangisi doğru?",
+     "opties": [
+      "Ik heb het laten repareren.",
+      "Ik heb het gelaten repareren.",
+      "Ik heb het repareren gelaten."
+     ],
+     "juist": 0,
+     "uitleg": "Sonda iki mastar: laten repareren. “gelaten” denmez."
+    },
+    {
+     "id": "l07",
+     "type": "order",
+     "tr": "Önce bir şeyler yiyelim.",
+     "woorden": [
+      "Laten",
+      "we",
+      "eerst",
+      "iets",
+      "eten"
+     ],
+     "uitleg": "Laten we + eerst + nesne + mastar."
+    },
+    {
+     "id": "l08",
+     "type": "order",
+     "tr": "Arabama baktırmam lazım.",
+     "woorden": [
+      "Ik",
+      "moet",
+      "mijn",
+      "auto",
+      "laten",
+      "nakijken"
+     ],
+     "uitleg": "Modal (moet) ikinci sırada, “laten nakijken” sonda."
+    },
+    {
+     "id": "l09",
+     "type": "order",
+     "tr": "Diplomamın denkliğini aldım.",
+     "woorden": [
+      "Ik",
+      "heb",
+      "mijn",
+      "diploma",
+      "laten",
+      "waarderen"
+     ],
+     "uitleg": "heb ikinci sırada, sonda iki mastar: laten waarderen."
+    },
+    {
+     "id": "l10",
+     "type": "order",
+     "tr": "Yarın sana haber veririm.",
+     "woorden": [
+      "Ik",
+      "laat",
+      "het",
+      "je",
+      "morgen",
+      "weten"
+     ],
+     "uitleg": "laat ikinci sırada, weten sonda."
+    },
+    {
+     "id": "l11",
+     "type": "order",
+     "tr": "Evimi boyatmak istiyorum.",
+     "woorden": [
+      "Ik",
+      "wil",
+      "mijn",
+      "huis",
+      "laten",
+      "schilderen"
+     ],
+     "uitleg": "wil ikinci sırada, “laten schilderen” sonda."
+    },
+    {
+     "id": "l12",
+     "type": "type",
+     "tr": "Dürüst olalım.",
+     "antwoorden": [
+      "Laten we eerlijk zijn"
+     ],
+     "uitleg": "Laten we + eerlijk + zijn."
+    },
+    {
+     "id": "l13",
+     "type": "type",
+     "tr": "Sakin kalalım.",
+     "antwoorden": [
+      "Laten we rustig blijven",
+      "Laten we kalm blijven"
+     ],
+     "uitleg": "blijven = kalmak. Laten we rustig blijven."
+    },
+    {
+     "id": "l14",
+     "type": "type",
+     "tr": "Onu tamir ettirmem lazım.",
+     "antwoorden": [
+      "Ik moet het laten repareren",
+      "Ik moet dat laten repareren",
+      "Ik moet dit laten repareren",
+      "Ik moet hem laten repareren"
+     ],
+     "uitleg": "moet ikinci sırada, laten repareren sonda."
+    },
+    {
+     "id": "l15",
+     "type": "type",
+     "tr": "Bana haber ver.",
+     "antwoorden": [
+      "Laat het me weten",
+      "Laat het mij weten",
+      "Laat me het weten",
+      "Laat het me even weten",
+      "Laat maar weten"
+     ],
+     "uitleg": "Emir kipi: Laat het me weten."
+    },
+    {
+     "id": "l16",
+     "type": "type",
+     "tr": "Saçımı kestirdim.",
+     "antwoorden": [
+      "Ik heb mijn haar laten knippen"
+     ],
+     "uitleg": "heb … laten knippen: sonda iki mastar."
+    }
+   ]
+  }
+ ]
 }

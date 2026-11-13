@@ -90,6 +90,9 @@ function judge(given, answers) {
   }
   return best;
 }
+// Model answer as shown to the learner: order questions get their closing mark, typed ones a full stop if they have no mark yet
+const endMark = t => /[.?!]$/.test(t) ? t : t + ".";
+const modelOf = q => q.type === "mc" ? q.opties[q.juist] : q.type === "order" ? q.woorden.join(" ") + (q.einde || ".") : endMark(q.antwoorden[0]);
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
 // Adults only (child accounts go back to the home page), same rule as the other adult pages
@@ -221,7 +224,7 @@ function renderQ() {
       if (q._picked.length < q.woorden.length) return;   // not all words placed yet
       const given = q._picked.map(p => p.w).join(" ");
       document.querySelectorAll(".tiles button").forEach(b => b.disabled = true);
-      finishQ(q, given, norm(given) === norm(q.woorden.join(" ")), q.woorden.join(" ") + ".");
+      finishQ(q, given, norm(given) === norm(q.woorden.join(" ")), modelOf(q));
     };
   }
   if (q.type === "type") {
@@ -232,8 +235,10 @@ function renderQ() {
       inp.disabled = true;
       const j = judge(inp.value, q.antwoorden);
       const note = j.kind === "typo" ? `Cümle doğru, sadece yazım hatası var: ${j.slips.map(([t, w]) => `<s>${esc(t)}</s> → <b lang="nl">${esc(w)}</b>`).join(", ")}`
-        : j.kind === "order" ? "Kelimeler doğru ama sıraları yanlış." : "";
-      finishQ(q, inp.value.trim(), j.kind === "ok" || j.kind === "typo", j.model + ".", note, j.kind === "typo");
+        : j.kind === "order" ? "Kelimeler doğru ama sıraları yanlış."
+        // Right, but not the first (most usual) answer on the list: say so, and show the usual one as the model
+        : j.kind === "ok" && norm(j.model) !== norm(q.antwoorden[0]) ? "Senin yazdığın da doğru kabul ediliyor. En yaygın söyleniş yukarıdaki." : "";
+      finishQ(q, inp.value.trim(), j.kind === "ok" || j.kind === "typo", j.kind === "typo" ? endMark(j.model) : modelOf(q), note, j.kind === "typo");
     };
     document.getElementById("check").onclick = check;
     inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); check(); } };
@@ -265,7 +270,6 @@ async function finishRun() {
   let saved = true;
   try { await saveAttempt(user.uid, "dersler", attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
   const wrong = run.qs.filter((q, i) => !run.answers[i].correct);
-  const modelOf = q => q.type === "mc" ? q.opties[q.juist] : q.type === "order" ? q.woorden.join(" ") + "." : q.antwoorden[0] + ".";
   app.innerHTML = `<section class="panel"><span class="eyebrow">Sonuç</span>
     <div class="scorebig num" style="margin-top:6px">${score} / ${run.qs.length}</div>
     ${saved ? "" : `<div class="notice" style="margin-top:10px">Sonuç kaydedilemedi.</div>`}
