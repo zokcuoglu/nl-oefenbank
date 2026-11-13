@@ -48,6 +48,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | "View as" (in `js/core.js`) | Admins get a thin bar on every page to look at the site as an adult member or as a student of one groep. The choice is stored in the browser (`localStorage` key `nloefenbank:view`), the account does not change. `gate()` then returns a changed copy of the profile (`_view: true`) and nothing is written: `saveAttempt` and `updateProfile` do nothing, the daily games and Woordle skip their result, and the play-time clock does not start. It does not reach the separate Slimspel site |
 | `js/stats.js` | Statistics helpers for the profile and admin pages |
 | `manifest.json`, `icons/` | "Add to home screen" on phones |
+| `data/weekbrief.json` | Weekly Thursday mail for adults, "Haftanın Hollandacası" (mailer job `brief`, default Thursday 19:00, editable on the admin page): per week an idiom, a word, a culture note and one thing to try on the site, each with a `datum` (the Thursday it belongs to; only the current week is sent, a missed week is skipped), plus `nieuw`: lines about what changed on the site, shown in the next mail. Adults can turn it off on the profile page (`email_brief`). When the list runs out the admins get one notice |
 | `firestore.rules` | Security rules, paste into Firebase Console > Firestore > Rules (also covers the Slimspel daily ranking `leaderboard/{day}/entries` and the Woordle results `woordle_plays`) |
 
 ## E-mail

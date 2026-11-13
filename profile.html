@@ -100,7 +100,8 @@ app.innerHTML = `
       <div class="field"><label>Rol</label><span>${esc(ROLES[roleOf(profile)])}</span></div>
       ${isChild ? `<div class="field"><label>Okul grubu</label><span>${esc(profile.groep ? "Groep " + profile.groep.replace("groep", "") : "Henüz seçilmedi")}</span></div>` : `
       <div class="field"><label for="p-weekly">E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-weekly" ${profile.email_weekly === false ? "" : "checked"}> Haftalık özet gönder</label>
-        <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-news" ${(profile.email_news ?? profile.email_daily ?? true) ? "checked" : ""}> Haftalık haber e-postası</label></div>`}
+        <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-news" ${(profile.email_news ?? profile.email_daily ?? true) ? "checked" : ""}> Haftalık haber e-postası</label>
+        <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-brief" ${profile.email_brief === false ? "" : "checked"}> Haftanın Hollandacası (perşembe)</label></div>`}
     </div>
     <p class="muted" style="font-size:13px;margin:12px 0 0">${isChild ? "Okul grubunu ve e-posta ayarlarını velin değiştirir." : "Hesap tipi ve rol sadece admin tarafından değiştirilebilir."}</p>
   </section>
@@ -128,6 +129,7 @@ document.getElementById("save").onclick = async () => {
   if (!isChild) {
     data.email_weekly = document.getElementById("p-weekly").checked;
     data.email_news = document.getElementById("p-news").checked;
+    data.email_brief = document.getElementById("p-brief").checked;
     // Keep dates of modules that are hidden at the current level
     data.exams = { ...(profile.exams || {}), ...Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null])) };
     data.examen_niveau = document.querySelector("#p-niveau button.on")?.dataset.n || "B1";

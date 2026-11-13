@@ -1,0 +1,65 @@
+{
+  "_about": "Content of the weekly Thursday mail for adults, 'Haftanın Hollandacası' (scripts/mailer.py, job 'brief'). Each week: an idiom (deyim), a word (woord), a short note about life in the Netherlands (cultuur) and one thing to try on the site (probeer, href relative to the site). 'datum' is the Thursday the week is meant for: the mailer sends the newest week whose datum has come and that was not sent yet. 'nieuw' lists what changed on the site; a mail shows the items added since the previous brief (at most 3). Add new weeks at the end and a line to 'nieuw' when something new goes live.",
+  "weken": [
+    {
+      "id": "w01", "datum": "2026-11-19",
+      "deyim": { "nl": "Nu komt de aap uit de mouw.", "tr": "İşin aslı şimdi ortaya çıktı.", "uitleg": "Birinin gerçek niyeti sonunda belli olduğunda söylenir. Kelimesi kelimesine: maymun şimdi kolun içinden çıkıyor.", "voorbeeld": "Hij wil geen hulp, hij wil geld lenen. Nu komt de aap uit de mouw!", "voorbeeld_tr": "Yardım istemiyor, borç para istiyor. İşin aslı şimdi ortaya çıktı!" },
+      "woord": { "nl": "boodschappen doen", "tr": "market alışverişi yapmak", "niveau": "A2", "voorbeeld": "Ik ga even boodschappen doen bij de supermarkt.", "voorbeeld_tr": "Markete alışverişe gidiyorum." },
+      "cultuur": { "titel": "Sinterklaas geldi", "tekst": "Sinterklaas her yıl kasım ortasında, hikâyeye göre İspanya'dan gemiyle gelir. Bu haftalarda çocuklar akşamları ayakkabılarını (schoen zetten) kapının ya da sobanın yanına bırakır, şarkı söyler; sabah ayakkabıda küçük bir hediye ya da şeker bulurlar. Okulda ve markette her yerde kruidnoten göreceksin." },
+      "probeer": { "tekst": "“Tekliflere cevap” dersi: 10 dakikada spontan evet, hayır ve belki demeyi öğren.", "href": "dersler/?les=tekliflere-cevap" }
+    },
+    {
+      "id": "w02", "datum": "2026-11-26",
+      "deyim": { "nl": "Iets door de vingers zien.", "tr": "Bir şeye göz yummak.", "uitleg": "Küçük bir hatayı bu seferlik affetmek, görmezden gelmek.", "voorbeeld": "Je bent te laat, maar deze keer zie ik het door de vingers.", "voorbeeld_tr": "Geç kaldın ama bu seferlik göz yumuyorum." },
+      "woord": { "nl": "uitstellen", "tr": "ertelemek", "niveau": "B1", "voorbeeld": "Kunnen we de afspraak naar volgende week uitstellen?", "voorbeeld_tr": "Randevuyu gelecek haftaya erteleyebilir miyiz?" },
+      "cultuur": { "titel": "Lootjes trekken", "tekst": "Yetişkinler ve büyük çocuklar Sinterklaas için genelde kura çeker (lootjes trekken): herkes çektiği kişiye küçük bir hediye alır. Hediye çoğu zaman komik bir paketin (surprise) içine saklanır ve yanına o kişiye takılan kısa bir şiir (gedicht) yazılır. Şiir genelde “Sinterklaas zat te denken…” gibi bir cümleyle başlar." },
+      "probeer": { "tekst": "Kelime çalışması: kartlarla ve eşleştirmeyle, sadece işine yarayan konuyu seçerek.", "href": "woorden/" }
+    },
+    {
+      "id": "w03", "datum": "2026-12-03",
+      "deyim": { "nl": "Met de deur in huis vallen.", "tr": "Lafı dolandırmadan doğrudan konuya girmek.", "uitleg": "Hollandalılar bunu sık yapar ve kaba bulmaz. Kelimesi kelimesine: kapıyla birlikte eve düşmek.", "voorbeeld": "Ik val maar met de deur in huis: ik heb een nieuwe baan.", "voorbeeld_tr": "Hemen söyleyeyim: yeni bir işim var." },
+      "woord": { "nl": "gezellig", "tr": "keyifli, samimi, sıcak (ortam)", "niveau": "A1", "voorbeeld": "Het was een gezellige avond.", "voorbeeld_tr": "Çok keyifli bir akşamdı." },
+      "cultuur": { "titel": "Pakjesavond", "tekst": "5 Aralık akşamı pakjesavond'dur: Sinterklaas hediyeleri o akşam açılır, çoğu evde kapı çalınır ve kapının önünde bir çuval hediye bulunur. Masada kruidnoten ve isminin baş harfi şeklinde çikolata (chocoladeletter) olur. Ertesi gün Sinterklaas “geri döner” ve süsler kaldırılır." },
+      "probeer": { "tekst": "“Misafir rehberi” dersi: evine biri geldiğinde kapıdan uğurlamaya kadar ne dersin?", "href": "dersler/?les=misafir" }
+    },
+    {
+      "id": "w04", "datum": "2026-12-10",
+      "deyim": { "nl": "Er een nachtje over slapen.", "tr": "Bir gece düşünmek, hemen karar vermemek.", "uitleg": "Bir teklife hemen evet ya da hayır demek istemediğinde kibar bir yol.", "voorbeeld": "Mag ik er een nachtje over slapen?", "voorbeeld_tr": "Bir gece düşünebilir miyim?" },
+      "woord": { "nl": "feliciteren", "tr": "tebrik etmek, kutlamak", "niveau": "A2", "voorbeeld": "Gefeliciteerd met je verjaardag!", "voorbeeld_tr": "Doğum günün kutlu olsun!" },
+      "cultuur": { "titel": "Doğum günü ve kring", "tekst": "Hollanda'da doğum gününe gidince sadece doğum günü olanı değil, oradaki aileyi de tebrik edersin: “Gefeliciteerd met je moeder!” (annenin doğum günü kutlu olsun). Misafirler çoğu zaman salonda bir halka (kring) olarak oturur; içeri girince herkesle tek tek el sıkışılır. İş yerinde de doğum günü olan kişi genelde pasta ya da kurabiye getirir." },
+      "probeer": { "tekst": "Nieuws in niveaus: haftanın haberini kendi seviyende oku, sonra kısa quiz'i çöz.", "href": "nieuws/" }
+    },
+    {
+      "id": "w05", "datum": "2026-12-17",
+      "deyim": { "nl": "De kat uit de boom kijken.", "tr": "Temkinli bekleyip işin nereye gittiğini görmek.", "uitleg": "Bir konuda hemen harekete geçmeden önce bekleyip gözlemlemek.", "voorbeeld": "In mijn nieuwe team kijk ik eerst de kat uit de boom.", "voorbeeld_tr": "Yeni ekibimde önce bir bekleyip bakıyorum." },
+      "woord": { "nl": "vrij zijn", "tr": "izinli olmak, boş olmak", "niveau": "A2", "voorbeeld": "Ik ben vrij tussen kerst en oud en nieuw.", "voorbeeld_tr": "Noel ile yılbaşı arasında izinliyim." },
+      "cultuur": { "titel": "İki Noel günü", "tekst": "Hollanda'da Noel iki gündür: 25 Aralık eerste kerstdag, 26 Aralık tweede kerstdag. İkisi de resmî tatildir. Birçok iş yeri bu dönemde çalışanlarına bir hediye kutusu (kerstpakket) verir. Noel'le yılbaşı arasındaki günlerde pek çok kişi izin alır, bu yüzden iş yerleri sakinleşir." },
+      "probeer": { "tekst": "“Zullen” dersi: bir şey teklif etmenin 8 yolu, kibardan enerjiğe.", "href": "dersler/?les=zullen" }
+    },
+    {
+      "id": "w06", "datum": "2026-12-24",
+      "deyim": { "nl": "Een appeltje voor de dorst.", "tr": "Kara gün akçesi, kenara ayrılmış birikim.", "uitleg": "Kötü günler için kenara konan para ya da şey. Kelimesi kelimesine: susuzluk için bir elmacık.", "voorbeeld": "We hebben gelukkig een appeltje voor de dorst.", "voorbeeld_tr": "Neyse ki kenarda biraz birikimimiz var." },
+      "woord": { "nl": "de feestdagen", "tr": "bayram günleri, yıl sonu tatili", "niveau": "A2", "voorbeeld": "Fijne feestdagen en een goed begin van het nieuwe jaar!", "voorbeeld_tr": "İyi bayramlar ve yeni yıla güzel bir başlangıç!" },
+      "cultuur": { "titel": "Oud en Nieuw", "tekst": "Yılbaşı gecesine Oud en Nieuw denir. O akşam hemen her evde oliebollen (pudra şekerli kızarmış hamur topları) yenir; sokaklarda oliebollen satan küçük tezgâhlar kurulur. Gece yarısı herkes “Gelukkig nieuwjaar!” der. 1 Ocak'ta bazı sahillerde binlerce kişi soğuk denize girer: nieuwjaarsduik." },
+      "probeer": { "tekst": "Lezen: kısa bir metin oku ve soruları çöz. Tatilde günde bir metin yeter.", "href": "lezen/teksten.html" }
+    },
+    {
+      "id": "w07", "datum": "2026-12-31",
+      "deyim": { "nl": "Met een schone lei beginnen.", "tr": "Sayfayı temizleyip sıfırdan başlamak.", "uitleg": "Geçmişi geride bırakıp yeniden başlamak. Kelimesi kelimesine: temiz bir yazı tahtasıyla başlamak.", "voorbeeld": "In het nieuwe jaar begin ik met een schone lei.", "voorbeeld_tr": "Yeni yılda her şeye sıfırdan başlıyorum." },
+      "woord": { "nl": "het voornemen", "tr": "niyet, karar (yeni yıl kararı)", "niveau": "B1", "voorbeeld": "Mijn goede voornemen is elke dag tien minuten Nederlands oefenen.", "voorbeeld_tr": "Yeni yıl kararım her gün on dakika Hollandaca çalışmak." },
+      "cultuur": { "titel": "Ocak boyunca “beste wensen”", "tekst": "Ocak ayında birini ilk kez gördüğünde, iş yerinde bile, yeni yılını kutlarsın: “Gelukkig nieuwjaar!” ya da “De beste wensen!” Cevap genelde “Jij ook!” ya da “Insgelijks!” olur. Birçok iş yeri ve kulüp ocakta bir yeni yıl buluşması (nieuwjaarsreceptie) yapar." },
+      "probeer": { "tekst": "“Laten” dersi: laten we beginnen, laat het me weten ve “yaptırmak” kalıbı.", "href": "dersler/?les=laten" }
+    },
+    {
+      "id": "w08", "datum": "2027-01-07",
+      "deyim": { "nl": "Zo gezegd, zo gedaan.", "tr": "Dendiği gibi yapıldı, lafı uzatmadan hemen yapıldı.", "uitleg": "Bir şeye karar verilip hemen uygulandığında söylenir.", "voorbeeld": "We wilden een wandeling maken. Zo gezegd, zo gedaan.", "voorbeeld_tr": "Yürüyüşe çıkmak istedik. Dediğimiz gibi hemen çıktık." },
+      "woord": { "nl": "eerlijk gezegd", "tr": "açıkçası, doğrusunu söylemek gerekirse", "niveau": "A2", "voorbeeld": "Eerlijk gezegd begrijp ik het niet helemaal.", "voorbeeld_tr": "Açıkçası tam anlamıyorum." },
+      "cultuur": { "titel": "Hollanda usulü açık sözlülük", "tekst": "Hollandalılar fikrini çoğu zaman doğrudan söyler; bunu kabalık değil dürüstlük sayar. Toplantıda “Daar ben ik het niet mee eens.” (Buna katılmıyorum.) demek normaldir. Sen de bir şeyi anlamadığında ya da katılmadığında açıkça söyleyebilirsin; lafı dolandırmak bazen daha tuhaf karşılanır." },
+      "probeer": { "tekst": "Kelime çalışması: “werk” konusunu seçip iş yerinde kullanılan kalıpları çalış.", "href": "woorden/" }
+    }
+  ],
+  "nieuw": [
+    { "datum": "2026-11-12", "tekst": "Ana sayfa yenilendi: genel Hollandaca ve NT2 sınavı artık ayrı sekmelerde.", "href": "" },
+    { "datum": "2026-11-13", "tekst": "Video dersler: Goed Bezig kanalından 4 ders; üstte video, altında özet ve alıştırmalar.", "href": "dersler/" }
+  ]
+}
