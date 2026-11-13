@@ -44,9 +44,15 @@ service cloud.firestore {
         || get(/databases/$(database)/documents/users/$(uid)).data.get('status', '') == 'approved';
     }
     function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
+    // Parent = the admin linked this child to the caller (users/{child}.parent_uid), and the caller is approved
+    function isParentOf(data) {
+      return request.auth != null && data.get('parent_uid', '') == request.auth.uid && isApproved(request.auth.uid);
+    }
+    function validGroep(g) { return g == null || g in ['groep1', 'groep2', 'groep3', 'groep4', 'groep5', 'groep6', 'groep7', 'groep8']; }
 
     match /users/{uid} {
-      allow read: if isOwner(uid) || isAdmin();
+      // The parent may read a linked child's profile (profile page: "Çocuklarım")
+      allow read: if isOwner(uid) || isAdmin() || isParentOf(resource.data);
 
       // New profile: always starts as a normal, not yet approved member
       allow create: if isOwner(uid)
@@ -54,16 +60,23 @@ service cloud.firestore {
         && request.resource.data.get('status', 'pending') == 'pending'
         && (request.resource.data.get('type', null) == null || validType(request.resource.data.type));
 
-      // Owner edits: never role, status, parent link or mail flags; type only once (when it was still empty)
+      // Owner edits: never role, status, parent link or mail flags; type only once (when it was still empty).
+      // A student (type child) also cannot change the own groep or weekly-summary setting: the parent does that.
       allow update: if (isOwner(uid)
           && !changed().hasAny(['role', 'status', 'parent_uid', 'welcome_sent_at'])
+          && (resource.data.get('type', null) != 'child' || !changed().hasAny(['groep', 'email_weekly']))
           && (!changed().hasAny(['type'])
               || (resource.data.get('type', null) == null && validType(request.resource.data.type))))
         || (isAdmin()
           && validRole(request.resource.data.get('role', 'member'))
           && validStatus(request.resource.data.get('status', 'pending'))
           && (request.resource.data.get('parent_uid', null) == null || request.resource.data.parent_uid is string)
-          && (request.resource.data.get('type', null) == null || validType(request.resource.data.type)));
+          && (request.resource.data.get('type', null) == null || validType(request.resource.data.type)))
+        // Parent: only the child's groep and weekly-summary setting
+        || (isParentOf(resource.data)
+          && changed().hasOnly(['groep', 'email_weekly'])
+          && validGroep(request.resource.data.get('groep', null))
+          && request.resource.data.get('email_weekly', true) is bool);
 
       allow delete: if isAdmin();
 

@@ -18,6 +18,23 @@ details.fold summary{cursor:pointer;display:flex;justify-content:space-between;a
 details.fold summary::-webkit-details-marker{display:none}
 details.fold summary h3{margin:0} details.fold summary h3::before{content:"▸ ";color:var(--muted)} details.fold[open] summary h3::before{content:"▾ "}
 .modrow{grid-template-columns:minmax(8em,14em) 1fr auto}
+/* Accounts: search + filters, one compact row per person, an edit card opens under the row */
+.accbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.accbar .input{flex:1;min-width:200px}
+.acc{border-top:1px solid var(--line)} .acc:first-child{border-top:0}
+.accline{display:flex;align-items:center;gap:8px}
+.accmain{flex:1;min-width:0;display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:2px 12px;align-items:center;text-align:left;background:none;border:0;padding:10px 4px;font:inherit;color:inherit;cursor:pointer}
+.accmain:hover .nm{color:var(--accent)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--sunk);display:grid;place-items:center;font-weight:600;color:var(--muted);grid-row:span 2;overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover}
+.nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm small{font-weight:400;color:var(--muted);margin-left:6px}
+.when{font-size:13px;color:var(--muted);text-align:right;white-space:nowrap}
+.tags{grid-column:2/4;display:flex;gap:6px;flex-wrap:wrap}
+.quick{display:flex;gap:6px}
+.acccard{background:var(--sunk);border-radius:10px;padding:14px 16px;margin:0 0 12px}
+.acccard .formgrid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+@media (max-width:560px){.nm small{display:block;margin:0}.quick{flex-direction:column}}
 @media (max-width:560px){.modrow{grid-template-columns:1fr;gap:4px} .minibar{display:none}}
 </style>
 <script>
@@ -65,6 +82,9 @@ let play = {}, playErr = "";
 // The page has three tabs; the choice is kept in the URL hash (#istatistik) so a reload stays on the same tab
 const TABS = { hesaplar: "Hesaplar", istatistik: "İstatistik", eposta: "E-posta" };
 let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : "hesaplar";
+// Accounts tab: which group is shown, the search text, and whose edit card is open
+const FILTERS = { all: "Hepsi", pending: "Onay bekleyen", adult: "Yetişkin", child: "Öğrenci", blocked: "Engelli" };
+let filter = "all", search = "", openUid = null;
 // Statistics filter: everyone, adults or children (their exercises and scores are very different)
 const WHO = { all: "Herkes", adult: "Yetişkinler", child: "Öğrenciler" };
 let who = "all";
@@ -283,37 +303,98 @@ function sel(id, opts, val) {
 }
 
 function render() {
-  const count = r => users.filter(u => roleOf(u) === r).length;
-  // Children can be linked to an adult account; the weekly summary also goes to that parent
-  // Groep of child accounts (1-8). Moves up by itself every August (mailer); fix it here when needed.
-  const groepOpts = { "": "Seçilmedi", ...Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8].map(n => ["groep" + n, "Groep " + n])) };
-  const parentOpts = { "": "Yok", ...Object.fromEntries(users.filter(u => u.type === "adult").map(u => [u.uid, u.name || u.email || u.uid])) };
   const pending = users.filter(u => statusOf(u) === "pending").length;
   const tabs = `<nav class="seg admintabs" role="tablist">${Object.entries(TABS).map(([k, v]) =>
     `<button role="tab" class="${tab === k ? "on" : ""}" data-tab="${k}" aria-selected="${tab === k}">${v}${k === "hesaplar" && pending ? ` <span class="chip accent">${pending}</span>` : ""}</button>`).join("")}</nav>`;
   app.innerHTML = tabs + (tab === "istatistik" ? statsHtml() : tab === "eposta" ? mailTab() : `
-    <section class="kpis">
-      <div class="panel kpi"><div class="eyebrow">Onay bekleyen</div><div class="v num" style="color:var(--${users.some(u => statusOf(u) === "pending") ? "accent" : "ink"})">${users.filter(u => statusOf(u) === "pending").length}</div></div>
-      <div class="panel kpi"><div class="eyebrow">Hesap</div><div class="v num">${users.length}</div></div>
-      <div class="panel kpi"><div class="eyebrow">Öğrenci</div><div class="v num">${users.filter(u => u.type === "child").length}</div></div>
-      <div class="panel kpi"><div class="eyebrow">Öğretmen</div><div class="v num">${count("teacher")}</div></div>
+    <section class="panel">
+      <div class="accbar">
+        <input class="input" id="acc-q" type="search" placeholder="İsim ya da e-posta ara" value="${esc(search)}" autocomplete="off">
+        <div class="seg" role="group" id="acc-f">${Object.entries(FILTERS).map(([k, v]) => { const n = users.filter(u => inFilter(u, k)).length;
+          return `<button class="${filter === k ? "on" : ""}" data-filter="${k}" aria-pressed="${filter === k}">${v} <span class="num">${n}</span></button>`; }).join("")}</div>
+      </div>
+      <div id="acclist">${accountsList()}</div>
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Satıra tıklayınca kişinin ayarları açılır. Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider.</p>
     </section>
-
-    <section class="panel"><div class="sectionhead"><h3>Hesaplar</h3><span class="muted">yeni gelenleri "Onaylı" yap, satırdaki Kaydet'e bas</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Durum</th><th>Tip</th><th>Rol</th><th>Veli</th><th>Groep</th><th>Son giriş</th><th></th></tr></thead><tbody>
-      ${users.map((u, i) => `<tr><td><b>${esc(u.name || "-")}</b><br><span class="muted" style="font-size:13px">${esc(u.email || u.uid)}</span></td>
-        <td>${sel("s" + i, STATUSES, statusOf(u))}</td>
-        <td>${sel("t" + i, { "": "Seçilmedi", ...TYPES }, u.type || "")}</td>
-        <td>${sel("r" + i, ROLES, roleOf(u))}</td>
-        <td>${u.type === "child" ? sel("p" + i, parentOpts, u.parent_uid || "") : `<span class="muted">-</span>`}</td>
-        <td>${u.type === "child" ? sel("g" + i, groepOpts, u.groep || "") : `<span class="muted">-</span>`}</td>
-        <td class="num muted">${fmtDate(u.last_active)}</td>
-        <td><button class="btn" data-i="${i}">Kaydet</button> <span id="m${i}"></span></td></tr>`).join("")}
-      </tbody></table></div>
-      <p class="muted" style="font-size:13px;margin:10px 0 0">Onaylanan kişiye en geç bir saat içinde "kabul edildin" e-postası gider. Kendi admin rolünü kaldırırsan bu ekrana bir daha giremezsin; geri almak için Firebase Console gerekir.</p></section>
     ${playHtml()}
     <details class="panel fold"><summary><h3>Roller ne demek?</h3></summary>
       <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></details>`);
+}
+
+// ---------- accounts ----------
+const nameOf = u => u.name || u.email || u.uid;
+const groepName = g => g ? "Groep " + g.replace("groep", "") : "";
+function inFilter(u, f) {
+  const st = statusOf(u);
+  if (f === "pending" || f === "blocked") return st === f;
+  if (f === "adult" || f === "child") return u.type === f && st !== "blocked";
+  return true;
+}
+// "bugün", "dün", "5 gün önce", or a date for longer ago
+function ago(iso) {
+  if (!iso) return "hiç girmedi";
+  const d = Math.floor((Date.now() - new Date(iso)) / 864e5);
+  return d <= 0 ? "bugün" : d === 1 ? "dün" : d < 30 ? d + " gün önce" : fmtDate(iso);
+}
+function accountsList() {
+  const q = search.trim().toLocaleLowerCase("tr");
+  const list = users.filter(u => inFilter(u, filter) && (!q || `${u.name || ""} ${u.email || ""}`.toLocaleLowerCase("tr").includes(q)));
+  if (!list.length) return `<p class="muted" style="margin:10px 0">Bu filtrede kimse yok.</p>`;
+  return list.map(u => {
+    const st = statusOf(u), kids = users.filter(k => k.parent_uid === u.uid);
+    const parent = u.parent_uid && users.find(x => x.uid === u.parent_uid);
+    const tags = [
+      st === "pending" ? `<span class="chip accent">onay bekliyor</span>` : st === "blocked" ? `<span class="chip bad">engelli</span>` : "",
+      u.type === "child" ? `<span class="chip blue">öğrenci${u.groep ? " · " + groepName(u.groep) : ""}</span>` : u.type === "adult" ? `<span class="chip">yetişkin</span>` : `<span class="chip warn">tip seçilmedi</span>`,
+      roleOf(u) !== "member" ? `<span class="chip ok">${esc(ROLES[roleOf(u)])}</span>` : "",
+      parent ? `<span class="chip">veli: ${esc(nameOf(parent))}</span>` : u.type === "child" ? `<span class="chip warn">veli yok</span>` : "",
+      kids.length ? `<span class="chip">çocuk: ${kids.map(k => esc(nameOf(k))).join(", ")}</span>` : ""
+    ].join("");
+    // Pending accounts get approve / block buttons right on the row
+    const quick = st === "pending" ? `<div class="quick"><button class="btn primary" data-approve="${esc(u.uid)}">Onayla</button><button class="btn" data-block="${esc(u.uid)}">Engelle</button></div>` : "";
+    return `<div class="acc" data-uid="${esc(u.uid)}"><div class="accline">
+      <button class="accmain" data-open="${esc(u.uid)}" aria-expanded="${openUid === u.uid}">
+        <span class="av">${u.photo ? `<img src="${esc(u.photo)}" alt="" referrerpolicy="no-referrer">` : esc(nameOf(u).slice(0, 1).toUpperCase())}</span>
+        <span class="nm">${esc(u.name || "-")}<small>${esc(u.email || "")}</small></span>
+        <span class="when">${ago(u.last_active)}</span>
+        <span class="tags">${tags}</span>
+      </button>${quick}</div>
+      ${openUid === u.uid ? cardHtml(u) : ""}</div>`;
+  }).join("");
+}
+// Edit card for one person: the settings plus a short activity line
+function cardHtml(u) {
+  const id = k => `f-${k}-${esc(u.uid)}`;
+  const groepOpts = { "": "Seçilmedi", ...Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8].map(n => ["groep" + n, "Groep " + n])) };
+  const parentOpts = { "": "Yok", ...Object.fromEntries(users.filter(x => x.type === "adult").map(x => [x.uid, nameOf(x)])) };
+  const s = stats[u.uid];
+  const act = s ? (s.rounds ? `Toplam ${s.rounds} tur · son 7 günde ${recentRounds(s, 7)} · son tur ${ago(s.last)}` : "Henüz tur çözmedi.") : "";
+  return `<div class="acccard">
+    <div class="formgrid">
+      <div class="field"><label for="${id("s")}">Durum</label>${sel(id("s"), STATUSES, statusOf(u))}</div>
+      <div class="field"><label for="${id("t")}">Tip</label>${sel(id("t"), { "": "Seçilmedi", ...TYPES }, u.type || "")}</div>
+      <div class="field"><label for="${id("r")}">Rol</label>${sel(id("r"), ROLES, roleOf(u))}</div>
+      ${u.type === "child" ? `
+      <div class="field"><label for="${id("p")}">Veli</label>${sel(id("p"), parentOpts, u.parent_uid || "")}</div>
+      <div class="field"><label for="${id("g")}">Groep</label>${sel(id("g"), groepOpts, u.groep || "")}</div>` : ""}
+      <div class="field"><label>E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="${id("w")}" ${u.email_weekly === false ? "" : "checked"}> Haftalık özet</label></div>
+    </div>
+    ${act ? `<p class="muted" style="font-size:13px;margin:10px 0 0">${esc(act)}</p>` : ""}
+    <div class="row" style="margin-top:12px"><button class="btn primary" data-save="${esc(u.uid)}">Kaydet</button>
+      <button class="btn" data-viewas="${esc(u.uid)}" title="Siteyi bu kişinin tipinde (ve groep'unda) gör; hiçbir şey kaydedilmez">Onun gibi gör</button>
+      <button class="btn ghost" data-open="${esc(u.uid)}">Kapat</button><span id="${id("m")}"></span></div>
+  </div>`;
+}
+// Redraw only the list, so the search box keeps its focus while typing
+function drawList() {
+  document.getElementById("acclist").innerHTML = accountsList();
+  document.querySelectorAll("#acc-f [data-filter]").forEach(b => { const on = b.dataset.filter === filter; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
+}
+async function saveUser(u, data, msgId) {
+  const msg = msgId && document.getElementById(msgId);
+  if (u.uid === user.uid && data.role && data.role !== "admin") { if (msg) msg.innerHTML = `<span class="err-msg">Kendi admin rolünü buradan kaldıramazsın.</span>`; return false; }
+  try { await updateDoc(doc(db, "users", u.uid), data); Object.assign(u, data); return true; }
+  catch (err) { if (msg) msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; else alert(err.code || err.message); return false; }
 }
 
 // Play time today per child, with a button for 10 extra minutes (only for today)
@@ -348,6 +429,7 @@ function mailTab() {
     ${sentHtml()}`;
 }
 
+app.addEventListener("input", e => { if (e.target.id === "acc-q") { search = e.target.value; drawList(); } });
 app.addEventListener("click", async e => {
   const tb = e.target.closest("[data-tab]");
   if (tb) { tab = tb.dataset.tab; history.replaceState(null, "", "#" + tab); render(); return; }
@@ -369,14 +451,34 @@ app.addEventListener("click", async e => {
   const pb = e.target.closest("[data-person]");
   if (pb) { const row = document.getElementById("pd-" + pb.dataset.person), open = row.hidden; row.hidden = !open;
     pb.setAttribute("aria-expanded", String(open)); pb.firstChild.textContent = open ? "▾ " : "▸ "; return; }
-  const b = e.target.closest("button[data-i]"); if (!b) return;
-  const i = +b.dataset.i, u = users[i], msg = document.getElementById("m" + i);
-  const type = document.getElementById("t" + i).value || null, role = document.getElementById("r" + i).value, status = document.getElementById("s" + i).value;
-  const pSel = document.getElementById("p" + i), parent_uid = pSel ? (pSel.value || null) : (u.parent_uid || null);
-  const gSel = document.getElementById("g" + i), groep = gSel ? (gSel.value || null) : (u.groep || null);
-  if (u.uid === user.uid && role !== "admin") { msg.innerHTML = `<span class="err-msg">Kendi admin rolünü buradan kaldıramazsın.</span>`; return; }
-  try { await updateDoc(doc(db, "users", u.uid), { type, role, status, parent_uid, groep }); Object.assign(u, { type, role, status, parent_uid, groep }); msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
-  catch (err) { msg.innerHTML = `<span class="err-msg">${esc(err.code || err.message)}</span>`; }
+  // Accounts: filter, open/close a card, quick approve/block, save a card, "view as" this person
+  const fb = e.target.closest("[data-filter]");
+  if (fb) { filter = fb.dataset.filter; openUid = null; drawList(); return; }
+  const ob = e.target.closest("[data-open]");
+  if (ob) { openUid = openUid === ob.dataset.open ? null : ob.dataset.open; drawList(); return; }
+  const ab = e.target.closest("[data-approve],[data-block]");
+  if (ab) {
+    const u = users.find(x => x.uid === (ab.dataset.approve || ab.dataset.block)); ab.disabled = true;
+    if (await saveUser(u, { status: ab.dataset.approve ? "approved" : "blocked" })) render(); else ab.disabled = false;
+    return;
+  }
+  const sb = e.target.closest("[data-save]");
+  if (sb) {
+    const u = users.find(x => x.uid === sb.dataset.save), v = k => document.getElementById(`f-${k}-${u.uid}`);
+    const data = { status: v("s").value, type: v("t").value || null, role: v("r").value, email_weekly: v("w").checked };
+    if (v("p")) data.parent_uid = v("p").value || null;
+    if (v("g")) data.groep = v("g").value || null;
+    if (await saveUser(u, data, `f-m-${u.uid}`)) { openUid = null; render(); }
+    return;
+  }
+  const vb = e.target.closest("[data-viewas]");
+  if (vb) {
+    // Same storage key as the "view as" bar in js/core.js
+    const u = users.find(x => x.uid === vb.dataset.viewas);
+    const view = u.type === "child" && u.groep ? { type: "child", groep: u.groep } : { type: "adult" };
+    try { localStorage.setItem("nloefenbank:view", JSON.stringify(view)); } catch {}
+    location.href = "./";
+  }
 });
 
 // Announcement: stored with sent_at null; the mailer job sends it and fills sent_at

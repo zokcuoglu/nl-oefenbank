@@ -34,7 +34,8 @@ setTimeout(function () {
 <script type="module">
 // Profile: own name, groep (children), exam dates (adults), e-mail choices and own statistics.
 // Type and role are shown read-only: only an admin can change them.
-import { gate, userBox, esc, updateProfile, loadAllAttempts, TYPES, ROLES, roleOf } from "./js/core.js";
+import { gate, userBox, esc, updateProfile, loadAllAttempts, TYPES, ROLES, roleOf, db, isAdmin, isPreview } from "./js/core.js";
+import { collection, getDocs, query, where, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { summarize, pct, recentRounds, streak, dayBars, scoreChips } from "./js/stats.js";
 
 const app = document.getElementById("app");
@@ -97,11 +98,11 @@ app.innerHTML = `
       <div class="field"><label>E-posta</label><span>${esc(user.email || "")}</span></div>
       <div class="field"><label>Hesap tipi</label><span>${esc(TYPES[profile.type] || "-")}</span></div>
       <div class="field"><label>Rol</label><span>${esc(ROLES[roleOf(profile)])}</span></div>
+      ${isChild ? `<div class="field"><label>Okul grubu</label><span>${esc(profile.groep ? "Groep " + profile.groep.replace("groep", "") : "Henüz seçilmedi")}</span></div>` : `
       <div class="field"><label for="p-weekly">E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-weekly" ${profile.email_weekly === false ? "" : "checked"}> Haftalık özet gönder</label>
-        ${isChild ? "" : `<label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-news" ${(profile.email_news ?? profile.email_daily ?? true) ? "checked" : ""}> Haftalık haber e-postası</label>`}</div>
-      ${isChild ? `<div class="field"><label for="p-groep">Okul grubu <span class="muted" style="font-weight:400">(her yaz otomatik bir artar)</span></label><select class="input" id="p-groep"><option value="">Seç</option>${[1, 2, 3, 4, 5, 6, 7, 8].map(n => `<option value="groep${n}" ${profile.groep === "groep" + n ? "selected" : ""}>Groep ${n}</option>`).join("")}</select></div>` : ""}
+        <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-news" ${(profile.email_news ?? profile.email_daily ?? true) ? "checked" : ""}> Haftalık haber e-postası</label></div>`}
     </div>
-    <p class="muted" style="font-size:13px;margin:12px 0 0">Hesap tipi ve rol sadece admin tarafından değiştirilebilir.</p>
+    <p class="muted" style="font-size:13px;margin:12px 0 0">${isChild ? "Okul grubunu ve e-posta ayarlarını velin değiştirir." : "Hesap tipi ve rol sadece admin tarafından değiştirilebilir."}</p>
   </section>
   ${isChild ? "" : `<section class="panel"><span class="eyebrow">Sınav seviyem</span>
     <p class="muted" style="margin:6px 0 12px">Ana sayfada bu seviyenin alıştırmaları görünür. A2 = inburgeringsexamen (Lezen, Luisteren, Schrijven, Spreken A2); B1 = Staatsexamen NT2 Programma I. KNM ikisinde de aynı.</p>
@@ -112,6 +113,7 @@ app.innerHTML = `
     <div class="formgrid">${examMods.map(m => `<div class="field"><label for="d-${m.id}">${esc(m.title)}</label>
       <input class="input" type="date" id="d-${m.id}" value="${esc(profile.exams?.[m.id] || (m.id === "lezen" ? profile.exam_date || "" : ""))}"></div>`).join("")}</div></section>`}
   <div class="row"><button class="btn primary" id="save">Kaydet</button><span id="msg"></span></div>
+  <div id="kids"></div>
   <h2 style="margin:8px 0 0">İstatistiklerim</h2>
   ${statsHtml}
   <section class="panel"><span class="eyebrow">Sınıflar</span><p class="muted" style="margin:6px 0 0">Sınıf özelliği yakında eklenecek. Sınıf arkadaşların ilerleme özetini burada göreceksin.</p></section>`;
@@ -122,10 +124,10 @@ document.getElementById("p-niveau")?.addEventListener("click", e => {
 });
 document.getElementById("save").onclick = async () => {
   const msg = document.getElementById("msg");
-  const data = { name: document.getElementById("p-name").value.trim(), email_weekly: document.getElementById("p-weekly").checked };
-  if (!isChild) data.email_news = document.getElementById("p-news").checked;
-  if (isChild) data.groep = document.getElementById("p-groep").value || null;
-  else {
+  const data = { name: document.getElementById("p-name").value.trim() };
+  if (!isChild) {
+    data.email_weekly = document.getElementById("p-weekly").checked;
+    data.email_news = document.getElementById("p-news").checked;
     // Keep dates of modules that are hidden at the current level
     data.exams = { ...(profile.exams || {}), ...Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null])) };
     data.examen_niveau = document.querySelector("#p-niveau button.on")?.dataset.n || "B1";
@@ -134,6 +136,39 @@ document.getElementById("save").onclick = async () => {
     if (!isChild && data.examen_niveau !== niveau) setTimeout(() => location.reload(), 600); }
   catch (e) { msg.innerHTML = `<span class="err-msg">Kaydedilemedi: ${esc(e.code || e.message)}</span>`; }
 };
+
+// ---------- Çocuklarım: a parent sets the groep and the weekly summary of each linked child ----------
+// Children are linked to a parent by the admin (users/{child}.parent_uid). firestore.rules let the parent
+// read those children and change only these two fields.
+const GROEPEN = Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8].map(n => ["groep" + n, "Groep " + n]));
+async function drawKids() {
+  if (isChild) return;
+  const box = document.getElementById("kids");
+  let kids;
+  try { kids = (await getDocs(query(collection(db, "users"), where("parent_uid", "==", user.uid)))).docs.map(d => ({ uid: d.id, ...d.data() })); }
+  catch (e) {
+    // Rules not updated yet: only the admin needs to know
+    if (isAdmin(profile) || profile._view) box.innerHTML = `<div class="notice">Çocuk ayarları okunamadı (${esc(e.code || e.message)}). firestore.rules dosyasını Firebase Console'a yapıştırıp Publish'e bas.</div>`;
+    return;
+  }
+  if (!kids.length) return;
+  box.innerHTML = `<section class="panel"><span class="eyebrow">Çocuklarım</span>
+    <p class="muted" style="margin:6px 0 12px">Okul grubu öğrencinin hangi alıştırmaları göreceğini belirler. Her yaz kendiliğinden bir artar. Haftalık özet hem çocuğa hem sana gider.</p>
+    ${kids.map(k => `<div class="formgrid" style="align-items:end;margin-top:10px">
+      <div class="field"><label>Öğrenci</label><span><b>${esc(k.name || k.email || "")}</b></span></div>
+      <div class="field"><label for="k-g-${esc(k.uid)}">Okul grubu</label><select class="input" id="k-g-${esc(k.uid)}"><option value="">Seç</option>${Object.entries(GROEPEN).map(([v, t]) => `<option value="${v}" ${k.groep === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
+      <div class="field"><label>E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="k-w-${esc(k.uid)}" ${k.email_weekly === false ? "" : "checked"}> Haftalık özet</label></div>
+      <div class="field"><div class="row"><button class="btn" data-kid="${esc(k.uid)}">Kaydet</button><span id="k-m-${esc(k.uid)}"></span></div></div>
+    </div>`).join("")}</section>`;
+  box.querySelectorAll("[data-kid]").forEach(b => b.onclick = async () => {
+    const uid = b.dataset.kid, msg = document.getElementById("k-m-" + uid);
+    const data = { groep: document.getElementById("k-g-" + uid).value || null, email_weekly: document.getElementById("k-w-" + uid).checked };
+    if (isPreview()) { msg.innerHTML = `<span class="muted">Görünüm modunda kaydedilmez.</span>`; return; }
+    try { await updateDoc(doc(db, "users", uid), data); msg.innerHTML = `<span class="ok-msg">Kaydedildi.</span>`; }
+    catch (e) { msg.innerHTML = `<span class="err-msg">Kaydedilemedi: ${esc(e.code || e.message)}</span>`; }
+  });
+}
+drawKids();
 </script>
 </body>
 </html>
