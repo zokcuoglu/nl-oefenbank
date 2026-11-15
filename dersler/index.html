@@ -33,6 +33,9 @@ details.deel>summary{cursor:pointer;font-family:var(--display);font-weight:700;f
 .fb.good{background:var(--ok-soft)} .fb.wrong{background:var(--bad-soft)}
 .fb .ans{font-weight:600;font-size:17px;display:block;margin:4px 0}
 a.btn{color:inherit;text-decoration:none}
+.linklist{display:flex;gap:8px;flex-wrap:wrap}
+.linklist button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;color:inherit;cursor:pointer}
+.linklist button.on{border-color:var(--accent);background:var(--accent-soft)}
 .lesrow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
 .lesrow:last-child{border-bottom:0} .lesrow:hover b{color:var(--accent)}
 </style>
@@ -162,6 +165,12 @@ function renderLesson() {
         <div class="ex">${d.voorbeelden.map(v => `<b lang="nl">${esc(v.nl)}</b><span>${esc(v.tr)}</span>`).join("")}</div>
       </details>`).join("")}
     </section>
+    ${les.series ? `<section class="panel">
+      <span class="eyebrow">Videoyla dinle · ${esc(les.kanaal)}</span>
+      <p class="muted" style="margin:6px 0 10px;max-width:62ch">Bu konuyu Goed Bezig kanalı Türkçe anlatıyor. Bir seri seç; oynatıcıda serinin bütün videoları sırayla gelir.</p>
+      <div class="linklist" id="series">${les.series.map((v, i) => `<button data-i="${i}">${esc(v.titel)} <span class="muted num">${v.aantal}</span></button>`).join("")}</div>
+      <div id="seriesbox"></div>
+    </section>` : ""}
     <section class="panel">
       <span class="eyebrow">Alıştırma</span>
       <h2 style="margin-top:4px">${les.vragen.length} soru</h2>
@@ -169,6 +178,14 @@ function renderLesson() {
       <div class="row"><button class="btn primary" id="start">Başla</button>${a ? `<span class="chip num">son: ${fmtDate(a.finished_at)} · ${a.score}/${a.total}</span>` : ""}</div>
     </section>`;
   document.getElementById("start").onclick = startRun;
+  // Related playlists: the player is only loaded after a series is chosen (no YouTube request before that)
+  document.querySelectorAll("#series button").forEach(b => b.onclick = () => {
+    const v = les.series[+b.dataset.i];
+    document.querySelectorAll("#series button").forEach(x => x.classList.toggle("on", x === b));
+    document.getElementById("seriesbox").innerHTML = `<p style="margin:12px 0 8px"><b>${esc(v.titel)}</b> <span class="muted">· ${esc(v.over)}</span></p>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=${esc(v.list)}" title="${esc(v.titel)}" allowfullscreen></iframe></div>
+      <p class="muted" style="margin:8px 0 0;font-size:13px"><a href="https://www.youtube.com/playlist?list=${esc(v.list)}" target="_blank" rel="noopener">Seriyi YouTube'da aç</a></p>`;
+  });
 }
 
 // ---------- Exercise round ----------

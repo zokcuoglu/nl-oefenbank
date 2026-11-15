@@ -1,5 +1,5 @@
 {
- "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video. Lesson kinds (soort): video = with a YouTube video (Goed Bezig), gramer = grammar topic, konusma = everyday conversation; the last two have no video. Order questions may list other correct orders in 'ook'.",
+ "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video. Lesson kinds (soort): video = with a YouTube video (Goed Bezig), gramer = grammar topic, konusma = everyday conversation; the last two have no video. Order questions may list other correct orders in 'ook'. A lesson may list related YouTube playlists in 'series' (titel, list = playlist id, aantal = number of videos, over = which part of the lesson it covers); the page shows them in one player.",
  "lessen": [
   {
    "id": "zullen",
@@ -2187,7 +2187,40 @@
      ],
      "uitleg": "om … te + mastar."
     }
-   ]
+   ],
+   "series": [
+    {
+     "titel": "Modal Fiiller",
+     "list": "PLJdCk2jDvsDn8ZFZuKcXDTnouEIglhC9c",
+     "aantal": 30,
+     "over": "1. kalıp: kunnen, moeten, mogen, willen, zullen"
+    },
+    {
+     "titel": "Om te ile derinlere",
+     "list": "PLJdCk2jDvsDlViVFGL1zLw9LrWq65SBk1",
+     "aantal": 8,
+     "over": "4. kalıp: te + mastar, om … te"
+    },
+    {
+     "titel": "Zamanlar",
+     "list": "PLJdCk2jDvsDl_U9ysigTZ_Az9Ho03v3qA",
+     "aantal": 14,
+     "over": "6. kalıp: geçmiş zaman"
+    },
+    {
+     "titel": "Pasif Yapı",
+     "list": "PLJdCk2jDvsDniX91H1Fv0IbzbRvWZoVF_",
+     "aantal": 2,
+     "over": "7. kalıp: edilgen"
+    },
+    {
+     "titel": "Ayrılabilen Fiiller",
+     "list": "PLJdCk2jDvsDk5XIQ4nttH8hjlT2LQuutk",
+     "aantal": 8,
+     "over": "ön ekin yeri, mee te doen, afgesproken"
+    }
+   ],
+   "kanaal": "Goed Bezig | Sait Faik Gülşen"
   },
   {
    "id": "kelime-sirasi",
@@ -2597,7 +2630,22 @@
      ],
      "uitleg": "Zaman başta: fiil ikinci, özne arkasında."
     }
-   ]
+   ],
+   "series": [
+    {
+     "titel": "Düz mü Devrik mi? – Zarflarla Hollandaca",
+     "list": "PLJdCk2jDvsDkAFLObLBd-N8Kg3nCHCt5s",
+     "aantal": 4,
+     "over": "1. ve 2. bölüm: zarf başta, devrik sıra"
+    },
+    {
+     "titel": "“Dat” ve arkadaşları",
+     "list": "PLJdCk2jDvsDlt4CE1sMYjswqeclcrboXR",
+     "aantal": 21,
+     "over": "3–5. bölüm: yan cümle, dat / of / als"
+    }
+   ],
+   "kanaal": "Goed Bezig | Sait Faik Gülşen"
   },
   {
    "id": "randevu",

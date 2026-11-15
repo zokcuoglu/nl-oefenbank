@@ -93,7 +93,7 @@ const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { 
 const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
 let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null, sentNews = [], weeklyLog = [], logErr = "";
 // Statistics: attempts of every account, the catalog, and the news items
-let stats = {}, rawAtt = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] }, teksten = { teksten: [] }, woorden = { woorden: [] };
+let stats = {}, rawAtt = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] }, teksten = { teksten: [] }, woorden = { woorden: [] }, dersler = { lessen: [] };
 
 async function load() {
   try {
@@ -115,7 +115,7 @@ async function load() {
     sentNews = ls.docs.map(d => d.data()); lastNews = sentNews[0] || null;
   } catch (e) { schedErr = e.code || e.message; }
   try {
-    [cat, nieuws, teksten, woorden] = await Promise.all(["catalog", "nieuws", "lezen-teksten", "woorden"].map(f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => r.json())));
+    [cat, nieuws, teksten, woorden, dersler] = await Promise.all(["catalog", "nieuws", "lezen-teksten", "woorden", "dersler"].map(f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => r.json())));
     // One read of each account's attempts (fine for a small group)
     const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
     stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); rawAtt = Object.fromEntries(users.map((u, i) => [u.uid, all[i]])); statsErr = "";
@@ -158,7 +158,12 @@ function sentHtml() {
 // Readable label for one answered question (qid as saved by each exercise)
 const WOORD_TYPES = { nl2tr: "Anlamı", tr2nl: "Hollandacası", gap: "Boşluk", def: "Tanım" };
 const LEZEN_TYPES = { nltr: "Anlamı", trnl: "Hollandacası", invul: "Boşluk", lid: "de/het", kalip: "Kalıp" };
+// Lesson questions (dersler/): the same question ids are used by the lesson modules and by the review ("tekrar")
+const LES_MODULES = ["dersler", "gramer", "konusma", "tekrar"];
+const lesQ = () => new Map(dersler.lessen.flatMap(l => l.vragen.map(q => [q.id, { q, l }])));
+const lesQText = q => q.type === "mc" ? q.vraag + " → " + q.opties[q.juist] : q.tr + " → " + (q.type === "order" ? q.woorden.join(" ") : q.antwoorden[0]);
 function questionLabel(module, qid) {
+  if (LES_MODULES.includes(module)) { const x = lesQ().get(qid); return x ? `${x.l.titel} · ${lesQText(x.q)}` : qid; }
   if (module === "nieuws") {
     const [src, id] = qid.split(":"), it = nieuws.items.find(i => i.id === src), t = (nieuws.toetsen || []).find(x => x.id === src);
     const q = (it?.toets || t?.extra || []).find(x => x.id === id);
@@ -237,6 +242,28 @@ function statsHtml() {
   const maxRounds = Math.max(1, ...modRows.map(r => r.rounds));
   const hard = Object.values(q).filter(v => v.n >= 2 && v.wrong > 0).sort((a, b) => b.wrong / b.n - a.wrong / a.n || b.wrong - a.wrong).slice(0, 12);
 
+  // Per lesson: rounds, people, average score, and the questions missed most (answers from the review count too)
+  const qMap = lesQ(), KIND = { video: "Video", gramer: "Gramer", konusma: "Konuşma" };
+  const lesRows = dersler.lessen.map(l => {
+    const rounds = active.flatMap(u => (rawAtt[u.uid] || []).filter(x => LES_MODULES.includes(x.module) && x.test === l.id).map(x => ({ u, x })));
+    const perQ = new Map();
+    active.forEach(u => (rawAtt[u.uid] || []).filter(x => LES_MODULES.includes(x.module)).forEach(x => (x.answers || []).forEach(an => {
+      if (qMap.get(an.qid)?.l !== l) return;
+      const v = perQ.get(an.qid) || { q: qMap.get(an.qid).q, n: 0, wrong: 0 }; v.n++; if (!an.correct) v.wrong++; perQ.set(an.qid, v);
+    })));
+    const ok = rounds.reduce((n, r) => n + (r.x.score || 0), 0), tot = rounds.reduce((n, r) => n + (r.x.total || 0), 0);
+    return { l, rounds: rounds.length, people: new Set(rounds.map(r => r.u.uid)).size, avg: tot ? pct(ok, tot) : null,
+      missed: [...perQ.values()].filter(v => v.wrong).sort((a, b) => b.wrong / b.n - a.wrong / a.n || b.wrong - a.wrong).slice(0, 5) };
+  });
+  const lessonsPanel = who === "child" ? "" : `<details class="panel fold"><summary><h3>Dersler</h3><span class="muted">ders başına tur, kişi, ortalama ve en çok yanlış yapılan sorular</span></summary>
+    <div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Ders</th><th>Tür</th><th class="r">Tur</th><th class="r">Kişi</th><th class="r">Ortalama</th></tr></thead><tbody>
+    ${lesRows.map(r => `<tr><td>${r.missed.length ? `<button class="linkbtn" data-les="${esc(r.l.id)}" aria-expanded="false">▸ <b>${esc(r.l.titel)}</b></button>` : `<b>${esc(r.l.titel)}</b>`}</td>
+      <td class="muted">${KIND[r.l.soort] || ""}</td><td class="r num">${r.rounds}</td><td class="r num">${r.people}</td>
+      <td class="r num">${r.avg === null ? `<span class="chip bad">çözülmedi</span>` : `<span class="chip ${tone(r.avg)}">%${r.avg}</span>`}</td></tr>
+      ${r.missed.length ? `<tr id="ld-${esc(r.l.id)}" hidden><td colspan="5"><span class="eyebrow">En çok yanlış yapılanlar (tekrar turları dahil)</span>
+        ${r.missed.map(v => `<div class="row" style="justify-content:space-between;gap:12px;margin-top:6px;flex-wrap:nowrap"><span lang="nl">${esc(lesQText(v.q))}</span><span class="chip ${tone(100 - pct(v.wrong, v.n))} num">${v.wrong}/${v.n}</span></div>`).join("")}</td></tr>` : ""}`).join("")}
+    </tbody></table></div></details>`;
+
   const whoSeg = `<div class="seg" role="group" aria-label="Kimin istatistiği">${Object.entries(WHO).map(([k, v]) =>
     `<button class="${who === k ? "on" : ""}" data-who="${k}" aria-pressed="${who === k}">${v}</button>`).join("")}</div>`;
   if (!active.length) return `<div class="row" style="margin-bottom:12px">${whoSeg}</div><section class="panel"><p class="muted" style="margin:0">Bu grupta onaylı hesap yok.</p></section>`;
@@ -263,6 +290,7 @@ function statsHtml() {
         <div class="bar"><i style="width:${Math.round(100 * r.rounds / maxRounds)}%;background:var(--accent)"></i></div>
         <span class="num r">${r.rounds} tur · ${r.solvers} kişi</span></div>`).join("") || `<p class="muted" style="margin:0">Henüz tur yok.</p>`}</div>
       ${modRows.some(r => !r.rounds) ? `<p class="muted" style="font-size:13px;margin:12px 0 0"><b>Kimsenin çözmediği:</b> ${modRows.filter(r => !r.rounds).map(r => esc(r.m.title) + (r.openers ? " (açıldı)" : "")).join(", ")}</p>` : ""}</section>
+    ${lessonsPanel}
     <details class="panel fold"><summary><h3>En çok yanlış yapılan sorular</h3><span class="muted">${hard.length} soru</span></summary>
       ${hard.length ? `<div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Soru</th><th>Alıştırma</th><th class="r">Yanlış</th></tr></thead><tbody>
         ${hard.map(v => `<tr><td lang="nl">${esc(questionLabel(v.module, v.qid))}</td><td class="muted">${esc(titleOf(v.module))}</td><td class="r num"><span class="chip ${tone(100 - pct(v.wrong, v.n))}">${v.wrong}/${v.n}</span></td></tr>`).join("")}
@@ -335,7 +363,7 @@ function todayHtml() {
   const day = todayNL(), dayOf = iso => iso ? new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date(iso)) : "";
   // Daily games save under "oyun-<game>" and are not in the catalog
   const GAME_NAMES = { kruiswoord: "NT2 Bulmaca", dehet: "de / het", werkwoorden: "Düzensiz fiiller", verbanden: "Bağlantılar", voorzetsels: "Edatlar", erop: "er + edat" };
-  const titleOf = id => cat.modules.find(m => m.id === id)?.title || (id?.startsWith("oyun-") ? "Oyun: " + (GAME_NAMES[id.slice(5)] || id.slice(5)) : id);
+  const titleOf = id => cat.modules.find(m => m.id === id)?.title || (id === "tekrar" ? "Bugünkü tekrar" : id?.startsWith("oyun-") ? "Oyun: " + (GAME_NAMES[id.slice(5)] || id.slice(5)) : id);
   const pending = users.filter(u => statusOf(u) === "pending");
   const approved = users.filter(u => statusOf(u) === "approved");
   // Every round of today, newest first, with the person it belongs to
@@ -483,6 +511,8 @@ app.addEventListener("input", e => { if (e.target.id === "acc-q") { search = e.t
 app.addEventListener("click", async e => {
   const tb = e.target.closest("[data-tab]");
   if (tb) { tab = tb.dataset.tab; history.replaceState(null, "", "#" + tab); render(); return; }
+  const lb = e.target.closest("[data-les]");
+  if (lb) { const row = document.getElementById("ld-" + lb.dataset.les); row.hidden = !row.hidden; lb.setAttribute("aria-expanded", !row.hidden); return; }
   const wb = e.target.closest("[data-who]");
   if (wb) { who = wb.dataset.who; render(); return; }
   if (e.target.id === "n-send") return queueNews();
