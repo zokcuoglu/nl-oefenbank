@@ -80,8 +80,8 @@ const PLAY_LIMIT_S = 15 * 60;
 const todayNL = () => new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
 let play = {}, playErr = "";
 // The page has three tabs; the choice is kept in the URL hash (#istatistik) so a reload stays on the same tab
-const TABS = { hesaplar: "Hesaplar", istatistik: "İstatistik", eposta: "E-posta" };
-let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : "hesaplar";
+const TABS = { bugun: "Bugün", hesaplar: "Hesaplar", istatistik: "İstatistik", eposta: "E-posta" };
+let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : "bugun";
 // Accounts tab: which group is shown, the search text, and whose edit card is open
 const FILTERS = { all: "Hepsi", pending: "Onay bekleyen", adult: "Yetişkin", child: "Öğrenci", blocked: "Engelli" };
 let filter = "all", search = "", openUid = null;
@@ -307,7 +307,7 @@ function render() {
   const pending = users.filter(u => statusOf(u) === "pending").length;
   const tabs = `<nav class="seg admintabs" role="tablist">${Object.entries(TABS).map(([k, v]) =>
     `<button role="tab" class="${tab === k ? "on" : ""}" data-tab="${k}" aria-selected="${tab === k}">${v}${k === "hesaplar" && pending ? ` <span class="chip accent">${pending}</span>` : ""}</button>`).join("")}</nav>`;
-  app.innerHTML = tabs + (tab === "istatistik" ? statsHtml() : tab === "eposta" ? mailTab() : `
+  app.innerHTML = tabs + (tab === "bugun" ? todayHtml() : tab === "istatistik" ? statsHtml() : tab === "eposta" ? mailTab() : `
     <section class="panel">
       <div class="accbar">
         <input class="input" id="acc-q" type="search" placeholder="İsim ya da e-posta ara" value="${esc(search)}" autocomplete="off">
@@ -320,6 +320,55 @@ function render() {
     ${playHtml()}
     <details class="panel fold"><summary><h3>Roller ne demek?</h3></summary>
       <div class="tablewrap" style="margin-top:8px"><table><tbody>${Object.entries(ROLES).map(([k, v]) => `<tr><td><b>${esc(v)}</b></td><td class="muted">${esc(ROLE_HELP[k])}</td></tr>`).join("")}</tbody></table></div></details>`);
+}
+
+// ---------- "Bugün": what needs attention and what happened today ----------
+// Next moment a scheduled mail goes out (weekday 1-7 and hour, as the visitor's clock shows it; the job itself uses Amsterdam time)
+function nextSlot(job) {
+  const d = new Date(); d.setMinutes(0, 0, 0); d.setHours(job.hour);
+  const dow = d.getDay() || 7;
+  d.setDate(d.getDate() + (job.weekday - dow + 7) % 7);
+  if (d <= new Date()) d.setDate(d.getDate() + 7);
+  return d;
+}
+function todayHtml() {
+  const day = todayNL(), dayOf = iso => iso ? new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date(iso)) : "";
+  // Daily games save under "oyun-<game>" and are not in the catalog
+  const GAME_NAMES = { kruiswoord: "NT2 Bulmaca", dehet: "de / het", werkwoorden: "Düzensiz fiiller", verbanden: "Bağlantılar", voorzetsels: "Edatlar", erop: "er + edat" };
+  const titleOf = id => cat.modules.find(m => m.id === id)?.title || (id?.startsWith("oyun-") ? "Oyun: " + (GAME_NAMES[id.slice(5)] || id.slice(5)) : id);
+  const pending = users.filter(u => statusOf(u) === "pending");
+  const approved = users.filter(u => statusOf(u) === "approved");
+  // Every round of today, newest first, with the person it belongs to
+  const rounds = approved.flatMap(u => (rawAtt[u.uid] || []).filter(a => dayOf(a.finished_at) === day).map(a => ({ u, a })))
+    .sort((x, y) => (y.a.finished_at || "").localeCompare(x.a.finished_at || ""));
+  const byUser = new Map();
+  rounds.forEach(({ u, a }) => { const r = byUser.get(u.uid) || { u, n: 0, ok: 0, tot: 0, mods: new Set() }; r.n++; r.ok += a.score || 0; r.tot += a.total || 0; r.mods.add(titleOf(a.module)); byUser.set(u.uid, r); });
+  const week = approved.filter(u => recentRounds(stats[u.uid] || summarize([]), 7) > 0).length;
+  const quiet = approved.filter(u => !u.last_active || Date.now() - new Date(u.last_active) > 14 * 864e5);
+  const noParent = users.filter(u => u.type === "child" && !u.parent_uid && statusOf(u) !== "blocked");
+  const time = iso => new Date(iso).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+  const jobs = [["news", "Haber"], ["weekly", "Haftalık özet"], ["brief", "Haftanın Hollandacası"]].filter(([j]) => sched[j]?.enabled)
+    .map(([j, label]) => ({ label, at: nextSlot(sched[j]) })).sort((a, b) => a.at - b.at);
+  const tile = (n, label) => `<div class="panel" style="padding:14px 16px"><div class="scorebig num" style="font-size:28px">${n}</div><span class="muted" style="font-size:13px">${label}</span></div>`;
+  return `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+      ${tile(pending.length, "onay bekleyen")}${tile(byUser.size, "bugün çalışan kişi")}${tile(rounds.length, "bugün çözülen tur")}${tile(week, "son 7 günde aktif")}
+    </div>
+    ${pending.length ? `<section class="panel"><span class="eyebrow">Onay bekleyenler</span>
+      ${pending.map(u => `<div class="accline" style="padding:8px 0;border-top:1px solid var(--line)"><span style="flex:1;min-width:0"><b>${esc(u.name || "-")}</b> <span class="muted">${esc(u.email || "")}</span></span>
+        <div class="quick"><button class="btn primary" data-approve="${esc(u.uid)}">Onayla</button><button class="btn" data-block="${esc(u.uid)}">Engelle</button></div></div>`).join("")}</section>` : ""}
+    ${noParent.length ? `<div class="notice">Velisi bağlanmamış öğrenci: ${noParent.map(u => esc(nameOf(u))).join(", ")}. Hesaplar sekmesinden veli seç; yoksa okul grubunu kimse ayarlayamaz.</div>` : ""}
+    ${statsErr ? `<div class="notice">Çalışma kayıtları okunamadı (${esc(statsErr)}).</div>` : `
+    <section class="panel"><span class="eyebrow">Bugün çalışanlar</span>
+      ${byUser.size ? `<div class="tablewrap" style="margin-top:8px"><table><thead><tr><th>Kişi</th><th class="num">Tur</th><th class="num">Doğru</th><th>Ne çalıştı</th></tr></thead><tbody>
+        ${[...byUser.values()].sort((a, b) => b.n - a.n).map(r => `<tr><td><b>${esc(nameOf(r.u))}</b></td><td class="num">${r.n}</td><td class="num">${r.tot ? "%" + Math.round(100 * r.ok / r.tot) : "-"}</td><td class="muted">${[...r.mods].map(esc).join(", ")}</td></tr>`).join("")}
+      </tbody></table></div>` : `<p class="muted" style="margin:8px 0 0">Bugün henüz kimse tur çözmedi.</p>`}</section>
+    ${rounds.length ? `<details class="panel fold"><summary><h3>Bugünkü turlar (${rounds.length})</h3></summary>
+      <div class="tablewrap" style="margin-top:8px"><table><tbody>${rounds.slice(0, 40).map(({ u, a }) => `<tr><td class="num muted">${time(a.finished_at)}</td><td>${esc(nameOf(u))}</td><td>${esc(titleOf(a.module))}${a.title ? ` <span class="muted">· ${esc(a.title)}</span>` : ""}</td><td class="num">${a.total ? `${a.score}/${a.total}` : ""}</td></tr>`).join("")}</tbody></table></div></details>` : ""}`}
+    <section class="panel"><span class="eyebrow">Sıradaki e-postalar</span>
+      ${jobs.length ? jobs.map(j => `<div class="row" style="justify-content:space-between;margin-top:8px"><span>${esc(j.label)}</span><span class="muted num">${j.at.toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" })} ${String(j.at.getHours()).padStart(2, "0")}:00</span></div>`).join("") : `<p class="muted" style="margin:8px 0 0">Zamanlanmış e-posta yok.</p>`}</section>
+    ${quiet.length ? `<details class="panel fold"><summary><h3>14 gündür girmeyenler (${quiet.length})</h3></summary><p class="muted" style="margin:8px 0 0">${quiet.map(u => `${esc(nameOf(u))} (${ago(u.last_active)})`).join(" · ")}</p></details>` : ""}
+    ${playHtml()}`;
 }
 
 // ---------- accounts ----------
