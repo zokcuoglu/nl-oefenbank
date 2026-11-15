@@ -60,6 +60,7 @@
   ],
   "nieuw": [
     { "datum": "2026-11-12", "tekst": "Ana sayfa yenilendi: genel Hollandaca ve NT2 sınavı artık ayrı sekmelerde.", "href": "" },
-    { "datum": "2026-11-13", "tekst": "Video dersler: Goed Bezig kanalından 4 ders; üstte video, altında özet ve alıştırmalar.", "href": "dersler/" }
+    { "datum": "2026-11-13", "tekst": "Video dersler: Goed Bezig kanalından 4 ders; üstte video, altında özet ve alıştırmalar.", "href": "dersler/?soort=video" },
+    { "datum": "2026-11-15", "tekst": "Gramer ve günlük konuşma dersleri: iki fiilli cümleler, fiilin yeri, randevu, toplantı, saha.", "href": "dersler/" }
   ]
 }

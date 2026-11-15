@@ -1,5 +1,5 @@
 {
- "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video.",
+ "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video. Lesson kinds (soort): video = with a YouTube video (Goed Bezig), gramer = grammar topic, konusma = everyday conversation; the last two have no video. Order questions may list other correct orders in 'ook'.",
  "lessen": [
   {
    "id": "zullen",
@@ -406,7 +406,8 @@
      ],
      "uitleg": "Wat denk je van + isim."
     }
-   ]
+   ],
+   "soort": "video"
   },
   {
    "id": "tekliflere-cevap",
@@ -826,7 +827,8 @@
      ],
      "uitleg": "Een andere keer graag."
     }
-   ]
+   ],
+   "soort": "video"
   },
   {
    "id": "misafir",
@@ -1306,7 +1308,8 @@
      ],
      "uitleg": "Fiilsiz, kısa soru: Nog een kopje?"
     }
-   ]
+   ],
+   "soort": "video"
   },
   {
    "id": "laten",
@@ -1693,6 +1696,1787 @@
       "Ik heb mijn haar laten knippen"
      ],
      "uitleg": "heb … laten knippen: sonda iki mastar."
+    }
+   ],
+   "soort": "video"
+  },
+  {
+   "id": "iki-fiil",
+   "soort": "gramer",
+   "titel": "İki fiilli cümleler",
+   "serie": "Gramer",
+   "intro": "Hollandacada bir cümlede iki fiil varsa işleri bölüşürler: çekimli fiil ikinci sırada durur, öteki fiil cümlenin sonuna gider. Aradaki her şey (zaman, yer, nesne) bu ikisinin arasına girer. Asıl soru şu: sondaki fiil mastar mı, “te + mastar” mı, yoksa ortaç mı (ge-…)? Bunu ilk fiil belirler.",
+   "delen": [
+    {
+     "titel": "1. Modal fiil + mastar (te yok)",
+     "uitleg": "kunnen, moeten, mogen, willen, zullen. Modal ikinci sırada, mastar en sonda, arada “te” yok.",
+     "regels": [
+      "Olumsuzluk ve zaman ikisinin arasına girer: Ik kan morgen niet komen."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik moet morgen werken.",
+       "tr": "Yarın çalışmam lazım."
+      },
+      {
+       "nl": "Kun je dat nog een keer uitleggen?",
+       "tr": "Bir daha açıklar mısın?"
+      },
+      {
+       "nl": "Mag ik iets vragen?",
+       "tr": "Bir şey sorabilir miyim?"
+      },
+      {
+       "nl": "Ik wil een afspraak maken.",
+       "tr": "Randevu almak istiyorum."
+      },
+      {
+       "nl": "Zullen we beginnen?",
+       "tr": "Başlayalım mı?"
+      }
+     ]
+    },
+    {
+     "titel": "2. gaan, komen, blijven + mastar (te yok)",
+     "uitleg": "“gaan” yakın gelecek ya da niyet anlatır. “komen” ve “blijven” de mastarı “te”siz alır.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Ik ga het proberen.",
+       "tr": "Deneyeceğim."
+      },
+      {
+       "nl": "Vandaag ga ik daarmee verder.",
+       "tr": "Bugün onunla devam edeceğim."
+      },
+      {
+       "nl": "Ik kom je helpen.",
+       "tr": "Sana yardıma geliyorum."
+      },
+      {
+       "nl": "Hij blijft vandaag thuis werken.",
+       "tr": "Bugün evde çalışmaya devam ediyor."
+      },
+      {
+       "nl": "Blijf maar zitten.",
+       "tr": "Otur, kalkma."
+      }
+     ]
+    },
+    {
+     "titel": "3. laten, zien, horen + mastar (te yok)",
+     "uitleg": "“laten” yaptırmak ya da izin vermek; “zien” ve “horen” bir şeyin yapıldığını görmek, duymak.",
+     "regels": [
+      "Ayrıntısı “laten” video dersinde."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik laat het je weten.",
+       "tr": "Sana haber veririm."
+      },
+      {
+       "nl": "Ik laat mijn auto wassen.",
+       "tr": "Arabamı yıkatıyorum."
+      },
+      {
+       "nl": "Ik zie hem lopen.",
+       "tr": "Onun yürüdüğünü görüyorum."
+      },
+      {
+       "nl": "Ik hoor de kinderen spelen.",
+       "tr": "Çocukların oynadığını duyuyorum."
+      }
+     ]
+    },
+    {
+     "titel": "4. “te” isteyen fiiller",
+     "uitleg": "proberen, hoeven, beginnen, vergeten, beloven, durven: bunlardan sonra sondaki fiil “te + mastar” olur.",
+     "regels": [
+      "“hoeven” hep olumsuzla kullanılır: Ik hoef niet te komen (gelmeme gerek yok).",
+      "Ayrılabilir fiilde “te” araya girer: meedoen → mee te doen, goedkeuren → goed te keuren, inhalen → in te halen.",
+      "“om … te” amaç ya da plan anlatır: Het plan is om morgen te beginnen."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik probeer een oplossing te vinden.",
+       "tr": "Bir çözüm bulmaya çalışıyorum."
+      },
+      {
+       "nl": "Je hoeft niet te komen.",
+       "tr": "Gelmene gerek yok."
+      },
+      {
+       "nl": "Het begint te regenen.",
+       "tr": "Yağmur başlıyor."
+      },
+      {
+       "nl": "Ik vergeet altijd te bellen.",
+       "tr": "Aramayı hep unutuyorum."
+      },
+      {
+       "nl": "Heb je zin om mee te gaan?",
+       "tr": "Gelmek ister misin?"
+      },
+      {
+       "nl": "Het plan is om morgen te beginnen.",
+       "tr": "Plan yarın başlamak."
+      }
+     ]
+    },
+    {
+     "titel": "5. Şu anda süren iş",
+     "uitleg": "İngilizcedeki -ing gibi tek bir yapı yok. İki yol var: “zijn aan het + mastar” ve “zitten / staan / liggen / lopen te + mastar”.",
+     "regels": [
+      "İkinci yol duruşu da söyler: oturarak bekliyorsan “zitten te wachten”, ayaktaysan “staan te wachten”.",
+      "Çoğu zaman düz şimdiki zaman da yeter: We wachten op je."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "We zijn aan het wachten.",
+       "tr": "Bekliyoruz."
+      },
+      {
+       "nl": "Ik ben aan het koken.",
+       "tr": "Yemek yapıyorum."
+      },
+      {
+       "nl": "We zitten te wachten tot je slaapt.",
+       "tr": "Uyumanı bekliyoruz."
+      },
+      {
+       "nl": "Hij staat te bellen.",
+       "tr": "(Ayakta) telefonla konuşuyor."
+      },
+      {
+       "nl": "De baby ligt te slapen.",
+       "tr": "Bebek uyuyor."
+      }
+     ]
+    },
+    {
+     "titel": "6. Geçmiş zaman: hebben / zijn + ortaç",
+     "uitleg": "Olmuş bitmiş iş. Yardımcı fiil ikinci sırada, ortaç (ge-…) sonda.",
+     "regels": [
+      "Hareket ve durum değişimi “zijn” ile: gegaan, gekomen, gebleven, geworden, begonnen.",
+      "Ayrılabilir fiilde “ge” araya girer: afgesproken, meegenomen, doorgegaan.",
+      "Dosya, liste, tablo “maken” ile: Ik heb een lijstje gemaakt."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik heb het gedaan.",
+       "tr": "Yaptım."
+      },
+      {
+       "nl": "Gisteren ben ik verder gegaan met de checks.",
+       "tr": "Dün kontrollere devam ettim."
+      },
+      {
+       "nl": "Dat hadden we afgesproken.",
+       "tr": "Öyle anlaşmıştık."
+      },
+      {
+       "nl": "Ik ben ziek geworden.",
+       "tr": "Hasta oldum."
+      },
+      {
+       "nl": "Ik ben begonnen met de documentatie.",
+       "tr": "Dokümantasyona başladım."
+      }
+     ]
+    },
+    {
+     "titel": "7. Edilgen: worden / zijn + ortaç",
+     "uitleg": "İşi kimin yaptığı önemli değilse. Süren ya da yapılacak iş “worden”, bitmiş iş “zijn” ile.",
+     "regels": [
+      "Modal ile üç fiil olur: moeten + ortaç + worden. “Silinmeli” = moet verwijderd worden."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "De rijen worden verwijderd.",
+       "tr": "Satırlar siliniyor."
+      },
+      {
+       "nl": "Het probleem is opgelost.",
+       "tr": "Sorun çözüldü."
+      },
+      {
+       "nl": "Moeten ze verwijderd worden?",
+       "tr": "Silinmeleri mi gerekiyor?"
+      },
+      {
+       "nl": "Dat moet in de tests meegenomen worden.",
+       "tr": "Bunun testlere dahil edilmesi lazım."
+      }
+     ]
+    },
+    {
+     "titel": "8. Yan cümlede iki fiil birlikte sona gider",
+     "uitleg": "als, of, dat, omdat, zodat, terwijl, zodra… ile başlayan yan cümlede bütün fiiller sonda toplanır.",
+     "regels": [
+      "İki sıra da doğrudur: …dat ik het heb gedaan / …dat ik het gedaan heb.",
+      "Ayrılabilir fiil yan cümlede birleşik kalır: …of de training doorgaat."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik weet dat ik morgen moet werken.",
+       "tr": "Yarın çalışmam gerektiğini biliyorum."
+      },
+      {
+       "nl": "Ik laat weten of het maandag kan doorgaan.",
+       "tr": "Pazartesi olup olamayacağını haber veririm."
+      },
+      {
+       "nl": "Ik kom niet, omdat ik ziek ben geworden.",
+       "tr": "Gelmiyorum, çünkü hasta oldum."
+      },
+      {
+       "nl": "Ik denk dat we het anders moeten doen.",
+       "tr": "Bence bunu başka türlü yapmalıyız."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "f01",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Ik moet morgen te werken.",
+      "Ik moet morgen werken.",
+      "Ik moet werken morgen."
+     ],
+     "juist": 1,
+     "uitleg": "Modal fiilden sonra “te” yok; mastar sonda."
+    },
+    {
+     "id": "f02",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Ik probeer een oplossing vinden.",
+      "Ik probeer te een oplossing vinden.",
+      "Ik probeer een oplossing te vinden."
+     ],
+     "juist": 2,
+     "uitleg": "proberen + te + mastar; “te” mastarın hemen önünde."
+    },
+    {
+     "id": "f03",
+     "type": "mc",
+     "vraag": "“Gelmene gerek yok.”",
+     "opties": [
+      "Je hoeft niet komen.",
+      "Je hoeft niet te komen.",
+      "Je moet niet te komen."
+     ],
+     "juist": 1,
+     "uitleg": "hoeven + niet + te + mastar."
+    },
+    {
+     "id": "f04",
+     "type": "mc",
+     "vraag": "“Bunu onaylamak için…” (goedkeuren)",
+     "opties": [
+      "om dit te goedkeuren",
+      "om dit goed te keuren",
+      "om te dit goedkeuren"
+     ],
+     "juist": 1,
+     "uitleg": "Ayrılabilir fiilde “te” araya girer: goed te keuren."
+    },
+    {
+     "id": "f05",
+     "type": "mc",
+     "vraag": "“Silinmeleri gerekiyor.”",
+     "opties": [
+      "Ze moeten verwijderen.",
+      "Ze moeten verwijderd worden.",
+      "Ze moeten verwijderd zijn worden."
+     ],
+     "juist": 1,
+     "uitleg": "Edilgen + modal: moeten + ortaç + worden."
+    },
+    {
+     "id": "f06",
+     "type": "mc",
+     "vraag": "“Şu anda yemek yapıyorum.”",
+     "opties": [
+      "Ik ben aan het koken.",
+      "Ik ben koken.",
+      "Ik ben te koken."
+     ],
+     "juist": 0,
+     "uitleg": "zijn + aan het + mastar."
+    },
+    {
+     "id": "f07",
+     "type": "mc",
+     "vraag": "“Dün devam ettim.” (verdergaan)",
+     "opties": [
+      "Gisteren heb ik verder gegaan.",
+      "Gisteren ben ik verder gegaan.",
+      "Gisteren ben ik verder gaan."
+     ],
+     "juist": 1,
+     "uitleg": "gaan hareket fiili: zijn ile, ortaç gegaan."
+    },
+    {
+     "id": "f08",
+     "type": "mc",
+     "vraag": "Hangi yan cümle doğru?",
+     "opties": [
+      "…omdat ik moet morgen werken.",
+      "…omdat ik morgen moet werken.",
+      "…omdat morgen ik moet werken."
+     ],
+     "juist": 1,
+     "uitleg": "Yan cümlede fiiller sonda toplanır: …morgen moet werken."
+    },
+    {
+     "id": "f09",
+     "type": "order",
+     "tr": "Bir daha açıklar mısın?",
+     "woorden": [
+      "Kun",
+      "je",
+      "dat",
+      "nog",
+      "een",
+      "keer",
+      "uitleggen"
+     ],
+     "einde": "?",
+     "uitleg": "Modal başta (soru), mastar sonda."
+    },
+    {
+     "id": "f10",
+     "type": "order",
+     "tr": "Sana haber veririm.",
+     "woorden": [
+      "Ik",
+      "laat",
+      "het",
+      "je",
+      "weten"
+     ],
+     "einde": ".",
+     "uitleg": "laat ikinci sırada, weten sonda."
+    },
+    {
+     "id": "f11",
+     "type": "order",
+     "tr": "Gelmek ister misin?",
+     "woorden": [
+      "Heb",
+      "je",
+      "zin",
+      "om",
+      "mee",
+      "te",
+      "gaan"
+     ],
+     "einde": "?",
+     "uitleg": "meegaan ayrılabilir: mee te gaan."
+    },
+    {
+     "id": "f12",
+     "type": "order",
+     "tr": "Uyumanı bekliyoruz.",
+     "woorden": [
+      "We",
+      "zitten",
+      "te",
+      "wachten",
+      "tot",
+      "je",
+      "slaapt"
+     ],
+     "einde": ".",
+     "uitleg": "zitten te + mastar; “tot” yan cümlesinde fiil sonda."
+    },
+    {
+     "id": "f13",
+     "type": "order",
+     "tr": "Bunun testlere dahil edilmesi lazım.",
+     "woorden": [
+      "Dat",
+      "moet",
+      "in",
+      "de",
+      "tests",
+      "meegenomen",
+      "worden"
+     ],
+     "einde": ".",
+     "uitleg": "moet ikinci sırada; ortaç + worden sonda."
+    },
+    {
+     "id": "f14",
+     "type": "order",
+     "tr": "Pazartesi olup olamayacağını haber veririm.",
+     "woorden": [
+      "Ik",
+      "laat",
+      "weten",
+      "of",
+      "het",
+      "maandag",
+      "kan",
+      "doorgaan"
+     ],
+     "einde": ".",
+     "uitleg": "“of” yan cümlesi: kan doorgaan sonda."
+    },
+    {
+     "id": "f15",
+     "type": "type",
+     "tr": "Yarın çalışmam lazım.",
+     "antwoorden": [
+      "Ik moet morgen werken",
+      "Morgen moet ik werken"
+     ],
+     "uitleg": "moet ikinci sırada, werken sonda."
+    },
+    {
+     "id": "f16",
+     "type": "type",
+     "tr": "Deneyeceğim.",
+     "antwoorden": [
+      "Ik ga het proberen",
+      "Ik zal het proberen"
+     ],
+     "uitleg": "gaan + mastar."
+    },
+    {
+     "id": "f17",
+     "type": "type",
+     "tr": "Bir çözüm bulmaya çalışıyorum.",
+     "antwoorden": [
+      "Ik probeer een oplossing te vinden"
+     ],
+     "uitleg": "proberen + te + mastar."
+    },
+    {
+     "id": "f18",
+     "type": "type",
+     "tr": "Sorun çözüldü.",
+     "antwoorden": [
+      "Het probleem is opgelost"
+     ],
+     "uitleg": "Bitmiş iş: zijn + ortaç."
+    },
+    {
+     "id": "f19",
+     "type": "type",
+     "tr": "Bekliyoruz. (şu anda)",
+     "antwoorden": [
+      "We zijn aan het wachten",
+      "Wij zijn aan het wachten",
+      "We zitten te wachten",
+      "We wachten"
+     ],
+     "uitleg": "zijn aan het + mastar."
+    },
+    {
+     "id": "f20",
+     "type": "type",
+     "tr": "Plan yarın başlamak.",
+     "antwoorden": [
+      "Het plan is om morgen te beginnen"
+     ],
+     "uitleg": "om … te + mastar."
+    }
+   ]
+  },
+  {
+   "id": "kelime-sirasi",
+   "soort": "gramer",
+   "titel": "Fiil nerede durur? Düz, devrik ve yan cümle",
+   "serie": "Gramer",
+   "intro": "Hollandaca yazarken en sık yapılan hata fiilin yeri. Üç kural neredeyse hepsini çözer: ana cümlede fiil ikinci sırada durur; “en, maar, want” sırayı değiştirmez; “als, of, dat, omdat” ile başlayan yan cümlede fiil sona gider.",
+   "delen": [
+    {
+     "titel": "1. Ana cümlede fiil ikinci sırada",
+     "uitleg": "Birinci yere ne gelirse gelsin (özne, zaman, zarf) çekimli fiil ikinci sırada kalır. Başa özneden başka bir şey gelirse özne fiilin arkasına geçer (devrik).",
+     "regels": [
+      "dan, morgen, vandaag, blijkbaar, daarom, gisteren… başa gelince hemen arkasından fiil gelir.",
+      "“niet” fiilden sonra gelir: Ze bestaan niet in de bron."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik werk morgen thuis.",
+       "tr": "Yarın evde çalışıyorum."
+      },
+      {
+       "nl": "Morgen werk ik thuis.",
+       "tr": "Yarın evde çalışıyorum."
+      },
+      {
+       "nl": "Dan hebben ze het vergeten.",
+       "tr": "O zaman unutmuşlar."
+      },
+      {
+       "nl": "Blijkbaar kan ik morgen niet werken.",
+       "tr": "Görünüşe göre yarın çalışamıyorum."
+      },
+      {
+       "nl": "Dan zijn we donderdag waarschijnlijk weer beter.",
+       "tr": "O zaman perşembe muhtemelen iyileşmiş oluruz."
+      }
+     ]
+    },
+    {
+     "titel": "2. Sırayı değiştirmeyen kelimeler",
+     "uitleg": "en, maar, want, of (ya da), dus (çoğunlukla) ve “ja,” cümleyi çevirmez. Arkalarından düz sıra gelir: özne, sonra fiil.",
+     "regels": [
+      "Karışan çift: “dan” çevirir (Dan ga ik…), “en” çevirmez (En ik ga…)."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "En ik denk dat het klopt.",
+       "tr": "Ve bence doğru."
+      },
+      {
+       "nl": "Maar ik heb geen tijd.",
+       "tr": "Ama vaktim yok."
+      },
+      {
+       "nl": "Ja, ik zal het doen.",
+       "tr": "Evet, yapacağım."
+      },
+      {
+       "nl": "Ik kom niet, want ik ben ziek.",
+       "tr": "Gelmiyorum, çünkü hastayım."
+      }
+     ]
+    },
+    {
+     "titel": "3. Yan cümlede fiil sona gider",
+     "uitleg": "als, of, dat, omdat, zodat, terwijl, zodra, waardoor: bunlarla başlayan cümlede çekimli fiil en sona gider.",
+     "regels": [
+      "“want” ve “omdat” ikisi de “çünkü” demek ama sıra farklı: …want ik ben ziek / …omdat ik ziek ben.",
+      "“dat” cümlesinin içinde “dan hebben we…” gibi ana cümle sırası olmaz: Ik weet dat we geen Excel nodig hebben als we Jira gebruiken."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik kom niet, omdat ik ziek ben.",
+       "tr": "Gelmiyorum, çünkü hastayım."
+      },
+      {
+       "nl": "Ik weet dat het kan.",
+       "tr": "Olabileceğini biliyorum."
+      },
+      {
+       "nl": "Als ik donderdag niet naar kantoor kom, bel ik.",
+       "tr": "Perşembe ofise gelmezsem ararım."
+      },
+      {
+       "nl": "Zodra ik beter ben, laat ik het weten.",
+       "tr": "İyileşir iyileşmez haber veririm."
+      }
+     ]
+    },
+    {
+     "titel": "4. Yan cümle başa gelirse",
+     "uitleg": "Yan cümle birinci yeri doldurur; ana cümle hemen fiille başlar.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Als ik tijd heb, kijk ik ernaar.",
+       "tr": "Vaktim olursa bakarım."
+      },
+      {
+       "nl": "Als het kan, doen we het.",
+       "tr": "Olursa yaparız."
+      },
+      {
+       "nl": "Omdat ik ziek ben, werk ik thuis.",
+       "tr": "Hasta olduğum için evde çalışıyorum."
+      }
+     ]
+    },
+    {
+     "titel": "5. of, als, dat",
+     "uitleg": "“als” = eğer, -diği zaman. “of” = -ip -mediğini (bilmiyorum, soruyorum, haber veririm). “dat” = -diğini.",
+     "regels": [
+      "“Olup olmadığını” diyorsan “of” kullan, “als” değil: Ik weet niet of het kan."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Als het kan, doen we het.",
+       "tr": "Olursa yaparız."
+      },
+      {
+       "nl": "Ik weet niet of het kan.",
+       "tr": "Olur mu bilmiyorum."
+      },
+      {
+       "nl": "Ik weet dat het kan.",
+       "tr": "Olduğunu biliyorum."
+      },
+      {
+       "nl": "Ik laat weten of de training doorgaat.",
+       "tr": "Antrenman var mı yok mu haber veririm."
+      }
+     ]
+    },
+    {
+     "titel": "6. geen ve niet",
+     "uitleg": "Belirsiz isimden önce “geen”; fiil, sıfat ve belirli isimle “niet”.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Ik heb geen tijd.",
+       "tr": "Vaktim yok."
+      },
+      {
+       "nl": "Geen probleem!",
+       "tr": "Sorun değil!"
+      },
+      {
+       "nl": "Ik kom niet.",
+       "tr": "Gelmiyorum."
+      },
+      {
+       "nl": "Het is niet makkelijk.",
+       "tr": "Kolay değil."
+      },
+      {
+       "nl": "Ik zie de bal niet.",
+       "tr": "Topu görmüyorum."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "s01",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Dan ik ga morgen naar kantoor.",
+      "Dan ga ik morgen naar kantoor.",
+      "Dan morgen ik ga naar kantoor."
+     ],
+     "juist": 1,
+     "uitleg": "“dan” başta: hemen arkasından fiil. Dan ga ik…"
+    },
+    {
+     "id": "s02",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "En ga ik morgen werken.",
+      "En ik ga morgen werken.",
+      "En morgen ik ga werken."
+     ],
+     "juist": 1,
+     "uitleg": "“en” sırayı değiştirmez: En ik ga…"
+    },
+    {
+     "id": "s03",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Ja, kan ik dat doen.",
+      "Ja, ik kan dat doen.",
+      "Ja, dat ik kan doen."
+     ],
+     "juist": 1,
+     "uitleg": "“Ja,” sırayı değiştirmez."
+    },
+    {
+     "id": "s04",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Blijkbaar het werkt niet.",
+      "Blijkbaar werkt het niet.",
+      "Blijkbaar niet het werkt."
+     ],
+     "juist": 1,
+     "uitleg": "Zarf başta: fiil ikinci sırada."
+    },
+    {
+     "id": "s05",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Ik kom niet, omdat ik ben ziek.",
+      "Ik kom niet, omdat ziek ik ben.",
+      "Ik kom niet, omdat ik ziek ben."
+     ],
+     "juist": 2,
+     "uitleg": "“omdat” yan cümlesi: fiil sonda."
+    },
+    {
+     "id": "s06",
+     "type": "mc",
+     "vraag": "“Antrenman var mı bilmiyorum.”",
+     "opties": [
+      "Ik weet niet als de training doorgaat.",
+      "Ik weet niet of de training doorgaat.",
+      "Ik weet niet dat de training doorgaat."
+     ],
+     "juist": 1,
+     "uitleg": "-ip -mediğini = of."
+    },
+    {
+     "id": "s07",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Dat is niet een probleem.",
+      "Dat is geen probleem.",
+      "Dat is probleem niet."
+     ],
+     "juist": 1,
+     "uitleg": "Belirsiz isimden önce “geen”."
+    },
+    {
+     "id": "s08",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "Als ik heb tijd, ik kijk ernaar.",
+      "Als ik tijd heb, ik kijk ernaar.",
+      "Als ik tijd heb, kijk ik ernaar."
+     ],
+     "juist": 2,
+     "uitleg": "Yan cümlede fiil sonda; ana cümle fiille başlar."
+    },
+    {
+     "id": "s09",
+     "type": "mc",
+     "vraag": "“…çünkü hastayım.” Hangisi doğru?",
+     "opties": [
+      "…want ik ziek ben.",
+      "…want ik ben ziek.",
+      "…omdat ik ben ziek."
+     ],
+     "juist": 1,
+     "uitleg": "“want” düz sıra ister; “omdat” fiili sona atar."
+    },
+    {
+     "id": "s10",
+     "type": "order",
+     "tr": "Görünüşe göre yarın çalışamıyorum.",
+     "woorden": [
+      "Blijkbaar",
+      "kan",
+      "ik",
+      "morgen",
+      "niet",
+      "werken"
+     ],
+     "einde": ".",
+     "uitleg": "Zarf başta, fiil (kan) ikinci, mastar sonda."
+    },
+    {
+     "id": "s11",
+     "type": "order",
+     "tr": "O zaman unutmuşlar.",
+     "woorden": [
+      "Dan",
+      "hebben",
+      "ze",
+      "het",
+      "vergeten"
+     ],
+     "einde": ".",
+     "uitleg": "Dan + fiil + özne."
+    },
+    {
+     "id": "s12",
+     "type": "order",
+     "tr": "İyileşir iyileşmez haber veririm.",
+     "woorden": [
+      "Zodra",
+      "ik",
+      "beter",
+      "ben",
+      "laat",
+      "ik",
+      "het",
+      "weten"
+     ],
+     "einde": ".",
+     "uitleg": "Yan cümle başta (fiil sonda: ben), ana cümle fiille başlar (laat)."
+    },
+    {
+     "id": "s13",
+     "type": "order",
+     "tr": "Ama onlar kaynakta yok.",
+     "woorden": [
+      "Maar",
+      "ze",
+      "bestaan",
+      "niet",
+      "in",
+      "de",
+      "bron"
+     ],
+     "einde": ".",
+     "uitleg": "“maar” çevirmez; fiil ikinci, “niet” fiilden sonra."
+    },
+    {
+     "id": "s14",
+     "type": "order",
+     "tr": "Yarın çalışamayacağımı biliyorum.",
+     "woorden": [
+      "Ik",
+      "weet",
+      "dat",
+      "ik",
+      "morgen",
+      "niet",
+      "kan",
+      "werken"
+     ],
+     "einde": ".",
+     "uitleg": "“dat” cümlesinde fiiller sonda.",
+     "ook": [
+      "Ik weet dat ik morgen niet werken kan"
+     ]
+    },
+    {
+     "id": "s15",
+     "type": "type",
+     "tr": "Düzelt: “Dan ze hebben het vergeten.”",
+     "antwoorden": [
+      "Dan hebben ze het vergeten"
+     ],
+     "uitleg": "Dan + fiil + özne."
+    },
+    {
+     "id": "s16",
+     "type": "type",
+     "tr": "Düzelt: “En denk ik dat het klopt.”",
+     "antwoorden": [
+      "En ik denk dat het klopt"
+     ],
+     "uitleg": "“en” çevirmez."
+    },
+    {
+     "id": "s17",
+     "type": "type",
+     "tr": "Vaktim yok.",
+     "antwoorden": [
+      "Ik heb geen tijd"
+     ],
+     "uitleg": "isimden önce geen."
+    },
+    {
+     "id": "s18",
+     "type": "type",
+     "tr": "Olur mu bilmiyorum.",
+     "antwoorden": [
+      "Ik weet niet of het kan",
+      "Ik weet niet of dat kan"
+     ],
+     "uitleg": "of = -ip -mediğini; fiil sonda."
+    },
+    {
+     "id": "s19",
+     "type": "type",
+     "tr": "Vaktim olursa bakarım.",
+     "antwoorden": [
+      "Als ik tijd heb, kijk ik ernaar",
+      "Als ik tijd heb kijk ik ernaar",
+      "Ik kijk ernaar als ik tijd heb"
+     ],
+     "uitleg": "Als … heb, kijk ik …"
+    },
+    {
+     "id": "s20",
+     "type": "type",
+     "tr": "Yarın evde çalışıyorum. (“Morgen” ile başla)",
+     "antwoorden": [
+      "Morgen werk ik thuis"
+     ],
+     "uitleg": "Zaman başta: fiil ikinci, özne arkasında."
+    }
+   ]
+  },
+  {
+   "id": "randevu",
+   "soort": "konusma",
+   "titel": "Randevu ayarlamak ve ertelemek",
+   "serie": "Günlük konuşma",
+   "intro": "Buluşma ayarlamak, saat sormak, ertelemek ve iptal etmek için hazır cümleler. Kibarlık çoğu zaman “zou / zouden” ve “even” ile gelir.",
+   "delen": [
+    {
+     "titel": "1. Teklif etmek ve saat sormak",
+     "uitleg": "“uitkomen” = uymak, denk gelmek. Ayrılabilir fiil: Komt het je uit?",
+     "regels": [
+      "Kurumda “bij”, kişiyle “met”: een afspraak bij de huisarts, een afspraak met de trainer."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Zullen we iets afspreken?",
+       "tr": "Bir şey ayarlayalım mı?"
+      },
+      {
+       "nl": "Komt het je uit?",
+       "tr": "Sana uyar mı?"
+      },
+      {
+       "nl": "Hoe laat schikt het jou?",
+       "tr": "Sana hangi saat uyar?"
+      },
+      {
+       "nl": "Dat komt mij beter uit.",
+       "tr": "Bu bana daha uygun."
+      },
+      {
+       "nl": "Mijn voorkeur gaat uit naar maandag.",
+       "tr": "Tercihim pazartesi."
+      },
+      {
+       "nl": "Ik wil een afspraak maken bij de huisarts.",
+       "tr": "Aile hekiminden randevu almak istiyorum."
+      }
+     ]
+    },
+    {
+     "titel": "2. Ertelemek ve iptal etmek",
+     "uitleg": "“verzetten” = başka zamana almak. “Er is iets tussengekomen” neden söylemeden iptal etmenin kibar yolu.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Zouden we het gesprek kunnen verzetten?",
+       "tr": "Görüşmeyi erteleyebilir miyiz?"
+      },
+      {
+       "nl": "Er is iets tussengekomen.",
+       "tr": "Araya bir şey girdi."
+      },
+      {
+       "nl": "Excuses voor het ongemak.",
+       "tr": "Rahatsızlık için özür dilerim."
+      },
+      {
+       "nl": "Vind je het erg als ik niet kom?",
+       "tr": "Gelmesem sorun olur mu?"
+      },
+      {
+       "nl": "Mocht dit niet uitkomen, laat het me weten.",
+       "tr": "Uymazsa haber ver."
+      },
+      {
+       "nl": "Dat hadden we afgesproken.",
+       "tr": "Öyle anlaşmıştık."
+      }
+     ]
+    },
+    {
+     "titel": "3. Yolda ve buluşurken",
+     "uitleg": "Mesajlaşırken işe yarayan kısa cümleler.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Ik stuur je een berichtje als ik onderweg ben.",
+       "tr": "Yola çıkınca sana mesaj atarım."
+      },
+      {
+       "nl": "Dat hangt een beetje af van het verkeer.",
+       "tr": "Biraz trafiğe bağlı."
+      },
+      {
+       "nl": "Ik kan het vanavond al ophalen.",
+       "tr": "Bu akşam gelip alabilirim."
+      },
+      {
+       "nl": "Is het nog beschikbaar?",
+       "tr": "Hâlâ satışta mı?"
+      },
+      {
+       "nl": "Tot snel!",
+       "tr": "Yakında görüşürüz!"
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "r01",
+     "type": "mc",
+     "vraag": "Arkadaşın: “Zullen we donderdag afspreken?” Perşembe sana uymuyor, cuma daha iyi. Ne dersin?",
+     "opties": [
+      "Vrijdag komt mij beter uit.",
+      "Vrijdag ik kom beter.",
+      "Dat hadden we afgesproken."
+     ],
+     "juist": 0,
+     "uitleg": "uitkomen: Dat komt mij beter uit."
+    },
+    {
+     "id": "r02",
+     "type": "mc",
+     "vraag": "Yarınki görüşmeyi ertelemek istiyorsun. En kibar hangisi?",
+     "opties": [
+      "Ik kom niet.",
+      "Zouden we het gesprek kunnen verzetten?",
+      "Het gesprek is verzetten."
+     ],
+     "juist": 1,
+     "uitleg": "Zouden we … kunnen + mastar: kibar rica."
+    },
+    {
+     "id": "r03",
+     "type": "mc",
+     "vraag": "“Er is iets tussengekomen.” ne demek?",
+     "opties": [
+      "Arada buluşalım.",
+      "Araya bir şey girdi.",
+      "Bir şey unuttum."
+     ],
+     "juist": 1,
+     "uitleg": "tussenkomen = araya girmek."
+    },
+    {
+     "id": "r04",
+     "type": "mc",
+     "vraag": "İzin ister gibi sormak istiyorsun: “Gelmesem sorun olur mu?”",
+     "opties": [
+      "Ben je verdrietig als ik niet kom?",
+      "Vind je het erg als ik niet kom?",
+      "Is het probleem als ik kom niet?"
+     ],
+     "juist": 1,
+     "uitleg": "Kalıp: Vind je het erg als …? Yan cümlede fiil sonda."
+    },
+    {
+     "id": "r05",
+     "type": "mc",
+     "vraag": "Bebek sağlık merkezinde randevun var. Hangisi doğru?",
+     "opties": [
+      "een afspraak met het consultatiebureau",
+      "een afspraak bij het consultatiebureau",
+      "een afspraak aan het consultatiebureau"
+     ],
+     "juist": 1,
+     "uitleg": "Kurum “bij”, kişi “met”."
+    },
+    {
+     "id": "r06",
+     "type": "order",
+     "tr": "Sana hangi saat uyar?",
+     "woorden": [
+      "Hoe",
+      "laat",
+      "schikt",
+      "het",
+      "jou"
+     ],
+     "einde": "?",
+     "uitleg": "schikken = uymak."
+    },
+    {
+     "id": "r07",
+     "type": "order",
+     "tr": "Uymazsa haber ver.",
+     "woorden": [
+      "Mocht",
+      "dit",
+      "niet",
+      "uitkomen",
+      "laat",
+      "het",
+      "me",
+      "weten"
+     ],
+     "einde": ".",
+     "uitleg": "“Mocht …” = eğer olursa (resmî-kibar)."
+    },
+    {
+     "id": "r08",
+     "type": "order",
+     "tr": "Yola çıkınca sana mesaj atarım.",
+     "woorden": [
+      "Ik",
+      "stuur",
+      "je",
+      "een",
+      "berichtje",
+      "als",
+      "ik",
+      "onderweg",
+      "ben"
+     ],
+     "einde": ".",
+     "uitleg": "“als” yan cümlesi: fiil (ben) sonda."
+    },
+    {
+     "id": "r09",
+     "type": "order",
+     "tr": "Aile hekiminden randevu almak istiyorum.",
+     "woorden": [
+      "Ik",
+      "wil",
+      "een",
+      "afspraak",
+      "maken",
+      "bij",
+      "de",
+      "huisarts"
+     ],
+     "einde": ".",
+     "uitleg": "wil ikinci sırada, maken mastar."
+    },
+    {
+     "id": "r10",
+     "type": "type",
+     "tr": "Sana uyar mı?",
+     "antwoorden": [
+      "Komt het je uit?",
+      "Komt het jou uit?",
+      "Komt dat je uit?"
+     ],
+     "uitleg": "uitkomen ayrılabilir: Komt het je uit?"
+    },
+    {
+     "id": "r11",
+     "type": "type",
+     "tr": "Araya bir şey girdi.",
+     "antwoorden": [
+      "Er is iets tussengekomen"
+     ],
+     "uitleg": "Er is iets tussengekomen."
+    },
+    {
+     "id": "r12",
+     "type": "type",
+     "tr": "Bir şey ayarlayalım mı?",
+     "antwoorden": [
+      "Zullen we iets afspreken?",
+      "Zullen we wat afspreken?"
+     ],
+     "uitleg": "Zullen we + mastar."
+    },
+    {
+     "id": "r13",
+     "type": "type",
+     "tr": "Öyle anlaşmıştık.",
+     "antwoorden": [
+      "Dat hadden we afgesproken",
+      "Zo hadden we het afgesproken"
+     ],
+     "uitleg": "had + ortaç: daha önceki geçmiş."
+    }
+   ]
+  },
+  {
+   "id": "toplanti",
+   "soort": "konusma",
+   "titel": "Toplantıda ve stand-up'ta",
+   "serie": "Günlük konuşma",
+   "intro": "Toplantıda anlamadığında, söz alırken ve stand-up'ta dün, bugün, engel anlatırken kullanılan cümleler. Anlamadığını söylemek zayıflık değil; kıdemliler de söylüyor.",
+   "delen": [
+    {
+     "titel": "1. Anlamadığında",
+     "uitleg": "Kısa ve açık söyle; karşındaki genelde seve seve tekrar eder.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Sorry, dat heb ik niet helemaal begrepen.",
+       "tr": "Pardon, onu tam anlayamadım."
+      },
+      {
+       "nl": "Kun je dat nog een keer uitleggen?",
+       "tr": "Bir daha açıklar mısın?"
+      },
+      {
+       "nl": "Kun je iets langzamer praten?",
+       "tr": "Biraz daha yavaş konuşabilir misin?"
+      },
+      {
+       "nl": "Wat bedoel je precies met …?",
+       "tr": "… ile tam olarak neyi kastediyorsun?"
+      },
+      {
+       "nl": "Dus als ik het goed begrijp, …",
+       "tr": "Yani doğru anladıysam, …"
+      },
+      {
+       "nl": "Het is mij nog niet helemaal duidelijk.",
+       "tr": "Bu bana henüz tam net değil."
+      },
+      {
+       "nl": "Dat weet ik nog niet, ik ga daar even naar kijken.",
+       "tr": "Henüz bilmiyorum, bir bakayım."
+      }
+     ]
+    },
+    {
+     "titel": "2. Stand-up: dün, bugün, engel",
+     "uitleg": "Üç cümle yeter. Geçmiş için “heb / ben + ortaç”, bugün için “ga + mastar”.",
+     "regels": [
+      "“Ik loop vast op …” = …'de takıldım."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Gisteren heb ik aan de documentatie gewerkt.",
+       "tr": "Dün dokümantasyon üzerinde çalıştım."
+      },
+      {
+       "nl": "Vandaag ga ik daarmee verder.",
+       "tr": "Bugün onunla devam edeceğim."
+      },
+      {
+       "nl": "Vandaag ga ik aan de slag met de tests.",
+       "tr": "Bugün testlere girişiyorum."
+      },
+      {
+       "nl": "Ik loop vast op de koppeling.",
+       "tr": "Bağlantıda takıldım."
+      },
+      {
+       "nl": "Ik heb nog geen blokkades.",
+       "tr": "Şu an engelim yok."
+      },
+      {
+       "nl": "Kan iemand mijn PR reviewen?",
+       "tr": "Biri PR'ımı review edebilir mi?"
+      },
+      {
+       "nl": "Verder niks van mijn kant.",
+       "tr": "Benden başka bir şey yok."
+      }
+     ]
+    },
+    {
+     "titel": "3. Sözü devretmek ve kapanış",
+     "uitleg": "Bitirince bir kapanış ve bir devir cümlesi akıcı durur.",
+     "regels": [
+      "“hem” burada “de beurt” (sıra) demek: Dan geef ik hem aan …"
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Dat was het van mijn kant.",
+       "tr": "Benden bu kadar."
+      },
+      {
+       "nl": "Dan geef ik het woord aan de volgende.",
+       "tr": "Sözü sıradakine veriyorum."
+      },
+      {
+       "nl": "Zijn er nog vragen of opmerkingen?",
+       "tr": "Soru ya da yorum var mı?"
+      },
+      {
+       "nl": "Dat is helder, dankjewel.",
+       "tr": "Bu net, teşekkürler."
+      },
+      {
+       "nl": "Daar kom ik op terug.",
+       "tr": "Buna sonra döneceğim."
+      }
+     ]
+    },
+    {
+     "titel": "4. İş almak ve itiraz etmek",
+     "uitleg": "Yumuşak başla, sonra netleş.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Dat pak ik op.",
+       "tr": "Bunu ben alıyorum."
+      },
+      {
+       "nl": "Dat neem ik mee.",
+       "tr": "Bunu aklımda tutuyorum / üstleniyorum."
+      },
+      {
+       "nl": "Ik heb een vraagje over de planning.",
+       "tr": "Planlama hakkında kısa bir sorum var."
+      },
+      {
+       "nl": "Daar ben ik het niet mee eens.",
+       "tr": "Buna katılmıyorum."
+      },
+      {
+       "nl": "Ik denk dat wij dit anders interpreteren.",
+       "tr": "Sanırım bunu farklı yorumluyoruz."
+      },
+      {
+       "nl": "Daar moeten we rekening mee houden.",
+       "tr": "Bunu hesaba katmamız lazım."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "t01",
+     "type": "mc",
+     "vraag": "Meslektaşın hızlı konuştu ve bir kısmını kaçırdın. Ne dersin?",
+     "opties": [
+      "Sorry, dat heb ik niet helemaal begrepen.",
+      "Dat is helder, dankjewel.",
+      "Verder niks van mijn kant."
+     ],
+     "juist": 0,
+     "uitleg": "Anlamadığını söylemenin kibar yolu."
+    },
+    {
+     "id": "t02",
+     "type": "mc",
+     "vraag": "Stand-up: dün ne yaptığını söylüyorsun. Hangisi doğru?",
+     "opties": [
+      "Gisteren ik heb aan de tests gewerkt.",
+      "Gisteren heb ik aan de tests gewerkt.",
+      "Gisteren werk ik aan de tests."
+     ],
+     "juist": 1,
+     "uitleg": "“Gisteren” başta: fiil ikinci. Geçmiş: heb … gewerkt."
+    },
+    {
+     "id": "t03",
+     "type": "mc",
+     "vraag": "“Ik loop vast op de koppeling.” ne demek?",
+     "opties": [
+      "Bağlantıyı bitirdim.",
+      "Bağlantıda takıldım.",
+      "Bağlantıya başlıyorum."
+     ],
+     "juist": 1,
+     "uitleg": "vastlopen op = takılmak."
+    },
+    {
+     "id": "t04",
+     "type": "mc",
+     "vraag": "Bir işi üstleniyorsun. Hangisi uygun?",
+     "opties": [
+      "Dat pak ik op.",
+      "Daar kom ik op terug.",
+      "Dat was het van mijn kant."
+     ],
+     "juist": 0,
+     "uitleg": "oppakken = (işi) almak."
+    },
+    {
+     "id": "t05",
+     "type": "mc",
+     "vraag": "Bir fikre katılmıyorsun. Hangisi doğru?",
+     "opties": [
+      "Daar ben ik het niet mee eens.",
+      "Ik ben niet eens daar.",
+      "Dat ben ik niet eens mee."
+     ],
+     "juist": 0,
+     "uitleg": "het eens zijn met → Daar ben ik het (niet) mee eens."
+    },
+    {
+     "id": "t06",
+     "type": "mc",
+     "vraag": "Soruya şimdi cevap veremiyorsun, sonra döneceksin.",
+     "opties": [
+      "Daar kom ik op terug.",
+      "Dat neem ik op.",
+      "Ik kom daar."
+     ],
+     "juist": 0,
+     "uitleg": "terugkomen op = sonra dönmek."
+    },
+    {
+     "id": "t07",
+     "type": "order",
+     "tr": "Bir daha açıklar mısın?",
+     "woorden": [
+      "Kun",
+      "je",
+      "dat",
+      "nog",
+      "een",
+      "keer",
+      "uitleggen"
+     ],
+     "einde": "?",
+     "uitleg": "Kun je + … + mastar."
+    },
+    {
+     "id": "t08",
+     "type": "order",
+     "tr": "Bugün onunla devam edeceğim.",
+     "woorden": [
+      "Vandaag",
+      "ga",
+      "ik",
+      "daarmee",
+      "verder"
+     ],
+     "einde": ".",
+     "uitleg": "“Vandaag” başta: ga ikinci."
+    },
+    {
+     "id": "t09",
+     "type": "order",
+     "tr": "Bunu hesaba katmamız lazım.",
+     "woorden": [
+      "Daar",
+      "moeten",
+      "we",
+      "rekening",
+      "mee",
+      "houden"
+     ],
+     "einde": ".",
+     "uitleg": "rekening houden met → daar … mee."
+    },
+    {
+     "id": "t10",
+     "type": "order",
+     "tr": "Biri PR'ımı review edebilir mi?",
+     "woorden": [
+      "Kan",
+      "iemand",
+      "mijn",
+      "PR",
+      "reviewen"
+     ],
+     "einde": "?",
+     "uitleg": "Kan + özne + nesne + mastar."
+    },
+    {
+     "id": "t11",
+     "type": "type",
+     "tr": "Benden bu kadar.",
+     "antwoorden": [
+      "Dat was het van mijn kant",
+      "Dat is het voor mij",
+      "Dat was het voor mij",
+      "Dat is het van mijn kant"
+     ],
+     "uitleg": "Dat was het van mijn kant."
+    },
+    {
+     "id": "t12",
+     "type": "type",
+     "tr": "Şu an engelim yok.",
+     "antwoorden": [
+      "Ik heb nog geen blokkades",
+      "Ik heb geen blokkades"
+     ],
+     "uitleg": "isimden önce geen."
+    },
+    {
+     "id": "t13",
+     "type": "type",
+     "tr": "Bu bana henüz tam net değil.",
+     "antwoorden": [
+      "Het is mij nog niet helemaal duidelijk",
+      "Het is me nog niet helemaal duidelijk",
+      "Dat is mij nog niet helemaal duidelijk"
+     ],
+     "uitleg": "Het is mij nog niet helemaal duidelijk."
+    },
+    {
+     "id": "t14",
+     "type": "type",
+     "tr": "Buna katılmıyorum.",
+     "antwoorden": [
+      "Daar ben ik het niet mee eens",
+      "Ik ben het daar niet mee eens",
+      "Ik ben het er niet mee eens"
+     ],
+     "uitleg": "Daar ben ik het niet mee eens."
+    }
+   ]
+  },
+  {
+   "id": "kulup",
+   "soort": "konusma",
+   "titel": "Sahada ve kulüp mesajlarında",
+   "serie": "Günlük konuşma",
+   "intro": "Çocuk takımı çalıştırırken sahada kısa ve net komutlar gerekir; veli ve antrenör grubunda ise iptal, erteleme ve yardım mesajları. Sahadaki cümleler emir kipinde ve kısadır.",
+   "delen": [
+    {
+     "titel": "1. Sahada: komutlar",
+     "uitleg": "Emir kipi fiilin kökü: luister, kom, geef, kijk. “maar” ve “even” komutu yumuşatır.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Luister even allemaal.",
+       "tr": "Herkes bir dinlesin."
+      },
+      {
+       "nl": "Kom maar hier staan.",
+       "tr": "Gel buraya dur."
+      },
+      {
+       "nl": "Om de beurt.",
+       "tr": "Sırayla."
+      },
+      {
+       "nl": "Geef de bal af!",
+       "tr": "Topu pasla!"
+      },
+      {
+       "nl": "Kijk om je heen.",
+       "tr": "Etrafına bak."
+      },
+      {
+       "nl": "Nog een keer.",
+       "tr": "Bir daha."
+      },
+      {
+       "nl": "Even drinken.",
+       "tr": "Su molası."
+      },
+      {
+       "nl": "Goed zo! Goed gedaan!",
+       "tr": "Aferin!"
+      },
+      {
+       "nl": "Ruim de ballen op.",
+       "tr": "Topları toplayın."
+      }
+     ]
+    },
+    {
+     "titel": "2. Sahada: tartışma ve sakatlık",
+     "uitleg": "Çocuklar arasında bir şey olduğunda hızlı ve sakin müdahale.",
+     "regels": [],
+     "voorbeelden": [
+      {
+       "nl": "Stop! Wat is er gebeurd?",
+       "tr": "Dur! Ne oldu?"
+      },
+      {
+       "nl": "Wie begon? Vertel het maar.",
+       "tr": "Kim başladı? Anlat bakalım."
+      },
+      {
+       "nl": "Niet duwen. Niet schoppen.",
+       "tr": "İtme. Tekme atma."
+      },
+      {
+       "nl": "Doe eens rustig.",
+       "tr": "Sakin ol."
+      },
+      {
+       "nl": "Dat mag niet.",
+       "tr": "Bu olmaz."
+      },
+      {
+       "nl": "Geef elkaar een hand.",
+       "tr": "Tokalaşın."
+      },
+      {
+       "nl": "Gaat het? Heb je pijn?",
+       "tr": "İyi misin? Canın acıyor mu?"
+      }
+     ]
+    },
+    {
+     "titel": "3. Grup mesajları",
+     "uitleg": "“doorgaan” = yapılmak, iptal olmamak (ayrılabilir). “vervangen” = yerine geçmek.",
+     "regels": [
+      "Ana cümle: De training gaat niet door. Yan cümle: …of de training doorgaat."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Morgen hebben we geen training.",
+       "tr": "Yarın antrenman yok."
+      },
+      {
+       "nl": "De training gaat niet door.",
+       "tr": "Antrenman iptal."
+      },
+      {
+       "nl": "Ik laat jullie weten of het maandag kan doorgaan.",
+       "tr": "Pazartesi olup olamayacağını haber veririm."
+      },
+      {
+       "nl": "Zullen we de training verzetten?",
+       "tr": "Antrenmanı erteleyelim mi?"
+      },
+      {
+       "nl": "Kan iemand mij vervangen?",
+       "tr": "Biri yerime geçebilir mi?"
+      },
+      {
+       "nl": "Ik spring graag een andere keer voor jou in.",
+       "tr": "Başka zaman ben senin yerine geçerim."
+      },
+      {
+       "nl": "Bedankt voor het meedenken!",
+       "tr": "Fikir verdiğin için teşekkürler!"
+      },
+      {
+       "nl": "Geeft niet, kan gebeuren.",
+       "tr": "Önemli değil, olabilir."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "k01",
+     "type": "mc",
+     "vraag": "Çocuklar konuşuyor, açıklama yapacaksın. Ne dersin?",
+     "opties": [
+      "Luister even allemaal.",
+      "Jullie luisteren allemaal?",
+      "Luisteren jullie maar."
+     ],
+     "juist": 0,
+     "uitleg": "Emir kipi + even: kısa ve net."
+    },
+    {
+     "id": "k02",
+     "type": "mc",
+     "vraag": "İki çocuk itişiyor. Önce ne dersin?",
+     "opties": [
+      "Goed zo!",
+      "Stop! Wat is er gebeurd?",
+      "Om de beurt."
+     ],
+     "juist": 1,
+     "uitleg": "Önce durdur, sonra sor."
+    },
+    {
+     "id": "k03",
+     "type": "mc",
+     "vraag": "“Om de beurt.” ne demek?",
+     "opties": [
+      "Hep birlikte.",
+      "Sırayla.",
+      "Bir daha."
+     ],
+     "juist": 1,
+     "uitleg": "de beurt = sıra."
+    },
+    {
+     "id": "k04",
+     "type": "mc",
+     "vraag": "Antrenman iptal. Hangisi doğru?",
+     "opties": [
+      "De training gaat niet door.",
+      "De training doorgaat niet.",
+      "De training gaat door niet."
+     ],
+     "juist": 0,
+     "uitleg": "Ana cümlede ön ek sona gider; “niet” ondan önce."
+    },
+    {
+     "id": "k05",
+     "type": "mc",
+     "vraag": "“Pazartesi olup olamayacağını haber veririm.”",
+     "opties": [
+      "…als het maandag kan doorgaan.",
+      "…of het maandag kan doorgaan.",
+      "…of het kan doorgaan maandag."
+     ],
+     "juist": 1,
+     "uitleg": "Olup olmadığı = of; fiiller sonda."
+    },
+    {
+     "id": "k06",
+     "type": "mc",
+     "vraag": "Bir çocuk düştü. Ne sorarsın?",
+     "opties": [
+      "Gaat het? Heb je pijn?",
+      "Dat mag niet.",
+      "Doe eens rustig."
+     ],
+     "juist": 0,
+     "uitleg": "Gaat het? = İyi misin?"
+    },
+    {
+     "id": "k07",
+     "type": "order",
+     "tr": "Topu pasla!",
+     "woorden": [
+      "Geef",
+      "de",
+      "bal",
+      "af"
+     ],
+     "einde": "!",
+     "uitleg": "afgeven ayrılabilir: geef … af."
+    },
+    {
+     "id": "k08",
+     "type": "order",
+     "tr": "Yarın antrenman yok.",
+     "woorden": [
+      "Morgen",
+      "hebben",
+      "we",
+      "geen",
+      "training"
+     ],
+     "einde": ".",
+     "uitleg": "“Morgen” başta: fiil ikinci. isimden önce geen."
+    },
+    {
+     "id": "k09",
+     "type": "order",
+     "tr": "Biri yerime geçebilir mi?",
+     "woorden": [
+      "Kan",
+      "iemand",
+      "mij",
+      "vervangen"
+     ],
+     "einde": "?",
+     "uitleg": "Kan + özne + nesne + mastar."
+    },
+    {
+     "id": "k10",
+     "type": "order",
+     "tr": "Antrenmanı erteleyelim mi?",
+     "woorden": [
+      "Zullen",
+      "we",
+      "de",
+      "training",
+      "verzetten"
+     ],
+     "einde": "?",
+     "uitleg": "Zullen we + nesne + mastar."
+    },
+    {
+     "id": "k11",
+     "type": "type",
+     "tr": "Sırayla.",
+     "antwoorden": [
+      "Om de beurt"
+     ],
+     "uitleg": "Om de beurt."
+    },
+    {
+     "id": "k12",
+     "type": "type",
+     "tr": "Etrafına bak.",
+     "antwoorden": [
+      "Kijk om je heen"
+     ],
+     "uitleg": "Kijk om je heen."
+    },
+    {
+     "id": "k13",
+     "type": "type",
+     "tr": "Sakin ol.",
+     "antwoorden": [
+      "Doe eens rustig",
+      "Doe rustig",
+      "Rustig aan",
+      "Doe maar rustig"
+     ],
+     "uitleg": "Doe eens rustig."
+    },
+    {
+     "id": "k14",
+     "type": "type",
+     "tr": "Topları toplayın.",
+     "antwoorden": [
+      "Ruim de ballen op"
+     ],
+     "uitleg": "opruimen ayrılabilir: ruim … op."
     }
    ]
   }

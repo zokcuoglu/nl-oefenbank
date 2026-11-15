@@ -57,7 +57,8 @@ setTimeout(function () {
 <div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
 
 <script type="module">
-// Video lessons: a YouTube video on top, a short summary of the topic under it, then exercises about that topic.
+// Lessons: a short summary of a topic in parts, then exercises about it. Video lessons (Goed Bezig) have a YouTube video on top;
+// grammar and conversation lessons have no video. "?soort=gramer" lists one kind.
 // Why this page exists: watching a lesson is passive; the questions make you produce the sentences yourself.
 // The lessons live in data/dersler.json. "?les=<id>" opens one lesson; without it the page lists all lessons.
 // One finished round is saved as an attempt (module "dersler", test = lesson id), like the other exercise pages.
@@ -102,21 +103,33 @@ document.getElementById("ub").innerHTML = userBox(user, profile);
 let data;
 try { data = await (await fetch("../data/dersler.json", { cache: "no-cache" })).json(); }
 catch (e) { app.innerHTML = `<div class="notice">Dersler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
-const attempts = await loadAttempts(user.uid, "dersler").catch(() => []);
+// Three kinds of lessons share this page. Each kind saves its rounds under its own module id (= its card on the home page).
+const SOORT = {
+  video:   { module: "dersler", title: "Video dersler",  head: "Önce izle, sonra kendin kur", sub: "Her derste üstte bir video, altında konunun kısa özeti ve o konudan alıştırmalar var." },
+  gramer:  { module: "gramer",  title: "Gramer",         head: "Kısa kural, sonra alıştırma", sub: "Her konuda kuralın kısa anlatımı, örnek cümleler ve o kuraldan sorular var." },
+  konusma: { module: "konusma", title: "Günlük konuşma", head: "Duruma göre hazır cümleler",   sub: "Gerçek durumlar: ne dersin, nasıl sıralarsın, nasıl yazarsın? Önce cümlelere bak, sonra dene." }
+};
+const params = new URLSearchParams(location.search);
+const les = data.lessen.find(l => l.id === params.get("les"));
+// ?soort=gramer shows only that kind in the list; a lesson knows its own kind
+const soort = les ? les.soort : SOORT[params.get("soort")] ? params.get("soort") : null;
+const kinds = soort ? [soort] : Object.keys(SOORT);
+const attempts = (await Promise.all(kinds.map(k => loadAttempts(user.uid, SOORT[k].module).catch(() => [])))).flat();
 const lastOf = id => attempts.find(a => a.test === id);
-
-const les = data.lessen.find(l => l.id === new URLSearchParams(location.search).get("les"));
+document.querySelector('.brand a[href="./"]').textContent = soort ? SOORT[soort].title : "Dersler";
+if (soort) document.querySelector('.brand a[href="./"]').href = "./?soort=" + soort;
+document.getElementById("pagetitle").textContent = soort ? SOORT[soort].title : "Dersler";
 let run = null;   // the exercise round in progress: { qs, i, answers, started, checked }
 
 // ---------- List of lessons ----------
 function renderList() {
-  app.innerHTML = `<section class="panel"><span class="eyebrow">Video dersler</span>
-    <h2 style="margin-top:4px">Önce izle, sonra kendin kur</h2>
-    <p class="muted" style="margin:6px 0 12px;max-width:62ch">Her derste üstte bir video, altında konunun kısa özeti ve o konudan alıştırmalar var.</p>
-    ${data.lessen.map(l => { const a = lastOf(l.id); return `<a class="lesrow" href="?les=${esc(l.id)}">
-      <span><b>${esc(l.titel)}</b><br><span class="muted" style="font-size:13.5px">${esc(l.serie)} · ${esc(l.kanaal)} · ${l.vragen.length} soru</span></span>
+  app.innerHTML = kinds.map(k => `<section class="panel"><span class="eyebrow">${esc(SOORT[k].title)}</span>
+    <h2 style="margin-top:4px">${esc(SOORT[k].head)}</h2>
+    <p class="muted" style="margin:6px 0 12px;max-width:62ch">${esc(SOORT[k].sub)}</p>
+    ${data.lessen.filter(l => l.soort === k).map(l => { const a = lastOf(l.id); return `<a class="lesrow" href="?les=${esc(l.id)}">
+      <span><b>${esc(l.titel)}</b><br><span class="muted" style="font-size:13.5px">${esc(l.serie)}${l.kanaal ? " · " + esc(l.kanaal) : ""} · ${l.vragen.length} soru</span></span>
       <span class="chip num">${a ? `son: ${fmtDate(a.finished_at)} · ${a.score}/${a.total}` : "başlanmadı"}</span></a>`; }).join("")}
-  </section>`;
+  </section>`).join("");
 }
 
 // ---------- One lesson: video + summary ----------
@@ -124,13 +137,13 @@ function renderLesson() {
   document.getElementById("pagetitle").textContent = les.titel;
   const a = lastOf(les.id);
   app.innerHTML = `
-    <section class="panel">
+    ${les.video ? `<section class="panel">
       <span class="eyebrow">${esc(les.serie)} · ${esc(les.kanaal)}</span>
       <div class="video" style="margin-top:10px"><iframe src="https://www.youtube-nocookie.com/embed/${esc(les.video)}" title="${esc(les.titel)}" allowfullscreen loading="lazy"></iframe></div>
       <p class="muted" style="margin:8px 0 0;font-size:13px">Video ${esc(les.kanaal)} kanalına aittir. <a href="https://www.youtube.com/watch?v=${esc(les.video)}" target="_blank" rel="noopener">YouTube'da aç</a></p>
-    </section>
+    </section>` : ""}
     <section class="panel">
-      <span class="eyebrow">Özet</span>
+      <span class="eyebrow">${les.video ? "Özet" : esc(les.serie)}</span>
       <p style="margin:6px 0 4px;max-width:68ch">${esc(les.intro)}</p>
       ${les.delen.map((d, i) => `<details class="deel"${i === 0 ? " open" : ""}><summary>${esc(d.titel)}</summary>
         <p>${esc(d.uitleg)}</p>
@@ -224,7 +237,8 @@ function renderQ() {
       if (q._picked.length < q.woorden.length) return;   // not all words placed yet
       const given = q._picked.map(p => p.w).join(" ");
       document.querySelectorAll(".tiles button").forEach(b => b.disabled = true);
-      finishQ(q, given, norm(given) === norm(q.woorden.join(" ")), modelOf(q));
+      // "ook" = other word orders that are also correct
+      finishQ(q, given, [q.woorden.join(" "), ...(q.ook || [])].some(a => norm(a) === norm(given)), modelOf(q));
     };
   }
   if (q.type === "type") {
@@ -268,14 +282,14 @@ async function finishRun() {
   const attempt = { kind: "les", test: les.id, title: les.titel, started_at: new Date(run.started).toISOString(), finished_at: new Date().toISOString(),
     duration_s: Math.round((Date.now() - run.started) / 1000), score, total: run.qs.length, answers: run.answers };
   let saved = true;
-  try { await saveAttempt(user.uid, "dersler", attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
+  try { await saveAttempt(user.uid, SOORT[les.soort].module, attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
   const wrong = run.qs.filter((q, i) => !run.answers[i].correct);
   app.innerHTML = `<section class="panel"><span class="eyebrow">Sonuç</span>
     <div class="scorebig num" style="margin-top:6px">${score} / ${run.qs.length}</div>
     ${saved ? "" : `<div class="notice" style="margin-top:10px">Sonuç kaydedilemedi.</div>`}
     ${wrong.length ? `<h3 style="margin-top:18px">Tekrar bak</h3>${wrong.map(q => { const a = run.answers[run.qs.indexOf(q)]; return `<div class="fb wrong"><span class="muted">${esc(q.vraag || q.tr)}</span>
       <span class="ans" lang="nl">${esc(modelOf(q))}</span><span class="muted">Senin cevabın: <span lang="nl">${esc(a.chosen)}</span></span><br>${esc(q.uitleg)}</div>`; }).join("")}` : `<p style="margin-top:12px">Hepsi doğru.</p>`}
-    <div class="row" style="margin-top:16px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="?les=${esc(les.id)}">Derse dön</a><a class="btn" href="./">Tüm dersler</a></div></section>`;
+    <div class="row" style="margin-top:16px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="?les=${esc(les.id)}">Derse dön</a><a class="btn" href="./?soort=${esc(les.soort)}">Tüm ${esc(SOORT[les.soort].title.toLowerCase())}</a></div></section>`;
   document.getElementById("again").onclick = () => { les.vragen.forEach(q => { delete q._opts; delete q._pool; delete q._picked; }); startRun(); };
   scrollTo(0, 0);
 }

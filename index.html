@@ -107,7 +107,7 @@ function card(m) {
     days !== null ? `<span class="chip accent num">sınava ${days} gün</span>` : "",
     last ? `<span class="chip num">son: ${fmtDate(last.finished_at)} · ${last.score}/${last.total}</span>` : (m.status === "ready" ? `<span class="chip">başlanmadı</span>` : "")
   ].join("");
-  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : m.area === "dersler" ? "Video ders" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
+  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : m.area === "dersler" ? "Ders" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
   return m.status === "ready"
     ? `<a class="panel card" href="${ROOT}${m.href}">${inner}</a>`
     : `<article class="panel card soon">${inner}</article>`;

@@ -14,8 +14,8 @@
       "desc": "Öğretici oyunlar ve bulmacalar. Ayrı sitede açılır, aynı hesapla."
     },
     "dersler": {
-      "title": "Video dersler",
-      "desc": "Goed Bezig videoları: üstte video, altında konunun özeti ve alıştırmalar."
+      "title": "Dersler",
+      "desc": "Konu anlatımı ve alıştırma: video dersler, gramer ve günlük konuşma."
     },
     "media": {
       "title": "Lezen en kijken in niveaus",
@@ -33,7 +33,23 @@
       "area": "dersler",
       "title": "Goed Bezig dersleri",
       "desc": "Hayat Kurtaran Cümleler: teklif etmek (zullen), tekliflere cevap vermek, misafir ağırlamak, “laten” fiili. Her derste video, özet ve 16 soru.",
-      "href": "dersler/",
+      "href": "dersler/?soort=video",
+      "status": "ready"
+    },
+    {
+      "id": "gramer",
+      "area": "dersler",
+      "title": "Gramer",
+      "desc": "İki fiilli cümleler ve fiilin yeri (düz, devrik, yan cümle). Kısa kural, örnekler ve 20'şer soru.",
+      "href": "dersler/?soort=gramer",
+      "status": "ready"
+    },
+    {
+      "id": "konusma",
+      "area": "dersler",
+      "title": "Günlük konuşma",
+      "desc": "Duruma göre hazır cümleler ve alıştırma: randevu, toplantı ve stand-up, saha ve kulüp mesajları.",
+      "href": "dersler/?soort=konusma",
       "status": "ready"
     },
     {
