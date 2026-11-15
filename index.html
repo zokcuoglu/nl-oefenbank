@@ -82,6 +82,7 @@ details.sec>summary h2{margin:0}
 import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts, db } from "./js/core.js";
 // New functions go in their own file, not in core.js (an older core.js may still be cached; see woordle-api.js)
 import { saveWoordlePlay, loadWoordlePlays } from "./js/woordle-api.js";
+import { reviewState, REVIEW_SIZE } from "./js/tekrar.js?v=1";
 
 const app = document.getElementById("app");
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); } catch (e) { return ""; } };
@@ -166,6 +167,12 @@ for (const a of attempts) {
 const recentRow = recent.length ? `<section><span class="eyebrow">Devam et</span>
   <div class="minis">${recent.map(m => { const l = lastBy[m.id]; return `<a class="panel mini" href="${ROOT}${m.href}"><b>${esc(m.title)}</b><span class="muted num">son: ${fmtDate(l.finished_at)} · ${l.score}/${l.total}</span></a>`; }).join("")}</div></section>` : "";
 
+// "Bugünkü tekrarın": lesson questions answered wrong earlier that are due again today (js/tekrar.js); adults only
+const rev = isChild ? { due: [] } : reviewState(attempts);
+const reviewRow = rev.due.length ? `<a class="panel" href="${ROOT}dersler/?tekrar=1" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;text-decoration:none;color:inherit;border-color:var(--accent)">
+  <span style="flex:1;min-width:200px"><span class="eyebrow">Bugünkü tekrarın</span><br><b>${rev.due.length} soru seni bekliyor</b>
+  <span class="muted" style="display:block;font-size:14px">Derslerde yanlış yaptığın sorular. ${Math.min(rev.due.length, REVIEW_SIZE)} soruluk tur yaklaşık 5 dakika.</span></span>
+  <span class="btn primary">Tekrara başla</span></a>` : "";
 const slim = cat.modules.filter(m => m.area === "slimspel" && m.home !== false);
 // Adults get the games as a short list of links; children keep the big cards
 const slimBody = isChild
@@ -187,6 +194,7 @@ const nt2Html = isChild ? "" : `<div class="pane" data-pane="nt2" hidden>
 app.innerHTML = `
   <section class="panel"><span class="eyebrow">Hoş geldin</span><h2 style="margin-top:4px">${esc(profile.name || user.displayName || "")}</h2>
     <p class="muted" style="margin:6px 0 0;max-width:62ch">${isChild ? "Okul alıştırmaların aşağıda. Bir teste tıkla ve başla." : "Genel Hollandaca çalışması “Hollandaca” sekmesinde, sınav hazırlığı “NT2 sınavı” sekmesinde."}</p></section>
+  ${reviewRow}
   ${recentRow}
   <div class="pane" data-pane="calisma">
     <nav class="jump">${SECTIONS.map(s => `<button data-jump="${s.id}">${esc(s.title)}</button>`).join("")}</nav>

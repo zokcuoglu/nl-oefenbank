@@ -62,7 +62,8 @@ setTimeout(function () {
 // Why this page exists: watching a lesson is passive; the questions make you produce the sentences yourself.
 // The lessons live in data/dersler.json. "?les=<id>" opens one lesson; without it the page lists all lessons.
 // One finished round is saved as an attempt (module "dersler", test = lesson id), like the other exercise pages.
-import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+import { gate, userBox, esc, saveAttempt, loadAttempts, loadAllAttempts } from "../js/core.js";
+import { reviewState, REVIEW_SIZE } from "../js/tekrar.js?v=1";
 
 const app = document.getElementById("app");
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }); } catch (e) { return ""; } };
@@ -107,18 +108,28 @@ catch (e) { app.innerHTML = `<div class="notice">Dersler yüklenemedi: ${esc(e.m
 const SOORT = {
   video:   { module: "dersler", title: "Video dersler",  head: "Önce izle, sonra kendin kur", sub: "Her derste üstte bir video, altında konunun kısa özeti ve o konudan alıştırmalar var." },
   gramer:  { module: "gramer",  title: "Gramer",         head: "Kısa kural, sonra alıştırma", sub: "Her konuda kuralın kısa anlatımı, örnek cümleler ve o kuraldan sorular var." },
+  tekrar:  { module: "tekrar",  title: "Bugünkü tekrar" },
   konusma: { module: "konusma", title: "Günlük konuşma", head: "Duruma göre hazır cümleler",   sub: "Gerçek durumlar: ne dersin, nasıl sıralarsın, nasıl yazarsın? Önce cümlelere bak, sonra dene." }
 };
 const params = new URLSearchParams(location.search);
-const les = data.lessen.find(l => l.id === params.get("les"));
+// "?tekrar=1" = today's review: the questions this person got wrong earlier and that are due again (js/tekrar.js).
+// It is built as a lesson of its own, so the same round code runs it; each question remembers the lesson it comes from.
+let les = data.lessen.find(l => l.id === params.get("les"));
+let review = null;
+if (params.has("tekrar")) {
+  const byQid = new Map(data.lessen.flatMap(l => l.vragen.map(q => [q.id, { ...q, _les: l.titel }])));
+  review = reviewState(await loadAllAttempts(user.uid).catch(() => []));
+  const dueQs = review.due.map(id => byQid.get(id)).filter(Boolean);
+  les = { id: "tekrar", soort: "tekrar", titel: "Bugünkü tekrar", serie: "Tekrar", vragen: dueQs.slice(0, REVIEW_SIZE), _left: Math.max(0, dueQs.length - REVIEW_SIZE) };
+}
 // ?soort=gramer shows only that kind in the list; a lesson knows its own kind
-const soort = les ? les.soort : SOORT[params.get("soort")] ? params.get("soort") : null;
-const kinds = soort ? [soort] : Object.keys(SOORT);
+const soort = review ? null : les ? les.soort : SOORT[params.get("soort")] && params.get("soort") !== "tekrar" ? params.get("soort") : null;
+const kinds = soort ? [soort] : Object.keys(SOORT).filter(k => k !== "tekrar");
 const attempts = (await Promise.all(kinds.map(k => loadAttempts(user.uid, SOORT[k].module).catch(() => [])))).flat();
 const lastOf = id => attempts.find(a => a.test === id);
 document.querySelector('.brand a[href="./"]').textContent = soort ? SOORT[soort].title : "Dersler";
 if (soort) document.querySelector('.brand a[href="./"]').href = "./?soort=" + soort;
-document.getElementById("pagetitle").textContent = soort ? SOORT[soort].title : "Dersler";
+document.getElementById("pagetitle").textContent = review ? "Bugünkü tekrar" : soort ? SOORT[soort].title : "Dersler";
 let run = null;   // the exercise round in progress: { qs, i, answers, started, checked }
 
 // ---------- List of lessons ----------
@@ -163,6 +174,7 @@ function renderLesson() {
 // ---------- Exercise round ----------
 function startRun() {
   // Easy to hard: first choosing, then ordering, then typing; the order inside each type is random
+  les.vragen.forEach(q => { delete q._opts; delete q._pool; delete q._picked; });   // fresh shuffle each round
   const by = t => shuffle(les.vragen.filter(q => q.type === t));
   run = { qs: [...by("mc"), ...by("order"), ...by("type")], i: 0, answers: [], started: Date.now() };
   renderQ(); scrollTo(0, 0);
@@ -170,7 +182,7 @@ function startRun() {
 
 function renderQ() {
   const q = run.qs[run.i];
-  const head = `<div class="row" style="justify-content:space-between"><span class="eyebrow">Soru ${run.i + 1} / ${run.qs.length}</span><span class="chip num">${run.answers.filter(a => a.correct).length} doğru</span></div>
+  const head = `<div class="row" style="justify-content:space-between"><span class="eyebrow">Soru ${run.i + 1} / ${run.qs.length}${q._les ? " · " + esc(q._les) : ""}</span><span class="chip num">${run.answers.filter(a => a.correct).length} doğru</span></div>
     <div class="progress" style="margin:10px 0 16px"><i style="width:${run.i / run.qs.length * 100}%"></i></div>`;
   let body = "";
   if (q.type === "mc") {
@@ -289,12 +301,21 @@ async function finishRun() {
     ${saved ? "" : `<div class="notice" style="margin-top:10px">Sonuç kaydedilemedi.</div>`}
     ${wrong.length ? `<h3 style="margin-top:18px">Tekrar bak</h3>${wrong.map(q => { const a = run.answers[run.qs.indexOf(q)]; return `<div class="fb wrong"><span class="muted">${esc(q.vraag || q.tr)}</span>
       <span class="ans" lang="nl">${esc(modelOf(q))}</span><span class="muted">Senin cevabın: <span lang="nl">${esc(a.chosen)}</span></span><br>${esc(q.uitleg)}</div>`; }).join("")}` : `<p style="margin-top:12px">Hepsi doğru.</p>`}
-    <div class="row" style="margin-top:16px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="?les=${esc(les.id)}">Derse dön</a><a class="btn" href="./?soort=${esc(les.soort)}">Tüm ${esc(SOORT[les.soort].title.toLowerCase())}</a></div></section>`;
-  document.getElementById("again").onclick = () => { les.vragen.forEach(q => { delete q._opts; delete q._pool; delete q._picked; }); startRun(); };
+    ${review ? `<p class="muted" style="margin-top:14px;max-width:62ch">Doğru bildiklerin birkaç gün sonra bir kez daha gelir; yanlışlar yarın yeniden sorulur. Dört kez üst üste doğru bildiğin soru tekrardan çıkar.</p>
+    <div class="row" style="margin-top:12px">${les._left ? `<a class="btn primary" href="?tekrar=1">Sıradaki ${Math.min(les._left, REVIEW_SIZE)} soru</a>` : ""}<a class="btn" href="../">Ana sayfa</a><a class="btn" href="./">Dersler</a></div>` : `
+    <div class="row" style="margin-top:16px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="?les=${esc(les.id)}">Derse dön</a><a class="btn" href="./?soort=${esc(les.soort)}">Tüm ${esc(SOORT[les.soort].title.toLowerCase())}</a></div>
+    <p class="muted" style="margin-top:12px;font-size:13.5px">Yanlış yaptığın sorular yarından itibaren ana sayfadaki “Bugünkü tekrarın” bölümünde yeniden gelir.</p>`}</section>`;
+  const again = document.getElementById("again"); if (again) again.onclick = startRun;
   scrollTo(0, 0);
 }
 
-if (les) renderLesson(); else renderList();
+// Review: start right away when something is due, otherwise say when to come back
+if (review) {
+  if (les.vragen.length) startRun();
+  else app.innerHTML = `<section class="panel"><span class="eyebrow">Bugünkü tekrar</span><h2 style="margin-top:4px">Bugün tekrar edilecek soru yok</h2>
+    <p class="muted" style="margin:6px 0 12px;max-width:62ch">${review.waiting ? `${review.waiting} soru sırasını bekliyor; günü gelince ana sayfada görünür.` : "Derslerde yanlış yaptığın sorular ertesi gün burada toplanır."}${review.learned ? ` Şimdiye kadar ${review.learned} soruyu tekrarla öğrendin.` : ""}</p>
+    <a class="btn primary" href="./">Derslere git</a></section>`;
+} else if (les) renderLesson(); else renderList();
 </script>
 </body>
 </html>

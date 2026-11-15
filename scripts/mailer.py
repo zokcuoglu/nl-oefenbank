@@ -55,6 +55,7 @@ def module_titles():
     cat = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     titles = {m["id"]: m["title"] for m in cat["modules"]}
     titles.setdefault("nieuws", "Nieuws in niveaus (quiz)")
+    titles.setdefault("tekrar", "Bugünkü tekrar")
     return titles
 
 
