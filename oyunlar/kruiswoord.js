@@ -1,7 +1,8 @@
 // Günün NT2 bulmacası: a small Dutch crossword with Turkish clues, one per level (A1 / A2 / B1) per day,
 // the same for everybody. The words come from our own word list (snapshot: kruiswoord-nt2.json).
 // The grid builder is the Slimspel kruiswoord engine (slimspel/kruiswoord/engine.js), with own settings per level.
-// Score = letters he typed himself (letters filled by "İpucu" do not count), total = all letters.
+// Score = letters he typed himself in the words he found (letters filled by "İpucu" do not count), total = all letters.
+// "Bitir" ends the puzzle early: the words not found are shown with their answer and give no points.
 import { makePuzzle, seededRandom } from "../../slimspel/kruiswoord/engine.js";
 import { shareText, trDate } from "./share.js";
 import { esc, fmt, today, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, injectCss, flash } from "./common.js";
@@ -46,6 +47,7 @@ const CSS = `
 .kw .kbd{position:fixed;left:-200px;top:0;width:40px;height:20px;opacity:0}
 .kw .choice{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .kw .list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.kw .list li.miss{background:var(--og-bad-soft)}
 .kw .list li{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:8px;background:var(--og-sunk)}
 .og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
 .og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
@@ -78,14 +80,14 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
         <div class="clues">
           <h3>Yatay →</h3><ol data-r="cluesH"></ol>
           <h3>Dikey ↓</h3><ol data-r="cluesV"></ol>
-          <div class="tools"><button class="bt" data-r="hint">İpucu</button><button class="bt" data-r="stop">← Geri</button></div>
+          <div class="tools"><button class="bt" data-r="hint">İpucu</button><button class="bt" data-r="giveup">Bitir, cevapları göster</button><button class="bt" data-r="stop">← Geri</button></div>
         </div>
       </div>
       <input class="kbd" data-r="kbd" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="harf yaz">
     </section>
     <section data-r="done" hidden>
       <div class="pan">
-        <div class="big">Çözdün!</div>
+        <div class="big" data-r="bigText">Çözdün!</div>
         <p class="sub" data-r="resultText"></p>
         <button class="bt" data-r="share2">📤 Paylaş</button>
         <ul class="list" data-r="list"></ul>
@@ -114,21 +116,23 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
 
   // Share: one square per word, 🟩 = typed himself, 🟨 = with a hint letter
   const textOf = att => `NT2 Bulmaca ${LEVELS[att.test].title} · ${trDate(att.day)} · ${fmt(att.time_s)}${att.hints ? "" : " · ipucusuz"}\n` +
-    (att.wordHints || []).map(h => h ? "🟨" : "🟩").join("") + `\n${shareUrl}`;
+    (att.wordHints || []).map((h, k) => att.missed?.[k] ? "⬛" : h ? "🟨" : "🟩").join("") + `\n${shareUrl}`;
 
   // My own numbers for this level: days solved, best time without hints
   function drawMine(el) {
     const mine = history.filter(h => h.test === level);
-    const clean = mine.filter(h => !h.hints).map(h => h.time_s);
+    const full = h => !(h.missed || []).some(Boolean);
+    const clean = mine.filter(h => !h.hints && full(h)).map(h => h.time_s);
     el.innerHTML = `<h3>İstatistiklerin · ${LEVELS[level].title}</h3>` + (mine.length
-      ? `<div class="stats"><div><b>${new Set(mine.map(h => h.day)).size}</b><span>çözülen gün</span></div>
+      ? `<div class="stats"><div><b>${new Set(mine.filter(full).map(h => h.day)).size}</b><span>tam çözülen gün</span></div>
          <div><b>${clean.length ? fmt(Math.min(...clean)) : "-"}</b><span>en iyi süre (ipucusuz)</span></div>
          <div><b>${mine.reduce((n, h) => n + (h.hints || 0), 0)}</b><span>toplam ipucu</span></div></div>`
       : `<p class="small">Bu seviyede henüz bulmaca çözmedin.</p>`);
   }
 
   // The puzzle's words with their meaning and example sentence (💡 = a hint letter was used in that word)
-  const wordsHtml = (P, wordHints) => P.words.map((x, k) => `<li><span><b>${esc(x.w.toLowerCase())}</b>${wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(sentenceOf(x).z.replace("___", x.w.toLowerCase()))}</i>` : ""}</span></li>`).join("");
+  // missed (optional): true per word that was not found when the player pressed "Bitir"; those come first
+  const wordsHtml = (P, wordHints, missed = []) => P.words.map((x, k) => [x, k]).sort((a, b) => !!missed[b[1]] - !!missed[a[1]]).map(([x, k]) => `<li class="${missed[k] ? "miss" : ""}"><span><b>${esc(x.w.toLowerCase())}</b>${missed[k] ? " ✗ bulamadın" : wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(sentenceOf(x).z.replace("___", x.w.toLowerCase()))}</i>` : ""}</span></li>`).join("");
 
   function drawSetup() {
     $("levels").innerHTML = Object.entries(LEVELS).map(([k, v]) =>
@@ -137,14 +141,15 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     $("info").textContent = LEVELS[level].info;
     const done = doneToday(level);
     $("today").hidden = !done;
-    if (done) $("today").textContent = `Bugün ${fmt(done.time_s)} içinde çözdün${done.hints ? ` (${done.hints} ipucu)` : ""}. Yarın yeni bulmaca var!`;
+    const nMiss = (done?.missed || []).filter(Boolean).length;
+    if (done) $("today").textContent = (nMiss ? `Bugün ${done.missed.length - nMiss} / ${done.missed.length} kelime buldun (${fmt(done.time_s)})` : `Bugün ${fmt(done.time_s)} içinde çözdün`) + `${done.hints ? ` (${done.hints} ipucu)` : ""}. Yarın yeni bulmaca var!`;
     $("share1").hidden = !done;
     if (done) $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(level), null) ? "Devam et" : "Başla";
     // After solving: today's words of this level again (the daily puzzle is the same for everybody, so it can be made again)
     let box = "";
-    if (done) try { const P = puzzleOf(today(), level); box = todayBox(`<ul class="list">${wordsHtml(P, done.wordHints || P.words.map(() => false))}</ul>`); } catch {}
+    if (done) try { const P = puzzleOf(today(), level); box = todayBox(`<ul class="list">${wordsHtml(P, done.wordHints || P.words.map(() => false), done.missed)}</ul>`); } catch {}
     $("todayBox").innerHTML = box;
     drawMine($("mine"));
     drawRanking($("rank"), { game: GAME, levels: RANK_LEVELS, user });
@@ -308,31 +313,44 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     S.grid[i] = S.P.solution[i]; S.hinted.add(i); S.cell = i; hintLabel();
     afterChange(); focusKbd();
   };
+  // "Bitir": first click asks to confirm (the button text changes), the second ends the puzzle
+  $("giveup").onclick = () => {
+    if (!S || S.done) return;
+    if ($("giveup").dataset.sure) return finish(true);
+    $("giveup").dataset.sure = "1"; $("giveup").textContent = "Emin misin? Evet, bitir";
+    setTimeout(() => { delete $("giveup").dataset.sure; $("giveup").textContent = "Bitir, cevapları göster"; }, 4000);
+  };
   $("stop").onclick = () => { saveProgress(); clearInterval(S.timer); show("setup"); drawSetup(); };
   $("change").onclick = () => { show("setup"); drawSetup(); };
 
-  function finish() {
+  function finish(gaveUp = false) {
     S.done = true; clearInterval(S.timer);
     const time_s = played(), hints = S.hinted.size, letters = S.P.solution.filter(Boolean).length;
-    const score = Math.max(0, letters - hints);
+    // Points: every letter of a found word that he typed himself. A crossing letter of a missed word still counts
+    // when it belongs to a found word. Solved completely = all letters minus the hint letters, as before.
+    const foundCells = new Set([...S.okWords].flatMap(k => S.P.words[k].cells));
+    const score = [...foundCells].filter(i => !S.hinted.has(i)).length;
     saveLocal(progressKey(S.level), null);
     const wordHints = S.P.words.map(x => x.cells.some(i => S.hinted.has(i)));
-    // answers: one per word (the admin sees which words needed a hint)
+    const missed = S.P.words.map((x, k) => !S.okWords.has(k));
+    // answers: one per word (the admin sees which words needed a hint or were not found)
     const attempt = { test: S.level, day: S.day, score, total: letters, hints, time_s, wordHints,
-                      answers: S.P.words.map((x, k) => ({ qid: x.w, chosen: x.w, correct: !wordHints[k] })), finished_at: new Date().toISOString() };
+                      ...(gaveUp ? { missed, gave_up: true } : {}),
+                      answers: S.P.words.map((x, k) => ({ qid: x.w, chosen: missed[k] ? "" : x.w, correct: !missed[k] && !wordHints[k] })), finished_at: new Date().toISOString() };
     history.unshift({ ...attempt, module: MODULE });
     api.saveAttempt(user.uid, MODULE, attempt).catch(e => $("resultText").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${esc(e.code || "hata")}).</p>`));
     const posted = savePlay(user, profile, { game: GAME, level: S.level, day: S.day, score, total: letters, time_s }).catch(() => {});
     setTimeout(() => {
       show("done");
-      $("resultText").textContent = `${LEVELS[S.level].title} · ${S.P.words.length} kelime · süre ${fmt(time_s)} · ` + (hints ? `${hints} ipucu` : "ipucusuz");
+      $("bigText").textContent = gaveUp ? `${S.okWords.size} / ${S.P.words.length} kelime buldun` : "Çözdün!";
+      $("resultText").textContent = `${LEVELS[S.level].title} · ${S.P.words.length} kelime · ${score}/${letters} puan · süre ${fmt(time_s)} · ` + (hints ? `${hints} ipucu` : "ipucusuz");
       $("share2").onclick = () => shareText($("share2"), textOf(attempt));
       // The words with their meaning, to learn them
-      $("list").innerHTML = wordsHtml(S.P, wordHints);
+      $("list").innerHTML = wordsHtml(S.P, wordHints, gaveUp ? missed : []);
       drawSetup();   // the start screen now shows today's words too
       drawMine($("mine2"));
       posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: RANK_LEVELS, user }); });
-    }, 900);
+    }, gaveUp ? 0 : 900);
   }
 
   if (location.hostname === "localhost") (window.__ogGames ||= {}).kruiswoord = () => S && { P: S.P };
