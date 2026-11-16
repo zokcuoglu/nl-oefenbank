@@ -378,6 +378,51 @@ def run_news(db, sender, now, dry_run=False, force=False):
 
 # ---------- weekly summary ----------
 
+# Rekenen & meetkunde and Natuur & techniek (kids/rekenen.html): one line per topic, so a parent sees where it
+# goes well and where not. Each answer has qid "topic:level:kind"; level 1 = straight sum, 2 = the other way
+# round, 3 = word problem. Topic names come from data/rekenen-konular.json (made by scripts/build_konular.mjs).
+TOPIC_MODULES = {"g5-rekenen": "Rekenen & meetkunde", "g5-natuur": "Natuur & techniek"}
+LEVEL_TR = {"1": "düz hesap", "2": "tersinden", "3": "problem"}
+
+
+def topic_names():
+    try:
+        return json.loads((ROOT / "data" / "rekenen-konular.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def topic_lines(attempts):
+    names = topic_names()
+    out = []
+    for mod, title in TOPIC_MODULES.items():
+        per = {}   # topic id -> {"ok", "tot", "wrong": Counter(level)}
+        for a in attempts:
+            if a.get("module") != mod:
+                continue
+            for an in (a.get("answers") or []):
+                parts = str(an.get("qid") or "").split(":")
+                if len(parts) != 3:
+                    continue
+                t = per.setdefault(parts[0], {"ok": 0, "tot": 0, "wrong": Counter()})
+                t["tot"] += 1
+                if an.get("correct"):
+                    t["ok"] += 1
+                else:
+                    t["wrong"][parts[1]] += 1
+        if not per:
+            continue
+        out.append(f"\n{title}, konu konu:")
+        # weakest topic first: that is where help is needed
+        for tid, t in sorted(per.items(), key=lambda kv: kv[1]["ok"] / kv[1]["tot"]):
+            name = names.get(tid, {}).get("tr") or tid
+            line = f"  • {name}: {t['tot']} soru, %{round(100 * t['ok'] / t['tot'])} doğru"
+            if t["wrong"]:
+                line += " (yanlışlar: " + ", ".join(f"{LEVEL_TR.get(lv, lv)} {k}" for lv, k in sorted(t["wrong"].items())) + ")"
+            out.append(line)
+    return out
+
+
 def weekly_text(u, attempts, titles, today):
     """Plain-text summary of the last 7 days for one account."""
     lines = []
@@ -405,6 +450,7 @@ def weekly_text(u, attempts, titles, today):
         if wrong:
             top = ", ".join(f"{q} ({k} kez)" for q, k in wrong.most_common(5))
             lines.append(f"\nTafels'te en çok yanlış yapılanlar: {top}")
+        lines.extend(topic_lines(attempts))
     else:
         lines.append("Bu hafta hiç tur çözülmedi. Kısa bir Hızlı 10 bile fark yaratır.")
 

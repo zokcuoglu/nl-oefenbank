@@ -1,0 +1,232 @@
+{
+  "meetkunde": {
+    "nl": "Omtrek en oppervlakte",
+    "tr": "Çevre ve alan",
+    "band": "5-6",
+    "school": false
+  },
+  "som": {
+    "nl": "Optellen van 1 tot n",
+    "tr": "1'den n'e kadar toplam",
+    "band": "5-6",
+    "school": false
+  },
+  "machten": {
+    "nl": "Machten en wortels",
+    "tr": "Üslü sayılar ve karekök",
+    "band": "5-6",
+    "school": false
+  },
+  "fibonacci": {
+    "nl": "De rij van Fibonacci",
+    "tr": "Fibonacci dizisi",
+    "band": "5-6",
+    "school": false
+  },
+  "getallen": {
+    "nl": "Kwadraat- en driehoeksgetallen",
+    "tr": "Kare sayılar ve üçgen sayılar",
+    "band": "5-6",
+    "school": false
+  },
+  "driehoek": {
+    "nl": "Oppervlakte van een driehoek",
+    "tr": "Üçgenin alanı",
+    "band": "5-6",
+    "school": false
+  },
+  "samengesteld": {
+    "nl": "Samengestelde figuren",
+    "tr": "Bileşik şekiller",
+    "band": "5-6",
+    "school": false
+  },
+  "inhoud": {
+    "nl": "Inhoud",
+    "tr": "Hacim",
+    "band": "7-8",
+    "school": true
+  },
+  "priem": {
+    "nl": "Priemgetallen en delers",
+    "tr": "Asal sayılar ve bölenler",
+    "band": "7-8",
+    "school": true
+  },
+  "hoeken": {
+    "nl": "Hoeken",
+    "tr": "Açılar",
+    "band": "5-6",
+    "school": false
+  },
+  "schaal": {
+    "nl": "Schaal",
+    "tr": "Ölçek",
+    "band": "7-8",
+    "school": true
+  },
+  "negatief": {
+    "nl": "Negatieve getallen",
+    "tr": "Negatif sayılar",
+    "band": "7-8",
+    "school": true
+  },
+  "natuurpatronen": {
+    "nl": "Patronen in de natuur",
+    "tr": "Doğadaki örüntüler",
+    "band": "5-6",
+    "school": false
+  },
+  "handig": {
+    "nl": "Handig rekenen tot 1000",
+    "tr": "1000'e kadar akıldan hesap",
+    "band": "5-6",
+    "school": true
+  },
+  "delen": {
+    "nl": "Delen",
+    "tr": "Bölme",
+    "band": "5-6",
+    "school": true
+  },
+  "tijd": {
+    "nl": "Klok en tijd",
+    "tr": "Saat ve zaman",
+    "band": "5-6",
+    "school": true
+  },
+  "geld": {
+    "nl": "Geld",
+    "tr": "Para",
+    "band": "5-6",
+    "school": true
+  },
+  "meten": {
+    "nl": "Meten",
+    "tr": "Ölçme",
+    "band": "5-6",
+    "school": true
+  },
+  "breuken": {
+    "nl": "Breuken",
+    "tr": "Kesirler",
+    "band": "5-6",
+    "school": true
+  },
+  "afronden": {
+    "nl": "Afronden en schatten",
+    "tr": "Yuvarlama ve tahmin",
+    "band": "5-6",
+    "school": true
+  },
+  "grotegetallen": {
+    "nl": "Grote getallen",
+    "tr": "Büyük sayılar",
+    "band": "5-6",
+    "school": true
+  },
+  "breukproc": {
+    "nl": "Breuken, kommagetallen en procenten",
+    "tr": "Kesir, ondalık sayı ve yüzde",
+    "band": "7-8",
+    "school": true
+  },
+  "procenten": {
+    "nl": "Procenten",
+    "tr": "Yüzdeler",
+    "band": "7-8",
+    "school": true
+  },
+  "kommagetallen": {
+    "nl": "Kommagetallen",
+    "tr": "Ondalık sayılar",
+    "band": "7-8",
+    "school": true
+  },
+  "verhoudingen": {
+    "nl": "Verhoudingen",
+    "tr": "Oran ve orantı",
+    "band": "7-8",
+    "school": true
+  },
+  "gemiddelde": {
+    "nl": "Gemiddelde",
+    "tr": "Ortalama",
+    "band": "7-8",
+    "school": true
+  },
+  "snelheid": {
+    "nl": "Snelheid",
+    "tr": "Hız",
+    "band": "7-8",
+    "school": true
+  },
+  "letters": {
+    "nl": "Rekenen met letters",
+    "tr": "Harfli ifadeler",
+    "band": "7-8",
+    "school": true
+  },
+  "licht": {
+    "nl": "Licht",
+    "tr": "Işık (optik)",
+    "band": "5-6",
+    "school": false
+  },
+  "massa": {
+    "nl": "Massa, gewicht en dichtheid",
+    "tr": "Kütle, ağırlık ve özkütle",
+    "band": "5-6",
+    "school": false
+  },
+  "drijven": {
+    "nl": "Drijven en zinken",
+    "tr": "Yüzme ve batma",
+    "band": "5-6",
+    "school": false
+  },
+  "atoom": {
+    "nl": "Atomen en moleculen",
+    "tr": "Atomlar ve moleküller",
+    "band": "5-6",
+    "school": false
+  },
+  "elektriciteit": {
+    "nl": "Elektriciteit",
+    "tr": "Elektrik",
+    "band": "7-8",
+    "school": true
+  },
+  "krachten": {
+    "nl": "Krachten en hefbomen",
+    "tr": "Kuvvetler ve kaldıraçlar",
+    "band": "7-8",
+    "school": true
+  },
+  "geluid": {
+    "nl": "Geluid",
+    "tr": "Ses",
+    "band": "7-8",
+    "school": true
+  },
+  "fasen": {
+    "nl": "Vast, vloeibaar en gas",
+    "tr": "Katı, sıvı ve gaz",
+    "band": "7-8",
+    "school": true
+  },
+  "zonnestelsel": {
+    "nl": "Het zonnestelsel",
+    "tr": "Güneş sistemi",
+    "band": "7-8",
+    "school": true
+  },
+  "gemengd": {
+    "nl": "Gemengde toets",
+    "tr": "Karışık sınav"
+  },
+  "herhaal": {
+    "nl": "Herhalen",
+    "tr": "Günlük tekrar"
+  }
+}

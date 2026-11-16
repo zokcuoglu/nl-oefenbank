@@ -62,8 +62,8 @@ setTimeout(function () {
 // The page is hidden from non-admins, and firestore.rules also refuse their reads and writes.
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
 import { summarize, pct, recentRounds, dayBars, scoreChips } from "./js/stats.js";
-import { TOPICS as REKEN_TOPICS } from "./kids/rekenen-vragen.js?v=2";
-import { TOPICS as NATUUR_TOPICS } from "./kids/natuur-vragen.js?v=2";
+import { TOPICS as REKEN_TOPICS } from "./kids/rekenen-vragen.js?v=3";
+import { TOPICS as NATUUR_TOPICS } from "./kids/natuur-vragen.js?v=3";
 import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit, increment } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -506,7 +506,7 @@ function contentTab() {
   const table = (title, topics, page) => `<section class="panel"><div class="sectionhead"><h3>${title}</h3><span class="muted">işaretli konuları öğrenciler görür · <a href="${page}">sayfayı aç</a></span></div>
     <div class="tablewrap"><table><thead><tr><th>Açık</th><th>Konu</th><th>Türkçe</th><th></th></tr></thead><tbody>
     ${topics.map(t => `<tr><td><input type="checkbox" data-reken="${esc(t.id)}" ${rekenIsOpen(t) ? "checked" : ""} aria-label="${esc(t.nl)}"></td>
-      <td><b>${esc(t.nl)}</b><br><span class="muted">${esc(t.sub_nl)}</span></td><td>${esc(t.tr)}</td>
+      <td><b>${esc(t.nl)}</b> <span class="chip">groep ${esc(t.band)} · ${t.school ? "okul" : "ek"}</span><br><span class="muted">${esc(t.sub_nl)}</span></td><td>${esc(t.tr)}</td>
       <td><a href="${page}${page.includes("?") ? "&" : "?"}konu=${esc(t.id)}">dene</a></td></tr>`).join("")}
     </tbody></table></div></section>`;
   return `${rekenErr ? `<div class="notice">Ayar okunamadı: <b>${esc(rekenErr)}</b>.</div>` : ""}

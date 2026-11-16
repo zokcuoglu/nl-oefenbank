@@ -5,7 +5,8 @@
 // Why most questions here are fixed: these topics are about understanding ("why does a ship float?"), not about
 // sums, so each question is written by hand with one right and a few wrong answers. Only the parts with a
 // calculation (density, volume, counting atoms) draw fresh numbers.
-import { ri, pick, shuffle, Q, svg, T, maker, isCorrect } from "./rekenen-vragen.js?v=2";
+import { ri, pick, shuffle, Q, svg, T, MC, maker, isCorrect } from "./vragen-basis.js?v=3";
+import { N_TOPICS, N_GEN, N_THEORY, N_WORDS } from "./natuur-78.js?v=3";
 export { isCorrect };
 
 // All topics start hidden; the admin opens them on the admin page (tab İçerik).
@@ -15,14 +16,9 @@ export const TOPICS = [
   { id: "drijven", nl: "Drijven en zinken", tr: "Yüzme ve batma", sub_nl: "de opwaartse kracht van water", sub_tr: "suyun kaldırma kuvveti", open: false },
   { id: "atoom", nl: "Atomen en moleculen", tr: "Atomlar ve moleküller", sub_nl: "waar alles van gemaakt is", sub_tr: "her şey neyden yapılmış", open: false }
 ];
+TOPICS.forEach(t => { t.band = "5-6"; t.school = false; });   // enrichment: beyond what school does in these years
+TOPICS.push(...N_TOPICS);
 
-// A hand-written multiple-choice question: the first answer is the right one; the page shuffles nothing itself,
-// so the options are shuffled here each time the question is drawn.
-// right / each wrong = [Dutch, Turkish]
-const MC = (nl, tr, right, wrong, ex_nl, ex_tr, extra = {}) => () => {
-  const opts = shuffle([right, ...wrong].map(([n, t], i) => ({ v: "o" + i, nl: n, tr: t })));
-  return Q(nl, tr, "o0", "", ex_nl, ex_tr, { opts, ...extra });
-};
 const FLOAT = [{ v: "drijft", nl: "het drijft", tr: "yüzer" }, { v: "zinkt", nl: "het zinkt", tr: "batar" }];
 
 // ---------------------------------------------------------------- figures
@@ -200,6 +196,7 @@ GEN.atoom = [
   ]
 ];
 
+Object.assign(GEN, N_GEN);
 export const makeQuestion = maker(GEN);
 export const kindsPerLevel = topicId => GEN[topicId].map(l => l.length);
 
@@ -249,3 +246,5 @@ export const WORDS = {
   drijven: [["drijven", "yüzmek"], ["zinken", "batmak"], ["opwaartse kracht", "kaldırma kuvveti"], ["dichtheid", "özkütle"], ["maatbeker", "ölçü kabı"], ["zout water", "tuzlu su"]],
   atoom: [["atoom", "atom"], ["kern", "çekirdek"], ["lading", "yük"], ["element", "element"], ["molecuul", "molekül"], ["waterstof", "hidrojen"], ["zuurstof", "oksijen"], ["koolstof", "karbon"]]
 };
+Object.assign(THEORY, N_THEORY);
+Object.assign(WORDS, N_WORDS);

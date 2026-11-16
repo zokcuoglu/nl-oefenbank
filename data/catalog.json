@@ -25,7 +25,9 @@
   "groups": {
     "groep4": "Groep 4",
     "groep5": "Groep 5",
-    "groep6": "Groep 6"
+    "groep6": "Groep 6",
+    "groep7": "Groep 7",
+    "groep8": "Groep 8"
   },
   "modules": [
     {
@@ -189,10 +191,12 @@
       "area": "kids",
       "group": [
         "groep5",
-        "groep6"
+        "groep6",
+        "groep7",
+        "groep8"
       ],
       "title": "Rekenen & meetkunde",
-      "desc": "Çevre ve alan (kare, dikdörtgen, daire), 1'den n'e toplam, üslü sayılar ve karekök, Fibonacci dizisi. Konu anlatımı Hollandaca ve Türkçe, alıştırma ve kolaydan zora 5 ya da 10 soruluk sınav.",
+      "desc": "Okul konuları (akıldan hesap, bölme, saat, para, ölçme, kesirler, yuvarlama; groep 7-8'de yüzde, ondalık sayı, oran, ortalama, hız) ve ek konular (çevre ve alan, 1'den n'e toplam, üslü sayılar, Fibonacci). Hollandaca ve Türkçe anlatım, alıştırma, sınav ve günlük tekrar.",
       "href": "kids/rekenen.html",
       "status": "ready"
     },
@@ -201,17 +205,24 @@
       "area": "kids",
       "group": [
         "groep5",
-        "groep6"
+        "groep6",
+        "groep7",
+        "groep8"
       ],
       "title": "Natuur & techniek",
-      "desc": "Işık, kütle ve özkütle, yüzme ve batma, atomlar. Konu anlatımı Hollandaca ve Türkçe, alıştırma ve kolaydan zora 5 ya da 10 soruluk sınav.",
+      "desc": "Işık, kütle ve özkütle, yüzme ve batma, atomlar; groep 7-8'de elektrik, kuvvetler, ses, maddenin halleri, güneş sistemi. Hollandaca ve Türkçe anlatım, alıştırma ve sınav.",
       "href": "kids/rekenen.html?vak=natuur",
       "status": "ready",
       "open_any": [
         "licht",
         "massa",
         "drijven",
-        "atoom"
+        "atoom",
+        "elektriciteit",
+        "krachten",
+        "geluid",
+        "fasen",
+        "zonnestelsel"
       ]
     },
     {

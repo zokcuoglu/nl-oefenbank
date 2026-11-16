@@ -11,7 +11,6 @@
 //   level 1 = straight sum, 2 = the other way round, 3 = word problem
 //   opts  = [{ v, nl, tr }] for a multiple-choice question; without opts the child types a number
 
-export const PI = 3;
 
 // open: shown to students by default. The admin can change this per topic (Firestore settings/rekenen).
 export const TOPICS = [
@@ -29,21 +28,17 @@ export const TOPICS = [
   { id: "negatief", nl: "Negatieve getallen", tr: "Negatif sayılar", sub_nl: "onder nul: thermometer", sub_tr: "sıfırın altı: termometre", open: false },
   { id: "natuurpatronen", nl: "Patronen in de natuur", tr: "Doğadaki örüntüler", sub_nl: "symmetrie, zeshoeken, vertakkingen", sub_tr: "simetri, altıgenler, dallanma", open: false }
 ];
+// band = the school years a topic belongs to ("5-6" or "7-8"); school = true when it is ordinary school material
+// (false = enrichment, things we do at home). The page groups the menu by these two.
+const BAND78 = ["inhoud", "priem", "schaal", "negatief"];
+TOPICS.forEach(t => { t.band = BAND78.includes(t.id) ? "7-8" : "5-6"; t.school = BAND78.includes(t.id); });
+TOPICS.push(...S_TOPICS);
 
-// ---------------------------------------------------------------- small helpers
-export const ri = (a, b) => a + Math.floor(Math.random() * (b - a + 1));      // whole number from a to b
-export const pick = arr => arr[Math.floor(Math.random() * arr.length)];
-export const shuffle = arr => { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = ri(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-const tri = n => n * (n + 1) / 2;                                      // 1 + 2 + ... + n
-const isPrime = n => { if (n < 2) return false; for (let i = 2; i * i <= n; i++) if (n % i === 0) return false; return true; };
-const divisors = n => { const d = []; for (let i = 1; i <= n; i++) if (n % i === 0) d.push(i); return d; };
-const gcd = (a, b) => b ? gcd(b, a % b) : a;
-export const Q = (nl, tr, answer, unit, ex_nl, ex_tr, extra = {}) => ({ nl, tr, answer, unit, ex_nl, ex_tr, ...extra });
-const num = v => ({ v, nl: String(v), tr: String(v) });                // a number as a multiple-choice option
+import { PI, ri, pick, shuffle, tri, isPrime, divisors, gcd, Q, num, svg, T, maker, isCorrect } from "./vragen-basis.js?v=3";
+import { S_TOPICS, S_GEN, S_THEORY, S_WORDS } from "./rekenen-school.js?v=3";
+export { PI, isCorrect };
 
 // ---------------------------------------------------------------- figures (small inline SVG, colours from the page)
-export const svg = body => `<svg viewBox="0 0 220 130" role="img" aria-hidden="true">${body}</svg>`;
-export const T = (x, y, s, anchor = "middle") => `<text x="${x}" y="${y}" text-anchor="${anchor}">${s}</text>`;
 export const fig = {
   square: a => svg(`<rect class="shape" x="65" y="12" width="90" height="90"/>${T(110, 122, a)}${T(162, 62, a, "start")}`),
   rect: (a, b) => svg(`<rect class="shape" x="35" y="22" width="150" height="76"/>${T(110, 118, a)}${T(192, 64, b, "start")}`),
@@ -134,7 +129,15 @@ GEN.meetkunde = [
     () => { const d = pick([40, 50, 60, 70]); return Q(`Een fietswiel heeft een diameter van ${d} cm. Het wiel draait 10 rondjes. Hoeveel <b>meter</b> rijdt de fiets? (π = 3)`, `Bir bisiklet tekerleğinin çapı ${d} cm. Tekerlek 10 tur dönüyor. Bisiklet kaç <b>metre</b> gider? (π = 3)`, 3 * d / 10, "m",
       `1 rondje = omtrek = 3 × ${d} = ${3 * d} cm. 10 rondjes = ${30 * d} cm = ${3 * d / 10} m.`, `1 tur = çevre = 3 × ${d} = ${3 * d} cm. 10 tur = ${30 * d} cm = ${3 * d / 10} m.`); },
     () => { const r = ri(2, 6); return Q(`Om een rond zwembad staat een hek van ${6 * r} m. Hoe groot is de <b>oppervlakte</b> van het zwembad? (π = 3)`, `Yuvarlak bir havuzun etrafındaki çit ${6 * r} m. Havuzun <b>alanı</b> kaç m²? (π = 3)`, 3 * r * r, "m²",
-      `Omtrek ${6 * r} m, dus diameter ${2 * r} m en straal ${r} m. Oppervlakte = 3 × ${r} × ${r} = ${3 * r * r} m².`, `Çevre ${6 * r} m, yani çap ${2 * r} m, yarıçap ${r} m. Alan = 3 × ${r} × ${r} = ${3 * r * r} m².`); }
+      `Omtrek ${6 * r} m, dus diameter ${2 * r} m en straal ${r} m. Oppervlakte = 3 × ${r} × ${r} = ${3 * r * r} m².`, `Çevre ${6 * r} m, yani çap ${2 * r} m, yarıçap ${r} m. Alan = 3 × ${r} × ${r} = ${3 * r * r} m².`); },
+    () => { const b = ri(4, 7) * 10, a = b + ri(2, 5) * 10, n = ri(2, 5); return Q(`Een voetbalveld is ${a} m lang en ${b} m breed. De trainer laat het team ${n} rondjes om het veld lopen. Hoeveel meter lopen de spelers?`, `Bir futbol sahası ${a} m uzunluğunda ve ${b} m genişliğinde. Antrenör takıma sahanın etrafında ${n} tur koşturuyor. Oyuncular kaç metre koşar?`, n * 2 * (a + b), "m",
+      `Eén rondje = omtrek = 2 × (${a} + ${b}) = ${2 * (a + b)} m. ${n} rondjes: ${n * 2 * (a + b)} m.`, `Bir tur = çevre = 2 × (${a} + ${b}) = ${2 * (a + b)} m. ${n} tur: ${n * 2 * (a + b)} m.`); },
+    () => { const s2 = ri(1, 2), b = 2 * s2 + ri(1, 2), a = b + ri(2, 4); return Q(`Een kamer is ${a} m bij ${b} m. Er liggen twee vierkante kleden, elk met zijden van ${s2} m. Hoeveel m² van de vloer is niet bedekt?`, `Bir oda ${a} m ve ${b} m. Yerde, kenarı ${s2} m olan iki kare halı var. Zeminin kaç m²'si açıkta kalır?`, a * b - 2 * s2 * s2, "m²",
+      `Kamer = ${a * b} m². Twee kleden = 2 × ${s2 * s2} = ${2 * s2 * s2} m². Niet bedekt: ${a * b - 2 * s2 * s2} m².`, `Oda = ${a * b} m². İki halı = 2 × ${s2 * s2} = ${2 * s2 * s2} m². Açıkta kalan: ${a * b - 2 * s2 * s2} m².`); },
+    () => { const b = ri(2, 6), a = b + ri(1, 5); return Q(`Een tuin is ${a} m bij ${b} m. De buren hebben een tuin die 2 keer zo lang én 2 keer zo breed is. Hoeveel m² is de tuin van de buren?`, `Bir bahçe ${a} m ve ${b} m. Komşunun bahçesi hem 2 kat uzun hem 2 kat geniş. Komşunun bahçesi kaç m²?`, 4 * a * b, "m²",
+      `${2 * a} × ${2 * b} = ${4 * a * b} m². Dat is 4 keer zo groot als ${a * b} m², niet 2 keer.`, `${2 * a} × ${2 * b} = ${4 * a * b} m². Bu, ${a * b} m²'nin 2 değil 4 katıdır.`); },
+    () => { const r = ri(1, 5), n = ri(2, 4); return Q(`Een ronde pizza heeft een straal van ${r * 5} cm. Je bestelt ${n} pizza's. Hoeveel cm² pizza is dat samen? (π = 3)`, `Yuvarlak bir pizzanın yarıçapı ${r * 5} cm. ${n} pizza sipariş ediyorsun. Toplam kaç cm² pizza eder? (π = 3)`, n * 3 * 25 * r * r, "cm²",
+      `Eén pizza: 3 × ${r * 5} × ${r * 5} = ${75 * r * r} cm². ${n} pizza's: ${n * 75 * r * r} cm².`, `Bir pizza: 3 × ${r * 5} × ${r * 5} = ${75 * r * r} cm². ${n} pizza: ${n * 75 * r * r} cm².`); }
   ]
 ];
 
@@ -166,7 +169,11 @@ GEN.som = [
     () => { const n = ri(5, 12); return Q(`Er zijn ${n} kinderen. Iedereen geeft iedereen één keer een hand. Hoeveel keer wordt er een hand gegeven?`, `${n} çocuk var. Herkes herkesle bir kez tokalaşıyor. Toplam kaç tokalaşma olur?`, tri(n - 1), "",
       `Het eerste kind geeft ${n - 1} handen, het volgende ${n - 2}, … Dat is 1 + 2 + … + ${n - 1} = ${tri(n - 1)}.`, `İlk çocuk ${n - 1} kişiyle, sonraki ${n - 2} kişiyle… Yani 1 + 2 + … + ${n - 1} = ${tri(n - 1)}.`); },
     () => { const n = ri(5, 10); return Q(`In een competitie zitten ${n} voetbalteams. Elk team speelt één keer tegen elk ander team. Hoeveel wedstrijden zijn er?`, `Bir ligde ${n} futbol takımı var. Her takım diğer her takımla bir kez oynuyor. Toplam kaç maç olur?`, tri(n - 1), "",
-      `${n - 1} + ${n - 2} + … + 1 = ${n - 1} × ${n} ÷ 2 = ${tri(n - 1)} wedstrijden.`, `${n - 1} + ${n - 2} + … + 1 = ${n - 1} × ${n} ÷ 2 = ${tri(n - 1)} maç.`); }
+      `${n - 1} + ${n - 2} + … + 1 = ${n - 1} × ${n} ÷ 2 = ${tri(n - 1)} wedstrijden.`, `${n - 1} + ${n - 2} + … + 1 = ${n - 1} × ${n} ÷ 2 = ${tri(n - 1)} maç.`); },
+    () => { const n = ri(6, 12); return Q(`Een klok slaat om 1 uur één keer, om 2 uur twee keer, en zo verder. Hoeveel slagen hoor je in totaal van 1 uur tot en met ${n} uur?`, `Bir saat 1'de bir kez, 2'de iki kez çalıyor ve böyle devam ediyor. Saat 1'den ${n}'e kadar (${n} dahil) toplam kaç kez çalar?`, tri(n), "",
+      `1 + 2 + … + ${n} = ${n} × ${n + 1} ÷ 2 = ${tri(n)}.`, `1 + 2 + … + ${n} = ${n} × ${n + 1} ÷ 2 = ${tri(n)}.`); },
+    () => { const n = ri(8, 20); return Q(`Boomstammen liggen op een stapel. De onderste rij heeft ${n} stammen, elke rij daarboven één minder, tot er bovenaan 1 ligt. Hoeveel stammen zijn er?`, `Kütükler üst üste dizilmiş. En alt sırada ${n} kütük var, her üst sırada bir eksik; en üstte 1 kütük var. Toplam kaç kütük var?`, tri(n), "",
+      `${n} + ${n - 1} + … + 1 = ${n} × ${n + 1} ÷ 2 = ${tri(n)}.`, `${n} + ${n - 1} + … + 1 = ${n} × ${n + 1} ÷ 2 = ${tri(n)}.`); }
   ]
 ];
 
@@ -204,7 +211,11 @@ GEN.machten = [
     () => { const a = ri(4, 10), b = ri(2, 9); return Q(`Op een vierkant terras liggen ${a} rijen van ${a} tegels. Er zijn ${b} tegels kapot. Hoeveel tegels zijn nog heel?`, `Kare bir terasta ${a} sıra var, her sırada ${a} karo. ${b} karo kırık. Kaç karo sağlam?`, a * a - b, "",
       `${a}² = ${a * a} tegels. ${a * a} − ${b} = ${a * a - b}.`, `${a}² = ${a * a} karo. ${a * a} − ${b} = ${a * a - b}.`); },
     () => { const a = ri(3, 9); return Q(`Je hebt ${a * a} vierkante tegels en legt er één groot vierkant van. Hoeveel tegels liggen er in <b>één rij</b>?`, `${a * a} kare karon var ve hepsiyle büyük bir kare yapıyorsun. <b>Bir sırada</b> kaç karo olur?`, a, "",
-      `√${a * a} = ${a}. In elke rij liggen ${a} tegels.`, `√${a * a} = ${a}. Her sırada ${a} karo olur.`); }
+      `√${a * a} = ${a}. In elke rij liggen ${a} tegels.`, `√${a * a} = ${a}. Her sırada ${a} karo olur.`); },
+    () => { const n = ri(4, 9); return Q(`Op het eerste vakje van een schaakbord ligt 1 graankorrel, op het tweede 2, op het derde 4: steeds het dubbele. Hoeveel korrels liggen er op vakje ${n}?`, `Satranç tahtasının ilk karesinde 1 buğday tanesi, ikincisinde 2, üçüncüsünde 4 var: hep iki katı. ${n}. karede kaç tane var?`, 2 ** (n - 1), "",
+      `De rij: ${Array.from({ length: n }, (_, i) => 2 ** i).join(", ")}. Op vakje ${n}: ${2 ** (n - 1)}.`, `Dizi: ${Array.from({ length: n }, (_, i) => 2 ** i).join(", ")}. ${n}. karede: ${2 ** (n - 1)}.`); },
+    () => { const a = ri(2, 9); return Q(`Een kubus heeft 6 vlakken. Elk vlak is een vierkant met zijden van ${a} cm. Je beplakt de hele kubus met papier. Hoeveel cm² papier heb je nodig?`, `Bir küpün 6 yüzü var. Her yüz, kenarı ${a} cm olan bir kare. Küpün tamamını kâğıtla kaplıyorsun. Kaç cm² kâğıt gerekir?`, 6 * a * a, "cm²",
+      `Eén vlak: ${a}² = ${a * a} cm². Zes vlakken: 6 × ${a * a} = ${6 * a * a} cm².`, `Bir yüz: ${a}² = ${a * a} cm². Altı yüz: 6 × ${a * a} = ${6 * a * a} cm².`); }
   ]
 ];
 
@@ -426,7 +437,9 @@ GEN.fibonacci = [
     () => { const f = pick([5, 8, 13, 21, 34]), w = shuffle([4, 6, 7, 9, 10, 12, 15, 20].filter(x => x !== f)).slice(0, 3); return Q(`Veel bloemen hebben een aantal bloemblaadjes dat in de rij van Fibonacci staat. Welk aantal staat in die rij?`, `Birçok çiçeğin taç yaprağı sayısı Fibonacci dizisinde yer alır. Hangi sayı bu dizidedir?`, f, "",
       `De rij: 1, 1, 2, 3, 5, 8, 13, 21, 34, … ${f} staat erin.`, `Dizi: 1, 1, 2, 3, 5, 8, 13, 21, 34, … ${f} bu dizide.`, { opts: shuffle([f, ...w]).map(num) }); },
     () => { const n = ri(5, 8); return Q(`Op een dennenappel tel je ${FIB[n]} spiralen naar links. Het aantal spiralen naar rechts is het <b>volgende</b> Fibonacci-getal. Hoeveel spiralen naar rechts zijn er?`, `Bir çam kozalağında sola doğru ${FIB[n]} spiral sayıyorsun. Sağa doğru spiral sayısı <b>sonraki</b> Fibonacci sayısı. Sağa doğru kaç spiral var?`, FIB[n + 1], "",
-      `Na ${FIB[n]} komt ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}.`, `${FIB[n]}'den sonra ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]} gelir.`); }
+      `Na ${FIB[n]} komt ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}.`, `${FIB[n]}'den sonra ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]} gelir.`); },
+    () => { const n = ri(3, 8); return Q(`Een mannetjesbij heeft 1 ouder, 2 grootouders en 3 overgrootouders. Dat gaat verder volgens de rij van Fibonacci: 1, 2, 3, 5, … Hoeveel voorouders heeft hij ${n} generaties terug?`, `Bir erkek arının 1 ebeveyni, 2 büyük ebeveyni ve 3 büyük büyük ebeveyni vardır. Bu, Fibonacci dizisine göre devam eder: 1, 2, 3, 5, … ${n} nesil geride kaç atası vardır?`, FIB[n + 1], "",
+      `De rij: ${FIB.slice(2, n + 2).join(", ")}. ${n} generaties terug: ${FIB[n + 1]}.`, `Dizi: ${FIB.slice(2, n + 2).join(", ")}. ${n} nesil geride: ${FIB[n + 1]}.`); }
   ]
 ];
 
@@ -460,24 +473,10 @@ GEN.natuurpatronen = [
   ]
 ];
 
-/** One fresh question of a topic at a level (1-3). `avoid` = ids used shortly before, to get some variety. */
-// kind (optional) = index of one generator: used to give the same kind of question again with new numbers
-export const maker = gen => function makeQuestion(topicId, level, avoid = [], kind = null) {
-  const list = gen[topicId][level - 1];
-  let i = kind !== null && list[kind] ? kind : ri(0, list.length - 1);
-  for (let t = 0; kind === null && t < 6 && avoid.includes(`${topicId}:${level}:${i}`); t++) i = ri(0, list.length - 1);
-  return { ...list[i](), id: `${topicId}:${level}:${i}`, topic: topicId, level };
-};
+// School topics (kids/rekenen-school.js) are added to the same lists, so the page sees one subject
+Object.assign(GEN, S_GEN);
 export const makeQuestion = maker(GEN);
 export const kindsPerLevel = topicId => GEN[topicId].map(l => l.length);
-
-/** Is the typed text (or the chosen option) the right answer? Accepts "12", " 12 ", "−3", "-3", "12,0". */
-export function isCorrect(q, given) {
-  if (q.opts) return String(given) === String(q.answer);
-  const s = String(given ?? "").trim().replace(/[−–]/g, "-").replace(",", ".").replace(/\s+/g, "");
-  if (!/^-?\d+(\.\d+)?$/.test(s)) return false;
-  return Number(s) === q.answer;
-}
 
 // ---------------------------------------------------------------- theory (short, with the figure next to it)
 // Each topic: a list of blocks { nl, tr, fig? }. Kept short: a rule, then one worked example.
@@ -598,3 +597,5 @@ export const WORDS = {
   schaal: [["schaal", "ölçek"], ["plattegrond", "kroki"], ["kaart", "harita"], ["in het echt", "gerçekte"]],
   negatief: [["negatief getal", "negatif sayı"], ["onder nul", "sıfırın altı"], ["graden", "derece"], ["verschil", "fark"]]
 };
+Object.assign(THEORY, S_THEORY);
+Object.assign(WORDS, S_WORDS);

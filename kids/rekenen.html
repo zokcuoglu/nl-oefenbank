@@ -49,12 +49,14 @@ body.nl-only .tr{display:none}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
 
 /* Menu */
-.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:18px}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:12px}
 .tcard{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:4px;transition:border-color .15s,transform .15s}
 .tcard:hover{border-color:var(--ink);transform:translateY(-2px)}
 .tcard h3{font-size:20px}
 .tcard p{margin:0;font-size:15px}
 .tcard .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.sect{font-size:18px;margin-top:26px}
+.mixed.review{border-style:solid;border-color:var(--accent);background:color-mix(in srgb,var(--accent) 18%,var(--card))}
 .mixed{background:var(--card);border:2px dashed var(--line);border-radius:14px;padding:16px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 
 /* Topic: theory blocks with the figure next to the text */
@@ -129,7 +131,8 @@ details.spiek summary{cursor:pointer;color:var(--muted)}
     <h1 id="pageH1"><mark>Rekenen</mark> &amp; meetkunde</h1>
     <p class="sub">Kies een onderwerp. Eerst de uitleg, dan oefenen, dan een toets.</p>
     <p class="sub tr">Bir konu seç. Önce anlatım, sonra alıştırma, sonra sınav.</p>
-    <div class="topics" id="topics"></div>
+    <div id="reviewBox"></div>
+    <div id="topics"></div>
     <div id="mixedBox"></div>
   </section>
 
@@ -208,8 +211,8 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase
 // its own module id for the saved rounds (also in data/catalog.json) and its own title.
 const VAK = new URLSearchParams(location.search).get("vak") === "natuur" ? "natuur" : "rekenen";
 const SUBJECT = {
-  rekenen: { module: "g5-rekenen", file: "./rekenen-vragen.js?v=2", h1: "<mark>Rekenen</mark> &amp; meetkunde", title: "Rekenen & meetkunde" },
-  natuur: { module: "g5-natuur", file: "./natuur-vragen.js?v=2", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
+  rekenen: { module: "g5-rekenen", file: "./rekenen-vragen.js?v=3", h1: "<mark>Rekenen</mark> &amp; meetkunde", title: "Rekenen & meetkunde" },
+  natuur: { module: "g5-natuur", file: "./natuur-vragen.js?v=3", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
 }[VAK];
 const MODULE = SUBJECT.module;
 const { TOPICS, THEORY, WORDS, makeQuestion, isCorrect } = await import(SUBJECT.file);
@@ -218,6 +221,8 @@ const $ = id => document.getElementById(id);
 const LEVELS = { 1: ["Makkelijk", "Kolay"], 2: ["Andersom", "Orta"], 3: ["Vraagstuk", "Problem"] };
 const both = (nl, tr) => `${nl} <span class="tr">· ${tr}</span>`;
 const dots = lv => `<span class="dots">${[1, 2, 3].map(i => `<i class="${i <= lv ? "on" : ""}"></i>`).join("")}</span>`;
+// The right answer as text: the chosen option, or the number with its unit (q.show when it is written differently, e.g. "7,50 euro")
+const rightText = q => q.opts ? q.opts.find(o => String(o.v) === String(q.answer)).nl : (q.show || `${q.answer} ${q.unit}`.trim());
 const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
 const { user: USER, profile } = await gate({ area: "kids", title: SUBJECT.title, seen: MODULE });
@@ -258,21 +263,58 @@ const startLevel = id => { const t = toetsen(id)[0]; return t ? Math.max(1, (t.l
 function show(id) { ["menu", "topic", "quiz", "result"].forEach(s => $(s).hidden = s !== id); window.scrollTo(0, 0); }
 
 // ---------- menu ----------
+// The menu is grouped by school years (band) and by kind: "van school" = ordinary school material,
+// "extra" = enrichment. The student's own years come first.
+const myBand = /^groep[78]$/.test(profile.groep || "") ? "7-8" : "5-6";
+const SECTIONS = [["5-6", true], ["5-6", false], ["7-8", true], ["7-8", false]].sort((a, b) => (b[0] === myBand) - (a[0] === myBand));
+const sectionTitle = (band, school) => both(`Groep ${band} · ${school ? "van school" : "extra"}`, school ? "okul konuları" : "ek konular (zenginleştirme)");
+function topicCard(t) {
+  const b = best(t.id);
+  return `<button class="tcard" data-topic="${t.id}">
+    <h3>${esc(t.nl)}</h3><p class="tr">${esc(t.tr)}</p>
+    <p>${esc(t.sub_nl)}</p><p class="tr">${esc(t.sub_tr)}</p>
+    <span class="row">${b ? `<span class="chip">Beste toets ${b.score}/${b.total}</span><span class="chip" title="Sınavda ulaşılan en yüksek seviye">Niveau ${dots(Math.max(...toetsen(t.id).map(a => a.level_top || 1)))}</span>` : ""}${isOpen(t) ? "" : `<span class="chip hid">gizli (sadece yönetici görür)</span>`}</span>
+  </button>`;
+}
 function renderMenu() {
   const list = visible();
-  $("topics").innerHTML = list.length ? list.map(t => {
-    const b = best(t.id);
-    return `<button class="tcard" data-topic="${t.id}">
-      <h3>${esc(t.nl)}</h3><p class="tr">${esc(t.tr)}</p>
-      <p>${esc(t.sub_nl)}</p><p class="tr">${esc(t.sub_tr)}</p>
-      <span class="row">${b ? `<span class="chip">Beste toets ${b.score}/${b.total}</span><span class="chip" title="Sınavda ulaşılan en yüksek seviye">Niveau ${dots(Math.max(...toetsen(t.id).map(a => a.level_top || 1)))}</span>` : ""}${isOpen(t) ? "" : `<span class="chip hid">gizli (sadece yönetici görür)</span>`}</span>
-    </button>`;
+  $("topics").innerHTML = list.length ? SECTIONS.map(([band, school]) => {
+    const ts = list.filter(t => t.band === band && !!t.school === school);
+    return ts.length ? `<h2 class="sect">${sectionTitle(band, school)}</h2><div class="topics">${ts.map(topicCard).join("")}</div>` : "";
   }).join("") : `<div class="notice">Er zijn nog geen onderwerpen open. <span class="tr">Henüz açık konu yok.</span></div>`;
-  const openList = TOPICS.filter(isOpen);
+  // Review: kinds of question that went wrong before and are due today (see dueKinds)
+  const due = dueKinds();
+  $("reviewBox").innerHTML = due.length ? `<div class="mixed review"><div><h3>Herhalen</h3><p class="tr" style="margin:0">Bugünkü tekrar: daha önce yanlış yaptığın ${due.length} soru türü, yeni sayılarla</p></div>
+    <div class="actions" style="margin:0"><button class="btn" id="reviewBtn">${Math.min(due.length, REVIEW_SIZE)} ${Math.min(due.length, REVIEW_SIZE) === 1 ? "vraag" : "vragen"}</button></div></div>` : "";
+  // Mixed test: the open topics of the student's own years (if none of those are open, all open topics)
   const b = best("gemengd");
-  $("mixedBox").innerHTML = openList.length < 2 ? "" : `<div class="mixed">
-    <div><h3>Gemengde toets</h3><p class="tr" style="margin:0">Karışık sınav: açık bütün konulardan</p>${b ? `<span class="chip">Beste ${b.score}/${b.total}</span>` : ""}</div>
-    <div class="actions" style="margin:0"><button class="btn" data-mixed="5">5 vragen</button><button class="btn" data-mixed="10">10 vragen</button></div></div>`;
+  $("mixedBox").innerHTML = mixedPool().length < 2 ? "" : `<div class="mixed">
+    <div><h3>Gemengde toets</h3><p class="tr" style="margin:0">Karışık sınav: açık konuların hepsinden (groep ${myBand})</p>${b ? `<span class="chip">Beste ${b.score}/${b.total}</span>` : ""}</div>
+    <div class="actions" style="margin:0"><button class="btn" data-mixed="5">5 vragen</button><button class="btn" data-mixed="10">10 vragen</button><button class="btn" data-mixed="20">20 vragen</button></div></div>`;
+}
+function mixedPool() { const open = TOPICS.filter(isOpen), mine = open.filter(t => t.band === myBand); return (mine.length >= 2 ? mine : open).map(t => t.id); }
+
+// ---------- review (spaced repetition), same rule as js/tekrar.js for the lessons ----------
+// Nothing extra is stored: the schedule is worked out from the saved rounds. A kind of question (qid = topic:level:kind)
+// enters the review once it was answered wrong. After a wrong answer it is due the next day; after 1, 2, 3 right
+// answers in a row it comes back after 2, 5, 12 days; after 4 in a row it is learned.
+const GAP_DAYS = [1, 2, 5, 12], REVIEW_SIZE = 10;
+const dayNr = iso => Math.floor(Date.parse(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date(iso)) + "T00:00:00Z") / 864e5);
+function dueKinds(now = new Date()) {
+  const hist = new Map(), shown = new Set(visible().map(t => t.id));
+  [...ATTEMPTS].filter(a => a.finished_at).sort((a, b) => a.finished_at.localeCompare(b.finished_at))
+    .forEach(a => (a.answers || []).forEach(an => { if (an.qid) (hist.get(an.qid) || hist.set(an.qid, []).get(an.qid)).push({ at: a.finished_at, ok: !!an.correct }); }));
+  const today = dayNr(now), due = [];
+  for (const [qid, list] of hist) {
+    if (!shown.has(qid.split(":")[0])) continue;                 // topic closed again: leave it out
+    const lastWrong = list.map(x => x.ok).lastIndexOf(false);
+    if (lastWrong < 0) continue;
+    const streak = list.length - 1 - lastWrong;
+    if (streak >= GAP_DAYS.length) continue;
+    const dueDay = dayNr(list[list.length - 1].at) + GAP_DAYS[streak];
+    if (dueDay <= today) due.push({ qid, dueDay });
+  }
+  return due.sort((a, b) => a.dueDay - b.dueDay).map(d => d.qid);
 }
 
 // ---------- topic ----------
@@ -296,10 +338,10 @@ function openTopic(id) {
 let S = null;
 // fixed (optional) = list of question ids "topic:level:kind" to ask in this order (used by "repeat my mistakes")
 function start(kind, topicId, total, level, fixed = null) {
-  const mixed = topicId === "gemengd";
+  const mixed = topicId === "gemengd" || topicId === "herhaal";   // both ask questions from several topics
   S = { kind, topicId, total, level, mixed, fixed, idx: 0, streak: 0, log: [], recent: [], t0: Date.now(), q: null, done: false,
-        pool: mixed ? TOPICS.filter(isOpen).map(t => t.id) : [topicId] };
-  $("qName").innerHTML = mixed ? "Gemengd" : esc(topicOf(topicId).nl);
+        pool: mixed ? mixedPool() : [topicId] };
+  $("qName").innerHTML = topicId === "herhaal" ? "Herhalen" : mixed ? "Gemengd" : esc(topicOf(topicId).nl);
   $("qSpiek").hidden = kind === "toets" || mixed;     // no cheat sheet during a test
   if (!mixed) $("qSpiekBody").innerHTML = theoryHtml(topicId, false);
   show("quiz"); ask();
@@ -342,7 +384,7 @@ function answer(given) {
   S.done = true;
   const second = !!S.second; S.second = false;
   S.log.push({ q, given: second ? S.firstGiven : String(given), ok: ok && !second, level: S.level });
-  const shown = q.opts ? q.opts.find(o => o.v === q.answer).nl : `${q.answer} ${q.unit}`.trim();
+  const shown = rightText(q);
   $("qFb").innerHTML = `<div class="fb ${ok ? "ok" : "no"}"><b class="h">${ok ? (second ? both("Goed bij de tweede keer!", "İkinci denemede doğru!") : both("Goed!", "Doğru!")) : both("Niet goed", "Yanlış")}</b>
     ${ok ? "" : `<p>${both("Het goede antwoord", "Doğru cevap")}: <b>${esc(shown)}</b></p>`}
     <p>${q.ex_nl}</p><p class="tr">${q.ex_tr}</p></div>`;
@@ -370,7 +412,7 @@ $("quitBtn").onclick = () => back();
 function finish() {
   const score = S.log.filter(l => l.ok).length, total = S.log.length, secs = Math.round((Date.now() - S.t0) / 1000);
   const top = Math.max(...S.log.map(l => l.level));
-  const title = S.mixed ? "Gemengde toets" : topicOf(S.topicId).nl;
+  const title = S.topicId === "herhaal" ? "Herhalen" : S.mixed ? "Gemengde toets" : topicOf(S.topicId).nl;
   // One saved round. qid = topic:level:kind, so the statistics can show which kind of sum goes wrong most often
   const attempt = { kind: S.kind, test: S.topicId, title, started_at: new Date(S.t0).toISOString(), finished_at: new Date().toISOString(),
     duration_s: secs, score, total, level_end: S.level, level_top: top,
@@ -381,7 +423,7 @@ function finish() {
   $("rScore").textContent = `${score}/${total}`; $("rTime").textContent = fmt(secs);
   $("rLevel").innerHTML = `${LEVELS[top][0]} ${dots(top)}`;
   $("rList").innerHTML = S.log.map((l, i) => {
-    const q = l.q, right = q.opts ? q.opts.find(o => o.v === q.answer).nl : `${q.answer} ${q.unit}`.trim();
+    const q = l.q, right = rightText(q);
     const given = q.opts ? (q.opts.find(o => String(o.v) === l.given)?.nl || l.given) : l.given;
     return `<article class="rbox ${l.ok ? "" : "no"}"><p><b>${i + 1}.</b> ${q.nl}</p><p class="tr">${q.tr}</p>
       <p class="given">${both("Jouw antwoord", "Senin cevabın")}: <b>${esc(given)}</b>${l.ok ? " ✓" : ` ✗ &nbsp; ${both("Goed", "Doğrusu")}: <b>${esc(right)}</b>`}</p>
@@ -401,6 +443,7 @@ document.addEventListener("click", e => {
   const t = e.target.closest("[data-topic]"); if (t) return openTopic(t.dataset.topic);
   const o = e.target.closest("[data-oefen]"); if (o) return start("oefen", TOPIC.id, 5, Number(o.dataset.oefen));
   const x = e.target.closest("[data-toets]"); if (x) return start("toets", TOPIC.id, Number(x.dataset.toets), startLevel(TOPIC.id));
+  if (e.target.closest("#reviewBtn")) { const ids = dueKinds().slice(0, REVIEW_SIZE); return start("oefen", "herhaal", ids.length, 1, ids); }
   const m = e.target.closest("[data-mixed]"); if (m) return start("toets", "gemengd", Number(m.dataset.mixed), startLevel("gemengd"));
   const g = e.target.closest("[data-go]"); if (g) { if (g.dataset.go === "back") back(); else { renderMenu(); show("menu"); } }
 });

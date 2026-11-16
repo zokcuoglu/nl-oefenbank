@@ -132,8 +132,13 @@ function kidsSection() {
   }
   // Adults: their own groep (if set) comes first
   else if (profile.groep && groups.includes(profile.groep)) groups.sort((a, b) => (b === profile.groep) - (a === profile.groep));
+  // A card that belongs to several groepen is drawn once for adults (under the first groep in the list);
+  // a child only has its own groep anyway. A groep that has nothing left to show is skipped for adults.
+  const done = new Set();
   return groups.map(g => {
-    const ms = cat.modules.filter(m => m.area === "kids" && [].concat(m.group).includes(g) && cardShown(m));
+    const ms = cat.modules.filter(m => m.area === "kids" && [].concat(m.group).includes(g) && cardShown(m) && !done.has(m.id));
+    ms.forEach(m => done.add(m.id));
+    if (!ms.length && profile.type !== "child" && cat.modules.some(m => m.area === "kids" && [].concat(m.group).includes(g))) return "";
     return `<section><div class="area-head"><h3>${esc(cat.groups[g])}${g === profile.groep ? ` <span class="chip accent">senin grubun</span>` : ""}</h3></div>
       <div class="cards" style="margin-top:12px">${ms.length ? ms.map(card).join("") : `<article class="panel card soon"><p>Henüz test yok. Okul dokümanları geldikçe eklenecek.</p></article>`}</div></section>`;
   }).join("");
