@@ -18,6 +18,7 @@ export const TOPICS = [
   { id: "meetkunde", nl: "Omtrek en oppervlakte", tr: "Çevre ve alan", sub_nl: "vierkant, rechthoek, cirkel", sub_tr: "kare, dikdörtgen, daire", open: true },
   { id: "som", nl: "Optellen van 1 tot n", tr: "1'den n'e kadar toplam", sub_nl: "1 + 2 + 3 + … slim uitrekenen", sub_tr: "1 + 2 + 3 + … akıllıca hesapla", open: true },
   { id: "machten", nl: "Machten en wortels", tr: "Üslü sayılar ve karekök", sub_nl: "5², 2³, √49", sub_tr: "5², 2³, √49", open: true },
+  { id: "fibonacci", nl: "De rij van Fibonacci", tr: "Fibonacci dizisi", sub_nl: "een getallenrij uit de natuur", sub_tr: "doğadaki sayı dizisi", open: true },
   { id: "getallen", nl: "Kwadraat- en driehoeksgetallen", tr: "Kare sayılar ve üçgen sayılar", sub_nl: "patronen in getallen", sub_tr: "sayı örüntüleri", open: false },
   { id: "driehoek", nl: "Oppervlakte van een driehoek", tr: "Üçgenin alanı", sub_nl: "de helft van een rechthoek", sub_tr: "dikdörtgenin yarısı", open: false },
   { id: "samengesteld", nl: "Samengestelde figuren", tr: "Bileşik şekiller", sub_nl: "L-vorm: knip in rechthoeken", sub_tr: "L şekli: dikdörtgenlere böl", open: false },
@@ -25,23 +26,24 @@ export const TOPICS = [
   { id: "priem", nl: "Priemgetallen en delers", tr: "Asal sayılar ve bölenler", sub_nl: "welke getallen passen erin?", sub_tr: "hangi sayılara bölünür?", open: false },
   { id: "hoeken", nl: "Hoeken", tr: "Açılar", sub_nl: "scherp, recht, stomp", sub_tr: "dar, dik, geniş", open: false },
   { id: "schaal", nl: "Schaal", tr: "Ölçek", sub_nl: "plattegrond en kaart", sub_tr: "kroki ve harita", open: false },
-  { id: "negatief", nl: "Negatieve getallen", tr: "Negatif sayılar", sub_nl: "onder nul: thermometer", sub_tr: "sıfırın altı: termometre", open: false }
+  { id: "negatief", nl: "Negatieve getallen", tr: "Negatif sayılar", sub_nl: "onder nul: thermometer", sub_tr: "sıfırın altı: termometre", open: false },
+  { id: "natuurpatronen", nl: "Patronen in de natuur", tr: "Doğadaki örüntüler", sub_nl: "symmetrie, zeshoeken, vertakkingen", sub_tr: "simetri, altıgenler, dallanma", open: false }
 ];
 
 // ---------------------------------------------------------------- small helpers
-const ri = (a, b) => a + Math.floor(Math.random() * (b - a + 1));      // whole number from a to b
-const pick = arr => arr[Math.floor(Math.random() * arr.length)];
-const shuffle = arr => { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = ri(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+export const ri = (a, b) => a + Math.floor(Math.random() * (b - a + 1));      // whole number from a to b
+export const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+export const shuffle = arr => { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = ri(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const tri = n => n * (n + 1) / 2;                                      // 1 + 2 + ... + n
 const isPrime = n => { if (n < 2) return false; for (let i = 2; i * i <= n; i++) if (n % i === 0) return false; return true; };
 const divisors = n => { const d = []; for (let i = 1; i <= n; i++) if (n % i === 0) d.push(i); return d; };
 const gcd = (a, b) => b ? gcd(b, a % b) : a;
-const Q = (nl, tr, answer, unit, ex_nl, ex_tr, extra = {}) => ({ nl, tr, answer, unit, ex_nl, ex_tr, ...extra });
+export const Q = (nl, tr, answer, unit, ex_nl, ex_tr, extra = {}) => ({ nl, tr, answer, unit, ex_nl, ex_tr, ...extra });
 const num = v => ({ v, nl: String(v), tr: String(v) });                // a number as a multiple-choice option
 
 // ---------------------------------------------------------------- figures (small inline SVG, colours from the page)
-const svg = body => `<svg viewBox="0 0 220 130" role="img" aria-hidden="true">${body}</svg>`;
-const T = (x, y, s, anchor = "middle") => `<text x="${x}" y="${y}" text-anchor="${anchor}">${s}</text>`;
+export const svg = body => `<svg viewBox="0 0 220 130" role="img" aria-hidden="true">${body}</svg>`;
+export const T = (x, y, s, anchor = "middle") => `<text x="${x}" y="${y}" text-anchor="${anchor}">${s}</text>`;
 export const fig = {
   square: a => svg(`<rect class="shape" x="65" y="12" width="90" height="90"/>${T(110, 122, a)}${T(162, 62, a, "start")}`),
   rect: (a, b) => svg(`<rect class="shape" x="35" y="22" width="150" height="76"/>${T(110, 118, a)}${T(192, 64, b, "start")}`),
@@ -50,6 +52,15 @@ export const fig = {
   // room (rectangle) with a round carpet in the middle
   carpet: (a, b, r) => svg(`<rect class="room" x="35" y="14" width="150" height="92"/><circle class="shape" cx="110" cy="60" r="34"/>
     <circle cx="110" cy="60" r="2.5"/><line x1="110" y1="60" x2="144" y2="60"/>${T(127, 53, r)}${T(110, 124, a)}${T(192, 64, b, "start")}`),
+  // a x b rectangle drawn as unit squares, so the area can be counted: this is what "oppervlakte" means
+  grid: (a, b, la, lb) => { const u = Math.min(170 / a, 96 / b), x0 = (220 - a * u) / 2 - 8, y0 = 8;
+    let cells = ""; for (let i = 1; i < a; i++) cells += `<line class="cell" x1="${x0 + i * u}" y1="${y0}" x2="${x0 + i * u}" y2="${y0 + b * u}"/>`;
+    for (let j = 1; j < b; j++) cells += `<line class="cell" x1="${x0}" y1="${y0 + j * u}" x2="${x0 + a * u}" y2="${y0 + j * u}"/>`;
+    return svg(`<rect class="shape" x="${x0}" y="${y0}" width="${a * u}" height="${b * u}"/>${cells}${T(x0 + a * u / 2, y0 + b * u + 16, la)}${T(x0 + a * u + 6, y0 + b * u / 2 + 4, lb, "start")}`); },
+  // squares with sides 1, 1, 2, 3, 5 fit together into one rectangle: the Fibonacci numbers as a picture
+  fibsquares: () => svg(`<rect class="shape" x="30" y="10" width="100" height="100"/><rect class="shape" x="130" y="10" width="60" height="60"/>
+    <rect class="shape" x="150" y="70" width="40" height="40"/><rect class="shape" x="130" y="70" width="20" height="20"/><rect class="shape" x="130" y="90" width="20" height="20"/>
+    ${T(80, 65, 5)}${T(160, 45, 3)}${T(170, 95, 2)}${T(140, 84, 1)}${T(140, 104, 1)}`),
   triangle: (b, h) => svg(`<polygon class="shape" points="35,104 185,104 80,18"/><line class="dash" x1="80" y1="18" x2="80" y2="104"/>
     ${T(110, 122, b)}${T(88, 68, h, "start")}`),
   // L-shape made of a tall left part and a low right part
@@ -69,11 +80,11 @@ GEN.meetkunde = [
     () => { const a = ri(2, 12); return Q(`Een vierkant heeft zijden van ${a} cm. Wat is de <b>omtrek</b>?`, `Bir karenin kenarı ${a} cm. <b>Çevresi</b> kaç cm?`, 4 * a, "cm",
       `Omtrek vierkant = 4 × zijde = 4 × ${a} = ${4 * a} cm.`, `Karenin çevresi = 4 × kenar = 4 × ${a} = ${4 * a} cm.`, { fig: fig.square(`${a} cm`) }); },
     () => { const a = ri(2, 12); return Q(`Een vierkant heeft zijden van ${a} cm. Wat is de <b>oppervlakte</b>?`, `Bir karenin kenarı ${a} cm. <b>Alanı</b> kaç cm²?`, a * a, "cm²",
-      `Oppervlakte vierkant = zijde × zijde = ${a} × ${a} = ${a * a} cm².`, `Karenin alanı = kenar × kenar = ${a} × ${a} = ${a * a} cm².`, { fig: fig.square(`${a} cm`) }); },
+      `Oppervlakte vierkant = zijde × zijde = ${a} × ${a} = ${a * a} cm². Tel de hokjes: het zijn er ook ${a * a}.`, `Karenin alanı = kenar × kenar = ${a} × ${a} = ${a * a} cm². Şekildeki küçük kareleri sayarsan da ${a * a} çıkar.`, { fig: fig.grid(a, a, `${a} cm`, `${a} cm`) }); },
     () => { const b = ri(2, 8), a = b + ri(1, 6); return Q(`Een rechthoek is ${a} cm lang en ${b} cm breed. Wat is de <b>omtrek</b>?`, `Bir dikdörtgenin kenarları ${a} cm ve ${b} cm. <b>Çevresi</b> kaç cm?`, 2 * (a + b), "cm",
       `Omtrek rechthoek = 2 × (lengte + breedte) = 2 × (${a} + ${b}) = ${2 * (a + b)} cm.`, `Dikdörtgenin çevresi = 2 × (uzun + kısa) = 2 × (${a} + ${b}) = ${2 * (a + b)} cm.`, { fig: fig.rect(`${a} cm`, `${b} cm`) }); },
     () => { const b = ri(2, 8), a = b + ri(1, 6); return Q(`Een rechthoek is ${a} cm lang en ${b} cm breed. Wat is de <b>oppervlakte</b>?`, `Bir dikdörtgenin kenarları ${a} cm ve ${b} cm. <b>Alanı</b> kaç cm²?`, a * b, "cm²",
-      `Oppervlakte rechthoek = lengte × breedte = ${a} × ${b} = ${a * b} cm².`, `Dikdörtgenin alanı = uzun × kısa = ${a} × ${b} = ${a * b} cm².`, { fig: fig.rect(`${a} cm`, `${b} cm`) }); },
+      `Oppervlakte rechthoek = lengte × breedte = ${a} × ${b} = ${a * b} cm². ${b} rijen van ${a} hokjes.`, `Dikdörtgenin alanı = uzun × kısa = ${a} × ${b} = ${a * b} cm². ${b} sıra, her sırada ${a} küçük kare.`, { fig: fig.grid(a, b, `${a} cm`, `${b} cm`) }); },
     () => { const r = ri(2, 15); return Q(`De straal van een cirkel is ${r} cm. Wat is de <b>diameter</b>?`, `Bir dairenin yarıçapı ${r} cm. <b>Çapı</b> kaç cm?`, 2 * r, "cm",
       `Diameter = 2 × straal = 2 × ${r} = ${2 * r} cm.`, `Çap = 2 × yarıçap = 2 × ${r} = ${2 * r} cm.`, { fig: fig.circle(`${r} cm`, false) }); },
     () => { const r = ri(2, 15); return Q(`De diameter van een cirkel is ${2 * r} cm. Wat is de <b>straal</b>?`, `Bir dairenin çapı ${2 * r} cm. <b>Yarıçapı</b> kaç cm?`, r, "cm",
@@ -385,13 +396,78 @@ GEN.negatief = [
   ]
 ];
 
+// ----- De rij van Fibonacci: 1, 1, 2, 3, 5, 8, ... (each number is the sum of the two before it)
+const FIB = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233];     // FIB[n] = n-th Fibonacci number
+GEN.fibonacci = [
+  [
+    () => { const n = ri(5, 10); const row = FIB.slice(n - 3, n + 1).join(", "); return Q(`Dit is een stuk van de rij van Fibonacci: ${row}, … Welk getal komt hierna?`, `Bu, Fibonacci dizisinin bir parçası: ${row}, … Sıradaki sayı hangisi?`, FIB[n + 1], "",
+      `Tel de laatste twee op: ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}.`, `Son iki sayıyı topla: ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}.`); },
+    () => { const n = ri(5, 9); return Q(`De rij van Fibonacci begint zo: 1, 1, 2, 3, 5, … Wat is het ${n}e getal van de rij?`, `Fibonacci dizisi şöyle başlar: 1, 1, 2, 3, 5, … Dizinin ${n}. sayısı kaçtır?`, FIB[n], "",
+      `De rij: ${FIB.slice(1, n + 1).join(", ")}. Het ${n}e getal is ${FIB[n]}.`, `Dizi: ${FIB.slice(1, n + 1).join(", ")}. ${n}. sayı ${FIB[n]}.`); },
+    () => { const n = ri(4, 10); return Q(`In de rij van Fibonacci staan ${FIB[n]} en ${FIB[n + 1]} naast elkaar. Welk getal komt daarna?`, `Fibonacci dizisinde ${FIB[n]} ve ${FIB[n + 1]} yan yana. Sonraki sayı kaçtır?`, FIB[n + 2], "",
+      `${FIB[n]} + ${FIB[n + 1]} = ${FIB[n + 2]}.`, `${FIB[n]} + ${FIB[n + 1]} = ${FIB[n + 2]}.`); }
+  ],
+  [
+    () => { const n = ri(5, 10); return Q(`Welk getal ontbreekt in de rij van Fibonacci? ${FIB[n - 1]}, ${FIB[n]}, ?, ${FIB[n + 2]}`, `Fibonacci dizisinde eksik sayı hangisi? ${FIB[n - 1]}, ${FIB[n]}, ?, ${FIB[n + 2]}`, FIB[n + 1], "",
+      `${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}. Controle: ${FIB[n]} + ${FIB[n + 1]} = ${FIB[n + 2]}.`, `${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}. Kontrol: ${FIB[n]} + ${FIB[n + 1]} = ${FIB[n + 2]}.`); },
+    () => { const n = ri(5, 10); return Q(`Welk getal staat vooraan? ?, ${FIB[n]}, ${FIB[n + 1]} (rij van Fibonacci)`, `En baştaki sayı hangisi? ?, ${FIB[n]}, ${FIB[n + 1]} (Fibonacci dizisi)`, FIB[n - 1], "",
+      `Ga terug: ${FIB[n + 1]} − ${FIB[n]} = ${FIB[n - 1]}.`, `Geriye git: ${FIB[n + 1]} − ${FIB[n]} = ${FIB[n - 1]}.`); },
+    () => { const a = ri(2, 5), b = ri(2, 6); const r = [a, b]; while (r.length < 6) r.push(r[r.length - 1] + r[r.length - 2]);
+      return Q(`Een rij begint met ${a} en ${b}. Daarna geldt de regel van Fibonacci: tel de laatste twee getallen op. Wat is het <b>6e</b> getal?`, `Bir dizi ${a} ve ${b} ile başlıyor. Sonra Fibonacci kuralı geçerli: son iki sayıyı topla. <b>6.</b> sayı kaçtır?`, r[5], "",
+        `De rij: ${r.join(", ")}.`, `Dizi: ${r.join(", ")}.`); },
+    () => { const n = ri(5, 9); return Q(`Tel de eerste ${n} getallen van de rij van Fibonacci op: ${FIB.slice(1, n + 1).join(" + ")}. Hoeveel is dat?`, `Fibonacci dizisinin ilk ${n} sayısını topla: ${FIB.slice(1, n + 1).join(" + ")}. Kaç eder?`, FIB[n + 2] - 1, "",
+      `Samen ${FIB[n + 2] - 1}. Dat is altijd 1 minder dan het getal twee plaatsen verder (${FIB[n + 2]}).`, `Toplam ${FIB[n + 2] - 1}. Bu hep, iki sıra sonraki sayıdan (${FIB[n + 2]}) 1 eksiktir.`); }
+  ],
+  [
+    () => { const n = ri(4, 9); return Q(`Een paar konijnen krijgt vanaf de tweede maand elke maand een nieuw paar jongen. Het aantal paren groeit zo: 1, 1, 2, 3, 5, … Hoeveel paren zijn er in maand ${n}?`, `Bir çift tavşan, ikinci aydan itibaren her ay yeni bir çift yavru yapıyor. Çift sayısı şöyle artıyor: 1, 1, 2, 3, 5, … ${n}. ayda kaç çift tavşan olur?`, FIB[n], "",
+      `Dat is de rij van Fibonacci: ${FIB.slice(1, n + 1).join(", ")}. In maand ${n}: ${FIB[n]} paren.`, `Bu Fibonacci dizisi: ${FIB.slice(1, n + 1).join(", ")}. ${n}. ayda ${FIB[n]} çift.`); },
+    () => { const n = ri(3, 7); return Q(`Je loopt een trap op met ${n} treden. Je neemt steeds 1 trede of 2 treden tegelijk. Op hoeveel manieren kun je boven komen? (Tip: bij 1 trede 1 manier, bij 2 treden 2 manieren, daarna de regel van Fibonacci.)`, `${n} basamaklı bir merdiveni çıkıyorsun. Her adımda 1 ya da 2 basamak çıkıyorsun. Yukarı kaç farklı şekilde çıkabilirsin? (İpucu: 1 basamakta 1 yol, 2 basamakta 2 yol, sonra Fibonacci kuralı.)`, FIB[n + 1], "",
+      `Aantal manieren per trap: ${FIB.slice(2, n + 2).join(", ")}. Bij ${n} treden: ${FIB[n + 1]}.`, `Basamak sayısına göre yol sayısı: ${FIB.slice(2, n + 2).join(", ")}. ${n} basamakta: ${FIB[n + 1]}.`); },
+    () => { const f = pick([5, 8, 13, 21, 34]), w = shuffle([4, 6, 7, 9, 10, 12, 15, 20].filter(x => x !== f)).slice(0, 3); return Q(`Veel bloemen hebben een aantal bloemblaadjes dat in de rij van Fibonacci staat. Welk aantal staat in die rij?`, `Birçok çiçeğin taç yaprağı sayısı Fibonacci dizisinde yer alır. Hangi sayı bu dizidedir?`, f, "",
+      `De rij: 1, 1, 2, 3, 5, 8, 13, 21, 34, … ${f} staat erin.`, `Dizi: 1, 1, 2, 3, 5, 8, 13, 21, 34, … ${f} bu dizide.`, { opts: shuffle([f, ...w]).map(num) }); },
+    () => { const n = ri(5, 8); return Q(`Op een dennenappel tel je ${FIB[n]} spiralen naar links. Het aantal spiralen naar rechts is het <b>volgende</b> Fibonacci-getal. Hoeveel spiralen naar rechts zijn er?`, `Bir çam kozalağında sola doğru ${FIB[n]} spiral sayıyorsun. Sağa doğru spiral sayısı <b>sonraki</b> Fibonacci sayısı. Sağa doğru kaç spiral var?`, FIB[n + 1], "",
+      `Na ${FIB[n]} komt ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]}.`, `${FIB[n]}'den sonra ${FIB[n - 1]} + ${FIB[n]} = ${FIB[n + 1]} gelir.`); }
+  ]
+];
+
+// ----- Patronen in de natuur: symmetrie, zeshoeken, vertakkingen
+const SYM = [["een vierkant", "bir karenin", 4], ["een rechthoek", "bir dikdörtgenin", 2], ["een gelijkzijdige driehoek", "bir eşkenar üçgenin", 3],
+  ["de letter A", "A harfinin", 1], ["de letter H", "H harfinin", 2], ["een vlinder", "bir kelebeğin", 1], ["een sneeuwvlok", "bir kar tanesinin", 6], ["een regelmatige zeshoek", "bir düzgün altıgenin", 6]];
+GEN.natuurpatronen = [
+  [
+    () => { const [nl, tr, n] = pick(SYM); return Q(`Hoeveel symmetrieassen (vouwlijnen) heeft ${nl}?`, `${tr.charAt(0).toUpperCase() + tr.slice(1)} kaç simetri ekseni (katlama çizgisi) vardır?`, n, "",
+      `Je kunt ${nl} op ${n} ${n === 1 ? "manier" : "manieren"} zo dubbelvouwen dat de helften precies op elkaar passen.`, `Bu şekil, iki yarısı tam üst üste gelecek şekilde ${n} farklı yerden katlanabilir.`); },
+    () => { const a = ri(2, 9); return Q(`Een cel van een honingraat is een zeshoek. Alle zijden zijn ${a} mm. Wat is de omtrek van één cel?`, `Bal peteğinin bir gözü altıgendir. Bütün kenarları ${a} mm. Bir gözün çevresi kaç mm?`, 6 * a, "mm",
+      `Een zeshoek heeft 6 zijden: 6 × ${a} = ${6 * a} mm.`, `Altıgenin 6 kenarı var: 6 × ${a} = ${6 * a} mm.`); },
+    () => { const a = ri(3, 12); return Q(`Een vlinder is symmetrisch. Op de linkervleugel zitten ${a} stippen. Hoeveel stippen heeft de vlinder in totaal?`, `Kelebek simetriktir. Sol kanadında ${a} benek var. Kelebekte toplam kaç benek var?`, 2 * a, "",
+      `Rechts zitten er evenveel: 2 × ${a} = ${2 * a}.`, `Sağ kanatta da aynı sayıda var: 2 × ${a} = ${2 * a}.`); }
+  ],
+  [
+    () => { const k = ri(2, 8); return Q(`Een sneeuwvlok heeft 6 armen. Elke arm heeft ${k} kleine takjes. Hoeveel takjes heeft de sneeuwvlok?`, `Bir kar tanesinin 6 kolu var. Her kolda ${k} küçük dal var. Kar tanesinde toplam kaç dal var?`, 6 * k, "",
+      `6 × ${k} = ${6 * k}.`, `6 × ${k} = ${6 * k}.`); },
+    () => { const n = ri(3, 6); return Q(`Een tak splitst zich in 2 takken. Elke nieuwe tak splitst zich weer in 2. Hoeveel uiteinden zijn er na ${n} keer splitsen?`, `Bir dal 2 dala ayrılıyor. Her yeni dal yine 2'ye ayrılıyor. ${n} kez ayrıldıktan sonra kaç uç olur?`, 2 ** n, "",
+      `Elke keer verdubbelt het: ${Array.from({ length: n }, (_, i) => 2 ** (i + 1)).join(", ")}.`, `Her seferinde iki katına çıkar: ${Array.from({ length: n }, (_, i) => 2 ** (i + 1)).join(", ")}.`); },
+    () => { const n = ri(3, 9); return Q(`Je tekent ${n} losse zeshoeken. Hoeveel zijden teken je in totaal?`, `Birbirine değmeyen ${n} altıgen çiziyorsun. Toplam kaç kenar çizersin?`, 6 * n, "",
+      `${n} × 6 = ${6 * n}.`, `${n} × 6 = ${6 * n}.`); }
+  ],
+  [
+    () => { const a = ri(4, 9), b = ri(3, 8); return Q(`Een varenblad heeft ${a} zijblaadjes. Elk zijblaadje lijkt op het hele blad en heeft zelf ${b} nog kleinere blaadjes. Hoeveel van die kleinste blaadjes zijn er?`, `Bir eğrelti otu yaprağının ${a} yan yaprağı var. Her yan yaprak bütün yaprağa benziyor ve kendisinin de ${b} daha küçük yaprağı var. En küçük yapraklardan toplam kaç tane var?`, a * b, "",
+      `${a} × ${b} = ${a * b}. Het kleine lijkt op het grote: dat heet een fractal.`, `${a} × ${b} = ${a * b}. Küçük parça büyüğe benziyor: buna fraktal denir.`); },
+    () => { const r = ri(3, 6), m = ri(5, 10), d = ri(2, 5); return Q(`Bijen bouwen elke dag ${r} rijen van ${m} cellen. Hoeveel cellen hebben ze na ${d} dagen?`, `Arılar her gün ${r} sıra, her sırada ${m} göz yapıyor. ${d} gün sonra kaç göz olur?`, r * m * d, "",
+      `Per dag ${r} × ${m} = ${r * m}. Na ${d} dagen: ${r * m * d}.`, `Günde ${r} × ${m} = ${r * m}. ${d} gün sonra: ${r * m * d}.`); },
+    () => { const k = ri(2, 6), n = ri(3, 7); return Q(`Een zeester heeft 5 armen. Op elke arm zitten ${k} rijen van ${n} zuignapjes. Hoeveel zuignapjes heeft de zeester?`, `Bir deniz yıldızının 5 kolu var. Her kolda ${k} sıra, her sırada ${n} vantuz var. Deniz yıldızında kaç vantuz var?`, 5 * k * n, "",
+      `Per arm ${k} × ${n} = ${k * n}. 5 armen: ${5 * k * n}.`, `Bir kolda ${k} × ${n} = ${k * n}. 5 kolda: ${5 * k * n}.`); }
+  ]
+];
+
 /** One fresh question of a topic at a level (1-3). `avoid` = ids used shortly before, to get some variety. */
-export function makeQuestion(topicId, level, avoid = []) {
-  const list = GEN[topicId][level - 1];
+export const maker = gen => function makeQuestion(topicId, level, avoid = []) {
+  const list = gen[topicId][level - 1];
   let i = ri(0, list.length - 1);
   for (let t = 0; t < 6 && avoid.includes(`${topicId}:${level}:${i}`); t++) i = ri(0, list.length - 1);
   return { ...list[i](), id: `${topicId}:${level}:${i}`, topic: topicId, level };
-}
+};
+export const makeQuestion = maker(GEN);
 export const kindsPerLevel = topicId => GEN[topicId].map(l => l.length);
 
 /** Is the typed text (or the chosen option) the right answer? Accepts "12", " 12 ", "−3", "-3", "12,0". */
@@ -406,6 +482,8 @@ export function isCorrect(q, given) {
 // Each topic: a list of blocks { nl, tr, fig? }. Kept short: a rule, then one worked example.
 export const THEORY = {
   meetkunde: [
+    { fig: fig.grid(6, 4, "6 cm", "4 cm"), nl: "<b>Wat is oppervlakte?</b> Verdeel de figuur in hokjes van 1 cm bij 1 cm. Elk hokje is <b>1 cm²</b>.<br>Deze rechthoek van 6 cm bij 4 cm heeft 4 rijen van 6 hokjes: 6 × 4 = <b>24 hokjes</b>. De oppervlakte is dus 24 cm².<br>Oppervlakte = hoeveel hokjes van 1 bij 1 erin passen.",
+      tr: "<b>Alan nedir?</b> Şekli 1 cm × 1 cm küçük karelere böl. Her küçük kare <b>1 cm²</b> eder.<br>6 cm × 4 cm olan bu dikdörtgende 4 sıra var, her sırada 6 kare: 6 × 4 = <b>24 kare</b>. Yani alan 24 cm².<br>Alan = içine kaç tane 1×1 kare sığdığı." },
     { fig: fig.square("a"), nl: "<b>Vierkant</b>: alle vier zijden zijn even lang (a).<br><b>Omtrek = 4 × a</b><br><b>Oppervlakte = a × a</b><br>Voorbeeld: a = 5 cm → omtrek 20 cm, oppervlakte 25 cm².",
       tr: "<b>Kare</b>: dört kenarı da eşit (a).<br><b>Çevre = 4 × a</b><br><b>Alan = a × a</b><br>Örnek: a = 5 cm → çevre 20 cm, alan 25 cm²." },
     { fig: fig.rect("lengte (a)", "b"), nl: "<b>Rechthoek</b>: lengte a en breedte b.<br><b>Omtrek = 2 × (a + b)</b><br><b>Oppervlakte = a × b</b><br>Andersom: oppervlakte ÷ lengte = breedte.",
@@ -430,6 +508,16 @@ export const THEORY = {
       tr: "<b>Karekök</b> (√), karenin tersidir.<br>√49 = 7, çünkü 7 × 7 = 49.<br>Kendine sor: hangi sayı × kendisi bunu verir?" },
     { fig: fig.square("a"), nl: "Een vierkant met zijde a heeft oppervlakte a². Ken je de oppervlakte, dan is de zijde de wortel: oppervlakte 36 → zijde √36 = 6.",
       tr: "Kenarı a olan karenin alanı a² olur. Alanı biliyorsan kenar kareköktür: alan 36 → kenar √36 = 6." }
+  ],
+  fibonacci: [
+    { fig: fig.fibsquares(), nl: "De <b>rij van Fibonacci</b>: 1, 1, 2, 3, 5, 8, 13, 21, 34, …<br><b>Regel</b>: tel de laatste twee getallen op, dan heb je het volgende. 5 + 8 = 13, 8 + 13 = 21.<br>Vierkanten met zijden 1, 1, 2, 3 en 5 passen precies aan elkaar. Trek je daar een boog doorheen, dan krijg je een spiraal.",
+      tr: "<b>Fibonacci dizisi</b>: 1, 1, 2, 3, 5, 8, 13, 21, 34, …<br><b>Kural</b>: son iki sayıyı topla, sıradaki sayıyı bulursun. 5 + 8 = 13, 8 + 13 = 21.<br>Kenarları 1, 1, 2, 3 ve 5 olan kareler birbirine tam oturur. İçlerinden bir yay çizersen spiral çıkar." },
+    { nl: "<b>In de natuur</b> kom je deze getallen vaak tegen:<br>· bloemblaadjes: veel bloemen hebben er 3, 5, 8, 13 of 21<br>· dennenappel en zonnebloem: de spiralen naar links en naar rechts zijn vaak twee Fibonacci-getallen naast elkaar (8 en 13, of 21 en 34)<br>· een slakkenhuis groeit in een spiraal die op die van de vierkanten lijkt<br>Het klopt niet bij elke bloem, maar wel opvallend vaak.",
+      tr: "<b>Doğada</b> bu sayılara sık rastlanır:<br>· taç yapraklar: birçok çiçekte 3, 5, 8, 13 ya da 21 tane olur<br>· çam kozalağı ve ayçiçeği: sola ve sağa dönen spirallerin sayısı çoğu zaman art arda iki Fibonacci sayısıdır (8 ve 13 ya da 21 ve 34)<br>· salyangoz kabuğu, karelerdeki spirale benzeyen bir spiralle büyür<br>Her çiçekte tutmaz ama şaşırtıcı derecede sık tutar." }
+  ],
+  natuurpatronen: [
+    { nl: "<b>Symmetrie</b>: de ene helft is het spiegelbeeld van de andere. De vouwlijn heet <b>symmetrieas</b>. Een vlinder heeft er 1, een sneeuwvlok 6.<br><b>Zeshoeken</b>: bijen bouwen cellen met 6 zijden. Zeshoeken passen zonder gaten aan elkaar en er is weinig was voor nodig.<br><b>Vertakkingen</b>: bij een varen of een boom lijkt het kleine stuk op het grote. Zo'n patroon heet een <b>fractal</b>.",
+      tr: "<b>Simetri</b>: bir yarı, diğer yarının ayna görüntüsüdür. Katlama çizgisine <b>simetri ekseni</b> denir. Kelebekte 1, kar tanesinde 6 tane vardır.<br><b>Altıgenler</b>: arılar 6 kenarlı gözler yapar. Altıgenler arada boşluk kalmadan birbirine oturur ve az balmumu harcanır.<br><b>Dallanma</b>: eğrelti otunda ya da ağaçta küçük parça büyüğe benzer. Böyle örüntüye <b>fraktal</b> denir." }
   ],
   getallen: [
     { nl: "<b>Kwadraatgetallen</b>: 1, 4, 9, 16, 25, … (1×1, 2×2, 3×3, …). Je kunt er een vierkant van leggen.<br><b>Driehoeksgetallen</b>: 1, 3, 6, 10, 15, … (1, 1+2, 1+2+3, …). Je kunt er een driehoek van leggen.",
@@ -472,6 +560,8 @@ export const WORDS = {
   meetkunde: [["oppervlakte", "alan"], ["omtrek", "çevre"], ["zijde", "kenar"], ["lengte", "uzunluk"], ["breedte", "genişlik"], ["straal", "yarıçap"], ["diameter (middellijn)", "çap"], ["vierkant", "kare"], ["rechthoek", "dikdörtgen"], ["cirkel", "daire"]],
   som: [["optellen", "toplamak"], ["de som", "toplam"], ["paar", "çift"], ["even getal", "çift sayı"], ["oneven getal", "tek sayı"]],
   machten: [["macht", "üs / kuvvet"], ["kwadraat", "kare"], ["wortel", "karekök"], ["vermenigvuldigen", "çarpmak"]],
+  fibonacci: [["rij", "dizi"], ["regel", "kural"], ["optellen", "toplamak"], ["bloemblaadje", "taç yaprak"], ["dennenappel", "çam kozalağı"], ["zonnebloem", "ayçiçeği"], ["spiraal", "spiral"]],
+  natuurpatronen: [["symmetrie", "simetri"], ["symmetrieas", "simetri ekseni"], ["spiegelbeeld", "ayna görüntüsü"], ["zeshoek", "altıgen"], ["honingraat", "bal peteği"], ["sneeuwvlok", "kar tanesi"], ["varen", "eğrelti otu"]],
   getallen: [["kwadraatgetal", "kare sayı"], ["driehoeksgetal", "üçgen sayı"], ["rij", "sıra / dizi"], ["patroon", "örüntü"]],
   driehoek: [["driehoek", "üçgen"], ["basis", "taban"], ["hoogte", "yükseklik"], ["de helft", "yarısı"]],
   samengesteld: [["samengestelde figuur", "bileşik şekil"], ["knippen", "kesmek"], ["optellen", "toplamak"], ["aftrekken", "çıkarmak"]],

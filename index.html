@@ -83,6 +83,7 @@ import { gate, userBox, esc, loadAllAttempts, ROOT, saveAttempt, loadAttempts, d
 // New functions go in their own file, not in core.js (an older core.js may still be cached; see woordle-api.js)
 import { saveWoordlePlay, loadWoordlePlays } from "./js/woordle-api.js";
 import { reviewState, REVIEW_SIZE } from "./js/tekrar.js?v=1";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit", month: "short" }); } catch (e) { return ""; } };
@@ -114,6 +115,14 @@ function card(m) {
     : `<article class="panel card soon">${inner}</article>`;
 }
 
+// Cards with "open_any" (catalog): shown to students only when the admin opened at least one of those topics
+// (settings/rekenen, admin page tab İçerik). Admins always see the card. One small read, only if such a card exists.
+let topicOpen = {};
+if (cat.modules.some(m => m.open_any)) {
+  try { const sn = await getDoc(doc(db, "settings", "rekenen")); if (sn.exists()) topicOpen = sn.data().open || {}; } catch (e) {}
+}
+const cardShown = m => !m.open_any || (profile.role === "admin" && !profile._view) || m.open_any.some(id => topicOpen[id] === true);
+
 function kidsSection() {
   let groups = Object.keys(cat.groups);
   // A child account sees only its own groep; without a groep it sees none and is told to ask the admin
@@ -124,7 +133,7 @@ function kidsSection() {
   // Adults: their own groep (if set) comes first
   else if (profile.groep && groups.includes(profile.groep)) groups.sort((a, b) => (b === profile.groep) - (a === profile.groep));
   return groups.map(g => {
-    const ms = cat.modules.filter(m => m.area === "kids" && m.group === g);
+    const ms = cat.modules.filter(m => m.area === "kids" && m.group === g && cardShown(m));
     return `<section><div class="area-head"><h3>${esc(cat.groups[g])}${g === profile.groep ? ` <span class="chip accent">senin grubun</span>` : ""}</h3></div>
       <div class="cards" style="margin-top:12px">${ms.length ? ms.map(card).join("") : `<article class="panel card soon"><p>Henüz test yok. Okul dokümanları geldikçe eklenecek.</p></article>`}</div></section>`;
   }).join("");

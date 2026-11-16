@@ -63,6 +63,7 @@ setTimeout(function () {
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
 import { summarize, pct, recentRounds, dayBars, scoreChips } from "./js/stats.js";
 import { TOPICS as REKEN_TOPICS } from "./kids/rekenen-vragen.js";
+import { TOPICS as NATUUR_TOPICS } from "./kids/natuur-vragen.js";
 import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit, increment } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -501,15 +502,18 @@ function playHtml() {
 // Content tab: switch each Rekenen & meetkunde topic on or off for students. Admins always see every topic on the page itself.
 const rekenIsOpen = t => typeof rekenOpen[t.id] === "boolean" ? rekenOpen[t.id] : t.open;
 function contentTab() {
-  return `<section class="panel"><div class="sectionhead"><h3>Rekenen &amp; meetkunde konuları</h3><span class="muted">işaretli konuları öğrenciler görür · <a href="kids/rekenen.html">sayfayı aç</a></span></div>
-    ${rekenErr ? `<div class="notice">Ayar okunamadı: <b>${esc(rekenErr)}</b>.</div>` : ""}
+  // One table per subject; both are saved together in settings/rekenen (topic ids are unique across the subjects)
+  const table = (title, topics, page) => `<section class="panel"><div class="sectionhead"><h3>${title}</h3><span class="muted">işaretli konuları öğrenciler görür · <a href="${page}">sayfayı aç</a></span></div>
     <div class="tablewrap"><table><thead><tr><th>Açık</th><th>Konu</th><th>Türkçe</th><th></th></tr></thead><tbody>
-    ${REKEN_TOPICS.map(t => `<tr><td><input type="checkbox" data-reken="${esc(t.id)}" ${rekenIsOpen(t) ? "checked" : ""} aria-label="${esc(t.nl)}"></td>
+    ${topics.map(t => `<tr><td><input type="checkbox" data-reken="${esc(t.id)}" ${rekenIsOpen(t) ? "checked" : ""} aria-label="${esc(t.nl)}"></td>
       <td><b>${esc(t.nl)}</b><br><span class="muted">${esc(t.sub_nl)}</span></td><td>${esc(t.tr)}</td>
-      <td><a href="kids/rekenen.html?konu=${esc(t.id)}">dene</a></td></tr>`).join("")}
-    </tbody></table></div>
-    <div class="row" style="margin-top:10px"><button class="btn primary" id="rk-save">Kaydet</button><span id="rk-msg"></span></div>
-    <p class="muted" style="font-size:13px;margin:10px 0 0">Kapalı konular öğrencilerde hiç görünmez. Sen yönetici olarak hepsini sayfada "gizli" etiketiyle görür ve deneyebilirsin.</p></section>`;
+      <td><a href="${page}${page.includes("?") ? "&" : "?"}konu=${esc(t.id)}">dene</a></td></tr>`).join("")}
+    </tbody></table></div></section>`;
+  return `${rekenErr ? `<div class="notice">Ayar okunamadı: <b>${esc(rekenErr)}</b>.</div>` : ""}
+    ${table("Rekenen &amp; meetkunde konuları", REKEN_TOPICS, "kids/rekenen.html")}
+    ${table("Natuur &amp; techniek konuları (fizik ve kimya)", NATUUR_TOPICS, "kids/rekenen.html?vak=natuur")}
+    <section class="panel"><div class="row"><button class="btn primary" id="rk-save">Kaydet</button><span id="rk-msg"></span></div>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Kapalı konular öğrencilerde hiç görünmez. Sen yönetici olarak hepsini sayfada "gizli" etiketiyle görür ve deneyebilirsin. Natuur &amp; techniek kartı, öğrencilerin ana sayfasında en az bir konusu açılınca görünür.</p></section>`;
 }
 async function saveReken() {
   const msg = document.getElementById("rk-msg");

@@ -70,7 +70,8 @@ svg .shape{fill:var(--figfill);stroke:var(--ink);stroke-width:2}
 svg .room{fill:none;stroke:var(--ink);stroke-width:2}
 svg line{stroke:var(--ink);stroke-width:1.5}
 svg .dash{stroke-dasharray:5 4}
-svg circle:not(.shape){fill:var(--ink)}
+svg circle:not(.shape):not(.room){fill:var(--ink)}
+svg .cell{stroke:var(--ink);stroke-width:.6;opacity:.55}
 svg text{font:13px var(--f-body);fill:var(--ink)}
 
 /* Quiz */
@@ -122,7 +123,7 @@ details.spiek summary{cursor:pointer;color:var(--muted)}
 
   <!-- MENU: one card per open topic -->
   <section id="menu" hidden>
-    <h1><mark>Rekenen</mark> &amp; meetkunde</h1>
+    <h1 id="pageH1"><mark>Rekenen</mark> &amp; meetkunde</h1>
     <p class="sub">Kies een onderwerp. Eerst de uitleg, dan oefenen, dan een toets.</p>
     <p class="sub tr">Bir konu seç. Önce anlatım, sonra alıştırma, sonra sınav.</p>
     <div class="topics" id="topics"></div>
@@ -196,17 +197,25 @@ details.spiek summary{cursor:pointer;color:var(--muted)}
 <script type="module">
 // Login and saving come from the shared site core; questions and theory from rekenen-vragen.js
 import { gate, userBox, saveAttempt, loadAttempts, isAdmin, db, esc } from "../js/core.js";
-import { TOPICS, THEORY, WORDS, makeQuestion, isCorrect } from "./rekenen-vragen.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-const MODULE = "g5-rekenen";              // module id of the saved rounds (also in data/catalog.json)
+// Two subjects share this page: rekenen (default) and natuur (?vak=natuur). Each has its own question file,
+// its own module id for the saved rounds (also in data/catalog.json) and its own title.
+const VAK = new URLSearchParams(location.search).get("vak") === "natuur" ? "natuur" : "rekenen";
+const SUBJECT = {
+  rekenen: { module: "g5-rekenen", file: "./rekenen-vragen.js", h1: "<mark>Rekenen</mark> &amp; meetkunde", title: "Rekenen & meetkunde" },
+  natuur: { module: "g5-natuur", file: "./natuur-vragen.js", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
+}[VAK];
+const MODULE = SUBJECT.module;
+const { TOPICS, THEORY, WORDS, makeQuestion, isCorrect } = await import(SUBJECT.file);
+document.title = SUBJECT.title; document.getElementById("pageH1").innerHTML = SUBJECT.h1;
 const $ = id => document.getElementById(id);
 const LEVELS = { 1: ["Makkelijk", "Kolay"], 2: ["Andersom", "Orta"], 3: ["Vraagstuk", "Problem"] };
 const both = (nl, tr) => `${nl} <span class="tr">· ${tr}</span>`;
 const dots = lv => `<span class="dots">${[1, 2, 3].map(i => `<i class="${i <= lv ? "on" : ""}"></i>`).join("")}</span>`;
 const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
-const { user: USER, profile } = await gate({ area: "kids", title: "Rekenen & meetkunde", seen: MODULE });
+const { user: USER, profile } = await gate({ area: "kids", title: SUBJECT.title, seen: MODULE });
 $("ub").innerHTML = userBox(USER, profile);
 const ADMIN = isAdmin(profile);
 
@@ -367,7 +376,7 @@ document.addEventListener("click", e => {
   const g = e.target.closest("[data-go]"); if (g) { if (g.dataset.go === "back") back(); else { renderMenu(); show("menu"); } }
 });
 
-// ?konu=<id> opens one topic directly (used by links from the home page or a mail)
+// ?konu=<id> opens one topic directly (used by links from the admin page or a mail)
 renderMenu();
 const want = new URLSearchParams(location.search).get("konu");
 if (want && visible().some(t => t.id === want)) openTopic(want); else show("menu");
