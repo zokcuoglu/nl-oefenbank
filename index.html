@@ -109,7 +109,7 @@ function card(m) {
     days !== null ? `<span class="chip accent num">sınava ${days} gün</span>` : "",
     last ? `<span class="chip num">son: ${fmtDate(last.finished_at)} · ${last.score}/${last.total}</span>` : (m.status === "ready" ? `<span class="chip">başlanmadı</span>` : "")
   ].join("");
-  const inner = `<span class="eyebrow">${esc(m.group ? cat.groups[m.group] : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : m.area === "dersler" ? "Ders" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
+  const inner = `<span class="eyebrow">${esc(m.group ? [].concat(m.group).map(g => cat.groups[g]).join(" · ") : m.area === "media" ? "Her gün" : m.area === "slimspel" ? "Slimspel" : m.area === "dersler" ? "Ders" : "NT2")}</span><h3>${esc(m.title)}</h3><p>${esc(m.desc)}</p><div class="row">${chips}</div>`;
   return m.status === "ready"
     ? `<a class="panel card" href="${ROOT}${m.href}">${inner}</a>`
     : `<article class="panel card soon">${inner}</article>`;
@@ -133,7 +133,7 @@ function kidsSection() {
   // Adults: their own groep (if set) comes first
   else if (profile.groep && groups.includes(profile.groep)) groups.sort((a, b) => (b === profile.groep) - (a === profile.groep));
   return groups.map(g => {
-    const ms = cat.modules.filter(m => m.area === "kids" && m.group === g && cardShown(m));
+    const ms = cat.modules.filter(m => m.area === "kids" && [].concat(m.group).includes(g) && cardShown(m));
     return `<section><div class="area-head"><h3>${esc(cat.groups[g])}${g === profile.groep ? ` <span class="chip accent">senin grubun</span>` : ""}</h3></div>
       <div class="cards" style="margin-top:12px">${ms.length ? ms.map(card).join("") : `<article class="panel card soon"><p>Henüz test yok. Okul dokümanları geldikçe eklenecek.</p></article>`}</div></section>`;
   }).join("");

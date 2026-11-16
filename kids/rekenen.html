@@ -60,6 +60,9 @@ body.nl-only .tr{display:none}
 /* Topic: theory blocks with the figure next to the text */
 .theory{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:12px;display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:center}
 .theory.nofig{grid-template-columns:1fr}
+/* Everyday example: dashed border and a label, so it reads as a story next to the rules */
+.theory.eg{border-style:dashed;background:color-mix(in srgb,var(--accent) 14%,var(--card))}
+.eglabel{font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .theory p{margin:0 0 8px}.theory p:last-child{margin:0}
 @media (max-width:560px){.theory{grid-template-columns:1fr}.theory svg{max-width:220px;margin:0 auto}}
 .words{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 18px;background:color-mix(in srgb,var(--accent) 30%,var(--card));border-radius:14px;padding:12px 16px;margin-top:12px;font-size:15px}
@@ -164,6 +167,7 @@ details.spiek summary{cursor:pointer;color:var(--muted)}
     <div class="qcard">
       <div class="figbox" id="qFig"></div>
       <p class="qtext" id="qNl"></p>
+      <button class="link" id="sayBtn" type="button" style="font-size:14px">🔊 Voorlezen <span class="tr">· Sesli oku</span></button>
       <p class="qtext tr" id="qTr"></p>
       <form class="ans" id="qForm" autocomplete="off">
         <input id="qIn" type="text" inputmode="numeric" aria-label="Antwoord">
@@ -188,7 +192,8 @@ details.spiek summary{cursor:pointer;color:var(--muted)}
     </div>
     <div id="rList"></div>
     <div class="actions">
-      <button class="btn" id="againBtn">Nog een keer · Tekrar</button>
+      <button class="btn" id="wrongBtn">Fouten opnieuw · Yanlışları tekrar</button>
+      <button class="btn ghost" id="againBtn">Nog een keer · Tekrar</button>
       <button class="btn ghost" data-go="back">Terug · Geri</button>
     </div>
   </section>
@@ -203,8 +208,8 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase
 // its own module id for the saved rounds (also in data/catalog.json) and its own title.
 const VAK = new URLSearchParams(location.search).get("vak") === "natuur" ? "natuur" : "rekenen";
 const SUBJECT = {
-  rekenen: { module: "g5-rekenen", file: "./rekenen-vragen.js", h1: "<mark>Rekenen</mark> &amp; meetkunde", title: "Rekenen & meetkunde" },
-  natuur: { module: "g5-natuur", file: "./natuur-vragen.js", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
+  rekenen: { module: "g5-rekenen", file: "./rekenen-vragen.js?v=2", h1: "<mark>Rekenen</mark> &amp; meetkunde", title: "Rekenen & meetkunde" },
+  natuur: { module: "g5-natuur", file: "./natuur-vragen.js?v=2", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
 }[VAK];
 const MODULE = SUBJECT.module;
 const { TOPICS, THEORY, WORDS, makeQuestion, isCorrect } = await import(SUBJECT.file);
@@ -260,7 +265,7 @@ function renderMenu() {
     return `<button class="tcard" data-topic="${t.id}">
       <h3>${esc(t.nl)}</h3><p class="tr">${esc(t.tr)}</p>
       <p>${esc(t.sub_nl)}</p><p class="tr">${esc(t.sub_tr)}</p>
-      <span class="row">${b ? `<span class="chip">Beste toets ${b.score}/${b.total}</span>` : ""}${isOpen(t) ? "" : `<span class="chip hid">gizli (sadece yönetici görür)</span>`}</span>
+      <span class="row">${b ? `<span class="chip">Beste toets ${b.score}/${b.total}</span><span class="chip" title="Sınavda ulaşılan en yüksek seviye">Niveau ${dots(Math.max(...toetsen(t.id).map(a => a.level_top || 1)))}</span>` : ""}${isOpen(t) ? "" : `<span class="chip hid">gizli (sadece yönetici görür)</span>`}</span>
     </button>`;
   }).join("") : `<div class="notice">Er zijn nog geen onderwerpen open. <span class="tr">Henüz açık konu yok.</span></div>`;
   const openList = TOPICS.filter(isOpen);
@@ -272,7 +277,9 @@ function renderMenu() {
 
 // ---------- topic ----------
 let TOPIC = null;
-const theoryHtml = id => THEORY[id].map(b => `<div class="theory ${b.fig ? "" : "nofig"}">${b.fig ? `<div>${b.fig}</div>` : ""}<div><p>${b.nl}</p><p class="tr">${b.tr}</p></div></div>`).join("");
+// withExamples = false leaves the everyday stories out (the cheat sheet during practice only needs the rules)
+const theoryHtml = (id, withExamples = true) => THEORY[id].filter(b => withExamples || !b.eg).map(b => `<div class="theory ${b.fig ? "" : "nofig"} ${b.eg ? "eg" : ""}">${b.fig ? `<div>${b.fig}</div>` : ""}<div>
+  ${b.eg ? `<p class="eglabel">Uit het dagelijks leven <span class="tr">· Günlük hayattan</span></p>` : ""}<p>${b.nl}</p><p class="tr">${b.tr}</p></div></div>`).join("");
 function openTopic(id) {
   TOPIC = topicOf(id);
   $("tTitle").textContent = TOPIC.nl; $("tTitleTr").textContent = TOPIC.tr;
@@ -287,20 +294,22 @@ function openTopic(id) {
 // S = the running round. kind "oefen": 5 questions at one level, the cheat sheet may be opened.
 // kind "toets": 5 or 10 questions; starts easy and goes up after two right answers in a row, down after a wrong one.
 let S = null;
-function start(kind, topicId, total, level) {
+// fixed (optional) = list of question ids "topic:level:kind" to ask in this order (used by "repeat my mistakes")
+function start(kind, topicId, total, level, fixed = null) {
   const mixed = topicId === "gemengd";
-  S = { kind, topicId, total, level, mixed, idx: 0, streak: 0, log: [], recent: [], t0: Date.now(), q: null, done: false,
+  S = { kind, topicId, total, level, mixed, fixed, idx: 0, streak: 0, log: [], recent: [], t0: Date.now(), q: null, done: false,
         pool: mixed ? TOPICS.filter(isOpen).map(t => t.id) : [topicId] };
   $("qName").innerHTML = mixed ? "Gemengd" : esc(topicOf(topicId).nl);
   $("qSpiek").hidden = kind === "toets" || mixed;     // no cheat sheet during a test
-  if (!mixed) $("qSpiekBody").innerHTML = theoryHtml(topicId);
+  if (!mixed) $("qSpiekBody").innerHTML = theoryHtml(topicId, false);
   show("quiz"); ask();
 }
 function ask() {
   // Mixed test: walk through the open topics in turn, so every topic gets its share
-  const tid = S.pool[S.idx % S.pool.length];
-  const q = S.q = makeQuestion(tid, S.level, S.recent);
-  S.recent = [...S.recent, q.id].slice(-3); S.done = false;
+  let tid = S.pool[S.idx % S.pool.length], kindIdx = null;
+  if (S.fixed) { const [t, lv, k] = S.fixed[S.idx].split(":"); tid = t; S.level = Number(lv); kindIdx = Number(k); }
+  const q = S.q = makeQuestion(tid, S.level, S.recent, kindIdx);
+  S.recent = [...S.recent, q.id].slice(-3); S.done = false; S.second = false;
   $("qCount").textContent = `${S.idx + 1} / ${S.total}`;
   $("qLevel").innerHTML = `${LEVELS[S.level][0]} ${dots(S.level)}`;
   $("qProg").style.width = `${100 * S.idx / S.total}%`;
@@ -320,10 +329,21 @@ function ask() {
 }
 function answer(given) {
   if (S.done) return;
-  const q = S.q, ok = isCorrect(q, given); S.done = true;
-  S.log.push({ q, given: String(given), ok, level: S.level });
+  const q = S.q, ok = isCorrect(q, given);
+  // Practice only: the first wrong typed answer gets a second try with the cheat sheet open. Finding the mistake
+  // yourself teaches more than reading the answer. The round still counts it as wrong (first try decides).
+  if (!ok && S.kind === "oefen" && !q.opts && !S.second) {
+    S.second = true; S.firstGiven = String(given);
+    $("qFb").innerHTML = `<div class="fb no"><b class="h">${both("Nog niet goed. Probeer het nog één keer.", "Henüz doğru değil. Bir kez daha dene.")}</b>
+      <p>${S.mixed ? "" : both("Kijk in het spiekbriefje hieronder.", "Aşağıdaki hatırlatmaya bak.")}</p></div>`;
+    if (!S.mixed) $("qSpiek").open = true;
+    $("qIn").select(); return;
+  }
+  S.done = true;
+  const second = !!S.second; S.second = false;
+  S.log.push({ q, given: second ? S.firstGiven : String(given), ok: ok && !second, level: S.level });
   const shown = q.opts ? q.opts.find(o => o.v === q.answer).nl : `${q.answer} ${q.unit}`.trim();
-  $("qFb").innerHTML = `<div class="fb ${ok ? "ok" : "no"}"><b class="h">${ok ? both("Goed!", "Doğru!") : both("Niet goed", "Yanlış")}</b>
+  $("qFb").innerHTML = `<div class="fb ${ok ? "ok" : "no"}"><b class="h">${ok ? (second ? both("Goed bij de tweede keer!", "İkinci denemede doğru!") : both("Goed!", "Doğru!")) : both("Niet goed", "Yanlış")}</b>
     ${ok ? "" : `<p>${both("Het goede antwoord", "Doğru cevap")}: <b>${esc(shown)}</b></p>`}
     <p>${q.ex_nl}</p><p class="tr">${q.ex_tr}</p></div>`;
   if (q.opts) $("qOpts").querySelectorAll(".opt").forEach(b => { b.disabled = true; if (b.dataset.v === String(q.answer)) b.classList.add("ok"); else if (b.dataset.v === String(given)) b.classList.add("no"); });
@@ -335,6 +355,12 @@ function answer(given) {
   }
   const nb = $("nextBtn"); nb.hidden = false; nb.textContent = S.idx + 1 >= S.total ? "Klaar · Bitti" : "Volgende →"; nb.focus();
 }
+// Reads the Dutch text with the browser's Dutch voice; signs are spoken as words
+$("sayBtn").hidden = !("speechSynthesis" in window);
+$("sayBtn").onclick = () => {
+  const txt = $("qNl").textContent.replace(/×/g, " keer ").replace(/÷/g, " gedeeld door ").replace(/²/g, " kwadraat").replace(/³/g, " tot de derde").replace(/√/g, " wortel ").replace(/π/g, " pi ").replace(/−/g, " min ");
+  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(txt); u.lang = "nl-NL"; u.rate = 0.85; speechSynthesis.speak(u);
+};
 $("qForm").onsubmit = e => { e.preventDefault(); if ($("qIn").value.trim() !== "") answer($("qIn").value); };
 $("qOpts").onclick = e => { const b = e.target.closest(".opt"); if (b && !b.disabled) answer(b.dataset.v); };
 $("nextBtn").onclick = () => { S.idx++; if (S.idx >= S.total) finish(); else ask(); };
@@ -361,11 +387,14 @@ function finish() {
       <p class="given">${both("Jouw antwoord", "Senin cevabın")}: <b>${esc(given)}</b>${l.ok ? " ✓" : ` ✗ &nbsp; ${both("Goed", "Doğrusu")}: <b>${esc(right)}</b>`}</p>
       ${l.ok ? "" : `<p>${q.ex_nl}</p><p class="tr">${q.ex_tr}</p>`}</article>`;
   }).join("");
+  $("wrongBtn").hidden = score === total;
   saveAttempt(USER.uid, MODULE, attempt).catch(e => $("rMsg").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${esc(e.code || "hata")}).</p>`));
   show("result");
 }
 function back() { if (S && !S.mixed) openTopic(S.topicId); else { renderMenu(); show("menu"); } }
-$("againBtn").onclick = () => start(S.kind, S.topicId, S.total, S.kind === "toets" ? startLevel(S.topicId) : S.log[0].level);
+// Same kinds of question as the ones answered wrong, with new numbers; saved as a practice round
+$("wrongBtn").onclick = () => { const ids = S.log.filter(l => !l.ok).map(l => l.q.id); start("oefen", S.topicId, ids.length, 1, ids); };
+$("againBtn").onclick = () => start(S.kind, S.topicId, S.total, S.kind === "toets" ? startLevel(S.topicId) : S.log[0].level, S.fixed);
 
 // ---------- clicks on menu and topic screens ----------
 document.addEventListener("click", e => {

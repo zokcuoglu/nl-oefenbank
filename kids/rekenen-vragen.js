@@ -461,10 +461,11 @@ GEN.natuurpatronen = [
 ];
 
 /** One fresh question of a topic at a level (1-3). `avoid` = ids used shortly before, to get some variety. */
-export const maker = gen => function makeQuestion(topicId, level, avoid = []) {
+// kind (optional) = index of one generator: used to give the same kind of question again with new numbers
+export const maker = gen => function makeQuestion(topicId, level, avoid = [], kind = null) {
   const list = gen[topicId][level - 1];
-  let i = ri(0, list.length - 1);
-  for (let t = 0; t < 6 && avoid.includes(`${topicId}:${level}:${i}`); t++) i = ri(0, list.length - 1);
+  let i = kind !== null && list[kind] ? kind : ri(0, list.length - 1);
+  for (let t = 0; kind === null && t < 6 && avoid.includes(`${topicId}:${level}:${i}`); t++) i = ri(0, list.length - 1);
   return { ...list[i](), id: `${topicId}:${level}:${i}`, topic: topicId, level };
 };
 export const makeQuestion = maker(GEN);
@@ -491,7 +492,9 @@ export const THEORY = {
     { fig: fig.circle("straal", false), nl: "<b>Cirkel</b>: de <b>straal</b> loopt van het midden naar de rand. De <b>diameter</b> loopt van rand tot rand door het midden.<br><b>Diameter = 2 × straal</b><br><b>Omtrek = π × diameter</b><br><b>Oppervlakte = π × straal × straal</b><br>π (pi) is ongeveer 3,14. Hier rekenen we met <b>π = 3</b>.",
       tr: "<b>Daire</b>: <b>yarıçap</b> merkezden kenara gider. <b>Çap</b> bir kenardan diğerine, merkezden geçer.<br><b>Çap = 2 × yarıçap</b><br><b>Çevre = π × çap</b><br><b>Alan = π × r × r</b><br>π (pi) yaklaşık 3,14. Burada <b>π = 3</b> alıyoruz." },
     { nl: "<b>Onthoud</b>: omtrek = eromheen lopen (hek, lint). Oppervlakte = bedekken (tapijt, verf).<br>Wat blijft vrij? Grote figuur − kleine figuur.",
-      tr: "<b>Aklında kalsın</b>: çevre = etrafında yürümek (çit, şerit). Alan = içini kaplamak (halı, boya).<br>Boş kalan yer = büyük şekil − küçük şekil." }
+      tr: "<b>Aklında kalsın</b>: çevre = etrafında yürümek (çit, şerit). Alan = içini kaplamak (halı, boya).<br>Boş kalan yer = büyük şekil − küçük şekil." },
+    { eg: true, nl: "<b>Voetbalveld</b>: de witte lijn eromheen is de <b>omtrek</b>, al het gras is de <b>oppervlakte</b>. Een veld van 100 m bij 60 m: een rondje langs de lijn is 320 m, en er ligt 6000 m² gras.<br><b>Pizza</b>: de korst is de omtrek, de hele pizza met kaas is de oppervlakte.<br><b>Proefje met π</b>: leg een touwtje om een blik of beker en meet het. Meet daarna hoe breed het blik is. Het touwtje is ongeveer 3 keer zo lang. Dat geldt voor elke cirkel, groot of klein: dat getal is π.",
+      tr: "<b>Futbol sahası</b>: etrafındaki beyaz çizgi <b>çevre</b>, bütün çim <b>alan</b>. 100 m × 60 m bir sahada çizgi boyunca bir tur 320 m eder, sahada 6000 m² çim vardır.<br><b>Pizza</b>: kenarındaki kabuk çevre, peynirli bütün pizza alan.<br><b>π deneyi</b>: bir konserve kutusunun ya da bardağın etrafına ip sar ve ölç. Sonra kutunun genişliğini ölç. İp yaklaşık 3 kat uzundur. Bu, büyük küçük her dairede böyledir: bu sayı π'dir." }
   ],
   som: [
     { nl: "Hoe tel je snel <b>1 + 2 + 3 + … + 10</b> op?<br>Maak paren: 1 + 10 = 11, 2 + 9 = 11, 3 + 8 = 11, 4 + 7 = 11, 5 + 6 = 11.<br>Dat zijn <b>5 paren van 11</b>: 5 × 11 = <b>55</b>.",
@@ -499,7 +502,9 @@ export const THEORY = {
     { nl: "<b>Regel</b>: 1 + 2 + … + n = <b>n × (n + 1) ÷ 2</b><br>Voorbeeld: tot 7 → 7 × 8 ÷ 2 = 56 ÷ 2 = 28.<br>Voorbeeld: tot 100 → 100 × 101 ÷ 2 = 5050.",
       tr: "<b>Kural</b>: 1 + 2 + … + n = <b>n × (n + 1) ÷ 2</b><br>Örnek: 7'ye kadar → 7 × 8 ÷ 2 = 56 ÷ 2 = 28.<br>Örnek: 100'e kadar → 100 × 101 ÷ 2 = 5050." },
     { nl: "Handig om te weten: de eerste n <b>oneven</b> getallen samen zijn n × n. Voorbeeld: 1 + 3 + 5 = 9 = 3 × 3.",
-      tr: "Bilmesi güzel: ilk n <b>tek</b> sayının toplamı n × n eder. Örnek: 1 + 3 + 5 = 9 = 3 × 3." }
+      tr: "Bilmesi güzel: ilk n <b>tek</b> sayının toplamı n × n eder. Örnek: 1 + 3 + 5 = 9 = 3 × 3." },
+    { eg: true, nl: "<b>Het verhaal van Gauss</b>: men vertelt dat de wiskundige Gauss als schooljongen alle getallen van 1 tot 100 moest optellen. De meester dacht dat de klas daar lang mee bezig zou zijn. Gauss zag de paren (1 + 100, 2 + 99, …) en had het antwoord bijna meteen: 5050.<br><b>Voetbal</b>: in de Eredivisie spelen 18 clubs. Speelt elke club één keer tegen elke andere, dan zijn dat 17 + 16 + … + 1 = 153 wedstrijden.",
+      tr: "<b>Gauss'un hikâyesi</b>: anlatılana göre matematikçi Gauss küçük bir öğrenciyken 1'den 100'e kadar bütün sayıları toplaması istenmiş. Öğretmen sınıfın uzun süre uğraşacağını düşünmüş. Gauss çiftleri görmüş (1 + 100, 2 + 99, …) ve cevabı hemen bulmuş: 5050.<br><b>Futbol</b>: Eredivisie'de 18 kulüp var. Her kulüp diğer her kulüple bir kez oynarsa 17 + 16 + … + 1 = 153 maç olur." }
   ],
   machten: [
     { nl: "<b>Macht</b>: het kleine getal zegt hoe vaak je het grote getal met zichzelf vermenigvuldigt.<br>5² = 5 × 5 = 25 (je zegt: vijf <b>kwadraat</b>)<br>2³ = 2 × 2 × 2 = 8 (twee tot de derde)",
@@ -507,51 +512,73 @@ export const THEORY = {
     { nl: "<b>Wortel</b> (√) is het omgekeerde van kwadraat.<br>√49 = 7, want 7 × 7 = 49.<br>Vraag jezelf: welk getal keer zichzelf geeft dit?",
       tr: "<b>Karekök</b> (√), karenin tersidir.<br>√49 = 7, çünkü 7 × 7 = 49.<br>Kendine sor: hangi sayı × kendisi bunu verir?" },
     { fig: fig.square("a"), nl: "Een vierkant met zijde a heeft oppervlakte a². Ken je de oppervlakte, dan is de zijde de wortel: oppervlakte 36 → zijde √36 = 6.",
-      tr: "Kenarı a olan karenin alanı a² olur. Alanı biliyorsan kenar kareköktür: alan 36 → kenar √36 = 6." }
+      tr: "Kenarı a olan karenin alanı a² olur. Alanı biliyorsan kenar kareköktür: alan 36 → kenar √36 = 6." },
+    { eg: true, nl: "<b>Papier vouwen</b>: vouw een blad dubbel en je hebt 2 lagen. Nog een keer: 4. Nog een keer: 8. Na 10 keer vouwen zouden het 2¹⁰ = 1024 lagen zijn. Daarom lukt het bijna niemand om een blad vaker dan 7 keer dubbel te vouwen.<br><b>Schaakbord</b>: 8 rijen van 8 vakjes, dus 8² = 64 vakjes.<br><b>Vierkante kamer</b>: weet je dat de vloer 25 m² is, dan is elke muur √25 = 5 m lang.",
+      tr: "<b>Kâğıt katlama</b>: bir kâğıdı ikiye katla, 2 kat olur. Bir daha: 4. Bir daha: 8. 10 kez katlasan 2¹⁰ = 1024 kat olurdu. Bu yüzden bir kâğıdı 7 kereden fazla katlamayı neredeyse kimse başaramaz.<br><b>Satranç tahtası</b>: 8 sıra, her sırada 8 kare, yani 8² = 64 kare.<br><b>Kare oda</b>: zeminin 25 m² olduğunu biliyorsan her duvar √25 = 5 m uzunluğundadır." }
   ],
   fibonacci: [
     { fig: fig.fibsquares(), nl: "De <b>rij van Fibonacci</b>: 1, 1, 2, 3, 5, 8, 13, 21, 34, …<br><b>Regel</b>: tel de laatste twee getallen op, dan heb je het volgende. 5 + 8 = 13, 8 + 13 = 21.<br>Vierkanten met zijden 1, 1, 2, 3 en 5 passen precies aan elkaar. Trek je daar een boog doorheen, dan krijg je een spiraal.",
       tr: "<b>Fibonacci dizisi</b>: 1, 1, 2, 3, 5, 8, 13, 21, 34, …<br><b>Kural</b>: son iki sayıyı topla, sıradaki sayıyı bulursun. 5 + 8 = 13, 8 + 13 = 21.<br>Kenarları 1, 1, 2, 3 ve 5 olan kareler birbirine tam oturur. İçlerinden bir yay çizersen spiral çıkar." },
     { nl: "<b>In de natuur</b> kom je deze getallen vaak tegen:<br>· bloemblaadjes: veel bloemen hebben er 3, 5, 8, 13 of 21<br>· dennenappel en zonnebloem: de spiralen naar links en naar rechts zijn vaak twee Fibonacci-getallen naast elkaar (8 en 13, of 21 en 34)<br>· een slakkenhuis groeit in een spiraal die op die van de vierkanten lijkt<br>Het klopt niet bij elke bloem, maar wel opvallend vaak.",
-      tr: "<b>Doğada</b> bu sayılara sık rastlanır:<br>· taç yapraklar: birçok çiçekte 3, 5, 8, 13 ya da 21 tane olur<br>· çam kozalağı ve ayçiçeği: sola ve sağa dönen spirallerin sayısı çoğu zaman art arda iki Fibonacci sayısıdır (8 ve 13 ya da 21 ve 34)<br>· salyangoz kabuğu, karelerdeki spirale benzeyen bir spiralle büyür<br>Her çiçekte tutmaz ama şaşırtıcı derecede sık tutar." }
+      tr: "<b>Doğada</b> bu sayılara sık rastlanır:<br>· taç yapraklar: birçok çiçekte 3, 5, 8, 13 ya da 21 tane olur<br>· çam kozalağı ve ayçiçeği: sola ve sağa dönen spirallerin sayısı çoğu zaman art arda iki Fibonacci sayısıdır (8 ve 13 ya da 21 ve 34)<br>· salyangoz kabuğu, karelerdeki spirale benzeyen bir spiralle büyür<br>Her çiçekte tutmaz ama şaşırtıcı derecede sık tutar." },
+    { eg: true, nl: "<b>Zelf kijken</b>: tel de spiralen op een ananas of een dennenappel. Je vindt bijna altijd 8 en 13, of 13 en 21. Tel de blaadjes van een madeliefje of een andere bloem en kijk of het getal in de rij staat.",
+      tr: "<b>Kendin bak</b>: bir ananasın ya da çam kozalağının spirallerini say. Neredeyse hep 8 ve 13 ya da 13 ve 21 bulursun. Bir papatyanın ya da başka bir çiçeğin yapraklarını say ve sayının dizide olup olmadığına bak." }
   ],
   natuurpatronen: [
     { nl: "<b>Symmetrie</b>: de ene helft is het spiegelbeeld van de andere. De vouwlijn heet <b>symmetrieas</b>. Een vlinder heeft er 1, een sneeuwvlok 6.<br><b>Zeshoeken</b>: bijen bouwen cellen met 6 zijden. Zeshoeken passen zonder gaten aan elkaar en er is weinig was voor nodig.<br><b>Vertakkingen</b>: bij een varen of een boom lijkt het kleine stuk op het grote. Zo'n patroon heet een <b>fractal</b>.",
-      tr: "<b>Simetri</b>: bir yarı, diğer yarının ayna görüntüsüdür. Katlama çizgisine <b>simetri ekseni</b> denir. Kelebekte 1, kar tanesinde 6 tane vardır.<br><b>Altıgenler</b>: arılar 6 kenarlı gözler yapar. Altıgenler arada boşluk kalmadan birbirine oturur ve az balmumu harcanır.<br><b>Dallanma</b>: eğrelti otunda ya da ağaçta küçük parça büyüğe benzer. Böyle örüntüye <b>fraktal</b> denir." }
+      tr: "<b>Simetri</b>: bir yarı, diğer yarının ayna görüntüsüdür. Katlama çizgisine <b>simetri ekseni</b> denir. Kelebekte 1, kar tanesinde 6 tane vardır.<br><b>Altıgenler</b>: arılar 6 kenarlı gözler yapar. Altıgenler arada boşluk kalmadan birbirine oturur ve az balmumu harcanır.<br><b>Dallanma</b>: eğrelti otunda ya da ağaçta küçük parça büyüğe benzer. Böyle örüntüye <b>fraktal</b> denir." },
+    { eg: true, nl: "<b>Zelf kijken</b>: snijd een appel dwars door (niet van steel naar onder, maar opzij): in het midden zie je een ster met 5 punten. Bekijk een blad van een varen of een stuk romanesco: elk klein stukje lijkt op het geheel. En een voetbal is gemaakt van vijfhoeken en zeshoeken die precies aan elkaar passen.",
+      tr: "<b>Kendin bak</b>: bir elmayı enine kes (saptan aşağı değil, yandan): ortada 5 köşeli bir yıldız görürsün. Bir eğrelti otu yaprağına ya da romanesco brokoliye bak: her küçük parça bütüne benzer. Futbol topu da birbirine tam oturan beşgen ve altıgenlerden yapılmıştır." }
   ],
   getallen: [
     { nl: "<b>Kwadraatgetallen</b>: 1, 4, 9, 16, 25, … (1×1, 2×2, 3×3, …). Je kunt er een vierkant van leggen.<br><b>Driehoeksgetallen</b>: 1, 3, 6, 10, 15, … (1, 1+2, 1+2+3, …). Je kunt er een driehoek van leggen.",
       tr: "<b>Kare sayılar</b>: 1, 4, 9, 16, 25, … (1×1, 2×2, 3×3, …). Bunlarla kare dizilir.<br><b>Üçgen sayılar</b>: 1, 3, 6, 10, 15, … (1, 1+2, 1+2+3, …). Bunlarla üçgen dizilir." },
     { nl: "Het n-de driehoeksgetal = n × (n + 1) ÷ 2. Twee driehoeksgetallen naast elkaar zijn samen een kwadraat: 6 + 10 = 16.",
-      tr: "n. üçgen sayı = n × (n + 1) ÷ 2. Art arda iki üçgen sayının toplamı bir kare sayıdır: 6 + 10 = 16." }
+      tr: "n. üçgen sayı = n × (n + 1) ÷ 2. Art arda iki üçgen sayının toplamı bir kare sayıdır: 6 + 10 = 16." },
+    { eg: true, nl: "<b>Bowlen</b>: de 10 kegels staan in een driehoek: 1 + 2 + 3 + 4 = 10, een driehoeksgetal.<br><b>Schaakbord</b>: 8 × 8 = 64 vakjes, een kwadraatgetal. Een doos met 6 rijen van 6 eieren: 36.",
+      tr: "<b>Bowling</b>: 10 kuka üçgen şeklinde dizilir: 1 + 2 + 3 + 4 = 10, bir üçgen sayı.<br><b>Satranç tahtası</b>: 8 × 8 = 64 kare, bir kare sayı. 6 sıra, her sırada 6 yumurta olan bir koli: 36." }
   ],
   driehoek: [
     { fig: fig.triangle("basis", "hoogte"), nl: "Een driehoek is de <b>helft van een rechthoek</b>.<br><b>Oppervlakte = basis × hoogte ÷ 2</b><br>Voorbeeld: basis 6 cm, hoogte 4 cm → 6 × 4 ÷ 2 = 12 cm².",
-      tr: "Üçgen, bir <b>dikdörtgenin yarısıdır</b>.<br><b>Alan = taban × yükseklik ÷ 2</b><br>Örnek: taban 6 cm, yükseklik 4 cm → 6 × 4 ÷ 2 = 12 cm²." }
+      tr: "Üçgen, bir <b>dikdörtgenin yarısıdır</b>.<br><b>Alan = taban × yükseklik ÷ 2</b><br>Örnek: taban 6 cm, yükseklik 4 cm → 6 × 4 ÷ 2 = 12 cm²." },
+    { eg: true, nl: "<b>Boterham</b>: snijd een vierkante boterham schuin door. Je hebt twee driehoeken die precies even groot zijn: elk de helft van de boterham. Zo werkt de regel ook: eerst de hele rechthoek uitrekenen, dan door 2 delen.",
+      tr: "<b>Tost ekmeği</b>: kare bir dilim ekmeği köşeden köşeye kes. Tam aynı büyüklükte iki üçgen olur: her biri ekmeğin yarısı. Kural da böyle çalışır: önce bütün dikdörtgeni hesapla, sonra 2'ye böl." }
   ],
   samengesteld: [
     { fig: fig.lshape("", "", "", ""), nl: "Een L-vorm knip je in <b>twee rechthoeken</b>. Reken van elk de oppervlakte uit en tel ze op.<br>Of: neem de grote rechthoek en haal het stuk dat ontbreekt eraf.",
-      tr: "L şeklini <b>iki dikdörtgene</b> böl. Her birinin alanını bul ve topla.<br>Ya da: büyük dikdörtgeni al, eksik parçayı çıkar." }
+      tr: "L şeklini <b>iki dikdörtgene</b> böl. Her birinin alanını bul ve topla.<br>Ya da: büyük dikdörtgeni al, eksik parçayı çıkar." },
+    { eg: true, nl: "<b>Je eigen huis</b>: bijna geen kamer is een nette rechthoek. Er zit een hoek uit voor de trap, of er is een stuk aangebouwd. Wie een vloer koopt, verdeelt de plattegrond in rechthoeken, rekent elk stuk uit en telt alles op.",
+      tr: "<b>Kendi evin</b>: neredeyse hiçbir oda düzgün bir dikdörtgen değildir. Merdiven için bir köşe eksiktir ya da bir bölüm sonradan eklenmiştir. Zemin kaplaması alan kişi krokiyi dikdörtgenlere böler, her parçayı hesaplar ve hepsini toplar." }
   ],
   inhoud: [
     { fig: fig.box("lengte", "breedte", "hoogte"), nl: "<b>Inhoud</b> = hoeveel erin past.<br><b>Doos: lengte × breedte × hoogte</b><br><b>Kubus: ribbe × ribbe × ribbe</b> (ribbe³)<br>1 dm³ = 1 liter.",
-      tr: "<b>Hacim</b> = içine ne kadar sığdığı.<br><b>Kutu: uzunluk × genişlik × yükseklik</b><br><b>Küp: kenar × kenar × kenar</b> (kenar³)<br>1 dm³ = 1 litre." }
+      tr: "<b>Hacim</b> = içine ne kadar sığdığı.<br><b>Kutu: uzunluk × genişlik × yükseklik</b><br><b>Küp: kenar × kenar × kenar</b> (kenar³)<br>1 dm³ = 1 litre." },
+    { eg: true, nl: "<b>Pak melk</b>: in een pak zit 1 liter. Een kubus van 10 cm bij 10 cm bij 10 cm is ook precies 1 liter: 10 × 10 × 10 = 1000 cm³.<br><b>Verhuisdoos</b>: twee keer zo lang, zo breed én zo hoog? Dan past er niet 2 keer, maar 2 × 2 × 2 = 8 keer zo veel in.",
+      tr: "<b>Süt kutusu</b>: bir kutuda 1 litre süt var. 10 cm × 10 cm × 10 cm bir küp de tam 1 litredir: 10 × 10 × 10 = 1000 cm³.<br><b>Taşınma kolisi</b>: boyu, eni ve yüksekliği iki katı olan bir koliye 2 kat değil, 2 × 2 × 2 = 8 kat fazla eşya sığar." }
   ],
   priem: [
     { nl: "Een <b>deler</b> van een getal past er precies in. De delers van 12: 1, 2, 3, 4, 6, 12.<br>Een <b>priemgetal</b> heeft precies twee delers: 1 en zichzelf. Voorbeelden: 2, 3, 5, 7, 11, 13.<br>1 is geen priemgetal.",
-      tr: "Bir sayının <b>böleni</b> o sayıyı tam böler. 12'nin bölenleri: 1, 2, 3, 4, 6, 12.<br><b>Asal sayının</b> tam iki böleni vardır: 1 ve kendisi. Örnekler: 2, 3, 5, 7, 11, 13.<br>1 asal sayı değildir." }
+      tr: "Bir sayının <b>böleni</b> o sayıyı tam böler. 12'nin bölenleri: 1, 2, 3, 4, 6, 12.<br><b>Asal sayının</b> tam iki böleni vardır: 1 ve kendisi. Örnekler: 2, 3, 5, 7, 11, 13.<br>1 asal sayı değildir." },
+    { eg: true, nl: "<b>Koekjes verdelen</b>: 12 koekjes kun je eerlijk verdelen over 2, 3, 4 of 6 kinderen. Met 13 koekjes lukt dat nooit: 13 is een priemgetal.<br><b>Cicaden</b>: in Amerika leven insecten die maar eens in de 13 of 17 jaar uit de grond komen. Allebei priemgetallen.",
+      tr: "<b>Kurabiye paylaşmak</b>: 12 kurabiye 2, 3, 4 ya da 6 çocuğa eşit paylaştırılabilir. 13 kurabiyeyle bu hiç olmaz: 13 bir asal sayıdır.<br><b>Ağustos böcekleri</b>: Amerika'da yalnızca 13 ya da 17 yılda bir topraktan çıkan böcekler yaşar. İkisi de asal sayı." }
   ],
   hoeken: [
     { nl: "Een hoek meet je in <b>graden</b> (°).<br><b>Scherpe hoek</b>: kleiner dan 90°. <b>Rechte hoek</b>: precies 90°. <b>Stompe hoek</b>: groter dan 90°.<br>De hoeken van een driehoek zijn samen 180°, van een vierhoek 360°.",
-      tr: "Açı <b>derece</b> (°) ile ölçülür.<br><b>Dar açı</b>: 90°'den küçük. <b>Dik açı</b>: tam 90°. <b>Geniş açı</b>: 90°'den büyük.<br>Üçgenin açıları toplamı 180°, dörtgenin 360°." }
+      tr: "Açı <b>derece</b> (°) ile ölçülür.<br><b>Dar açı</b>: 90°'den küçük. <b>Dik açı</b>: tam 90°. <b>Geniş açı</b>: 90°'den büyük.<br>Üçgenin açıları toplamı 180°, dörtgenin 360°." },
+    { eg: true, nl: "<b>Kijk om je heen</b>: om 3 uur maken de wijzers van de klok een rechte hoek. Een pizzapunt is een scherpe hoek. Een laptop die ver open staat maakt een stompe hoek. Een skater die een '360' doet, draait één keer helemaal rond.",
+      tr: "<b>Etrafına bak</b>: saat 3'te akrep ile yelkovan dik açı yapar. Bir pizza dilimi dar açıdır. Çok açılmış bir dizüstü bilgisayar geniş açı yapar. '360' yapan bir kaykaycı tam bir tur döner." }
   ],
   schaal: [
     { nl: "<b>Schaal 1 : 100</b> betekent: 1 cm op de tekening is 100 cm (1 m) in het echt.<br>Van tekening naar echt: <b>keer</b>. Van echt naar tekening: <b>delen</b>.",
-      tr: "<b>Ölçek 1 : 100</b> şu demek: çizimdeki 1 cm gerçekte 100 cm (1 m).<br>Çizimden gerçeğe: <b>çarp</b>. Gerçekten çizime: <b>böl</b>." }
+      tr: "<b>Ölçek 1 : 100</b> şu demek: çizimdeki 1 cm gerçekte 100 cm (1 m).<br>Çizimden gerçeğe: <b>çarp</b>. Gerçekten çizime: <b>böl</b>." },
+    { eg: true, nl: "<b>Madurodam</b> in Den Haag is gebouwd op schaal 1 : 25. Een toren die in het echt 100 m hoog is, is daar 4 m. Een mens van 1,75 m zou er 7 cm zijn.<br><b>Speelgoedauto</b>: op de doos staat vaak 1 : 64. De echte auto is 64 keer zo lang.",
+      tr: "Lahey'deki <b>Madurodam</b> 1 : 25 ölçeğiyle yapılmıştır. Gerçekte 100 m olan bir kule orada 4 m'dir. 1,75 m boyundaki bir insan orada 7 cm olurdu.<br><b>Oyuncak araba</b>: kutusunda çoğu zaman 1 : 64 yazar. Gerçek araba 64 kat uzundur." }
   ],
   negatief: [
     { nl: "Getallen <b>onder nul</b> hebben een min: −1, −2, −3, … Denk aan een thermometer.<br>Kouder = omlaag, warmer = omhoog.<br>Voorbeeld: 3 − 5 = −2. En −2 + 6 = 4.",
-      tr: "<b>Sıfırın altındaki</b> sayıların önünde eksi var: −1, −2, −3, … Termometreyi düşün.<br>Soğumak = aşağı, ısınmak = yukarı.<br>Örnek: 3 − 5 = −2. Ve −2 + 6 = 4." }
+      tr: "<b>Sıfırın altındaki</b> sayıların önünde eksi var: −1, −2, −3, … Termometreyi düşün.<br>Soğumak = aşağı, ısınmak = yukarı.<br>Örnek: 3 − 5 = −2. Ve −2 + 6 = 4." },
+    { eg: true, nl: "<b>Parkeergarage</b>: de verdiepingen onder de grond heten −1 en −2.<br><b>Nederland</b>: een groot deel van het land ligt lager dan de zee. Het laagste punt ligt bijna 7 meter onder zeeniveau: ongeveer −7 m.<br><b>Vriezer</b>: daar is het ongeveer −18 graden.",
+      tr: "<b>Otopark</b>: yerin altındaki katlara −1 ve −2 denir.<br><b>Hollanda</b>: ülkenin büyük bir bölümü deniz seviyesinden alçaktadır. En alçak nokta deniz seviyesinin neredeyse 7 metre altındadır: yaklaşık −7 m.<br><b>Dondurucu</b>: içi yaklaşık −18 derecedir." }
   ]
 };
 

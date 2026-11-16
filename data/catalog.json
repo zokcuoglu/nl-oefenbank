@@ -1,5 +1,5 @@
 {
-  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon. NT2 modules may have niveau \"B1\" or \"A2\" (inburgering); the home page shows the ones matching the exam level on the profile. No niveau = both (KNM). home: false = not shown as a card on the home page (still used for titles in mail/admin). open_any: list of topic ids (kids/rekenen.html); students see the card only when the admin opened at least one of them.",
+  "_about": "List of exercises shown on the home page. area: nt2 (adults only), kids (everyone, by groep) or slimspel (everyone, games on the Slimspel site). status: ready or soon. NT2 modules may have niveau \"B1\" or \"A2\" (inburgering); the home page shows the ones matching the exam level on the profile. No niveau = both (KNM). home: false = not shown as a card on the home page (still used for titles in mail/admin). open_any: list of topic ids (kids/rekenen.html); students see the card only when the admin opened at least one of them. group may be one groep or a list of groepen.",
   "areas": {
     "nt2": {
       "title": "NT2 sınavları",
@@ -187,7 +187,10 @@
     {
       "id": "g5-rekenen",
       "area": "kids",
-      "group": "groep5",
+      "group": [
+        "groep5",
+        "groep6"
+      ],
       "title": "Rekenen & meetkunde",
       "desc": "Çevre ve alan (kare, dikdörtgen, daire), 1'den n'e toplam, üslü sayılar ve karekök, Fibonacci dizisi. Konu anlatımı Hollandaca ve Türkçe, alıştırma ve kolaydan zora 5 ya da 10 soruluk sınav.",
       "href": "kids/rekenen.html",
@@ -196,7 +199,10 @@
     {
       "id": "g5-natuur",
       "area": "kids",
-      "group": "groep5",
+      "group": [
+        "groep5",
+        "groep6"
+      ],
       "title": "Natuur & techniek",
       "desc": "Işık, kütle ve özkütle, yüzme ve batma, atomlar. Konu anlatımı Hollandaca ve Türkçe, alıştırma ve kolaydan zora 5 ya da 10 soruluk sınav.",
       "href": "kids/rekenen.html?vak=natuur",
