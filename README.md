@@ -23,14 +23,15 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | Path | What it is |
 |---|---|
 | `index.html` | Home with three tabs: *Hollandaca* (general Dutch: news, words, kids area, Slimspel links, in foldable sections), *NT2 sınavı* (`#nt2`: exam cards for the level on the profile) and *Günün oyunları* (`#oyunlar`: Woordle in Turkish and Dutch, using `slimspel/woordle/game.js`). A "Devam et" row shows the three exercises used last. Child accounts see no tabs, only the kids area and Slimspel |
-| `profile.html` | Own name, groep, exam dates, progress |
-| `admin.html` | Admin only: change type and role of every account |
+| `profile.html` | Own name, groep, exam dates, progress. Parents see their linked children ("Çocuklarım"): groep, weekly summary, today's play time and a button for 10 extra minutes today |
+| `admin.html` | Admin only: change type and role of every account, statistics, mail, extra play time for children, and (tab *İçerik*) which Rekenen topics students see |
 | `js/core.js` | Shared: Firebase config, login gate, profile and attempt helpers |
 | `css/site.css` | Shared design for home, profile and admin |
 | `data/catalog.json` | List of exercises shown on the home page (add new ones here) |
 | `lezen/` + `data/lezen-bank.json` | NT2 Lezen I (B1) word practice |
 | `lezen/teksten.html` + `data/lezen-teksten.json` | Exam-style reading texts with questions and a 110-minute practice exam; source in `scripts/content/lezen/` (`build_teksten.py`) |
 | `kids/g5/eer-oor-eur.html` | Groep 5 spelling test |
+| `kids/rekenen.html` + `kids/rekenen-vragen.js` | Rekenen & meetkunde (card in Groep 5, module `g5-rekenen`): per topic a short explanation in Dutch and Turkish with figures and a word list, practice rounds of 5 at one level (1 straight sum, 2 the other way round, 3 word problem) and a test of 5 or 10 questions that starts easy, goes one level up after two right answers in a row and one down after a wrong one; the next test starts one level below where the last ended. Also a mixed test over all open topics. Questions are made by generators with random numbers (pi = 3, so answers are whole numbers); `?konu=<id>` opens one topic. Three topics are open by default (omtrek en oppervlakte, optellen van 1 tot n, machten en wortels), eight more are hidden; the admin page tab *İçerik* switches topics on and off (Firestore `settings/rekenen`), admins see hidden topics on the page marked "gizli". Rounds are saved with `test` = topic id (or `gemengd`), `kind` = `toets` / `oefen` and `qid` = `topic:level:kind` |
 | `kids/woordkaarten.html?lijst=weer` | School word lists (bron "school" in `scripts/content/school_woorden.csv`): flashcards, matching game and a link to the word test (`woorden/?lijst=weer`). Back side: Dutch definition or Turkish. One catalog card per list (id `school-<thema>`) |
 | Slimspel (`../slimspel/`) | Separate repo [slimspel](https://github.com/zokcuoglu/slimspel), same accounts; its modules (`slimspel-*`) are listed in `data/catalog.json` and appear in the statistics and the weekly mail (tafels: most-missed sums) |
 | `knm/` + `data/knm.json` | KNM question bank (moved from the KNM artifact) |

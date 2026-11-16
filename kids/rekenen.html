@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#C8551B">
+<title>Rekenen & meetkunde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@500;600;700&display=swap">
+<style>
+/* Same worksheet look as the other kids pages: one centered column, one screen at a time (menu -> topic -> quiz -> result) */
+:root{
+  --paper:#eef3fb; --card:#ffffff; --ink:#1d2a4d; --muted:#5b6788; --line:#c9d4ea;
+  --accent:#ffd84d; --accent-ink:#1d2a4d; --figfill:#dfe9fb;
+  --good:#1f8a4c; --good-bg:#e1f5e8; --bad:#c4372e; --bad-bg:#fde6e3;
+  --f-display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Andika","Verdana",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#121a2e;--card:#1b2540;--ink:#e6ecfa;--muted:#9aa6c4;--line:#2e3a5c;--figfill:#2a3a63;
+  --accent:#f5cf3a;--good:#5fd18e;--good-bg:#173a28;--bad:#ff8077;--bad-bg:#45201d;color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 48px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;font-size:14px}
+.top a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+h1{font-size:clamp(26px,6vw,36px)}
+h1 mark{background:linear-gradient(transparent 55%,var(--accent) 55%);color:inherit;padding:0 .1em}
+h2{font-size:21px;margin-top:26px}
+.sub{color:var(--muted);margin:.2rem 0 0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.link{background:none;border:0;padding:0;text-decoration:underline;color:var(--muted)}
+.btn{background:var(--ink);color:var(--card);border:2px solid var(--ink);border-radius:12px;padding:9px 16px;font-family:var(--f-display);font-weight:600}
+.btn.ghost{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn small,.btn small.tr{display:block;font-family:var(--f-body);font-weight:400;font-size:12px;opacity:.8;color:inherit}
+.chip{display:inline-block;font-family:var(--f-display);font-weight:600;font-size:14px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:2px 10px;font-variant-numeric:tabular-nums}
+.chip.hid{border-style:dashed;color:var(--muted)}
+/* Turkish lines are smaller and softer, so the Dutch (school language) stays the main text */
+.tr{color:var(--muted);font-size:.88em}
+body.nl-only .tr{display:none}
+.lang{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;font-size:13px}
+.lang button{border:0;background:none;padding:4px 10px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+
+/* Menu */
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:18px}
+.tcard{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:4px;transition:border-color .15s,transform .15s}
+.tcard:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tcard h3{font-size:20px}
+.tcard p{margin:0;font-size:15px}
+.tcard .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mixed{background:var(--card);border:2px dashed var(--line);border-radius:14px;padding:16px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* Topic: theory blocks with the figure next to the text */
+.theory{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:12px;display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:center}
+.theory.nofig{grid-template-columns:1fr}
+.theory p{margin:0 0 8px}.theory p:last-child{margin:0}
+@media (max-width:560px){.theory{grid-template-columns:1fr}.theory svg{max-width:220px;margin:0 auto}}
+.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 18px;background:color-mix(in srgb,var(--accent) 30%,var(--card));border-radius:14px;padding:12px 16px;margin-top:12px;font-size:15px}
+.words b{font-weight:700}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+svg{display:block;width:100%;height:auto}
+svg .shape{fill:var(--figfill);stroke:var(--ink);stroke-width:2}
+svg .room{fill:none;stroke:var(--ink);stroke-width:2}
+svg line{stroke:var(--ink);stroke-width:1.5}
+svg .dash{stroke-dasharray:5 4}
+svg circle:not(.shape){fill:var(--ink)}
+svg text{font:13px var(--f-body);fill:var(--ink)}
+
+/* Quiz */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.dots{display:inline-flex;gap:3px;vertical-align:middle;margin-left:4px}.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--ink)}
+.progress{height:8px;background:var(--line);border-radius:99px;margin:12px 0 18px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);width:0;transition:width .25s}
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:22px 20px}
+.qcard .figbox{max-width:260px;margin:0 auto 12px}
+.qtext{font-size:clamp(19px,4.4vw,23px);margin:0 0 6px}
+.qtext.tr{font-size:16px;margin-bottom:16px}
+.ans{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.ans input{font:inherit;font-size:22px;font-family:var(--f-display);width:150px;padding:8px 12px;border:2px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);text-align:center}
+.unit{font-family:var(--f-display);font-size:18px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}
+.opt{background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:12px;font-family:var(--f-display);font-size:19px}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.ok{background:var(--good-bg);border-color:var(--good)}.opt.no{background:var(--bad-bg);border-color:var(--bad)}
+.fb{border-radius:12px;padding:12px 14px;margin-top:14px}
+.fb.ok{background:var(--good-bg)}.fb.no{background:var(--bad-bg)}
+.fb b.h{font-family:var(--f-display);font-size:18px}
+.fb.ok b.h{color:var(--good)}.fb.no b.h{color:var(--bad)}
+.fb p{margin:4px 0 0}
+details.spiek{margin-top:14px}
+details.spiek summary{cursor:pointer;color:var(--muted)}
+
+/* Result */
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-family:var(--f-display);font-size:26px;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.rbox{background:var(--card);border:2px solid var(--line);border-left:6px solid var(--good);border-radius:12px;padding:12px 14px;margin-top:10px}
+.rbox.no{border-left-color:var(--bad)}
+.rbox p{margin:0 0 4px}
+.rbox .given{font-family:var(--f-display)}
+.saveerr{color:var(--bad)}
+.notice{background:var(--card);border:2px dashed var(--line);border-radius:12px;padding:12px 14px;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="../">← Ana sayfa</a>
+    <span class="lang" role="group" aria-label="Taal">
+      <button id="lBoth" aria-pressed="true">NL + TR</button><button id="lNl" aria-pressed="false">alleen NL</button>
+    </span>
+    <span id="ub"></span>
+  </header>
+
+  <!-- MENU: one card per open topic -->
+  <section id="menu" hidden>
+    <h1><mark>Rekenen</mark> &amp; meetkunde</h1>
+    <p class="sub">Kies een onderwerp. Eerst de uitleg, dan oefenen, dan een toets.</p>
+    <p class="sub tr">Bir konu seç. Önce anlatım, sonra alıştırma, sonra sınav.</p>
+    <div class="topics" id="topics"></div>
+    <div id="mixedBox"></div>
+  </section>
+
+  <!-- TOPIC: theory, word list, then practice or test -->
+  <section id="topic" hidden>
+    <button class="link" data-go="menu">← Onderwerpen · Konular</button>
+    <h1 id="tTitle" style="margin-top:8px"></h1>
+    <p class="sub tr" id="tTitleTr"></p>
+    <h2>Uitleg <span class="tr">· Konu anlatımı</span></h2>
+    <div id="tTheory"></div>
+    <div class="words" id="tWords"></div>
+    <h2>Oefenen <span class="tr">· Alıştırma (5 soru, hatırlatma açık)</span></h2>
+    <div class="actions">
+      <button class="btn ghost" data-oefen="1">Makkelijk<small class="tr">Kolay: düz hesap</small></button>
+      <button class="btn ghost" data-oefen="2">Andersom<small class="tr">Orta: tersinden</small></button>
+      <button class="btn ghost" data-oefen="3">Vraagstukken<small class="tr">Zor: problemler</small></button>
+    </div>
+    <h2>Toets <span class="tr">· Sınav (kolaydan zora)</span></h2>
+    <div class="actions">
+      <button class="btn" data-toets="5">5 vragen<small class="tr">5 soru</small></button>
+      <button class="btn" data-toets="10">10 vragen<small class="tr">10 soru</small></button>
+    </div>
+    <p class="sub" id="tBest"></p>
+  </section>
+
+  <!-- QUIZ: one question at a time; check, read the explanation, next -->
+  <section id="quiz" hidden>
+    <div class="bar">
+      <button class="link" id="quitBtn">← Stoppen</button>
+      <span class="chip" id="qName"></span>
+      <span class="chip" id="qCount"></span>
+      <span class="chip" id="qLevel"></span>
+    </div>
+    <div class="progress"><span id="qProg"></span></div>
+    <div class="qcard">
+      <div class="figbox" id="qFig"></div>
+      <p class="qtext" id="qNl"></p>
+      <p class="qtext tr" id="qTr"></p>
+      <form class="ans" id="qForm" autocomplete="off">
+        <input id="qIn" type="text" inputmode="numeric" aria-label="Antwoord">
+        <span class="unit" id="qUnit"></span>
+        <button class="btn" id="checkBtn" type="submit">Controleer</button>
+      </form>
+      <div class="opts" id="qOpts"></div>
+      <div id="qFb"></div>
+      <div class="actions"><button class="btn" id="nextBtn" hidden>Volgende →</button></div>
+      <details class="spiek" id="qSpiek"><summary>Spiekbriefje · Hatırlatma</summary><div id="qSpiekBody"></div></details>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" hidden>
+    <h1 id="rTitle"></h1>
+    <p class="sub" id="rMsg"></p>
+    <div class="summary">
+      <div class="stat"><b id="rScore"></b><span>Goed / Doğru</span></div>
+      <div class="stat"><b id="rTime"></b><span>Tijd / Süre</span></div>
+      <div class="stat"><b id="rLevel"></b><span>Niveau / Seviye</span></div>
+    </div>
+    <div id="rList"></div>
+    <div class="actions">
+      <button class="btn" id="againBtn">Nog een keer · Tekrar</button>
+      <button class="btn ghost" data-go="back">Terug · Geri</button>
+    </div>
+  </section>
+</div>
+
+<script type="module">
+// Login and saving come from the shared site core; questions and theory from rekenen-vragen.js
+import { gate, userBox, saveAttempt, loadAttempts, isAdmin, db, esc } from "../js/core.js";
+import { TOPICS, THEORY, WORDS, makeQuestion, isCorrect } from "./rekenen-vragen.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const MODULE = "g5-rekenen";              // module id of the saved rounds (also in data/catalog.json)
+const $ = id => document.getElementById(id);
+const LEVELS = { 1: ["Makkelijk", "Kolay"], 2: ["Andersom", "Orta"], 3: ["Vraagstuk", "Problem"] };
+const both = (nl, tr) => `${nl} <span class="tr">· ${tr}</span>`;
+const dots = lv => `<span class="dots">${[1, 2, 3].map(i => `<i class="${i <= lv ? "on" : ""}"></i>`).join("")}</span>`;
+const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+
+const { user: USER, profile } = await gate({ area: "kids", title: "Rekenen & meetkunde", seen: MODULE });
+$("ub").innerHTML = userBox(USER, profile);
+const ADMIN = isAdmin(profile);
+
+// ---------- language: Dutch with Turkish underneath, or Dutch only (remembered in this browser) ----------
+function setLang(nlOnly) {
+  document.body.classList.toggle("nl-only", nlOnly);
+  $("lBoth").setAttribute("aria-pressed", !nlOnly); $("lNl").setAttribute("aria-pressed", nlOnly);
+  try { localStorage.setItem("rekenen:nlonly", nlOnly ? "1" : ""); } catch {}
+}
+$("lBoth").onclick = () => setLang(false); $("lNl").onclick = () => setLang(true);
+try { setLang(localStorage.getItem("rekenen:nlonly") === "1"); } catch { setLang(false); }
+
+// ---------- which topics are open ----------
+// The admin page stores { open: { topicId: true|false } } in settings/rekenen. A topic not mentioned there
+// keeps its default from TOPICS. If the document cannot be read (rules not published yet), the defaults apply.
+let openMap = {};
+try { const sn = await getDoc(doc(db, "settings", "rekenen")); if (sn.exists()) openMap = sn.data().open || {}; } catch (e) {}
+const isOpen = t => typeof openMap[t.id] === "boolean" ? openMap[t.id] : t.open;
+// Students see open topics only; the admin sees all of them (hidden ones are marked) to try them before opening
+const visible = () => TOPICS.filter(t => ADMIN || isOpen(t));
+const topicOf = id => TOPICS.find(t => t.id === id);
+
+// ---------- saved rounds: best test score and the level reached last time, per topic ----------
+let ATTEMPTS = [];
+try { ATTEMPTS = await loadAttempts(USER.uid, MODULE); } catch (e) {}
+const toetsen = id => ATTEMPTS.filter(a => a.test === id && a.kind === "toets" && a.total);
+function best(id) {
+  const t = toetsen(id); if (!t.length) return null;
+  return t.reduce((m, a) => a.score / a.total > m.score / m.total ? a : m);
+}
+// A new test starts one level below where the last one ended, so a child who is past the easy sums does not
+// have to redo all of them, but still gets a warm-up question
+const startLevel = id => { const t = toetsen(id)[0]; return t ? Math.max(1, (t.level_end || 1) - 1) : 1; };
+
+function show(id) { ["menu", "topic", "quiz", "result"].forEach(s => $(s).hidden = s !== id); window.scrollTo(0, 0); }
+
+// ---------- menu ----------
+function renderMenu() {
+  const list = visible();
+  $("topics").innerHTML = list.length ? list.map(t => {
+    const b = best(t.id);
+    return `<button class="tcard" data-topic="${t.id}">
+      <h3>${esc(t.nl)}</h3><p class="tr">${esc(t.tr)}</p>
+      <p>${esc(t.sub_nl)}</p><p class="tr">${esc(t.sub_tr)}</p>
+      <span class="row">${b ? `<span class="chip">Beste toets ${b.score}/${b.total}</span>` : ""}${isOpen(t) ? "" : `<span class="chip hid">gizli (sadece yönetici görür)</span>`}</span>
+    </button>`;
+  }).join("") : `<div class="notice">Er zijn nog geen onderwerpen open. <span class="tr">Henüz açık konu yok.</span></div>`;
+  const openList = TOPICS.filter(isOpen);
+  const b = best("gemengd");
+  $("mixedBox").innerHTML = openList.length < 2 ? "" : `<div class="mixed">
+    <div><h3>Gemengde toets</h3><p class="tr" style="margin:0">Karışık sınav: açık bütün konulardan</p>${b ? `<span class="chip">Beste ${b.score}/${b.total}</span>` : ""}</div>
+    <div class="actions" style="margin:0"><button class="btn" data-mixed="5">5 vragen</button><button class="btn" data-mixed="10">10 vragen</button></div></div>`;
+}
+
+// ---------- topic ----------
+let TOPIC = null;
+const theoryHtml = id => THEORY[id].map(b => `<div class="theory ${b.fig ? "" : "nofig"}">${b.fig ? `<div>${b.fig}</div>` : ""}<div><p>${b.nl}</p><p class="tr">${b.tr}</p></div></div>`).join("");
+function openTopic(id) {
+  TOPIC = topicOf(id);
+  $("tTitle").textContent = TOPIC.nl; $("tTitleTr").textContent = TOPIC.tr;
+  $("tTheory").innerHTML = theoryHtml(id);
+  $("tWords").innerHTML = WORDS[id].map(([nl, tr]) => `<span><b>${esc(nl)}</b> = ${esc(tr)}</span>`).join("");
+  const b = best(id);
+  $("tBest").innerHTML = b ? both(`Beste toets tot nu toe: ${b.score}/${b.total}.`, `Şimdiye kadarki en iyi sınav: ${b.score}/${b.total}.`) : "";
+  show("topic");
+}
+
+// ---------- quiz ----------
+// S = the running round. kind "oefen": 5 questions at one level, the cheat sheet may be opened.
+// kind "toets": 5 or 10 questions; starts easy and goes up after two right answers in a row, down after a wrong one.
+let S = null;
+function start(kind, topicId, total, level) {
+  const mixed = topicId === "gemengd";
+  S = { kind, topicId, total, level, mixed, idx: 0, streak: 0, log: [], recent: [], t0: Date.now(), q: null, done: false,
+        pool: mixed ? TOPICS.filter(isOpen).map(t => t.id) : [topicId] };
+  $("qName").innerHTML = mixed ? "Gemengd" : esc(topicOf(topicId).nl);
+  $("qSpiek").hidden = kind === "toets" || mixed;     // no cheat sheet during a test
+  if (!mixed) $("qSpiekBody").innerHTML = theoryHtml(topicId);
+  show("quiz"); ask();
+}
+function ask() {
+  // Mixed test: walk through the open topics in turn, so every topic gets its share
+  const tid = S.pool[S.idx % S.pool.length];
+  const q = S.q = makeQuestion(tid, S.level, S.recent);
+  S.recent = [...S.recent, q.id].slice(-3); S.done = false;
+  $("qCount").textContent = `${S.idx + 1} / ${S.total}`;
+  $("qLevel").innerHTML = `${LEVELS[S.level][0]} ${dots(S.level)}`;
+  $("qProg").style.width = `${100 * S.idx / S.total}%`;
+  $("qFig").innerHTML = q.fig || ""; $("qFig").hidden = !q.fig;
+  $("qNl").innerHTML = q.nl; $("qTr").innerHTML = q.tr;
+  $("qFb").innerHTML = ""; $("nextBtn").hidden = true; $("qSpiek").open = false;
+  if (q.opts) {
+    $("qForm").hidden = true; $("qOpts").hidden = false;
+    $("qOpts").innerHTML = q.opts.map(o => `<button class="opt" data-v="${esc(o.v)}">${esc(o.nl)}${o.tr !== o.nl ? `<br><span class="tr">${esc(o.tr)}</span>` : ""}</button>`).join("");
+  } else {
+    $("qOpts").hidden = true; $("qForm").hidden = false;
+    $("qIn").value = ""; $("qIn").disabled = false; $("checkBtn").disabled = false;
+    // Negative answers need a minus key, which the number pad of some phones does not have
+    $("qIn").inputMode = tid === "negatief" ? "text" : "numeric";
+    $("qUnit").textContent = q.unit; $("qIn").focus();
+  }
+}
+function answer(given) {
+  if (S.done) return;
+  const q = S.q, ok = isCorrect(q, given); S.done = true;
+  S.log.push({ q, given: String(given), ok, level: S.level });
+  const shown = q.opts ? q.opts.find(o => o.v === q.answer).nl : `${q.answer} ${q.unit}`.trim();
+  $("qFb").innerHTML = `<div class="fb ${ok ? "ok" : "no"}"><b class="h">${ok ? both("Goed!", "Doğru!") : both("Niet goed", "Yanlış")}</b>
+    ${ok ? "" : `<p>${both("Het goede antwoord", "Doğru cevap")}: <b>${esc(shown)}</b></p>`}
+    <p>${q.ex_nl}</p><p class="tr">${q.ex_tr}</p></div>`;
+  if (q.opts) $("qOpts").querySelectorAll(".opt").forEach(b => { b.disabled = true; if (b.dataset.v === String(q.answer)) b.classList.add("ok"); else if (b.dataset.v === String(given)) b.classList.add("no"); });
+  else { $("qIn").disabled = true; $("checkBtn").disabled = true; }
+  // Test: two right in a row -> one level up; a wrong answer -> one level down. Practice stays at the chosen level.
+  if (S.kind === "toets") {
+    if (ok) { if (++S.streak >= 2 && S.level < 3) { S.level++; S.streak = 0; } }
+    else { S.streak = 0; if (S.level > 1) S.level--; }
+  }
+  const nb = $("nextBtn"); nb.hidden = false; nb.textContent = S.idx + 1 >= S.total ? "Klaar · Bitti" : "Volgende →"; nb.focus();
+}
+$("qForm").onsubmit = e => { e.preventDefault(); if ($("qIn").value.trim() !== "") answer($("qIn").value); };
+$("qOpts").onclick = e => { const b = e.target.closest(".opt"); if (b && !b.disabled) answer(b.dataset.v); };
+$("nextBtn").onclick = () => { S.idx++; if (S.idx >= S.total) finish(); else ask(); };
+$("quitBtn").onclick = () => back();
+
+// ---------- result ----------
+function finish() {
+  const score = S.log.filter(l => l.ok).length, total = S.log.length, secs = Math.round((Date.now() - S.t0) / 1000);
+  const top = Math.max(...S.log.map(l => l.level));
+  const title = S.mixed ? "Gemengde toets" : topicOf(S.topicId).nl;
+  // One saved round. qid = topic:level:kind, so the statistics can show which kind of sum goes wrong most often
+  const attempt = { kind: S.kind, test: S.topicId, title, started_at: new Date(S.t0).toISOString(), finished_at: new Date().toISOString(),
+    duration_s: secs, score, total, level_end: S.level, level_top: top,
+    answers: S.log.map(l => ({ qid: l.q.id, chosen: l.given, correct: l.ok, level: l.level })) };
+  ATTEMPTS.unshift(attempt);
+  $("rTitle").textContent = title + (S.kind === "toets" ? " · toets" : " · oefenen");
+  $("rMsg").innerHTML = score === total ? both("Alles goed! 🎉", "Hepsi doğru!") : score >= total * 0.7 ? both("Goed gedaan!", "Aferin!") : both("Lees de uitleg nog een keer en probeer het opnieuw.", "Anlatımı bir daha oku ve tekrar dene.");
+  $("rScore").textContent = `${score}/${total}`; $("rTime").textContent = fmt(secs);
+  $("rLevel").innerHTML = `${LEVELS[top][0]} ${dots(top)}`;
+  $("rList").innerHTML = S.log.map((l, i) => {
+    const q = l.q, right = q.opts ? q.opts.find(o => o.v === q.answer).nl : `${q.answer} ${q.unit}`.trim();
+    const given = q.opts ? (q.opts.find(o => String(o.v) === l.given)?.nl || l.given) : l.given;
+    return `<article class="rbox ${l.ok ? "" : "no"}"><p><b>${i + 1}.</b> ${q.nl}</p><p class="tr">${q.tr}</p>
+      <p class="given">${both("Jouw antwoord", "Senin cevabın")}: <b>${esc(given)}</b>${l.ok ? " ✓" : ` ✗ &nbsp; ${both("Goed", "Doğrusu")}: <b>${esc(right)}</b>`}</p>
+      ${l.ok ? "" : `<p>${q.ex_nl}</p><p class="tr">${q.ex_tr}</p>`}</article>`;
+  }).join("");
+  saveAttempt(USER.uid, MODULE, attempt).catch(e => $("rMsg").insertAdjacentHTML("afterend", `<p class="saveerr">Sonuç kaydedilemedi (${esc(e.code || "hata")}).</p>`));
+  show("result");
+}
+function back() { if (S && !S.mixed) openTopic(S.topicId); else { renderMenu(); show("menu"); } }
+$("againBtn").onclick = () => start(S.kind, S.topicId, S.total, S.kind === "toets" ? startLevel(S.topicId) : S.log[0].level);
+
+// ---------- clicks on menu and topic screens ----------
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-topic]"); if (t) return openTopic(t.dataset.topic);
+  const o = e.target.closest("[data-oefen]"); if (o) return start("oefen", TOPIC.id, 5, Number(o.dataset.oefen));
+  const x = e.target.closest("[data-toets]"); if (x) return start("toets", TOPIC.id, Number(x.dataset.toets), startLevel(TOPIC.id));
+  const m = e.target.closest("[data-mixed]"); if (m) return start("toets", "gemengd", Number(m.dataset.mixed), startLevel("gemengd"));
+  const g = e.target.closest("[data-go]"); if (g) { if (g.dataset.go === "back") back(); else { renderMenu(); show("menu"); } }
+});
+
+// ?konu=<id> opens one topic directly (used by links from the home page or a mail)
+renderMenu();
+const want = new URLSearchParams(location.search).get("konu");
+if (want && visible().some(t => t.id === want)) openTopic(want); else show("menu");
+</script>
+</body>
+</html>

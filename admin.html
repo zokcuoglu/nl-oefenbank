@@ -62,6 +62,7 @@ setTimeout(function () {
 // The page is hidden from non-admins, and firestore.rules also refuse their reads and writes.
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
 import { summarize, pct, recentRounds, dayBars, scoreChips } from "./js/stats.js";
+import { TOPICS as REKEN_TOPICS } from "./kids/rekenen-vragen.js";
 import { collection, getDocs, getDoc, setDoc, doc, updateDoc, addDoc, query, orderBy, limit, increment } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -79,8 +80,11 @@ let users = [], news = [], newsErr = "";
 const PLAY_LIMIT_S = 15 * 60;
 const todayNL = () => new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
 let play = {}, playErr = "";
-// The page has three tabs; the choice is kept in the URL hash (#istatistik) so a reload stays on the same tab
-const TABS = { bugun: "Bugün", hesaplar: "Hesaplar", istatistik: "İstatistik", eposta: "E-posta" };
+// The page has five tabs; the choice is kept in the URL hash (#istatistik) so a reload stays on the same tab
+const TABS = { bugun: "Bugün", hesaplar: "Hesaplar", istatistik: "İstatistik", icerik: "İçerik", eposta: "E-posta" };
+// Rekenen topics (kids/rekenen.html): which ones students see. Stored in settings/rekenen as { open: { id: bool } };
+// a topic that is not in there keeps its default from kids/rekenen-vragen.js.
+let rekenOpen = {}, rekenErr = "";
 let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : "bugun";
 // Accounts tab: which group is shown, the search text, and whose edit card is open
 const FILTERS = { all: "Hepsi", pending: "Onay bekleyen", adult: "Yetişkin", child: "Öğrenci", blocked: "Engelli" };
@@ -114,6 +118,10 @@ async function load() {
     const ls = await getDocs(query(collection(db, "nieuws_sent"), orderBy("date", "desc"), limit(30)));
     sentNews = ls.docs.map(d => d.data()); lastNews = sentNews[0] || null;
   } catch (e) { schedErr = e.code || e.message; }
+  try {
+    const rs = await getDoc(doc(db, "settings", "rekenen"));
+    rekenOpen = rs.exists() ? (rs.data().open || {}) : {}; rekenErr = "";
+  } catch (e) { rekenErr = e.code || e.message; }
   try {
     [cat, nieuws, teksten, woorden, dersler] = await Promise.all(["catalog", "nieuws", "lezen-teksten", "woorden", "dersler"].map(f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => r.json())));
     // One read of each account's attempts (fine for a small group)
@@ -335,7 +343,7 @@ function render() {
   const pending = users.filter(u => statusOf(u) === "pending").length;
   const tabs = `<nav class="seg admintabs" role="tablist">${Object.entries(TABS).map(([k, v]) =>
     `<button role="tab" class="${tab === k ? "on" : ""}" data-tab="${k}" aria-selected="${tab === k}">${v}${k === "hesaplar" && pending ? ` <span class="chip accent">${pending}</span>` : ""}</button>`).join("")}</nav>`;
-  app.innerHTML = tabs + (tab === "bugun" ? todayHtml() : tab === "istatistik" ? statsHtml() : tab === "eposta" ? mailTab() : `
+  app.innerHTML = tabs + (tab === "bugun" ? todayHtml() : tab === "istatistik" ? statsHtml() : tab === "eposta" ? mailTab() : tab === "icerik" ? contentTab() : `
     <section class="panel">
       <div class="accbar">
         <input class="input" id="acc-q" type="search" placeholder="İsim ya da e-posta ara" value="${esc(search)}" autocomplete="off">
@@ -490,6 +498,26 @@ function playHtml() {
     </tbody></table></div>`}</section>`;
 }
 
+// Content tab: switch each Rekenen & meetkunde topic on or off for students. Admins always see every topic on the page itself.
+const rekenIsOpen = t => typeof rekenOpen[t.id] === "boolean" ? rekenOpen[t.id] : t.open;
+function contentTab() {
+  return `<section class="panel"><div class="sectionhead"><h3>Rekenen &amp; meetkunde konuları</h3><span class="muted">işaretli konuları öğrenciler görür · <a href="kids/rekenen.html">sayfayı aç</a></span></div>
+    ${rekenErr ? `<div class="notice">Ayar okunamadı: <b>${esc(rekenErr)}</b>.</div>` : ""}
+    <div class="tablewrap"><table><thead><tr><th>Açık</th><th>Konu</th><th>Türkçe</th><th></th></tr></thead><tbody>
+    ${REKEN_TOPICS.map(t => `<tr><td><input type="checkbox" data-reken="${esc(t.id)}" ${rekenIsOpen(t) ? "checked" : ""} aria-label="${esc(t.nl)}"></td>
+      <td><b>${esc(t.nl)}</b><br><span class="muted">${esc(t.sub_nl)}</span></td><td>${esc(t.tr)}</td>
+      <td><a href="kids/rekenen.html?konu=${esc(t.id)}">dene</a></td></tr>`).join("")}
+    </tbody></table></div>
+    <div class="row" style="margin-top:10px"><button class="btn primary" id="rk-save">Kaydet</button><span id="rk-msg"></span></div>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Kapalı konular öğrencilerde hiç görünmez. Sen yönetici olarak hepsini sayfada "gizli" etiketiyle görür ve deneyebilirsin.</p></section>`;
+}
+async function saveReken() {
+  const msg = document.getElementById("rk-msg");
+  const open = Object.fromEntries([...document.querySelectorAll("[data-reken]")].map(c => [c.dataset.reken, c.checked]));
+  try { await setDoc(doc(db, "settings", "rekenen"), { open, updated_at: new Date().toISOString(), updated_by: user.uid }); rekenOpen = open; msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
+  catch (e) { msg.innerHTML = `<span class="err-msg">Kaydedilemedi: ${esc(e.code || e.message)}</span>`; }
+}
+
 // E-mail tab: write an announcement, the schedule, and what was sent
 function mailTab() {
   return `
@@ -517,6 +545,7 @@ app.addEventListener("click", async e => {
   if (wb) { who = wb.dataset.who; render(); return; }
   if (e.target.id === "n-send") return queueNews();
   if (e.target.id === "sc-save") return saveSched();
+  if (e.target.id === "rk-save") return saveReken();
   // +10 minutes play time for this child, today only (the child's page sees it at once)
   const xb = e.target.closest("[data-extra]");
   if (xb) {

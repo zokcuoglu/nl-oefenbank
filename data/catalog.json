@@ -185,6 +185,15 @@
       "status": "ready"
     },
     {
+      "id": "g5-rekenen",
+      "area": "kids",
+      "group": "groep5",
+      "title": "Rekenen & meetkunde",
+      "desc": "Çevre ve alan (kare, dikdörtgen, daire), 1'den n'e toplam, üslü sayılar ve karekök. Konu anlatımı Hollandaca ve Türkçe, alıştırma ve kolaydan zora 5 ya da 10 soruluk sınav.",
+      "href": "kids/rekenen.html",
+      "status": "ready"
+    },
+    {
       "id": "slimspel-woordle-tr",
       "area": "slimspel",
       "title": "Woordle (Türkçe)",

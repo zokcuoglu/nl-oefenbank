@@ -35,7 +35,7 @@ setTimeout(function () {
 // Profile: own name, groep (children), exam dates (adults), e-mail choices and own statistics.
 // Type and role are shown read-only: only an admin can change them.
 import { gate, userBox, esc, updateProfile, loadAllAttempts, TYPES, ROLES, roleOf, db, isAdmin, isPreview } from "./js/core.js";
-import { collection, getDocs, query, where, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { collection, getDocs, getDoc, setDoc, increment, query, where, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { summarize, pct, recentRounds, streak, dayBars, scoreChips } from "./js/stats.js";
 
 const app = document.getElementById("app");
@@ -154,6 +154,17 @@ async function drawKids() {
     return;
   }
   if (!kids.length) return;
+  // Play time today (users/{child}/speeltijd/{day}, written by slimspel/js/speeltijd.js): 15 minutes a day plus extra.
+  // If it cannot be read (rules not published yet) the play-time line is simply left out.
+  const PLAY_LIMIT_S = 15 * 60, mins = s => Math.round(s / 60);
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
+  const play = {};
+  await Promise.all(kids.map(async k => {
+    try { const sn = await getDoc(doc(db, "users", k.uid, "speeltijd", today)); play[k.uid] = { used_s: 0, extra_s: 0, ...(sn.exists() ? sn.data() : {}) }; } catch (e) {}
+  }));
+  const playLine = k => { const p = play[k.uid]; if (!p) return ""; const lim = PLAY_LIMIT_S + (p.extra_s || 0);
+    return `<div class="row" style="margin-top:8px;gap:10px;flex-wrap:wrap"><span class="muted">Bugünkü oyun süresi: <b id="k-p-${esc(k.uid)}">${mins(Math.min(p.used_s, lim))} / ${mins(lim)} dk</b></span>
+      <button class="btn" data-kidextra="${esc(k.uid)}">+10 dk bugün</button><span id="k-x-${esc(k.uid)}"></span></div>`; };
   box.innerHTML = `<section class="panel"><span class="eyebrow">Çocuklarım</span>
     <p class="muted" style="margin:6px 0 12px">Okul grubu öğrencinin hangi alıştırmaları göreceğini belirler. Her yaz kendiliğinden bir artar. Haftalık özet hem çocuğa hem sana gider.</p>
     ${kids.map(k => `<div class="formgrid" style="align-items:end;margin-top:10px">
@@ -161,7 +172,20 @@ async function drawKids() {
       <div class="field"><label for="k-g-${esc(k.uid)}">Okul grubu</label><select class="input" id="k-g-${esc(k.uid)}"><option value="">Seç</option>${Object.entries(GROEPEN).map(([v, t]) => `<option value="${v}" ${k.groep === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
       <div class="field"><label>E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="k-w-${esc(k.uid)}" ${k.email_weekly === false ? "" : "checked"}> Haftalık özet</label></div>
       <div class="field"><div class="row"><button class="btn" data-kid="${esc(k.uid)}">Kaydet</button><span id="k-m-${esc(k.uid)}"></span></div></div>
-    </div>`).join("")}</section>`;
+    </div>${playLine(k)}`).join("")}</section>`;
+  // +10 minutes play time for this child, today only (same field the admin page uses: extra_s)
+  box.querySelectorAll("[data-kidextra]").forEach(b => b.onclick = async () => {
+    const uid = b.dataset.kidextra, msg = document.getElementById("k-x-" + uid);
+    if (isPreview()) { msg.innerHTML = `<span class="muted">Görünüm modunda kaydedilmez.</span>`; return; }
+    b.disabled = true;
+    try {
+      await setDoc(doc(db, "users", uid, "speeltijd", today), { extra_s: increment(600), updated_at: new Date().toISOString() }, { merge: true });
+      const p = play[uid]; p.extra_s = (p.extra_s || 0) + 600; const lim = PLAY_LIMIT_S + p.extra_s;
+      document.getElementById("k-p-" + uid).textContent = `${mins(Math.min(p.used_s, lim))} / ${mins(lim)} dk`;
+      msg.innerHTML = `<span class="ok-msg">10 dk eklendi.</span>`;
+    } catch (e) { msg.innerHTML = `<span class="err-msg">Eklenemedi: ${esc(e.code || e.message)}</span>`; }
+    b.disabled = false;
+  });
   box.querySelectorAll("[data-kid]").forEach(b => b.onclick = async () => {
     const uid = b.dataset.kid, msg = document.getElementById("k-m-" + uid);
     const data = { groep: document.getElementById("k-g-" + uid).value || null, email_weekly: document.getElementById("k-w-" + uid).checked };

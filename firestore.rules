@@ -13,6 +13,7 @@ rules_version = '2';
 // announcements/*  : written by admin, sent by the mailer job
 // nieuws_sent/{date}: news mail log, written by the mailer job, read by approved users
 // settings/mail     : mail schedule (day + hour per job), edited on the admin page, read by the mailer job
+// settings/rekenen  : which Rekenen & meetkunde topics students see ({ open: { topicId: bool } }), edited on the admin page
 // mail_log/*        : weekly summary log, written by the mailer job, read by admin
 // leaderboard/{day}/entries/{key-uid} : Slimspel daily ranking (first name, time, hints); children write
 //                    their own entry once, approved accounts read it
@@ -91,21 +92,25 @@ service cloud.firestore {
       }
 
       // Play time of a child per day (slimspel/js/speeltijd.js): { used_s, extra_s, updated_at }.
-      // The child's page only adds seconds (used_s never goes down); only the admin sets extra_s (extra minutes).
+      // The child's page only adds seconds (used_s never goes down); the admin and the child's linked parent
+      // set extra_s (extra minutes, profile page "Çocuklarım").
       match /speeltijd/{day} {
-        allow read: if isOwner(uid) || isAdmin();
+        function mayExtend() {
+          return isAdmin() || isParentOf(get(/databases/$(database)/documents/users/$(uid)).data);
+        }
+        allow read: if isOwner(uid) || mayExtend();
         allow create: if day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
           && ((isOwner(uid)
                 && request.resource.data.keys().hasOnly(['used_s', 'updated_at'])
                 && request.resource.data.used_s is int && request.resource.data.used_s >= 0 && request.resource.data.used_s <= 86400)
-            || (isAdmin()
+            || (mayExtend()
                 && request.resource.data.keys().hasOnly(['used_s', 'extra_s', 'updated_at'])
                 && request.resource.data.extra_s is int && request.resource.data.extra_s >= 0 && request.resource.data.extra_s <= 36000));
         allow update: if (isOwner(uid)
             && changed().hasOnly(['used_s', 'updated_at'])
             && request.resource.data.used_s is int
             && request.resource.data.used_s >= resource.data.get('used_s', 0) && request.resource.data.used_s <= 86400)
-          || (isAdmin()
+          || (mayExtend()
             && changed().hasOnly(['extra_s', 'updated_at'])
             && request.resource.data.extra_s is int && request.resource.data.extra_s >= 0 && request.resource.data.extra_s <= 36000);
         allow delete: if isAdmin();
@@ -133,6 +138,10 @@ service cloud.firestore {
     // Site settings (mail schedule): admin only
     match /settings/{id} {
       allow read, write: if isAdmin();
+    }
+    // Which Rekenen & meetkunde topics are open (kids/rekenen.html): approved accounts may read it, the admin writes it (rule above)
+    match /settings/rekenen {
+      allow read: if signedIn() && isApproved(request.auth.uid);
     }
 
     // Mailer job's own log (weekly summary): admin may read it
