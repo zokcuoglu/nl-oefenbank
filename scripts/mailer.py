@@ -588,6 +588,7 @@ def woord_mail(w, greeting):
     head = f"{w['lidwoord']} {w['woord']}".strip()
     rel = [v for v in w["verwant"] if v["taal"] != "Hollandaca"][:4]
     plain = [greeting, "", f"BU HAFTANIN KELİMESİ ({w['niveau']})", f"{head}  –  {w['tr']}", w["definitie"], "", w["kort"], "",
+             ] + (["ANLAM ZİNCİRİ", "  " + " → ".join(k["nl"] for k in w["keten"]), ""] if w.get("keten") else []) + [
              "KELİMEYİ PARÇALA"] + [f"  • {p['deel']}: {p['uitleg']}" for p in w["opbouw"]] + ["",
              "AKRABALARI"] + [f"  • {v['taal']}: {v['woord']} ({v['uitleg']})" for v in rel] + ["",
              "AİLESİ"] + [f"  • {f['nl']} – {f['tr']}" for f in w["familie"][:4]] + ["",
@@ -602,6 +603,9 @@ def woord_mail(w, greeting):
              + f'<div style="font-size:17px;margin:4px 0 2px">{esc(w["tr"])}</div>'
              + f'<div style="color:{C["muted"]};font-style:italic" lang="nl">{esc(w["definitie"])}</div>'
              + f'<p style="line-height:1.6;margin:14px 0 0">{esc(w["kort"])}</p>'
+             + (label("Anlam zinciri") + f'<div style="font-size:16px;font-weight:700;line-height:1.6">{" → ".join(esc(k["nl"]) for k in w["keten"])}</div>'
+                + "".join(row(k["nl"], k["uitleg"]) for k in w["keten"][1:]) if w.get("keten") else "")
+             + (label("Dikkat") + f'<div style="line-height:1.55"><b>{esc(w["anders"]["titel"])}</b><br>{esc(w["anders"]["tekst"])}</div>' if w.get("anders") else "")
              + label("Kelimeyi parçala") + "".join(row(p["deel"], p["uitleg"]) for p in w["opbouw"])
              + label("Akrabaları") + "".join(row(f'{v["taal"]}: {v["woord"]}', v["uitleg"]) for v in rel)
              + label("Ailesi") + "".join(row(f["nl"], f["tr"]) for f in w["familie"][:4])

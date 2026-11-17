@@ -23,6 +23,14 @@ ol.story{margin:10px 0 0;padding-left:22px;max-width:70ch} ol.story li{margin:4p
 .ex{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:10px;font-size:15px}
 .ex b{font-weight:600} .ex span{color:var(--muted)}
 @media (max-width:560px){.ex{grid-template-columns:1fr}.ex span{margin-bottom:8px}}
+.chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin-top:12px}
+.step{flex:1 1 150px;background:var(--sunk);border-radius:10px;padding:10px 12px;position:relative}
+.step b{font-family:var(--display);font-size:18px;display:block}
+.step i{display:block;color:var(--accent);font-style:normal;font-size:13.5px;margin:2px 0 4px}
+.step span{font-size:13.5px;color:var(--muted)}
+.arrow{align-self:center;color:var(--accent);font-size:20px}
+@media (max-width:560px){.arrow{transform:rotate(90deg);width:100%;text-align:center}}
+.anders{border:1px dashed var(--line);border-radius:10px;padding:12px 16px;margin-top:4px}
 .weetje{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:12px 16px;max-width:75ch}
 .qtr2{font-family:var(--display);font-size:20px;font-weight:700;margin:6px 0 14px}
 .typed{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
@@ -108,10 +116,15 @@ function renderWord() {
       <p class="muted" style="margin:4px 0 0" lang="nl"><i>${esc(w.definitie)}</i></p>
       <p style="margin:12px 0 0;max-width:68ch">${esc(w.kort)}</p>
     </section>
-    <section class="panel"><span class="eyebrow">Kelimeyi parçala</span>
+    ${w.keten ? `<section class="panel"><span class="eyebrow">Anlam zinciri</span>
+      <p class="muted" style="margin:6px 0 0;max-width:68ch">Kelimenin anlamı adım adım nasıl değişti?</p>
+      <div class="chain">${w.keten.map((k, i) => `${i ? '<span class="arrow" aria-hidden="true">→</span>' : ""}<div class="step"><b>${esc(k.nl)}</b><i lang="nl">${esc(k.tr)}</i><span>${esc(k.uitleg)}</span></div>`).join("")}</div></section>` : ""}
+    <section class="panel"><span class="eyebrow">${w.keten ? "Aynı kelimenin iki yüzü" : "Kelimeyi parçala"}</span>
       <div class="parts">${w.opbouw.map(p => `<div class="part"><b lang="nl">${esc(p.deel)}</b>${esc(p.uitleg)}</div>`).join("")}</div></section>
     <section class="panel"><span class="eyebrow">Kökeni</span>
       <ol class="story">${w.geschiedenis.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>
+    ${w.anders ? `<section class="panel"><span class="eyebrow">Dikkat</span><div class="anders"><h3 style="margin:0 0 6px">${esc(w.anders.titel)}</h3>
+      <p style="margin:0;max-width:68ch">${esc(w.anders.tekst)}</p>${exList(w.anders.voorbeelden)}</div></section>` : ""}
     <section class="panel"><span class="eyebrow">Başka dillerdeki akrabaları</span>
       <div class="tablewrap" style="margin-top:8px"><table><tbody>${w.verwant.map(v => `<tr><td class="muted">${esc(v.taal)}</td><td><b>${esc(v.woord)}</b></td><td class="muted">${esc(v.uitleg)}</td></tr>`).join("")}</tbody></table></div></section>
     <section class="panel"><span class="eyebrow">Ailesi ve birleşik kelimeler</span>${exList(w.familie)}</section>

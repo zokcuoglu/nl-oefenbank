@@ -1,126 +1,183 @@
 {
- "_about": "Weekly word studies (woordstudie/). Each word: meaning, how the word is built (opbouw), its history (geschiedenis), relatives in other languages (verwant), words from the same family (familie), example sentences, a grammar note, a 'weetje' and 5 questions (mc: opties + juist index; type: antwoorden). 'datum' = the Tuesday it is published and mailed (scripts/mailer.py job 'woord'); members see a word from that day, admins always. Sources are listed per word in 'bronnen'; only add etymology that a source confirms.",
+ "_about": "Weekly word studies (woordstudie/). Each word: meaning, how the word is built (opbouw), its history (geschiedenis), relatives in other languages (verwant), words from the same family (familie), example sentences, a grammar note, a 'weetje' and 5 questions; optional 'keten' (the chain of meanings, shown as steps) and 'anders' (a word spelled the same that is a different word) (mc: opties + juist index; type: antwoorden). 'datum' = the Tuesday it is published and mailed (scripts/mailer.py job 'woord'); members see a word from that day, admins always. Sources are listed per word in 'bronnen'; only add etymology that a source confirms.",
  "woorden": [
   {
-   "id": "serveerschaal",
+   "id": "schaal",
    "datum": "2026-11-24",
-   "woord": "serveerschaal",
+   "woord": "schaal",
    "lidwoord": "de",
-   "meervoud": "serveerschalen",
+   "meervoud": "schalen",
    "niveau": "A2",
    "thema": "eten",
-   "tr": "servis tabağı / servis kasesi",
-   "definitie": "Een grote schaal waarin je eten op tafel zet, zodat iedereen zelf kan opscheppen.",
-   "kort": "Fransızcadan gelen bir fiil kökü ile öz Hollandaca bir ismin birleşimi. Türkçedeki “servis tabağı” ile birebir aynı yapı.",
-   "opbouw": [
+   "tr": "kase, yayvan tabak; terazi kefesi; kabuk",
+   "definitie": "Een open, ondiepe kom of bord, bijvoorbeeld voor fruit of om eten op tafel te zetten.",
+   "kort": "Bir kabuğun ikiye ayrılmış yarısı hem içki kabı, hem terazinin kefesi olmuş; kefeden de terazinin kendisi. Tek bir kelimenin şekil benzerliğiyle nasıl yol aldığının güzel bir örneği. Dikkat: “ölçek” anlamındaki schaal bambaşka bir kelime.",
+   "keten": [
     {
-     "deel": "serveer",
-     "uitleg": "serveren (servis yapmak, sunmak) fiilinin kökü. Hollandacaya Fransızca servir'den geçmiş; o da Latince servire'den. Latincede servire “hizmet etmek”, hatta ilk anlamıyla “köle olmak” demekti (servus = köle, hizmetkâr)."
+     "nl": "*skal-",
+     "tr": "yarmak, ayırmak",
+     "uitleg": "Germen kökü: bir şeyi ikiye ayırmak, kabuğunu soymak."
     },
     {
-     "deel": "schaal",
-     "uitleg": "Kase, yayvan tabak. Öz Germen kelimesi: Orta Hollandaca scale, Proto-Germen *skēlō. Almancadaki Schale (kase) ile birebir akraba."
+     "nl": "kabuk",
+     "tr": "eierschaal, Schale",
+     "uitleg": "Yarılınca ayrılan dış kat: kabuk, kılıf."
+    },
+    {
+     "nl": "kase",
+     "tr": "fruitschaal",
+     "uitleg": "İkiye ayrılmış bir kabuğun yarısı çukur bir kap gibidir: içki kabı, kase."
+    },
+    {
+     "nl": "kefe",
+     "tr": "de schaal van een weegschaal",
+     "uitleg": "Terazinin iki ucundaki çukur kaplar da birer kase."
+    },
+    {
+     "nl": "terazi",
+     "tr": "de weegschaal, Engels: scales",
+     "uitleg": "Kefenin adı bütün aletin adı olmuş."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "schaal (kase)",
+     "uitleg": "Orta Hollandaca scale, Proto-Germen *skēlō. “Kabuk” anlamındaki *skaljō ile akraba. Almanca Schale (kase) ile birebir aynı kelime."
+    },
+    {
+     "deel": "schaal (kabuk)",
+     "uitleg": "Aynı aileden: de eierschaal (yumurta kabuğu), schaaldieren (kabuklu deniz hayvanları). Almancada Schale bugün hem kase hem kabuk demek."
     }
    ],
    "geschiedenis": [
-    "Latince servus (köle, hizmetkâr) → servire (hizmet etmek).",
-    "Eski Fransızca servir: hizmet etmek, sofraya yemek getirmek.",
-    "Hollandaca serveren: yemek ya da içecek sunmak (geçmişte: serveerde, geserveerd).",
-    "Hollandaca schaal ise Fransızcadan gelmedi: Germen dillerinde zaten vardı (Orta Hollandaca scale).",
-    "İkisi birleşince: serveerschaal, “servis yapılan kase”."
+    "Germen kökü “yarmak, ayırmak”; buradan “kabuk” anlamı çıkmış.",
+    "İkiye ayrılmış bir kabuğun yarısı içki kabı ya da tartı kabı olarak kullanılmış; bağlantı büyük ihtimalle bu şekil benzerliği.",
+    "Eski İskandinavcada skál: kase, içki kabı; çoğulu “terazi”. İngilizce scale buradan: önce “içki kabı”, sonra “terazi kefesi”, en son bütün terazi.",
+    "Hollandacada aynı yol: schaal = kase ve kefe; wegen (tartmak) + schaal → de weegschaal (terazi).",
+    "Ölçek anlamındaki schaal ise bu zincirde yok: Latince scala (merdiven) kelimesinden ayrıca girmiş (aşağıdaki kutuya bak)."
    ],
+   "anders": {
+    "titel": "Aynı yazılır, ama ayrı kelime: schaal = ölçek",
+    "tekst": "op grote schaal (büyük ölçekte), de schaal van een kaart (haritanın ölçeği), de schaal van Celsius. Bu schaal Latince scala (merdiven, basamak) kelimesinden Almanca Skala ve İngilizce scale üzerinden geçmiş. Mantığı: basamak basamak bölünmüş bir dizi. İngilizcede de iki ayrı scale var: scales (terazi, kase zincirinden) ve scale (ölçek, merdivenden). Hollandacada ikisi tesadüfen aynı biçime düşmüş.",
+    "voorbeelden": [
+     {
+      "nl": "Het bedrijf werkt op grote schaal.",
+      "tr": "Şirket büyük ölçekte çalışıyor."
+     },
+     {
+      "nl": "De kaart heeft een schaal van 1:50.000.",
+      "tr": "Haritanın ölçeği 1:50.000."
+     },
+     {
+      "nl": "Op een schaal van 1 tot 10, hoe tevreden ben je?",
+      "tr": "1'den 10'a kadar bir ölçekte ne kadar memnunsun?"
+     }
+    ]
+   },
    "verwant": [
-    {
-     "taal": "İngilizce",
-     "woord": "serve, service, servant",
-     "uitleg": "aynı Latince kökten, Fransızca üzerinden"
-    },
-    {
-     "taal": "Fransızca",
-     "woord": "servir, service, serviette",
-     "uitleg": "serviette (peçete) Hollandacada servet oldu"
-    },
-    {
-     "taal": "Türkçe",
-     "woord": "servis",
-     "uitleg": "Fransızca service'ten; “servis tabağı” = serveerschaal"
-    },
     {
      "taal": "Almanca",
      "woord": "Schale",
-     "uitleg": "kase, yayvan kap: schaal'ın doğrudan akrabası"
+     "uitleg": "kase, tabak; ayrıca kabuk: aynı kelime"
     },
     {
      "taal": "İngilizce",
-     "woord": "scale (terazi kefesi)",
-     "uitleg": "Eski İskandinavca skál “kase”den; aynı Germen kökü"
+     "woord": "scales, scale (terazi)",
+     "uitleg": "Eski İskandinavca skál “kase”den: içki kabı → kefe → terazi"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "shell",
+     "uitleg": "kabuk: aynı Germen kökünden, daha uzak akraba"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "scale (balık pulu)",
+     "uitleg": "aynı kökten, Eski Fransızca escale üzerinden"
     },
     {
      "taal": "İsveççe / Danca",
      "woord": "skål!",
-     "uitleg": "“Şerefe!”: kelimesi kelimesine “kase”, içilen kaptan"
+     "uitleg": "“Şerefe!”: kelimesi kelimesine “kase”"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "scale (ölçek)",
+     "uitleg": "AYRI kelime: Latince scala “merdiven”"
     }
    ],
    "familie": [
     {
-     "nl": "serveren",
-     "tr": "servis yapmak, sunmak"
+     "nl": "de weegschaal",
+     "tr": "terazi (wegen + schaal)"
     },
     {
-     "nl": "het servet",
-     "tr": "peçete"
-    },
-    {
-     "nl": "de schaal",
-     "tr": "kase, yayvan kap"
-    },
-    {
-     "nl": "het schaaltje",
-     "tr": "küçük kase"
+     "nl": "de keukenweegschaal",
+     "tr": "mutfak terazisi"
     },
     {
      "nl": "de fruitschaal",
      "tr": "meyve tabağı"
     },
     {
+     "nl": "de serveerschaal",
+     "tr": "servis tabağı (serveren + schaal)"
+    },
+    {
+     "nl": "de ovenschaal",
+     "tr": "fırın kabı"
+    },
+    {
+     "nl": "het schaaltje",
+     "tr": "küçük kase"
+    },
+    {
      "nl": "de eierschaal",
      "tr": "yumurta kabuğu"
     },
     {
-     "nl": "op grote schaal",
-     "tr": "büyük ölçekte"
+     "nl": "schaal- en schelpdieren",
+     "tr": "kabuklu deniz hayvanları"
     },
     {
-     "nl": "de schaal van een kaart",
-     "tr": "haritanın ölçeği"
+     "nl": "de Weegschaal",
+     "tr": "Terazi burcu"
     }
    ],
    "voorbeelden": [
+    {
+     "nl": "Er ligt fruit in de schaal op tafel.",
+     "tr": "Masadaki kasede meyve var."
+    },
     {
      "nl": "Zet de serveerschaal maar midden op tafel.",
      "tr": "Servis tabağını masanın ortasına koy."
     },
     {
-     "nl": "Iedereen kan zelf opscheppen uit de serveerschaal.",
-     "tr": "Herkes servis kasesinden kendisi alabilir."
-    },
-    {
-     "nl": "De soep wordt in een grote schaal geserveerd.",
-     "tr": "Çorba büyük bir kasede servis ediliyor."
+     "nl": "Ik sta elke ochtend op de weegschaal.",
+     "tr": "Her sabah teraziye çıkıyorum."
     },
     {
      "nl": "Er zitten stukjes eierschaal in het beslag.",
      "tr": "Hamurda yumurta kabuğu parçaları var."
     },
     {
-     "nl": "Het bedrijf werkt op grote schaal.",
-     "tr": "Şirket büyük ölçekte çalışıyor."
+     "nl": "Doe de pasta in een ovenschaal en bak hem twintig minuten.",
+     "tr": "Makarnayı fırın kabına koy ve yirmi dakika pişir."
     }
    ],
    "gramer": {
-    "titel": "Fiil kökü + isim",
-    "tekst": "Hollandacada çok sık bir birleşik kelime kalıbı: fiilin kökü (mastardan -en düşer) + isim. Artikel her zaman son parçadan gelir: de schaal → de serveerschaal.",
+    "titel": "Fiil kökü + isim: weegschaal, serveerschaal",
+    "tekst": "Hollandacada çok sık bir birleşik kelime kalıbı: fiilin kökü (mastardan -en düşer) + isim. Artikel her zaman son parçadan gelir: de schaal → de weegschaal, de serveerschaal. Aynı kalıbı her yerde görürsün.",
     "voorbeelden": [
+     {
+      "nl": "wegen + de schaal → de weegschaal",
+      "tr": "terazi"
+     },
+     {
+      "nl": "serveren + de schaal → de serveerschaal",
+      "tr": "servis tabağı"
+     },
      {
       "nl": "snijden + de plank → de snijplank",
       "tr": "kesme tahtası"
@@ -132,81 +189,76 @@
      {
       "nl": "wachten + de kamer → de wachtkamer",
       "tr": "bekleme odası"
-     },
-     {
-      "nl": "slapen + de kamer → de slaapkamer",
-      "tr": "yatak odası"
-     },
-     {
-      "nl": "schrijven + het gerei → het schrijfgerei",
-      "tr": "yazı gereçleri"
      }
     ]
    },
-   "weetje": "Hollandacada aslında üç ayrı schaal var ve hepsi aynı yazılıyor: (1) kase, tabak: de fruitschaal; (2) kabuk: de eierschaal, Almanca Schale “kabuk” ve İngilizce shell ile uzaktan akraba; (3) ölçek: op grote schaal, de schaal van een kaart. Üçüncüsü bambaşka bir kelime: Latince scala (merdiven) Almanca Skala ve İngilizce scale üzerinden Hollandacaya geçmiş. Hangisi olduğunu cümleden anlarsın.",
+   "weetje": "Terazi Hollandacada üç sık deyimde yaşıyor. “De doorslag geven” (belirleyici olmak): bir kefeye ağırlık eklenince terazi dengeden çıkıp bir yana “doorslaat”. “Iets in de waagschaal stellen” (bir şeyi riske atmak): wegen fiilinin eski bir biçimi wagen'di, waagschaal de weegschaal'ın eski adı; teraziye konan şeyin sonucu belirsizdir. “De laatste loodjes wegen het zwaarst” (işin sonu en zoru): tartarken en son eklenen küçük kurşun ağırlıklar karar verirdi.",
    "vragen": [
     {
      "id": "ws-s1",
      "type": "mc",
-     "vraag": "“serveer-” kısmı hangi dilden geliyor?",
+     "vraag": "Terazinin “kefe”si neden schaal?",
      "opties": [
-      "Almanca",
-      "Fransızca (en eski hali Latince)",
-      "İngilizce"
+      "Çünkü kefe kase biçiminde bir kap",
+      "Çünkü Latincede scala merdiven demek",
+      "Çünkü terazi Fransızcadan geldi"
      ],
-     "juist": 1,
-     "uitleg": "serveren ← Fransızca servir ← Latince servire."
+     "juist": 0,
+     "uitleg": "Kefe çukur bir kaptır: kase. Kefenin adı sonra bütün terazinin adı olmuş: weegschaal, İngilizce scales."
     },
     {
      "id": "ws-s2",
      "type": "mc",
-     "vraag": "Artikeli hangisi?",
+     "vraag": "“Het bedrijf werkt op grote schaal.” Bu schaal hangisinden geliyor?",
      "opties": [
-      "de serveerschaal",
-      "het serveerschaal"
+      "kabuk → kase zincirinden",
+      "Latince scala (merdiven)"
      ],
-     "juist": 0,
-     "uitleg": "Birleşik kelimede artikel son parçadan gelir: de schaal → de serveerschaal."
+     "juist": 1,
+     "uitleg": "Ölçek anlamı ayrı bir kelime: Latince scala, basamak basamak dizi."
     },
     {
      "id": "ws-s3",
      "type": "mc",
-     "vraag": "“Het bedrijf werkt op grote schaal.” Burada schaal ne demek?",
+     "vraag": "Hangisi schaal (kase) ile birebir aynı kelime?",
      "opties": [
-      "kase",
-      "kabuk",
-      "ölçek"
+      "Almanca Schale",
+      "Fransızca service",
+      "İngilizce scale (ölçek)"
      ],
-     "juist": 2,
-     "uitleg": "op grote schaal = büyük ölçekte. Bu schaal Latince scala'dan gelen ayrı bir kelime."
+     "juist": 0,
+     "uitleg": "Almanca Schale = kase (ve kabuk)."
     },
     {
      "id": "ws-s4",
      "type": "mc",
-     "vraag": "Hangisi schaal (kase) ile doğrudan akraba?",
+     "vraag": "“weegschaal” nasıl kurulmuş?",
      "opties": [
-      "Almanca Schale",
-      "İngilizce shell",
-      "Fransızca service"
+      "weg (yol) + schaal",
+      "wegen (tartmak) + schaal",
+      "wij + schaal"
      ],
-     "juist": 0,
-     "uitleg": "Almanca Schale = kase; aynı Germen kelimesi. shell daha uzak bir akraba."
+     "juist": 1,
+     "uitleg": "Fiil kökü + isim: weeg (wegen) + schaal."
     },
     {
      "id": "ws-s5",
      "type": "type",
-     "tr": "Yemek masası (eten + tafel)",
+     "tr": "Her sabah teraziye çıkıyorum.",
      "antwoorden": [
-      "de eettafel",
-      "eettafel"
+      "Ik sta elke ochtend op de weegschaal",
+      "Elke ochtend sta ik op de weegschaal",
+      "Ik ga elke ochtend op de weegschaal staan"
      ],
-     "uitleg": "Fiil kökü + isim: eet + tafel → de eettafel."
+     "uitleg": "op de weegschaal staan = teraziye çıkmak."
     }
    ],
    "bronnen": [
-    "Wiktionary: schaal, Schale, serveren, serve",
-    "Etymonline: serve",
-    "Kaikki (Wiktionary verisi): schaal"
+    "Etymonline: scale (n.1, n.2), shell",
+    "Wiktionary: schaal, weegschaal, Schale",
+    "Wiktionnaire: schaal",
+    "DBNL, Weiland: weegschaal",
+    "Stoett, Nederlandsche spreekwoorden (DBNL); Onze Taal: in de waagschaal stellen, de laatste loodjes"
    ]
   },
   {
