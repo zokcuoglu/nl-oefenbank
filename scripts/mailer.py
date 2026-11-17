@@ -7,8 +7,10 @@ The workflow runs this every hour (--mode hourly). Each run:
   3. the weekly summary, when the schedule says so (default: Sunday 18:00); logged in mail_log/weekly-{date}
   4. "Haftanın Hollandacası" for adults (an idiom, a word, a culture note, what is new on the site),
      when the schedule says so (default: Thursday 19:00); content in data/weekbrief.json, logged in mail_log/brief-{date}
+  5. "Kelime incelemesi" for adults (one word taken apart: parts, history, relatives), when the schedule says so
+     (default: Tuesday 19:00); content in data/woordstudie.json, logged in mail_log/woord-{date}
 The schedule lives in Firestore settings/mail and is edited on the admin page.
-Manual runs can force one job: --mode news, --mode weekly or --mode brief (ignores the schedule).
+Manual runs can force one job: --mode news, --mode weekly, --mode brief or --mode woord (ignores the schedule).
 --mode test sends a preview of the next news mail, a sample weekly summary and a sample welcome mail to one
 address (TEST_TO, default: the sending address). It writes nothing, so the real schedule is not affected.
 
@@ -39,6 +41,7 @@ AMS = ZoneInfo("Europe/Amsterdam")
 NOTE_WEEKLY = "Haftalık özeti istemiyorsan sitede Profil sayfasından kapatabilirsin."
 NOTE_NEWS_MAIL = "Haftalık haberi istemiyorsan sitede Profil sayfasından kapatabilirsin."
 NOTE_NEWS = "Bu duyuru NL Oefenbank üyelerine gönderildi."
+NOTE_WOORD = "“Kelime incelemesi” e-postasını istemiyorsan sitede Profil sayfasından kapatabilirsin."
 NOTE_BRIEF = "“Haftanın Hollandacası”nı istemiyorsan sitede Profil sayfasından kapatabilirsin."
 
 # Site colours (light theme) for the HTML template; inline styles because mail clients drop <style>
@@ -201,7 +204,8 @@ def run_hourly(db, sender, now, dry_run=False):
 # weekday: 1 = Monday ... 7 = Sunday (ISO), hour: 0-23 Amsterdam time
 DEFAULT_SCHEDULE = {"news": {"enabled": True, "weekday": 1, "hour": 8},
                     "weekly": {"enabled": True, "weekday": 7, "hour": 18},
-                    "brief": {"enabled": True, "weekday": 4, "hour": 19}}
+                    "brief": {"enabled": True, "weekday": 4, "hour": 19},
+                    "woord": {"enabled": True, "weekday": 2, "hour": 19}}
 
 
 def load_schedule(db):
@@ -560,6 +564,91 @@ def brief_mail(week, nieuw, greeting):
     return "\n".join(plain), inner
 
 
+# ---------- weekly word study: "Kelime incelemesi" (adults) ----------
+
+def load_woord():
+    return json.loads((ROOT / "data" / "woordstudie.json").read_text(encoding="utf-8"))
+
+
+def pick_woord(words, sent_ids, today):
+    """The oldest word whose date has come and that was not mailed yet. Unlike the brief, a missed word is
+    not skipped: words are not tied to a season, so they go out one by one in order."""
+    due = [w for w in words if w["datum"] <= today and w["id"] not in sent_ids]
+    return min(due, key=lambda w: w["datum"]) if due else None
+
+
+def wants_woord(u):
+    """Adults, on by default; switched off on the profile page (email_woord)."""
+    return u.get("type") != "child" and bool(u.get("email_woord", True))
+
+
+def woord_mail(w, greeting):
+    """Plain text and HTML of one word study mail: the short version, the full page is on the site."""
+    link = f"{SITE}woordstudie/?w={w['id']}"
+    head = f"{w['lidwoord']} {w['woord']}".strip()
+    rel = [v for v in w["verwant"] if v["taal"] != "Hollandaca"][:4]
+    plain = [greeting, "", f"BU HAFTANIN KELİMESİ ({w['niveau']})", f"{head}  –  {w['tr']}", w["definitie"], "", w["kort"], "",
+             "KELİMEYİ PARÇALA"] + [f"  • {p['deel']}: {p['uitleg']}" for p in w["opbouw"]] + ["",
+             "AKRABALARI"] + [f"  • {v['taal']}: {v['woord']} ({v['uitleg']})" for v in rel] + ["",
+             "AİLESİ"] + [f"  • {f['nl']} – {f['tr']}" for f in w["familie"][:4]] + ["",
+             f"Örnek: {w['voorbeelden'][0]['nl']}", f"({w['voorbeelden'][0]['tr']})", "",
+             "Kökeni, gramer notu ve 5 soru sitede:", link]
+
+    label = lambda t: f'<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:{C["muted"]};margin:22px 0 6px">{esc(t)}</div>'
+    row = lambda a, b: f'<div style="margin:5px 0;line-height:1.5"><b lang="nl">{esc(a)}</b> <span style="color:{C["muted"]}">{esc(b)}</span></div>'
+    inner = (f'<p style="margin:0 0 4px">{esc(greeting)}</p>'
+             + label(f"Bu haftanın kelimesi · {w['niveau']}")
+             + f'<div style="font-size:26px;font-weight:700;line-height:1.2" lang="nl">{esc(head)}</div>'
+             + f'<div style="font-size:17px;margin:4px 0 2px">{esc(w["tr"])}</div>'
+             + f'<div style="color:{C["muted"]};font-style:italic" lang="nl">{esc(w["definitie"])}</div>'
+             + f'<p style="line-height:1.6;margin:14px 0 0">{esc(w["kort"])}</p>'
+             + label("Kelimeyi parçala") + "".join(row(p["deel"], p["uitleg"]) for p in w["opbouw"])
+             + label("Akrabaları") + "".join(row(f'{v["taal"]}: {v["woord"]}', v["uitleg"]) for v in rel)
+             + label("Ailesi") + "".join(row(f["nl"], f["tr"]) for f in w["familie"][:4])
+             + f'<div style="border-left:3px solid {C["accent"]};padding:4px 0 4px 12px;margin:18px 0 0"><span lang="nl" style="font-style:italic">{esc(w["voorbeelden"][0]["nl"])}</span>'
+             + f'<br><span style="color:{C["muted"]};font-size:14px">{esc(w["voorbeelden"][0]["tr"])}</span></div>'
+             + f'<p style="margin:18px 0 0;line-height:1.55">Kökeni, gramer notu, “bunu biliyor muydun?” ve 5 soru sitede.</p>'
+             + button(link, "Kelimenin tamamını gör"))
+    return "\n".join(plain), inner
+
+
+def run_woord(db, sender, now, dry_run=False, force=False):
+    today = now.astimezone(AMS).date().isoformat()
+    log_col = db.collection("mail_log")
+    logs = [x for x in (d.to_dict() for d in log_col.stream()) if x.get("job") == "woord"]
+    if not force and any(x.get("date") == today for x in logs):
+        print(f"woord: already sent for {today}")
+        return
+    words = load_woord()["woorden"]
+    sent = {x.get("woord_id") for x in logs}
+    w = pick_woord(words, sent, today)
+    users = [d.to_dict() for d in db.collection("users").stream()]
+    if not w and any(x["id"] not in sent for x in words):
+        print("woord: next word is not due yet")
+        return
+    if not w:
+        # Every word was mailed: tell the admins once (the log entry stops a repeat in the next hourly runs)
+        if any(x.get("date") == today or not x.get("woord_id") for x in logs):
+            print("woord: list used up, admins already told")
+            return
+        for a in (u for u in users if u.get("role") == "admin" and u.get("email")):
+            send_simple(sender, a["email"], "NL Oefenbank: “Kelime incelemesi” listesi bitti", "Yeni kelimeler gerekli",
+                        "data/woordstudie.json dosyasındaki bütün kelimeler gönderildi. Bu hafta e-posta gitmedi; yeni kelime eklenince devam eder.",
+                        "Bu bilgi e-postası sadece adminlere gönderilir.")
+        print("woord: no words left")
+        if not dry_run:
+            log_col.document(f"woord-{today}").set({"job": "woord", "date": today, "woord_id": None, "sent_at": iso(now), "mails": 0})
+        return
+    subs = {u["email"]: u for u in users if is_approved(u) and u.get("email") and wants_woord(u)}
+    for email in sorted(subs):
+        plain, inner = woord_mail(w, f"Merhaba {first_name(subs[email])},")
+        body = plain + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_WOORD}\nAbonelikten çık: {SITE}profile.html"
+        sender.send(email, f"🔎 Kelime incelemesi: {w['woord']} ({w['tr'].split(' / ')[0].split(',')[0]})", body, html_body=html_wrap("Kelime incelemesi", inner, NOTE_WOORD))
+    print(f"woord: {w['id']} -> {len(subs)} recipients")
+    if not dry_run:
+        log_col.document(f"woord-{today}").set({"job": "woord", "date": today, "woord_id": w["id"], "sent_at": iso(now), "mails": len(subs)})
+
+
 def run_brief(db, sender, now, dry_run=False, force=False):
     today = now.astimezone(AMS).date().isoformat()
     log_col = db.collection("mail_log")
@@ -630,6 +719,13 @@ def run_test(db, sender, now, to):
     if week:
         plain, inner = brief_mail(week, data.get("nieuw", [])[-3:][::-1], f"Merhaba {first_name(u)},")
         sender.send(to, f"[TEST] 🇳🇱 Haftanın Hollandacası: {week['deyim']['nl']}", plain, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
+    # "Kelime incelemesi": the word that would go out next (even if its date is still ahead)
+    wlogs = {x.get("woord_id") for x in (d.to_dict() for d in db.collection("mail_log").stream()) if x.get("job") == "woord"}
+    nxt = min((x for x in load_woord()["woorden"] if x["id"] not in wlogs), key=lambda x: x["datum"], default=None)
+    if nxt:
+        plain, inner = woord_mail(nxt, f"Merhaba {first_name(u)},")
+        sender.send(to, f"[TEST] 🔎 Kelime incelemesi: {nxt['woord']}", plain, html_body=html_wrap("Kelime incelemesi", inner, NOTE_WOORD))
+    print(f"test: next word study: {nxt and nxt['id']}")
     print(f"test: {4 if week else 3} preview mails sent (next news item: #{item.get('nr')} {item['id']}; next brief: {week and week['id']})")
 
 
@@ -693,12 +789,15 @@ def run_scheduled(db, sender, now, dry_run=False):
     mail_log = [d.to_dict() for d in db.collection("mail_log").stream()]
     weekly_dates = [x.get("date", "") for x in mail_log if x.get("job") == "weekly"]
     brief_dates = [x.get("date", "") for x in mail_log if x.get("job") == "brief"]
+    woord_dates = [x.get("date", "") for x in mail_log if x.get("job") == "woord"]
     if is_due(sched["news"], now, news_dates):
         run_news(db, sender, now, dry_run=dry_run)
     if is_due(sched["weekly"], now, weekly_dates):
         run_weekly(db, sender, now, dry_run=dry_run)
     if is_due(sched["brief"], now, brief_dates):
         run_brief(db, sender, now, dry_run=dry_run)
+    if is_due(sched["woord"], now, woord_dates):
+        run_woord(db, sender, now, dry_run=dry_run)
     run_groep_up(db, sender, now, dry_run=dry_run)  # does nothing outside August
 
 
@@ -714,7 +813,7 @@ def env_or_stop(names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "test", "groep"], required=True,
+    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "test", "groep"], required=True,
                     help="hourly = scheduled run; news/weekly/brief = send that job now, ignoring the schedule; test = previews to one address; "
                          "groep = move children up one groep now (use with --dry-run to only see what would change)")
     ap.add_argument("--dry-run", action="store_true")
@@ -743,6 +842,8 @@ def main():
         run_test(db, sender, now, os.environ.get("TEST_TO", "").strip() or os.environ["GMAIL_USER"].strip())
     elif args.mode == "news":
         run_news(db, sender, now, dry_run=args.dry_run, force=True)
+    elif args.mode == "woord":
+        run_woord(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "brief":
         run_brief(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "groep":

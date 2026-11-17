@@ -1,0 +1,403 @@
+{
+ "_about": "Weekly word studies (woordstudie/). Each word: meaning, how the word is built (opbouw), its history (geschiedenis), relatives in other languages (verwant), words from the same family (familie), example sentences, a grammar note, a 'weetje' and 5 questions (mc: opties + juist index; type: antwoorden). 'datum' = the Tuesday it is published and mailed (scripts/mailer.py job 'woord'); members see a word from that day, admins always. Sources are listed per word in 'bronnen'; only add etymology that a source confirms.",
+ "woorden": [
+  {
+   "id": "serveerschaal",
+   "datum": "2026-11-24",
+   "woord": "serveerschaal",
+   "lidwoord": "de",
+   "meervoud": "serveerschalen",
+   "niveau": "A2",
+   "thema": "eten",
+   "tr": "servis tabağı / servis kasesi",
+   "definitie": "Een grote schaal waarin je eten op tafel zet, zodat iedereen zelf kan opscheppen.",
+   "kort": "Fransızcadan gelen bir fiil kökü ile öz Hollandaca bir ismin birleşimi. Türkçedeki “servis tabağı” ile birebir aynı yapı.",
+   "opbouw": [
+    {
+     "deel": "serveer",
+     "uitleg": "serveren (servis yapmak, sunmak) fiilinin kökü. Hollandacaya Fransızca servir'den geçmiş; o da Latince servire'den. Latincede servire “hizmet etmek”, hatta ilk anlamıyla “köle olmak” demekti (servus = köle, hizmetkâr)."
+    },
+    {
+     "deel": "schaal",
+     "uitleg": "Kase, yayvan tabak. Öz Germen kelimesi: Orta Hollandaca scale, Proto-Germen *skēlō. Almancadaki Schale (kase) ile birebir akraba."
+    }
+   ],
+   "geschiedenis": [
+    "Latince servus (köle, hizmetkâr) → servire (hizmet etmek).",
+    "Eski Fransızca servir: hizmet etmek, sofraya yemek getirmek.",
+    "Hollandaca serveren: yemek ya da içecek sunmak (geçmişte: serveerde, geserveerd).",
+    "Hollandaca schaal ise Fransızcadan gelmedi: Germen dillerinde zaten vardı (Orta Hollandaca scale).",
+    "İkisi birleşince: serveerschaal, “servis yapılan kase”."
+   ],
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "serve, service, servant",
+     "uitleg": "aynı Latince kökten, Fransızca üzerinden"
+    },
+    {
+     "taal": "Fransızca",
+     "woord": "servir, service, serviette",
+     "uitleg": "serviette (peçete) Hollandacada servet oldu"
+    },
+    {
+     "taal": "Türkçe",
+     "woord": "servis",
+     "uitleg": "Fransızca service'ten; “servis tabağı” = serveerschaal"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "Schale",
+     "uitleg": "kase, yayvan kap: schaal'ın doğrudan akrabası"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "scale (terazi kefesi)",
+     "uitleg": "Eski İskandinavca skál “kase”den; aynı Germen kökü"
+    },
+    {
+     "taal": "İsveççe / Danca",
+     "woord": "skål!",
+     "uitleg": "“Şerefe!”: kelimesi kelimesine “kase”, içilen kaptan"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "serveren",
+     "tr": "servis yapmak, sunmak"
+    },
+    {
+     "nl": "het servet",
+     "tr": "peçete"
+    },
+    {
+     "nl": "de schaal",
+     "tr": "kase, yayvan kap"
+    },
+    {
+     "nl": "het schaaltje",
+     "tr": "küçük kase"
+    },
+    {
+     "nl": "de fruitschaal",
+     "tr": "meyve tabağı"
+    },
+    {
+     "nl": "de eierschaal",
+     "tr": "yumurta kabuğu"
+    },
+    {
+     "nl": "op grote schaal",
+     "tr": "büyük ölçekte"
+    },
+    {
+     "nl": "de schaal van een kaart",
+     "tr": "haritanın ölçeği"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Zet de serveerschaal maar midden op tafel.",
+     "tr": "Servis tabağını masanın ortasına koy."
+    },
+    {
+     "nl": "Iedereen kan zelf opscheppen uit de serveerschaal.",
+     "tr": "Herkes servis kasesinden kendisi alabilir."
+    },
+    {
+     "nl": "De soep wordt in een grote schaal geserveerd.",
+     "tr": "Çorba büyük bir kasede servis ediliyor."
+    },
+    {
+     "nl": "Er zitten stukjes eierschaal in het beslag.",
+     "tr": "Hamurda yumurta kabuğu parçaları var."
+    },
+    {
+     "nl": "Het bedrijf werkt op grote schaal.",
+     "tr": "Şirket büyük ölçekte çalışıyor."
+    }
+   ],
+   "gramer": {
+    "titel": "Fiil kökü + isim",
+    "tekst": "Hollandacada çok sık bir birleşik kelime kalıbı: fiilin kökü (mastardan -en düşer) + isim. Artikel her zaman son parçadan gelir: de schaal → de serveerschaal.",
+    "voorbeelden": [
+     {
+      "nl": "snijden + de plank → de snijplank",
+      "tr": "kesme tahtası"
+     },
+     {
+      "nl": "eten + de tafel → de eettafel",
+      "tr": "yemek masası"
+     },
+     {
+      "nl": "wachten + de kamer → de wachtkamer",
+      "tr": "bekleme odası"
+     },
+     {
+      "nl": "slapen + de kamer → de slaapkamer",
+      "tr": "yatak odası"
+     },
+     {
+      "nl": "schrijven + het gerei → het schrijfgerei",
+      "tr": "yazı gereçleri"
+     }
+    ]
+   },
+   "weetje": "Hollandacada aslında üç ayrı schaal var ve hepsi aynı yazılıyor: (1) kase, tabak: de fruitschaal; (2) kabuk: de eierschaal, Almanca Schale “kabuk” ve İngilizce shell ile uzaktan akraba; (3) ölçek: op grote schaal, de schaal van een kaart. Üçüncüsü bambaşka bir kelime: Latince scala (merdiven) Almanca Skala ve İngilizce scale üzerinden Hollandacaya geçmiş. Hangisi olduğunu cümleden anlarsın.",
+   "vragen": [
+    {
+     "id": "ws-s1",
+     "type": "mc",
+     "vraag": "“serveer-” kısmı hangi dilden geliyor?",
+     "opties": [
+      "Almanca",
+      "Fransızca (en eski hali Latince)",
+      "İngilizce"
+     ],
+     "juist": 1,
+     "uitleg": "serveren ← Fransızca servir ← Latince servire."
+    },
+    {
+     "id": "ws-s2",
+     "type": "mc",
+     "vraag": "Artikeli hangisi?",
+     "opties": [
+      "de serveerschaal",
+      "het serveerschaal"
+     ],
+     "juist": 0,
+     "uitleg": "Birleşik kelimede artikel son parçadan gelir: de schaal → de serveerschaal."
+    },
+    {
+     "id": "ws-s3",
+     "type": "mc",
+     "vraag": "“Het bedrijf werkt op grote schaal.” Burada schaal ne demek?",
+     "opties": [
+      "kase",
+      "kabuk",
+      "ölçek"
+     ],
+     "juist": 2,
+     "uitleg": "op grote schaal = büyük ölçekte. Bu schaal Latince scala'dan gelen ayrı bir kelime."
+    },
+    {
+     "id": "ws-s4",
+     "type": "mc",
+     "vraag": "Hangisi schaal (kase) ile doğrudan akraba?",
+     "opties": [
+      "Almanca Schale",
+      "İngilizce shell",
+      "Fransızca service"
+     ],
+     "juist": 0,
+     "uitleg": "Almanca Schale = kase; aynı Germen kelimesi. shell daha uzak bir akraba."
+    },
+    {
+     "id": "ws-s5",
+     "type": "type",
+     "tr": "Yemek masası (eten + tafel)",
+     "antwoorden": [
+      "de eettafel",
+      "eettafel"
+     ],
+     "uitleg": "Fiil kökü + isim: eet + tafel → de eettafel."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary: schaal, Schale, serveren, serve",
+    "Etymonline: serve",
+    "Kaikki (Wiktionary verisi): schaal"
+   ]
+  },
+  {
+   "id": "gerei",
+   "datum": "2026-12-01",
+   "woord": "gerei",
+   "lidwoord": "het",
+   "meervoud": "",
+   "niveau": "B1",
+   "thema": "huis",
+   "tr": "takım, gereç, ekipman (bir iş için gereken eşyalar)",
+   "definitie": "De spullen die je nodig hebt voor een bepaald werk, zoals koken, schrijven of eten.",
+   "kort": "“Hazır” demek olan gereed'in kardeşi: gerei, bir işe hazır olmak için gereken şeyler. Çoğunlukla bir başka kelimeyle birleşir: keukengerei, schrijfgerei.",
+   "opbouw": [
+    {
+     "deel": "ge-",
+     "uitleg": "Germen dillerinde çok eski bir ön ek. İngilizce zamanla bu eki düşürmüş: gereed → ready, genoeg → enough."
+    },
+    {
+     "deel": "rei",
+     "uitleg": "gereed (hazır) ile aynı kök. Orta Hollandacada kelime gereide idi; aradaki -d- düşünce gerei kaldı."
+    }
+   ],
+   "geschiedenis": [
+    "Proto-Germen *garaidijaz: düzenlenmiş, hazır.",
+    "Orta Hollandaca gereed (hazır) ve ondan türeyen isim gereide: bir iş için hazır tutulan eşyalar.",
+    "Bazı bölgelerde gereide atın koşum takımı için de kullanılmış.",
+    "Bugün gerei: tek başına az, bileşik kelimelerde çok kullanılır (keukengerei, schrijfgerei)."
+   ],
+   "verwant": [
+    {
+     "taal": "Hollandaca",
+     "woord": "gereed, bereiden, bereid, gereedschap",
+     "uitleg": "aynı aile: hazır, hazırlamak, istekli, alet takımı"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "ready",
+     "uitleg": "Eski İngilizce (ge)rǣde: hazır; ata binmeye hazır"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "Gerät, bereit",
+     "uitleg": "Gerät = alet, cihaz; bereit = hazır"
+    },
+    {
+     "taal": "İsveççe",
+     "woord": "geråd",
+     "uitleg": "gerei'nin akrabası"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "het keukengerei",
+     "tr": "mutfak gereçleri"
+    },
+    {
+     "nl": "het kookgerei",
+     "tr": "pişirme takımı (tencere, tava)"
+    },
+    {
+     "nl": "het schrijfgerei",
+     "tr": "yazı gereçleri"
+    },
+    {
+     "nl": "het eetgerei",
+     "tr": "çatal bıçak takımı"
+    },
+    {
+     "nl": "het theegerei",
+     "tr": "çay takımı"
+    },
+    {
+     "nl": "het scheergerei",
+     "tr": "tıraş takımı"
+    },
+    {
+     "nl": "het gereedschap",
+     "tr": "alet takımı (çekiç, tornavida)"
+    },
+    {
+     "nl": "gereed",
+     "tr": "hazır (resmî)"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het keukengerei ligt in de bovenste la.",
+     "tr": "Mutfak gereçleri üst çekmecede."
+    },
+    {
+     "nl": "Vergeet je schrijfgerei niet voor het examen.",
+     "tr": "Sınav için yazı gereçlerini unutma."
+    },
+    {
+     "nl": "We hebben nieuw kookgerei gekocht.",
+     "tr": "Yeni tencere tava takımı aldık."
+    },
+    {
+     "nl": "Het gereedschap ligt in de schuur.",
+     "tr": "Aletler kulübede."
+    },
+    {
+     "nl": "Alles is gereed voor vertrek.",
+     "tr": "Yola çıkmak için her şey hazır."
+    }
+   ],
+   "gramer": {
+    "titel": "Toplu isim: çoğulu yok",
+    "tekst": "gerei bir toplu isimdir (verzamelnaam): bir grup eşyanın hepsini birden anlatır, çoğul hali yoktur. Fiil tekil olur: Het keukengerei ligt in de la. Tek bir eşyadan söz ediyorsan başka kelime kullanırsın: een pan, een lepel. Birleşik kelimede artikel yine son parçadan: het gerei → het keukengerei.",
+    "voorbeelden": [
+     {
+      "nl": "Het keukengerei is schoon.",
+      "tr": "Mutfak gereçleri temiz. (tekil fiil)"
+     },
+     {
+      "nl": "Het gereedschap ligt klaar.",
+      "tr": "Aletler hazır duruyor."
+     },
+     {
+      "nl": "Waar is het eetgerei?",
+      "tr": "Çatal bıçak nerede?"
+     }
+    ]
+   },
+   "weetje": "gerei ile gereedschap aynı aileden ama aynı şey değil. Gereedschap tamir ve yapım aletleri: çekiç, tornavida, matkap. Gerei ise kullanım eşyası: mutfak, yazı, yemek, çay takımı. “Tamir için gerei getir” denmez; “Pak het gereedschap” denir.",
+   "vragen": [
+    {
+     "id": "ws-g1",
+     "type": "mc",
+     "vraag": "gerei hangi kelimeyle aynı aileden?",
+     "opties": [
+      "gereed (hazır)",
+      "geren (giymek)",
+      "rijden (sürmek)"
+     ],
+     "juist": 0,
+     "uitleg": "gerei ← Orta Hollandaca gereide ← gereed."
+    },
+    {
+     "id": "ws-g2",
+     "type": "mc",
+     "vraag": "Artikeli hangisi?",
+     "opties": [
+      "de keukengerei",
+      "het keukengerei"
+     ],
+     "juist": 1,
+     "uitleg": "het gerei → het keukengerei (son parça)."
+    },
+    {
+     "id": "ws-g3",
+     "type": "mc",
+     "vraag": "Çekiç ve tornavida için hangisi?",
+     "opties": [
+      "het gereedschap",
+      "het keukengerei",
+      "het schrijfgerei"
+     ],
+     "juist": 0,
+     "uitleg": "Tamir ve yapım aletleri = gereedschap."
+    },
+    {
+     "id": "ws-g4",
+     "type": "mc",
+     "vraag": "Hangisi doğru?",
+     "opties": [
+      "De keukengereien liggen in de la.",
+      "Het keukengerei ligt in de la.",
+      "Het keukengerei liggen in de la."
+     ],
+     "juist": 1,
+     "uitleg": "Toplu isim: çoğulu yok, fiil tekil."
+    },
+    {
+     "id": "ws-g5",
+     "type": "type",
+     "tr": "Sınav için yazı gereçlerini unutma.",
+     "antwoorden": [
+      "Vergeet je schrijfgerei niet voor het examen",
+      "Vergeet je schrijfgerei niet",
+      "Vergeet niet je schrijfgerei voor het examen"
+     ],
+     "uitleg": "schrijfgerei = yazı gereçleri; emir kipi: Vergeet … niet."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary / Kaikki: gerei, gereed, Gerät",
+    "DBNL, Weiland Nederduitsch taalkundig woordenboek: gereide",
+    "Etymonline: ready"
+   ]
+  }
+ ]
+}

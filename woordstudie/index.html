@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kelime incelemesi · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+[hidden]{display:none!important}
+.wrow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.wrow:last-child{border-bottom:0} .wrow:hover b{color:var(--accent)}
+.hero{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.hero h2{font-size:34px;margin:0}
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px}
+.part{background:var(--sunk);border-radius:10px;padding:12px 14px}
+.part b{font-family:var(--display);font-size:20px;display:block;margin-bottom:4px}
+ol.story{margin:10px 0 0;padding-left:22px;max-width:70ch} ol.story li{margin:4px 0}
+.ex{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:10px;font-size:15px}
+.ex b{font-weight:600} .ex span{color:var(--muted)}
+@media (max-width:560px){.ex{grid-template-columns:1fr}.ex span{margin-bottom:8px}}
+.weetje{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:12px 16px;max-width:75ch}
+.qtr2{font-family:var(--display);font-size:20px;font-weight:700;margin:6px 0 14px}
+.typed{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.fb{margin-top:12px;padding:12px 14px;border-radius:8px;font-size:15px}
+.fb.good{background:var(--ok-soft)} .fb.wrong{background:var(--bad-soft)}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <a href="./">Kelime incelemesi</a></small><h1 id="pagetitle">Kelime incelemesi</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Weekly word study: one Dutch word taken apart (parts, history, relatives in other languages, word family,
+// examples, a grammar note) with 5 questions at the end. Content: data/woordstudie.json.
+// A word is visible from its "datum" (the Tuesday it is mailed, Dutch time); admins see every word at any time.
+// "?w=<id>" opens one word. A finished quiz is saved as an attempt of module "woordstudie" (test = word id).
+import { gate, userBox, esc, isAdmin, saveAttempt, loadAttempts, markSeen } from "../js/core.js";
+
+const app = document.getElementById("app");
+const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
+const fmtDate = d => new Date(d + "T12:00:00Z").toLocaleDateString("tr-TR", { day: "numeric", month: "long" });
+// Typed answers: compared without capitals, punctuation and double spaces
+const norm = s => String(s).toLowerCase().replace(/[.,!?;:'"’“”]/g, "").replace(/\s+/g, " ").trim();
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+const { user, profile } = await gate({ area: "nt2", title: "Kelime incelemesi", seen: "woordstudie" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+
+let data;
+try { data = await (await fetch("../data/woordstudie.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Kelimeler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+const admin = isAdmin(profile);
+const open = w => admin || w.datum <= today;
+const words = data.woorden.filter(open).sort((a, b) => b.datum.localeCompare(a.datum));   // newest first
+const attempts = await loadAttempts(user.uid, "woordstudie").catch(() => []);
+const lastOf = id => attempts.find(a => a.test === id);
+const word = data.woorden.find(w => w.id === new URLSearchParams(location.search).get("w") && open(w));
+
+// ---------- List ----------
+function renderList() {
+  const cur = words.find(w => w.datum <= today) || words[0];
+  app.innerHTML = `
+    ${cur ? `<section class="panel"><span class="eyebrow">Bu haftanın kelimesi · ${esc(fmtDate(cur.datum))}</span>
+      <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(cur.lidwoord ? cur.lidwoord + " " : "")}${esc(cur.woord)}</h2><span class="muted">${esc(cur.tr)}</span></div>
+      <p style="margin:8px 0 12px;max-width:62ch">${esc(cur.kort)}</p>
+      <a class="btn primary" style="text-decoration:none" href="?w=${esc(cur.id)}">Kelimeyi incele</a></section>` : ""}
+    <section class="panel"><span class="eyebrow">Bütün kelimeler</span>
+      <p class="muted" style="margin:6px 0 8px;max-width:62ch">Her salı yeni bir kelime: nasıl kurulduğu, nereden geldiği, başka dillerdeki akrabaları, ailesi ve 5 soru. Yenisi e-postayla da gelir.</p>
+      ${words.length ? words.map(w => { const a = lastOf(w.id); return `<a class="wrow" href="?w=${esc(w.id)}">
+        <span><b lang="nl">${esc(w.lidwoord ? w.lidwoord + " " : "")}${esc(w.woord)}</b> <span class="muted">· ${esc(w.tr)}</span><br>
+        <span class="muted" style="font-size:13px">${esc(fmtDate(w.datum))} · ${esc(w.niveau)}${admin && w.datum > today ? ' · <span class="chip warn">henüz yayında değil</span>' : ""}</span></span>
+        <span class="chip num">${a ? `${a.score}/${a.total}` : "yeni"}</span></a>`; }).join("") : `<p class="muted">İlk kelime yakında.</p>`}
+    </section>`;
+}
+
+// ---------- One word ----------
+function renderWord() {
+  const w = word;
+  document.getElementById("pagetitle").textContent = w.woord;
+  markSeen(user.uid, "woordstudie:" + w.id);
+  const exList = list => `<div class="ex">${list.map(v => `<b lang="nl">${esc(v.nl)}</b><span>${esc(v.tr)}</span>`).join("")}</div>`;
+  app.innerHTML = `
+    <section class="panel">
+      <span class="eyebrow">Kelime incelemesi · ${esc(fmtDate(w.datum))} · ${esc(w.niveau)}</span>
+      <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(w.lidwoord ? w.lidwoord + " " : "")}${esc(w.woord)}</h2>
+        ${w.meervoud ? `<span class="muted" lang="nl">çoğul: ${esc(w.meervoud)}</span>` : `<span class="muted">çoğulu yok</span>`}</div>
+      <p style="margin:8px 0 0;font-size:18px"><b>${esc(w.tr)}</b></p>
+      <p class="muted" style="margin:4px 0 0" lang="nl"><i>${esc(w.definitie)}</i></p>
+      <p style="margin:12px 0 0;max-width:68ch">${esc(w.kort)}</p>
+    </section>
+    <section class="panel"><span class="eyebrow">Kelimeyi parçala</span>
+      <div class="parts">${w.opbouw.map(p => `<div class="part"><b lang="nl">${esc(p.deel)}</b>${esc(p.uitleg)}</div>`).join("")}</div></section>
+    <section class="panel"><span class="eyebrow">Kökeni</span>
+      <ol class="story">${w.geschiedenis.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>
+    <section class="panel"><span class="eyebrow">Başka dillerdeki akrabaları</span>
+      <div class="tablewrap" style="margin-top:8px"><table><tbody>${w.verwant.map(v => `<tr><td class="muted">${esc(v.taal)}</td><td><b>${esc(v.woord)}</b></td><td class="muted">${esc(v.uitleg)}</td></tr>`).join("")}</tbody></table></div></section>
+    <section class="panel"><span class="eyebrow">Ailesi ve birleşik kelimeler</span>${exList(w.familie)}</section>
+    <section class="panel"><span class="eyebrow">Örnek cümleler</span>${exList(w.voorbeelden)}</section>
+    <section class="panel"><span class="eyebrow">Gramer notu</span><h3 style="margin:4px 0 6px">${esc(w.gramer.titel)}</h3>
+      <p style="margin:0;max-width:68ch">${esc(w.gramer.tekst)}</p>${exList(w.gramer.voorbeelden)}</section>
+    <section class="panel"><span class="eyebrow">Bunu biliyor muydun?</span><p class="weetje" style="margin:8px 0 0">${esc(w.weetje)}</p></section>
+    <section class="panel" id="quiz"><span class="eyebrow">Kendini dene</span><h2 style="margin-top:4px">${w.vragen.length} soru</h2>
+      <div class="row" style="margin-top:10px"><button class="btn primary" id="start">Başla</button>${lastOf(w.id) ? `<span class="chip num">son: ${lastOf(w.id).score}/${lastOf(w.id).total}</span>` : ""}</div></section>
+    <p class="muted" style="font-size:12.5px;margin:0">Kaynaklar: ${w.bronnen.map(esc).join(" · ")}</p>`;
+  document.getElementById("start").onclick = startQuiz;
+}
+
+// ---------- Quiz: multiple choice first, then typing ----------
+let run = null;
+function startQuiz() {
+  const by = t => shuffle(word.vragen.filter(q => q.type === t));
+  run = { qs: [...by("mc"), ...by("type")], i: 0, answers: [], started: Date.now() };
+  renderQ();
+}
+function renderQ() {
+  const q = run.qs[run.i], box = document.getElementById("quiz");
+  const head = `<span class="eyebrow">Soru ${run.i + 1} / ${run.qs.length}</span>`;
+  if (q.type === "mc") {
+    q._opts = shuffle(q.opties.map((t, i) => ({ t, ok: i === q.juist })));
+    box.innerHTML = `${head}<p class="qtr2">${esc(q.vraag)}</p><div style="display:grid;gap:8px">${q._opts.map((o, i) => `<button class="opt" data-i="${i}"><span class="mark">${"ABC"[i]}</span><span lang="nl">${esc(o.t)}</span></button>`).join("")}</div><div id="fb"></div>`;
+    box.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const o = q._opts[+b.dataset.i];
+      box.querySelectorAll(".opt").forEach((x, i) => { x.disabled = true; if (q._opts[i].ok) x.classList.add("right"); });
+      if (!o.ok) b.classList.add("wrongpick");
+      done(q, o.t, o.ok, q.opties[q.juist]);
+    });
+  } else {
+    box.innerHTML = `${head}<span class="eyebrow" style="display:block;margin-top:6px">Hollandaca yaz</span><p class="qtr2">${esc(q.tr)}</p>
+      <input class="typed" id="typed" lang="nl" autocomplete="off" spellcheck="false" placeholder="Cevabını yaz, Enter'a bas">
+      <div class="row" style="margin-top:12px"><button class="btn primary" id="check">Kontrol et</button></div><div id="fb"></div>`;
+    const inp = document.getElementById("typed"); inp.focus();
+    const check = () => { if (!inp.value.trim()) return; inp.disabled = true; document.getElementById("check").remove();
+      done(q, inp.value.trim(), q.antwoorden.some(a => norm(a) === norm(inp.value)), q.antwoorden[0]); };
+    document.getElementById("check").onclick = check;
+    inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); check(); } };
+  }
+  box.scrollIntoView({ block: "start" });
+}
+function done(q, given, correct, model) {
+  run.answers.push({ qid: q.id, chosen: given.slice(0, 200), correct });
+  const last = run.i === run.qs.length - 1;
+  document.getElementById("fb").innerHTML = `<div class="fb ${correct ? "good" : "wrong"}"><b>${correct ? "Doğru." : "Olmadı."}</b>
+    <span style="display:block;font-weight:600;margin:4px 0" lang="nl">${esc(model)}</span>${esc(q.uitleg)}</div>
+    <div class="row" style="margin-top:12px"><button class="btn primary" id="next">${last ? "Sonucu gör" : "Sonraki"}</button></div>`;
+  const next = document.getElementById("next");
+  next.onclick = () => { if (last) finish(); else { run.i++; renderQ(); } };
+  setTimeout(() => next.focus(), 50);
+}
+async function finish() {
+  const score = run.answers.filter(a => a.correct).length;
+  const attempt = { kind: "woordstudie", test: word.id, title: word.woord, started_at: new Date(run.started).toISOString(), finished_at: new Date().toISOString(),
+    duration_s: Math.round((Date.now() - run.started) / 1000), score, total: run.qs.length, answers: run.answers };
+  let saved = true;
+  try { await saveAttempt(user.uid, "woordstudie", attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
+  document.getElementById("quiz").innerHTML = `<span class="eyebrow">Sonuç</span><div class="scorebig num" style="margin-top:6px">${score} / ${run.qs.length}</div>
+    ${saved ? "" : `<div class="notice" style="margin-top:10px">Sonuç kaydedilemedi.</div>`}
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="./">Bütün kelimeler</a></div>`;
+  document.getElementById("again").onclick = startQuiz;
+}
+
+if (word) renderWord(); else renderList();
+</script>
+</body>
+</html>

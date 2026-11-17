@@ -82,6 +82,14 @@
       "status": "ready"
     },
     {
+      "id": "woordstudie",
+      "area": "media",
+      "title": "Kelime incelemesi",
+      "desc": "Haftada bir kelime: nasıl kurulduğu, nereden geldiği, başka dillerdeki akrabaları, ailesi ve 5 soru.",
+      "href": "woordstudie/",
+      "status": "ready"
+    },
+    {
       "id": "woorden",
       "area": "media",
       "title": "Kelime testi",
