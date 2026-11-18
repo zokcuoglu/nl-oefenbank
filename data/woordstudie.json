@@ -263,7 +263,7 @@
   },
   {
    "id": "gerei",
-   "datum": "2026-12-01",
+   "datum": "2026-12-08",
    "woord": "gerei",
    "lidwoord": "het",
    "meervoud": "",
@@ -453,7 +453,7 @@
   },
   {
    "id": "goedkoop",
-   "datum": "2026-12-08",
+   "datum": "2026-12-15",
    "woord": "goedkoop",
    "lidwoord": "",
    "meervoud": "",
@@ -674,7 +674,7 @@
   },
   {
    "id": "winkel",
-   "datum": "2026-12-15",
+   "datum": "2026-12-22",
    "woord": "winkel",
    "lidwoord": "de",
    "meervoud": "winkels",
@@ -896,7 +896,7 @@
   },
   {
    "id": "vrij",
-   "datum": "2026-12-22",
+   "datum": "2026-12-29",
    "woord": "vrij",
    "lidwoord": "",
    "meervoud": "",
@@ -1119,7 +1119,7 @@
   },
   {
    "id": "tellen",
-   "datum": "2026-12-29",
+   "datum": "2027-01-05",
    "woord": "tellen / vertellen",
    "lidwoord": "",
    "meervoud": "",
@@ -1339,7 +1339,7 @@
   },
   {
    "id": "zaak",
-   "datum": "2027-01-05",
+   "datum": "2027-01-12",
    "woord": "zaak",
    "lidwoord": "de",
    "meervoud": "zaken",
@@ -1991,7 +1991,7 @@
   },
   {
    "id": "hangt-ervan-af",
-   "datum": "2026-12-01",
+   "datum": "2027-02-09",
    "woord": "dat hangt ervan af / het ligt eraan",
    "niveau": "A2–B1",
    "thema": "gesprek",
@@ -2906,7 +2906,7 @@
   },
   {
    "id": "kwartje-valt",
-   "datum": "2026-12-01",
+   "datum": "2027-02-09",
    "woord": "het kwartje valt",
    "niveau": "B2",
    "thema": "begrijpen",
@@ -3607,7 +3607,7 @@
   },
   {
    "id": "zetten",
-   "datum": "2027-01-12",
+   "datum": "2027-01-19",
    "woord": "zetten",
    "lidwoord": "",
    "meervoud": "",
@@ -3873,7 +3873,7 @@
   },
   {
    "id": "vreemd",
-   "datum": "2027-01-19",
+   "datum": "2027-01-26",
    "woord": "vreemd / buitenlander",
    "lidwoord": "",
    "meervoud": "",
@@ -5733,7 +5733,7 @@
   },
   {
    "id": "gezin",
-   "datum": "2027-01-26",
+   "datum": "2027-02-02",
    "woord": "gezin / familie",
    "lidwoord": "het",
    "meervoud": "gezinnen",
@@ -5955,7 +5955,7 @@
   },
   {
    "id": "serveren-dienen",
-   "datum": "2027-02-02",
+   "datum": "2027-02-09",
    "woord": "serveren / dienen",
    "lidwoord": "",
    "meervoud": "",
@@ -6186,7 +6186,7 @@
   },
   {
    "id": "terecht",
-   "datum": "2027-02-09",
+   "datum": "2026-12-01",
    "woord": "terecht",
    "lidwoord": "",
    "meervoud": "",
@@ -6537,7 +6537,7 @@
   {
    "id": "mocht-het",
    "soort": "kalip",
-   "datum": "2027-02-09",
+   "datum": "2026-12-01",
    "woord": "mocht het nodig zijn, …",
    "lidwoord": "",
    "niveau": "B1",
@@ -6728,7 +6728,7 @@
   {
    "id": "achter-de-hand",
    "soort": "deyim",
-   "datum": "2027-02-09",
+   "datum": "2026-12-01",
    "woord": "iets achter de hand hebben / houden",
    "lidwoord": "",
    "niveau": "B1",
