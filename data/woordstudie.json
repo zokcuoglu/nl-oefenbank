@@ -6240,36 +6240,94 @@
    ],
    "betekenissen": [
     {
-     "titel": "Bij wie kunt u terecht? = kime başvurabilirsiniz?",
-     "tekst": "Kurum metinlerinde ve okuma sınavında: bir sorun için nereye gidersin?",
+     "titel": "bij iemand terechtkunnen = birine başvurabilmek, gidebilmek, yanında kalabilmek",
+     "tekst": "Yardım teklif ederken ve kurum mesajlarında en sık kullanım. Çocuk için: birinin evinde kalabilmek.",
      "voorbeelden": [
       {
-       "nl": "Voor vragen over betalen kunt u terecht bij de receptie.",
-       "tr": "Ödeme soruları için resepsiyona başvurabilirsiniz."
+       "nl": "Voor vragen kunnen jullie altijd bij de trainers terecht.",
+       "tr": "Sorularınız için her zaman antrenörlere başvurabilirsiniz."
       },
       {
-       "nl": "Waar kan ik terecht voor hulp?",
-       "tr": "Yardım için nereye başvurabilirim?"
+       "nl": "Je kunt altijd bij ons terecht.",
+       "tr": "Her zaman bize gelebilirsin / başvurabilirsin."
+      },
+      {
+       "nl": "Als jullie tijd voor jezelf nodig hebben, kan je zoon ook hier terecht.",
+       "tr": "Kendinize vakit ayırmanız gerekirse oğlunuz burada da kalabilir."
+      },
+      {
+       "nl": "Bij wie kunt u terecht?",
+       "tr": "Kime başvurabilirsiniz? (okuma sınavı sorusu)"
       }
      ]
     },
     {
-     "titel": "Terecht! = haklısın, yerinde",
-     "tekst": "Birinin söylediğini onaylarken.",
+     "titel": "bij iemand terechtkomen = (bir iş, mesaj) birine gitmek, ulaşmak",
+     "tekst": "Bir bilginin ya da işin sonunda kimin önüne gittiğini anlatır.",
      "voorbeelden": [
       {
-       "nl": "Ze was boos. – Terecht!",
-       "tr": "Kızgındı. – Haklı olarak!"
+       "nl": "Dit komt dan bij de ledenadministratie terecht.",
+       "tr": "Bu durumda bu iş üye kayıtlarına gider."
       },
+      {
+       "nl": "Mijn e-mail is bij de verkeerde persoon terechtgekomen.",
+       "tr": "E-postam yanlış kişiye gitmiş."
+      }
+     ]
+    },
+    {
+     "titel": "ergens terechtkomen = bir yere düşmek, sonunda bir yerde bitmek",
+     "tekst": "Fiziksel olarak da (top, poşet) dijital olarak da (e-posta, dosya).",
+     "voorbeelden": [
+      {
+       "nl": "Hij kwam niet meteen in mijn inbox terecht.",
+       "tr": "(E-posta) hemen gelen kutuma düşmedi."
+      },
+      {
+       "nl": "Het bericht is in mijn spam terechtgekomen.",
+       "tr": "Mesaj spam klasörüme düşmüş."
+      },
+      {
+       "nl": "Hij kwam ongelukkig terecht en brak zijn been.",
+       "tr": "Kötü düştü ve bacağını kırdı."
+      }
+     ]
+    },
+    {
+     "titel": "terecht (zijn) = haklı, yerinde",
+     "tekst": "Bir davranışın, sorunun ya da duygunun haklı olduğunu söyler. Tek kelimeyle onay: Terecht!",
+     "voorbeelden": [
       {
        "nl": "Dat is een terechte vraag.",
        "tr": "Bu yerinde bir soru."
+      },
+      {
+       "nl": "Hij is terecht boos.",
+       "tr": "Haklı olarak kızgın."
+      },
+      {
+       "nl": "Ze was boos. – Terecht!",
+       "tr": "Kızgındı. – Haklı olarak!"
+      }
+     ]
+    },
+    {
+     "titel": "weer terecht zijn = (kaybolan şey) bulundu",
+     "tekst": "Kaybolan bir şey ya da kişi yeniden bulununca.",
+     "voorbeelden": [
+      {
+       "nl": "Het verdwaalde kind is weer terecht.",
+       "tr": "Kaybolan çocuk bulundu."
+      },
+      {
+       "nl": "Mijn sleutels zijn weer terecht!",
+       "tr": "Anahtarlarım bulundu!"
       }
      ]
     },
     {
      "titel": "Het komt wel terecht = hallolur",
-     "tekst": "Rahatlatmak için.",
+     "tekst": "Rahatlatmak için: işler sonunda yerini bulur.",
      "voorbeelden": [
       {
        "nl": "Maak je geen zorgen, het komt wel terecht.",
@@ -6335,12 +6393,20 @@
    ],
    "dialoog": [
     {
-     "nl": "Ouder: Mijn zoon kan vandaag niet naar de training; er is niemand die hem kan brengen.",
-     "tr": "Veli: Oğlum bugün antrenmana gelemiyor; onu götürecek kimse yok."
+     "nl": "Teamcoördinator: Voor vragen kunnen jullie voortaan bij de trainers terecht.",
+     "tr": "Takım koordinatörü: Sorularınız için bundan sonra antrenörlere başvurabilirsiniz."
     },
     {
-     "nl": "Andere ouder: Voor een lift kun je altijd bij mij terecht.",
-     "tr": "Başka bir veli: Arabayla götürmek için her zaman bana başvurabilirsin."
+     "nl": "Teamcoördinator: Mochten zij er niet uitkomen, dan kunnen ze contact met mij opnemen.",
+     "tr": "Takım koordinatörü: Onlar işin içinden çıkamazsa benimle iletişime geçebilirler."
+    },
+    {
+     "nl": "Ouder: Mijn vraag over de contributie, bij wie komt die terecht?",
+     "tr": "Veli: Aidatla ilgili sorum kime gidiyor?"
+    },
+    {
+     "nl": "Trainer: Die komt bij de ledenadministratie terecht.",
+     "tr": "Antrenör: O üye kayıtlarına gidiyor."
     }
    ],
    "voorbeelden": [
@@ -6366,16 +6432,20 @@
     }
    ],
    "gramer": {
-    "titel": "Ayrılabilen fiiller: kan … terecht, kwam … terecht",
-    "tekst": "terechtkunnen ve terechtkomen ayrılır: Ik kan bij jou terecht. Hij kwam in de sloot terecht. Yan cümlede birleşir: … waar ik terechtkan; … dat de bal in de sloot terechtkwam. Geçmiş: is terechtgekomen.",
+    "titel": "kunnen … terecht / komt … terecht / is terechtgekomen",
+    "tekst": "İki fiil de ayrılabilir. Ana cümlede terecht sona gider: Je kunt bij ons terecht. Het komt bij Peter terecht. Yan cümlede birleşir: … waar je terechtkunt; … dat het in mijn spam terechtkwam. Geçmiş zaman zijn ile: is terechtgekomen. Dikkat: “Je kunt bij mij terechtkunnen” yanlış: kunt zaten var, sadece terecht kalır.",
     "voorbeelden": [
+     {
+      "nl": "Je kunt altijd bij mij terecht.",
+      "tr": "Her zaman bana başvurabilirsin."
+     },
      {
       "nl": "Ik weet waar ik terechtkan.",
       "tr": "Nereye başvuracağımı biliyorum."
      },
      {
-      "nl": "Waar is mijn telefoon terechtgekomen?",
-      "tr": "Telefonum nereye gitti?"
+      "nl": "Het is bij de verkeerde persoon terechtgekomen.",
+      "tr": "Yanlış kişiye gitmiş."
      }
     ]
    },
@@ -6384,47 +6454,49 @@
     {
      "id": "ws-tr1",
      "type": "mc",
-     "vraag": "“Bij wie kunt u terecht?” ne soruyor?",
+     "vraag": "“Je kunt altijd bij mij ___ als je hulp nodig hebt.”",
      "opties": [
-      "Kime başvurabilirsiniz?",
-      "Kim haklı?",
-      "Kim geldi?"
+      "terecht",
+      "terechtkunnen",
+      "terechtgekomen"
      ],
      "juist": 0,
-     "uitleg": "terechtkunnen."
+     "uitleg": "kunt zaten var: … bij mij terecht."
     },
     {
      "id": "ws-tr2",
      "type": "mc",
-     "vraag": "“Terecht!” ne demek?",
+     "vraag": "“Mijn e-mail is in de spam ___.”",
      "opties": [
-      "Haklı olarak! / Yerinde!",
-      "Geri dön!"
+      "terechtgekomen",
+      "terechtkunnen",
+      "terug"
      ],
      "juist": 0,
-     "uitleg": "terecht = haklı, yerinde."
+     "uitleg": "terechtkomen, geçmiş: is terechtgekomen."
     },
     {
      "id": "ws-tr3",
      "type": "mc",
-     "vraag": "“Het komt wel terecht.” ne demek?",
+     "vraag": "“Mijn sleutels zijn weer terecht!” ne demek?",
      "opties": [
-      "Hallolur.",
-      "Geri geliyor."
+      "Anahtarlarım bulundu!",
+      "Anahtarlarım haklıydı!",
+      "Anahtarlarım geri gitti!"
      ],
      "juist": 0,
-     "uitleg": "rahatlatma."
+     "uitleg": "weer terecht = bulundu."
     },
     {
      "id": "ws-tr4",
      "type": "mc",
-     "vraag": "“De bal kwam in de sloot terecht.” ne demek?",
+     "vraag": "“Sana dönüş yapacağım.” hangisi?",
      "opties": [
-      "Top hendeğe düştü.",
-      "Top hendekten geldi."
+      "Ik kom bij je terecht.",
+      "Ik kom erop terug."
      ],
-     "juist": 0,
-     "uitleg": "terechtkomen = sonunda bir yere düşmek."
+     "juist": 1,
+     "uitleg": "geri dönmek = terug."
     },
     {
      "id": "ws-tr5",
@@ -6439,8 +6511,28 @@
    ],
    "bronnen": [
     "Wiktionary / Kaikki: terecht, terechtkomen, terechtkunnen",
-    "Sitedeki Lezen metinleri ve Spreken alıştırması"
-   ]
+    "Interglot / Wiktionary: terecht = teruggevonden",
+    "Sitedeki Lezen metinleri ve Spreken alıştırması",
+    "Kulüp ve okul mesajlarından uyarlanmış örnekler (isimsiz)"
+   ],
+   "anders": {
+    "titel": "Karıştırma: terecht / terug",
+    "tekst": "Ses olarak yakın ama farklı kelimeler. terecht = te + recht (doğru yere). terug = geri. “Sana dönüş yapacağım” türü cümleler terug ile kurulur: terugkomen op, terugkoppelen.",
+    "voorbeelden": [
+     {
+      "nl": "Waar kan ik terecht?",
+      "tr": "Nereye başvurabilirim?"
+     },
+     {
+      "nl": "Ik kom erop terug.",
+      "tr": "Bu konuya geri döneceğim / sana döneceğim."
+     },
+     {
+      "nl": "Ik koppel het even terug.",
+      "tr": "Sonucu sana ileteceğim (iş dili)."
+     }
+    ]
+   }
   },
   {
    "id": "mocht-het",
