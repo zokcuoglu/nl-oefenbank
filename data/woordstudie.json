@@ -4100,6 +4100,2089 @@
     "Dictionary.com: foreign, uitlander",
     "Etymonline: foreigner, outlander"
    ]
+  },
+  {
+   "id": "zin-in",
+   "datum": "2027-01-05",
+   "woord": "ik heb er (geen) zin in",
+   "niveau": "A2",
+   "thema": "gesprek",
+   "tr": "canım istiyor / istemiyor; heveslendim",
+   "definitie": "Je wilt iets graag (of niet) doen.",
+   "kort": "“zin” üç şey olabilir: cümle, anlam ve istek. Kalıplarda üçü de var: Ik heb er zin in (canım istiyor), Het heeft geen zin (anlamı yok, boşuna). Karıştırmamak için bu sayfa.",
+   "betekenissen": [
+    {
+     "titel": "zin hebben in = istemek, hevesli olmak",
+     "tekst": "İstediğin şey in ile gelir; söylemeden “er … in” dersin.",
+     "voorbeelden": [
+      {
+       "nl": "Ik heb zin in koffie.",
+       "tr": "Canım kahve istiyor."
+      },
+      {
+       "nl": "Ik heb er echt zin in!",
+       "tr": "Gerçekten heveslendim! (sabırsızlanıyorum)"
+      },
+      {
+       "nl": "Heb je zin om mee te gaan?",
+       "tr": "Gelmek ister misin?"
+      }
+     ]
+    },
+    {
+     "titel": "geen zin hebben = canı istememek",
+     "tekst": "Kibar değil ama samimi; arkadaşla ve evde.",
+     "voorbeelden": [
+      {
+       "nl": "Ik heb geen zin om te koken.",
+       "tr": "Yemek yapmaya hiç canım yok."
+      }
+     ]
+    },
+    {
+     "titel": "het heeft geen zin = anlamı yok, boşuna",
+     "tekst": "Burada zin = anlam. Bir şeyin işe yaramadığını söyler.",
+     "voorbeelden": [
+      {
+       "nl": "Het heeft geen zin om nu te bellen; ze zijn dicht.",
+       "tr": "Şimdi aramanın anlamı yok; kapalılar."
+      },
+      {
+       "nl": "Heeft het zin om te wachten?",
+       "tr": "Beklemenin anlamı var mı?"
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "de zin",
+     "uitleg": "1) cümle 2) anlam 3) istek, heves"
+    },
+    {
+     "deel": "er … in",
+     "uitleg": "“onun içinde”: neyi istediğin önceden belli."
+    },
+    {
+     "deel": "om … te",
+     "uitleg": "bir eylem için: zin om te dansen"
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: zin hebben / het heeft zin",
+    "tekst": "Özne kişi ise (ik heb zin) = istiyorum. Özne “het” ise (het heeft zin) = anlamlı, işe yarar.",
+    "voorbeelden": [
+     {
+      "nl": "Ik heb zin om te gaan.",
+      "tr": "Gitmek istiyorum."
+     },
+     {
+      "nl": "Het heeft zin om te gaan.",
+      "tr": "Gitmek mantıklı."
+     }
+    ]
+   },
+   "dialoog": [
+    {
+     "nl": "A: Zin in een film vanavond?",
+     "tr": "A: Bu akşam film izlemek ister misin?"
+    },
+    {
+     "nl": "B: Ja, leuk! Maar ik heb geen zin in iets engs.",
+     "tr": "B: Evet, güzel! Ama korku filmi istemiyorum."
+    },
+    {
+     "nl": "A: Oké. Het heeft geen zin om nu nog kaartjes te kopen, het is uitverkocht.",
+     "tr": "A: Tamam. Şimdi bilet almanın anlamı yok, tükendi."
+    },
+    {
+     "nl": "B: Dan kijken we thuis.",
+     "tr": "B: O zaman evde izleriz."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik heb zin in de vakantie.",
+     "tr": "Tatili dört gözle bekliyorum."
+    },
+    {
+     "nl": "Waar heb je zin in?",
+     "tr": "Canın ne istiyor?"
+    },
+    {
+     "nl": "Dat heeft geen zin.",
+     "tr": "Bunun anlamı yok."
+    },
+    {
+     "nl": "Schrijf een zin met dit woord.",
+     "tr": "Bu kelimeyle bir cümle yaz."
+    }
+   ],
+   "gramer": {
+    "titel": "zin om … te + mastar",
+    "tekst": "Bir eylem istiyorsan: zin hebben om te + mastar. Bir şey istiyorsan: zin hebben in + isim.",
+    "voorbeelden": [
+     {
+      "nl": "Ik heb zin om te zwemmen.",
+      "tr": "Yüzmek istiyorum."
+     },
+     {
+      "nl": "Ik heb zin in pizza.",
+      "tr": "Canım pizza istiyor."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-zi1",
+     "type": "mc",
+     "vraag": "“Ik heb er zin in!” ne demek?",
+     "opties": [
+      "Hevesliyim, sabırsızlanıyorum!",
+      "Bunun anlamı var.",
+      "Bir cümlem var."
+     ],
+     "juist": 0,
+     "uitleg": "zin = istek."
+    },
+    {
+     "id": "kp-zi2",
+     "type": "mc",
+     "vraag": "“Het heeft geen zin.” ne demek?",
+     "opties": [
+      "Canım istemiyor.",
+      "Anlamı yok, boşuna.",
+      "Cümle yok."
+     ],
+     "juist": 1,
+     "uitleg": "özne het → anlam."
+    },
+    {
+     "id": "kp-zi3",
+     "type": "mc",
+     "vraag": "Doğru olan?",
+     "opties": [
+      "Ik heb zin in zwemmen te.",
+      "Ik heb zin om te zwemmen."
+     ],
+     "juist": 1,
+     "uitleg": "om te + mastar."
+    },
+    {
+     "id": "kp-zi4",
+     "type": "mc",
+     "vraag": "“Schrijf een zin.” burada zin?",
+     "opties": [
+      "cümle",
+      "istek",
+      "anlam"
+     ],
+     "juist": 0,
+     "uitleg": "de zin = cümle."
+    },
+    {
+     "id": "kp-zi5",
+     "type": "type",
+     "tr": "Canım kahve istiyor.",
+     "antwoorden": [
+      "Ik heb zin in koffie"
+     ],
+     "uitleg": "zin in + isim."
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "het-lukt",
+   "datum": "2027-01-12",
+   "woord": "het lukt (me) (niet)",
+   "niveau": "A2",
+   "thema": "gesprek",
+   "tr": "başarıyorum / beceremiyorum; oldu / olmadı",
+   "definitie": "Iets gaat goed of niet goed: je krijgt het (niet) voor elkaar.",
+   "kort": "Türkçede “yapamadım” deriz; Hollandacada çoğu zaman özne iş olur: Het lukt me niet (bana olmuyor). “Is het gelukt?” = Oldu mu? Hallettin mi? Günlük konuşmanın en sık sorularından.",
+   "betekenissen": [
+    {
+     "titel": "het lukt (me) = başarıyorum",
+     "tekst": "Özne “het” ya da yapılan iş; kişi “me / je / hem” olur.",
+     "voorbeelden": [
+      {
+       "nl": "Het lukt me niet om de deur open te krijgen.",
+       "tr": "Kapıyı açamıyorum."
+      },
+      {
+       "nl": "Lukt het?",
+       "tr": "Oluyor mu? (yardım ister misin?)"
+      }
+     ]
+    },
+    {
+     "titel": "is het gelukt? = oldu mu?",
+     "tekst": "Geçmişte zijn ile: het is gelukt.",
+     "voorbeelden": [
+      {
+       "nl": "Is het gelukt met de aanvraag?",
+       "tr": "Başvuru oldu mu?"
+      },
+      {
+       "nl": "Ja, het is gelukt!",
+       "tr": "Evet, oldu!"
+      }
+     ]
+    },
+    {
+     "titel": "mislukken = başarısız olmak",
+     "tekst": "Ters hali; isim: de mislukking.",
+     "voorbeelden": [
+      {
+       "nl": "Het plan is mislukt.",
+       "tr": "Plan başarısız oldu."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "lukken",
+     "uitleg": "başarılı olmak; ilgili: het geluk = şans, mutluluk."
+    },
+    {
+     "deel": "me / je / hem",
+     "uitleg": "kime olduğunu söyler: het lukt hem = o başarıyor."
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: kunnen / lukken",
+    "tekst": "Ik kan niet zwemmen = yüzme bilmiyorum (yetenek). Het lukt me niet = (şu an, bu sefer) olmuyor, beceremiyorum.",
+    "voorbeelden": [
+     {
+      "nl": "Ik kan autorijden.",
+      "tr": "Araba kullanmayı biliyorum."
+     },
+     {
+      "nl": "Het lukt me niet om in te parkeren.",
+      "tr": "Park etmeyi beceremiyorum."
+     }
+    ]
+   },
+   "dialoog": [
+    {
+     "nl": "A: Lukt het met je huiswerk?",
+     "tr": "A: Ödev oluyor mu?"
+    },
+    {
+     "nl": "B: Nee, het lukt me niet. Kun je helpen?",
+     "tr": "B: Hayır, beceremiyorum. Yardım eder misin?"
+    },
+    {
+     "nl": "A: Tuurlijk. … En?",
+     "tr": "A: Tabii. … Nasıl?"
+    },
+    {
+     "nl": "B: Ja, het is gelukt!",
+     "tr": "B: Evet, oldu!"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het is me gelukt!",
+     "tr": "Başardım!"
+    },
+    {
+     "nl": "Gaat het lukken?",
+     "tr": "Yetişecek mi? Olacak mı?"
+    },
+    {
+     "nl": "Het lukte niet om je te bellen.",
+     "tr": "Seni arayamadım."
+    },
+    {
+     "nl": "Het is mislukt.",
+     "tr": "Olmadı, başarısız oldu."
+    }
+   ],
+   "gramer": {
+    "titel": "zijn ile geçmiş",
+    "tekst": "lukken ve mislukken geçmişte zijn alır: het is gelukt / het is mislukt. Kişi, özne değil nesne zamiriyle: het is mij gelukt.",
+    "voorbeelden": [
+     {
+      "nl": "Het is ons gelukt.",
+      "tr": "Başardık."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-l1",
+     "type": "mc",
+     "vraag": "“Is het gelukt?” ne demek?",
+     "opties": [
+      "Şanslı mısın?",
+      "Oldu mu?",
+      "Mutlu musun?"
+     ],
+     "juist": 1,
+     "uitleg": "lukken."
+    },
+    {
+     "id": "kp-l2",
+     "type": "mc",
+     "vraag": "“Kapıyı açamıyorum.” hangisi?",
+     "opties": [
+      "Ik lukt de deur niet.",
+      "Het lukt me niet om de deur open te krijgen."
+     ],
+     "juist": 1,
+     "uitleg": "özne het."
+    },
+    {
+     "id": "kp-l3",
+     "type": "mc",
+     "vraag": "Doğru geçmiş?",
+     "opties": [
+      "Het heeft gelukt.",
+      "Het is gelukt."
+     ],
+     "juist": 1,
+     "uitleg": "zijn."
+    },
+    {
+     "id": "kp-l4",
+     "type": "mc",
+     "vraag": "“Ik kan niet zwemmen.” ne anlatır?",
+     "opties": [
+      "Yüzme bilmiyorum.",
+      "Bugün yüzemedim."
+     ],
+     "juist": 0,
+     "uitleg": "yetenek."
+    },
+    {
+     "id": "kp-l5",
+     "type": "type",
+     "tr": "Başardım!",
+     "antwoorden": [
+      "Het is me gelukt!",
+      "Het is mij gelukt!",
+      "Het is gelukt!"
+     ],
+     "uitleg": "het is me gelukt."
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "maakt-niet-uit",
+   "datum": "2027-01-19",
+   "woord": "dat maakt niet uit",
+   "niveau": "A2",
+   "thema": "gesprek",
+   "tr": "fark etmez, önemli değil",
+   "definitie": "Het is niet belangrijk; beide is goed.",
+   "kort": "Seçim sorulduğunda ya da biri özür dilediğinde en sık cevap. Ama uitmaken fiilinin başka iki anlamı daha var: “het uitmaken” = ayrılmak (sevgili), “uitmaken” = karar vermek.",
+   "betekenissen": [
+    {
+     "titel": "dat maakt (mij) niet uit = fark etmez",
+     "tekst": "Seçimde ya da özür karşısında.",
+     "voorbeelden": [
+      {
+       "nl": "Thee of koffie? – Maakt niet uit.",
+       "tr": "Çay mı kahve mi? – Fark etmez."
+      },
+      {
+       "nl": "Sorry, ik ben te laat. – Dat maakt niet uit.",
+       "tr": "Pardon, geç kaldım. – Önemli değil."
+      }
+     ]
+    },
+    {
+     "titel": "wat maakt het uit? = ne fark eder?",
+     "tekst": "Bir şeyin önemsiz olduğunu vurgular.",
+     "voorbeelden": [
+      {
+       "nl": "Wat maakt het uit wat de buren denken?",
+       "tr": "Komşuların ne düşündüğü ne fark eder?"
+      }
+     ]
+    },
+    {
+     "titel": "het uitmaken (met iemand) = ayrılmak",
+     "tekst": "Sevgiliyle ilişkiyi bitirmek.",
+     "voorbeelden": [
+      {
+       "nl": "Ze heeft het uitgemaakt.",
+       "tr": "Ondan ayrıldı."
+      },
+      {
+       "nl": "Het is uit.",
+       "tr": "Ayrıldılar. (bitti)"
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "uitmaken",
+     "uitleg": "ayrılabilen fiil: maakt … uit; het maakt niet uit."
+    },
+    {
+     "deel": "mij / jou",
+     "uitleg": "kim için fark etmediği: het maakt mij niet uit."
+    }
+   ],
+   "anders": {
+    "titel": "Resmî: uitmaken = belirlemek",
+    "tekst": "Resmî metinde “Dat maakt de rechter uit.” = Buna hâkim karar verir. Ve “deel uitmaken van” = …in parçası olmak.",
+    "voorbeelden": [
+     {
+      "nl": "Dat maakt de rechter uit.",
+      "tr": "Buna hâkim karar verir."
+     },
+     {
+      "nl": "Het park maakt deel uit van de stad.",
+      "tr": "Park şehrin bir parçası."
+     }
+    ]
+   },
+   "voorbeelden": [
+    {
+     "nl": "Het maakt mij niet uit.",
+     "tr": "Benim için fark etmez."
+    },
+    {
+     "nl": "Maakt het uit als ik later kom?",
+     "tr": "Geç gelsem sorun olur mu?"
+    },
+    {
+     "nl": "Het maakt veel uit!",
+     "tr": "Çok fark eder!"
+    },
+    {
+     "nl": "Het is uit tussen hen.",
+     "tr": "Aralarında bitti."
+    }
+   ],
+   "gramer": {
+    "titel": "Soru: Maakt het uit …?",
+    "tekst": "Soru cümlesinde fiil başa gelir, uit sonda kalır: Maakt het uit als …? Olumsuz cevap: Nee, dat maakt niet uit.",
+    "voorbeelden": [
+     {
+      "nl": "Maakt het uit welke kleur?",
+      "tr": "Hangi renk olduğu fark eder mi?"
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-m1",
+     "type": "mc",
+     "vraag": "“Thee of koffie?” – “Maakt niet uit.” ne demek?",
+     "opties": [
+      "Fark etmez.",
+      "İstemiyorum.",
+      "Yapmadım."
+     ],
+     "juist": 0,
+     "uitleg": "seçimde fark etmez."
+    },
+    {
+     "id": "kp-m2",
+     "type": "mc",
+     "vraag": "“Ze heeft het uitgemaakt.” ne demek?",
+     "opties": [
+      "Kararını verdi.",
+      "Ondan ayrıldı.",
+      "Dışarı çıktı."
+     ],
+     "juist": 1,
+     "uitleg": "het uitmaken = ayrılmak."
+    },
+    {
+     "id": "kp-m3",
+     "type": "mc",
+     "vraag": "“Dat maakt de rechter uit.” ne demek?",
+     "opties": [
+      "Hâkim yapar.",
+      "Buna hâkim karar verir."
+     ],
+     "juist": 1,
+     "uitleg": "resmî: belirlemek."
+    },
+    {
+     "id": "kp-m4",
+     "type": "mc",
+     "vraag": "“deel uitmaken van” ne demek?",
+     "opties": [
+      "…in parçası olmak",
+      "…den ayrılmak"
+     ],
+     "juist": 0,
+     "uitleg": "resmî."
+    },
+    {
+     "id": "kp-m5",
+     "type": "type",
+     "tr": "Benim için fark etmez.",
+     "antwoorden": [
+      "Het maakt mij niet uit",
+      "Het maakt me niet uit",
+      "Dat maakt mij niet uit",
+      "Dat maakt me niet uit"
+     ],
+     "uitleg": "maakt … niet uit."
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "hoe-zit-het",
+   "datum": "2027-01-26",
+   "woord": "hoe zit het met …? / het zit zo",
+   "niveau": "B1",
+   "thema": "gesprek",
+   "tr": "… ne durumda? / durum şu",
+   "definitie": "Je vraagt naar de situatie, of je legt uit hoe iets in elkaar zit.",
+   "kort": "“zitten” burada oturmak değil, “durum”: Hoe zit het met je rijbewijs? = Ehliyet işin ne durumda? Cevap çoğu zaman: Het zit zo: … (Durum şöyle: …). Ayrıca: Hoe zit dat? = Bu nasıl oluyor?",
+   "betekenissen": [
+    {
+     "titel": "hoe zit het met …? = … ne durumda?",
+     "tekst": "Bir işin, planın durumunu sorar.",
+     "voorbeelden": [
+      {
+       "nl": "Hoe zit het met de verbouwing?",
+       "tr": "Tadilat ne durumda?"
+      },
+      {
+       "nl": "Hoe zit het met jou?",
+       "tr": "Ya sen? Senin durum ne?"
+      }
+     ]
+    },
+    {
+     "titel": "het zit zo = durum şöyle",
+     "tekst": "Açıklamaya giriş.",
+     "voorbeelden": [
+      {
+       "nl": "Het zit zo: ik ben mijn sleutel kwijt.",
+       "tr": "Durum şu: anahtarımı kaybettim."
+      }
+     ]
+    },
+    {
+     "titel": "hoe zit dat (in elkaar)? = bu nasıl işliyor?",
+     "tekst": "Bir sistemi, kuralı anlamak için.",
+     "voorbeelden": [
+      {
+       "nl": "Hoe zit dat met de huurtoeslag?",
+       "tr": "Kira yardımı nasıl işliyor?"
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "zitten",
+     "uitleg": "oturmak; burada “durumda olmak”."
+    },
+    {
+     "deel": "in elkaar zitten",
+     "uitleg": "bir araya gelmiş olmak: nasıl kurulduğu, nasıl işlediği."
+    }
+   ],
+   "anders": {
+    "titel": "Benzer: het zit goed / het zit me niet lekker",
+    "tekst": "Het zit goed = Tamam, sorun yok. Dat zit me niet lekker = İçime sinmiyor, beni rahatsız ediyor.",
+    "voorbeelden": [
+     {
+      "nl": "Komt het goed? – Ja, dat zit wel goed.",
+      "tr": "Hallolur mu? – Evet, sorun yok."
+     },
+     {
+      "nl": "Dat zit me niet lekker.",
+      "tr": "Bu içime sinmiyor."
+     }
+    ]
+   },
+   "dialoog": [
+    {
+     "nl": "A: Hoe zit het met je examen?",
+     "tr": "A: Sınavın ne durumda?"
+    },
+    {
+     "nl": "B: Het zit zo: Lezen is op 1 december, Schrijven later.",
+     "tr": "B: Durum şöyle: Lezen 1 Aralık'ta, Schrijven sonra."
+    },
+    {
+     "nl": "A: En hoe zit dat met de uitslag?",
+     "tr": "A: Peki sonuç nasıl oluyor?"
+    },
+    {
+     "nl": "B: Die krijg je een paar weken later.",
+     "tr": "B: Birkaç hafta sonra geliyor."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Hoe zit het met het geld?",
+     "tr": "Para işi ne durumda?"
+    },
+    {
+     "nl": "Het zit anders.",
+     "tr": "Durum farklı."
+    },
+    {
+     "nl": "Ik snap niet hoe het in elkaar zit.",
+     "tr": "Nasıl işlediğini anlamıyorum."
+    },
+    {
+     "nl": "Dat zit wel goed.",
+     "tr": "Sorun yok, hallolur."
+    }
+   ],
+   "gramer": {
+    "titel": "Resmî karşılık",
+    "tekst": "Yazılı ve resmî dilde: Wat is de stand van zaken? (Durum ne?) Ya da: Hoe staat het met …? Konuşmada “hoe zit het met” çok daha sık.",
+    "voorbeelden": [
+     {
+      "nl": "Wat is de stand van zaken?",
+      "tr": "Son durum nedir?"
+     },
+     {
+      "nl": "Hoe staat het met de plannen?",
+      "tr": "Planlar ne durumda?"
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-hz1",
+     "type": "mc",
+     "vraag": "“Hoe zit het met je rijbewijs?” ne soruyor?",
+     "opties": [
+      "Ehliyetinde nasıl oturuyorsun?",
+      "Ehliyet işin ne durumda?"
+     ],
+     "juist": 1,
+     "uitleg": "zitten = durum."
+    },
+    {
+     "id": "kp-hz2",
+     "type": "mc",
+     "vraag": "“Het zit zo: …” ne yapar?",
+     "opties": [
+      "Bir açıklamaya başlar.",
+      "Birini oturtur."
+     ],
+     "juist": 0,
+     "uitleg": "durum şöyle."
+    },
+    {
+     "id": "kp-hz3",
+     "type": "mc",
+     "vraag": "“Dat zit me niet lekker.” ne demek?",
+     "opties": [
+      "İçime sinmiyor.",
+      "Sandalye rahat değil."
+     ],
+     "juist": 0,
+     "uitleg": "rahatsız ediyor."
+    },
+    {
+     "id": "kp-hz4",
+     "type": "mc",
+     "vraag": "Resmî karşılık?",
+     "opties": [
+      "Wat is de stand van zaken?",
+      "Hoe gaat het?"
+     ],
+     "juist": 0,
+     "uitleg": "son durum."
+    },
+    {
+     "id": "kp-hz5",
+     "type": "type",
+     "tr": "Para işi ne durumda?",
+     "antwoorden": [
+      "Hoe zit het met het geld?"
+     ],
+     "uitleg": "hoe zit het met …"
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "kom-er-niet-uit",
+   "datum": "2027-02-02",
+   "woord": "ik kom er niet uit",
+   "niveau": "B1",
+   "thema": "gesprek",
+   "tr": "işin içinden çıkamıyorum, çözemiyorum",
+   "definitie": "Je vindt geen oplossing.",
+   "kort": "Bir problemi, bir formu, bir hesabı çözemediğinde: Ik kom er niet uit. Birlikte çözünce: We komen er wel uit! İş yerinde ve telefonda müşteri hizmetleriyle konuşurken çok işe yarar.",
+   "betekenissen": [
+    {
+     "titel": "er (niet) uitkomen = çözmek / çözememek",
+     "tekst": "Kelimesi kelimesine “oradan (çıkamamak)”: sorunun içinden çıkış yolu bulmak.",
+     "voorbeelden": [
+      {
+       "nl": "Ik kom er niet uit met dit formulier.",
+       "tr": "Bu formun içinden çıkamıyorum."
+      },
+      {
+       "nl": "We komen er samen wel uit.",
+       "tr": "Birlikte hallederiz."
+      }
+     ]
+    },
+    {
+     "titel": "goed uitkomen = işine gelmek, uygun düşmek",
+     "tekst": "Zaman ya da plan uyuyor.",
+     "voorbeelden": [
+      {
+       "nl": "Dinsdag komt mij goed uit.",
+       "tr": "Salı bana uygun."
+      }
+     ]
+    },
+    {
+     "titel": "uitkomen = ortaya çıkmak; gerçekleşmek",
+     "tekst": "Bir sır ya da bir tahmin.",
+     "voorbeelden": [
+      {
+       "nl": "Het geheim kwam uit.",
+       "tr": "Sır ortaya çıktı."
+      },
+      {
+       "nl": "Mijn droom is uitgekomen.",
+       "tr": "Hayalim gerçek oldu."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "uitkomen",
+     "uitleg": "ayrılabilen fiil: komt … uit; geçmiş: is uitgekomen."
+    },
+    {
+     "deel": "er",
+     "uitleg": "“oradan”: sorunun kendisi."
+    }
+   ],
+   "anders": {
+    "titel": "Bir uitkomen, dört anlam",
+    "tekst": "Cümleye bak: er uitkomen (çözmek), goed uitkomen (uygun olmak), uitkomen (ortaya çıkmak / gerçekleşmek), uitkomen in (bir yere açılmak: Deze weg komt uit bij het station).",
+    "voorbeelden": [
+     {
+      "nl": "Deze weg komt uit bij het station.",
+      "tr": "Bu yol istasyona çıkıyor."
+     }
+    ]
+   },
+   "dialoog": [
+    {
+     "nl": "A: Ik kom er niet uit met mijn belastingaangifte.",
+     "tr": "A: Vergi beyannamemin içinden çıkamıyorum."
+    },
+    {
+     "nl": "B: Zal ik even meekijken?",
+     "tr": "B: Bir bakayım mı?"
+    },
+    {
+     "nl": "A: Graag! Komt zaterdag je goed uit?",
+     "tr": "A: Çok isterim! Cumartesi sana uyar mı?"
+    },
+    {
+     "nl": "B: Ja, prima. We komen er wel uit.",
+     "tr": "B: Evet, olur. Hallederiz."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik kom er niet uit.",
+     "tr": "Çözemiyorum."
+    },
+    {
+     "nl": "Kom je eruit?",
+     "tr": "Halledebiliyor musun?"
+    },
+    {
+     "nl": "Dat komt mij niet goed uit.",
+     "tr": "Bu bana uygun değil."
+    },
+    {
+     "nl": "Het is uitgekomen.",
+     "tr": "Gerçek oldu / ortaya çıktı."
+    }
+   ],
+   "gramer": {
+    "titel": "eruit",
+    "tekst": "er + uit birleşince eruit yazılır: Kom je eruit? Ama arada kelime varsa ayrı: Ik kom er niet uit.",
+    "voorbeelden": [
+     {
+      "nl": "Kom je eruit?",
+      "tr": "Çözebiliyor musun?"
+     },
+     {
+      "nl": "Ik kom er niet uit.",
+      "tr": "Çözemiyorum."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-k1",
+     "type": "mc",
+     "vraag": "“Ik kom er niet uit.” ne demek?",
+     "opties": [
+      "Dışarı çıkamıyorum.",
+      "Çözemiyorum.",
+      "Gelmiyorum."
+     ],
+     "juist": 1,
+     "uitleg": "işin içinden çıkamamak."
+    },
+    {
+     "id": "kp-k2",
+     "type": "mc",
+     "vraag": "“Dinsdag komt mij goed uit.” ne demek?",
+     "opties": [
+      "Salı bana uygun.",
+      "Salı dışarı çıkıyorum."
+     ],
+     "juist": 0,
+     "uitleg": "goed uitkomen."
+    },
+    {
+     "id": "kp-k3",
+     "type": "mc",
+     "vraag": "“Mijn droom is uitgekomen.” ne demek?",
+     "opties": [
+      "Hayalim bitti.",
+      "Hayalim gerçek oldu."
+     ],
+     "juist": 1,
+     "uitleg": "gerçekleşmek."
+    },
+    {
+     "id": "kp-k4",
+     "type": "mc",
+     "vraag": "Doğru yazım?",
+     "opties": [
+      "Kom je eruit?",
+      "Kom je er uit?"
+     ],
+     "juist": 0,
+     "uitleg": "bitişik."
+    },
+    {
+     "id": "kp-k5",
+     "type": "type",
+     "tr": "Birlikte hallederiz.",
+     "antwoorden": [
+      "We komen er samen wel uit",
+      "We komen er wel uit",
+      "We komen er samen uit"
+     ],
+     "uitleg": "er uitkomen."
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "hoofd-boven-water",
+   "datum": "2027-01-05",
+   "woord": "het hoofd boven water houden",
+   "niveau": "B2",
+   "thema": "geld",
+   "tr": "ayakta kalmak, batmamak",
+   "definitie": "Net overleven, vooral met geldproblemen.",
+   "kort": "Kelimesi kelimesine “başını suyun üstünde tutmak”. Hollanda gibi suyla yaşayan bir ülkeye çok uyan bir resim. İngilizcede de aynı: keep one's head above water.",
+   "opbouw": [
+    {
+     "deel": "het hoofd",
+     "uitleg": "baş"
+    },
+    {
+     "deel": "boven water",
+     "uitleg": "suyun üstünde"
+    },
+    {
+     "deel": "houden",
+     "uitleg": "tutmak"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "keep one's head above water",
+     "uitleg": "aynı resim"
+    },
+    {
+     "taal": "Türkçe",
+     "woord": "ayakta kalmak / batmamak",
+     "uitleg": "benzer"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Lukt het niet om het hoofd boven water te houden, dan verliezen veertig medewerkers hun baan.",
+     "tr": "Ayakta kalmayı başaramazsa kırk çalışan işini kaybedecek.",
+     "bron": "Haber: Zeehondencentrum in geldnood (B2)",
+     "href": "nieuws/?id=pieterburen"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "het water staat iemand tot aan de lippen",
+     "tr": "su boğaza dayandı (aynı haberde)"
+    },
+    {
+     "nl": "failliet gaan",
+     "tr": "iflas etmek"
+    },
+    {
+     "nl": "de eindjes aan elkaar knopen",
+     "tr": "iki yakayı bir araya getirmek"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Met twee banen houdt ze het hoofd boven water.",
+     "tr": "İki işle ayakta kalıyor."
+    },
+    {
+     "nl": "Veel winkels kunnen het hoofd niet boven water houden.",
+     "tr": "Birçok dükkân ayakta kalamıyor."
+    }
+   ],
+   "gramer": {
+    "titel": "Haber dili",
+    "tekst": "Özne çoğu zaman şirket, kulüp, aile. Sık kalıp: lukt het (niet) om het hoofd boven water te houden.",
+    "voorbeelden": [
+     {
+      "nl": "Het bedrijf houdt het hoofd boven water.",
+      "tr": "Şirket ayakta kalıyor."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-h1",
+     "type": "mc",
+     "vraag": "Deyim ne demek?",
+     "opties": [
+      "Yüzmeyi bilmek",
+      "Zor durumda ayakta kalmak",
+      "Başını yıkamak"
+     ],
+     "juist": 1,
+     "uitleg": "batmamak."
+    },
+    {
+     "id": "dy-h2",
+     "type": "mc",
+     "vraag": "Haberde kim ayakta kalmaya çalışıyor?",
+     "opties": [
+      "Bir fok merkezi",
+      "Bir futbol kulübü"
+     ],
+     "juist": 0,
+     "uitleg": "Pieterburen."
+    },
+    {
+     "id": "dy-h3",
+     "type": "mc",
+     "vraag": "Aynı haberdeki daha ağır deyim?",
+     "opties": [
+      "het water staat tot aan de lippen",
+      "het regent pijpenstelen"
+     ],
+     "juist": 0,
+     "uitleg": "su boğaza dayandı."
+    },
+    {
+     "id": "dy-h4",
+     "type": "mc",
+     "vraag": "İngilizce karşılığı?",
+     "opties": [
+      "keep one's head above water",
+      "head over heels"
+     ],
+     "juist": 0,
+     "uitleg": "aynı resim."
+    },
+    {
+     "id": "dy-h5",
+     "type": "type",
+     "tr": "İki işle ayakta kalıyor.",
+     "antwoorden": [
+      "Met twee banen houdt ze het hoofd boven water",
+      "Met twee banen houdt hij het hoofd boven water"
+     ],
+     "uitleg": "houdt … boven water."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Zeehondencentrum in geldnood"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "zijden-draad",
+   "datum": "2027-01-12",
+   "woord": "aan een zijden draad hangen",
+   "niveau": "B2",
+   "thema": "nieuws",
+   "tr": "pamuk ipliğine bağlı olmak",
+   "definitie": "In groot gevaar zijn; het kan elk moment misgaan.",
+   "kort": "Türkçede pamuk, Hollandacada ipek: zijden draad = ipek iplik. Her an kopabilecek kadar ince bir şeye bağlı olmak.",
+   "opbouw": [
+    {
+     "deel": "zijden",
+     "uitleg": "ipekten (de zijde = ipek)"
+    },
+    {
+     "deel": "de draad",
+     "uitleg": "iplik"
+    },
+    {
+     "deel": "hangen aan",
+     "uitleg": "…e asılı olmak"
+    }
+   ],
+   "geschiedenis": [
+    "İngilizcedeki hang by a thread için sözlükler Damokles hikâyesini gösterir: kral, dalkavuk Damokles'i at kılına asılı bir kılıcın altına oturtur.",
+    "Hollandacada da “het zwaard van Damocles” deyimi var. Ama “zijden draad” deyiminin bu hikâyeden geldiğine dair kesin bir kaynak bulamadım."
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "pamuk ipliğine bağlı",
+     "uitleg": "aynı resim, farklı kumaş"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "hang by a thread",
+     "uitleg": "bir ipliğe asılı"
+    },
+    {
+     "taal": "Hollandaca",
+     "woord": "het zwaard van Damocles",
+     "uitleg": "Damokles'in kılıcı"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "… het voortbestaan van Zeehondencentrum Pieterburen hangt aan een zijden draad.",
+     "tr": "… Pieterburen fok merkezinin geleceği pamuk ipliğine bağlı.",
+     "bron": "Haber: Zeehondencentrum in geldnood (B2)",
+     "href": "nieuws/?id=pieterburen"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "het voortbestaan",
+     "tr": "varlığını sürdürme, gelecek"
+    },
+    {
+     "nl": "onzeker",
+     "tr": "belirsiz"
+    },
+    {
+     "nl": "op het spel staan",
+     "tr": "tehlikede olmak"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het leven van de patiënt hing aan een zijden draad.",
+     "tr": "Hastanın hayatı pamuk ipliğine bağlıydı."
+    },
+    {
+     "nl": "De toekomst van de club hangt aan een zijden draad.",
+     "tr": "Kulübün geleceği pamuk ipliğine bağlı."
+    }
+   ],
+   "gramer": {
+    "titel": "hangen → hing → gehangen",
+    "tekst": "Düzensiz fiil: het hangt, het hing, het heeft gehangen.",
+    "voorbeelden": [
+     {
+      "nl": "Het hing aan een zijden draad.",
+      "tr": "Pamuk ipliğine bağlıydı."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-zd1",
+     "type": "mc",
+     "vraag": "zijden draad ne demek?",
+     "opties": [
+      "ipek iplik",
+      "yan iplik",
+      "pamuk iplik"
+     ],
+     "juist": 0,
+     "uitleg": "zijde = ipek."
+    },
+    {
+     "id": "dy-zd2",
+     "type": "mc",
+     "vraag": "Türkçe karşılığı?",
+     "opties": [
+      "pamuk ipliğine bağlı",
+      "ipe un sermek"
+     ],
+     "juist": 0,
+     "uitleg": "aynı resim."
+    },
+    {
+     "id": "dy-zd3",
+     "type": "mc",
+     "vraag": "hangen geçmiş?",
+     "opties": [
+      "hangde",
+      "hing"
+     ],
+     "juist": 1,
+     "uitleg": "düzensiz."
+    },
+    {
+     "id": "dy-zd4",
+     "type": "mc",
+     "vraag": "Deyimin Damokles'ten geldiği kesin mi?",
+     "opties": [
+      "Evet",
+      "Hayır, kesin kaynak yok"
+     ],
+     "juist": 1,
+     "uitleg": "uydurmuyoruz."
+    },
+    {
+     "id": "dy-zd5",
+     "type": "type",
+     "tr": "Kulübün geleceği pamuk ipliğine bağlı.",
+     "antwoorden": [
+      "De toekomst van de club hangt aan een zijden draad"
+     ],
+     "uitleg": "hangt aan een zijden draad."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Zeehondencentrum in geldnood",
+    "Dictionary.com, Brewer: hang by a thread",
+    "Stoett (DBNL): Het zwaard van Damocles"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "met-een-sisser",
+   "datum": "2027-01-19",
+   "woord": "met een sisser aflopen",
+   "niveau": "B2",
+   "thema": "nieuws",
+   "tr": "ucuz atlatmak, korkulan olmamak",
+   "definitie": "Iets dat gevaarlijk leek, loopt toch goed af.",
+   "kort": "Kelimesi kelimesine “bir tıslamayla bitmek” (sissen = tıslamak). Büyük bir patlama beklerken sadece bir tıslama: korkulan kötülük olmadı. Kökeni hakkında kesin kaynak bulamadım.",
+   "opbouw": [
+    {
+     "deel": "de sisser",
+     "uitleg": "tıslayan şey (sissen = tıslamak)"
+    },
+    {
+     "deel": "aflopen",
+     "uitleg": "sonuçlanmak, bitmek: goed aflopen = iyi bitmek"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "a narrow escape / it fizzled out",
+     "uitleg": "ucuz kurtulmak / sönüp gitmek"
+    },
+    {
+     "taal": "Türkçe",
+     "woord": "ucuz atlatmak",
+     "uitleg": "aynı anlam"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "… lijkt het incident op dat punt met een sisser af te lopen.",
+     "tr": "… olay bu açıdan ucuz atlatılmış görünüyor.",
+     "bron": "Haber: Lege schappen bij Albert Heijn (C1)",
+     "href": "nieuws/?id=albertheijn"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "goed aflopen",
+     "tr": "iyi bitmek"
+    },
+    {
+     "nl": "slecht aflopen",
+     "tr": "kötü bitmek"
+    },
+    {
+     "nl": "de schrik",
+     "tr": "korku: met de schrik vrijkomen = korkuyla kurtulmak"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "De aanrijding liep met een sisser af.",
+     "tr": "Çarpışma ucuz atlatıldı."
+    },
+    {
+     "nl": "Hij kwam met de schrik vrij.",
+     "tr": "Sadece korkuyla kurtuldu."
+    }
+   ],
+   "gramer": {
+    "titel": "aflopen: ayrılabilen, zijn ile",
+    "tekst": "Het loopt goed af / Het is goed afgelopen. Haberde: met een sisser afgelopen.",
+    "voorbeelden": [
+     {
+      "nl": "Het is met een sisser afgelopen.",
+      "tr": "Ucuz atlatıldı."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-ss1",
+     "type": "mc",
+     "vraag": "“met een sisser aflopen” ne demek?",
+     "opties": [
+      "Kötü bitmek",
+      "Ucuz atlatmak",
+      "Sessiz kalmak"
+     ],
+     "juist": 1,
+     "uitleg": "korkulan olmadı."
+    },
+    {
+     "id": "dy-ss2",
+     "type": "mc",
+     "vraag": "sissen ne demek?",
+     "opties": [
+      "tıslamak",
+      "susmak"
+     ],
+     "juist": 0,
+     "uitleg": "de sisser."
+    },
+    {
+     "id": "dy-ss3",
+     "type": "mc",
+     "vraag": "Benzer: met de schrik …",
+     "opties": [
+      "vrijkomen",
+      "weggaan"
+     ],
+     "juist": 0,
+     "uitleg": "korkuyla kurtulmak."
+    },
+    {
+     "id": "dy-ss4",
+     "type": "mc",
+     "vraag": "Geçmiş zaman?",
+     "opties": [
+      "Het heeft goed afgelopen.",
+      "Het is goed afgelopen."
+     ],
+     "juist": 1,
+     "uitleg": "zijn."
+    },
+    {
+     "id": "dy-ss5",
+     "type": "type",
+     "tr": "Çarpışma ucuz atlatıldı.",
+     "antwoorden": [
+      "De aanrijding liep met een sisser af",
+      "De aanrijding is met een sisser afgelopen"
+     ],
+     "uitleg": "liep … af."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Lege schappen bij Albert Heijn"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "voet-bij-stuk",
+   "datum": "2027-01-26",
+   "woord": "voet bij stuk houden",
+   "niveau": "B2",
+   "thema": "karakter",
+   "tr": "ayak diremek, geri adım atmamak",
+   "definitie": "Niet toegeven; bij je standpunt blijven.",
+   "kort": "Türkçede de ayak var: “ayak diremek”. Kararından vazgeçmemek, baskıya boyun eğmemek. Kurt haberinde tam anlamıyla da kullanılıyor: kaçma, olduğun yerde dur!",
+   "opbouw": [
+    {
+     "deel": "de voet",
+     "uitleg": "ayak"
+    },
+    {
+     "deel": "bij stuk",
+     "uitleg": "deyimin kalıp parçası; tek başına anlamı bugün açık değil"
+    },
+    {
+     "deel": "houden",
+     "uitleg": "tutmak"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "ayak diremek",
+     "uitleg": "benzer resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "to stand one's ground / to put one's foot down",
+     "uitleg": "yerinde durmak / kesin tavır koymak"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Expert Diederik adviseert daarom voet bij stuk te houden: blijf staan, kijk de wolf met een boze, dreigende blik aan …",
+     "tr": "Uzman Diederik bu yüzden geri adım atmamayı öneriyor: olduğun yerde dur, kurda kızgın, tehditkâr bir bakışla bak …",
+     "bron": "Haber: Een wolf, wat nu? (B2)",
+     "href": "nieuws/?id=wolf"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "toegeven",
+     "tr": "boyun eğmek, kabul etmek"
+    },
+    {
+     "nl": "koppig",
+     "tr": "inatçı"
+    },
+    {
+     "nl": "bij je standpunt blijven",
+     "tr": "görüşünde ısrar etmek"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "De gemeente houdt voet bij stuk: het park blijft dicht.",
+     "tr": "Belediye geri adım atmıyor: park kapalı kalacak."
+    },
+    {
+     "nl": "Ze bleef voet bij stuk houden.",
+     "tr": "Ayak diremeye devam etti."
+    }
+   ],
+   "gramer": {
+    "titel": "Haberde: houdt voet bij stuk",
+    "tekst": "Özne çoğu zaman kurum ya da kişi; arkasından iki nokta ile ne konuda olduğu gelir.",
+    "voorbeelden": [
+     {
+      "nl": "De minister houdt voet bij stuk.",
+      "tr": "Bakan geri adım atmıyor."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-vb1",
+     "type": "mc",
+     "vraag": "Deyim ne demek?",
+     "opties": [
+      "Geri adım atmamak",
+      "Ayağını incitmek",
+      "Yürüyüşe çıkmak"
+     ],
+     "juist": 0,
+     "uitleg": "ayak diremek."
+    },
+    {
+     "id": "dy-vb2",
+     "type": "mc",
+     "vraag": "Zıt anlamlı?",
+     "opties": [
+      "toegeven",
+      "volhouden"
+     ],
+     "juist": 0,
+     "uitleg": "boyun eğmek."
+    },
+    {
+     "id": "dy-vb3",
+     "type": "mc",
+     "vraag": "Kurt haberinde ne öneriliyor?",
+     "opties": [
+      "Kaçmak",
+      "Olduğun yerde durmak"
+     ],
+     "juist": 1,
+     "uitleg": "blijf staan."
+    },
+    {
+     "id": "dy-vb4",
+     "type": "mc",
+     "vraag": "koppig ne demek?",
+     "opties": [
+      "inatçı",
+      "korkak"
+     ],
+     "juist": 0,
+     "uitleg": "inatçı."
+    },
+    {
+     "id": "dy-vb5",
+     "type": "type",
+     "tr": "Bakan geri adım atmıyor.",
+     "antwoorden": [
+      "De minister houdt voet bij stuk"
+     ],
+     "uitleg": "houdt voet bij stuk."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Een wolf, wat nu?"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "pijpenstelen",
+   "datum": "2027-02-02",
+   "woord": "het regent pijpenstelen",
+   "niveau": "B1",
+   "thema": "weer",
+   "tr": "bardaktan boşanırcasına yağıyor",
+   "definitie": "Het regent heel hard.",
+   "kort": "Kelimesi kelimesine “pipo sapları yağıyor”: yağmur, uzun ince pipo sapları gibi dik ve yoğun yağıyor. Hollanda'da en çok işine yarayacak deyim olabilir!",
+   "opbouw": [
+    {
+     "deel": "de pijp",
+     "uitleg": "pipo"
+    },
+    {
+     "deel": "de steel",
+     "uitleg": "sap: pijpensteel = pipo sapı"
+    },
+    {
+     "deel": "regenen",
+     "uitleg": "yağmur yağmak"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "bardaktan boşanırcasına",
+     "uitleg": "farklı resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "it's raining cats and dogs",
+     "uitleg": "kediler köpekler yağıyor"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "es regnet in Strömen",
+     "uitleg": "sel gibi yağıyor"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Grote kans dat het straks pijpenstelen regent.",
+     "tr": "Birazdan bardaktan boşanırcasına yağma ihtimali yüksek.",
+     "bron": "Haber: Waarom zijn wolken wit? (B1)",
+     "href": "nieuws/?id=wolken"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de stortbui",
+     "tr": "sağanak"
+    },
+    {
+     "nl": "het giet",
+     "tr": "bardaktan boşanırcasına yağıyor (kısa)"
+    },
+    {
+     "nl": "de motregen",
+     "tr": "çisenti"
+    },
+    {
+     "nl": "kletsnat",
+     "tr": "sırılsıklam"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Neem een paraplu mee, het regent pijpenstelen.",
+     "tr": "Şemsiye al, bardaktan boşanırcasına yağıyor."
+    },
+    {
+     "nl": "Gisteren regende het pijpenstelen.",
+     "tr": "Dün sağanak yağdı."
+    },
+    {
+     "nl": "Ik kwam kletsnat thuis.",
+     "tr": "Eve sırılsıklam geldim."
+    }
+   ],
+   "gramer": {
+    "titel": "Özne het",
+    "tekst": "Hava fiilleri hep het ile: het regent, het waait, het giet, het vriest.",
+    "voorbeelden": [
+     {
+      "nl": "Het waait hard.",
+      "tr": "Sert rüzgâr esiyor."
+     },
+     {
+      "nl": "Het vriest.",
+      "tr": "Don var."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-p1",
+     "type": "mc",
+     "vraag": "“Het regent pijpenstelen.” ne demek?",
+     "opties": [
+      "Çiseliyor.",
+      "Bardaktan boşanırcasına yağıyor.",
+      "Kar yağıyor."
+     ],
+     "juist": 1,
+     "uitleg": "çok sert yağmur."
+    },
+    {
+     "id": "dy-p2",
+     "type": "mc",
+     "vraag": "pijpensteel nedir?",
+     "opties": [
+      "pipo sapı",
+      "su borusu"
+     ],
+     "juist": 0,
+     "uitleg": "pijp + steel."
+    },
+    {
+     "id": "dy-p3",
+     "type": "mc",
+     "vraag": "Kısa hali?",
+     "opties": [
+      "Het giet.",
+      "Het druppelt."
+     ],
+     "juist": 0,
+     "uitleg": "het giet."
+    },
+    {
+     "id": "dy-p4",
+     "type": "mc",
+     "vraag": "İngilizce karşılığı?",
+     "opties": [
+      "it's raining cats and dogs",
+      "it's a piece of cake"
+     ],
+     "juist": 0,
+     "uitleg": "farklı resim."
+    },
+    {
+     "id": "dy-p5",
+     "type": "type",
+     "tr": "Şemsiye al, bardaktan boşanırcasına yağıyor.",
+     "antwoorden": [
+      "Neem een paraplu mee, het regent pijpenstelen",
+      "Neem een paraplu mee: het regent pijpenstelen"
+     ],
+     "uitleg": "het regent pijpenstelen."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Waarom zijn wolken wit?"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "gezin",
+   "datum": "2027-01-26",
+   "woord": "gezin / familie",
+   "lidwoord": "het",
+   "meervoud": "gezinnen",
+   "niveau": "A2",
+   "thema": "familie",
+   "tr": "çekirdek aile / geniş aile, akrabalar",
+   "definitie": "Een gezin: ouders en kinderen die samen wonen. Familie: al je bloedverwanten.",
+   "kort": "İki kelime, iki ayrı yoldan aynı yere: ikisi de başta “hizmet edenler” demekti. gezin bir yolculukta birine eşlik edenlerden, familia bir evin hizmetçilerinden geliyor. Bugün gezin çekirdek aile, familie geniş aile.",
+   "keten": [
+    {
+     "nl": "sind",
+     "tr": "yol, yolculuk",
+     "uitleg": "Eski Germence; zenden (göndermek) aynı kökten."
+    },
+    {
+     "nl": "gasinþja",
+     "tr": "yol arkadaşı",
+     "uitleg": "Gotça: birlikte yolculuk eden."
+    },
+    {
+     "nl": "ghesinde",
+     "tr": "maiyet, ev halkı, hizmetçiler",
+     "uitleg": "Orta Hollandaca; Almanca Gesinde bugün hâlâ “hizmetçiler”."
+    },
+    {
+     "nl": "het gezin",
+     "tr": "çekirdek aile",
+     "uitleg": "Anne, baba, çocuklar: bir evde yaşayanlar."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "het gezin",
+     "uitleg": "çekirdek aile: ons gezin = biz ve çocuklarımız."
+    },
+    {
+     "deel": "de familie",
+     "uitleg": "geniş aile, akrabalar: amca, kuzen, büyükanne … Latince familia'dan."
+    }
+   ],
+   "geschiedenis": [
+    "gezin: Orta Hollandaca ghesinde, Proto-Germence *gasinþiją; “yol” anlamındaki sind kökünden, zenden ile akraba. Gotça gasinthja = yol arkadaşı.",
+    "Weiland'ın sözlüğüne göre gezin eskiden bir evde ücretle hizmet edenler demekti; çocuklar da dahil olunca huisgezin.",
+    "family: Latince familia önce “bir evin hizmetçileri” (famulus = hizmetçi), sonra “ev halkı”. İngilizcede 17. yüzyıl ortasında “akrabalar” anlamına daralmış.",
+    "familiar: Latince familiaris “evden, ev halkından” → “tanıdık, samimi”."
+   ],
+   "anders": {
+    "titel": "Karıştırma: familie ≠ family",
+    "tekst": "İngilizce family çoğu zaman çekirdek aile; Hollandaca familie geniş aile. “Mijn familie woont in Turkije” = akrabalarım Türkiye'de. Kendi evindekiler için: ons gezin. Hollandaca familiaar = teklifsiz, fazla samimi (dikkat!).",
+    "voorbeelden": [
+     {
+      "nl": "Ons gezin heeft drie kinderen.",
+      "tr": "Ailemizin (bizim) üç çocuğu var."
+     },
+     {
+      "nl": "Mijn familie woont in Turkije.",
+      "tr": "Akrabalarım Türkiye'de yaşıyor."
+     },
+     {
+      "nl": "Hij is familie van mij.",
+      "tr": "O benim akrabam."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "Almanca",
+     "woord": "Gesinde",
+     "uitleg": "hizmetçiler, uşaklar"
+    },
+    {
+     "taal": "Gotça",
+     "woord": "gasinþja",
+     "uitleg": "yol arkadaşı"
+    },
+    {
+     "taal": "Eski İngilizce",
+     "woord": "gesīþ",
+     "uitleg": "maiyetten biri, yol arkadaşı"
+    },
+    {
+     "taal": "Latince",
+     "woord": "familia, famulus",
+     "uitleg": "ev halkı, hizmetçi"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "family, familiar",
+     "uitleg": "aile; tanıdık"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "het huisgezin",
+     "tr": "ev halkı, aile"
+    },
+    {
+     "nl": "het eenoudergezin",
+     "tr": "tek ebeveynli aile"
+    },
+    {
+     "nl": "het samengestelde gezin",
+     "tr": "birleşik aile (yeniden evlilik)"
+    },
+    {
+     "nl": "het pleeggezin",
+     "tr": "koruyucu aile"
+    },
+    {
+     "nl": "het gastgezin",
+     "tr": "ev sahibi aile (değişim öğrencisi)"
+    },
+    {
+     "nl": "de gezinsuitbreiding",
+     "tr": "aileye yeni bebek gelmesi"
+    },
+    {
+     "nl": "familiaar",
+     "tr": "teklifsiz"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "We zijn een gezin van vier.",
+     "tr": "Dört kişilik bir aileyiz."
+    },
+    {
+     "nl": "Kerst vieren we met de hele familie.",
+     "tr": "Noel'i bütün akrabalarla kutluyoruz."
+    },
+    {
+     "nl": "Zijn jullie familie van elkaar?",
+     "tr": "Akraba mısınız?"
+    },
+    {
+     "nl": "Het gezin krijgt kinderbijslag.",
+     "tr": "Aile çocuk parası alıyor."
+    }
+   ],
+   "gramer": {
+    "titel": "het gezin, de familie",
+    "tekst": "gezin het alır, familie de alır. “familie zijn van” = akraba olmak (isim artikelsiz). Resmî metinlerde gezin çok sık: gezinssituatie, gezinsinkomen (hane geliri).",
+    "voorbeelden": [
+     {
+      "nl": "het gezinsinkomen",
+      "tr": "hane geliri"
+     },
+     {
+      "nl": "Wij zijn familie.",
+      "tr": "Biz akrabayız."
+     }
+    ]
+   },
+   "weetje": "Bu sayfa ile serveren/dienen sayfası aynı hikâyenin parçaları: gezin, familia, dienen ve servus kelimelerinin hepsi bir zamanlar hizmetçiler ve hizmetle ilgiliydi.",
+   "vragen": [
+    {
+     "id": "ws-gz1",
+     "type": "mc",
+     "vraag": "het gezin kimdir?",
+     "opties": [
+      "anne, baba ve çocuklar",
+      "bütün akrabalar",
+      "komşular"
+     ],
+     "juist": 0,
+     "uitleg": "çekirdek aile."
+    },
+    {
+     "id": "ws-gz2",
+     "type": "mc",
+     "vraag": "“Mijn familie woont in Turkije.” ne demek?",
+     "opties": [
+      "Eşim ve çocuklarım Türkiye'de.",
+      "Akrabalarım Türkiye'de."
+     ],
+     "juist": 1,
+     "uitleg": "familie = geniş aile."
+    },
+    {
+     "id": "ws-gz3",
+     "type": "mc",
+     "vraag": "Latince familia başta ne demekti?",
+     "opties": [
+      "bir evin hizmetçileri",
+      "kan bağı",
+      "köy"
+     ],
+     "juist": 0,
+     "uitleg": "famulus = hizmetçi."
+    },
+    {
+     "id": "ws-gz4",
+     "type": "mc",
+     "vraag": "gezin kelimesinin kökü neyle ilgili?",
+     "opties": [
+      "yol, yolculuk",
+      "ev, çatı",
+      "ateş"
+     ],
+     "juist": 0,
+     "uitleg": "sind = yol; gasinþja = yol arkadaşı."
+    },
+    {
+     "id": "ws-gz5",
+     "type": "type",
+     "tr": "Dört kişilik bir aileyiz.",
+     "antwoorden": [
+      "We zijn een gezin van vier",
+      "Wij zijn een gezin van vier"
+     ],
+     "uitleg": "het gezin."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary: gezin, Gesinde, *gasinþą",
+    "Weiland (DBNL): gezin",
+    "Etymonline: family, familiar"
+   ]
+  },
+  {
+   "id": "serveren-dienen",
+   "datum": "2027-02-02",
+   "woord": "serveren / dienen",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A2–B1",
+   "thema": "werk",
+   "tr": "servis etmek / hizmet etmek, yaramak",
+   "definitie": "Serveren: eten of drinken brengen. Dienen: werken voor iemand, of een doel hebben.",
+   "kort": "İki “hizmet” fiili: biri Latinceden (serveren ← servus “köle”), biri Germence (dienen ← *þewaz “hizmetçi”). serveren sadece masaya getirmek; dienen çok daha geniş: hizmet etmek, işe yaramak, …mak gerekir (resmî).",
+   "keten": [
+    {
+     "nl": "servus / *þewaz",
+     "tr": "köle, hizmetçi",
+     "uitleg": "İki dil, aynı başlangıç."
+    },
+    {
+     "nl": "servire / *þewanōną",
+     "tr": "hizmet etmek",
+     "uitleg": "Latince ve Germence fiiller."
+    },
+    {
+     "nl": "serveren / dienen",
+     "tr": "servis etmek / hizmet etmek",
+     "uitleg": "Hollandaca ikisini de kullanıyor."
+    },
+    {
+     "nl": "verdienen / deserve",
+     "tr": "kazanmak, hak etmek",
+     "uitleg": "Latince deservire = iyi hizmet etmek; ver + dienen aynı fikir."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "serveren",
+     "uitleg": "yemek/içecek servis etmek; tenis/voleybolda servis atmak. Fransızca servir'den."
+    },
+    {
+     "deel": "dienen",
+     "uitleg": "1) hizmet etmek 2) işe yaramak: dienen als (… olarak kullanılmak) 3) resmî: u dient … te = …manız gerekir."
+    }
+   ],
+   "geschiedenis": [
+    "serveren: Latince servire “hizmetçi olmak, köle olmak” ← servus “köle”. Fransızca servir, İngilizce serve aynı kelime; servire Orta Çağ'da “sofrayı kurmak, sofrada hizmet etmek” anlamını da almış.",
+    "dienen: Eski Hollandaca thienon, Proto-Germence *þewanōną “hizmet etmek”, *þewaz “hizmetçi, köle” kelimesinden. Almanca dienen, Frizce tsjinje aynı kelime.",
+    "İngilizce deserve: Latince deservire “iyi hizmet etmek”. Hollandaca verdienen de ver + dienen: hem “(para) kazanmak” hem “hak etmek”. İki dil, aynı düşünce: hizmet edene karşılığı verilir."
+   ],
+   "anders": {
+    "titel": "Resmî mektup tuzağı: u dient … te",
+    "tekst": "Resmî metinlerde dienen “zorunda olmak” demek: “U dient het formulier voor 1 maart in te leveren.” = Formu 1 Mart'tan önce teslim etmeniz gerekir. Okuma sınavında çok çıkar!",
+    "voorbeelden": [
+     {
+      "nl": "U dient zich te legitimeren.",
+      "tr": "Kimliğinizi göstermeniz gerekir."
+     },
+     {
+      "nl": "Het formulier dient ondertekend te worden.",
+      "tr": "Formun imzalanması gerekir."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "serve, service, deserve, server",
+     "uitleg": "Latinceden"
+    },
+    {
+     "taal": "Fransızca",
+     "woord": "servir, service",
+     "uitleg": "Latinceden"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "dienen, Dienst, verdienen",
+     "uitleg": "Germence"
+    },
+    {
+     "taal": "Frizce",
+     "woord": "tsjinje",
+     "uitleg": "dienen ile aynı"
+    },
+    {
+     "taal": "Latince",
+     "woord": "servus, servire, deservire",
+     "uitleg": "köle; hizmet etmek; iyi hizmet etmek"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de dienst",
+     "tr": "hizmet; ayin; görev: in dienst zijn"
+    },
+    {
+     "nl": "de bediende",
+     "tr": "çalışan, tezgâhtar"
+    },
+    {
+     "nl": "bedienen",
+     "tr": "(müşteriye) hizmet etmek; (makine) kullanmak"
+    },
+    {
+     "nl": "verdienen",
+     "tr": "kazanmak; hak etmek"
+    },
+    {
+     "nl": "de verdienste",
+     "tr": "kazanç; hizmet, katkı"
+    },
+    {
+     "nl": "de serveerster / de ober",
+     "tr": "garson (kadın) / garson"
+    },
+    {
+     "nl": "de serveerschaal",
+     "tr": "servis tabağı (bkz. schaal)"
+    },
+    {
+     "nl": "de service",
+     "tr": "hizmet (müşteri hizmeti)"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het eten wordt om zeven uur geserveerd.",
+     "tr": "Yemek saat yedide servis ediliyor."
+    },
+    {
+     "nl": "Wordt u al geholpen? / Wordt u al bediend?",
+     "tr": "Size bakan var mı?"
+    },
+    {
+     "nl": "Dit dient als voorbeeld.",
+     "tr": "Bu örnek olarak kullanılıyor."
+    },
+    {
+     "nl": "Hoeveel verdien je?",
+     "tr": "Ne kadar kazanıyorsun?"
+    },
+    {
+     "nl": "Dat heb je verdiend!",
+     "tr": "Bunu hak ettin!"
+    },
+    {
+     "nl": "U dient voor 9 uur aanwezig te zijn.",
+     "tr": "Saat 9'dan önce burada olmanız gerekir."
+    }
+   ],
+   "gramer": {
+    "titel": "verdienen: kazanmak mı, hak etmek mi?",
+    "tekst": "Nesne para ise kazanmak (geld verdienen), değilse hak etmek (een beloning verdienen). verdienen ver- ile başladığı için geçmişte ge- almaz: verdiend.",
+    "voorbeelden": [
+     {
+      "nl": "Ze verdient goed.",
+      "tr": "İyi kazanıyor."
+     },
+     {
+      "nl": "Hij verdient een tweede kans.",
+      "tr": "İkinci bir şansı hak ediyor."
+     },
+     {
+      "nl": "Ik heb het verdiend.",
+      "tr": "Hak ettim / kazandım."
+     }
+    ]
+   },
+   "weetje": "Bilgisayardaki server de aynı aileden: İngilizcede 1992'den beri “hizmet veren bilgisayar” anlamında. Servus kökü yani hem garsonda, hem bilgisayarda, hem de “Dat heb je verdiend” cümlesinin İngilizcesindeki deserve'de yaşıyor.",
+   "vragen": [
+    {
+     "id": "ws-sd1",
+     "type": "mc",
+     "vraag": "serveren hangi dilden geliyor?",
+     "opties": [
+      "Latince/Fransızca",
+      "Germence"
+     ],
+     "juist": 0,
+     "uitleg": "servire, servir."
+    },
+    {
+     "id": "ws-sd2",
+     "type": "mc",
+     "vraag": "“U dient het formulier in te leveren.” ne demek?",
+     "opties": [
+      "Formu teslim edebilirsiniz.",
+      "Formu teslim etmeniz gerekir.",
+      "Form size hizmet eder."
+     ],
+     "juist": 1,
+     "uitleg": "resmî: dienen te = zorunda."
+    },
+    {
+     "id": "ws-sd3",
+     "type": "mc",
+     "vraag": "“Dat heb je verdiend!” ne demek?",
+     "opties": [
+      "Bunu hak ettin!",
+      "Bunu satın aldın!"
+     ],
+     "juist": 0,
+     "uitleg": "verdienen = hak etmek."
+    },
+    {
+     "id": "ws-sd4",
+     "type": "mc",
+     "vraag": "Latince deservire ne demek?",
+     "opties": [
+      "iyi hizmet etmek",
+      "kötü davranmak"
+     ],
+     "juist": 0,
+     "uitleg": "deserve'in kaynağı."
+    },
+    {
+     "id": "ws-sd5",
+     "type": "type",
+     "tr": "Yemek saat yedide servis ediliyor.",
+     "antwoorden": [
+      "Het eten wordt om zeven uur geserveerd",
+      "Het eten wordt om 7 uur geserveerd"
+     ],
+     "uitleg": "wordt geserveerd."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary: dienen, serveren, *þewanōną, *þewaz, tsjinje",
+    "Etymonline: serve, serving, server, deserve",
+    "Merriam-Webster: serve"
+   ]
   }
  ]
 }
