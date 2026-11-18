@@ -55,6 +55,14 @@
       "status": "ready"
     },
     {
+      "id": "gunluk",
+      "area": "dersler",
+      "title": "Konuşma kalıpları ve ipuçları",
+      "desc": "WhatsApp'ta ve konuşmada en çok geçen küçük kelimeler ve kalıplar: even, maar, hoor, wel, het gaat om, lijkt me leuk … Her biri açıklama, gerçek cümleler, diyalog ve 5 soru.",
+      "href": "woordstudie/?bolum=gunluk",
+      "status": "ready"
+    },
+    {
       "id": "lezen",
       "area": "nt2",
       "title": "Lezen I (B1)",

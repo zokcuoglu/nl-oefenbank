@@ -590,7 +590,8 @@ def wants_woord(u):
 def extra_block(x):
     """Short part for a pattern (kalip) or idiom (deyim) under the word: what it means, one or two examples, link.
     Returns (plain lines, html)."""
-    link = f"{SITE}woordstudie/?w={x['id']}"
+    # patterns live on the daily-speech page, idioms on the word study page
+    link = f"{SITE}woordstudie/?{'bolum=gunluk&' if soort(x) == 'kalip' else ''}w={x['id']}"
     head = "GÜNLÜK KONUŞMA: BU HAFTANIN KALIBI" if soort(x) == "kalip" else "BU HAFTANIN DEYİMİ"
     exs = x["voorbeelden"][:2]
     plain = ["", "—" * 20, head, f"{x['woord']}  –  {x['tr']}", x["kort"]] + [f"  • {e['nl']} ({e['tr']})" for e in exs] + [link]

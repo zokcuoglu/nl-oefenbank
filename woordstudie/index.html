@@ -71,18 +71,35 @@ const fmtDate = d => new Date(d + "T12:00:00Z").toLocaleDateString("tr-TR", { da
 const norm = s => String(s).toLowerCase().replace(/[.,!?;:'"’“”]/g, "").replace(/\s+/g, " ").trim();
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-const { user, profile } = await gate({ area: "nt2", title: "Kelime incelemesi", seen: "woordstudie" });
+// Two pages share this file: the weekly word study (words + idioms, opened by date) and, with "?bolum=gunluk",
+// the daily-speech page (patterns only, all open at once, quiz saved as module "gunluk").
+const params = new URLSearchParams(location.search);
+const GUNLUK = params.get("bolum") === "gunluk";
+const MODULE = GUNLUK ? "gunluk" : "woordstudie";
+const PAGE = GUNLUK ? "Konuşma kalıpları" : "Kelime incelemesi";
+const base = GUNLUK ? "?bolum=gunluk&" : "?";            // keeps the page mode in every link
+const wLink = id => base + "w=" + encodeURIComponent(id);
+document.title = PAGE + " · NL Oefenbank";
+document.querySelector(".brand small").innerHTML = `<a href="../">← Ana sayfa</a> · <a href="${GUNLUK ? "?bolum=gunluk" : "./"}">${PAGE}</a>`;
+document.getElementById("pagetitle").textContent = PAGE;
+const { user, profile } = await gate({ area: "nt2", title: PAGE, seen: MODULE });
 document.getElementById("ub").innerHTML = userBox(user, profile);
 
 let data;
 try { data = await (await fetch("../data/woordstudie.json", { cache: "no-cache" })).json(); }
 catch (e) { app.innerHTML = `<div class="notice">Kelimeler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
 const admin = isAdmin(profile);
-const open = w => admin || w.datum <= today;
+const soortOf = w => w.soort || "woord";
+// Patterns are open at once on the daily-speech page; words and idioms open on their Tuesday
+const open = w => admin || w.datum <= today || (GUNLUK && soortOf(w) === "kalip");
 const words = data.woorden.filter(open).sort((a, b) => b.datum.localeCompare(a.datum));   // newest first
-const attempts = await loadAttempts(user.uid, "woordstudie").catch(() => []);
+const attempts = await loadAttempts(user.uid, MODULE).catch(() => []);
 const lastOf = id => attempts.find(a => a.test === id);
-const word = data.woorden.find(w => w.id === new URLSearchParams(location.search).get("w") && open(w));
+// A pattern opened from the word study page (old mail links) moves to the daily-speech page, and back.
+// Checked before the date rule, because patterns are open on the daily-speech page even before their date.
+const asked = data.woorden.find(w => w.id === params.get("w"));
+if (asked && (soortOf(asked) === "kalip") !== GUNLUK) location.replace((soortOf(asked) === "kalip" ? "?bolum=gunluk&" : "?") + "w=" + encodeURIComponent(asked.id));
+const word = asked && open(asked) ? asked : undefined;
 
 // ---------- List ----------
 // Three kinds share this page and the Tuesday mail: a word ("woord", the main part), a daily-speech
@@ -95,31 +112,60 @@ const SOORT = {
   deyim: { tab: "Deyimler", deze: "Bu haftanın deyimi", btn: "Deyimi incele", eyebrow: "Deyim incelemesi",
            intro: "Kelimesi kelimesine ne dediği, gerçek anlamı, kökeni, Türkçe karşılığı ve 5 soru." }
 };
-const soortOf = w => w.soort || "woord";
 const title = w => (w.lidwoord ? w.lidwoord + " " : "") + w.woord;
 
 function renderList() {
-  const tab = SOORT[new URLSearchParams(location.search).get("soort")] ? new URLSearchParams(location.search).get("soort") : "woord";
+  if (GUNLUK) return renderGunluk();
+  // Word study page: words and idioms; daily-speech patterns live on their own page (one link card here)
+  const tab = params.get("soort") === "deyim" ? "deyim" : "woord";
   const curOf = s => words.find(w => soortOf(w) === s && w.datum <= today) || words.find(w => soortOf(w) === s);
-  const cur = curOf("woord");
-  // This week's pattern and idiom as two small rows under the word (same order as in the mail)
-  const extra = ["kalip", "deyim"].map(s => [s, curOf(s)]).filter(([, w]) => w);
+  const cur = curOf("woord"), deyim = curOf("deyim");
   const list = words.filter(w => soortOf(w) === tab);
   app.innerHTML = `
     ${cur ? `<section class="panel"><span class="eyebrow">${SOORT.woord.deze} · ${esc(fmtDate(cur.datum))}</span>
       <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(title(cur))}</h2><span class="muted">${esc(cur.tr)}</span></div>
       <p style="margin:8px 0 12px;max-width:62ch">${esc(cur.kort)}</p>
-      <a class="btn primary" style="text-decoration:none" href="?w=${esc(cur.id)}">${SOORT.woord.btn}</a>
-      ${extra.map(([s, w]) => `<a class="wrow" href="?w=${esc(w.id)}" style="margin-top:6px"><span><span class="muted" style="font-size:13px">${SOORT[s].deze}</span><br>
-        <b lang="nl">${esc(w.woord)}</b> <span class="muted">· ${esc(w.tr)}</span></span><span class="chip">${SOORT[s].btn}</span></a>`).join("")}</section>` : ""}
+      <a class="btn primary" style="text-decoration:none" href="${wLink(cur.id)}">${SOORT.woord.btn}</a>
+      ${deyim ? `<a class="wrow" href="${wLink(deyim.id)}" style="margin-top:6px"><span><span class="muted" style="font-size:13px">${SOORT.deyim.deze}</span><br>
+        <b lang="nl">${esc(deyim.woord)}</b> <span class="muted">· ${esc(deyim.tr)}</span></span><span class="chip">${SOORT.deyim.btn}</span></a>` : ""}
+      <a class="wrow" href="?bolum=gunluk" style="margin-top:6px"><span><span class="muted" style="font-size:13px">Ayrı sayfa</span><br>
+        <b>Konuşma kalıpları ve ipuçları</b> <span class="muted">· even, maar, hoor, wel, terecht …</span></span><span class="chip">Aç</span></a></section>` : ""}
     <section class="panel">
-      <div class="row" role="tablist" style="gap:6px;flex-wrap:wrap">${Object.entries(SOORT).map(([k, v]) =>
-        `<a class="btn${k === tab ? " primary" : ""}" style="text-decoration:none" role="tab" aria-selected="${k === tab}" href="?soort=${k}">${v.tab}</a>`).join("")}</div>
+      <div class="row" role="tablist" style="gap:6px;flex-wrap:wrap">${["woord", "deyim"].map(k =>
+        `<a class="btn${k === tab ? " primary" : ""}" style="text-decoration:none" role="tab" aria-selected="${k === tab}" href="?soort=${k}">${SOORT[k].tab}</a>`).join("")}</div>
       <p class="muted" style="margin:10px 0 8px;max-width:62ch">${SOORT[tab].intro}</p>
-      ${list.length ? list.map(w => { const a = lastOf(w.id); return `<a class="wrow" href="?w=${esc(w.id)}">
-        <span><b lang="nl">${esc(title(w))}</b> <span class="muted">· ${esc(w.tr)}</span><br>
-        <span class="muted" style="font-size:13px">${esc(fmtDate(w.datum))} · ${esc(w.niveau)}${admin && w.datum > today ? ' · <span class="chip warn">henüz yayında değil</span>' : ""}</span></span>
-        <span class="chip num">${a ? `${a.score}/${a.total}` : "yeni"}</span></a>`; }).join("") : `<p class="muted">İlki yakında.</p>`}
+      ${list.length ? list.map(w => rowHtml(w, true)).join("") : `<p class="muted">İlki yakında.</p>`}
+    </section>`;
+}
+
+// One list row: title, Turkish, (date), level and the last score
+function rowHtml(w, withDate) {
+  const a = lastOf(w.id);
+  return `<a class="wrow" href="${wLink(w.id)}">
+    <span><b lang="nl">${esc(title(w))}</b> <span class="muted">· ${esc(w.tr)}</span><br>
+    <span class="muted" style="font-size:13px">${withDate ? esc(fmtDate(w.datum)) + " · " : ""}${esc(w.niveau)}${withDate && admin && w.datum > today ? ' · <span class="chip warn">henüz yayında değil</span>' : ""}</span></span>
+    <span class="chip num">${a ? `${a.score}/${a.total}` : "yeni"}</span></a>`;
+}
+
+// Daily-speech page: short tips that point to the pattern pages, then every pattern (oldest first: basics first)
+const TIPS = [
+  ["Rica ederken çıplak emir kullanma.", "Help me! sert durur. Kun je me even helpen? ya da Kom maar binnen. yumuşaktır.", "even-eens-maar"],
+  ["Cevaba küçük bir kelime ekle.", "Ja hoor (tabii), Nee hoor (yok canım), Dat komt wel goed (hallolur).", "hoor-he-toch"],
+  ["Daveti kabul ya da reddetmenin hazır cümlesi var.", "Lijkt me leuk! / Wat leuk, maar ik kan helaas niet. Volgende keer graag!", "lijkt-het-je-leuk"],
+  ["Yardım teklif ederken terecht.", "Je kunt altijd bij ons terecht. Bir şey sorarken: Bij wie kan ik terecht?", null],
+  ["Dinlerken bu küçük kelimeleri atla.", "Anlamı fiil ve isim taşır; even, maar, toch, hoor tonu verir. Önce ana kelimeleri yakala.", null]
+];
+function renderGunluk() {
+  const list = words.filter(w => soortOf(w) === "kalip").sort((a, b) => a.datum.localeCompare(b.datum));
+  const has = id => list.some(w => w.id === id);
+  app.innerHTML = `
+    <section class="panel"><span class="eyebrow">İpuçları</span>
+      <p class="muted" style="margin:6px 0 4px;max-width:62ch">WhatsApp'ta, kulüpte, iş yerinde en çok işine yarayacak beş kural. Her kalıbın sayfasında açıklama, gerçek cümleler, kısa bir diyalog ve 5 soru var.</p>
+      <ol class="story">${TIPS.map(([t, x, id]) => `<li><b>${esc(t)}</b> <span lang="nl">${esc(x)}</span>${id && has(id) ? ` <a href="${wLink(id)}">Alıştırma →</a>` : ""}</li>`).join("")}</ol>
+      <p class="muted" style="margin:8px 0 0;font-size:14px">${words.some(w => w.id === "terecht") ? `terecht için ayrıntılı sayfa: <a href="./?w=terecht">Kelime incelemesi: terecht</a> · ` : ""}Duruma göre hazır cümleler: <a href="../dersler/?soort=konusma">Günlük konuşma dersleri</a></p></section>
+    <section class="panel"><span class="eyebrow">Bütün kalıplar · ${list.length}</span>
+      <p class="muted" style="margin:6px 0 8px;max-width:62ch">${SOORT.kalip.intro}</p>
+      ${list.length ? list.map(w => rowHtml(w, false)).join("") : `<p class="muted">İlki yakında.</p>`}
     </section>`;
 }
 
@@ -127,7 +173,7 @@ function renderList() {
 function renderWord() {
   const w = word;
   document.getElementById("pagetitle").textContent = w.woord;
-  markSeen(user.uid, "woordstudie:" + w.id);
+  markSeen(user.uid, MODULE + ":" + w.id);
   const exList = list => `<div class="ex">${list.map(v => `<b lang="nl">${esc(v.nl)}</b><span>${esc(v.tr)}</span>`).join("")}</div>`;
   const s = soortOf(w), isWoord = s === "woord";
   // Section titles differ per kind; every section below is optional so patterns and idioms can skip
@@ -222,13 +268,13 @@ function done(q, given, correct, model) {
 }
 async function finish() {
   const score = run.answers.filter(a => a.correct).length;
-  const attempt = { kind: "woordstudie", test: word.id, title: word.woord, started_at: new Date(run.started).toISOString(), finished_at: new Date().toISOString(),
+  const attempt = { kind: MODULE, test: word.id, title: word.woord, started_at: new Date(run.started).toISOString(), finished_at: new Date().toISOString(),
     duration_s: Math.round((Date.now() - run.started) / 1000), score, total: run.qs.length, answers: run.answers };
   let saved = true;
-  try { await saveAttempt(user.uid, "woordstudie", attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
+  try { await saveAttempt(user.uid, MODULE, attempt); attempts.unshift(attempt); } catch (e) { console.warn(e); saved = false; }
   document.getElementById("quiz").innerHTML = `<span class="eyebrow">Sonuç</span><div class="scorebig num" style="margin-top:6px">${score} / ${run.qs.length}</div>
     ${saved ? "" : `<div class="notice" style="margin-top:10px">Sonuç kaydedilemedi.</div>`}
-    <div class="row" style="margin-top:14px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="./">Bütün kelimeler</a></div>`;
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="again">Tekrar çöz</button><a class="btn" href="${GUNLUK ? "?bolum=gunluk" : "./"}">${GUNLUK ? "Bütün kalıplar" : "Bütün kelimeler"}</a></div>`;
   document.getElementById("again").onclick = startQuiz;
 }
 
