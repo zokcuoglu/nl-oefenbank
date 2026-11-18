@@ -135,6 +135,26 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Wishes ("istek kutusu", js/talep.js): an approved adult asks for a word, idiom, pattern or topic.
+    // Own create and read; the admin reads all, marks them done ("yapildi") or deletes them. Up to 2 small screenshots
+    // (JPEG data URLs, ss1/ss2) are kept in the same document; the size checks keep it under the 1 MiB limit.
+    match /talepler/{id} {
+      function me() { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data; }
+      function shotOk(k) { return !(k in request.resource.data) || (request.resource.data[k] is string && request.resource.data[k].size() <= 400000); }
+      allow create: if signedIn() && isApproved(request.auth.uid)
+        && (isAdmin() || me().get('type', '') == 'adult')
+        && request.resource.data.keys().hasOnly(['uid', 'name', 'soort', 'tekst', 'pagina', 'status', 'created_at', 'ss1', 'ss2'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.tekst is string && request.resource.data.tekst.size() >= 2 && request.resource.data.tekst.size() <= 4000
+        && request.resource.data.soort in ['kelime', 'deyim', 'kalip', 'konu', 'diger']
+        && request.resource.data.status == 'yeni'
+        && request.resource.data.created_at == request.time
+        && shotOk('ss1') && shotOk('ss2');
+      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      allow update: if isAdmin() && changed().hasOnly(['status']) && request.resource.data.status in ['yeni', 'yapildi'];
+      allow delete: if isAdmin();
+    }
+
     // Site settings (mail schedule): admin only
     match /settings/{id} {
       allow read, write: if isAdmin();

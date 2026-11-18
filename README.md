@@ -107,3 +107,7 @@ NT2 modules in `data/catalog.json` may have `niveau` (`B1` or `A2`); the home pa
 A2 facts used (DUO / inburgeren.nl via practice sites): Lezen 65 min on the computer, Schrijven 40 min on paper with 4 tasks,
 Luisteren 45 min, Spreken 35 min with 16 tasks, KNM 45 min. DUO publishes no fixed number of questions or pass mark for A2 Lezen;
 the pages show "about 18 of 25" only as a rough guideline. The writing criteria follow the CEFR A2 description, not DUO's own model.
+
+## İstek kutusu (wish box)
+
+`js/talep.js`: under the word study and daily-speech lists, approved adults ask for a word, idiom, pattern or topic (text up to 4000 characters, up to 2 screenshots shrunk in the browser to JPEG and stored in the same document). Firestore collection `talepler` (rules: own create/read, admin reads, marks `yapildi` or deletes). The admin sees them on the "Bugün" tab; mailer job `talep` (default Monday 09:00) mails the admins the open wishes that arrived since the last summary, no mail when there are none.

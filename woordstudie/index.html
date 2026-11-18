@@ -278,7 +278,13 @@ async function finish() {
   document.getElementById("again").onclick = startQuiz;
 }
 
-if (word) renderWord(); else renderList();
+if (word) renderWord();
+else {
+  renderList();
+  // Wish box under the list (adults only): which word, idiom or pattern should come next
+  const box = document.createElement("div"); app.appendChild(box);
+  import("../js/talep.js").then(m => m.mountTalep(box, { user, profile, page: GUNLUK ? "gunluk" : "woordstudie", soort: GUNLUK ? "kalip" : "kelime" }));
+}
 </script>
 </body>
 </html>

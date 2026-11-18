@@ -42,6 +42,7 @@ NOTE_WEEKLY = "Haftalık özeti istemiyorsan sitede Profil sayfasından kapatabi
 NOTE_NEWS_MAIL = "Haftalık haberi istemiyorsan sitede Profil sayfasından kapatabilirsin."
 NOTE_NEWS = "Bu duyuru NL Oefenbank üyelerine gönderildi."
 NOTE_WOORD = "“Kelime incelemesi” e-postasını istemiyorsan sitede Profil sayfasından kapatabilirsin."
+NOTE_TALEP = "Bu özet sadece adminlere gider. Zamanını yönetim panelinin E-posta sekmesinden değiştirebilirsin."
 NOTE_BRIEF = "“Haftanın Hollandacası”nı istemiyorsan sitede Profil sayfasından kapatabilirsin."
 
 # Site colours (light theme) for the HTML template; inline styles because mail clients drop <style>
@@ -205,7 +206,8 @@ def run_hourly(db, sender, now, dry_run=False):
 DEFAULT_SCHEDULE = {"news": {"enabled": True, "weekday": 1, "hour": 8},
                     "weekly": {"enabled": True, "weekday": 7, "hour": 18},
                     "brief": {"enabled": True, "weekday": 4, "hour": 19},
-                    "woord": {"enabled": True, "weekday": 2, "hour": 19}}
+                    "woord": {"enabled": True, "weekday": 2, "hour": 19},
+                    "talep": {"enabled": True, "weekday": 1, "hour": 9}}
 
 
 def load_schedule(db):
@@ -818,6 +820,41 @@ def run_groep_up(db, sender, now, dry_run=False, force=False):
         log_ref.set({"job": "groep-up", "year": year, "ran_at": iso(now), "changes": len(changes)})
 
 
+# ---------- wishes ("istek kutusu", js/talep.js): weekly summary to the admins ----------
+
+TALEP_SOORT = {"kelime": "Kelime", "deyim": "Deyim", "kalip": "Konuşma kalıbı", "konu": "Konu", "diger": "Diğer"}
+
+
+def talep_text(rows):
+    """Plain text of the summary: one block per wish, screenshots only mentioned (they are seen in the admin panel)."""
+    out = [f"Bu hafta {len(rows)} yeni istek geldi.", ""]
+    for r in rows:
+        shots = sum(1 for k in ("ss1", "ss2") if r.get(k))
+        when = r["created_at"].astimezone(AMS).strftime("%d-%m") if hasattr(r.get("created_at"), "astimezone") else ""
+        out += [f"• {r.get('name') or '-'} · {TALEP_SOORT.get(r.get('soort'), r.get('soort'))} · {when}" + (f" · {shots} ekran görüntüsü" if shots else ""),
+                "  " + r.get("tekst", "").strip().replace("\n", "\n  "), ""]
+    return "\n".join(out)
+
+
+def run_talep(db, sender, now, dry_run=False, force=False):
+    """Mails the admins the wishes that are still open and arrived since the last summary. Nothing new: no mail."""
+    log_col = db.collection("mail_log")
+    logs = [x for x in (d.to_dict() for d in log_col.stream()) if x.get("job") == "talep"]
+    since = max((x.get("sent_at", "") for x in logs), default="")
+    rows = [d.to_dict() for d in db.collection("talepler").stream()]
+    new = [r for r in rows if r.get("status") != "yapildi" and hasattr(r.get("created_at"), "isoformat") and iso(r["created_at"]) > since]
+    new.sort(key=lambda r: r["created_at"])
+    today = now.astimezone(AMS).date().isoformat()
+    admins = sorted({u["email"] for u in (x.to_dict() for x in db.collection("users").stream()) if u.get("role") == "admin" and u.get("email")})
+    print(f"talep: {len(new)} new since {since or 'start'} -> {len(admins)} admins")
+    if new and not dry_run:
+        for a in admins:
+            send_simple(sender, a, f"İstek kutusu: {len(new)} yeni istek", "İstek kutusu", talep_text(new), NOTE_TALEP,
+                        link=f"{SITE}admin.html#bugun", link_label="Panelde gör")
+    if not dry_run:
+        log_col.document(f"talep-{today}").set({"job": "talep", "date": today, "sent_at": iso(now), "mails": len(admins) if new else 0, "count": len(new)})
+
+
 def run_scheduled(db, sender, now, dry_run=False):
     """The hourly job: always the quick checks, plus news/weekly/brief when the schedule says so."""
     run_hourly(db, sender, now, dry_run=dry_run)
@@ -828,6 +865,7 @@ def run_scheduled(db, sender, now, dry_run=False):
     weekly_dates = [x.get("date", "") for x in mail_log if x.get("job") == "weekly"]
     brief_dates = [x.get("date", "") for x in mail_log if x.get("job") == "brief"]
     woord_dates = [x.get("date", "") for x in mail_log if x.get("job") == "woord"]
+    talep_dates = [x.get("date", "") for x in mail_log if x.get("job") == "talep"]
     if is_due(sched["news"], now, news_dates):
         run_news(db, sender, now, dry_run=dry_run)
     if is_due(sched["weekly"], now, weekly_dates):
@@ -836,6 +874,8 @@ def run_scheduled(db, sender, now, dry_run=False):
         run_brief(db, sender, now, dry_run=dry_run)
     if is_due(sched["woord"], now, woord_dates):
         run_woord(db, sender, now, dry_run=dry_run)
+    if is_due(sched["talep"], now, talep_dates):
+        run_talep(db, sender, now, dry_run=dry_run)
     run_groep_up(db, sender, now, dry_run=dry_run)  # does nothing outside August
 
 
@@ -851,7 +891,7 @@ def env_or_stop(names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "test", "groep"], required=True,
+    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "talep", "test", "groep"], required=True,
                     help="hourly = scheduled run; news/weekly/brief = send that job now, ignoring the schedule; test = previews to one address; "
                          "groep = move children up one groep now (use with --dry-run to only see what would change)")
     ap.add_argument("--dry-run", action="store_true")
@@ -880,6 +920,8 @@ def main():
         run_test(db, sender, now, os.environ.get("TEST_TO", "").strip() or os.environ["GMAIL_USER"].strip())
     elif args.mode == "news":
         run_news(db, sender, now, dry_run=args.dry_run, force=True)
+    elif args.mode == "talep":
+        run_talep(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "woord":
         run_woord(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "brief":
