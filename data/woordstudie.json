@@ -6921,6 +6921,962 @@
     "Stoett (DBNL) nr. 811",
     "Sitedeki haber: Volgend jaar een hoger pensioen"
    ]
+  },
+  {
+   "id": "even-eens-maar",
+   "datum": "2027-02-16",
+   "woord": "even / eens / maar / vooral",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "ricayı yumuşatan küçük kelimeler",
+   "definitie": "Kleine woordjes die een vraag of opdracht vriendelijker maken.",
+   "kort": "Hollandacada çıplak emir (Kom! Wacht!) sert durur. Hollandalılar hemen her rica ve emre küçük bir kelime ekler: Wacht even. Kijk eens. Kom maar binnen. Kijk vooral eens. Anlam aynı kalır, ton yumuşar. Sözlükte bulamazsın; o yüzden bu sayfa.",
+   "betekenissen": [
+    {
+     "titel": "even = bir saniye, kısaca (küçük bir rica)",
+     "tekst": "Ricayı küçültür: “sana zahmet olmayacak, kısa bir şey”. En sık kullanılanı.",
+     "voorbeelden": [
+      {
+       "nl": "Kun je even helpen?",
+       "tr": "Bir saniye yardım eder misin?"
+      },
+      {
+       "nl": "Wacht even!",
+       "tr": "Bir dakika!"
+      },
+      {
+       "nl": "Ik bel je even terug.",
+       "tr": "Seni hemen geri ararım."
+      },
+      {
+       "nl": "Ik ben even weg.",
+       "tr": "Kısa bir süre yokum."
+      }
+     ]
+    },
+    {
+     "titel": "eens = bir (kere), bakalım",
+     "tekst": "Bir şeyi denemeye ya da bakmaya davet eder. Konuşmada çoğu zaman 'ns diye söylenir.",
+     "voorbeelden": [
+      {
+       "nl": "Kijk eens!",
+       "tr": "Bak hele! / Şuna bak!"
+      },
+      {
+       "nl": "Probeer het eens.",
+       "tr": "Bir dene."
+      },
+      {
+       "nl": "Eens kijken …",
+       "tr": "Bakalım … (düşünürken)"
+      }
+     ]
+    },
+    {
+     "titel": "maar = buyur, rahatça (izin, cesaret verme)",
+     "tekst": "“Yapabilirsin, çekinme” demek. Dükkânda kasiyer: Zegt u het maar = Buyurun, söyleyin.",
+     "voorbeelden": [
+      {
+       "nl": "Kom maar binnen.",
+       "tr": "Buyur, gir."
+      },
+      {
+       "nl": "Ga maar zitten.",
+       "tr": "Otur lütfen."
+      },
+      {
+       "nl": "Zegt u het maar.",
+       "tr": "Buyurun (ne istersiniz)?"
+      },
+      {
+       "nl": "Laat maar.",
+       "tr": "Boş ver, gerek yok."
+      }
+     ]
+    },
+    {
+     "titel": "vooral = mutlaka, çekinmeden (teşvik)",
+     "tekst": "Rica ya da tavsiyede “özellikle” değil, “mutlaka yap” demek.",
+     "voorbeelden": [
+      {
+       "nl": "Kijk vooral eens op de website.",
+       "tr": "Mutlaka bir web sitesine bak."
+      },
+      {
+       "nl": "Laat het vooral weten.",
+       "tr": "Mutlaka haber ver."
+      },
+      {
+       "nl": "Doe vooral rustig aan.",
+       "tr": "Sakın acele etme, rahat ol."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "Kom!",
+     "uitleg": "çıplak emir: sert, bazen kaba"
+    },
+    {
+     "deel": "Kom even.",
+     "uitleg": "kısa bir şey için gel"
+    },
+    {
+     "deel": "Kom eens kijken.",
+     "uitleg": "gel bir bak"
+    },
+    {
+     "deel": "Kom maar.",
+     "uitleg": "gel, çekinme"
+    },
+    {
+     "deel": "Kom maar eens even kijken.",
+     "uitleg": "hepsi birden: çok yumuşak, “gel bakalım bir” — sıra hep maar → eens → even"
+    }
+   ],
+   "anders": {
+    "titel": "maar: “ama” mı, “buyur” mu?",
+    "tekst": "Cümle başında ya da iki cümle arasında maar = ama. Emir cümlesinin içinde maar = buyur, çekinme. vooral da aynı: tek başına “özellikle”, ricada “mutlaka”.",
+    "voorbeelden": [
+     {
+      "nl": "Ik wil wel, maar ik kan niet.",
+      "tr": "İstiyorum ama yapamıyorum."
+     },
+     {
+      "nl": "Ga maar.",
+      "tr": "Git, sorun yok."
+     },
+     {
+      "nl": "Ik hou vooral van fruit.",
+      "tr": "Özellikle meyveyi severim."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Sorry, kunt u even helpen?",
+     "tr": "Pardon, bir saniye yardım edebilir misiniz?",
+     "bron": "Spreken alıştırması (örnek cevap)"
+    },
+    {
+     "nl": "Kom maar hier staan.",
+     "tr": "Gel, şuraya dur.",
+     "bron": "Ders: kulüp konuşması",
+     "href": "dersler/?les=kulup"
+    },
+    {
+     "nl": "Hé jongens, voetballen in de gang mag niet! Ga maar naar buiten.",
+     "tr": "Hey çocuklar, koridorda top oynamak yasak! Hadi dışarı çıkın.",
+     "bron": "Spreken alıştırması (örnek cevap)"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: Hoi! Kom maar binnen. Ga maar even zitten.",
+     "tr": "A: Selam! Buyur gir. Otur biraz."
+    },
+    {
+     "nl": "B: Dank je. Mag ik even je wifi gebruiken?",
+     "tr": "B: Teşekkürler. Wifi'ni bir saniye kullanabilir miyim?"
+    },
+    {
+     "nl": "A: Ja hoor. Kijk eens, het wachtwoord staat op de router.",
+     "tr": "A: Tabii. Bak, şifre modemin üstünde yazıyor."
+    },
+    {
+     "nl": "B: Top. En als je hulp nodig hebt met je laptop, vraag het vooral.",
+     "tr": "B: Süper. Laptopla yardıma ihtiyacın olursa mutlaka sor."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Mag ik even iets vragen?",
+     "tr": "Bir şey sorabilir miyim?"
+    },
+    {
+     "nl": "Stuur me maar een berichtje.",
+     "tr": "Bana bir mesaj at, olur."
+    },
+    {
+     "nl": "Denk er eens over na.",
+     "tr": "Bir düşün bunu."
+    },
+    {
+     "nl": "Bel me even als je er bent.",
+     "tr": "Gelince bana bir çaldır."
+    }
+   ],
+   "gramer": {
+    "titel": "Yer: fiilden sonra, nesneden önce",
+    "tekst": "Bu kelimeler ana cümlede fiilin hemen arkasına, nesne ve yer bilgisinden önce gelir: Kun je even de deur dichtdoen? Birden fazla olursa sıra sabittir: maar → eens → even (Kom maar eens even kijken). Vurgusuz söylenir.",
+    "voorbeelden": [
+     {
+      "nl": "Kun je even de deur dichtdoen?",
+      "tr": "Kapıyı bir kapatır mısın?"
+     },
+     {
+      "nl": "Doe de deur maar dicht.",
+      "tr": "Kapıyı kapatabilirsin."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-ee1",
+     "type": "mc",
+     "vraag": "Hangisi en kibar?",
+     "opties": [
+      "Help me!",
+      "Kun je me even helpen?",
+      "Je helpt me."
+     ],
+     "juist": 1,
+     "uitleg": "even ricayı yumuşatır."
+    },
+    {
+     "id": "kp-ee2",
+     "type": "mc",
+     "vraag": "Kasiyer “Zegt u het maar.” diyor. Ne demek?",
+     "opties": [
+      "Buyurun, ne istersiniz?",
+      "Söylemeyin.",
+      "Sadece söyleyin."
+     ],
+     "juist": 0,
+     "uitleg": "maar = buyur."
+    },
+    {
+     "id": "kp-ee3",
+     "type": "mc",
+     "vraag": "“Kijk vooral eens op de website.” vooral ne demek?",
+     "opties": [
+      "özellikle",
+      "mutlaka, çekinmeden"
+     ],
+     "juist": 1,
+     "uitleg": "ricada teşvik."
+    },
+    {
+     "id": "kp-ee4",
+     "type": "mc",
+     "vraag": "Doğru sıra hangisi?",
+     "opties": [
+      "Kom even maar eens kijken.",
+      "Kom maar eens even kijken."
+     ],
+     "juist": 1,
+     "uitleg": "maar → eens → even."
+    },
+    {
+     "id": "kp-ee5",
+     "type": "type",
+     "tr": "Bir saniye yardım eder misin?",
+     "antwoorden": [
+      "Kun je even helpen?",
+      "Kun je me even helpen?",
+      "Kan je even helpen?",
+      "Kan je me even helpen?"
+     ],
+     "uitleg": "even."
+    }
+   ],
+   "bronnen": [
+    "inburgering.org: gebiedende wijs en modale partikels",
+    "Radboud Universiteit: modale partikels als smeerolie",
+    "Internationale Neerlandistiek 2010 (DBNL): modale partikels in NT2"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "hoor-he-toch",
+   "datum": "2027-02-23",
+   "woord": "…, hoor / …, hè? / …, toch?",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "cümle sonundaki küçük kelimeler: merak etme / değil mi?",
+   "definitie": "Woordjes aan het eind van een zin: geruststellen of bevestiging vragen.",
+   "kort": "WhatsApp'ta ve konuşmada cümlenin sonuna eklenen üç kelime. hoor = “merak etme, gerçekten” (rahatlatır). hè? ve toch? = “değil mi?” (onay ister). Ama toch cümlenin ortasında başka bir şey demek: “yine de”.",
+   "betekenissen": [
+    {
+     "titel": ", hoor = merak etme, gerçekten (rahatlatma)",
+     "tekst": "Söylediğini yumuşatır ya da karşıdakini rahatlatır. Ja hoor = Tabii; Nee hoor = Yok canım, hiç değil.",
+     "voorbeelden": [
+      {
+       "nl": "Dat is geen probleem, hoor!",
+       "tr": "Hiç sorun değil, merak etme!"
+      },
+      {
+       "nl": "Ja hoor, geeft u maar.",
+       "tr": "Tabii, verin."
+      },
+      {
+       "nl": "Nee hoor, je stoort niet.",
+       "tr": "Yok canım, rahatsız etmiyorsun."
+      },
+      {
+       "nl": "Dat komt wel goed, hoor.",
+       "tr": "Hallolur, merak etme."
+      }
+     ]
+    },
+    {
+     "titel": ", hè? = değil mi? (aynı fikirde olduğumuzu düşünüyorum)",
+     "tekst": "Konuşma dili. Karşıdakinin de aynı şeyi düşündüğünü varsayar.",
+     "voorbeelden": [
+      {
+       "nl": "Lekker weer, hè?",
+       "tr": "Hava güzel, değil mi?"
+      },
+      {
+       "nl": "Dat was leuk, hè?",
+       "tr": "Güzeldi, değil mi?"
+      }
+     ]
+    },
+    {
+     "titel": ", toch? = değil mi? (emin olmak istiyorum)",
+     "tekst": "Bir şeyi doğrulatmak için. Cümlenin içinde de olabilir: Je komt toch ook?",
+     "voorbeelden": [
+      {
+       "nl": "Je komt morgen, toch?",
+       "tr": "Yarın geliyorsun, değil mi?"
+      },
+      {
+       "nl": "Je komt toch ook?",
+       "tr": "Sen de geliyorsun, değil mi?"
+      }
+     ]
+    },
+    {
+     "titel": "toch (cümle içinde) = yine de / hadi artık",
+     "tekst": "Vurgulu toch = yine de. Emirde: sabırsızlık ya da ısrar.",
+     "voorbeelden": [
+      {
+       "nl": "Het regende, maar we zijn toch gegaan.",
+       "tr": "Yağmur yağıyordu ama yine de gittik."
+      },
+      {
+       "nl": "Doe het toch maar.",
+       "tr": "Yine de yap sen."
+      },
+      {
+       "nl": "Kom toch!",
+       "tr": "Hadi gel artık!"
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "hoor",
+     "uitleg": "cümle sonunda: rahatlatır ya da vurgular (Ja hoor, Nee hoor)"
+    },
+    {
+     "deel": "hè",
+     "uitleg": "konuşma dilinde kısa onay sorusu"
+    },
+    {
+     "deel": "toch",
+     "uitleg": "“yine de”; soru olarak “değil mi?”"
+    }
+   ],
+   "anders": {
+    "titel": "hè? / toch? / hoor farkı",
+    "tekst": "hè? = cevabı biliyorum, sadece onay (sohbet). toch? = emin değilim, doğrula (bilgi). hoor = soru değil, rahatlatma ya da vurgu.",
+    "voorbeelden": [
+     {
+      "nl": "Koud, hè?",
+      "tr": "Soğuk, değil mi? (biliyorum)"
+     },
+     {
+      "nl": "De training is om zes uur, toch?",
+      "tr": "Antrenman altıda, değil mi? (emin değilim)"
+     },
+     {
+      "nl": "Het is goed, hoor.",
+      "tr": "Sorun yok, gerçekten."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Dat is geen probleem, hoor!",
+     "tr": "Hiç sorun değil, merak etme!",
+     "bron": "Kelime listesi"
+    },
+    {
+     "nl": "Ja hoor, dat is goed.",
+     "tr": "Tabii, olur.",
+     "bron": "Luisteren A2: buurman",
+     "href": "luisteren/"
+    },
+    {
+     "nl": "Ja hoor. Wat is er?",
+     "tr": "Tabii. Ne oldu?",
+     "bron": "Luisteren B1: werkoverleg",
+     "href": "luisteren/"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: Sorry dat ik zo laat reageer!",
+     "tr": "A: Geç cevap verdiğim için kusura bakma!"
+    },
+    {
+     "nl": "B: Geeft niks, hoor.",
+     "tr": "B: Hiç önemli değil, merak etme."
+    },
+    {
+     "nl": "A: We zien elkaar zaterdag bij de wedstrijd, toch?",
+     "tr": "A: Cumartesi maçta görüşüyoruz, değil mi?"
+    },
+    {
+     "nl": "B: Ja, om negen uur. Spannend, hè?",
+     "tr": "B: Evet, saat dokuzda. Heyecanlı, değil mi?"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik kom eraan, hoor!",
+     "tr": "Geliyorum, geliyorum!"
+    },
+    {
+     "nl": "Je hebt het toch gezien?",
+     "tr": "Gördün, değil mi?"
+    },
+    {
+     "nl": "Mooi, hè?",
+     "tr": "Güzel, değil mi?"
+    },
+    {
+     "nl": "Ik ga toch maar naar huis.",
+     "tr": "Ben yine de eve gideyim."
+    }
+   ],
+   "gramer": {
+    "titel": "Yazıda virgül",
+    "tekst": "hoor, hè ve soru olarak toch genelde virgülle ayrılır: Dat is goed, hoor. Mooi weer, hè? Resmî e-postada kullanılmaz; WhatsApp ve konuşma dili için.",
+    "voorbeelden": [
+     {
+      "nl": "Dat is goed, hoor.",
+      "tr": "Olur, sorun yok."
+     },
+     {
+      "nl": "Je bent er toch om vijf uur?",
+      "tr": "Saat beşte oradasın, değil mi?"
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-ht1",
+     "type": "mc",
+     "vraag": "“Nee hoor, je stoort niet.” ne demek?",
+     "opties": [
+      "Hayır, duymuyorum.",
+      "Yok canım, rahatsız etmiyorsun.",
+      "Hayır, dinle."
+     ],
+     "juist": 1,
+     "uitleg": "hoor = rahatlatma."
+    },
+    {
+     "id": "kp-ht2",
+     "type": "mc",
+     "vraag": "Antrenmanın saatinden emin değilsin. Hangisi?",
+     "opties": [
+      "De training is om zes uur, toch?",
+      "De training is om zes uur, hoor."
+     ],
+     "juist": 0,
+     "uitleg": "toch? = doğrula."
+    },
+    {
+     "id": "kp-ht3",
+     "type": "mc",
+     "vraag": "“We zijn toch gegaan.” toch ne demek?",
+     "opties": [
+      "değil mi",
+      "yine de",
+      "merak etme"
+     ],
+     "juist": 1,
+     "uitleg": "cümle içinde: yine de."
+    },
+    {
+     "id": "kp-ht4",
+     "type": "mc",
+     "vraag": "Resmî e-postada “hoor” kullanılır mı?",
+     "opties": [
+      "Evet",
+      "Hayır, konuşma dili"
+     ],
+     "juist": 1,
+     "uitleg": "WhatsApp ve konuşma."
+    },
+    {
+     "id": "kp-ht5",
+     "type": "type",
+     "tr": "Hiç sorun değil, merak etme!",
+     "antwoorden": [
+      "Dat is geen probleem, hoor!",
+      "Geen probleem, hoor!",
+      "Dat is geen probleem hoor!"
+     ],
+     "uitleg": ", hoor."
+    }
+   ],
+   "bronnen": [
+    "inburgering.org: gebiedende wijs en modale partikels",
+    "Radboud Universiteit: modale partikels als smeerolie",
+    "Internationale Neerlandistiek 2010 (DBNL): modale partikels in NT2",
+    "Caspers & Van der Wouden (Leiden): toch = onay beklenir",
+    "iamexpat.nl: Dutch modal particles"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "wel",
+   "datum": "2027-03-02",
+   "woord": "wel",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "ama …; ben hallederim; herhalde; ara sıra",
+   "definitie": "Een klein woord met veel functies: tegenstelling, geruststelling, vermoeden.",
+   "kort": "wel tek kelimeyle çevrilemez. En önemli dört işi: 1) olumsuzun karşısında “ama … var/evet”, 2) Ik doe het wel = ben hallederim, 3) Het komt wel goed = hallolur, 4) wel eens = ara sıra / hiç.",
+   "betekenissen": [
+    {
+     "titel": "niet … maar wel … = … değil ama …",
+     "tekst": "Olumsuzla karşıtlık kurar. Vurgulu söylenir.",
+     "voorbeelden": [
+      {
+       "nl": "Ik spreek geen Duits, maar wel Engels.",
+       "tr": "Almanca konuşmuyorum ama İngilizce konuşuyorum."
+      },
+      {
+       "nl": "Ik kan niet zwemmen. – Wel!",
+       "tr": "Yüzemem. – Yüzersin! (tam tersine)"
+      }
+     ]
+    },
+    {
+     "titel": "Ik doe het wel = ben hallederim (teklif, rahatlatma)",
+     "tekst": "Bir işi üstlenirken. Karşıdakini rahatlatır.",
+     "voorbeelden": [
+      {
+       "nl": "Ik breng hem wel naar de training.",
+       "tr": "Onu antrenmana ben götürürüm."
+      },
+      {
+       "nl": "Laat maar, ik doe het wel.",
+       "tr": "Boş ver, ben yaparım."
+      }
+     ]
+    },
+    {
+     "titel": "Het komt wel goed = hallolur (güven)",
+     "tekst": "Sonucun iyi olacağına inanç.",
+     "voorbeelden": [
+      {
+       "nl": "Maak je geen zorgen, het komt wel goed.",
+       "tr": "Merak etme, hallolur."
+      },
+      {
+       "nl": "Dat lukt wel.",
+       "tr": "Olur o, başarırsın."
+      }
+     ]
+    },
+    {
+     "titel": "wel eens = ara sıra; hiç (soruda)",
+     "tekst": "Sıklık bildirir.",
+     "voorbeelden": [
+      {
+       "nl": "Ik ga wel eens naar de markt.",
+       "tr": "Ara sıra pazara giderim."
+      },
+      {
+       "nl": "Ben je wel eens in Amsterdam geweest?",
+       "tr": "Hiç Amsterdam'a gittin mi?"
+      }
+     ]
+    },
+    {
+     "titel": "Dat zal wel = herhalde, öyle olsun (şüphe)",
+     "tekst": "Tonuna dikkat: bazen inanmadığını gösterir.",
+     "voorbeelden": [
+      {
+       "nl": "Hij zegt dat hij ziek is. – Ja, dat zal wel.",
+       "tr": "Hasta olduğunu söylüyor. – Herhalde, öyle olsun."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "wel",
+     "uitleg": "tarihsel olarak “iyi” (İngilizce well ile akraba); bugün çoğunlukla bir ton kelimesi"
+    },
+    {
+     "deel": "wel ↔ niet",
+     "uitleg": "olumsuzun karşılığı: niet … maar wel …"
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: wel / goed",
+    "tekst": "“iyi” için goed kullanılır (Het gaat goed). wel tek başına “iyi” demez. Ama “Wel thuis!” = Eve sağ salim varın (kalıp).",
+    "voorbeelden": [
+     {
+      "nl": "Het gaat goed met me.",
+      "tr": "İyiyim."
+     },
+     {
+      "nl": "Wel thuis!",
+      "tr": "Eve sağ salim varın!"
+     }
+    ]
+   },
+   "dialoog": [
+    {
+     "nl": "A: Ik kan zaterdag niet rijden.",
+     "tr": "A: Cumartesi araba kullanamıyorum."
+    },
+    {
+     "nl": "B: Geen probleem, ik breng ze wel.",
+     "tr": "B: Sorun değil, onları ben götürürüm."
+    },
+    {
+     "nl": "A: Echt? Heb je dat wel eens gedaan, zo vroeg?",
+     "tr": "A: Gerçekten mi? Hiç bu kadar erken yaptın mı?"
+    },
+    {
+     "nl": "B: Nee, maar het lukt wel. Het komt wel goed!",
+     "tr": "B: Hayır, ama olur. Hallolur!"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik heb geen auto, maar wel een fiets.",
+     "tr": "Arabam yok ama bisikletim var."
+    },
+    {
+     "nl": "Ik zie je wel bij de training.",
+     "tr": "Antrenmanda görüşürüz (nasılsa)."
+    },
+    {
+     "nl": "Heb je wel eens sushi gegeten?",
+     "tr": "Hiç suşi yedin mi?"
+    },
+    {
+     "nl": "Dat weet ik wel.",
+     "tr": "Onu biliyorum (zaten)."
+    }
+   ],
+   "gramer": {
+    "titel": "wel vurgulu mu, vurgusuz mu?",
+    "tekst": "Karşıtlıkta (maar wel) vurgulu: WEL. Rahatlatmada (het komt wel goed) vurgusuz. Ana cümlede fiilden sonra, nesneden önce gelir: Ik breng hem wel.",
+    "voorbeelden": [
+     {
+      "nl": "Ik ben niet moe, maar WEL hongerig.",
+      "tr": "Yorgun değilim ama açım."
+     },
+     {
+      "nl": "Ik bel je wel.",
+      "tr": "Seni ararım (merak etme)."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-w1",
+     "type": "mc",
+     "vraag": "“Ik doe het wel.” ne demek?",
+     "opties": [
+      "İyi yapıyorum.",
+      "Ben hallederim.",
+      "Yapmıyorum."
+     ],
+     "juist": 1,
+     "uitleg": "teklif, rahatlatma."
+    },
+    {
+     "id": "kp-w2",
+     "type": "mc",
+     "vraag": "“Ben je wel eens in Leiden geweest?” ne soruyor?",
+     "opties": [
+      "Leiden'e hiç gittin mi?",
+      "Leiden'de iyi miydin?"
+     ],
+     "juist": 0,
+     "uitleg": "wel eens = hiç."
+    },
+    {
+     "id": "kp-w3",
+     "type": "mc",
+     "vraag": "Boşluk: “Ik heb geen auto, maar ___ een fiets.”",
+     "opties": [
+      "wel",
+      "goed",
+      "toch"
+     ],
+     "juist": 0,
+     "uitleg": "niet/geen … maar wel."
+    },
+    {
+     "id": "kp-w4",
+     "type": "mc",
+     "vraag": "“Ja, dat zal wel.” hangi tonla söylenir?",
+     "opties": [
+      "şüpheyle",
+      "sevinçle"
+     ],
+     "juist": 0,
+     "uitleg": "herhalde, öyle olsun."
+    },
+    {
+     "id": "kp-w5",
+     "type": "type",
+     "tr": "Merak etme, hallolur.",
+     "antwoorden": [
+      "Maak je geen zorgen, het komt wel goed",
+      "Geen zorgen, het komt wel goed"
+     ],
+     "uitleg": "het komt wel goed."
+    }
+   ],
+   "bronnen": [
+    "inburgering.org: gebiedende wijs en modale partikels",
+    "Radboud Universiteit: modale partikels als smeerolie",
+    "Internationale Neerlandistiek 2010 (DBNL): modale partikels in NT2",
+    "Linguistics 2021 (De Gruyter): wel, toch en eigenlijk"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "lijkt-het-je-leuk",
+   "datum": "2027-03-09",
+   "woord": "Lijkt het je leuk om …? / Lijkt me leuk!",
+   "niveau": "A2",
+   "thema": "gesprek",
+   "tr": "… ister misin? / Çok isterim!",
+   "definitie": "Iemand uitnodigen en op een uitnodiging reageren.",
+   "kort": "Hollandacada birini davet etmenin en sık yolu: Lijkt het je leuk om …? (… sana hoş gelir mi?). Cevap da aynı fiille: Lijkt me leuk! Hayır demek de kibar kalıplarla: Helaas kan ik niet, maar volgende keer graag!",
+   "betekenissen": [
+    {
+     "titel": "Davet etmek",
+     "tekst": "Kibarlık sırasına göre: Lijkt het je leuk om …? (kibar) → Heb je zin om …? (samimi) → Zullen we …? (öneri) → Ga je mee? (kısa).",
+     "voorbeelden": [
+      {
+       "nl": "Lijkt het je leuk om zaterdag mee te gaan?",
+       "tr": "Cumartesi bizimle gelmek ister misin?"
+      },
+      {
+       "nl": "Heb je zin om koffie te drinken?",
+       "tr": "Kahve içmek ister misin?"
+      },
+      {
+       "nl": "Zullen we samen gaan?",
+       "tr": "Birlikte gidelim mi?"
+      },
+      {
+       "nl": "Ga je mee?",
+       "tr": "Geliyor musun?"
+      }
+     ]
+    },
+    {
+     "titel": "Evet demek",
+     "tekst": "lijken fiiliyle: Lijkt me leuk = bana hoş görünüyor → çok isterim.",
+     "voorbeelden": [
+      {
+       "nl": "Lijkt me leuk!",
+       "tr": "Çok isterim!"
+      },
+      {
+       "nl": "Gezellig, ik kom graag!",
+       "tr": "Ne güzel, memnuniyetle gelirim!"
+      },
+      {
+       "nl": "Goed idee!",
+       "tr": "İyi fikir!"
+      }
+     ]
+    },
+    {
+     "titel": "Kibarca hayır demek",
+     "tekst": "Önce teşekkür et, sonra sebep, sonra bir başka sefer.",
+     "voorbeelden": [
+      {
+       "nl": "Wat leuk, maar ik kan helaas niet.",
+       "tr": "Ne güzel, ama maalesef gelemiyorum."
+      },
+      {
+       "nl": "Volgende keer graag!",
+       "tr": "Bir dahaki sefere memnuniyetle!"
+      },
+      {
+       "nl": "Lijkt me leuk, maar ik kan nu niet.",
+       "tr": "Çok isterdim ama şu an olmaz."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "lijken",
+     "uitleg": "görünmek: Het lijkt me … = bana … görünüyor"
+    },
+    {
+     "deel": "om … te + mastar",
+     "uitleg": "neyin hoş olduğu: om mee te gaan"
+    },
+    {
+     "deel": "me / je",
+     "uitleg": "kime: het lijkt me = bana"
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: lijken / lijken op",
+    "tekst": "Het lijkt me leuk = bana hoş görünüyor. Hij lijkt op zijn vader = babasına benziyor. op gelince anlam “benzemek” olur.",
+    "voorbeelden": [
+     {
+      "nl": "Het lijkt me een goed plan.",
+      "tr": "Bana iyi bir plan gibi görünüyor."
+     },
+     {
+      "nl": "Je lijkt op je moeder.",
+      "tr": "Annene benziyorsun."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Lijkt me leuk, maar ik kan nu niet.",
+     "tr": "Çok isterdim ama şu an olmaz.",
+     "bron": "Ders: tekliflere cevap",
+     "href": "dersler/?les=tekliflere-cevap"
+    },
+    {
+     "nl": "Het lijkt me leuk om mensen te helpen die iets moois zoeken.",
+     "tr": "Güzel bir şey arayan insanlara yardım etmek bana hoş geliyor.",
+     "bron": "Spreken alıştırması (örnek cevap)"
+    },
+    {
+     "nl": "Het lijkt me leuk om …",
+     "tr": "… bana hoş gelir",
+     "bron": "Schrijven B1: hazır cümle"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: We gaan zondag naar het strand. Lijkt het jullie leuk om mee te gaan?",
+     "tr": "A: Pazar plaja gidiyoruz. Siz de gelmek ister misiniz?"
+    },
+    {
+     "nl": "B: Lijkt me heel leuk! Hoe laat gaan jullie?",
+     "tr": "B: Çok isteriz! Kaçta gidiyorsunuz?"
+    },
+    {
+     "nl": "A: Rond tien uur. Zullen we samen rijden?",
+     "tr": "A: Saat on civarı. Birlikte mi gidelim (arabayla)?"
+    },
+    {
+     "nl": "B: Goed idee. Ik neem wel wat te eten mee.",
+     "tr": "B: İyi fikir. Ben yanıma biraz yiyecek alırım."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Lijkt het je leuk om bij ons te eten?",
+     "tr": "Bizde yemek yemek ister misin?"
+    },
+    {
+     "nl": "Dat lijkt me lastig.",
+     "tr": "Bu bana zor görünüyor."
+    },
+    {
+     "nl": "Het lijkt me beter om te wachten.",
+     "tr": "Bence beklemek daha iyi."
+    }
+   ],
+   "gramer": {
+    "titel": "Het lijkt me … = bence …",
+    "tekst": "Sadece davet için değil, fikir bildirmek için de: Het lijkt me beter om … (Bence … daha iyi). Schrijven sınavında da işe yarar: Het lijkt me een goed idee om …",
+    "voorbeelden": [
+     {
+      "nl": "Het lijkt me een goed idee om eerder te beginnen.",
+      "tr": "Bence daha erken başlamak iyi bir fikir."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-lj1",
+     "type": "mc",
+     "vraag": "“Lijkt het je leuk om mee te gaan?” ne demek?",
+     "opties": [
+      "Bizimle gelmek ister misin?",
+      "Bana benziyor musun?",
+      "Gittin mi?"
+     ],
+     "juist": 0,
+     "uitleg": "davet."
+    },
+    {
+     "id": "kp-lj2",
+     "type": "mc",
+     "vraag": "Daveti kabul ediyorsun. Hangisi?",
+     "opties": [
+      "Lijkt me leuk!",
+      "Ik lijk op jou."
+     ],
+     "juist": 0,
+     "uitleg": "Çok isterim."
+    },
+    {
+     "id": "kp-lj3",
+     "type": "mc",
+     "vraag": "“Hij lijkt op zijn vader.” ne demek?",
+     "opties": [
+      "Babasını seviyor.",
+      "Babasına benziyor."
+     ],
+     "juist": 1,
+     "uitleg": "lijken op = benzemek."
+    },
+    {
+     "id": "kp-lj4",
+     "type": "mc",
+     "vraag": "Kibarca hayır: hangisi?",
+     "opties": [
+      "Nee.",
+      "Wat leuk, maar ik kan helaas niet."
+     ],
+     "juist": 1,
+     "uitleg": "teşekkür + sebep."
+    },
+    {
+     "id": "kp-lj5",
+     "type": "type",
+     "tr": "Bence beklemek daha iyi.",
+     "antwoorden": [
+      "Het lijkt me beter om te wachten",
+      "Het lijkt mij beter om te wachten"
+     ],
+     "uitleg": "het lijkt me … om te."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki ders: tekliflere cevap",
+    "Schrijven B1 hazır cümleler",
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
   }
  ]
 }
