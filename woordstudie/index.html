@@ -142,7 +142,7 @@ function renderWord() {
     <section class="panel">
       <span class="eyebrow">${SOORT[s].eyebrow} · ${esc(fmtDate(w.datum))} · ${esc(w.niveau)}</span>
       <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(title(w))}</h2>
-        ${!isWoord ? "" : w.meervoud ? `<span class="muted" lang="nl">çoğul: ${esc(w.meervoud)}</span>` : `<span class="muted">çoğulu yok</span>`}</div>
+        ${!isWoord || !w.lidwoord ? "" : w.meervoud ? `<span class="muted" lang="nl">çoğul: ${esc(w.meervoud)}</span>` : `<span class="muted">çoğulu yok</span>`}</div>
       <p style="margin:8px 0 0;font-size:18px"><b>${esc(w.tr)}</b></p>
       <p class="muted" style="margin:4px 0 0" lang="nl"><i>${esc(w.definitie)}</i></p>
       <p style="margin:12px 0 0;max-width:68ch">${esc(w.kort)}</p>
@@ -158,6 +158,8 @@ function renderWord() {
       <div class="parts">${w.opbouw.map(p => `<div class="part"><b lang="nl">${esc(p.deel)}</b>${esc(p.uitleg)}</div>`).join("")}</div></section>` : ""}
     ${w.geschiedenis ? `<section class="panel"><span class="eyebrow">Kökeni</span>
       <ol class="story">${w.geschiedenis.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>` : ""}
+    ${w.verhaal ? `<section class="panel"><span class="eyebrow">Bir hikâye</span><h3 style="margin:4px 0 6px">${esc(w.verhaal.titel)}</h3>
+      ${w.verhaal.tekst.map(t => `<p style="margin:6px 0 0;max-width:68ch">${esc(t)}</p>`).join("")}${w.verhaal.voorbeelden ? exList(w.verhaal.voorbeelden) : ""}</section>` : ""}
     ${w.anders ? `<section class="panel"><span class="eyebrow">Dikkat</span><div class="anders"><h3 style="margin:0 0 6px">${esc(w.anders.titel)}</h3>
       <p style="margin:0;max-width:68ch">${esc(w.anders.tekst)}</p>${exList(w.anders.voorbeelden)}</div></section>` : ""}
     ${w.verwant ? `<section class="panel"><span class="eyebrow">${L.verwant}</span>

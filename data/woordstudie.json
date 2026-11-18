@@ -1988,6 +1988,2118 @@
     "Matthew 7:15 maddesi (Ezop'a atfedilen Orta Çağ masalı)",
     "Sitedeki haber: Een wolf, wat nu?"
    ]
+  },
+  {
+   "id": "hangt-ervan-af",
+   "datum": "2026-12-01",
+   "woord": "dat hangt ervan af / het ligt eraan",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "duruma bağlı; …e bağlı",
+   "definitie": "Je zegt dat iets niet zeker is, omdat het afhangt van iets anders.",
+   "kort": "“Gelecek misin?” – “Duruma bağlı.” Hollandacada bunun iki yaygın hali var ve ikisi de günlük konuşmada sürekli geçer. Dikkat: “het ligt aan …” bazen “…in yüzünden” demektir.",
+   "betekenissen": [
+    {
+     "titel": "dat hangt ervan af = duruma bağlı",
+     "tekst": "Tek başına kısa cevap olarak. Neye bağlı olduğunu söylemek için: afhangen van + isim (ayrılabilen fiil: hangt … af).",
+     "voorbeelden": [
+      {
+       "nl": "Kom je morgen? – Dat hangt ervan af.",
+       "tr": "Yarın geliyor musun? – Duruma bağlı."
+      },
+      {
+       "nl": "Het hangt af van het weer.",
+       "tr": "Havaya bağlı."
+      },
+      {
+       "nl": "Dat hangt een beetje af van het verkeer.",
+       "tr": "Biraz trafiğe bağlı."
+      }
+     ]
+    },
+    {
+     "titel": "het ligt eraan = duruma bağlı (konuşma dili)",
+     "tekst": "Aynı anlam, daha günlük. Arkasından çoğu zaman bir soru cümlesi gelir: het ligt eraan of / wat / hoe …",
+     "voorbeelden": [
+      {
+       "nl": "Het ligt eraan hoe laat ik klaar ben.",
+       "tr": "Kaçta bitireceğime bağlı."
+      },
+      {
+       "nl": "Het ligt eraan of het regent.",
+       "tr": "Yağmur yağıp yağmamasına bağlı."
+      }
+     ]
+    },
+    {
+     "titel": "het ligt aan … = …in yüzünden, …den kaynaklı",
+     "tekst": "Bir sorunun sebebini söyler. “eraan” yerine bir kişi ya da şey gelir.",
+     "voorbeelden": [
+      {
+       "nl": "Het ligt niet aan jou.",
+       "tr": "Senin yüzünden değil. / Senin suçun değil."
+      },
+      {
+       "nl": "Ligt het aan mij, of is het hier koud?",
+       "tr": "Bana mı öyle geliyor, yoksa burası soğuk mu?"
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "afhangen van",
+     "uitleg": "bir şeye bağlı olmak. Ayrılabilen fiil: Het hangt van het weer af."
+    },
+    {
+     "deel": "er + van → ervan",
+     "uitleg": "“ondan, ona”: neye bağlı olduğu sonradan söylenir ya da hiç söylenmez."
+    },
+    {
+     "deel": "liggen aan",
+     "uitleg": "kelimesi kelimesine “…de yatmak”: sebep ya da şart orada yatıyor."
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: hangt ervan af / ligt aan jou",
+    "tekst": "“Het ligt eraan” = duruma bağlı. Ama “het ligt aan jou” = senin yüzünden. İlkinde “eraan” boş bırakılır, ikincisinde bir kişi ya da şey söylenir.",
+    "voorbeelden": [
+     {
+      "nl": "Het ligt eraan.",
+      "tr": "Duruma bağlı."
+     },
+     {
+      "nl": "Het ligt aan de computer.",
+      "tr": "Sorun bilgisayarda."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Dat hangt een beetje af van het verkeer.",
+     "tr": "Biraz trafiğe bağlı.",
+     "bron": "Ders: randevu konuşması",
+     "href": "dersler/?les=randevu"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: Ga je zaterdag mee naar het strand?",
+     "tr": "A: Cumartesi plaja geliyor musun?"
+    },
+    {
+     "nl": "B: Het ligt eraan. Hoe laat gaan jullie?",
+     "tr": "B: Duruma bağlı. Kaçta gidiyorsunuz?"
+    },
+    {
+     "nl": "A: Om tien uur, als het mooi weer is.",
+     "tr": "A: Hava güzel olursa saat onda."
+    },
+    {
+     "nl": "B: Dat hangt ervan af of mijn zoon voetbal heeft.",
+     "tr": "B: Oğlumun maçı olup olmamasına bağlı."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Hoeveel kost het? – Dat hangt ervan af.",
+     "tr": "Ne kadar tutar? – Duruma bağlı."
+    },
+    {
+     "nl": "Het hangt af van je inkomen.",
+     "tr": "Gelirine bağlı."
+    },
+    {
+     "nl": "Het ligt eraan wat je wilt.",
+     "tr": "Ne istediğine bağlı."
+    },
+    {
+     "nl": "Het lag niet aan het eten.",
+     "tr": "Sorun yemekte değildi."
+    }
+   ],
+   "gramer": {
+    "titel": "Sınavda nerede?",
+    "tekst": "Resmî metinlerde çoğu zaman uzun hali: “Het bedrag hangt af van …” (Miktar …e bağlıdır). Konuşmada “het ligt eraan” daha sık. İkisinde de “of” (…ıp …madığı) ile soru cümlesi gelebilir; o zaman fiil sona gider.",
+    "voorbeelden": [
+     {
+      "nl": "De hoogte van de toeslag hangt af van je inkomen.",
+      "tr": "Ödeneğin miktarı gelirine bağlıdır."
+     },
+     {
+      "nl": "Het hangt ervan af of ik vrij krijg.",
+      "tr": "İzin alıp alamayacağıma bağlı."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-h1",
+     "type": "mc",
+     "vraag": "“Kom je? – Het ligt eraan.” ne demek?",
+     "opties": [
+      "Duruma bağlı.",
+      "Senin yüzünden.",
+      "Geliyorum."
+     ],
+     "juist": 0,
+     "uitleg": "het ligt eraan = duruma bağlı."
+    },
+    {
+     "id": "kp-h2",
+     "type": "mc",
+     "vraag": "“Het ligt niet aan jou.” ne demek?",
+     "opties": [
+      "Sana bağlı değil.",
+      "Senin yüzünden değil.",
+      "Sen yalan söylemiyorsun."
+     ],
+     "juist": 1,
+     "uitleg": "ligt aan + kişi = sebep."
+    },
+    {
+     "id": "kp-h3",
+     "type": "mc",
+     "vraag": "Doğru sıra hangisi?",
+     "opties": [
+      "Het hangt van het weer af.",
+      "Het hangt af het weer van.",
+      "Het af hangt van het weer."
+     ],
+     "juist": 0,
+     "uitleg": "afhangen ayrılır: hangt … af; ya da: hangt af van het weer."
+    },
+    {
+     "id": "kp-h4",
+     "type": "mc",
+     "vraag": "“Het hangt ervan af of het regent.” ne demek?",
+     "opties": [
+      "Yağmur yağıyor.",
+      "Yağmur yağıp yağmamasına bağlı.",
+      "Yağmur yağarsa gelmem."
+     ],
+     "juist": 1,
+     "uitleg": "of = …ıp …madığı."
+    },
+    {
+     "id": "kp-h5",
+     "type": "type",
+     "tr": "Havaya bağlı.",
+     "antwoorden": [
+      "Het hangt af van het weer",
+      "Het hangt van het weer af",
+      "Dat hangt af van het weer",
+      "Dat hangt van het weer af",
+      "Het ligt aan het weer"
+     ],
+     "uitleg": "afhangen van."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki ders: randevu konuşması"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "valt-mee-tegen",
+   "datum": "2026-12-08",
+   "woord": "het valt mee / het valt tegen",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "umduğumdan iyi / umduğumdan kötü",
+   "definitie": "Het valt mee: het is beter dan je dacht. Het valt tegen: het is slechter dan je dacht.",
+   "kort": "Hollandalıların en sevdiği kalıplardan: bir şeyi beklentiyle karşılaştırır. “meevallen” iyi sürpriz, “tegenvallen” hayal kırıklığı. Türkçede tek kelimeyle karşılığı yok.",
+   "betekenissen": [
+    {
+     "titel": "het valt mee = korktuğum kadar değil",
+     "tekst": "Bir şey düşündüğünden daha iyi, daha kolay ya da daha ucuz çıktı. Teselli ederken de kullanılır: Dat valt wel mee! (O kadar da kötü değil!)",
+     "voorbeelden": [
+      {
+       "nl": "Het examen viel mee.",
+       "tr": "Sınav sandığımdan kolaydı."
+      },
+      {
+       "nl": "Het weer valt wel mee.",
+       "tr": "Hava o kadar da kötü değil."
+      },
+      {
+       "nl": "Valt het mee?",
+       "tr": "Korktuğun kadar kötü değil mi?"
+      }
+     ]
+    },
+    {
+     "titel": "het valt tegen = hayal kırıklığı",
+     "tekst": "Bir şey beklediğinden kötü, zor ya da pahalı çıktı.",
+     "voorbeelden": [
+      {
+       "nl": "De film viel tegen.",
+       "tr": "Film beklediğim gibi değildi."
+      },
+      {
+       "nl": "Het valt me tegen van jou.",
+       "tr": "Senden bunu beklemezdim."
+      }
+     ]
+    },
+    {
+     "titel": "de meevaller / de tegenvaller = iyi sürpriz / kötü sürpriz",
+     "tekst": "İsim halleri, haberlerde ve iş dilinde çok sık.",
+     "voorbeelden": [
+      {
+       "nl": "Dat is een financiële meevaller.",
+       "tr": "Bu beklenmedik bir mali kazanç."
+      },
+      {
+       "nl": "Het was een grote tegenvaller.",
+       "tr": "Büyük bir hayal kırıklığıydı."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "meevallen",
+     "uitleg": "mee (birlikte, lehine) + vallen (düşmek): işler lehine düşmek."
+    },
+    {
+     "deel": "tegenvallen",
+     "uitleg": "tegen (karşı) + vallen: işler aleyhine düşmek."
+    },
+    {
+     "deel": "ayrılabilen fiil",
+     "uitleg": "Het valt mee / Het viel mee / Het is meegevallen."
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: tegenvallen / vallen",
+    "tekst": "“Ik ben gevallen” = düştüm. “Het viel tegen” = beklediğimden kötüydü. Fiil aynı, ama ön ek anlamı tamamen değiştiriyor.",
+    "voorbeelden": [
+     {
+      "nl": "Ik ben van de fiets gevallen.",
+      "tr": "Bisikletten düştüm."
+     },
+     {
+      "nl": "De vakantie is tegengevallen.",
+      "tr": "Tatil beklediğim gibi geçmedi."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Het weer valt wel mee.",
+     "tr": "Hava o kadar da kötü değil.",
+     "bron": "Kelime listesi: dat valt wel mee"
+    },
+    {
+     "nl": "De film viel tegen.",
+     "tr": "Film beklediğim gibi değildi.",
+     "bron": "Kelime listesi: tegenvallen"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: Hoe was je eerste werkdag?",
+     "tr": "A: İlk iş günün nasıldı?"
+    },
+    {
+     "nl": "B: Het viel mee! De collega's zijn heel aardig.",
+     "tr": "B: Sandığımdan iyiydi! İş arkadaşları çok nazik."
+    },
+    {
+     "nl": "A: En de reistijd?",
+     "tr": "A: Ya yol süresi?"
+    },
+    {
+     "nl": "B: Die viel tegen: bijna een uur met de trein.",
+     "tr": "B: O kötüydü: trenle neredeyse bir saat."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Dat valt wel mee.",
+     "tr": "O kadar da kötü değil."
+    },
+    {
+     "nl": "De rekening viel mee.",
+     "tr": "Hesap beklediğimden azdı."
+    },
+    {
+     "nl": "Het Nederlands valt me nog tegen.",
+     "tr": "Hollandaca hâlâ sandığımdan zor geliyor."
+    },
+    {
+     "nl": "Wat een meevaller!",
+     "tr": "Ne güzel sürpriz!"
+    }
+   ],
+   "gramer": {
+    "titel": "Kime göre? me / je / hem",
+    "tekst": "Kimin beklentisiyle karşılaştırıldığını söylemek için bir zamir eklenir: het valt me mee / tegen. Geçmiş zaman yardımcı fiili zijn: het is meegevallen.",
+    "voorbeelden": [
+     {
+      "nl": "Het valt me mee.",
+      "tr": "Sandığımdan iyi."
+     },
+     {
+      "nl": "De drukte is meegevallen.",
+      "tr": "Kalabalık beklediğimden azdı."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-v1",
+     "type": "mc",
+     "vraag": "“Het examen viel mee.” ne demek?",
+     "opties": [
+      "Sınav sandığımdan kolaydı.",
+      "Sınavda düştüm.",
+      "Sınav iptal oldu."
+     ],
+     "juist": 0,
+     "uitleg": "meevallen = beklenenden iyi."
+    },
+    {
+     "id": "kp-v2",
+     "type": "mc",
+     "vraag": "Beklediğin tatil kötü geçti. Hangisi?",
+     "opties": [
+      "De vakantie viel mee.",
+      "De vakantie viel tegen."
+     ],
+     "juist": 1,
+     "uitleg": "tegenvallen = hayal kırıklığı."
+    },
+    {
+     "id": "kp-v3",
+     "type": "mc",
+     "vraag": "“een tegenvaller” nedir?",
+     "opties": [
+      "iyi sürpriz",
+      "kötü sürpriz, hayal kırıklığı",
+      "bir kaza"
+     ],
+     "juist": 1,
+     "uitleg": "isim hali."
+    },
+    {
+     "id": "kp-v4",
+     "type": "mc",
+     "vraag": "Doğru geçmiş zaman?",
+     "opties": [
+      "Het heeft meegevallen.",
+      "Het is meegevallen."
+     ],
+     "juist": 1,
+     "uitleg": "vallen → zijn."
+    },
+    {
+     "id": "kp-v5",
+     "type": "type",
+     "tr": "O kadar da kötü değil.",
+     "antwoorden": [
+      "Dat valt wel mee",
+      "Het valt wel mee",
+      "Dat valt mee",
+      "Het valt mee"
+     ],
+     "uitleg": "meevallen + wel."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki kelime listesi: dat valt wel mee, tegenvallen"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "sprake-van",
+   "datum": "2026-12-15",
+   "woord": "er is sprake van …",
+   "niveau": "B1",
+   "thema": "formeel",
+   "tr": "… söz konusu; … var (resmî)",
+   "definitie": "Formele manier om te zeggen dat iets er is of gebeurt.",
+   "kort": "Mektuplarda, kurallarda ve haberlerde çok çıkar; okuma sınavında tipik. “er is …” (var) demenin resmî hali. Olumsuzu çok sık: “Daar is geen sprake van!” = Asla! Söz konusu bile değil!",
+   "betekenissen": [
+    {
+     "titel": "er is sprake van = … var, … söz konusu",
+     "tekst": "Resmî metinde bir durumu tanımlar, çoğu zaman bir şartla: als er sprake is van … (… söz konusuysa).",
+     "voorbeelden": [
+      {
+       "nl": "Is er sprake van ernstige overlast? Bel dan de politie.",
+       "tr": "Ciddi bir rahatsızlık söz konusuysa polisi arayın."
+      },
+      {
+       "nl": "Er is sprake van een misverstand.",
+       "tr": "Bir yanlış anlaşılma söz konusu."
+      }
+     ]
+    },
+    {
+     "titel": "daar is geen sprake van! = asla, söz konusu bile değil",
+     "tekst": "Konuşmada güçlü bir “hayır”.",
+     "voorbeelden": [
+      {
+       "nl": "Mag ik tot twee uur blijven? – Daar is geen sprake van!",
+       "tr": "Saat ikiye kadar kalabilir miyim? – Hiç söz konusu bile değil!"
+      }
+     ]
+    },
+    {
+     "titel": "er is sprake van dat … = … deniyor, … konuşuluyor",
+     "tekst": "Henüz kesin olmayan bir plan için.",
+     "voorbeelden": [
+      {
+       "nl": "Er is sprake van dat de school gaat verhuizen.",
+       "tr": "Okulun taşınacağı konuşuluyor."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "de sprake",
+     "uitleg": "eski bir kelime: konuşma, söz. spreken (konuşmak) ile aynı aile."
+    },
+    {
+     "deel": "ter sprake komen",
+     "uitleg": "konuya gelmek, gündeme gelmek: Dat kwam niet ter sprake."
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Is er sprake van ernstige overlast, zoals bedreiging, meld dit dan direct bij de politie en daarna bij ons.",
+     "tr": "Tehdit gibi ciddi bir rahatsızlık söz konusuysa bunu hemen polise, sonra bize bildirin.",
+     "bron": "Lezen metni: huurders"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Er is sprake van fraude.",
+     "tr": "Dolandırıcılık söz konusu."
+    },
+    {
+     "nl": "Van een staking is nog geen sprake.",
+     "tr": "Henüz grev söz konusu değil."
+    },
+    {
+     "nl": "Dat onderwerp kwam ter sprake.",
+     "tr": "O konu gündeme geldi."
+    },
+    {
+     "nl": "Geen sprake van!",
+     "tr": "Asla!"
+    }
+   ],
+   "gramer": {
+    "titel": "Okuma sınavı ipucu",
+    "tekst": "“Als er sprake is van …” ile başlayan bir cümle çoğu zaman bir kuralın şartını verir: hangi durumda ne yapmalısın? Sınav sorusu da tam bunu sorar. Ters cümle de olabilir: Is er sprake van …? Dan …",
+    "voorbeelden": [
+     {
+      "nl": "Als er sprake is van schade, krijgt u geld terug.",
+      "tr": "Hasar söz konusuysa parayı geri alırsınız."
+     },
+     {
+      "nl": "Is er sprake van ziekte? Meld u dan voor 9 uur.",
+      "tr": "Hastalık söz konusuysa saat 9'dan önce bildirin."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-s1",
+     "type": "mc",
+     "vraag": "“Daar is geen sprake van!” ne demek?",
+     "opties": [
+      "Bundan söz etmedim.",
+      "Asla, söz konusu bile değil!",
+      "Burada konuşulmaz."
+     ],
+     "juist": 1,
+     "uitleg": "güçlü bir hayır."
+    },
+    {
+     "id": "kp-s2",
+     "type": "mc",
+     "vraag": "“Als er sprake is van schade …” hangi metinde çıkar?",
+     "opties": [
+      "Arkadaşa mesaj",
+      "Sigorta / kurallar metni",
+      "Şarkı sözü"
+     ],
+     "juist": 1,
+     "uitleg": "resmî bir şart."
+    },
+    {
+     "id": "kp-s3",
+     "type": "mc",
+     "vraag": "“Dat kwam niet ter sprake.” ne demek?",
+     "opties": [
+      "O konu açılmadı.",
+      "O gelmedi.",
+      "Onu konuşmayacağız."
+     ],
+     "juist": 0,
+     "uitleg": "ter sprake komen = gündeme gelmek."
+    },
+    {
+     "id": "kp-s4",
+     "type": "mc",
+     "vraag": "“er is sprake van” konuşmada hangisine yakın?",
+     "opties": [
+      "er is",
+      "er komt",
+      "er gaat"
+     ],
+     "juist": 0,
+     "uitleg": "resmî “var”."
+    },
+    {
+     "id": "kp-s5",
+     "type": "type",
+     "tr": "Bir yanlış anlaşılma söz konusu.",
+     "antwoorden": [
+      "Er is sprake van een misverstand"
+     ],
+     "uitleg": "er is sprake van + isim."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki Lezen metni: huurders"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "komt-erop-neer",
+   "datum": "2026-12-22",
+   "woord": "het komt erop neer (dat) …",
+   "niveau": "B1",
+   "thema": "gesprek",
+   "tr": "kısacası …; özetle …; sonuçta … demek",
+   "definitie": "Je vat samen wat het belangrijkste is.",
+   "kort": "Uzun bir açıklamadan sonra özü söylemek için. Toplantıda, haberde, okuma metninde: metnin ana fikrini veren cümle çoğu zaman bununla başlar.",
+   "betekenissen": [
+    {
+     "titel": "het komt erop neer dat … = kısacası",
+     "tekst": "Bir özet verir. Arkasından dat + yan cümle gelir (fiil sonda).",
+     "voorbeelden": [
+      {
+       "nl": "Het komt erop neer dat we meer moeten betalen.",
+       "tr": "Kısacası daha fazla ödememiz gerekiyor."
+      },
+      {
+       "nl": "Waar het op neerkomt, is dat niemand het wist.",
+       "tr": "Özetle kimse bilmiyordu."
+      }
+     ]
+    },
+    {
+     "titel": "neerkomen op … = …e varmak, …e gelmek",
+     "tekst": "Bir şeyin sonuçta neye eşit olduğu.",
+     "voorbeelden": [
+      {
+       "nl": "Dat komt neer op 50 euro per maand.",
+       "tr": "Bu ayda 50 euroya geliyor."
+      },
+      {
+       "nl": "Alles komt op mij neer.",
+       "tr": "Her şey bana kalıyor. (bütün iş bende)"
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "neerkomen",
+     "uitleg": "neer (aşağı) + komen: aşağı inmek, bir yere konmak. Ayrılabilen fiil."
+    },
+    {
+     "deel": "er + op → erop",
+     "uitleg": "“onun üstüne”: neye indiğini sonra söylersin (dat …)."
+    }
+   ],
+   "anders": {
+    "titel": "Benzerleri: kortom / samengevat / eigenlijk",
+    "tekst": "Aynı işi gören kısa kelimeler: kortom (kısacası), samengevat (özetle). Okuma sınavında bu kelimelerden sonra gelen cümle genellikle ana fikirdir.",
+    "voorbeelden": [
+     {
+      "nl": "Kortom: het plan gaat niet door.",
+      "tr": "Kısacası plan iptal."
+     },
+     {
+      "nl": "Samengevat: de prijzen stijgen.",
+      "tr": "Özetle fiyatlar artıyor."
+     }
+    ]
+   },
+   "dialoog": [
+    {
+     "nl": "A: Wat zei de huisbaas allemaal?",
+     "tr": "A: Ev sahibi neler söyledi?"
+    },
+    {
+     "nl": "B: Veel, maar het komt erop neer dat de huur omhooggaat.",
+     "tr": "B: Çok şey, ama kısacası kira artıyor."
+    },
+    {
+     "nl": "A: Hoeveel?",
+     "tr": "A: Ne kadar?"
+    },
+    {
+     "nl": "B: Het komt neer op zo'n 30 euro per maand.",
+     "tr": "B: Ayda 30 euro kadar."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het komt erop neer dat je moet wachten.",
+     "tr": "Kısacası beklemen gerekiyor."
+    },
+    {
+     "nl": "Waar komt het op neer?",
+     "tr": "Özü ne?"
+    },
+    {
+     "nl": "Dat komt op hetzelfde neer.",
+     "tr": "Aynı kapıya çıkar."
+    },
+    {
+     "nl": "Het werk komt altijd op haar neer.",
+     "tr": "İş hep ona kalıyor."
+    }
+   ],
+   "gramer": {
+    "titel": "Okuma sınavında ana fikir",
+    "tekst": "“Wat is de belangrijkste boodschap van de tekst?” sorusunda cevap çoğu zaman “het komt erop neer”, “kortom” ya da “samengevat” cümlesindedir. Bu kelimeleri görünce dikkat et.",
+    "voorbeelden": [
+     {
+      "nl": "Dat komt op hetzelfde neer.",
+      "tr": "Aynı kapıya çıkar."
+     },
+     {
+      "nl": "Kortom, …",
+      "tr": "Kısacası, …"
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-n1",
+     "type": "mc",
+     "vraag": "“Het komt erop neer dat …” ne zaman kullanılır?",
+     "opties": [
+      "Bir şeyi özetlerken",
+      "Bir yere inerken",
+      "Birini davet ederken"
+     ],
+     "juist": 0,
+     "uitleg": "özü söyler."
+    },
+    {
+     "id": "kp-n2",
+     "type": "mc",
+     "vraag": "“Dat komt op hetzelfde neer.” ne demek?",
+     "opties": [
+      "Aynı kapıya çıkar.",
+      "Aynı yere düştü.",
+      "Aynı kişi geldi."
+     ],
+     "juist": 0,
+     "uitleg": "sonuç aynı."
+    },
+    {
+     "id": "kp-n3",
+     "type": "mc",
+     "vraag": "“Het werk komt op mij neer.” ne demek?",
+     "opties": [
+      "İş bana kalıyor.",
+      "İşten düştüm.",
+      "İşe geliyorum."
+     ],
+     "juist": 0,
+     "uitleg": "neerkomen op iemand."
+    },
+    {
+     "id": "kp-n4",
+     "type": "mc",
+     "vraag": "Hangisi aynı işi görür?",
+     "opties": [
+      "kortom",
+      "toch",
+      "ooit"
+     ],
+     "juist": 0,
+     "uitleg": "kortom = kısacası."
+    },
+    {
+     "id": "kp-n5",
+     "type": "type",
+     "tr": "Kısacası daha fazla ödememiz gerekiyor.",
+     "antwoorden": [
+      "Het komt erop neer dat we meer moeten betalen",
+      "Kortom, we moeten meer betalen",
+      "Kortom: we moeten meer betalen"
+     ],
+     "uitleg": "dat → fiil sonda."
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "zit-niets-anders-op",
+   "datum": "2026-12-29",
+   "woord": "er zit niets anders op (dan …)",
+   "niveau": "B1",
+   "thema": "gesprek",
+   "tr": "başka çare yok; … mecburuz",
+   "definitie": "Je hebt geen keuze: je moet het doen.",
+   "kort": "Başka seçenek kalmayınca: “Er zit niets anders op dan te wachten.” = Beklemekten başka çare yok. Konuşmada çok sık, ama öğrenciler pek tanımaz; duyunca anla.",
+   "betekenissen": [
+    {
+     "titel": "er zit niets anders op dan … te + mastar",
+     "tekst": "Ne yapmak zorunda olduğunu söyler.",
+     "voorbeelden": [
+      {
+       "nl": "Er zit niets anders op dan te wachten.",
+       "tr": "Beklemekten başka çare yok."
+      },
+      {
+       "nl": "Er zat niets anders op dan naar huis te lopen.",
+       "tr": "Eve yürümekten başka çare yoktu."
+      }
+     ]
+    },
+    {
+     "titel": "er zit niets anders op = kısa hali",
+     "tekst": "Cümlenin sonunda, tek başına.",
+     "voorbeelden": [
+      {
+       "nl": "De trein rijdt niet. Er zit niets anders op.",
+       "tr": "Tren çalışmıyor. Başka çaremiz yok."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "er zit … op",
+     "uitleg": "kelimesi kelimesine “üstünde … oturuyor”: yapılacak tek şey o."
+    },
+    {
+     "deel": "niets anders dan",
+     "uitleg": "…den başka hiçbir şey"
+    }
+   ],
+   "anders": {
+    "titel": "Aynı anlam: geen keus hebben / moeten",
+    "tekst": "Daha basit söylemek istersen: Ik heb geen keus (seçeneğim yok) ya da sadece moeten. Ama Hollandalılar konuşurken “er zit niets anders op” çok kullanır.",
+    "voorbeelden": [
+     {
+      "nl": "Ik heb geen keus.",
+      "tr": "Seçeneğim yok."
+     },
+     {
+      "nl": "We moeten wachten.",
+      "tr": "Beklemek zorundayız."
+     }
+    ]
+   },
+   "voorbeelden": [
+    {
+     "nl": "Er zit niets anders op dan de rekening te betalen.",
+     "tr": "Faturayı ödemekten başka çare yok."
+    },
+    {
+     "nl": "Het regent, maar er zit niets anders op: we moeten fietsen.",
+     "tr": "Yağmur yağıyor ama çaresiz bisikletle gideceğiz."
+    },
+    {
+     "nl": "Er zat niets anders op.",
+     "tr": "Başka çare yoktu."
+    }
+   ],
+   "gramer": {
+    "titel": "dan … te + mastar",
+    "tekst": "“dan” den sonra “te + mastar” gelir, cümle mastarla biter: … dan te wachten, … dan opnieuw te beginnen. Ayrılabilen fiilde te ortaya girer: op te bellen.",
+    "voorbeelden": [
+     {
+      "nl": "… dan opnieuw te beginnen.",
+      "tr": "… baştan başlamaktan başka"
+     },
+     {
+      "nl": "… dan de huisarts op te bellen.",
+      "tr": "… ev doktorunu aramaktan başka"
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-z1",
+     "type": "mc",
+     "vraag": "“Er zit niets anders op.” ne demek?",
+     "opties": [
+      "Üstünde hiçbir şey yok.",
+      "Başka çare yok.",
+      "Kimse oturmuyor."
+     ],
+     "juist": 1,
+     "uitleg": "seçenek yok."
+    },
+    {
+     "id": "kp-z2",
+     "type": "mc",
+     "vraag": "Doğru cümle?",
+     "opties": [
+      "Er zit niets anders op dan wachten te.",
+      "Er zit niets anders op dan te wachten."
+     ],
+     "juist": 1,
+     "uitleg": "te + mastar, sonda."
+    },
+    {
+     "id": "kp-z3",
+     "type": "mc",
+     "vraag": "Hangisi aynı anlama yakın?",
+     "opties": [
+      "Ik heb geen keus.",
+      "Ik heb geen zin.",
+      "Ik heb geen tijd."
+     ],
+     "juist": 0,
+     "uitleg": "seçeneğim yok."
+    },
+    {
+     "id": "kp-z4",
+     "type": "mc",
+     "vraag": "“… dan de dokter op te bellen” — te nerede?",
+     "opties": [
+      "fiilin önünde",
+      "ayrılabilen fiilin ortasında",
+      "cümlenin başında"
+     ],
+     "juist": 1,
+     "uitleg": "op-te-bellen."
+    },
+    {
+     "id": "kp-z5",
+     "type": "type",
+     "tr": "Beklemekten başka çare yok.",
+     "antwoorden": [
+      "Er zit niets anders op dan te wachten"
+     ],
+     "uitleg": "dan te + mastar."
+    }
+   ],
+   "bronnen": [
+    "Kalıbın anlamı ve örnekler: genel dil bilgisi"
+   ],
+   "soort": "kalip",
+   "lidwoord": ""
+  },
+  {
+   "id": "kwartje-valt",
+   "datum": "2026-12-01",
+   "woord": "het kwartje valt",
+   "niveau": "B2",
+   "thema": "begrijpen",
+   "tr": "jeton düştü, sonunda anladı",
+   "definitie": "Iemand begrijpt eindelijk iets.",
+   "kort": "Türkçedeki “jeton düştü” ile birebir aynı resim. Kwartje, eski guldenin dörtte biri olan bozuk paraydı. Para otomatın içine düşer, makine ancak o zaman çalışır.",
+   "opbouw": [
+    {
+     "deel": "het kwartje",
+     "uitleg": "kwart (dörtte bir) + -je: çeyrek gulden, eski bir bozuk para."
+    },
+    {
+     "deel": "valt",
+     "uitleg": "vallen = düşmek"
+    }
+   ],
+   "geschiedenis": [
+    "Kwartje kelimesi 17. yüzyılda ortaya çıkmış: bir guldenin dörtte biri. Euro 2002'de geldi, ama deyim yaşıyor.",
+    "İngilizcede aynı resim: the penny drops (peni düştü)."
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "jeton düştü",
+     "uitleg": "aynı resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "the penny drops",
+     "uitleg": "peni düştü"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Daarmee valt het kwartje: in deeg vangen de gluten de gasbelletjes op …",
+     "tr": "Jeton işte burada düşüyor: hamurda gluten gaz kabarcıklarını tutuyor …",
+     "bron": "Haber: Wat zijn gluten? (B2)",
+     "href": "nieuws/?id=gluten"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "Ik snap het!",
+     "tr": "Anladım!"
+    },
+    {
+     "nl": "Nu snap ik het.",
+     "tr": "Şimdi anladım."
+    },
+    {
+     "nl": "Er gaat een lichtje branden.",
+     "tr": "Kafada bir ampul yanıyor."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Na drie keer uitleggen viel eindelijk het kwartje.",
+     "tr": "Üç kez anlattıktan sonra sonunda jeton düştü."
+    },
+    {
+     "nl": "Bij mij viel het kwartje pas later.",
+     "tr": "Bende jeton ancak sonra düştü."
+    },
+    {
+     "nl": "Is het kwartje gevallen?",
+     "tr": "Jeton düştü mü? (anladın mı?)"
+    }
+   ],
+   "gramer": {
+    "titel": "Kimin için?",
+    "tekst": "Kimin anladığını söylemek için: bij mij / bij hem viel het kwartje. Günlük dil; şaka yollu da kullanılır.",
+    "voorbeelden": [
+     {
+      "nl": "Bij hem viel het kwartje.",
+      "tr": "Onda jeton düştü."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-k1",
+     "type": "mc",
+     "vraag": "“Het kwartje valt.” ne demek?",
+     "opties": [
+      "Para düştü, kayboldu.",
+      "Sonunda anladı.",
+      "Fiyat düştü."
+     ],
+     "juist": 1,
+     "uitleg": "jeton düştü."
+    },
+    {
+     "id": "dy-k2",
+     "type": "mc",
+     "vraag": "Kwartje neydi?",
+     "opties": [
+      "çeyrek gulden",
+      "bir şeker",
+      "bir telefon"
+     ],
+     "juist": 0,
+     "uitleg": "kwart = dörtte bir."
+    },
+    {
+     "id": "dy-k3",
+     "type": "mc",
+     "vraag": "İngilizce karşılığı?",
+     "opties": [
+      "the penny drops",
+      "the coin flips",
+      "the ball drops"
+     ],
+     "juist": 0,
+     "uitleg": "aynı resim."
+    },
+    {
+     "id": "dy-k4",
+     "type": "mc",
+     "vraag": "Doğru geçmiş zaman?",
+     "opties": [
+      "Het kwartje heeft gevallen.",
+      "Het kwartje is gevallen."
+     ],
+     "juist": 1,
+     "uitleg": "vallen → zijn."
+    },
+    {
+     "id": "dy-k5",
+     "type": "type",
+     "tr": "Bende jeton ancak sonra düştü.",
+     "antwoorden": [
+      "Bij mij viel het kwartje pas later",
+      "Bij mij viel pas later het kwartje"
+     ],
+     "uitleg": "bij mij viel het kwartje."
+    }
+   ],
+   "bronnen": [
+    "DBNL, Van Woord tot Woord (kwartje, 17. yüzyıl)",
+    "phrases.org.uk: the penny drops",
+    "Sitedeki haber: Wat zijn gluten?"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "koffiedik-kijken",
+   "datum": "2026-12-08",
+   "woord": "het is koffiedik kijken",
+   "niveau": "B1",
+   "thema": "toekomst",
+   "tr": "kimse bilemez; falcılık gibi",
+   "definitie": "Je kunt niet voorspellen hoe het zal aflopen.",
+   "kort": "Kelimesi kelimesine “kahve telvesine bakmak”: kahve falı gibi tahmin yürütmek. Haberlerde gelecekle ilgili belirsizlik için çok sık; bizdeki kahve falıyla aynı mantık.",
+   "opbouw": [
+    {
+     "deel": "het koffiedik",
+     "uitleg": "koffie + dik (koyu, tortu): kahve telvesi."
+    },
+    {
+     "deel": "kijken",
+     "uitleg": "bakmak"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "kahve falı",
+     "uitleg": "aynı resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "it's anyone's guess",
+     "uitleg": "kimse bilemez (resim farklı)"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Hoe lang het herstel duurt? Dat is nog koffiedik kijken.",
+     "tr": "Onarım ne kadar sürer? Bunu şimdiden kimse bilemez.",
+     "bron": "Haber: Lege schappen bij Albert Heijn (B1)",
+     "href": "nieuws/?id=albertheijn"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "Dat weet niemand.",
+     "tr": "Bunu kimse bilmiyor."
+    },
+    {
+     "nl": "Het is een gok.",
+     "tr": "Bu bir tahmin, kumar."
+    },
+    {
+     "nl": "Dat is nog onzeker.",
+     "tr": "Bu henüz belirsiz."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Wie de verkiezingen wint? Dat is nog koffiedik kijken.",
+     "tr": "Seçimi kim kazanır? Bunu şimdiden kimse bilemez."
+    },
+    {
+     "nl": "Hoe het weer wordt in juli, is koffiedik kijken.",
+     "tr": "Temmuzda havanın nasıl olacağını kimse bilemez."
+    }
+   ],
+   "gramer": {
+    "titel": "Haber dili",
+    "tekst": "Çoğu zaman bir sorudan sonra gelir: “Hoe lang …? Dat is (nog) koffiedik kijken.” Okuma metninde görürsen anlamı: yazar sonucu bilmiyor.",
+    "voorbeelden": [
+     {
+      "nl": "Dat is nog koffiedik kijken.",
+      "tr": "Bunu henüz kimse bilemez."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-c1",
+     "type": "mc",
+     "vraag": "“Het is koffiedik kijken.” ne demek?",
+     "opties": [
+      "Kahve içme zamanı.",
+      "Kimse bilemez.",
+      "Çok açık."
+     ],
+     "juist": 1,
+     "uitleg": "tahmin edilemez."
+    },
+    {
+     "id": "dy-c2",
+     "type": "mc",
+     "vraag": "koffiedik nedir?",
+     "opties": [
+      "koyu kahve",
+      "kahve telvesi",
+      "kahve fincanı"
+     ],
+     "juist": 1,
+     "uitleg": "telve."
+    },
+    {
+     "id": "dy-c3",
+     "type": "mc",
+     "vraag": "Okuma metninde bu deyim varsa yazar ne diyor?",
+     "opties": [
+      "Sonucu biliyor.",
+      "Sonucu bilmiyor.",
+      "Kahve seviyor."
+     ],
+     "juist": 1,
+     "uitleg": "belirsizlik."
+    },
+    {
+     "id": "dy-c4",
+     "type": "mc",
+     "vraag": "Türkçede aynı resim?",
+     "opties": [
+      "kahve falı",
+      "kahve molası"
+     ],
+     "juist": 0,
+     "uitleg": "fal."
+    },
+    {
+     "id": "dy-c5",
+     "type": "type",
+     "tr": "Bunu şimdiden kimse bilemez.",
+     "antwoorden": [
+      "Dat is nog koffiedik kijken",
+      "Het is nog koffiedik kijken"
+     ],
+     "uitleg": "nog = henüz."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Lege schappen bij Albert Heijn"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "eindjes-aan-elkaar",
+   "datum": "2026-12-15",
+   "woord": "de eindjes aan elkaar knopen",
+   "niveau": "B2",
+   "thema": "geld",
+   "tr": "iki yakasını bir araya getirmek, ay sonunu zor getirmek",
+   "definitie": "Met weinig geld net rondkomen.",
+   "kort": "Kelimesi kelimesine “uçları birbirine bağlamak”: ipin iki ucu ancak yetişiyor. Az parayla idare etmek; hem aileler hem kurumlar için haberlerde sık.",
+   "opbouw": [
+    {
+     "deel": "de eindjes",
+     "uitleg": "eind (uç) + -je, çoğul: küçük uçlar."
+    },
+    {
+     "deel": "aan elkaar",
+     "uitleg": "birbirine"
+    },
+    {
+     "deel": "knopen",
+     "uitleg": "düğümlemek, bağlamak (de knoop = düğüm; ayrıca düğme)"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "iki yakasını bir araya getirmek",
+     "uitleg": "benzer resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "to make ends meet",
+     "uitleg": "uçları buluşturmak: aynı resim"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "… waardoor het steeds moeilijker werd om de eindjes aan elkaar te knopen.",
+     "tr": "… bu yüzden ay sonunu getirmek giderek zorlaştı.",
+     "bron": "Haber: Zeehondencentrum in geldnood (B2)",
+     "href": "nieuws/?id=pieterburen"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "rondkomen",
+     "tr": "geçinmek: Ik kom net rond."
+    },
+    {
+     "nl": "krap zitten",
+     "tr": "parası sıkışık olmak"
+    },
+    {
+     "nl": "de tering naar de nering zetten",
+     "tr": "ayağını yorganına göre uzatmak"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Met één salaris is het moeilijk om de eindjes aan elkaar te knopen.",
+     "tr": "Tek maaşla iki yakayı bir araya getirmek zor."
+    },
+    {
+     "nl": "Veel gezinnen kunnen de eindjes niet meer aan elkaar knopen.",
+     "tr": "Birçok aile artık geçinemiyor."
+    }
+   ],
+   "gramer": {
+    "titel": "om … te + mastar",
+    "tekst": "Çoğu zaman “moeilijk om … te …” kalıbıyla: te, ayrılmayan fiilde fiilin önüne gelir: aan elkaar te knopen.",
+    "voorbeelden": [
+     {
+      "nl": "Het is moeilijk om rond te komen.",
+      "tr": "Geçinmek zor."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-e1",
+     "type": "mc",
+     "vraag": "Deyim ne anlatıyor?",
+     "opties": [
+      "Az parayla zor geçinmek",
+      "Ayakkabı bağlamak",
+      "İki kişiyi barıştırmak"
+     ],
+     "juist": 0,
+     "uitleg": "ay sonunu getirmek."
+    },
+    {
+     "id": "dy-e2",
+     "type": "mc",
+     "vraag": "İngilizce karşılığı?",
+     "opties": [
+      "to make ends meet",
+      "to tie the knot"
+     ],
+     "juist": 0,
+     "uitleg": "tie the knot = evlenmek!"
+    },
+    {
+     "id": "dy-e3",
+     "type": "mc",
+     "vraag": "rondkomen ne demek?",
+     "opties": [
+      "geçinmek",
+      "etrafında dönmek"
+     ],
+     "juist": 0,
+     "uitleg": "Ik kom net rond."
+    },
+    {
+     "id": "dy-e4",
+     "type": "mc",
+     "vraag": "“de tering naar de nering zetten” Türkçede?",
+     "opties": [
+      "ayağını yorganına göre uzatmak",
+      "dereyi görmeden paçaları sıvamak"
+     ],
+     "juist": 0,
+     "uitleg": "harcamayı gelire göre ayarlamak."
+    },
+    {
+     "id": "dy-e5",
+     "type": "type",
+     "tr": "Tek maaşla iki yakayı bir araya getirmek zor.",
+     "antwoorden": [
+      "Met één salaris is het moeilijk om de eindjes aan elkaar te knopen",
+      "Met een salaris is het moeilijk om de eindjes aan elkaar te knopen"
+     ],
+     "uitleg": "om … te knopen."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Zeehondencentrum in geldnood"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "aan-de-bel-trekken",
+   "datum": "2026-12-22",
+   "woord": "aan de bel trekken",
+   "niveau": "B2",
+   "thema": "nieuws",
+   "tr": "alarm vermek, dikkat çekmek",
+   "definitie": "Waarschuwen dat er een groot probleem is.",
+   "kort": "Kelimesi kelimesine “zilin ipini çekmek”. Ciddi bir soruna yetkililerin ya da kamuoyunun dikkatini çekmek. Haber başlıklarında çok sık: öğretmenler, doktorlar, belediyeler aan de bel trekken.",
+   "opbouw": [
+    {
+     "deel": "de bel",
+     "uitleg": "zil"
+    },
+    {
+     "deel": "trekken aan",
+     "uitleg": "…i çekmek: aan de bel trekken = zilin ipini çekmek."
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "alarm vermek / tehlike çanları çalıyor",
+     "uitleg": "benzer resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "to sound the alarm",
+     "uitleg": "alarm çalmak"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Het centrum trekt aan de bel: zonder extra geld binnen twee weken gaan de deuren dicht.",
+     "tr": "Merkez alarm veriyor: ek para olmazsa iki hafta içinde kapılar kapanacak.",
+     "bron": "Haber: Zeehondencentrum in geldnood (B2)",
+     "href": "nieuws/?id=pieterburen"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "waarschuwen",
+     "tr": "uyarmak"
+    },
+    {
+     "nl": "alarm slaan",
+     "tr": "alarm vermek (aynı anlam)"
+    },
+    {
+     "nl": "de noodklok luiden",
+     "tr": "tehlike çanını çalmak"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Leraren trekken aan de bel over de grote klassen.",
+     "tr": "Öğretmenler kalabalık sınıflar konusunda alarm veriyor."
+    },
+    {
+     "nl": "Huisartsen trekken aan de bel: ze hebben te weinig tijd.",
+     "tr": "Ev doktorları alarm veriyor: zamanları çok az."
+    }
+   ],
+   "gramer": {
+    "titel": "Kim, neden?",
+    "tekst": "Özne çoğu zaman bir grup ya da kurum (leraren, de gemeente). Konu “over” ile, sebep iki nokta ile gelir: … trekken aan de bel over … / … trekken aan de bel: …",
+    "voorbeelden": [
+     {
+      "nl": "De gemeente trekt aan de bel over de kosten.",
+      "tr": "Belediye maliyetler konusunda alarm veriyor."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-b1",
+     "type": "mc",
+     "vraag": "“De school trekt aan de bel.” ne demek?",
+     "opties": [
+      "Okul zili çaldı.",
+      "Okul ciddi bir soruna dikkat çekiyor.",
+      "Okul tatile girdi."
+     ],
+     "juist": 1,
+     "uitleg": "alarm veriyor."
+    },
+    {
+     "id": "dy-b2",
+     "type": "mc",
+     "vraag": "Aynı anlamdaki ifade?",
+     "opties": [
+      "alarm slaan",
+      "op de bel drukken"
+     ],
+     "juist": 0,
+     "uitleg": "alarm slaan."
+    },
+    {
+     "id": "dy-b3",
+     "type": "mc",
+     "vraag": "Konu hangi edatla gelir?",
+     "opties": [
+      "over",
+      "met",
+      "naar"
+     ],
+     "juist": 0,
+     "uitleg": "aan de bel trekken over …"
+    },
+    {
+     "id": "dy-b4",
+     "type": "mc",
+     "vraag": "Bu deyim en çok nerede çıkar?",
+     "opties": [
+      "haber başlıklarında",
+      "yemek tariflerinde"
+     ],
+     "juist": 0,
+     "uitleg": "haber dili."
+    },
+    {
+     "id": "dy-b5",
+     "type": "type",
+     "tr": "Öğretmenler alarm veriyor.",
+     "antwoorden": [
+      "Leraren trekken aan de bel",
+      "De leraren trekken aan de bel"
+     ],
+     "uitleg": "trekken aan de bel."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Zeehondencentrum in geldnood"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "in-de-soep-lopen",
+   "datum": "2026-12-29",
+   "woord": "in de soep lopen",
+   "niveau": "B2",
+   "thema": "nieuws",
+   "tr": "suya düşmek, ters gitmek",
+   "definitie": "Mislukken; helemaal misgaan.",
+   "kort": "Kelimesi kelimesine “çorbaya yürümek”. Bir planın ya da işin bozulması. Türkçede de su var: “suya düştü”. Kökeni kesin bilinmiyor; o yüzden burada bir hikâye uydurmuyoruz.",
+   "opbouw": [
+    {
+     "deel": "de soep",
+     "uitleg": "çorba"
+    },
+    {
+     "deel": "lopen",
+     "uitleg": "yürümek; burada “gitmek, sonuçlanmak”"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "suya düşmek",
+     "uitleg": "benzer resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "to go pear-shaped / to go wrong",
+     "uitleg": "ters gitmek"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "… is nog altijd onduidelijk wat er bij Albert Heijn precies in de soep is gelopen.",
+     "tr": "… Albert Heijn'da tam olarak neyin ters gittiği hâlâ belirsiz.",
+     "bron": "Haber: Lege schappen bij Albert Heijn (B2)",
+     "href": "nieuws/?id=albertheijn"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "misgaan",
+     "tr": "ters gitmek"
+    },
+    {
+     "nl": "mislukken",
+     "tr": "başarısız olmak"
+    },
+    {
+     "nl": "De soep wordt niet zo heet gegeten als ze wordt opgediend.",
+     "tr": "Hiçbir şey göründüğü kadar kötü değildir."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Door het slechte weer liep het feest in de soep.",
+     "tr": "Kötü hava yüzünden parti suya düştü."
+    },
+    {
+     "nl": "Wat is er in de soep gelopen?",
+     "tr": "Ne ters gitti?"
+    }
+   ],
+   "gramer": {
+    "titel": "zijn ile geçmiş",
+    "tekst": "Hareket fiili lopen burada zijn alır: het is in de soep gelopen. Özne plan, parti, sistem gibi bir şeydir; kişi değil.",
+    "voorbeelden": [
+     {
+      "nl": "Het plan is in de soep gelopen.",
+      "tr": "Plan suya düştü."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-s1",
+     "type": "mc",
+     "vraag": "“Het feest liep in de soep.” ne demek?",
+     "opties": [
+      "Partide çorba vardı.",
+      "Parti suya düştü.",
+      "Partiye yürüdük."
+     ],
+     "juist": 1,
+     "uitleg": "ters gitti."
+    },
+    {
+     "id": "dy-s2",
+     "type": "mc",
+     "vraag": "Doğru geçmiş zaman?",
+     "opties": [
+      "Het heeft in de soep gelopen.",
+      "Het is in de soep gelopen."
+     ],
+     "juist": 1,
+     "uitleg": "zijn."
+    },
+    {
+     "id": "dy-s3",
+     "type": "mc",
+     "vraag": "Hangisi aynı anlama yakın?",
+     "opties": [
+      "misgaan",
+      "meevallen"
+     ],
+     "juist": 0,
+     "uitleg": "ters gitmek."
+    },
+    {
+     "id": "dy-s4",
+     "type": "mc",
+     "vraag": "Bu deyimin kökeni?",
+     "opties": [
+      "kesin bilinmiyor",
+      "bir Leiden hikâyesi"
+     ],
+     "juist": 0,
+     "uitleg": "uydurmuyoruz."
+    },
+    {
+     "id": "dy-s5",
+     "type": "type",
+     "tr": "Ne ters gitti?",
+     "antwoorden": [
+      "Wat is er in de soep gelopen?",
+      "Wat ging er mis?",
+      "Wat is er misgegaan?"
+     ],
+     "uitleg": "in de soep lopen."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki haber: Lege schappen bij Albert Heijn",
+    "neerlandistiek.nl: De soep wordt nooit zo heet gegeten"
+   ],
+   "soort": "deyim",
+   "lidwoord": ""
+  },
+  {
+   "id": "zetten",
+   "datum": "2027-01-12",
+   "woord": "zetten",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A2–B1",
+   "thema": "geschiedenis",
+   "tr": "koymak (dik koymak, yerleştirmek)",
+   "definitie": "Iets ergens neerzetten, een plek geven.",
+   "kort": "zetten, zitten (oturmak) fiilinden geliyor: “oturtmak”. Önüne ek gelince bambaşka kelimeler çıkıyor: bezetting (işgal), verzet (direniş), ontzet (kuşatmadan kurtarma), inzet (emek). Leiden'in tarihi neredeyse bu kelimelerle anlatılıyor.",
+   "keten": [
+    {
+     "nl": "zitten",
+     "tr": "oturmak",
+     "uitleg": "Kendi kendine olan durum."
+    },
+    {
+     "nl": "zetten",
+     "tr": "oturtmak, koymak",
+     "uitleg": "Birini/bir şeyi oturtmak: doen zitten. İngilizce sit → set aynı."
+    },
+    {
+     "nl": "be-/in-/ver-/ont- + zetten",
+     "tr": "yeni anlamlar",
+     "uitleg": "Ön ek, nereye ve nasıl koyduğunu söylüyor."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "bezetten → de bezetting",
+     "uitleg": "üstüne koymak, yeri tutmak → işgal. Ayrıca: bezet = meşgul (tuvalet, telefon)."
+    },
+    {
+     "deel": "zich verzetten → het verzet",
+     "uitleg": "kendini karşıya koymak → direniş. Ama: een afspraak verzetten = randevuyu ertelemek."
+    },
+    {
+     "deel": "ontzetten → het ontzet",
+     "uitleg": "ont- (dışarı, -den) + zetten: kuşatmadan çıkarmak, kurtarmak."
+    },
+    {
+     "deel": "inzetten → de inzet",
+     "uitleg": "içine koymak → emek, çaba; bahiste ortaya konan para; polisi bir yere sevk etmek."
+    },
+    {
+     "deel": "voorzetten → de voorzet",
+     "uitleg": "öne koymak → futbolda orta; mecazi: ilk öneri."
+    },
+    {
+     "deel": "opzet / omzet",
+     "uitleg": "de opzet = plan, amaç (met opzet = bilerek); de omzet = ciro."
+    }
+   ],
+   "geschiedenis": [
+    "Proto-Germence *satjaną, zitten fiilinin “oturtmak” hali. Aynı ikili: liggen/leggen (yatmak/yatırmak), İngilizce sit/set, lie/lay.",
+    "Ontzetten'in iki anlamı var: kuşatmadan kurtarmak ve dehşete düşürmek. Almanca entsetzen'de de iki anlam birlikte: “bir durumdan dışarı koymak” → huzurdan çıkarmak (dehşet) ya da kuşatmadan çıkarmak (kurtarma).",
+    "Bugünkü ontzettend (müthiş, çok: ontzettend leuk) ontzetten fiilinin sıfat-fiil halidir; “dehşet verici” anlamından gelir."
+   ],
+   "verhaal": {
+    "titel": "Leiden: beleg, bezetting, verzet, ontzet, bevrijding",
+    "tekst": [
+     "1574: Spanyol askerleri Leiden'i kuşattı (het beleg). Kuşatma 26 Mayıs'tan 3 Ekim sabahına kadar sürdü; şehir açlık ve hastalıkla boğuştu.",
+     "Geuzen (Hollandalı isyancılar) setleri deldi; topraklar su altında kalınca gemilerle şehrin kapılarına kadar geldiler. 3 Ekim sabahı şehre girdiler ve aç Leidenlilere haring en wittebrood (ringa balığı ve beyaz ekmek) getirdiler.",
+     "Bu kurtuluşa Leidens Ontzet denir. Söylenceye göre kaçan Spanyollar kamplarında bir kazan hutspot bırakmış; kazan bugün Museum De Lakenhal'de. Her yıl 3 Ekim'de Leiden bunu kutlar; 2019'dan beri bu bayram ulusal somut olmayan kültürel miras listesinde.",
+     "1940–1945: Alman işgali (de Duitse bezetting). İşgalci 1940'ta üniversitedeki bütün Yahudi çalışanların işine son verilmesini emretti. 26 Kasım 1940'ta hukuk fakültesi dekanı Rudolph Cleveringa, Yahudi meslektaşı Eduard Meijers için ünlü protesto konuşmasını yaptı; öğrenciler greve gitti, işgalci üniversiteyi kapattı, Cleveringa tutuklandı.",
+     "Kurtuluştan (de bevrijding) sonra üniversite Eylül 1945'te yeniden açıldı. Üniversite her yıl 26 Kasım'da Cleveringa konuşmasıyla direnişi (het verzet) anar."
+    ],
+    "voorbeelden": [
+     {
+      "nl": "het beleg van Leiden",
+      "tr": "Leiden kuşatması"
+     },
+     {
+      "nl": "Leidens Ontzet",
+      "tr": "Leiden'in kuşatmadan kurtuluşu (3 Ekim 1574)"
+     },
+     {
+      "nl": "de Duitse bezetting",
+      "tr": "Alman işgali"
+     },
+     {
+      "nl": "het verzet",
+      "tr": "direniş"
+     },
+     {
+      "nl": "de bevrijding",
+      "tr": "kurtuluş (vrij = özgür)"
+     }
+    ]
+   },
+   "anders": {
+    "titel": "beleg ≠ bezetting",
+    "tekst": "het beleg = kuşatma (şehir dışarıdan sarılı, düşman içeride değil). de bezetting = işgal (düşman içeride, yönetiyor). Ontzet kuşatmanın sonu, bevrijding işgalin sonu. Bazı metinler 1574 için de “de Spaanse bezetter” der.",
+    "voorbeelden": [
+     {
+      "nl": "Het beleg duurde maanden.",
+      "tr": "Kuşatma aylarca sürdü."
+     },
+     {
+      "nl": "Nederland was vijf jaar bezet.",
+      "tr": "Hollanda beş yıl işgal altındaydı."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "set (sit → set)",
+     "uitleg": "aynı ikili"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "setzen; Besetzung, entsetzen",
+     "uitleg": "işgal; kurtarmak / dehşete düşürmek"
+    },
+    {
+     "taal": "İsveççe",
+     "woord": "sätta",
+     "uitleg": "koymak"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "bezet",
+     "tr": "meşgul, dolu"
+    },
+    {
+     "nl": "de bezetter",
+     "tr": "işgalci"
+    },
+    {
+     "nl": "de verzetsstrijder",
+     "tr": "direnişçi"
+    },
+    {
+     "nl": "ontzettend",
+     "tr": "müthiş, çok"
+    },
+    {
+     "nl": "de inzet",
+     "tr": "emek, çaba"
+    },
+    {
+     "nl": "doorzetten",
+     "tr": "pes etmemek, sürdürmek"
+    },
+    {
+     "nl": "uitzetten",
+     "tr": "kapatmak (cihaz); sınır dışı etmek"
+    },
+    {
+     "nl": "koffie zetten",
+     "tr": "kahve yapmak"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Zet de tas maar op de stoel.",
+     "tr": "Çantayı sandalyeye koy."
+    },
+    {
+     "nl": "Is deze plaats bezet?",
+     "tr": "Bu yer dolu mu?"
+    },
+    {
+     "nl": "Bedankt voor je inzet!",
+     "tr": "Emeğin için teşekkürler!"
+    },
+    {
+     "nl": "Kun je de afspraak verzetten?",
+     "tr": "Randevuyu erteleyebilir misin?"
+    },
+    {
+     "nl": "Op 3 oktober viert Leiden het Ontzet.",
+     "tr": "3 Ekim'de Leiden kurtuluşunu kutlar."
+    }
+   ],
+   "gramer": {
+    "titel": "zetten ↔ zitten, leggen ↔ liggen, stellen/zetten ↔ staan",
+    "tekst": "Durum fiilleri: zitten, liggen, staan (oturmak, yatmak, durmak). “Koymak” fiilleri: zetten, leggen, (neer)zetten. Hollandacada dik duran bir şeyi “zet”ersin, yatırarak “leg”ersin: Ik zet de fles op tafel ama Ik leg het boek op tafel.",
+    "voorbeelden": [
+     {
+      "nl": "Ik zet de fles op tafel.",
+      "tr": "Şişeyi masaya (dik) koyuyorum."
+     },
+     {
+      "nl": "Ik leg het boek op tafel.",
+      "tr": "Kitabı masaya (yatık) koyuyorum."
+     },
+     {
+      "nl": "De fles staat op tafel.",
+      "tr": "Şişe masada duruyor."
+     }
+    ]
+   },
+   "weetje": "Leiden'de 3 Ekim'de dağıtılan haring en wittebrood, 1574'te geuzen'in getirdiği yiyecekleri hatırlatır. 26 Kasım'da da Cleveringa konuşması anılır: aynı şehir, iki kurtuluş hikâyesi.",
+   "vragen": [
+    {
+     "id": "ws-z-1",
+     "type": "mc",
+     "vraag": "zetten hangi fiilden geliyor?",
+     "opties": [
+      "zitten",
+      "zeggen",
+      "zien"
+     ],
+     "juist": 0,
+     "uitleg": "zetten = oturtmak (doen zitten)."
+    },
+    {
+     "id": "ws-z-2",
+     "type": "mc",
+     "vraag": "Leidens Ontzet neyi anlatır?",
+     "opties": [
+      "1574'te Leiden'in Spanyol kuşatmasından kurtuluşu",
+      "1945'teki kurtuluş",
+      "Bir futbol maçı"
+     ],
+     "juist": 0,
+     "uitleg": "3 Ekim 1574."
+    },
+    {
+     "id": "ws-z-3",
+     "type": "mc",
+     "vraag": "“het verzet” ne demek?",
+     "opties": [
+      "randevu",
+      "direniş",
+      "işgal"
+     ],
+     "juist": 1,
+     "uitleg": "zich verzetten = karşı koymak."
+    },
+    {
+     "id": "ws-z-4",
+     "type": "mc",
+     "vraag": "“Is deze plaats bezet?” ne demek?",
+     "opties": [
+      "Bu yer işgal mi?",
+      "Bu yer dolu mu?",
+      "Bu yer satılık mı?"
+     ],
+     "juist": 1,
+     "uitleg": "bezet = meşgul, dolu."
+    },
+    {
+     "id": "ws-z-5",
+     "type": "type",
+     "tr": "Emeğin için teşekkürler!",
+     "antwoorden": [
+      "Bedankt voor je inzet!",
+      "Dank je voor je inzet!",
+      "Bedankt voor jouw inzet!"
+     ],
+     "uitleg": "de inzet = emek."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary: zetten, ontzetten, entsetzen",
+    "Lemmens, Neerlandia 2017 (zitten/zetten)",
+    "Weiland (DBNL): ontzetten",
+    "3 October Vereeniging, Leiden2022, Museum De Lakenhal, Omroep West (Leidens Ontzet)",
+    "Universiteit Leiden: Cleveringa, Tweede Wereldoorlog"
+   ]
+  },
+  {
+   "id": "vreemd",
+   "datum": "2027-01-19",
+   "woord": "vreemd / buitenlander",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A2",
+   "thema": "taal",
+   "tr": "yabancı, garip / yabancı (başka ülkeden)",
+   "definitie": "Vreemd: niet bekend, of raar. Een buitenlander: iemand uit een ander land.",
+   "kort": "Hollandaca iki Germen kelimeyi tutmuş: vreemd (yabancı, garip) ve buitenlander (dışarıdan gelen). İngilizce kendi kelimesi fremd'i kaybetmiş, Fransızcadan foreign almış. Ama foreign'ın Latince kökü de “kapı dışarısı” demek: aynı resim, farklı dil.",
+   "keten": [
+    {
+     "nl": "*fram",
+     "tr": "ileri, uzağa",
+     "uitleg": "Proto-Germence."
+    },
+    {
+     "nl": "*framaþiz",
+     "tr": "yabancı, kendinden olmayan",
+     "uitleg": "Uzaktan gelen, bizden olmayan."
+    },
+    {
+     "nl": "vreemd",
+     "tr": "yabancı",
+     "uitleg": "een vreemde taal = yabancı dil; een vreemde = yabancı biri."
+    },
+    {
+     "nl": "vreemd",
+     "tr": "garip, tuhaf",
+     "uitleg": "Tanımadığın şey garip gelir: Wat vreemd!"
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "vreemd",
+     "uitleg": "yabancı; garip. Almanca fremd ile aynı kelime."
+    },
+    {
+     "deel": "de vreemdeling",
+     "uitleg": "yabancı kişi (resmî dilde de)."
+    },
+    {
+     "deel": "de buitenlander",
+     "uitleg": "buiten (dışarı) + land + -er: ülke dışından gelen. het buitenland = yurt dışı."
+    }
+   ],
+   "geschiedenis": [
+    "Proto-Germence *framaþiz “yabancı, kendinden olmayan” → Eski Hollandaca fremithi → vreemd.",
+    "Eski İngilizcede de fremde vardı; Fransızcadan gelen foreign onun yerini aldı. fremd bugün İngilizcede çok nadir, sadece lehçelerde.",
+    "foreign: Eski Fransızca forain ← Latince forās “dışarı”. Kök “kapı” demek: İngilizce door, Hollandaca deur ile akraba. Yani foreigner = “kapının dışındaki”.",
+    "İngilizce outlander (1590'lar) var ama nadir; muhtemelen Hollandaca uitlander ve Almanca Ausländer örnek alınarak kurulmuş."
+   ],
+   "anders": {
+    "titel": "vreemd: yabancı mı, garip mi?",
+    "tekst": "Cümleye bak: “een vreemde taal” = yabancı dil; “Dat is vreemd” = Bu garip. Bir kişi için “een vreemde” = tanımadığın biri (başka ülkeden olması gerekmez). Başka ülkeden biri için: een buitenlander.",
+    "voorbeelden": [
+     {
+      "nl": "Ik spreek drie vreemde talen.",
+      "tr": "Üç yabancı dil konuşuyorum."
+     },
+     {
+      "nl": "Wat vreemd!",
+      "tr": "Ne garip!"
+     },
+     {
+      "nl": "Praat niet met vreemden.",
+      "tr": "Yabancılarla konuşma."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "Almanca",
+     "woord": "fremd; Ausländer",
+     "uitleg": "aynı iki kelime"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "fremd (nadir), outlander, foreign",
+     "uitleg": "foreign Latinceden"
+    },
+    {
+     "taal": "Frizce",
+     "woord": "frjemd",
+     "uitleg": "yabancı"
+    },
+    {
+     "taal": "Yidiş",
+     "woord": "fremd",
+     "uitleg": "yabancı"
+    },
+    {
+     "taal": "Afrikaans",
+     "woord": "uitlander",
+     "uitleg": "1890'larda Boer cumhuriyetlerindeki İngiliz yerleşimciler için"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "het buitenland",
+     "tr": "yurt dışı"
+    },
+    {
+     "nl": "buitenlands",
+     "tr": "yabancı (sıfat): buitenlands nieuws"
+    },
+    {
+     "nl": "de vreemdeling",
+     "tr": "yabancı kişi"
+    },
+    {
+     "nl": "vreemd genoeg",
+     "tr": "garip ama"
+    },
+    {
+     "nl": "de vreemde taal",
+     "tr": "yabancı dil"
+    },
+    {
+     "nl": "vreemdgaan",
+     "tr": "(eşini) aldatmak"
+    },
+    {
+     "nl": "de expat",
+     "tr": "yurt dışından gelen çalışan"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Hij woont al tien jaar in het buitenland.",
+     "tr": "On yıldır yurt dışında yaşıyor."
+    },
+    {
+     "nl": "Vreemd genoeg was niemand thuis.",
+     "tr": "Garip ama evde kimse yoktu."
+    },
+    {
+     "nl": "Nederlands is voor mij een vreemde taal.",
+     "tr": "Hollandaca benim için yabancı bir dil."
+    },
+    {
+     "nl": "Er werken veel buitenlanders in dit bedrijf.",
+     "tr": "Bu şirkette çok yabancı çalışıyor."
+    }
+   ],
+   "gramer": {
+    "titel": "buitenland (isim) / buitenlands (sıfat) / buitenlander (kişi)",
+    "tekst": "het buitenland (yer, het alır), buitenlands (sıfat: -e alır: buitenlandse studenten), de buitenlander (kişi). Aynı üçlü: Nederland / Nederlands / Nederlander.",
+    "voorbeelden": [
+     {
+      "nl": "naar het buitenland gaan",
+      "tr": "yurt dışına gitmek"
+     },
+     {
+      "nl": "buitenlandse studenten",
+      "tr": "yabancı öğrenciler"
+     },
+     {
+      "nl": "Hij is buitenlander.",
+      "tr": "O yabancı."
+     }
+    ]
+   },
+   "weetje": "Güney Afrika'da Hollandaca kökenli uitlander kelimesi 1890'larda Boer cumhuriyetlerine gelen İngiliz yerleşimciler için kullanılıyordu; İngilizceye de outlander olarak geçti.",
+   "vragen": [
+    {
+     "id": "ws-vr1",
+     "type": "mc",
+     "vraag": "vreemd'in iki anlamı?",
+     "opties": [
+      "yabancı ve garip",
+      "büyük ve küçük",
+      "eski ve yeni"
+     ],
+     "juist": 0,
+     "uitleg": "Wat vreemd! / een vreemde taal."
+    },
+    {
+     "id": "ws-vr2",
+     "type": "mc",
+     "vraag": "İngilizce foreign nereden geliyor?",
+     "opties": [
+      "Latince forās “dışarı”",
+      "Germence fremd",
+      "Hollandaca vreemd"
+     ],
+     "juist": 0,
+     "uitleg": "kapı dışarısı."
+    },
+    {
+     "id": "ws-vr3",
+     "type": "mc",
+     "vraag": "“Hij woont in het buitenland.” ne demek?",
+     "opties": [
+      "Dışarıda yaşıyor.",
+      "Yurt dışında yaşıyor.",
+      "Kırsalda yaşıyor."
+     ],
+     "juist": 1,
+     "uitleg": "het buitenland = yurt dışı."
+    },
+    {
+     "id": "ws-vr4",
+     "type": "mc",
+     "vraag": "“Praat niet met vreemden.” vreemden kim?",
+     "opties": [
+      "yabancı ülkeden gelenler",
+      "tanımadığın kişiler"
+     ],
+     "juist": 1,
+     "uitleg": "een vreemde = tanımadığın biri."
+    },
+    {
+     "id": "ws-vr5",
+     "type": "type",
+     "tr": "Garip ama evde kimse yoktu.",
+     "antwoorden": [
+      "Vreemd genoeg was niemand thuis",
+      "Vreemd genoeg was er niemand thuis"
+     ],
+     "uitleg": "vreemd genoeg."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary / Kaikki: vreemd, fremd, *framaþiz",
+    "Dictionary.com: foreign, uitlander",
+    "Etymonline: foreigner, outlander"
+   ]
   }
  ]
 }
