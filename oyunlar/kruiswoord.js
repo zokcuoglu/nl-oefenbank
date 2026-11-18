@@ -52,9 +52,11 @@ const CSS = `
 .og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
 .og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
 .og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
-.og details.tbox>div{padding-bottom:16px}`;
-// Collapsible box with today's answers on the start screen (after playing), to learn from them
-const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+.og details.tbox>div{padding-bottom:16px}
+.kw .sq.miss{background:var(--og-bad-soft);color:var(--og-bad);border-color:var(--og-bad)}
+.kw .cw.ro .sq.on{cursor:default}
+.kw .todaypan{margin-top:18px}
+.kw .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:10px 0 0}`;
 
 
 export async function mountKruiswoord(root, { user, profile, api, shareUrl = location.href }) {
@@ -90,7 +92,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
         <div class="big" data-r="bigText">Çözdün!</div>
         <p class="sub" data-r="resultText"></p>
         <button class="bt" data-r="share2">📤 Paylaş</button>
-        <ul class="list" data-r="list"></ul>
+        <div data-r="list"></div>
       </div>
       <div style="margin-top:14px"><button class="bt pri" data-r="change">Bugünün başka bir seviyesi</button></div>
       <div class="grid2"><div class="pan" data-r="mine2"></div><div class="pan" data-r="rank2"></div></div>
@@ -134,6 +136,25 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   // missed (optional): true per word that was not found when the player pressed "Bitir"; those come first
   const wordsHtml = (P, wordHints, missed = []) => P.words.map((x, k) => [x, k]).sort((a, b) => !!missed[b[1]] - !!missed[a[1]]).map(([x, k]) => `<li class="${missed[k] ? "miss" : ""}"><span><b>${esc(x.w.toLowerCase())}</b>${missed[k] ? " ✗ bulamadın" : wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(sentenceOf(x).z.replace("___", x.w.toLowerCase()))}</i>` : ""}</span></li>`).join("");
 
+  // The solved grid, read-only: green = found, grey italic = found with a hint letter, red = not found.
+  // The attempt does not store the typed grid, so it is rebuilt from the solution and the per-word flags.
+  function gridHtml(P, wordHints = [], missed = []) {
+    const numAt = {};
+    P.words.forEach(x => numAt[x.cells[0]] = x.num);
+    const found = new Set(), hinted = new Set();
+    P.words.forEach((x, k) => { if (!missed[k]) x.cells.forEach(i => { found.add(i); if (wordHints[k]) hinted.add(i); }); });
+    return `<div class="cw ro" style="--w:${P.w}">${P.solution.map((ch, i) => ch
+      ? `<div class="sq on ${found.has(i) ? "ok" : "miss"}${hinted.has(i) ? " hint" : ""}">${numAt[i] ? `<span class="n">${numAt[i]}</span>` : ""}<span class="l">${esc(ch)}</span></div>`
+      : `<div class="sq"></div>`).join("")}</div>`;
+  }
+  // Grid + legend + word list for one finished attempt (start screen and finish screen use the same view)
+  const resultHtml = (P, att) => {
+    const wh = att.wordHints || P.words.map(() => false), ms = att.missed || [];
+    return gridHtml(P, wh, ms)
+      + `<p class="small legend"><span>🟩 buldun</span>${wh.some(Boolean) ? "<span>💡 ipucuyla</span>" : ""}${ms.some(Boolean) ? "<span>🟥 bulamadın</span>" : ""}</p>`
+      + `<ul class="list">${wordsHtml(P, wh, ms)}</ul>`;
+  };
+
   function drawSetup() {
     $("levels").innerHTML = Object.entries(LEVELS).map(([k, v]) =>
       `<button class="ch${k === level ? " on" : ""}" data-v="${k}">${v.title}${doneToday(k) ? " ✓" : ""}</button>`).join("");
@@ -147,9 +168,10 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     if (done) $("share1").onclick = () => shareText($("share1"), textOf(done));
     $("go").disabled = !!done;
     $("go").textContent = loadLocal(progressKey(level), null) ? "Devam et" : "Başla";
-    // After solving: today's words of this level again (the daily puzzle is the same for everybody, so it can be made again)
+    // After solving: today's grid and words of this level, open on the page (not folded away), so coming back
+    // later still shows what was done. The daily puzzle is the same for everybody, so it can be made again.
     let box = "";
-    if (done) try { const P = puzzleOf(today(), level); box = todayBox(`<ul class="list">${wordsHtml(P, done.wordHints || P.words.map(() => false), done.missed)}</ul>`); } catch {}
+    if (done) try { box = `<div class="pan todaypan"><h3>Bugünkü bulmacan · ${LEVELS[level].title}</h3>${resultHtml(puzzleOf(today(), level), done)}</div>`; } catch {}
     $("todayBox").innerHTML = box;
     drawMine($("mine"));
     drawRanking($("rank"), { game: GAME, levels: RANK_LEVELS, user });
@@ -346,7 +368,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       $("resultText").textContent = `${LEVELS[S.level].title} · ${S.P.words.length} kelime · ${score}/${letters} puan · süre ${fmt(time_s)} · ` + (hints ? `${hints} ipucu` : "ipucusuz");
       $("share2").onclick = () => shareText($("share2"), textOf(attempt));
       // The words with their meaning, to learn them
-      $("list").innerHTML = wordsHtml(S.P, wordHints, gaveUp ? missed : []);
+      $("list").innerHTML = resultHtml(S.P, { wordHints, missed: gaveUp ? missed : [] });   // grid + words
       drawSetup();   // the start screen now shows today's words too
       drawMine($("mine2"));
       posted.then(() => { resetRanking($("rank2")); drawRanking($("rank2"), { game: GAME, levels: RANK_LEVELS, user }); });
