@@ -6183,6 +6183,652 @@
     "Etymonline: serve, serving, server, deserve",
     "Merriam-Webster: serve"
    ]
+  },
+  {
+   "id": "terecht",
+   "datum": "2027-02-09",
+   "woord": "terecht",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "haklı olarak, yerinde; doğru yere",
+   "definitie": "Terecht: met een goede reden, juist. Ook: op de goede plek.",
+   "kort": "te + recht = “doğru yere, doğru şekilde”. Tek başına “haklı, yerinde” demek; fiillerle birleşince günlük hayatın en kullanışlı kelimelerinden çıkıyor: terechtkunnen (başvurabilmek), terechtkomen (sonunda bir yere düşmek). Okuma sınavında “Bij wie kunt u terecht?” tipik bir soru.",
+   "keten": [
+    {
+     "nl": "te rechte",
+     "tr": "doğruya, doğru biçimde",
+     "uitleg": "Orta Hollandaca: te + recht (doğru, düz)."
+    },
+    {
+     "nl": "terecht",
+     "tr": "yerinde, haklı",
+     "uitleg": "Een terechte vraag = yerinde bir soru."
+    },
+    {
+     "nl": "terecht + fiil",
+     "tr": "doğru yere …",
+     "uitleg": "terechtkomen, terechtkunnen, terechthelpen …"
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "terecht",
+     "uitleg": "haklı, yerinde: Dat is terecht. Zıttı onterecht (haksız); ten onrechte = haksız yere."
+    },
+    {
+     "deel": "terechtkunnen",
+     "uitleg": "(bir yere, birine) başvurabilmek, gidebilmek: Voor hulp kunt u bij ons terecht."
+    },
+    {
+     "deel": "terechtkomen",
+     "uitleg": "sonunda bir yere varmak, düşmek: Waar is mijn sleutel terechtgekomen? Ayrıca: Het komt wel terecht = Hallolur."
+    },
+    {
+     "deel": "terechthelpen",
+     "uitleg": "birini doğru yere yönlendirmek, yardım etmek"
+    },
+    {
+     "deel": "terechtstaan / terechtwijzen",
+     "uitleg": "yargılanmak / birini uyarmak, azarlamak"
+    }
+   ],
+   "geschiedenis": [
+    "Orta Hollandaca terechte, daha önce iki kelime: te rechte. Bugünkü “ten onrechte” (haksız yere) eski yapıyı hâlâ gösteriyor.",
+    "recht burada “doğru, düz” demek (rechtdoor = dümdüz). Türkçedeki “yerinde” ile aynı mantık: doğru yerde olan şey doğrudur."
+   ],
+   "betekenissen": [
+    {
+     "titel": "Bij wie kunt u terecht? = kime başvurabilirsiniz?",
+     "tekst": "Kurum metinlerinde ve okuma sınavında: bir sorun için nereye gidersin?",
+     "voorbeelden": [
+      {
+       "nl": "Voor vragen over betalen kunt u terecht bij de receptie.",
+       "tr": "Ödeme soruları için resepsiyona başvurabilirsiniz."
+      },
+      {
+       "nl": "Waar kan ik terecht voor hulp?",
+       "tr": "Yardım için nereye başvurabilirim?"
+      }
+     ]
+    },
+    {
+     "titel": "Terecht! = haklısın, yerinde",
+     "tekst": "Birinin söylediğini onaylarken.",
+     "voorbeelden": [
+      {
+       "nl": "Ze was boos. – Terecht!",
+       "tr": "Kızgındı. – Haklı olarak!"
+      },
+      {
+       "nl": "Dat is een terechte vraag.",
+       "tr": "Bu yerinde bir soru."
+      }
+     ]
+    },
+    {
+     "titel": "Het komt wel terecht = hallolur",
+     "tekst": "Rahatlatmak için.",
+     "voorbeelden": [
+      {
+       "nl": "Maak je geen zorgen, het komt wel terecht.",
+       "tr": "Merak etme, hallolur."
+      }
+     ]
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Bij wie kunt u terecht?",
+     "tr": "Kime başvurabilirsiniz?",
+     "bron": "Lezen soruları (birçok metinde)"
+    },
+    {
+     "nl": "Ben je ouder dan 27? Ook dan kun je bij ons terecht.",
+     "tr": "27'den büyük müsün? O zaman da bize gelebilirsin.",
+     "bron": "Lezen metni: open dag"
+    },
+    {
+     "nl": "Omdat die tassen in de zee terechtkomen.",
+     "tr": "Çünkü o poşetler denize düşüyor (sonunda denizde bitiyor).",
+     "bron": "Spreken alıştırması (örnek cevap)"
+    }
+   ],
+   "verwant": [
+    {
+     "taal": "Almanca",
+     "woord": "zurecht (zurechtkommen)",
+     "uitleg": "aynı yapı: zu + recht; zurechtkommen = idare etmek"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "right (all right)",
+     "uitleg": "recht ile akraba"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "onterecht",
+     "tr": "haksız, yersiz"
+    },
+    {
+     "nl": "ten onrechte",
+     "tr": "haksız yere"
+    },
+    {
+     "nl": "het recht",
+     "tr": "hak; hukuk"
+    },
+    {
+     "nl": "rechtdoor",
+     "tr": "dümdüz"
+    },
+    {
+     "nl": "de terechtzitting",
+     "tr": "duruşma"
+    },
+    {
+     "nl": "de terechtstelling",
+     "tr": "idam"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "Ouder: Mijn zoon kan vandaag niet naar de training; er is niemand die hem kan brengen.",
+     "tr": "Veli: Oğlum bugün antrenmana gelemiyor; onu götürecek kimse yok."
+    },
+    {
+     "nl": "Andere ouder: Voor een lift kun je altijd bij mij terecht.",
+     "tr": "Başka bir veli: Arabayla götürmek için her zaman bana başvurabilirsin."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Waar kan ik terecht met mijn klacht?",
+     "tr": "Şikâyetimle nereye başvurabilirim?"
+    },
+    {
+     "nl": "Hij kwam ongelukkig terecht en brak zijn been.",
+     "tr": "Kötü düştü ve bacağını kırdı."
+    },
+    {
+     "nl": "De bal kwam in de sloot terecht.",
+     "tr": "Top hendeğe düştü."
+    },
+    {
+     "nl": "Je kritiek is terecht.",
+     "tr": "Eleştirin yerinde."
+    },
+    {
+     "nl": "Het komt wel terecht.",
+     "tr": "Hallolur."
+    }
+   ],
+   "gramer": {
+    "titel": "Ayrılabilen fiiller: kan … terecht, kwam … terecht",
+    "tekst": "terechtkunnen ve terechtkomen ayrılır: Ik kan bij jou terecht. Hij kwam in de sloot terecht. Yan cümlede birleşir: … waar ik terechtkan; … dat de bal in de sloot terechtkwam. Geçmiş: is terechtgekomen.",
+    "voorbeelden": [
+     {
+      "nl": "Ik weet waar ik terechtkan.",
+      "tr": "Nereye başvuracağımı biliyorum."
+     },
+     {
+      "nl": "Waar is mijn telefoon terechtgekomen?",
+      "tr": "Telefonum nereye gitti?"
+     }
+    ]
+   },
+   "weetje": "“Bij wie kunt u terecht?” okuma sınavında çok sorulan bir soru tipi: metinde bir kurumun hangi bölümünün hangi konuya baktığını bulman istenir. Cevap çoğu zaman “voor … kunt u terecht bij …” cümlesinde.",
+   "vragen": [
+    {
+     "id": "ws-tr1",
+     "type": "mc",
+     "vraag": "“Bij wie kunt u terecht?” ne soruyor?",
+     "opties": [
+      "Kime başvurabilirsiniz?",
+      "Kim haklı?",
+      "Kim geldi?"
+     ],
+     "juist": 0,
+     "uitleg": "terechtkunnen."
+    },
+    {
+     "id": "ws-tr2",
+     "type": "mc",
+     "vraag": "“Terecht!” ne demek?",
+     "opties": [
+      "Haklı olarak! / Yerinde!",
+      "Geri dön!"
+     ],
+     "juist": 0,
+     "uitleg": "terecht = haklı, yerinde."
+    },
+    {
+     "id": "ws-tr3",
+     "type": "mc",
+     "vraag": "“Het komt wel terecht.” ne demek?",
+     "opties": [
+      "Hallolur.",
+      "Geri geliyor."
+     ],
+     "juist": 0,
+     "uitleg": "rahatlatma."
+    },
+    {
+     "id": "ws-tr4",
+     "type": "mc",
+     "vraag": "“De bal kwam in de sloot terecht.” ne demek?",
+     "opties": [
+      "Top hendeğe düştü.",
+      "Top hendekten geldi."
+     ],
+     "juist": 0,
+     "uitleg": "terechtkomen = sonunda bir yere düşmek."
+    },
+    {
+     "id": "ws-tr5",
+     "type": "type",
+     "tr": "Yardım için nereye başvurabilirim?",
+     "antwoorden": [
+      "Waar kan ik terecht voor hulp?",
+      "Waar kan ik voor hulp terecht?"
+     ],
+     "uitleg": "terechtkunnen."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary / Kaikki: terecht, terechtkomen, terechtkunnen",
+    "Sitedeki Lezen metinleri ve Spreken alıştırması"
+   ]
+  },
+  {
+   "id": "mocht-het",
+   "soort": "kalip",
+   "datum": "2027-02-09",
+   "woord": "mocht het nodig zijn, …",
+   "lidwoord": "",
+   "niveau": "B1",
+   "thema": "formeel",
+   "tr": "gerekirse; olur da …sa",
+   "definitie": "Formele manier om ‘als’ te zeggen: voor het geval dat.",
+   "kort": "“als” (eğer) demenin kibar ve biraz resmî hali: fiil (mocht) başa geçer. Mesajlarda, e-postalarda, kurum mektuplarında çok sık: Mocht u vragen hebben, … = Sorunuz olursa …",
+   "betekenissen": [
+    {
+     "titel": "Mocht + özne + …, (dan) … = olur da …sa",
+     "tekst": "mogen fiilinin geçmiş hali, ama anlamı “izin” değil, bir ihtimal. Cümle fiille başlar.",
+     "voorbeelden": [
+      {
+       "nl": "Mocht het nodig zijn, dan kan hij altijd mee.",
+       "tr": "Gerekirse her zaman gelebilir."
+      },
+      {
+       "nl": "Mocht u vragen hebben, neem dan contact op.",
+       "tr": "Sorunuz olursa iletişime geçin."
+      }
+     ]
+    },
+    {
+     "titel": "Mocht dit niet uitkomen, … = uymazsa",
+     "tekst": "Randevu ve plan mesajlarında.",
+     "voorbeelden": [
+      {
+       "nl": "Mocht dit niet uitkomen, laat het me weten.",
+       "tr": "Uymazsa haber ver."
+      }
+     ]
+    },
+    {
+     "titel": "Aynı anlam: als / indien",
+     "tekst": "als = günlük; indien = çok resmî.",
+     "voorbeelden": [
+      {
+       "nl": "Als het nodig is, help ik.",
+       "tr": "Gerekirse yardım ederim."
+      },
+      {
+       "nl": "Indien nodig kunt u bellen.",
+       "tr": "Gerekirse arayabilirsiniz."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "mocht",
+     "uitleg": "mogen'in geçmişi; burada “olur da”"
+    },
+    {
+     "deel": "devrik sıra",
+     "uitleg": "Mocht + özne: soru gibi başlar ama soru değil."
+    },
+    {
+     "deel": "dan",
+     "uitleg": "ana cümleyi başlatır (atlanabilir)"
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: Mocht ik …? (izin) / Mocht het … (ihtimal)",
+    "tekst": "Mocht ik naar buiten? = Dışarı çıkabilir miydim? (geçmişte izin, soru işaretiyle). Mocht het regenen, … = Olur da yağmur yağarsa … (virgülle devam eden ihtimal).",
+    "voorbeelden": [
+     {
+      "nl": "Mocht ik vroeger laat opblijven? Nee!",
+      "tr": "Eskiden geç yatabilir miydim? Hayır!"
+     },
+     {
+      "nl": "Mocht het regenen, dan gaan we naar binnen.",
+      "tr": "Olur da yağmur yağarsa içeri gireriz."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Mocht dit niet uitkomen, laat het me weten.",
+     "tr": "Uymazsa haber ver.",
+     "bron": "Ders: randevu konuşması",
+     "href": "dersler/?les=randevu"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "Ouder: Mijn zoon kan vandaag niet naar de training; er is niemand die hem kan brengen.",
+     "tr": "Veli: Oğlum bugün antrenmana gelemiyor; onu götürecek kimse yok."
+    },
+    {
+     "nl": "Trainer: Als hij graag wil, kan ik hem ophalen en weer thuisbrengen.",
+     "tr": "Antrenör: İsterse onu alıp tekrar eve bırakabilirim."
+    },
+    {
+     "nl": "Andere ouder: Normaal kan hij ook met mij mee. Mocht het nodig zijn, laat het maar weten.",
+     "tr": "Başka bir veli: Normalde benimle de gelebilir. Gerekirse haber ver."
+    },
+    {
+     "nl": "Ouder: Dank jullie wel allebei! Dat hou ik graag achter de hand.",
+     "tr": "Veli: İkinize de teşekkürler! Bunu memnuniyetle aklımda tutarım."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Mocht je later zijn, stuur me even een berichtje.",
+     "tr": "Geç kalırsan bana bir mesaj at."
+    },
+    {
+     "nl": "Mocht u verhinderd zijn, laat het ons dan weten.",
+     "tr": "Gelemeyecekseniz bize bildirin."
+    },
+    {
+     "nl": "Mocht het nodig zijn, bel me.",
+     "tr": "Gerekirse beni ara."
+    }
+   ],
+   "gramer": {
+    "titel": "Mektup kapanışı",
+    "tekst": "Resmî e-posta sonunda çok kullanılır: “Mocht u nog vragen hebben, dan hoor ik het graag.” (Başka sorunuz olursa memnuniyetle dinlerim.) Schrijven sınavında hazır cümle olarak işine yarar.",
+    "voorbeelden": [
+     {
+      "nl": "Mocht u nog vragen hebben, dan hoor ik het graag.",
+      "tr": "Başka sorunuz olursa haber verin."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-mo1",
+     "type": "mc",
+     "vraag": "“Mocht het nodig zijn, …” ne demek?",
+     "opties": [
+      "Gerekirse, …",
+      "İzin verildi mi?",
+      "Gerekliydi."
+     ],
+     "juist": 0,
+     "uitleg": "ihtimal."
+    },
+    {
+     "id": "kp-mo2",
+     "type": "mc",
+     "vraag": "Hangisi aynı anlamda?",
+     "opties": [
+      "Als het nodig is, …",
+      "Het mocht niet, …"
+     ],
+     "juist": 0,
+     "uitleg": "als."
+    },
+    {
+     "id": "kp-mo3",
+     "type": "mc",
+     "vraag": "Doğru sıra?",
+     "opties": [
+      "Mocht u vragen hebben, neem contact op.",
+      "Mocht vragen u hebben, neem contact op."
+     ],
+     "juist": 0,
+     "uitleg": "mocht + özne."
+    },
+    {
+     "id": "kp-mo4",
+     "type": "mc",
+     "vraag": "Hangisi çok resmî?",
+     "opties": [
+      "indien",
+      "als"
+     ],
+     "juist": 0,
+     "uitleg": "indien."
+    },
+    {
+     "id": "kp-mo5",
+     "type": "type",
+     "tr": "Sorunuz olursa iletişime geçin.",
+     "antwoorden": [
+      "Mocht u vragen hebben, neem dan contact op",
+      "Mocht u vragen hebben, neem contact op"
+     ],
+     "uitleg": "mocht u … hebben."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki ders: randevu konuşması",
+    "Kulüp mesajlaşmasından uyarlanmış diyalog (isimsiz)"
+   ]
+  },
+  {
+   "id": "achter-de-hand",
+   "soort": "deyim",
+   "datum": "2027-02-09",
+   "woord": "iets achter de hand hebben / houden",
+   "lidwoord": "",
+   "niveau": "B1",
+   "thema": "geld",
+   "tr": "bir şeyi yedekte tutmak; arka cepte tutmak",
+   "definitie": "Iets bewaren voor het moment dat je het nodig hebt.",
+   "kort": "Türkçedeki “arka cebinde tutmak”ın Hollandaca karşılığı. Kökeni denizcilik: halatı çeken tayfaların en arkadakinin elinin arkasında, güvertede yedekte kalan halat parçası.",
+   "opbouw": [
+    {
+     "deel": "achter",
+     "uitleg": "arkasında"
+    },
+    {
+     "deel": "de hand",
+     "uitleg": "el"
+    },
+    {
+     "deel": "hebben / houden",
+     "uitleg": "olmak / tutmak: achter de hand houden = (bilerek) yedekte tutmak"
+    }
+   ],
+   "geschiedenis": [
+    "Onze Taal ve Stoett'e göre deyim denizcilikten geliyor: halat çekilirken ya da bırakılırken, en arkadaki tayfanın elinin arkasında güvertede kalan halat kısmı. Gerektiğinde hazırda bekleyen parça.",
+    "Bugün para, plan, fikir, hatta bir pazarlık teklifi için kullanılır: een plan B achter de hand hebben."
+   ],
+   "anders": {
+    "titel": "“in mijn achterzak”?",
+    "tekst": "İngilizcede “in my back pocket” deyimi var. Hollandacada “in mijn achterzak” denince anlaşılır, ama sözlüklerde yerleşik bir deyim olarak bulamadım; İngilizceden geçmiş gibi duruyor. Hollandalıların kendi deyimi: achter de hand houden.",
+    "voorbeelden": [
+     {
+      "nl": "Dat hou ik graag achter de hand.",
+      "tr": "Bunu memnuniyetle yedekte tutarım."
+     },
+     {
+      "nl": "Ik heb nog een plan B achter de hand.",
+      "tr": "Elimde bir B planı daha var."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "to have something up your sleeve / in your back pocket",
+     "uitleg": "elinde tutmak"
+    },
+    {
+     "taal": "Türkçe",
+     "woord": "arka cebinde tutmak / yedekte tutmak",
+     "uitleg": "aynı anlam"
+    },
+    {
+     "taal": "Hollandaca",
+     "woord": "een appeltje voor de dorst",
+     "uitleg": "kara gün akçesi"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "Het is verstandig om wat geld achter de hand te houden.",
+     "tr": "Bir miktar parayı yedekte tutmak akıllıca.",
+     "bron": "Haber: Volgend jaar een hoger pensioen",
+     "href": "nieuws/?id=pensioen"
+    },
+    {
+     "nl": "… de reserves verdeeld die de fondsen achter de hand hielden …",
+     "tr": "… fonların yedekte tuttuğu rezervler dağıtılıyor …",
+     "bron": "Haber: Volgend jaar een hoger pensioen (C1)",
+     "href": "nieuws/?id=pensioen"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "Trainer: Als hij graag wil, kan ik hem ophalen en weer thuisbrengen.",
+     "tr": "Antrenör: İsterse onu alıp tekrar eve bırakabilirim."
+    },
+    {
+     "nl": "Andere ouder: Normaal kan hij ook met mij mee. Mocht het nodig zijn, laat het maar weten.",
+     "tr": "Başka bir veli: Normalde benimle de gelebilir. Gerekirse haber ver."
+    },
+    {
+     "nl": "Ouder: Dank jullie wel allebei! Dat hou ik graag achter de hand.",
+     "tr": "Veli: İkinize de teşekkürler! Bunu memnuniyetle aklımda tutarım."
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de reserve",
+     "tr": "yedek, rezerv"
+    },
+    {
+     "nl": "een appeltje voor de dorst",
+     "tr": "kara gün akçesi"
+    },
+    {
+     "nl": "een troef achter de hand hebben",
+     "tr": "elinde bir koz olmak"
+    },
+    {
+     "nl": "iets in petto hebben",
+     "tr": "elinde hazır bir şey olmak"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het is verstandig om wat geld achter de hand te houden.",
+     "tr": "Bir miktar parayı yedekte tutmak akıllıca."
+    },
+    {
+     "nl": "We hebben een plan B achter de hand.",
+     "tr": "Elimizde bir B planı var."
+    },
+    {
+     "nl": "Dank je! Dat hou ik graag achter de hand.",
+     "tr": "Teşekkürler! Bunu aklımda tutarım."
+    }
+   ],
+   "gramer": {
+    "titel": "hebben mi, houden mu?",
+    "tekst": "achter de hand hebben = (şu an) yedekte olmak; achter de hand houden = (bilerek) yedekte tutmak. Bir teklife teşekkür ederken: Dat hou ik graag achter de hand.",
+    "voorbeelden": [
+     {
+      "nl": "Ik heb nog wat geld achter de hand.",
+      "tr": "Kenarda biraz param var."
+     },
+     {
+      "nl": "Ik hou dat idee achter de hand.",
+      "tr": "O fikri yedekte tutuyorum."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "dy-ah1",
+     "type": "mc",
+     "vraag": "“iets achter de hand houden” ne demek?",
+     "opties": [
+      "Bir şeyi yedekte tutmak",
+      "Bir şeyi saklayıp çalmak",
+      "Elini arkaya koymak"
+     ],
+     "juist": 0,
+     "uitleg": "rezerv."
+    },
+    {
+     "id": "dy-ah2",
+     "type": "mc",
+     "vraag": "Deyimin kökeni?",
+     "opties": [
+      "denizcilik (halat)",
+      "kart oyunu",
+      "kesin bilinmiyor"
+     ],
+     "juist": 0,
+     "uitleg": "Onze Taal / Stoett."
+    },
+    {
+     "id": "dy-ah3",
+     "type": "mc",
+     "vraag": "Bir yardım teklifine teşekkür ederken hangisi daha Hollandaca?",
+     "opties": [
+      "Dat hou ik graag achter de hand.",
+      "Dat neem ik in mijn achterzak."
+     ],
+     "juist": 0,
+     "uitleg": "yerleşik deyim."
+    },
+    {
+     "id": "dy-ah4",
+     "type": "mc",
+     "vraag": "“een appeltje voor de dorst” ne demek?",
+     "opties": [
+      "kara gün akçesi",
+      "susuzluk için meyve suyu"
+     ],
+     "juist": 0,
+     "uitleg": "benzer anlam."
+    },
+    {
+     "id": "dy-ah5",
+     "type": "type",
+     "tr": "Bir miktar parayı yedekte tutmak akıllıca.",
+     "antwoorden": [
+      "Het is verstandig om wat geld achter de hand te houden"
+     ],
+     "uitleg": "om … achter de hand te houden."
+    }
+   ],
+   "bronnen": [
+    "Onze Taal: iets achter de hand hebben",
+    "Stoett (DBNL) nr. 811",
+    "Sitedeki haber: Volgend jaar een hoger pensioen"
+   ]
   }
  ]
 }
