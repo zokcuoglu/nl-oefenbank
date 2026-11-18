@@ -85,19 +85,41 @@ const lastOf = id => attempts.find(a => a.test === id);
 const word = data.woorden.find(w => w.id === new URLSearchParams(location.search).get("w") && open(w));
 
 // ---------- List ----------
+// Three kinds share this page and the Tuesday mail: a word ("woord", the main part), a daily-speech
+// pattern ("kalip", e.g. "het gaat om") and an idiom ("deyim"). Entries without "soort" are words.
+const SOORT = {
+  woord: { tab: "Kelimeler", deze: "Bu haftanın kelimesi", btn: "Kelimeyi incele", eyebrow: "Kelime incelemesi",
+           intro: "Her salı yeni bir kelime: nasıl kurulduğu, nereden geldiği, başka dillerdeki akrabaları, ailesi ve 5 soru. Yenisi e-postayla da gelir." },
+  kalip: { tab: "Günlük kalıplar", deze: "Bu haftanın kalıbı", btn: "Kalıbı incele", eyebrow: "Kalıp incelemesi",
+           intro: "Konuşmada çok geçen ama kulakla yakalaması zor kalıplar: anlamları, sık karıştırılanlar, sitedeki gerçek cümleler ve 5 soru." },
+  deyim: { tab: "Deyimler", deze: "Bu haftanın deyimi", btn: "Deyimi incele", eyebrow: "Deyim incelemesi",
+           intro: "Kelimesi kelimesine ne dediği, gerçek anlamı, kökeni, Türkçe karşılığı ve 5 soru." }
+};
+const soortOf = w => w.soort || "woord";
+const title = w => (w.lidwoord ? w.lidwoord + " " : "") + w.woord;
+
 function renderList() {
-  const cur = words.find(w => w.datum <= today) || words[0];
+  const tab = SOORT[new URLSearchParams(location.search).get("soort")] ? new URLSearchParams(location.search).get("soort") : "woord";
+  const curOf = s => words.find(w => soortOf(w) === s && w.datum <= today) || words.find(w => soortOf(w) === s);
+  const cur = curOf("woord");
+  // This week's pattern and idiom as two small rows under the word (same order as in the mail)
+  const extra = ["kalip", "deyim"].map(s => [s, curOf(s)]).filter(([, w]) => w);
+  const list = words.filter(w => soortOf(w) === tab);
   app.innerHTML = `
-    ${cur ? `<section class="panel"><span class="eyebrow">Bu haftanın kelimesi · ${esc(fmtDate(cur.datum))}</span>
-      <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(cur.lidwoord ? cur.lidwoord + " " : "")}${esc(cur.woord)}</h2><span class="muted">${esc(cur.tr)}</span></div>
+    ${cur ? `<section class="panel"><span class="eyebrow">${SOORT.woord.deze} · ${esc(fmtDate(cur.datum))}</span>
+      <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(title(cur))}</h2><span class="muted">${esc(cur.tr)}</span></div>
       <p style="margin:8px 0 12px;max-width:62ch">${esc(cur.kort)}</p>
-      <a class="btn primary" style="text-decoration:none" href="?w=${esc(cur.id)}">Kelimeyi incele</a></section>` : ""}
-    <section class="panel"><span class="eyebrow">Bütün kelimeler</span>
-      <p class="muted" style="margin:6px 0 8px;max-width:62ch">Her salı yeni bir kelime: nasıl kurulduğu, nereden geldiği, başka dillerdeki akrabaları, ailesi ve 5 soru. Yenisi e-postayla da gelir.</p>
-      ${words.length ? words.map(w => { const a = lastOf(w.id); return `<a class="wrow" href="?w=${esc(w.id)}">
-        <span><b lang="nl">${esc(w.lidwoord ? w.lidwoord + " " : "")}${esc(w.woord)}</b> <span class="muted">· ${esc(w.tr)}</span><br>
+      <a class="btn primary" style="text-decoration:none" href="?w=${esc(cur.id)}">${SOORT.woord.btn}</a>
+      ${extra.map(([s, w]) => `<a class="wrow" href="?w=${esc(w.id)}" style="margin-top:6px"><span><span class="muted" style="font-size:13px">${SOORT[s].deze}</span><br>
+        <b lang="nl">${esc(w.woord)}</b> <span class="muted">· ${esc(w.tr)}</span></span><span class="chip">${SOORT[s].btn}</span></a>`).join("")}</section>` : ""}
+    <section class="panel">
+      <div class="row" role="tablist" style="gap:6px;flex-wrap:wrap">${Object.entries(SOORT).map(([k, v]) =>
+        `<a class="btn${k === tab ? " primary" : ""}" style="text-decoration:none" role="tab" aria-selected="${k === tab}" href="?soort=${k}">${v.tab}</a>`).join("")}</div>
+      <p class="muted" style="margin:10px 0 8px;max-width:62ch">${SOORT[tab].intro}</p>
+      ${list.length ? list.map(w => { const a = lastOf(w.id); return `<a class="wrow" href="?w=${esc(w.id)}">
+        <span><b lang="nl">${esc(title(w))}</b> <span class="muted">· ${esc(w.tr)}</span><br>
         <span class="muted" style="font-size:13px">${esc(fmtDate(w.datum))} · ${esc(w.niveau)}${admin && w.datum > today ? ' · <span class="chip warn">henüz yayında değil</span>' : ""}</span></span>
-        <span class="chip num">${a ? `${a.score}/${a.total}` : "yeni"}</span></a>`; }).join("") : `<p class="muted">İlk kelime yakında.</p>`}
+        <span class="chip num">${a ? `${a.score}/${a.total}` : "yeni"}</span></a>`; }).join("") : `<p class="muted">İlki yakında.</p>`}
     </section>`;
 }
 
@@ -107,11 +129,20 @@ function renderWord() {
   document.getElementById("pagetitle").textContent = w.woord;
   markSeen(user.uid, "woordstudie:" + w.id);
   const exList = list => `<div class="ex">${list.map(v => `<b lang="nl">${esc(v.nl)}</b><span>${esc(v.tr)}</span>`).join("")}</div>`;
+  const s = soortOf(w), isWoord = s === "woord";
+  // Section titles differ per kind; every section below is optional so patterns and idioms can skip
+  // the parts that only make sense for a single word (plural, word family …)
+  const L = {
+    opbouw: w.keten ? "Aynı kelimenin iki yüzü" : s === "deyim" ? "Kelime kelime" : s === "kalip" ? "Kalıbın parçaları" : "Kelimeyi parçala",
+    verwant: isWoord ? "Başka dillerdeki akrabaları" : "Başka dillerde",
+    familie: isWoord ? "Ailesi ve birleşik kelimeler" : "Benzer ifadeler",
+    gramer: isWoord ? "Gramer notu" : "Ne zaman kullanılır?"
+  };
   app.innerHTML = `
     <section class="panel">
-      <span class="eyebrow">Kelime incelemesi · ${esc(fmtDate(w.datum))} · ${esc(w.niveau)}</span>
-      <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(w.lidwoord ? w.lidwoord + " " : "")}${esc(w.woord)}</h2>
-        ${w.meervoud ? `<span class="muted" lang="nl">çoğul: ${esc(w.meervoud)}</span>` : `<span class="muted">çoğulu yok</span>`}</div>
+      <span class="eyebrow">${SOORT[s].eyebrow} · ${esc(fmtDate(w.datum))} · ${esc(w.niveau)}</span>
+      <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(title(w))}</h2>
+        ${!isWoord ? "" : w.meervoud ? `<span class="muted" lang="nl">çoğul: ${esc(w.meervoud)}</span>` : `<span class="muted">çoğulu yok</span>`}</div>
       <p style="margin:8px 0 0;font-size:18px"><b>${esc(w.tr)}</b></p>
       <p class="muted" style="margin:4px 0 0" lang="nl"><i>${esc(w.definitie)}</i></p>
       <p style="margin:12px 0 0;max-width:68ch">${esc(w.kort)}</p>
@@ -119,19 +150,27 @@ function renderWord() {
     ${w.keten ? `<section class="panel"><span class="eyebrow">Anlam zinciri</span>
       <p class="muted" style="margin:6px 0 0;max-width:68ch">Kelimenin anlamı adım adım nasıl değişti?</p>
       <div class="chain">${w.keten.map((k, i) => `${i ? '<span class="arrow" aria-hidden="true">→</span>' : ""}<div class="step"><b>${esc(k.nl)}</b><i lang="nl">${esc(k.tr)}</i><span>${esc(k.uitleg)}</span></div>`).join("")}</div></section>` : ""}
-    <section class="panel"><span class="eyebrow">${w.keten ? "Aynı kelimenin iki yüzü" : "Kelimeyi parçala"}</span>
-      <div class="parts">${w.opbouw.map(p => `<div class="part"><b lang="nl">${esc(p.deel)}</b>${esc(p.uitleg)}</div>`).join("")}</div></section>
-    <section class="panel"><span class="eyebrow">Kökeni</span>
-      <ol class="story">${w.geschiedenis.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>
+    ${w.betekenissen ? `<section class="panel"><span class="eyebrow">Anlamları</span>
+      <p class="muted" style="margin:6px 0 0;max-width:68ch">Aynı kalıp, cümleye göre farklı anlamlar:</p>
+      ${w.betekenissen.map((b, i) => `<div class="anders" style="margin-top:10px"><h3 style="margin:0 0 6px">${i + 1}. ${esc(b.titel)}</h3>
+        <p style="margin:0;max-width:68ch">${esc(b.tekst)}</p>${exList(b.voorbeelden)}</div>`).join("")}</section>` : ""}
+    ${w.opbouw ? `<section class="panel"><span class="eyebrow">${L.opbouw}</span>
+      <div class="parts">${w.opbouw.map(p => `<div class="part"><b lang="nl">${esc(p.deel)}</b>${esc(p.uitleg)}</div>`).join("")}</div></section>` : ""}
+    ${w.geschiedenis ? `<section class="panel"><span class="eyebrow">Kökeni</span>
+      <ol class="story">${w.geschiedenis.map(x => `<li>${esc(x)}</li>`).join("")}</ol></section>` : ""}
     ${w.anders ? `<section class="panel"><span class="eyebrow">Dikkat</span><div class="anders"><h3 style="margin:0 0 6px">${esc(w.anders.titel)}</h3>
       <p style="margin:0;max-width:68ch">${esc(w.anders.tekst)}</p>${exList(w.anders.voorbeelden)}</div></section>` : ""}
-    <section class="panel"><span class="eyebrow">Başka dillerdeki akrabaları</span>
-      <div class="tablewrap" style="margin-top:8px"><table><tbody>${w.verwant.map(v => `<tr><td class="muted">${esc(v.taal)}</td><td><b>${esc(v.woord)}</b></td><td class="muted">${esc(v.uitleg)}</td></tr>`).join("")}</tbody></table></div></section>
-    <section class="panel"><span class="eyebrow">Ailesi ve birleşik kelimeler</span>${exList(w.familie)}</section>
+    ${w.verwant ? `<section class="panel"><span class="eyebrow">${L.verwant}</span>
+      <div class="tablewrap" style="margin-top:8px"><table><tbody>${w.verwant.map(v => `<tr><td class="muted">${esc(v.taal)}</td><td><b>${esc(v.woord)}</b></td><td class="muted">${esc(v.uitleg)}</td></tr>`).join("")}</tbody></table></div></section>` : ""}
+    ${w.opsite ? `<section class="panel"><span class="eyebrow">Sitede geçtiği yerler</span>
+      <p class="muted" style="margin:6px 0 0;max-width:68ch">Sitedeki metinlerden gerçek cümleler:</p>
+      <div class="ex">${w.opsite.map(v => `<b lang="nl">${esc(v.nl)}</b><span>${esc(v.tr)}<br><span style="font-size:13px">${v.href ? `<a href="../${esc(v.href)}">${esc(v.bron)}</a>` : esc(v.bron)}</span></span>`).join("")}</div></section>` : ""}
+    ${w.dialoog ? `<section class="panel"><span class="eyebrow">Kısa diyalog</span>${exList(w.dialoog)}</section>` : ""}
+    ${w.familie ? `<section class="panel"><span class="eyebrow">${L.familie}</span>${exList(w.familie)}</section>` : ""}
     <section class="panel"><span class="eyebrow">Örnek cümleler</span>${exList(w.voorbeelden)}</section>
-    <section class="panel"><span class="eyebrow">Gramer notu</span><h3 style="margin:4px 0 6px">${esc(w.gramer.titel)}</h3>
-      <p style="margin:0;max-width:68ch">${esc(w.gramer.tekst)}</p>${exList(w.gramer.voorbeelden)}</section>
-    <section class="panel"><span class="eyebrow">Bunu biliyor muydun?</span><p class="weetje" style="margin:8px 0 0">${esc(w.weetje)}</p></section>
+    ${w.gramer ? `<section class="panel"><span class="eyebrow">${L.gramer}</span><h3 style="margin:4px 0 6px">${esc(w.gramer.titel)}</h3>
+      <p style="margin:0;max-width:68ch">${esc(w.gramer.tekst)}</p>${exList(w.gramer.voorbeelden)}</section>` : ""}
+    ${w.weetje ? `<section class="panel"><span class="eyebrow">Bunu biliyor muydun?</span><p class="weetje" style="margin:8px 0 0">${esc(w.weetje)}</p></section>` : ""}
     <section class="panel" id="quiz"><span class="eyebrow">Kendini dene</span><h2 style="margin-top:4px">${w.vragen.length} soru</h2>
       <div class="row" style="margin-top:10px"><button class="btn primary" id="start">Başla</button>${lastOf(w.id) ? `<span class="chip num">son: ${lastOf(w.id).score}/${lastOf(w.id).total}</span>` : ""}</div></section>
     <p class="muted" style="font-size:12.5px;margin:0">Kaynaklar: ${w.bronnen.map(esc).join(" · ")}</p>`;

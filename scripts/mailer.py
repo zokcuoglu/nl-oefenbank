@@ -570,10 +570,15 @@ def load_woord():
     return json.loads((ROOT / "data" / "woordstudie.json").read_text(encoding="utf-8"))
 
 
-def pick_woord(words, sent_ids, today):
-    """The oldest word whose date has come and that was not mailed yet. Unlike the brief, a missed word is
-    not skipped: words are not tied to a season, so they go out one by one in order."""
-    due = [w for w in words if w["datum"] <= today and w["id"] not in sent_ids]
+def soort(w):
+    """Kind of entry in woordstudie.json: "woord" (default), "kalip" (daily-speech pattern) or "deyim" (idiom)."""
+    return w.get("soort", "woord")
+
+
+def pick_woord(words, sent_ids, today, kind="woord"):
+    """The oldest entry of this kind whose date has come and that was not mailed yet. Unlike the brief, a missed
+    one is not skipped: they are not tied to a season, so they go out one by one in order."""
+    due = [w for w in words if soort(w) == kind and w["datum"] <= today and w["id"] not in sent_ids]
     return min(due, key=lambda w: w["datum"]) if due else None
 
 
@@ -582,8 +587,26 @@ def wants_woord(u):
     return u.get("type") != "child" and bool(u.get("email_woord", True))
 
 
-def woord_mail(w, greeting):
-    """Plain text and HTML of one word study mail: the short version, the full page is on the site."""
+def extra_block(x):
+    """Short part for a pattern (kalip) or idiom (deyim) under the word: what it means, one or two examples, link.
+    Returns (plain lines, html)."""
+    link = f"{SITE}woordstudie/?w={x['id']}"
+    head = "GÜNLÜK KONUŞMA: BU HAFTANIN KALIBI" if soort(x) == "kalip" else "BU HAFTANIN DEYİMİ"
+    exs = x["voorbeelden"][:2]
+    plain = ["", "—" * 20, head, f"{x['woord']}  –  {x['tr']}", x["kort"]] + [f"  • {e['nl']} ({e['tr']})" for e in exs] + [link]
+    label = f'<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:{C["muted"]};margin:0 0 6px">{esc(head.capitalize())}</div>'
+    html = (f'<div style="border-top:1px solid #e5ddd0;margin:28px 0 0;padding-top:18px">' + label
+            + f'<div style="font-size:20px;font-weight:700" lang="nl">{esc(x["woord"])}</div>'
+            + f'<div style="margin:2px 0 8px">{esc(x["tr"])}</div>'
+            + f'<div style="line-height:1.55;color:#333">{esc(x["kort"])}</div>'
+            + "".join(f'<div style="margin:6px 0;line-height:1.5"><i lang="nl">{esc(e["nl"])}</i><br><span style="color:{C["muted"]};font-size:14px">{esc(e["tr"])}</span></div>' for e in exs)
+            + f'<a href="{esc(link)}" style="color:{C["blue"]}">Tamamı ve 5 soru →</a></div>')
+    return plain, html
+
+
+def woord_mail(w, greeting, extras=()):
+    """Plain text and HTML of one word study mail: the short version, the full page is on the site.
+    extras: this week's pattern and idiom, added below the word in that order (pattern, idiom last)."""
     link = f"{SITE}woordstudie/?w={w['id']}"
     head = f"{w['lidwoord']} {w['woord']}".strip()
     rel = [v for v in w["verwant"] if v["taal"] != "Hollandaca"][:4]
@@ -613,6 +636,10 @@ def woord_mail(w, greeting):
              + f'<br><span style="color:{C["muted"]};font-size:14px">{esc(w["voorbeelden"][0]["tr"])}</span></div>'
              + f'<p style="margin:18px 0 0;line-height:1.55">Kökeni, gramer notu, “bunu biliyor muydun?” ve 5 soru sitede.</p>'
              + button(link, "Kelimenin tamamını gör"))
+    for x in sorted(extras, key=lambda x: soort(x) == "deyim"):   # pattern before idiom
+        p2, h2 = extra_block(x)
+        plain += p2
+        inner += h2
     return "\n".join(plain), inner
 
 
@@ -624,10 +651,12 @@ def run_woord(db, sender, now, dry_run=False, force=False):
         print(f"woord: already sent for {today}")
         return
     words = load_woord()["woorden"]
-    sent = {x.get("woord_id") for x in logs}
+    sent = {x.get("woord_id") for x in logs} | {i for x in logs for i in x.get("extra_ids", [])}
     w = pick_woord(words, sent, today)
+    # This week's daily pattern and idiom ride along in the same mail (each only once, oldest due first)
+    extras = [x for x in (pick_woord(words, sent, today, k) for k in ("kalip", "deyim")) if x]
     users = [d.to_dict() for d in db.collection("users").stream()]
-    if not w and any(x["id"] not in sent for x in words):
+    if not w and any(x["id"] not in sent for x in words if soort(x) == "woord"):
         print("woord: next word is not due yet")
         return
     if not w:
@@ -645,12 +674,13 @@ def run_woord(db, sender, now, dry_run=False, force=False):
         return
     subs = {u["email"]: u for u in users if is_approved(u) and u.get("email") and wants_woord(u)}
     for email in sorted(subs):
-        plain, inner = woord_mail(w, f"Merhaba {first_name(subs[email])},")
+        plain, inner = woord_mail(w, f"Merhaba {first_name(subs[email])},", extras)
         body = plain + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_WOORD}\nAbonelikten çık: {SITE}profile.html"
         sender.send(email, f"🔎 Kelime incelemesi: {w['woord']} ({w['tr'].split(' / ')[0].split(',')[0]})", body, html_body=html_wrap("Kelime incelemesi", inner, NOTE_WOORD))
-    print(f"woord: {w['id']} -> {len(subs)} recipients")
+    print(f"woord: {w['id']} + {[x['id'] for x in extras]} -> {len(subs)} recipients")
     if not dry_run:
-        log_col.document(f"woord-{today}").set({"job": "woord", "date": today, "woord_id": w["id"], "sent_at": iso(now), "mails": len(subs)})
+        log_col.document(f"woord-{today}").set({"job": "woord", "date": today, "woord_id": w["id"], "extra_ids": [x["id"] for x in extras],
+                                                 "sent_at": iso(now), "mails": len(subs)})
 
 
 def run_brief(db, sender, now, dry_run=False, force=False):
@@ -724,10 +754,13 @@ def run_test(db, sender, now, to):
         plain, inner = brief_mail(week, data.get("nieuw", [])[-3:][::-1], f"Merhaba {first_name(u)},")
         sender.send(to, f"[TEST] 🇳🇱 Haftanın Hollandacası: {week['deyim']['nl']}", plain, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
     # "Kelime incelemesi": the word that would go out next (even if its date is still ahead)
-    wlogs = {x.get("woord_id") for x in (d.to_dict() for d in db.collection("mail_log").stream()) if x.get("job") == "woord"}
-    nxt = min((x for x in load_woord()["woorden"] if x["id"] not in wlogs), key=lambda x: x["datum"], default=None)
+    wl = [x for x in (d.to_dict() for d in db.collection("mail_log").stream()) if x.get("job") == "woord"]
+    wlogs = {x.get("woord_id") for x in wl} | {i for x in wl for i in x.get("extra_ids", [])}
+    allw = load_woord()["woorden"]
+    nxt_of = lambda k: min((x for x in allw if soort(x) == k and x["id"] not in wlogs), key=lambda x: x["datum"], default=None)
+    nxt = nxt_of("woord")
     if nxt:
-        plain, inner = woord_mail(nxt, f"Merhaba {first_name(u)},")
+        plain, inner = woord_mail(nxt, f"Merhaba {first_name(u)},", [x for x in (nxt_of("kalip"), nxt_of("deyim")) if x])
         sender.send(to, f"[TEST] 🔎 Kelime incelemesi: {nxt['woord']}", plain, html_body=html_wrap("Kelime incelemesi", inner, NOTE_WOORD))
     print(f"test: next word study: {nxt and nxt['id']}")
     print(f"test: {4 if week else 3} preview mails sent (next news item: #{item.get('nr')} {item['id']}; next brief: {week and week['id']})")

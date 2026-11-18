@@ -1563,6 +1563,431 @@
     "Wiktionary: zaak, Sache, sacu, sak",
     "Etymonline: sake (n.1)"
    ]
+  },
+  {
+   "id": "het-gaat-om",
+   "soort": "kalip",
+   "datum": "2026-11-24",
+   "woord": "het gaat om …",
+   "lidwoord": "",
+   "niveau": "A2–B1",
+   "thema": "gesprek",
+   "tr": "söz konusu olan …; önemli olan …; … ile ilgili",
+   "definitie": "Je zegt wat het onderwerp is, over welke mensen of dingen het gaat, of wat het belangrijkste is.",
+   "kort": "Haberlerde, toplantılarda ve sınav metinlerinde çok sık. Kelimesi kelimesine “o, … etrafında gidiyor”. Türkçede tek karşılığı yok: cümleye göre “söz konusu”, “önemli olan” ya da “mesele … değil” diye çevrilir.",
+   "betekenissen": [
+    {
+     "titel": "… söz konusu (kimler, ne kadar?)",
+     "tekst": "Bir şeyi söyledikten sonra kimden ya da ne kadarından bahsettiğini açıklar. Arkasından çoğu zaman bir sayı gelir.",
+     "voorbeelden": [
+      {
+       "nl": "Het gaat om ongeveer twee miljoen mensen.",
+       "tr": "Yaklaşık iki milyon kişi söz konusu."
+      },
+      {
+       "nl": "Om hoeveel geld gaat het?",
+       "tr": "Ne kadar paradan bahsediyoruz?"
+      }
+     ]
+    },
+    {
+     "titel": "önemli olan …",
+     "tekst": "Asıl önemli olanı söyler. Çoğu zaman bir karşıtlıkla gelir: X değil, Y önemli.",
+     "voorbeelden": [
+      {
+       "nl": "Het gaat om de kwaliteit.",
+       "tr": "Önemli olan kalite."
+      },
+      {
+       "nl": "Het gaat niet om winnen, het gaat om meedoen.",
+       "tr": "Önemli olan kazanmak değil, katılmak."
+      }
+     ]
+    },
+    {
+     "titel": "mesele şu / konu …",
+     "tekst": "Uzun hali “het gaat erom dat …” ya da “waar het om gaat, is …”. Bir açıklamaya giriş yapar.",
+     "voorbeelden": [
+      {
+       "nl": "Het gaat erom dat iedereen mee kan doen.",
+       "tr": "Mesele herkesin katılabilmesi."
+      },
+      {
+       "nl": "Waar het om gaat, is dat je op tijd betaalt.",
+       "tr": "Önemli olan, zamanında ödemen."
+      }
+     ]
+    },
+    {
+     "titel": "als het gaat om … = … söz konusu olduğunda",
+     "tekst": "Konuyu açar, sonra o konu hakkında bir şey söylenir.",
+     "voorbeelden": [
+      {
+       "nl": "Als het gaat om veiligheid, nemen we geen risico.",
+       "tr": "Güvenlik söz konusu olduğunda risk almayız."
+      },
+      {
+       "nl": "Als het om geld gaat, is hij heel voorzichtig.",
+       "tr": "Para söz konusu olunca çok dikkatlidir."
+      }
+     ]
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "het",
+     "uitleg": "Belirli bir şeyi göstermez: “durum, mesele” gibi boş bir özne (İngilizce it is gibi)."
+    },
+    {
+     "deel": "gaat",
+     "uitleg": "gaan = gitmek. Burada hareket yok, sadece kalıbın parçası."
+    },
+    {
+     "deel": "om",
+     "uitleg": "etrafında. Kalıbın asıl anahtarı: om gelince “önemli olan / söz konusu” anlamı çıkar."
+    }
+   ],
+   "anders": {
+    "titel": "Karıştırma: om / over / met",
+    "tekst": "Üçü de “het gaat” ile başlıyor ama anlamları farklı. over = konusu (kitap, film, toplantı). met = birinin durumu, nasıl olduğu. om = söz konusu olan, önemli olan.",
+    "voorbeelden": [
+     {
+      "nl": "Het boek gaat over een jongen in Amsterdam.",
+      "tr": "Kitap Amsterdam'daki bir çocuğu anlatıyor."
+     },
+     {
+      "nl": "Hoe gaat het met je moeder?",
+      "tr": "Annen nasıl?"
+     },
+     {
+      "nl": "Het gaat goed met hem.",
+      "tr": "O iyi."
+     },
+     {
+      "nl": "Het gaat om ongeveer twee miljoen mensen.",
+      "tr": "Yaklaşık iki milyon kişi söz konusu."
+     }
+    ]
+   },
+   "opsite": [
+    {
+     "nl": "Het gaat om ongeveer twee miljoen mensen.",
+     "tr": "Yaklaşık iki milyon kişi söz konusu.",
+     "bron": "Haber: Volgend jaar een hoger pensioen (A1)",
+     "href": "nieuws/?id=pensioen"
+    },
+    {
+     "nl": "Een goede juf is net zo goed als een goede meester. Het gaat om de kwaliteit.",
+     "tr": "İyi bir kadın öğretmen, iyi bir erkek öğretmen kadar iyidir. Önemli olan kalite.",
+     "bron": "Spreken alıştırması (örnek cevap)"
+    },
+    {
+     "nl": "Er is geen les en er zijn geen toetsen. Het gaat om oefenen in een ontspannen sfeer.",
+     "tr": "Ders yok, sınav yok. Amaç rahat bir ortamda pratik yapmak.",
+     "bron": "Luisteren B1: taalcafé",
+     "href": "luisteren/"
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: Ik heb een brief van de gemeente gekregen.",
+     "tr": "A: Belediyeden bir mektup aldım."
+    },
+    {
+     "nl": "B: O ja? Waar gaat het over?",
+     "tr": "B: Öyle mi? Ne hakkında?"
+    },
+    {
+     "nl": "A: Over de afvalbelasting. Het gaat om 40 euro extra.",
+     "tr": "A: Çöp vergisi hakkında. 40 euro fazladan söz konusu."
+    },
+    {
+     "nl": "B: Dat valt mee. Het gaat er vooral om dat je op tijd betaalt.",
+     "tr": "B: O kadar kötü değil. Önemli olan zamanında ödemen."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Het gaat niet om het geld.",
+     "tr": "Mesele para değil."
+    },
+    {
+     "nl": "Om welke cursus gaat het?",
+     "tr": "Hangi kurstan bahsediyoruz?"
+    },
+    {
+     "nl": "Het gaat om je gezondheid!",
+     "tr": "Söz konusu olan senin sağlığın!"
+    },
+    {
+     "nl": "Als het gaat om werk, is hij heel serieus.",
+     "tr": "İş söz konusu olunca çok ciddidir."
+    },
+    {
+     "nl": "Waar gaat het eigenlijk om?",
+     "tr": "Asıl mesele ne?"
+    }
+   ],
+   "gramer": {
+    "titel": "Haberde, toplantıda, okuma sınavında",
+    "tekst": "Günlük konuşmada da resmî metinde de kullanılır. Okuma sınavında sık görülür: “Waar gaat het om in deze tekst?” sorusu “bu metnin ana fikri ne?” demektir. “erom” bir sonraki cümleyi haber verir: Het gaat erom dat … / Het gaat erom te …",
+    "voorbeelden": [
+     {
+      "nl": "Waar gaat het om in deze tekst?",
+      "tr": "Bu metnin ana konusu ne?"
+     },
+     {
+      "nl": "Het gaat erom dat je het probeert.",
+      "tr": "Önemli olan denemen."
+     },
+     {
+      "nl": "Het ging om een misverstand.",
+      "tr": "Bir yanlış anlaşılma söz konusuydu."
+     }
+    ]
+   },
+   "vragen": [
+    {
+     "id": "kp-g1",
+     "type": "mc",
+     "vraag": "“Het gaat om ongeveer twee miljoen mensen.” ne demek?",
+     "opties": [
+      "Yaklaşık iki milyon kişi gidiyor.",
+      "Yaklaşık iki milyon kişi söz konusu.",
+      "Yaklaşık iki milyon kişi hakkında bir kitap."
+     ],
+     "juist": 1,
+     "uitleg": "Sayıyla gelince: söz konusu olan."
+    },
+    {
+     "id": "kp-g2",
+     "type": "mc",
+     "vraag": "Bir filmin konusunu anlatıyorsun. Hangisi?",
+     "opties": [
+      "De film gaat om een familie.",
+      "De film gaat over een familie."
+     ],
+     "juist": 1,
+     "uitleg": "Konu = gaat over."
+    },
+    {
+     "id": "kp-g3",
+     "type": "mc",
+     "vraag": "“Het gaat niet om winnen.” ne demek?",
+     "opties": [
+      "Kazanmak önemli değil.",
+      "Kazanamıyor.",
+      "Kazanmaya gitmiyor."
+     ],
+     "juist": 0,
+     "uitleg": "om = önemli olan; niet ile: önemli olan bu değil."
+    },
+    {
+     "id": "kp-g4",
+     "type": "mc",
+     "vraag": "“Hoe gaat het met je?” Hangisi?",
+     "opties": [
+      "konu soruyor",
+      "nasılsın diye soruyor",
+      "ne kadar diye soruyor"
+     ],
+     "juist": 1,
+     "uitleg": "met = birinin durumu."
+    },
+    {
+     "id": "kp-g5",
+     "type": "type",
+     "tr": "Önemli olan kalite.",
+     "antwoorden": [
+      "Het gaat om de kwaliteit"
+     ],
+     "uitleg": "Het gaat om + önemli olan şey."
+    }
+   ],
+   "bronnen": [
+    "Sitedeki metinler: Nieuws (pensioen), Spreken alıştırması, Luisteren B1",
+    "DBNL ve neerlandistiek.nl'deki örnek kullanımlar (“het gaat er hier om”, “waar het me om gaat”)"
+   ]
+  },
+  {
+   "id": "wolf-in-schaapskleren",
+   "soort": "deyim",
+   "datum": "2026-11-24",
+   "woord": "een wolf in schaapskleren",
+   "lidwoord": "",
+   "niveau": "B1",
+   "thema": "karakter",
+   "tr": "kuzu postuna bürünmüş kurt",
+   "definitie": "Iemand die lief en onschuldig lijkt, maar slechte bedoelingen heeft.",
+   "kort": "Dışarıdan zararsız görünen ama aslında tehlikeli olan biri. Türkçede birebir aynı resim var: kuzu postuna bürünmüş kurt. Kaynak ortak: İncil'deki bir uyarı.",
+   "opbouw": [
+    {
+     "deel": "een wolf",
+     "uitleg": "bir kurt"
+    },
+    {
+     "deel": "in",
+     "uitleg": "içinde"
+    },
+    {
+     "deel": "schaapskleren",
+     "uitleg": "schaap (koyun) + s + kleren (giysiler): koyun giysileri. Ortadaki -s- iki kelimeyi birleştirir, schaapsvacht (koyun postu) gibi."
+    }
+   ],
+   "geschiedenis": [
+    "İncil, Matta 7:15: İsa sahte peygamberlere karşı uyarır. Bunlar koyun kılığında gelir, ama içten yırtıcı kurttur.",
+    "Hollandaca İncil çevirilerinde bu ayet “in schapenvacht” ya da “in schaapskleren” diye geçer; deyim buradan yayılmış.",
+    "Aynı resim, Ezop'a atfedilen bir masalda da var: koyun postuna giren kurt sürüye karışır. Ama bu masalın bilinen hali Orta Çağ'dan.",
+    "Bugün dinî anlamı yok: güven veren ama kötü niyetli herkes için kullanılır."
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "kuzu postuna bürünmüş kurt",
+     "uitleg": "aynı resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "a wolf in sheep's clothing",
+     "uitleg": "aynı"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "ein Wolf im Schafspelz",
+     "uitleg": "koyun postu içinde kurt"
+    },
+    {
+     "taal": "Afrikaans",
+     "woord": "wolf in skaapsklere",
+     "uitleg": "aynı"
+    }
+   ],
+   "opsite": [
+    {
+     "nl": "… geen wolf in schaapskleren, maar eerder een schaap in wolfskleren …",
+     "tr": "… kuzu postuna bürünmüş kurt değil, daha çok kurt postuna bürünmüş kuzu …",
+     "bron": "Haber: Een wolf, wat nu? (C1)",
+     "href": "nieuws/?id=wolf"
+    },
+    {
+     "nl": "Pas op met die verkoper: het is een wolf in schaapskleren.",
+     "tr": "O satıcıya dikkat et: kuzu postuna bürünmüş bir kurt.",
+     "bron": "Haber: Een wolf, wat nu? (uitdrukkingen)",
+     "href": "nieuws/?id=wolf"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de schaapskleren",
+     "tr": "koyun giysileri (sadece bu deyimde)"
+    },
+    {
+     "nl": "schijnheilig",
+     "tr": "ikiyüzlü (iyi görünen ama öyle olmayan)"
+    },
+    {
+     "nl": "Schijn bedriegt.",
+     "tr": "Görünüş aldatıcıdır."
+    },
+    {
+     "nl": "een schaap in wolfskleren",
+     "tr": "şaka: korkutucu görünen ama zararsız biri"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Pas op met die verkoper: het is een wolf in schaapskleren.",
+     "tr": "O satıcıya dikkat et: kuzu postuna bürünmüş bir kurt."
+    },
+    {
+     "nl": "Hij leek zo aardig, maar hij bleek een wolf in schaapskleren.",
+     "tr": "Çok iyi biri gibi görünüyordu ama kuzu postuna bürünmüş bir kurt çıktı."
+    },
+    {
+     "nl": "Die nieuwe app is een wolf in schaapskleren: hij verzamelt al je gegevens.",
+     "tr": "O yeni uygulama masum görünüyor ama bütün verilerini topluyor."
+    }
+   ],
+   "gramer": {
+    "titel": "Kimin için, nerede?",
+    "tekst": "Uyarı ya da eleştiri yaparken: insanlar, şirketler, hatta bir ürün için. Günlük konuşmada da gazetede de kullanılır, kaba değildir. Fiil olarak çoğu zaman zijn, lijken ya da blijken ile gelir: hij bleek een wolf in schaapskleren (… olduğu ortaya çıktı).",
+    "voorbeelden": [
+     {
+      "nl": "Hij is een wolf in schaapskleren.",
+      "tr": "O, kuzu postuna bürünmüş bir kurt."
+     },
+     {
+      "nl": "Ze bleek een wolf in schaapskleren.",
+      "tr": "Kuzu postuna bürünmüş bir kurt olduğu ortaya çıktı."
+     }
+    ]
+   },
+   "weetje": "Sitedeki kurt haberinde yazar deyimi tersine çeviriyor: deneyde kurt rolü yapan meslektaş “geen wolf in schaapskleren, maar eerder een schaap in wolfskleren”, yani korkutucu görünen ama aslında zararsız biri.",
+   "vragen": [
+    {
+     "id": "dy-w1",
+     "type": "mc",
+     "vraag": "“een wolf in schaapskleren” kimdir?",
+     "opties": [
+      "Zayıf ve korkak biri",
+      "İyi görünen ama kötü niyetli biri",
+      "Kızgın ama dürüst biri"
+     ],
+     "juist": 1,
+     "uitleg": "Dışı kuzu, içi kurt."
+    },
+    {
+     "id": "dy-w2",
+     "type": "mc",
+     "vraag": "schaapskleren ne demek?",
+     "opties": [
+      "koyun sürüsü",
+      "koyun giysileri",
+      "koyun ahırı"
+     ],
+     "juist": 1,
+     "uitleg": "schaap + s + kleren = koyun giysileri."
+    },
+    {
+     "id": "dy-w3",
+     "type": "mc",
+     "vraag": "Deyimin bilinen kaynağı?",
+     "opties": [
+      "İncil, Matta 7:15",
+      "Bir Hollanda halk şarkısı",
+      "Shakespeare"
+     ],
+     "juist": 0,
+     "uitleg": "Sahte peygamberlere karşı uyarı."
+    },
+    {
+     "id": "dy-w4",
+     "type": "mc",
+     "vraag": "“een schaap in wolfskleren” ne olur?",
+     "opties": [
+      "Korkutucu görünen ama zararsız biri",
+      "Çok tehlikeli biri"
+     ],
+     "juist": 0,
+     "uitleg": "Deyimin tersi: dışı kurt, içi kuzu."
+    },
+    {
+     "id": "dy-w5",
+     "type": "type",
+     "tr": "O satıcıya dikkat et: kuzu postuna bürünmüş bir kurt.",
+     "antwoorden": [
+      "Pas op met die verkoper: het is een wolf in schaapskleren",
+      "Pas op met die verkoper, het is een wolf in schaapskleren",
+      "Pas op voor die verkoper: het is een wolf in schaapskleren"
+     ],
+     "uitleg": "pas op met / voor = … dikkat et."
+    }
+   ],
+   "bronnen": [
+    "Matta 7:15 (sonntagsblatt.de, bibleref.com)",
+    "Matthew 7:15 maddesi (Ezop'a atfedilen Orta Çağ masalı)",
+    "Sitedeki haber: Een wolf, wat nu?"
+   ]
   }
  ]
 }
