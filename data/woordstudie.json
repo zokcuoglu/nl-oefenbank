@@ -450,6 +450,1119 @@
     "DBNL, Weiland Nederduitsch taalkundig woordenboek: gereide",
     "Etymonline: ready"
    ]
+  },
+  {
+   "id": "goedkoop",
+   "datum": "2026-12-08",
+   "woord": "goedkoop",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A1",
+   "thema": "winkel",
+   "tr": "ucuz",
+   "definitie": "Iets is goedkoop als het weinig geld kost.",
+   "kort": "Kelimesi kelimesine “iyi alışveriş”. İngilizce cheap de aynı yoldan gelmiş: eskiden “ticaret” demekti, “good cheap” (iyi alışveriş) ifadesinden “ucuz” anlamı çıkmış.",
+   "keten": [
+    {
+     "nl": "caupo",
+     "tr": "Latince",
+     "uitleg": "Küçük esnaf, seyyar satıcı. Germen dilleri bu kelimeyi çok erken almış."
+    },
+    {
+     "nl": "koop",
+     "tr": "alışveriş, ticaret",
+     "uitleg": "Germen dillerinde “ticaret, alışveriş”: Hollandaca koop, Almanca Kauf, Eski İngilizce cēap."
+    },
+    {
+     "nl": "goed koop",
+     "tr": "iyi alışveriş",
+     "uitleg": "Bir şeyi iyi fiyata almak: iyi bir alışveriş."
+    },
+    {
+     "nl": "goedkoop",
+     "tr": "ucuz",
+     "uitleg": "İki kelime birleşmiş, anlamı “ucuz” olmuş. İngilizcede aynısı: good cheap → cheap."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "goed",
+     "uitleg": "iyi"
+    },
+    {
+     "deel": "koop",
+     "uitleg": "alışveriş, satın alma. kopen (satın almak) fiilinin ismi; de koopman = tüccar."
+    }
+   ],
+   "geschiedenis": [
+    "Germen dilleri Latince caupo (küçük esnaf) kelimesini çok erken almış; Almanca kaufen (satın almak) da buradan.",
+    "Eski İngilizcede cēap “anlaşma, takas, iş” demekti; tüccara céapmann derlerdi (Hollandaca koopman, Almanca Kaufmann).",
+    "Orta İngilizcede “good chepe” = iyi alışveriş. 16. yüzyılda kısalıp sıfat olmuş: cheap = ucuz.",
+    "Hollandaca, Frizce (goedkeap) ve Aşağı Almanca (goodkoop) ise iki parçayı birlikte tutmuş: goedkoop."
+   ],
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "cheap",
+     "uitleg": "eskiden “ticaret”; “good cheap” ifadesinden"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "chapman",
+     "uitleg": "eski “tüccar” kelimesi, bugün soyadı"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "kaufen, Kaufmann",
+     "uitleg": "satın almak, tüccar"
+    },
+    {
+     "taal": "Frizce",
+     "woord": "goedkeap",
+     "uitleg": "ucuz: birebir aynı yapı"
+    },
+    {
+     "taal": "Latince",
+     "woord": "caupo",
+     "uitleg": "küçük esnaf: hepsinin kaynağı"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "kopen",
+     "tr": "satın almak"
+    },
+    {
+     "nl": "verkopen",
+     "tr": "satmak"
+    },
+    {
+     "nl": "de koopman",
+     "tr": "tüccar"
+    },
+    {
+     "nl": "het koopje",
+     "tr": "kelepir"
+    },
+    {
+     "nl": "de koopavond",
+     "tr": "dükkânların geç kapandığı akşam"
+    },
+    {
+     "nl": "de koopkracht",
+     "tr": "alım gücü"
+    },
+    {
+     "nl": "spotgoedkoop",
+     "tr": "sudan ucuz"
+    },
+    {
+     "nl": "duur",
+     "tr": "pahalı"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Deze schoenen waren echt goedkoop.",
+     "tr": "Bu ayakkabılar gerçekten ucuzdu."
+    },
+    {
+     "nl": "In de uitverkoop is alles goedkoper.",
+     "tr": "İndirimde her şey daha ucuz."
+    },
+    {
+     "nl": "Dat was een koopje!",
+     "tr": "Bu bir kelepirdi!"
+    },
+    {
+     "nl": "Goedkoop is duurkoop.",
+     "tr": "Ucuz etin yahnisi yavan olur. (ucuz olan sonunda pahalıya gelir)"
+    },
+    {
+     "nl": "Op donderdag is er koopavond.",
+     "tr": "Perşembe akşamları dükkânlar geç kapanıyor."
+    }
+   ],
+   "gramer": {
+    "titel": "-je eki anlamı değiştirebilir",
+    "tekst": "Küçültme eki -je çoğu zaman sadece “küçük” demektir (huis → huisje). Ama bazen yeni bir anlam verir: koop (alışveriş) → het koopje (kelepir). Küçültmeli kelimeler her zaman het alır.",
+    "voorbeelden": [
+     {
+      "nl": "de koop → het koopje",
+      "tr": "alışveriş → kelepir"
+     },
+     {
+      "nl": "het huis → het huisje",
+      "tr": "ev → küçük ev"
+     },
+     {
+      "nl": "de brief → het briefje",
+      "tr": "mektup → kısa not"
+     },
+     {
+      "nl": "goedkoop → goedkoper → het goedkoopst",
+      "tr": "ucuz → daha ucuz → en ucuz"
+     }
+    ]
+   },
+   "weetje": "Pahalı için Hollandaca duur, İngiltere İngilizcesinde dear de “pahalı” anlamına gelebilir. Eski İngilizcede “ucuz” için undeor (kelimesi kelimesine “pahalı olmayan”) denirdi. Ayrıca dikkat: goedkoop bazen “bayağı, değersiz” demektir: een goedkope grap (ucuz bir şaka).",
+   "vragen": [
+    {
+     "id": "ws-k1",
+     "type": "mc",
+     "vraag": "goedkoop kelimesi kelimesine ne demek?",
+     "opties": [
+      "iyi alışveriş",
+      "az para",
+      "iyi mal"
+     ],
+     "juist": 0,
+     "uitleg": "goed + koop = iyi alışveriş."
+    },
+    {
+     "id": "ws-k2",
+     "type": "mc",
+     "vraag": "İngilizce cheap eskiden ne demekti?",
+     "opties": [
+      "ticaret, alışveriş",
+      "küçük",
+      "kötü"
+     ],
+     "juist": 0,
+     "uitleg": "Eski İngilizce cēap: anlaşma, ticaret. “good cheap” → cheap."
+    },
+    {
+     "id": "ws-k3",
+     "type": "mc",
+     "vraag": "“Dat was een koopje!” ne demek?",
+     "opties": [
+      "Küçük bir alışverişti.",
+      "Kelepirdi!",
+      "Satın aldım."
+     ],
+     "juist": 1,
+     "uitleg": "het koopje = kelepir: -je eki yeni bir anlam vermiş."
+    },
+    {
+     "id": "ws-k4",
+     "type": "mc",
+     "vraag": "“Goedkoop is duurkoop.” ne anlatıyor?",
+     "opties": [
+      "Ucuz şeyler hep iyidir.",
+      "Ucuz olan sonunda pahalıya gelir.",
+      "Pahalı şeyler ucuzlar."
+     ],
+     "juist": 1,
+     "uitleg": "Kalitesiz ucuz şey çabuk bozulur, yenisini almak gerekir."
+    },
+    {
+     "id": "ws-k5",
+     "type": "type",
+     "tr": "İndirimde her şey daha ucuz.",
+     "antwoorden": [
+      "In de uitverkoop is alles goedkoper"
+     ],
+     "uitleg": "goedkoop → goedkoper."
+    }
+   ],
+   "bronnen": [
+    "Etymonline: cheap, chapman, Copenhagen",
+    "Wikipedia: Chapman",
+    "Omniglot: goedkoop",
+    "Wiktionary: goodkoop, goedkeap, spotgoedkoop"
+   ]
+  },
+  {
+   "id": "winkel",
+   "datum": "2026-12-15",
+   "woord": "winkel",
+   "lidwoord": "de",
+   "meervoud": "winkels",
+   "niveau": "A1",
+   "thema": "winkel",
+   "tr": "dükkân, mağaza",
+   "definitie": "Een zaak waar je dingen kunt kopen.",
+   "kort": "Hollandacada “dükkân”, Almancada “köşe, açı”. Kelime önce köşe demekti; köşedeki küçük dükkânın adı olmuş.",
+   "keten": [
+    {
+     "nl": "*weng-",
+     "tr": "eğmek, bükmek",
+     "uitleg": "Hint-Avrupa kökü."
+    },
+    {
+     "nl": "winkel",
+     "tr": "köşe",
+     "uitleg": "Orta Hollandacada winkel = köşe; Almanca Winkel bugün hâlâ köşe ve açı demek."
+    },
+    {
+     "nl": "winkel",
+     "tr": "köşedeki dükkân",
+     "uitleg": "Köşede kurulan dükkânın (ya da depo köşesinin) adı olmuş."
+    },
+    {
+     "nl": "de winkel",
+     "tr": "dükkân, mağaza",
+     "uitleg": "Bugün her dükkân: de supermarkt is ook een winkel."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "winkel (Hollandaca)",
+     "uitleg": "dükkân, mağaza. Eski “köşe” anlamı bugün neredeyse kaybolmuş."
+    },
+    {
+     "deel": "Winkel (Almanca)",
+     "uitleg": "köşe, açı (ein rechter Winkel = dik açı). Aynı kelime, iki dilde iki farklı anlam."
+    }
+   ],
+   "geschiedenis": [
+    "Hint-Avrupa *weng- “eğmek, bükmek” → Proto-Germen *winkilaz.",
+    "Orta Hollandaca winkel: köşe; ayrıca çevrili küçük bir toprak parçası (yer adlarında hâlâ var: Winkelshoek).",
+    "Köşedeki dükkânın adı olunca anlam “dükkân”a kaymış.",
+    "Kelime Hollandacadan başka dillere de geçmiş: Endonezce bengkel (tamirhane, atölye)."
+   ],
+   "anders": {
+    "titel": "Almanca bilenler için tuzak",
+    "tekst": "Almanca Winkel “dükkân” demez, “köşe, açı” demek. Hollandacada köşe için hoek kullanılır; açı için de hoek.",
+    "voorbeelden": [
+     {
+      "nl": "Ik ga even naar de winkel.",
+      "tr": "Dükkâna gidiyorum. (Hollandaca)"
+     },
+     {
+      "nl": "Om de hoek is een winkel.",
+      "tr": "Köşede bir dükkân var."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "Almanca",
+     "woord": "Winkel",
+     "uitleg": "köşe, açı"
+    },
+    {
+     "taal": "Eski İngilizce",
+     "woord": "wincel",
+     "uitleg": "köşe"
+    },
+    {
+     "taal": "Afrikaans",
+     "woord": "winkel",
+     "uitleg": "dükkân (Hollandacadan)"
+    },
+    {
+     "taal": "Endonezce",
+     "woord": "bengkel",
+     "uitleg": "tamirhane, atölye (Hollandacadan)"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "winkelen",
+     "tr": "alışverişe çıkmak, vitrin gezmek"
+    },
+    {
+     "nl": "het winkelcentrum",
+     "tr": "alışveriş merkezi"
+    },
+    {
+     "nl": "de winkelwagen",
+     "tr": "alışveriş arabası"
+    },
+    {
+     "nl": "de winkelier",
+     "tr": "dükkân sahibi"
+    },
+    {
+     "nl": "de webwinkel",
+     "tr": "internet mağazası"
+    },
+    {
+     "nl": "de winkelstraat",
+     "tr": "çarşı caddesi"
+    },
+    {
+     "nl": "de winkel van Sinkel",
+     "tr": "her şeyin satıldığı dükkân"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik ga even naar de winkel.",
+     "tr": "Dükkâna gidiyorum."
+    },
+    {
+     "nl": "Hoe laat gaat de winkel dicht?",
+     "tr": "Dükkân saat kaçta kapanıyor?"
+    },
+    {
+     "nl": "Op zaterdag gaan we winkelen in de stad.",
+     "tr": "Cumartesi şehre alışverişe gidiyoruz."
+    },
+    {
+     "nl": "Ik doe boodschappen bij de supermarkt.",
+     "tr": "Markette günlük alışverişimi yapıyorum."
+    },
+    {
+     "nl": "Die webwinkel levert morgen al.",
+     "tr": "O internet mağazası yarın teslim ediyor."
+    }
+   ],
+   "gramer": {
+    "titel": "winkelen mi, boodschappen doen mu?",
+    "tekst": "İkisi de “alışveriş” ama aynı şey değil. boodschappen doen: ekmek, süt gibi günlük ihtiyaçları almak. winkelen: keyif için dükkân dükkân gezmek, giysi, ayakkabı gibi şeyler bakmak. İsimden fiil yapmak da kolay: winkel + -en → winkelen.",
+    "voorbeelden": [
+     {
+      "nl": "Ik moet nog boodschappen doen voor het eten.",
+      "tr": "Yemek için daha market alışverişi yapmam lazım."
+     },
+     {
+      "nl": "Ze houdt van winkelen.",
+      "tr": "Alışveriş yapmayı (gezmeyi) seviyor."
+     },
+     {
+      "nl": "de fiets → fietsen",
+      "tr": "bisiklet → bisiklete binmek"
+     }
+    ]
+   },
+   "weetje": "Hollandalı tüccarlar kelimeyi dünyaya da taşımış: Endonezyada bugün tamirhane ya da atölyeye bengkel denir; bu Hollandaca winkel'den gelir. Güney Afrika'da Afrikaans dilinde dükkân hâlâ winkel.",
+   "vragen": [
+    {
+     "id": "ws-w1",
+     "type": "mc",
+     "vraag": "winkel önce ne demekti?",
+     "opties": [
+      "köşe",
+      "pazar",
+      "ev"
+     ],
+     "juist": 0,
+     "uitleg": "Orta Hollandaca winkel = köşe. Almanca Winkel hâlâ köşe, açı."
+    },
+    {
+     "id": "ws-w2",
+     "type": "mc",
+     "vraag": "Almanca Winkel ne demek?",
+     "opties": [
+      "dükkân",
+      "köşe, açı",
+      "pencere"
+     ],
+     "juist": 1,
+     "uitleg": "Aynı kelime: Hollandacada dükkân, Almancada köşe/açı."
+    },
+    {
+     "id": "ws-w3",
+     "type": "mc",
+     "vraag": "Ekmek ve süt almaya gidiyorsun. Hangisi?",
+     "opties": [
+      "Ik ga winkelen.",
+      "Ik ga boodschappen doen.",
+      "Ik ga een winkel."
+     ],
+     "juist": 1,
+     "uitleg": "Günlük ihtiyaç = boodschappen doen."
+    },
+    {
+     "id": "ws-w4",
+     "type": "mc",
+     "vraag": "“Köşede bir dükkân var.” Köşe hangisi?",
+     "opties": [
+      "Om de winkel is een hoek.",
+      "Om de hoek is een winkel."
+     ],
+     "juist": 1,
+     "uitleg": "köşe = de hoek; dükkân = de winkel."
+    },
+    {
+     "id": "ws-w5",
+     "type": "type",
+     "tr": "Dükkân saat kaçta kapanıyor?",
+     "antwoorden": [
+      "Hoe laat gaat de winkel dicht?",
+      "Hoe laat sluit de winkel?"
+     ],
+     "uitleg": "dichtgaan ayrılabilir: gaat … dicht."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary: winkel, Winkel, Winkelshoek",
+    "Kaikki: winkel",
+    "Learnfeliz: winkel (winkelen)",
+    "Sesquiotic: periwinkle"
+   ]
+  },
+  {
+   "id": "vrij",
+   "datum": "2026-12-22",
+   "woord": "vrij",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A1",
+   "thema": "tijd",
+   "tr": "özgür, serbest; boş; izinli",
+   "definitie": "Vrij ben je als je kunt doen wat je wilt, of als je niet hoeft te werken.",
+   "kort": "“Özgür” kelimesinin kökü “sevmek”. Eski Germen toplumunda “sevilenler” klanın özgür üyeleriydi. vriend (arkadaş) ve vrijdag (cuma) da aynı aileden.",
+   "keten": [
+    {
+     "nl": "*preyH-",
+     "tr": "sevmek",
+     "uitleg": "Hint-Avrupa kökü; Sanskritçe priya “sevgili” de buradan."
+    },
+    {
+     "nl": "sevilen",
+     "tr": "*frijaz",
+     "uitleg": "Proto-Germence “sevilen, değerli”."
+    },
+    {
+     "nl": "aileden",
+     "tr": "klanın üyesi",
+     "uitleg": "Sevilenler klanın özgür üyeleri; karşıtı köleler ve yabancılar."
+    },
+    {
+     "nl": "vrij",
+     "tr": "özgür",
+     "uitleg": "Köle olmayan, kimseye bağlı olmayan → özgür, serbest."
+    },
+    {
+     "nl": "vrij zijn",
+     "tr": "izinli, boş",
+     "uitleg": "Bugün: Ik ben morgen vrij = yarın izinliyim."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "vrij",
+     "uitleg": "özgür; boş (Is deze plaats vrij?); izinli (vrij hebben, vrij nemen)."
+    },
+    {
+     "deel": "vriend",
+     "uitleg": "aynı “sevmek” fiilinden: kelimesi kelimesine “seven kişi”."
+    }
+   ],
+   "geschiedenis": [
+    "Hint-Avrupa *pri- “sevmek” → Proto-Germen *frijaz “sevilen; köle olmayan”.",
+    "“Sevilen” ve “dost” sözleri klanın özgür üyeleri için kullanılınca anlam “özgür”e kaymış olabilir (Latince liberi da hem “özgür insanlar” hem “bir ailenin çocukları”).",
+    "Aynı fiilden vriend: “seven kişi”. Tam karşıtı vijand (düşman): “nefret eden kişi”.",
+    "Frigg tanrıçasının adı da bu kökten; Friday ve vrijdag “Frigg'in günü”."
+   ],
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "free, friend, Friday",
+     "uitleg": "aynı kök: özgür, arkadaş, cuma"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "frei, Freund, Freitag",
+     "uitleg": "aynı üçlü"
+    },
+    {
+     "taal": "İsveççe / Danca",
+     "woord": "fri",
+     "uitleg": "özgür"
+    },
+    {
+     "taal": "Sanskritçe",
+     "woord": "priyá",
+     "uitleg": "sevgili, aziz"
+    },
+    {
+     "taal": "Hollandaca",
+     "woord": "vijand",
+     "uitleg": "düşman: vriend'in karşıtı, “nefret eden”"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de vrijheid",
+     "tr": "özgürlük"
+    },
+    {
+     "nl": "de vrijwilliger",
+     "tr": "gönüllü"
+    },
+    {
+     "nl": "vrij hebben / vrij nemen",
+     "tr": "izinli olmak / izin almak"
+    },
+    {
+     "nl": "de vrijdag",
+     "tr": "cuma"
+    },
+    {
+     "nl": "de vriend / de vriendin",
+     "tr": "arkadaş; sevgili"
+    },
+    {
+     "nl": "de vriendschap",
+     "tr": "arkadaşlık"
+    },
+    {
+     "nl": "vriendelijk",
+     "tr": "nazik"
+    },
+    {
+     "nl": "de vijand",
+     "tr": "düşman"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik ben morgen vrij.",
+     "tr": "Yarın izinliyim."
+    },
+    {
+     "nl": "Is deze plaats nog vrij?",
+     "tr": "Bu yer boş mu?"
+    },
+    {
+     "nl": "Ik neem vrijdag een dag vrij.",
+     "tr": "Cuma bir gün izin alıyorum."
+    },
+    {
+     "nl": "Hij werkt als vrijwilliger bij de voetbalclub.",
+     "tr": "Futbol kulübünde gönüllü olarak çalışıyor."
+    },
+    {
+     "nl": "Wat doe je in je vrije tijd?",
+     "tr": "Boş zamanında ne yaparsın?"
+    }
+   ],
+   "gramer": {
+    "titel": "mijn vriend: arkadaş mı, sevgili mi?",
+    "tekst": "Hollandacada “mijn vriend / mijn vriendin” çoğu zaman sevgili demektir. Sadece arkadaşsa “een vriend van mij” ya da “een goede vriend” dersin. Ayrıca İngilizcedeki free'nin “bedava” anlamı için Hollandacada genelde gratis kullanılır.",
+    "voorbeelden": [
+     {
+      "nl": "Dit is mijn vriendin.",
+      "tr": "Bu benim kız arkadaşım (sevgilim)."
+     },
+     {
+      "nl": "Dit is een vriendin van mij.",
+      "tr": "Bu bir arkadaşım."
+     },
+     {
+      "nl": "De toegang is gratis.",
+      "tr": "Giriş bedava."
+     }
+    ]
+   },
+   "weetje": "Özgürlük, arkadaşlık ve sevgi aynı kökten geliyor: free, friend ve Friday hepsi “sevmek” anlamındaki eski bir kökten. Eski Germen toplumunda özgür olmak, “sevilenlerin” arasında olmak demekti.",
+   "vragen": [
+    {
+     "id": "ws-v1",
+     "type": "mc",
+     "vraag": "vrij kelimesinin en eski kökü ne demek?",
+     "opties": [
+      "sevmek",
+      "kaçmak",
+      "yürümek"
+     ],
+     "juist": 0,
+     "uitleg": "Hint-Avrupa *pri- “sevmek”; Germen *frijaz “sevilen; köle olmayan”."
+    },
+    {
+     "id": "ws-v2",
+     "type": "mc",
+     "vraag": "“Ik ben morgen vrij.” ne demek?",
+     "opties": [
+      "Yarın bedava.",
+      "Yarın izinliyim.",
+      "Yarın özgürüm."
+     ],
+     "juist": 1,
+     "uitleg": "vrij zijn = izinli olmak, işte olmamak."
+    },
+    {
+     "id": "ws-v3",
+     "type": "mc",
+     "vraag": "Bir arkadaşını tanıştırıyorsun (sevgilin değil). Hangisi?",
+     "opties": [
+      "Dit is mijn vriend.",
+      "Dit is een vriend van mij."
+     ],
+     "juist": 1,
+     "uitleg": "“mijn vriend” çoğu zaman sevgili demek."
+    },
+    {
+     "id": "ws-v4",
+     "type": "mc",
+     "vraag": "vijand (düşman) nasıl kurulmuş?",
+     "opties": [
+      "“nefret eden”, vriend'in karşıtı",
+      "“yabancı”",
+      "“savaşçı”"
+     ],
+     "juist": 0,
+     "uitleg": "vriend = seven, vijand = nefret eden."
+    },
+    {
+     "id": "ws-v5",
+     "type": "type",
+     "tr": "Bu yer boş mu?",
+     "antwoorden": [
+      "Is deze plaats vrij?",
+      "Is deze plaats nog vrij?",
+      "Is deze plek vrij?",
+      "Is deze plek nog vrij?"
+     ],
+     "uitleg": "vrij = boş (yer)."
+    }
+   ],
+   "bronnen": [
+    "Etymonline: free, friend (via quword, Substack)",
+    "Omniglot: friend",
+    "Wiktionary: *priHós"
+   ]
+  },
+  {
+   "id": "tellen",
+   "datum": "2026-12-29",
+   "woord": "tellen / vertellen",
+   "lidwoord": "",
+   "meervoud": "",
+   "niveau": "A1",
+   "thema": "taal",
+   "tr": "saymak / anlatmak",
+   "definitie": "Tellen: getallen op een rij zeggen (1, 2, 3 …). Vertellen: iemand iets laten weten, een verhaal doen.",
+   "kort": "Saymak ve anlatmak aynı kelime. Hollandaca ve Almanca bunu iki fiile ayırmış (tellen/vertellen, zählen/erzählen), İngilizce tek fiilde birleştirmiş: tell.",
+   "keten": [
+    {
+     "nl": "*del-",
+     "tr": "saymak, hesaplamak",
+     "uitleg": "Hint-Avrupa kökü."
+    },
+    {
+     "nl": "*taljaną",
+     "tr": "sırayla saymak",
+     "uitleg": "Proto-Germence: düzenli bir sırayla söylemek, saymak."
+    },
+    {
+     "nl": "tellen",
+     "tr": "saymak",
+     "uitleg": "Hollandaca tellen bugün sadece saymak."
+    },
+    {
+     "nl": "vertellen",
+     "tr": "anlatmak",
+     "uitleg": "Olayları sırayla “sayıp dökmek”: anlatmak."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "tellen",
+     "uitleg": "saymak. Orta Hollandacada tal “sayı” demekti; het getal (sayı) bu aileden."
+    },
+    {
+     "deel": "ver- + tellen",
+     "uitleg": "ver- ön eki fiilin anlamını değiştirir: saymak → anlatmak."
+    }
+   ],
+   "geschiedenis": [
+    "Proto-Germen *taljaną: düzenli bir şekilde saymak, sıralamak.",
+    "Eski İngilizce tellan önce “saymak, hesaplamak”; yaklaşık 1000 yılından itibaren “anlatmak”.",
+    "İngilizcede eski anlam hâlâ yaşıyor: bank teller (veznedar, para sayan), all told (hepsi sayılınca).",
+    "Aynı anlam yolu başka dillerde de var: Fransızca conter / raconter, İspanyolca contar (hem saymak hem anlatmak). Türkçede de “sayıp dökmek” deriz."
+   ],
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "tell, teller, tale",
+     "uitleg": "anlatmak; veznedar; masal"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "zählen / erzählen, die Zahl",
+     "uitleg": "saymak / anlatmak; sayı"
+    },
+    {
+     "taal": "Danca",
+     "woord": "tale",
+     "uitleg": "konuşmak"
+    },
+    {
+     "taal": "Fransızca",
+     "woord": "conter / raconter",
+     "uitleg": "akraba değil, ama aynı anlam yolu"
+    },
+    {
+     "taal": "Türkçe",
+     "woord": "sayıp dökmek",
+     "uitleg": "aynı mantık"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "het getal",
+     "tr": "sayı"
+    },
+    {
+     "nl": "de teller",
+     "tr": "sayaç; kesirde pay"
+    },
+    {
+     "nl": "meetellen",
+     "tr": "sayılmak, hesaba katılmak"
+    },
+    {
+     "nl": "natellen",
+     "tr": "tekrar saymak"
+    },
+    {
+     "nl": "vertellen",
+     "tr": "anlatmak"
+    },
+    {
+     "nl": "de verteller",
+     "tr": "anlatıcı"
+    },
+    {
+     "nl": "Dat telt niet.",
+     "tr": "O sayılmaz."
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Kun je tot honderd tellen?",
+     "tr": "Yüze kadar sayabilir misin?"
+    },
+    {
+     "nl": "Vertel eens, hoe was je vakantie?",
+     "tr": "Anlat bakalım, tatilin nasıldı?"
+    },
+    {
+     "nl": "Kun je me de weg vertellen?",
+     "tr": "Bana yolu tarif edebilir misin?"
+    },
+    {
+     "nl": "Elke stem telt.",
+     "tr": "Her oy önemli. (sayılır)"
+    },
+    {
+     "nl": "Tel je geld na voordat je weggaat.",
+     "tr": "Gitmeden paranı tekrar say."
+    }
+   ],
+   "gramer": {
+    "titel": "ver- ön eki anlamı değiştirir",
+    "tekst": "ver- ile başlayan fiiller ayrılmaz ve geçmişte ge- almaz: vertellen → verteld. ver- çoğu zaman anlamı değiştirir, bazen tersine çevirir.",
+    "voorbeelden": [
+     {
+      "nl": "tellen → vertellen",
+      "tr": "saymak → anlatmak"
+     },
+     {
+      "nl": "kopen → verkopen",
+      "tr": "satın almak → satmak"
+     },
+     {
+      "nl": "huren → verhuren",
+      "tr": "kiralamak → kiraya vermek"
+     },
+     {
+      "nl": "dienen → verdienen",
+      "tr": "hizmet etmek → (para) kazanmak"
+     },
+     {
+      "nl": "Ik heb het hem verteld.",
+      "tr": "Ona anlattım. (ge- yok)"
+     }
+    ]
+   },
+   "weetje": "Bankada para sayan veznedara İngilizcede teller denir: “saymak” anlamı orada yaşıyor. Hollandacada teller kesirde paydır (teller en noemer: pay ve payda) ve sayaç (de kilometerteller).",
+   "vragen": [
+    {
+     "id": "ws-t1",
+     "type": "mc",
+     "vraag": "İngilizce tell eskiden ne demekti?",
+     "opties": [
+      "saymak",
+      "konuşmak",
+      "yazmak"
+     ],
+     "juist": 0,
+     "uitleg": "Eski İngilizce tellan: saymak, hesaplamak. Bank teller bu anlamı koruyor."
+    },
+    {
+     "id": "ws-t2",
+     "type": "mc",
+     "vraag": "Almancada “anlatmak” hangisi?",
+     "opties": [
+      "zählen",
+      "erzählen",
+      "Zahl"
+     ],
+     "juist": 1,
+     "uitleg": "zählen = saymak, erzählen = anlatmak; Hollandaca tellen / vertellen gibi."
+    },
+    {
+     "id": "ws-t3",
+     "type": "mc",
+     "vraag": "“vertellen” geçmiş zamanda?",
+     "opties": [
+      "Ik heb het geverteld.",
+      "Ik heb het verteld."
+     ],
+     "juist": 1,
+     "uitleg": "ver- ile başlayan fiil ge- almaz."
+    },
+    {
+     "id": "ws-t4",
+     "type": "mc",
+     "vraag": "verkopen ne demek?",
+     "opties": [
+      "satın almak",
+      "satmak",
+      "saymak"
+     ],
+     "juist": 1,
+     "uitleg": "ver- anlamı tersine çevirmiş: kopen → verkopen."
+    },
+    {
+     "id": "ws-t5",
+     "type": "type",
+     "tr": "Anlat bakalım, tatilin nasıldı?",
+     "antwoorden": [
+      "Vertel eens, hoe was je vakantie?",
+      "Vertel, hoe was je vakantie?",
+      "Vertel eens hoe je vakantie was"
+     ],
+     "uitleg": "vertel eens = anlat bakalım."
+    }
+   ],
+   "bronnen": [
+    "Etymonline: tell, teller, tale",
+    "Wiktionary: vortellen"
+   ]
+  },
+  {
+   "id": "zaak",
+   "datum": "2027-01-05",
+   "woord": "zaak",
+   "lidwoord": "de",
+   "meervoud": "zaken",
+   "niveau": "A2",
+   "thema": "werk",
+   "tr": "mesele, iş; işletme, dükkân; dava",
+   "definitie": "Een zaak kan een kwestie zijn, een bedrijf of winkel, of een rechtszaak.",
+   "kort": "Tek kelimede birçok anlam: mesele, iş, dükkân, dava. Kökü “anlaşmazlık, dava”. İngilizcede neredeyse sadece “for the sake of” kalıbında yaşıyor.",
+   "keten": [
+    {
+     "nl": "*sakō",
+     "tr": "dava, suçlama",
+     "uitleg": "Proto-Germence: dava, mesele, suçlama."
+    },
+    {
+     "nl": "dava",
+     "tr": "de rechtszaak",
+     "uitleg": "Mahkemeye götürülen anlaşmazlık."
+    },
+    {
+     "nl": "mesele",
+     "tr": "een lastige zaak",
+     "uitleg": "Her türlü konu, iş."
+    },
+    {
+     "nl": "iş, ticaret",
+     "tr": "zaken doen",
+     "uitleg": "İş yapmak, ticaret."
+    },
+    {
+     "nl": "işletme",
+     "tr": "een zaak hebben",
+     "uitleg": "Bir dükkân ya da şirket."
+    }
+   ],
+   "opbouw": [
+    {
+     "deel": "zaak",
+     "uitleg": "Orta Hollandaca sāke, Proto-Germen *sakō: dava, mesele."
+    },
+    {
+     "deel": "zaken (çoğul)",
+     "uitleg": "iş dünyası: zaken doen (iş yapmak), een zakenman (iş adamı); bakanlık adlarında “işler”: Binnenlandse Zaken."
+    }
+   ],
+   "geschiedenis": [
+    "Proto-Germen *sakō: iş, mesele, dava, suçlama.",
+    "Eski İngilizce sacu: anlaşmazlık, çekişme; suç.",
+    "İngilizcede anlamların çoğunu Latinceden gelen case ve cause almış; sake sadece “for the sake of” (…uğruna) kalıbında kalmış.",
+    "Hollandacada ise kelime genişlemiş: mesele → iş → işletme. Almanca Sache bugün “şey, mesele” demek."
+   ],
+   "anders": {
+    "titel": "Akraba değil, ama aynı yol: Latince causa",
+    "tekst": "Latince causa da “hukuki mesele”den “şey”e doğru aynı anlam yolunu izlemiş; Fransızca chose (şey) buradan. İki ayrı kelime, ama insanların düşünme biçimi aynı: dava → mesele → şey.",
+    "voorbeelden": [
+     {
+      "nl": "Dat is mijn zaak niet.",
+      "tr": "Bu benim işim değil."
+     },
+     {
+      "nl": "Het is zaak om op tijd te zijn.",
+      "tr": "Zamanında olmak önemli."
+     }
+    ]
+   },
+   "verwant": [
+    {
+     "taal": "İngilizce",
+     "woord": "sake",
+     "uitleg": "for the sake of = …uğruna"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "Sache",
+     "uitleg": "şey, mesele (Hauptsache = asıl önemli olan)"
+    },
+    {
+     "taal": "İsveççe / Danca",
+     "woord": "sak / sag",
+     "uitleg": "mesele, dava"
+    },
+    {
+     "taal": "Eski İngilizce",
+     "woord": "sacu",
+     "uitleg": "anlaşmazlık, dava"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de rechtszaak",
+     "tr": "dava"
+    },
+    {
+     "nl": "zaken doen",
+     "tr": "iş yapmak"
+    },
+    {
+     "nl": "de zakenman / zakenvrouw",
+     "tr": "iş adamı / kadını"
+    },
+    {
+     "nl": "zakelijk",
+     "tr": "iş ile ilgili; profesyonel"
+    },
+    {
+     "nl": "de hoofdzaak",
+     "tr": "asıl mesele"
+    },
+    {
+     "nl": "Binnenlandse Zaken",
+     "tr": "İçişleri (Bakanlığı)"
+    },
+    {
+     "nl": "het zaakje",
+     "tr": "küçük iş; (argo) dalavere"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Dat is een lastige zaak.",
+     "tr": "Bu zor bir mesele."
+    },
+    {
+     "nl": "Mijn oom heeft een zaak in Rotterdam.",
+     "tr": "Amcamın Rotterdam'da bir dükkânı var."
+    },
+    {
+     "nl": "Wat je in je privéleven doet, is jouw zaak.",
+     "tr": "Özel hayatında ne yaptığın senin bilgin."
+    },
+    {
+     "nl": "Het is zaak om goed voor te bereiden.",
+     "tr": "İyi hazırlanmak önemli."
+    },
+    {
+     "nl": "De rechtszaak duurde drie jaar.",
+     "tr": "Dava üç yıl sürdü."
+    }
+   ],
+   "gramer": {
+    "titel": "Het is zaak om … te",
+    "tekst": "“Het is zaak om … te + mastar” resmî ve sık bir kalıp: “…mak önemli, gerekli”. Mektuplarda ve haberlerde çok çıkar. Sıfat hali zakelijk de iş dilinde sık: een zakelijke e-mail (iş e-postası).",
+    "voorbeelden": [
+     {
+      "nl": "Het is zaak om op tijd te betalen.",
+      "tr": "Zamanında ödemek önemli."
+     },
+     {
+      "nl": "Het is nu zaak om rustig te blijven.",
+      "tr": "Şimdi sakin kalmak gerekiyor."
+     },
+     {
+      "nl": "Hij schrijft heel zakelijk.",
+      "tr": "Çok resmî, iş diliyle yazıyor."
+     }
+    ]
+   },
+   "weetje": "Hollanda'nın İçişleri Bakanlığı Ministerie van Binnenlandse Zaken, Dışişleri Buitenlandse Zaken: kelimesi kelimesine “iç işler” ve “dış işler”. Türkçedeki adlandırmayla aynı mantık.",
+   "vragen": [
+    {
+     "id": "ws-z1",
+     "type": "mc",
+     "vraag": "zaak kelimesinin kökü ne demekti?",
+     "opties": [
+      "dava, anlaşmazlık",
+      "dükkân",
+      "para"
+     ],
+     "juist": 0,
+     "uitleg": "Proto-Germen *sakō: dava, mesele; Eski İngilizce sacu: anlaşmazlık."
+    },
+    {
+     "id": "ws-z2",
+     "type": "mc",
+     "vraag": "İngilizce sake bugün en çok nerede kullanılır?",
+     "opties": [
+      "for the sake of",
+      "a sake shop",
+      "to sake"
+     ],
+     "juist": 0,
+     "uitleg": "for the sake of = …uğruna; diğer anlamları case ve cause almış."
+    },
+    {
+     "id": "ws-z3",
+     "type": "mc",
+     "vraag": "“Het is zaak om op tijd te zijn.” ne demek?",
+     "opties": [
+      "Zamanında olmak önemli.",
+      "Zamanında geldi.",
+      "Bu bir dava."
+     ],
+     "juist": 0,
+     "uitleg": "Het is zaak om … te = …mak önemli."
+    },
+    {
+     "id": "ws-z4",
+     "type": "mc",
+     "vraag": "“Mijn oom heeft een zaak.” Burada zaak ne?",
+     "opties": [
+      "dava",
+      "dükkân, işletme",
+      "sorun"
+     ],
+     "juist": 1,
+     "uitleg": "een zaak hebben = bir işletmesi olmak."
+    },
+    {
+     "id": "ws-z5",
+     "type": "type",
+     "tr": "Bu benim işim değil.",
+     "antwoorden": [
+      "Dat is mijn zaak niet",
+      "Dat is niet mijn zaak",
+      "Het is mijn zaak niet"
+     ],
+     "uitleg": "zaak = iş, mesele."
+    }
+   ],
+   "bronnen": [
+    "Wiktionary: zaak, Sache, sacu, sak",
+    "Etymonline: sake (n.1)"
+   ]
   }
  ]
 }
