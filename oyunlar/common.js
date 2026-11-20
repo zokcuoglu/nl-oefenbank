@@ -155,6 +155,7 @@ dialog.og-wi .tr{color:var(--muted,#566377);margin:0 0 10px}
 dialog.og-wi .lv{font-size:12px;font-weight:700;border:1px solid var(--line,#d3dae3);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
 dialog.og-wi .ex{background:var(--sunk,#e6eaf0);border-radius:8px;padding:8px 10px;margin:6px 0}
 dialog.og-wi .ex i{display:block;font-size:14px;color:var(--muted,#566377);font-style:normal}
+dialog.og-wi .ex a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 dialog.og-wi h4{font-size:14px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted,#566377)}
 dialog.og-wi .x{float:right;font:inherit;font-size:20px;background:none;border:0;cursor:pointer;color:inherit}
 .og [hidden]{display:none!important}`;
@@ -186,7 +187,9 @@ export function openWordInfo(k, info) {
     dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest("[data-close]")) dlg.close(); });
     document.body.appendChild(dlg);
   }
-  const ex = (info.voorbeelden || []).map(v => `<div class="ex">${esc(v.nl)}<i>${esc(v.tr)}</i></div>`).join("");
+  // Example: Dutch sentence, Turkish translation if there is one, else the text it comes from (a link)
+  const ex = (info.voorbeelden || []).map(v => `<div class="ex">${esc(v.nl)}${v.tr ? `<i>${esc(v.tr)}</i>`
+    : v.href ? `<i><a href="${esc(siteUrl(v.href))}">${esc(v.t)}</a></i>` : ""}</div>`).join("");
   dlg.innerHTML = `<button class="x" data-close aria-label="Kapat">×</button>
     <h3>${esc(k)}<span class="lv">${esc(info.niveau || "")}</span></h3>
     <p class="tr">${esc(info.tr || "")}</p>
@@ -197,10 +200,18 @@ export function openWordInfo(k, info) {
 }
 // One click handler for all games: buttons made by wordButton look their word up in the lookup given here
 export function bindWordInfo(root, lookup) {
-  root.addEventListener("click", e => {
+  root.addEventListener("click", async e => {
     const b = e.target.closest("[data-wk]"); if (!b) return;
-    openWordInfo(b.dataset.wk, lookup(b.dataset.wk));
+    e.preventDefault(); e.stopPropagation();          // inside a clickable row: open the box, not the row
+    openWordInfo(b.dataset.wk, await lookup(b.dataset.wk));
   });
+}
+// Word box data of the word games (built by scripts/content/build_woordinfo.py). Loaded on the first click only,
+// so opening a game does not get slower. Lookup by the word without de/het, in lower case.
+let woordInfo = null;
+export async function wordInfoOf(word) {
+  woordInfo ??= fetch(new URL("./woordinfo.json", import.meta.url)).then(r => r.json()).then(d => d.woorden).catch(() => ({}));
+  return (await woordInfo)[String(word).toLowerCase().replace(/^(de|het|een)\s+/, "").trim()];
 }
 
 export const flash = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };

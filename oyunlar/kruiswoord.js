@@ -5,7 +5,7 @@
 // "Bitir" ends the puzzle early: the words not found are shown with their answer and give no points.
 import { makePuzzle, seededRandom } from "../../slimspel/kruiswoord/engine.js";
 import { shareText, trDate } from "./share.js";
-import { esc, fmt, today, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, injectCss, flash } from "./common.js";
+import { esc, fmt, today, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, injectCss, flash, wordButton, bindWordInfo, wordInfoOf } from "./common.js";
 
 const GAME = "kruiswoord", MODULE = "oyun-kruiswoord";
 // niv = which word levels may be used; count = words, maxLen = longest word, size = build space (cropped after)
@@ -94,6 +94,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       <div class="grid2"><div class="pan" data-r="mine2"></div><div class="pan" data-r="rank2"></div></div>
     </section>`;
   const $ = r => root.querySelector(`[data-r="${r}"]`);
+  bindWordInfo(root, wordInfoOf);   // click on a word = word box (meaning, examples, where on the site)
 
   let bank;
   try { bank = await fetch(new URL("./kruiswoord-nt2.json", import.meta.url), { cache: "no-cache" }).then(r => r.json()); }
@@ -128,9 +129,15 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       : `<p class="small">Bu seviyede henüz bulmaca çözmedin.</p>`);
   }
 
+  // The example sentence with the answer filled in. Where the sentence needs another form of the word
+  // (moet, nieuwe, handen) the data has the correct full sentence in zf; filling in the answer would be wrong Dutch.
+  const fullSentence = (ex, w) => {
+    const s = ex.zf || ex.z.replace("___", w.toLowerCase());
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
   // The puzzle's words with their meaning and example sentence (💡 = a hint letter was used in that word)
   // missed (optional): true per word that was not found when the player pressed "Bitir"; those come first
-  const wordsHtml = (P, wordHints, missed = []) => P.words.map((x, k) => [x, k]).sort((a, b) => !!missed[b[1]] - !!missed[a[1]]).map(([x, k]) => `<li class="${missed[k] ? "miss" : ""}"><span><b>${esc(x.w.toLowerCase())}</b>${missed[k] ? " ✗ bulamadın" : wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(sentenceOf(x).z.replace("___", x.w.toLowerCase()))}</i>` : ""}</span></li>`).join("");
+  const wordsHtml = (P, wordHints, missed = []) => P.words.map((x, k) => [x, k]).sort((a, b) => !!missed[b[1]] - !!missed[a[1]]).map(([x, k]) => `<li class="${missed[k] ? "miss" : ""}"><span>${wordButton(x.w.toLowerCase())}${missed[k] ? " ✗ bulamadın" : wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(fullSentence(sentenceOf(x), x.w))}</i>` : ""}</span></li>`).join("");
 
   // The solved grid, read-only: green = found, grey italic = found with a hint letter, red = not found.
   // The attempt does not store the typed grid, so it is rebuilt from the solution and the per-word flags.
@@ -194,7 +201,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     $("cw").querySelectorAll(".sq.on").forEach(el => el.onclick = () => pickCell(Number(el.dataset.i)));
     // Clue = Turkish meaning + a Dutch example sentence with the answer blanked (and its Turkish), when the word list has one
     const li = (x, k) => { const ex = sentenceOf(x);
-      return `<li data-k="${k}"><span class="num">${x.num}</span><span class="txt">${esc(x.c)}${ex?.z ? `<span class="zin" lang="nl">${esc(ex.z)}</span>${ex.zt ? `<span class="zt">${esc(ex.zt)}</span>` : ""}` : ""}</span><span class="len">(${x.w.length})</span></li>`; };
+      return `<li data-k="${k}"><span class="num">${x.num}</span><span class="txt">${esc(x.c)}${ex?.z ? `<span class="zin" lang="nl">${esc(ex.z)}${ex.zf ? ` <span class="zt">(cümlede çekimli hâli)</span>` : ""}</span>${ex.zt ? `<span class="zt">${esc(ex.zt)}</span>` : ""}` : ""}</span><span class="len">(${x.w.length})</span></li>`; };
     $("cluesH").innerHTML = P.words.map((x, k) => x.dir === "H" ? li(x, k) : "").join("");
     $("cluesV").innerHTML = P.words.map((x, k) => x.dir === "V" ? li(x, k) : "").join("");
     root.querySelectorAll(".clues li").forEach(el => el.onclick = () => { S.word = Number(el.dataset.k); S.cell = firstOpen(S.word); draw(); focusKbd(); });
