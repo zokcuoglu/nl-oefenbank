@@ -45,7 +45,7 @@ const TEXT = {
     nobody: "Nog niemand in deze periode.", pts: "Punten: 1e poging 6, 2e poging 5 … 6e poging 1, niet geraden 0.",
     rankErr: "De ranglijst is nu niet beschikbaar.", saveErr: c => `Score niet opgeslagen (${c}).`, loadErr: "De woorden konden niet worden geladen. Ververs de pagina.",
     credit: "Woordenlijst voor het controleren van woorden: OpenTaal (opentaal.org), CC BY 3.0.",
-    tr: "Türkçe", example: "Voorbeeld", alsoIn: "Ook in Slimspel", news: "In Nieuws in niveaus", origin: "Herkomst en meer betekenissen (WikiWoordenboek) →" },
+    tr: "Türkçe", example: "Voorbeeld", alsoIn: "Ook in Slimspel", news: "In Nieuws in niveaus", site: "Op NL Oefenbank", origin: "Herkomst en meer betekenissen (WikiWoordenboek) →" },
   tr: { levels: { makkelijk: "Kolay · 4 harf", normaal: "Orta · 5 harf", moeilijk: "Zor · 6 harf" },
     title: "Woordle · Türkçe", intro: "Gizli kelimeyi 6 denemede bul. Gerçek bir kelime yaz ve Enter'a bas. Renkler sana yol gösterir:",
     legend: ["harf doğru, yeri doğru", "harf kelimede var, yeri farklı", "harf kelimede yok"],
@@ -488,7 +488,7 @@ export async function mountWoordle(root, { lang = "nl", user, profile, api, shar
     if (kwClue[w]) where.push(`Kruiswoord: “${esc(kwClue[w])}”`);
     if (wzTheme[w]) where.push(`Woordzoeker: thema ${esc(wzTheme[w])}`);
     if (where.length) html += `<h4>${esc(T.alsoIn)}</h4>` + where.map(x => `<p>${x}</p>`).join("");
-    html += `<div data-r="news"></div><p class="small"><a href="https://nl.wiktionary.org/wiki/${encodeURIComponent(w)}" target="_blank" rel="noopener">${esc(T.origin)}</a></p>`;
+    html += `<div data-r="news"></div><div data-r="site"></div><p class="small"><a href="https://nl.wiktionary.org/wiki/${encodeURIComponent(w)}" target="_blank" rel="noopener">${esc(T.origin)}</a></p>`;
     box.innerHTML = html;
     // Sentences with this word in the "Nieuws in niveaus" texts (easiest level first)
     try {
@@ -500,7 +500,15 @@ export async function mountWoordle(root, { lang = "nl", user, profile, api, shar
         const sent = text.split(/(?<=[.!?])\s+|\n+/).find(s => re.test(s));
         if (sent) hits.push({ id: item.id, title: item.titel, lv: lv.toUpperCase(), s: sent.trim() });
       }
-      if (hits.length) $("news").innerHTML = `<h4>${esc(T.news)}</h4>` + hits.map(h => `<p class="ex">${esc(h.s)}</p><p class="small">${esc(h.title)} · ${h.lv}</p>`).join("");
+      // The news title is a link that opens that news item
+      if (hits.length) $("news").innerHTML = `<h4>${esc(T.news)}</h4>` + hits.map(h => `<p class="ex">${esc(h.s)}</p><p class="small"><a href="${new URL(`../../nieuws/?id=${encodeURIComponent(h.id)}`, HERE)}">${esc(h.title)}</a> · ${h.lv}</p>`).join("");
+    } catch {}
+    // Other places on the site where the word is used or taught (lessons, Lezen, Luisteren, word study),
+    // from the same word file as the word box of the daily games (scripts/content/build_woordinfo.py)
+    try {
+      const all = await fetch(new URL("../../oyunlar/woordinfo.json", HERE)).then(r => r.json());
+      const tags = (all.woorden[w]?.tags || []).filter(t => !t.href.startsWith("nieuws/"));   // news is listed above
+      if (tags.length) $("site").innerHTML = `<h4>${esc(T.site)}</h4>` + tags.map(t => `<p class="small"><a href="${new URL("../../" + t.href, HERE)}">${esc(t.t)}</a></p>`).join("");
     } catch {}
   }
 
