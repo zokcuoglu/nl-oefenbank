@@ -1,4 +1,4 @@
-"""Builds oyunlar/woordinfo.json: the word box of the daily games (de/het, düzensiz fiiller, Bağlantılar, NT2 Bulmaca).
+"""Builds oyunlar/woordinfo.json: the word box of the daily games (de/het, düzensiz fiiller, Bağlantılar, NT2 Bulmaca, Woordle).
 
 Clicking a word in a game opens a box with: meaning, level, explanation, example sentences and the places on
 the site where the word is used or taught (each a link that opens that exact text or lesson).
@@ -29,6 +29,16 @@ for w in POOL:                                                          # de/het
 for g in load("oyunlar/verbanden.json")["groups"]:
     for w in g["w"]:
         words.setdefault(key(w["nl"]), {"tr": w["tr"]})
+# Woordle (Dutch): answers of 4-6 letters from the pool (groep 1-6) and the Slimspel crossword / word search lists
+for w in POOL:
+    t = key(w["nl"])
+    if str(w.get("groep")) in {"1-2", "3", "4", "5", "6"} and w.get("soort", "woord") == "woord" and re.fullmatch(r"[a-z]{4,6}", t) and "ij" not in t:
+        words.setdefault(t, {"tr": w["tr"]})
+for x in load("slimspel/kruiswoord/woorden.json")["words"]:
+    if re.fullmatch(r"[a-z]{4,6}", x["w"].lower()): words.setdefault(x["w"].lower(), {"tr": ""})
+for th in load("slimspel/woordzoeker/woorden.json")["themes"]:
+    for x in th["words"]:
+        if re.fullmatch(r"[a-z]{4,6}", x.lower()): words.setdefault(x.lower(), {"tr": ""})
 KW = load("oyunlar/kruiswoord-nt2.json")["words"]
 for w in KW:
     words.setdefault(key(w["w"]), {"tr": w["c"]})
