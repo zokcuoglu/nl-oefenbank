@@ -45,46 +45,27 @@ for w in KW:
     words[key(w["w"])].setdefault("kw", w)
 
 # ---------- 2. Where on the site can a word be found? ----------
-# (label, link, list of Dutch sentences). Links are relative to the site root.
-def strings(x):
-    if isinstance(x, str): yield x
-    elif isinstance(x, list):
-        for y in x: yield from strings(y)
-    elif isinstance(x, dict):
-        for y in x.values(): yield from strings(y)
-
-def sentences(obj):
-    out = []
-    for s in strings(obj):
-        if TURKISH & set(s) or "___" in s or "<" in s or "+" in s: continue
-        for zin in re.split(r"(?<=[.!?])\s+", s.strip()):
-            n = len(zin.split())
-            if 5 <= n <= 18 and zin[:1].isupper() and zin[-1:] in ".!?" and not TR_WORDS.search(zin.lower().replace(" de ", " ")): out.append(zin)
-    return out
-
-places = []
-for it in load("data/nieuws.json")["items"]:
-    places.append((f"Nieuws · {it['titel']}", f"nieuws/?id={it['id']}", sentences({k: it.get(k) for k in ("a2", "b1", "a1")})))
-for f, lab, base in [("lezen-teksten.json", "Lezen B1", "lezen/teksten.html?t="), ("lezen-a2.json", "Lezen A2", "lezen/teksten.html?set=a2&t=")]:
-    for t in load(f"data/{f}")["teksten"]:
-        places.append((f"{lab} · {t['titel']}", base + t["id"], sentences(t)))
-for f, lab, base in [("luisteren-b1.json", "Luisteren B1", "luisteren/?f="), ("luisteren-a2.json", "Luisteren A2", "luisteren/?set=a2&f=")]:
-    for e in load(f"data/{f}")["examens"]:
-        for fr in e["fragmenten"]:
-            places.append((f"{lab} · {fr.get('intro', '').rstrip('.')}", base + fr["id"], sentences(fr)))
-LESSONS = [(f"Ders · {l['titel']}", f"dersler/?les={l['id']}", sentences(l)) for l in load("data/dersler.json")["lessen"]]
-STUDIE = {key(w["woord"]): w for w in load("data/woordstudie.json")["woorden"]}
-NEWS = {it["id"]: it["titel"] for it in load("data/nieuws.json")["items"]}
+# Item by item (one news item, one Lezen text, one KNM question, one KNM critical word ...), each with a link that
+# opens exactly that item: see site_places.py (shared with build_voorzetsels.py). Teaching places come first.
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_places import all_places
+PLACES = [p for p in all_places() if p["href"]]                       # no link = not shown on the site
+TAUGHT = {}                                                            # word -> places that explain exactly this word
+for pl in PLACES:
+    if pl["kind"] in ("knm-woord", "woordstudie"): TAUGHT.setdefault(key(pl["woord"]), []).append(pl)
 POOL_BY_KEY = {}
 for w in POOL:
     if w.get("tur") != "uitdr": POOL_BY_KEY.setdefault(key(w["nl"]), w)
+NEWS = {it["id"]: it["titel"] for it in load("data/nieuws.json")["items"]}
+COMMON = 25    # a word in more places than this is too common for "used in" tags
 
 def pattern(k, info):
     """Whole-word match on the word and, for irregular verbs, on their past forms too (liep, gelopen ...)."""
     forms = {k}
     v = info.get("verb")
     if v: forms |= {f.lower() for f in v["imp"] + [v.get("impMv") or "", v["vd"]] if f}
-    return re.compile(r"(?<![\wà-ÿ])(" + "|".join(sorted(map(re.escape, forms), key=len, reverse=True)) + r")(?![\wà-ÿ])", re.I)
+    return re.compile(r"(?<![\wà-ÿ-])(" + "|".join(sorted(map(re.escape, forms), key=len, reverse=True)) + r")(?![\wà-ÿ-])", re.I)
 
 # ---------- 3. One info block per word ----------
 info = {}
@@ -106,17 +87,24 @@ for k, src in sorted(words.items()):
     seen_ex = set()
     ex = [e for e in ex if not (e["nl"].lower() in seen_ex or seen_ex.add(e["nl"].lower()))]
 
-    tags = []
-    if k in STUDIE: tags.append({"t": f"Kelime incelemesi · {STUDIE[k]['woord']}", "href": f"woordstudie/?w={STUDIE[k]['id']}"})
+    # Tags: 1) places that explain this very word (KNM critical word, word study), 2) the news items the pool
+    # links it to, 3) items with a sentence containing the word. Every tag keeps that sentence (z) so the
+    # player sees why it is there.
+    tags = [{"t": pl["t"], "href": pl["href"], "z": ""} for pl in TAUGHT.get(k, [])]
     for nid in p.get("in_nieuws") or []:
-        if nid in NEWS: tags.append({"t": f"Nieuws · {NEWS[nid]}", "href": f"nieuws/?id={nid}"})
+        if nid in NEWS: tags.append({"t": f"Nieuws · {NEWS[nid]}", "href": f"nieuws/?id={nid}", "z": ""})
     rx = pattern(k, src)
     real = []                                                           # real sentences from the site, with their link
-    for lab, href, zinnen in LESSONS + places:
-        hit = next((z for z in zinnen if rx.search(z)), None)
+    for pl in PLACES:
+        if pl["kind"] in ("knm-woord", "woordstudie"): continue
+        hit = next((z for z in pl["zinnen"] if rx.search(z)), None)
         if hit:
-            tags.append({"t": lab, "href": href})
-            if len(real) < 2 and hit.lower() not in seen_ex: real.append({"nl": hit, "tr": "", "t": lab, "href": href})
+            tags.append({"t": pl["t"], "href": pl["href"], "z": hit})
+            if len(real) < 2 and hit.lower() not in seen_ex: real.append({"nl": hit, "tr": "", "t": pl["t"], "href": pl["href"]})
+    # A very common word (zijn, werken) occurs everywhere: those uses say nothing, so keep only the places
+    # that teach it and its news items
+    if len(tags) > COMMON:
+        tags = [t for t in tags if not t["z"]]
     seen, out = set(), []
     for t in tags:
         if t["href"] not in seen: seen.add(t["href"]); out.append(t)

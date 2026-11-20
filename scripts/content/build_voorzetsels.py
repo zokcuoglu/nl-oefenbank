@@ -164,37 +164,26 @@ def clean(s):
 def norm(s):   # compare without case, quotes and extra spaces
     return re.sub(r"\s+", " ", re.sub(r"['\"*]", "", clean(s))).strip().lower()
 
-# Every place a sentence can come from: (label, link on the site, normalised text).
-# The link opens that exact text where the page allows it (news item, Lezen text, Luisteren fragment);
-# otherwise the section page. Links are relative to the site root.
-texts = []
-news = json.loads((ROOT / "data/nieuws.json").read_text())
-for it in news["items"]:
-    texts.append((f"Nieuws · {it['titel']}", f"nieuws/?id={it['id']}", norm(json.dumps(it, ensure_ascii=False))))
-for f, lab, base in [("lezen-teksten.json", "Lezen B1", "lezen/teksten.html?t="), ("lezen-a2.json", "Lezen A2", "lezen/teksten.html?set=a2&t=")]:
-    for t in json.loads((ROOT / "data" / f).read_text())["teksten"]:
-        texts.append((f"{lab} · {t['titel']}", base + t["id"], norm(json.dumps(t, ensure_ascii=False))))
-for f, lab, base in [("luisteren-b1.json", "Luisteren B1", "luisteren/?f="), ("luisteren-a2.json", "Luisteren A2", "luisteren/?set=a2&f=")]:
-    for e in json.loads((ROOT / "data" / f).read_text())["examens"]:
-        for fr in e["fragmenten"]:
-            texts.append((f"{lab} · {fr.get('intro', '').rstrip('.')}", base + fr["id"], norm(json.dumps(fr, ensure_ascii=False))))
-for f, lab, href in [("knm.json", "KNM", "knm/"), ("spreken.json", "Spreken B1", "spreken/"), ("spreken-a2.json", "Spreken A2", "spreken-a2/"),
-                     ("spreken-hulp.json", "Spreken B1", "spreken/"), ("schrijven-b1.json", "Schrijven B1", "schrijven/"),
-                     ("schrijven-a2.json", "Schrijven A2", "schrijven-a2/"), ("lezen-bank.json", "Lezen woordenlijst", "lezen/")]:
-    texts.append((lab, href, norm((ROOT / "data" / f).read_text())))
-# The word pool entry by entry, so the tag can name the word (and a news word links to its news item)
+# Every place on the site, item by item (one news item, one Lezen text, one KNM question, one Spreken question ...),
+# each with a link that opens exactly that item: see site_places.py (shared with build_woordinfo.py).
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_places import all_places
+PLACES = all_places()
+for pl in PLACES: pl["n"] = norm(pl["text"])
+# Where does a game sentence come from? Texts first, the word lists last (a sentence in both is from the text).
+SOURCE_ORDER = ["nieuws", "lezen", "luisteren", "knm-soru", "spreken", "schrijven", "ders", "woordstudie", "knm-woord", "knm-oud"]
+SOURCES = sorted(PLACES, key=lambda pl: SOURCE_ORDER.index(pl["kind"]))
 WOORDEN = json.loads((ROOT / "data/woorden.json").read_text())["woorden"]
 def woord_href(w):
     return f"nieuws/?id={w['item']}" if w.get("bron") == "nieuws" and w.get("item") else "woorden/"
-for w in WOORDEN:
-    texts.append((f"Kelime listesi · {w['nl']}", woord_href(w), norm(json.dumps(w, ensure_ascii=False))))
-# json.dumps escapes nothing for ensure_ascii=False, but the raw files may contain \" etc.: unescape those too
-texts = [(lab, href, t.replace("\\n", " ").replace('\\"', "")) for lab, href, t in texts]
 
 def source(full):
-    n = norm(full)
-    for lab, href, t in texts:
-        if n in t: return lab, href
+    n = norm(full).rstrip(".!?")   # a definition can hold the sentence without its full stop
+    for pl in SOURCES:
+        if n in pl["n"]: return pl["t"], pl["href"]
+    for w in WOORDEN:   # the word pool, entry by entry
+        if n in norm(json.dumps(w, ensure_ascii=False)): return f"Kelime listesi · {w['nl']}", woord_href(w)
     return None, None
 
 def build(rows, prefix):
@@ -230,22 +219,59 @@ def core(k):
     k = re.sub(r"^(zich|het|de) ", "", k.strip())
     return k.replace(" iets ", " ").strip()
 
-LESSEN = json.loads((ROOT / "data/dersler.json").read_text())["lessen"]
-STUDIE = json.loads((ROOT / "data/woordstudie.json").read_text())["woorden"]
-places = ([(f"Ders · {l['titel']}", f"dersler/?les={l['id']}", norm(json.dumps(l, ensure_ascii=False))) for l in LESSEN]
-          + [(f"Kelime incelemesi · {w['woord']}", f"woordstudie/?w={w['id']}", norm(json.dumps(w, ensure_ascii=False))) for w in STUDIE]
-          + [(lab, href, t) for lab, href, t in texts if href.startswith("nieuws/") and lab.startswith("Nieuws")])
+VERBS = {v["inf"]: v for v in json.loads((ROOT / "oyunlar/werkwoorden.json").read_text())["werkwoorden"]}
+VOWELS = "aeiou"
+EEREN = {"reageren", "informeren", "profiteren", "concentreren", "interesseren", "studeren", "organiseren"}   # stress on -eer
+
+def verb_forms(inf):
+    """The forms a verb can have right before its preposition: denken -> denk, denkt, denken, dacht, dachten, gedacht.
+    Irregular verbs from werkwoorden.json; regular ones by the spelling rules (stem, 't kofschip)."""
+    if not inf.endswith("en"): return {inf}
+    s = inf[:-2]
+    if inf in EEREN: s = inf[:-4] + "eer"                                                  # reageren -> reageer
+    elif len(s) > 1 and s[-1] == s[-2] and s[-1] not in VOWELS: s = s[:-1]                 # stoppen -> stop
+    elif len(s) > 2 and s[-1] not in VOWELS and s[-2] in VOWELS and s[-3] not in VOWELS and not s.endswith(("er", "el")):
+        s = s[:-1] + s[-2] + s[-1]                                                          # praten -> praat
+    soft = s[:-1] + {"v": "f", "z": "s"}.get(s[-1], s[-1])                                  # leven -> leef
+    forms = {inf, soft, soft if soft.endswith("t") else soft + "t"}
+    v = VERBS.get(inf)
+    if v:
+        forms |= {f.lower() for f in v["imp"] + [v.get("impMv") or "", v["vd"]] if f}
+    else:
+        te = "te" if s[-1] in "tkfsp" or s.endswith("ch") else "de"                          # 't kofschip (stem before f/s)
+        end = "" if soft[-1] in "td" else ("t" if te == "te" else "d")                       # gewacht, not gewachtt
+        forms |= {soft + te, soft + te + "n", "ge" + soft + end}
+    return forms
+
+def phrase_rx(k):
+    """The combination as it really appears in a sentence, words side by side:
+    'denken aan' also finds 'denkt aan', 'dacht aan'; 'bang zijn voor' also 'bang voor'.
+    Split forms (Ik denk er vaak aan) are not searched: a tag is only made where the phrase clearly is."""
+    w = core(k).split()
+    alts = [w]
+    if len(w) >= 2 and w[0].endswith("en"):                       # verb + preposition
+        alts = [[f] + w[1:] for f in sorted(verb_forms(w[0]))]
+    if "zijn" in w[1:-1]:                                          # adjective + zijn + preposition
+        alts.append([x for x in w if x != "zijn"])
+    pats = [r"\s+".join(map(re.escape, a)) for a in alts]
+    return re.compile(r"(?<![\wà-ÿ])(?:" + "|".join(pats) + r")(?![\wà-ÿ])", re.I)
 
 def word_info(k, qs):
     r = UITLEG[k]
-    tags = [{"t": q["bron"], "href": q["href"]} for q in qs if q["href"]]
-    c = " " + norm(core(k)) + " "
-    for lab, href, t in places:                       # lessons, word studies, news where the phrase itself occurs
-        if len(c.split()) > 1 and c in " " + re.sub(r"[^\w' ]", " ", t) + " ":
-            tags.append({"t": lab, "href": href})
-    for w in WOORDEN:                                 # the word pool (e.g. "wat erbij komt kijken")
-        if len(c.split()) > 1 and c in " " + norm(w["nl"]) + " ":
-            tags.append({"t": f"Kelime listesi · {w['nl']}", "href": woord_href(w)})
+    # 1) where the game's own sentences come from (with the sentence itself)
+    tags = [{"t": q["bron"], "href": q["href"], "z": q["zin"].replace("___", q["a"])} for q in qs if q["href"]]
+    rx = phrase_rx(k)
+    if len(core(k).split()) > 1:
+        # 2) KNM critical words whose entry is this combination
+        for pl in PLACES:
+            if pl["kind"] == "knm-woord" and rx.search(pl["woord"]): tags.append({"t": pl["t"], "href": pl["href"], "z": ""})
+        # 3) every other item with a sentence that contains the combination (teaching places first, see site_places)
+        for pl in PLACES:
+            if pl["kind"] in ("knm-woord", "knm-oud") or not pl["href"]: continue
+            z = next((x for x in pl["zinnen"] if rx.search(x)), None)
+            if z: tags.append({"t": pl["t"], "href": pl["href"], "z": z})
+        for w in WOORDEN:                                 # the word pool (e.g. "wat erbij komt kijken")
+            if rx.search(w["nl"]): tags.append({"t": f"Kelime listesi · {w['nl']}", "href": woord_href(w), "z": w.get("voorbeeld", "")})
     seen, out = set(), []
     for tg in tags:
         if tg["href"] + tg["t"] not in seen:

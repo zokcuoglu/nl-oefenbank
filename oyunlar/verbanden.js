@@ -6,7 +6,7 @@
 //   - r: a rule the code can check (het, -je, ui, ij, oo, 3 letters): no other word that day may fit it.
 // Score: 3 points per group found + 1 per mistake left (max 16).
 import { shareText, trDate } from "./share.js";
-import { esc, fmt, today, hash, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, wordButton, bindWordInfo, wordInfoOf } from "./common.js";
+import { esc, fmt, today, hash, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, wordButton, bindWordInfo, wordInfoOf, tagSlot } from "./common.js";
 
 const GAME = "verbanden", MODULE = "oyun-verbanden", LEVEL = "dag", LIVES = 4;
 const COLORS = { 1: "#f4d35e", 2: "#7cc47f", 3: "#6fa8dc", 4: "#b48ad6" };   // easy → tricky
@@ -131,7 +131,7 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
 
   // All groups of the day with the meaning of every word; ✓ found, ✗ not found
   const groupsHtml = (gs, found) => gs.map((g, gi) => `<div class="g" style="background:${COLORS[g.d]}"><h4>${found.includes(gi) ? "✓" : "✗"} ${esc(g.t)}</h4>
-        <ul>${g.w.map(w => `<li>${wordButton(w.nl)} = ${esc(w.tr)}</li>`).join("")}</ul></div>`).join("");
+        <ul>${g.w.map(w => `<li>${wordButton(w.nl)} = ${esc(w.tr)} ${tagSlot(w.nl)}</li>`).join("")}</ul></div>`).join("");
 
   function drawSetup() {
     const done = playedToday();
