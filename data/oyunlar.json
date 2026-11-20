@@ -1,0 +1,43 @@
+{
+ "_about": "Texts about the games. 'dagelijks' = the daily challenges (tab 'Uitdaging van de dag' on the home page, kort = one line under the game buttons). 'tanitim' = the order in which the Thursday mail (Haftanın Hollandacası, part 'Bu hafta tanıyalım') introduces one game or kids section a week; the mailer takes the first one not sent yet and starts again at the top when all were sent. href is relative to the site root. Check rules in the code before changing a number here.",
+ "dagelijks": [
+  {"id": "woordle-tr", "title": "Woordle · Türkçe", "kort": "5 harfli Türkçe kelimeyi 6 denemede bul."},
+  {"id": "woordle-nl", "title": "Woordle · Hollandaca", "kort": "5 harfli Hollandaca kelimeyi 6 denemede bul; sonunda anlamı ve sitede geçtiği yerler."},
+  {"id": "dehet", "title": "de / het", "kort": "10 isim: de mi, het mi?"},
+  {"id": "werkwoorden", "title": "Düzensiz fiiller", "kort": "5 düzensiz fiil: geçmiş zaman ve perfectum."},
+  {"id": "kruiswoord", "title": "NT2 Bulmaca", "kort": "Türkçe ipuçlarıyla küçük bir bulmaca; A1, A2 ve B1."},
+  {"id": "verbanden", "title": "Bağlantılar", "kort": "16 kelimeyi 4'lü gruplara ayır; 4 hakkın var."},
+  {"id": "voorzetsels", "title": "Edatlar", "kort": "10 cümlede sabit edatı yaz: denken aan, wachten op …"},
+  {"id": "erop", "title": "er + edat", "kort": "5 cümle: erop, eraan, ermee …"}
+ ],
+ "tanitim": [
+  {"id": "voorzetsels", "titel": "Uitdaging van de dag: Edatlar", "href": "#oyunlar/voorzetsels",
+   "tekst": "Her gün 10 cümlede sabit edatı yazıyorsun (denken aan, wachten op, bang zijn voor). Cümleler sitedeki haberlerden, Lezen metinlerinden ve KNM sorularından geliyor. Dün herkesin çok yanlış yaptığı cümleler bugün tekrar gelir. Bitirince kalıba tıkla: açıklama, örnekler ve sitede geçtiği yerler açılır."},
+  {"id": "g5-rekenen", "titel": "Çocuklar için: Rekenen & meetkunde", "href": "kids/rekenen.html",
+   "tekst": "Okuldaki matematik konuları, çocuğun groep'una göre: akıldan hesap, bölme, saat, para, ölçme, kesirler; groep 7-8'de yüzde, ondalık sayı, oran ve ortalama. Anlatım Hollandaca ve Türkçe."},
+  {"id": "werkwoorden", "titel": "Uitdaging van de dag: Düzensiz fiiller", "href": "#oyunlar/werkwoorden",
+   "tekst": "Her gün 5 düzensiz fiil: önce geçmiş zamanı (lopen → liep), sonra perfectum'u (heb/ben + gelopen) yazıyorsun. Sonunda bütün cevaplar ve fiile tıklayınca hâlleri, örnek cümleleri açılır."},
+  {"id": "slimspel-paspuzzel", "titel": "Slimspel: Paspuzzel", "href": "slimspel/paspuzzel/",
+   "tekst": "Bulmaca dergilerindeki gibi: listedeki kelimeleri sık bir tabloya yerleştiriyorsun, en altta bir çözüm kelimesi çıkıyor. Her gün yeni, herkes için aynı."},
+  {"id": "kruiswoord", "titel": "Uitdaging van de dag: NT2 Bulmaca", "href": "#oyunlar/kruiswoord",
+   "tekst": "Türkçe ipuçlarıyla küçük bir Hollandaca bulmaca; A1, A2 ve B1 için her gün ayrı bir tane. Takılırsan ipucu harf alabilir ya da erken bitirip bulamadığın kelimeleri görebilirsin."},
+  {"id": "woorden-groep", "titel": "Çocuklar için: Woordentest", "href": "woorden/",
+   "tekst": "Çocuğun groep'una göre kelime testi: anlamı, Hollandacası ve boşluk doldurma. Önceki yılların kelimeleri de gelir; ipucu var, sonda bütün cevaplar görünür."},
+  {"id": "verbanden", "titel": "Uitdaging van de dag: Bağlantılar", "href": "#oyunlar/verbanden",
+   "tekst": "16 Hollandaca kelimeyi 4'lü gruplara ayırıyorsun: aynı temadan, aynı sesle biten ya da başka bir ortak noktası olan kelimeler. 4 yanlış hakkın var."},
+  {"id": "slimspel-sudoku", "titel": "Slimspel: Sudoku", "href": "slimspel/sudoku/",
+   "tekst": "4×4 ve 6×6 günlük sudoku; her gün her seviyeden bir tane, herkes için aynı. Hollandaca kelime yok, sadece mola için."},
+  {"id": "dehet", "titel": "Uitdaging van de dag: de / het", "href": "#oyunlar/dehet",
+   "tekst": "Her gün 10 isim: de mi, het mi? Kelimeler sitenin kelime havuzundan. Bitirince kelimeye tıkla: anlamı, örnekleri ve sitede geçtiği yerler açılır."},
+  {"id": "school-weer", "titel": "Çocuklar için: Thema Weer", "href": "kids/woordkaarten.html?lijst=weer",
+   "tekst": "Okul listesinden 30 hava durumu kelimesi (Staal groep 5): hafıza kartları, eşleştirme ve test. Kartın arka yüzü Hollandaca tanım ya da Türkçe."},
+  {"id": "erop", "titel": "Uitdaging van de dag: er + edat", "href": "#oyunlar/erop",
+   "tekst": "Her gün 5 cümle: bir şeyin yerine er gelir ve edata yapışır (Ik wacht erop). Konuşmada çok sık, sınavda da çıkar."},
+  {"id": "slimspel-kennis", "titel": "Slimspel: Algemene kennis", "href": "slimspel/kennis/",
+   "tekst": "Ülkeler, diller, futbol, hayvanlar, doğa ve Hollanda üzerine 10 soruluk turlar; her cevaptan sonra kısa bir bilgi. Önceden yanlış yapılan sorular daha sık gelir."},
+  {"id": "woordle", "titel": "Uitdaging van de dag: Woordle", "href": "#oyunlar/woordle-nl",
+   "tekst": "Günün 5 harfli kelimesini 6 denemede bul; Türkçe ve Hollandaca iki ayrı oyun. Hollandaca kelimenin sonunda anlamı, örnek cümlesi ve haberlerden cümleler çıkar."},
+  {"id": "g5-eer-oor-eur", "titel": "Çocuklar için: eer · oor · eur", "href": "kids/g5/eer-oor-eur.html",
+   "tekst": "Groep 5 yazım konusu: 4 test, 72 cümle. Çocuk doğru kelimeyi 3 seçenekten seçer."}
+ ]
+}

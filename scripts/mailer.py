@@ -44,6 +44,7 @@ NOTE_NEWS = "Bu duyuru NL Oefenbank üyelerine gönderildi."
 NOTE_WOORD = "“Kelime incelemesi” e-postasını istemiyorsan sitede Profil sayfasından kapatabilirsin."
 NOTE_TALEP = "Bu özet sadece adminlere gider. Zamanını yönetim panelinin E-posta sekmesinden değiştirebilirsin."
 NOTE_BRIEF = "“Haftanın Hollandacası”nı istemiyorsan sitede Profil sayfasından kapatabilirsin."
+NOTE_DAILY = "Bu günlük hatırlatmayı istemiyorsan sitede Profil sayfasından kapatabilirsin."
 
 # Site colours (light theme) for the HTML template; inline styles because mail clients drop <style>
 C = {"ground": "#F2F4F7", "surface": "#FFFFFF", "line": "#D3DAE3", "ink": "#142033", "muted": "#566377",
@@ -207,7 +208,9 @@ DEFAULT_SCHEDULE = {"news": {"enabled": True, "weekday": 1, "hour": 8},
                     "weekly": {"enabled": True, "weekday": 7, "hour": 18},
                     "brief": {"enabled": True, "weekday": 4, "hour": 19},
                     "woord": {"enabled": True, "weekday": 2, "hour": 19},
-                    "talep": {"enabled": True, "weekday": 1, "hour": 9}}
+                    "talep": {"enabled": True, "weekday": 1, "hour": 9},
+                    # weekday 0 = every day
+                    "daily": {"enabled": True, "weekday": 0, "hour": 16}}
 
 
 def load_schedule(db):
@@ -226,6 +229,9 @@ CATCH_UP = dt.timedelta(hours=48)
 def last_slot(job_cfg, now):
     """Most recent scheduled moment (chosen weekday and hour, Amsterdam time) that is not in the future."""
     local = now.astimezone(AMS)
+    if int(job_cfg["weekday"]) == 0:   # every day: today's hour, or yesterday's if it has not come yet
+        slot = local.replace(hour=int(job_cfg["hour"]), minute=0, second=0, microsecond=0)
+        return slot - dt.timedelta(days=1) if slot > local else slot
     days_back = (local.isoweekday() - int(job_cfg["weekday"])) % 7
     slot = (local - dt.timedelta(days=days_back)).replace(hour=int(job_cfg["hour"]), minute=0, second=0, microsecond=0)
     return slot - dt.timedelta(days=7) if slot > local else slot
@@ -537,8 +543,19 @@ def wants_brief(u):
     return u.get("type") != "child" and bool(u.get("email_brief", True))
 
 
-def brief_mail(week, nieuw, greeting):
-    """Plain text and HTML of one brief. nieuw = list of {tekst, href} to show under "Sitede yeni"."""
+def pick_tanitim(sent_ids):
+    """Next game / kids section to introduce in the brief (data/oyunlar.json 'tanitim'): the first one not sent
+    yet; when all were sent, start again at the top (only the sends after the last full round count)."""
+    items = json.loads((ROOT / "data" / "oyunlar.json").read_text(encoding="utf-8"))["tanitim"]
+    ids = [t["id"] for t in items]
+    rounds = Counter(x for x in sent_ids if x in ids)
+    done = min(rounds[i] for i in ids) if ids else 0
+    return next((t for t in items if rounds[t["id"]] <= done), None)
+
+
+def brief_mail(week, nieuw, greeting, tanitim=None):
+    """Plain text and HTML of one brief. nieuw = list of {tekst, href} to show under "Sitede yeni";
+    tanitim = one game or kids section to introduce this week."""
     d, w, c, pr = week["deyim"], week["woord"], week["cultuur"], week["probeer"]
     link = lambda href: SITE + (href or "")
     plain = [greeting, "",
@@ -547,6 +564,8 @@ def brief_mail(week, nieuw, greeting):
              f"HOLLANDA'DA: {c['titel']}", c["tekst"], ""]
     if nieuw:
         plain += ["SİTEDE YENİ"] + [f"  • {n['tekst']}" + (f" {link(n['href'])}" if n.get("href") else "") for n in nieuw] + [""]
+    if tanitim:
+        plain += ["BU HAFTA TANIYALIM: " + tanitim["titel"], tanitim["tekst"], link(tanitim["href"]), ""]
     plain += ["BU HAFTA BUNU DENE", pr["tekst"], link(pr["href"])]
 
     label = lambda t: f'<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:{C["muted"]};margin:22px 0 6px">{esc(t)}</div>'
@@ -562,6 +581,10 @@ def brief_mail(week, nieuw, greeting):
         inner += label("Sitede yeni") + "".join(
             f'<div style="margin:4px 0;line-height:1.5">• ' + (f'<a href="{esc(link(n["href"]))}" style="color:{C["blue"]}">{esc(n["tekst"])}</a>' if n.get("href") else esc(n["tekst"])) + "</div>"
             for n in nieuw)
+    if tanitim:
+        inner += (label("Bu hafta tanıyalım") + f'<div style="font-weight:700;margin-bottom:4px">{esc(tanitim["titel"])}</div>'
+                  + f'<div style="line-height:1.6">{esc(tanitim["tekst"])}</div>'
+                  + f'<div style="margin-top:6px"><a href="{esc(link(tanitim["href"]))}" style="color:{C["blue"]}">Aç →</a></div>')
     inner += label("Bu hafta bunu dene") + f'<div style="line-height:1.55">{esc(pr["tekst"])}</div>' + button(link(pr["href"]), "Hemen dene")
     return "\n".join(plain), inner
 
@@ -715,13 +738,77 @@ def run_brief(db, sender, now, dry_run=False, force=False):
     since = max((x.get("date", "") for x in logs if x.get("week_id")), default=(now.astimezone(AMS).date() - dt.timedelta(days=14)).isoformat())
     nieuw = sorted((n for n in data.get("nieuw", []) if since < n["datum"] <= today), key=lambda n: n["datum"], reverse=True)[:3]
     subs = {u["email"]: u for u in users if is_approved(u) and u.get("email") and wants_brief(u)}
+    tanitim = pick_tanitim([x.get("tanitim") for x in logs])
     for email in sorted(subs):
-        plain, inner = brief_mail(week, nieuw, f"Merhaba {first_name(subs[email])},")
+        plain, inner = brief_mail(week, nieuw, f"Merhaba {first_name(subs[email])},", tanitim)
         body = plain + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_BRIEF}\nAbonelikten çık: {SITE}profile.html"
         sender.send(email, f"🇳🇱 Haftanın Hollandacası: {week['deyim']['nl']}", body, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
     print(f"brief: {week['id']} -> {len(subs)} recipients, {len(nieuw)} new-on-site lines")
     if not dry_run:
-        log_col.document(f"brief-{today}").set({"job": "brief", "date": today, "week_id": week["id"], "sent_at": iso(now), "mails": len(subs)})
+        log_col.document(f"brief-{today}").set({"job": "brief", "date": today, "week_id": week["id"], "sent_at": iso(now), "mails": len(subs),
+                                                 "tanitim": tanitim["id"] if tanitim else None})
+
+
+# ---------- daily reminder: who did what today (adults, 16:00) ----------
+
+DAILY_MAX = 3          # a mail goes to adults with this many activities today or fewer
+DAILY_WINDOW = dt.timedelta(hours=4)   # a run later than this after 16:00 skips the day (the news would be stale)
+
+
+def wants_daily(u):
+    """Adults, on by default; switched off on the profile page (email_daily)."""
+    return u.get("type") != "child" and bool(u.get("email_daily", True))
+
+
+def activity_names(att, titles):
+    """Readable names of today's rounds, most frequent first: 'Edatlar ×2, Lezen I · Teksten'."""
+    c = Counter(titles.get(a.get("module"), a.get("module") or "?") for a in att)
+    return ", ".join(f"{t} ×{n}" if n > 1 else t for t, n in c.most_common())
+
+
+def daily_text(u, mine, others, titles):
+    """Mail of one person: what the others did today, then what this person did (or not)."""
+    lines = [f"Merhaba {first_name(u)},", ""]
+    if others:
+        lines.append("Bugün sitede:")
+        lines += [f"  • {first_name(o)}: {len(a)} etkinlik ({activity_names(a, titles)})" for o, a in others]
+        lines.append("")
+    if not mine:
+        lines.append("Sen bugün henüz bir şey çözmedin. Günün yarışmaları seni bekliyor; birkaç dakika yeter.")
+    else:
+        lines.append(f"Sen bugün sadece şunları çözdün: {activity_names(mine, titles)}. Bir yarışma daha çözmeye ne dersin?")
+    return "\n".join(lines)
+
+
+def run_daily(db, sender, now, dry_run=False, force=False):
+    local = now.astimezone(AMS)
+    today = local.date().isoformat()
+    log_ref = db.collection("mail_log").document(f"daily-{today}")
+    if not force and log_ref.get().exists:
+        print(f"daily: already sent for {today}")
+        return
+    titles = module_titles()
+    for g in json.loads((ROOT / "data" / "oyunlar.json").read_text(encoding="utf-8"))["dagelijks"]:
+        titles.setdefault("oyun-" + g["id"], g["title"])
+    titles.setdefault("slimspel-woordle", "Woordle · Hollandaca")
+    start = iso(local.replace(hour=0, minute=0, second=0, microsecond=0))
+    users = {d.id: d.to_dict() for d in db.collection("users").stream()}
+    adults = {uid: u for uid, u in users.items() if is_approved(u) and u.get("type") != "child"}
+    today_att = {uid: [d.to_dict() for d in where_gte(db.collection("users").document(uid).collection("attempts"), "finished_at", start).stream()]
+                 for uid in adults}
+    busy = sorted(((u, today_att[uid]) for uid, u in adults.items() if today_att[uid]), key=lambda x: -len(x[1]))
+    count = 0
+    for uid, u in adults.items():
+        mine = today_att[uid]
+        if not u.get("email") or not wants_daily(u) or len(mine) > DAILY_MAX:
+            continue
+        others = [(o, a) for o, a in busy if o is not u][:10]
+        send_simple(sender, u["email"], "NL Oefenbank: bugün kim ne çözdü?", "Bugün sitede",
+                    daily_text(u, mine, others, titles), NOTE_DAILY, link=SITE + "#oyunlar", link_label="Uitdaging van de dag")
+        count += 1
+    print(f"daily: {count} mails ({len(busy)} adults active today)")
+    if not dry_run:
+        log_ref.set({"job": "daily", "date": today, "sent_at": iso(now), "mails": count})
 
 
 # ---------- test: preview mails to one address ----------
@@ -866,6 +953,7 @@ def run_scheduled(db, sender, now, dry_run=False):
     brief_dates = [x.get("date", "") for x in mail_log if x.get("job") == "brief"]
     woord_dates = [x.get("date", "") for x in mail_log if x.get("job") == "woord"]
     talep_dates = [x.get("date", "") for x in mail_log if x.get("job") == "talep"]
+    daily_dates = [x.get("date", "") for x in mail_log if x.get("job") == "daily"]
     if is_due(sched["news"], now, news_dates):
         run_news(db, sender, now, dry_run=dry_run)
     if is_due(sched["weekly"], now, weekly_dates):
@@ -876,6 +964,8 @@ def run_scheduled(db, sender, now, dry_run=False):
         run_woord(db, sender, now, dry_run=dry_run)
     if is_due(sched["talep"], now, talep_dates):
         run_talep(db, sender, now, dry_run=dry_run)
+    if is_due(sched["daily"], now, daily_dates) and now - last_slot(sched["daily"], now) <= DAILY_WINDOW:
+        run_daily(db, sender, now, dry_run=dry_run)
     run_groep_up(db, sender, now, dry_run=dry_run)  # does nothing outside August
 
 
@@ -891,7 +981,7 @@ def env_or_stop(names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "talep", "test", "groep"], required=True,
+    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "talep", "daily", "test", "groep"], required=True,
                     help="hourly = scheduled run; news/weekly/brief = send that job now, ignoring the schedule; test = previews to one address; "
                          "groep = move children up one groep now (use with --dry-run to only see what would change)")
     ap.add_argument("--dry-run", action="store_true")
@@ -926,6 +1016,8 @@ def main():
         run_woord(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "brief":
         run_brief(db, sender, now, dry_run=args.dry_run, force=True)
+    elif args.mode == "daily":
+        run_daily(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "groep":
         run_groep_up(db, sender, now, dry_run=args.dry_run, force=True)
     else:

@@ -31,7 +31,7 @@ setTimeout(function () {
     <nav class="tabs hometabs" role="tablist">
       <button class="tab" role="tab" data-tab="calisma" aria-selected="true">Hollandaca</button>
       <button class="tab" role="tab" data-tab="nt2" aria-selected="false">NT2 sınavı</button>
-      <button class="tab" role="tab" data-tab="oyunlar" aria-selected="false">Günün oyunları</button>
+      <button class="tab" role="tab" data-tab="oyunlar" aria-selected="false">Uitdaging van de dag</button>
     </nav>
   </div>
 </header>
@@ -39,15 +39,22 @@ setTimeout(function () {
   <main id="app"><p class="muted">Yükleniyor…</p></main>
   <main id="games" hidden>
     <section class="panel">
-      <span class="eyebrow">Günün oyunları</span>
-      <h2 style="margin-top:4px">Her gün yeni oyunlar</h2>
-      <p class="muted" style="margin:6px 0 0;max-width:62ch">Herkes aynı oyunu oynar; sonunda istatistiklerini ve günlük, haftalık, aylık sıralamayı görürsün. Hollandaca Woordle Slimspel'dekiyle aynıdır.</p>
+      <span class="eyebrow">Uitdaging van de dag · günün yarışması</span>
+      <h2 style="margin-top:4px">Her gün yeni yarışmalar</h2>
+      <p class="muted" style="margin:6px 0 0;max-width:66ch">Herkes aynı gün aynı soruları çözer; sonunda günlük, haftalık ve aylık sıralamayı görürsün.
+        Bitirince bütün cevapların açık kalır: bir kelimeye tıkla, anlamı, örnekleri ve sitede geçtiği yerler açılır.</p>
+      <div id="gameintro" class="gameintro"></div>
       <nav class="gamelang" role="tablist" style="margin-top:12px" id="gamenav"></nav>
     </section>
     <div id="gamebox"></div>
   </main>
 </div>
 <style>
+.gameintro{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:14px}
+.gameintro .gi{display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;color:var(--ink)}
+.gameintro .gi:hover{border-color:var(--accent)}
+.gameintro .gi span{font-size:13px;color:var(--muted)}
+
 /* site.css gives main display:flex, which beats the hidden attribute: make hidden win again */
 [hidden]{display:none!important}
 /* Home tabs sit under the brand row, full width */
@@ -238,14 +245,20 @@ const gameUrl = id => location.origin + location.pathname + "#oyunlar/" + id;
 const GAMES = [
   { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api, shareUrl: gameUrl("woordle-tr") }) },
   { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
-  { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js?v=2")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
-  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js?v=3")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
-  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=6")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
-  { id: "verbanden", title: "Bağlantılar", load: async box => (await import("./oyunlar/verbanden.js?v=3")).mountVerbanden(box, { user, profile, api, shareUrl: gameUrl("verbanden") }) },
+  { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js?v=3")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
+  { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js?v=4")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
+  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=7")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
+  { id: "verbanden", title: "Bağlantılar", load: async box => (await import("./oyunlar/verbanden.js?v=4")).mountVerbanden(box, { user, profile, api, shareUrl: gameUrl("verbanden") }) },
   // Fixed prepositions (denken aan …) and er + preposition (erop, eraan …): one module, two games
-  { id: "voorzetsels", title: "Edatlar", load: async box => (await import("./oyunlar/voorzetsels.js?v=2")).mountVoorzetsels(box, { game: "voorzetsels", user, profile, api, shareUrl: gameUrl("voorzetsels") }) },
-  { id: "erop", title: "er + edat", load: async box => (await import("./oyunlar/voorzetsels.js?v=2")).mountVoorzetsels(box, { game: "erop", user, profile, api, shareUrl: gameUrl("erop") }) },
+  { id: "voorzetsels", title: "Edatlar", load: async box => (await import("./oyunlar/voorzetsels.js?v=3")).mountVoorzetsels(box, { game: "voorzetsels", user, profile, api, shareUrl: gameUrl("voorzetsels") }) },
+  { id: "erop", title: "er + edat", load: async box => (await import("./oyunlar/voorzetsels.js?v=3")).mountVoorzetsels(box, { game: "erop", user, profile, api, shareUrl: gameUrl("erop") }) },
 ];
+// Short introduction of every challenge (data/oyunlar.json, shared with the Thursday mail); a click opens it
+fetch(`${ROOT}data/oyunlar.json`).then(r => r.json()).then(d => {
+  document.getElementById("gameintro").innerHTML = d.dagelijks.map(g =>
+    `<button class="gi" data-game="${esc(g.id)}"><b>${esc(g.title)}</b><span>${esc(g.kort)}</span></button>`).join("");
+  document.querySelectorAll("#gameintro [data-game]").forEach(b => b.onclick = () => { history.replaceState(null, "", "#oyunlar/" + b.dataset.game); showGame(b.dataset.game); });
+}).catch(() => {});
 document.getElementById("gamenav").innerHTML = GAMES.map(g => `<button role="tab" data-game="${g.id}" aria-selected="false">${g.title}</button>`).join("");
 document.getElementById("gamebox").innerHTML = GAMES.map(g => `<div id="game-${g.id}" hidden></div>`).join("");
 const mounted = {};

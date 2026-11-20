@@ -1,4 +1,4 @@
-// Shared parts of the daily games in the "Günün oyunları" tab (de/het, werkwoorden, kruiswoord NT2, verbanden, voorzetsels, er + edat):
+// Shared parts of the daily games in the "Uitdaging van de dag" tab (de/het, werkwoorden, kruiswoord NT2, verbanden, voorzetsels, er + edat):
 // today's date, the daily pick, saving results for the rankings, the ranking and statistics boxes, and styles.
 // Only imports `db` from core.js (an old name), so an older cached core.js cannot break the page.
 import { db } from "../js/core.js";

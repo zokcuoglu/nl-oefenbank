@@ -102,6 +102,7 @@ app.innerHTML = `
       <div class="field"><label for="p-weekly">E-posta</label><label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-weekly" ${profile.email_weekly === false ? "" : "checked"}> Haftalık özet gönder</label>
         <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-news" ${(profile.email_news ?? profile.email_daily ?? true) ? "checked" : ""}> Haftalık haber e-postası</label>
         <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-brief" ${profile.email_brief === false ? "" : "checked"}> Haftanın Hollandacası (perşembe)</label>
+        <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-daily" ${profile.email_daily === false ? "" : "checked"}> Günlük hatırlatma (16:00, o gün 3'ten az etkinlik yaptıysan)</label>
         <label class="switch" style="color:var(--ink)"><input type="checkbox" id="p-woord" ${profile.email_woord === false ? "" : "checked"}> Kelime incelemesi (salı)</label></div>`}
     </div>
     <p class="muted" style="font-size:13px;margin:12px 0 0">${isChild ? "Okul grubunu ve e-posta ayarlarını velin değiştirir." : "Hesap tipi ve rol sadece admin tarafından değiştirilebilir."}</p>
@@ -131,6 +132,7 @@ document.getElementById("save").onclick = async () => {
     data.email_weekly = document.getElementById("p-weekly").checked;
     data.email_news = document.getElementById("p-news").checked;
     data.email_brief = document.getElementById("p-brief").checked;
+    data.email_daily = document.getElementById("p-daily").checked;
     data.email_woord = document.getElementById("p-woord").checked;
     // Keep dates of modules that are hidden at the current level
     data.exams = { ...(profile.exams || {}), ...Object.fromEntries(examMods.map(m => [m.id, document.getElementById("d-" + m.id).value || null])) };
