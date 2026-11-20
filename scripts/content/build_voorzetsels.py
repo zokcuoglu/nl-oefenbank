@@ -244,6 +244,9 @@ def verb_forms(inf):
         forms |= {soft + te, soft + te + "n", "ge" + soft + end}
     return forms
 
+# Forms that are another word in that position: 'pas op 24 mei' (pas = only), 'het dagboek vond van een meisje'
+SKIP_FORMS = {"passen op": {"pas"}, "passen bij": {"pas"}, "vinden van": {"vond", "vonden", "gevonden"}}
+
 def phrase_rx(k):
     """The combination as it really appears in a sentence, words side by side:
     'denken aan' also finds 'denkt aan', 'dacht aan'; 'bang zijn voor' also 'bang voor'.
@@ -251,10 +254,13 @@ def phrase_rx(k):
     w = core(k).split()
     alts = [w]
     if len(w) >= 2 and w[0].endswith("en"):                       # verb + preposition
-        alts = [[f] + w[1:] for f in sorted(verb_forms(w[0]))]
-    if "zijn" in w[1:-1]:                                          # adjective + zijn + preposition
-        alts.append([x for x in w if x != "zijn"])
+        alts = [[f] + w[1:] for f in sorted(verb_forms(w[0]) - SKIP_FORMS.get(k, set()))]
     pats = [r"\s+".join(map(re.escape, a)) for a in alts]
+    if "zijn" in w[1:-1]:
+        # adjective + zijn + preposition: 'bang voor' only after a form of zijn (Ik ben bang voor …, is goed in …),
+        # so 'Dat merk je goed in een vliegtuig' or 'stel je stoel goed in' is not taken
+        rest = r"\s+".join(map(re.escape, [x for x in w if x != "zijn"]))
+        pats.append(r"(?:ben|bent|is|zijn|was|waren|blijf|blijft|word|wordt)\s+(?:[\wà-ÿ']+\s+){0,3}" + rest)
     return re.compile(r"(?<![\wà-ÿ])(?:" + "|".join(pats) + r")(?![\wà-ÿ])", re.I)
 
 def word_info(k, qs):
