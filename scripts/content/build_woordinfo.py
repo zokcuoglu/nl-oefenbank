@@ -60,11 +60,15 @@ for w in POOL:
 NEWS = {it["id"]: it["titel"] for it in load("data/nieuws.json")["items"]}
 COMMON = 25    # a word in more places than this is too common for "used in" tags
 
+# Past forms that are also another common word: searching them finds the wrong word
+# (voer/voeren = feed, at, las, was = laundry, reden = reason). The infinitive is still searched.
+AMBIGUOUS = {"voer", "voeren", "at", "las", "was", "lag", "reden"}
+
 def pattern(k, info):
     """Whole-word match on the word and, for irregular verbs, on their past forms too (liep, gelopen ...)."""
     forms = {k}
     v = info.get("verb")
-    if v: forms |= {f.lower() for f in v["imp"] + [v.get("impMv") or "", v["vd"]] if f}
+    if v: forms |= {f.lower() for f in v["imp"] + [v.get("impMv") or "", v["vd"]] if f} - AMBIGUOUS
     return re.compile(r"(?<![\wà-ÿ-])(" + "|".join(sorted(map(re.escape, forms), key=len, reverse=True)) + r")(?![\wà-ÿ-])", re.I)
 
 # ---------- 3. Hand-written content ----------

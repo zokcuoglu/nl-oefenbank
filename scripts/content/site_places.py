@@ -44,7 +44,7 @@ def sentences(obj):
             n = len(zin.split())
             # a real sentence: capital (or quote) first, . ! ? at the end, no "=" glosses or source notes
             if (4 <= n <= 25 and re.match(r"^['\"‘“]?[A-Z]", zin) and re.search(r"[.!?]['\"’”]?$", zin)
-                    and "=" not in zin and "|" not in zin and not TR_WORDS.search(zin.lower())):
+                    and not any(c in zin for c in "=|/+") and not TR_WORDS.search(zin.lower())):
                 out.append(zin)
     return out
 
