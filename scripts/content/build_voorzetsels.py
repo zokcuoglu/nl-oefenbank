@@ -210,6 +210,7 @@ if m1 or m2:
 # Explanation, level and two extra examples per combination come from voorzetsel_uitleg.csv (written by hand).
 # Tags = every place on the site where the combination is used or taught; each tag links straight to it.
 import csv
+ZIN_TR = json.loads((Path(__file__).resolve().parent / "zinnen_tr.json").read_text(encoding="utf-8"))
 UITLEG = {r["k"]: r for r in csv.DictReader(open(Path(__file__).resolve().parent / "voorzetsel_uitleg.csv", encoding="utf-8"))}
 LEVELS, GROEPEN = {"A0", "A1", "A2", "B1", "B2", "C1", "C2"}, {"1-2", "3", "4", "5", "6", "7", "8", "vo"}
 
@@ -276,6 +277,8 @@ def word_info(k, qs):
     for tg in tags:
         if tg["href"] + tg["t"] not in seen:
             seen.add(tg["href"] + tg["t"]); out.append(tg)
+    for tg in out:   # Turkish of the sentence, when written (zinnen_tr.json, shared with build_woordinfo.py)
+        if tg["z"] and ZIN_TR.get(tg["z"]): tg["zt"] = ZIN_TR[tg["z"]]
     return {"tr": qs[0]["tr"], "niveau": r["niveau"], "groep": r["groep"], "uitleg": r["uitleg"],
             "voorbeelden": [{"nl": r["v1"], "tr": r["v1_tr"]}, {"nl": r["v2"], "tr": r["v2_tr"]}], "tags": out[:8]}
 

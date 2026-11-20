@@ -232,6 +232,23 @@ service cloud.firestore {
       allow update: if false;
     }
 
+    // kelime_views/{w-word | k-combination}: how often the word page (kelime/) was opened; +1 per visit,
+    // read only by admins (list "En çok bakılan kelimeler")
+    match /kelime_views/{id} {
+      allow read: if isAdmin();
+      allow create: if signedIn() && isApproved(request.auth.uid) && id.matches('^[wk]-[a-z0-9-]{1,60}$')
+        && request.resource.data.keys().hasOnly(['w', 'n', 'at'])
+        && request.resource.data.n == 1
+        && request.resource.data.w is string && request.resource.data.w.size() <= 60
+        && request.resource.data.at is string;
+      allow update: if signedIn() && isApproved(request.auth.uid)
+        && request.resource.data.keys().hasOnly(['w', 'n', 'at'])
+        && changed().hasOnly(['n', 'at'])
+        && request.resource.data.n == resource.data.n + 1
+        && request.resource.data.at is string;
+      allow delete: if isAdmin();
+    }
+
     // Everything else is closed
     match /{document=**} {
       allow read, write: if false;

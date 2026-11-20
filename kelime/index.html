@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kelime · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+[hidden]{display:none!important}
+.hero{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.hero h2{font-size:36px;margin:0}
+.hero .lid{color:var(--muted);font-weight:600}
+.lv{font-size:12.5px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+.forms{color:var(--muted);margin:4px 0 0}
+.kort{font-size:19px;margin:10px 0 0}
+ol.anl{margin:6px 0 0;padding-left:24px}
+ol.anl>li{margin:0 0 18px;padding-left:4px}
+ol.anl>li::marker{font-family:var(--display);font-weight:700;color:var(--accent)}
+.anl .t{font-size:18px;font-weight:600}
+.anl .n{color:var(--muted)}
+.kal{margin:4px 0 0;font-size:15px}
+.kal b{font-weight:600}
+.ex{background:var(--sunk);border-radius:8px;padding:8px 12px;margin:6px 0}
+.ex i{display:block;font-style:normal;color:var(--muted);font-size:14.5px;margin-top:2px}
+.ex .src{font-size:13px;margin-top:4px}
+.ex .src a{color:inherit}
+.places .ex b{font-weight:600}
+h3{font-family:var(--display);margin:0 0 8px}
+.note{color:var(--muted);font-size:14px}
+</style>
+<script>
+// Watchdog: explain on screen when the login module cannot load (network block)
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <a href="#" data-back>Geri</a></small><h1 id="pagetitle">Kelime</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Word page: everything about one Dutch word or preposition combination, opened from the daily games,
+// Woordle and other pages.  ?w=<word> (without de/het, e.g. ?w=toets)   ?k=<combination> (e.g. ?k=denken aan)
+// Content: oyunlar/woordinfo.json (words, built by scripts/content/build_woordinfo.py, meanings written by hand in
+// scripts/content/anlamlar/) and oyunlar/voorzetsels.json "info" (combinations, build_voorzetsels.py).
+// Every opening adds 1 to kelime_views/{id}, so the admin page can list the most viewed words.
+import { gate, userBox, esc, db } from "../js/core.js";
+import { doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const app = document.getElementById("app");
+const params = new URLSearchParams(location.search);
+const combo = params.get("k");
+const word = (combo ?? params.get("w") ?? "").toLowerCase().replace(/^(de|het|een)\s+/, "").trim();
+document.querySelector("[data-back]").onclick = e => { e.preventDefault(); history.length > 1 ? history.back() : location.href = "../"; };
+
+// Links in the data are relative to the site root
+const site = href => new URL("../" + href, import.meta.url).href;
+const exHtml = v => `<div class="ex" lang="nl">${esc(v.nl)}${v.tr ? `<i lang="tr">${esc(v.tr)}</i>` : ""}</div>`;
+const kalHtml = list => (list || []).map(([nl, tr]) => `<div class="kal"><b lang="nl">${esc(nl)}</b> = ${esc(tr)}</div>`).join("");
+
+function page(w, info) {
+  const anl = info.anlamlar || [];
+  const head = `<div class="hero">${info.lid ? `<span class="lid">${esc(info.lid)}</span>` : ""}<h2 lang="nl">${esc(w)}</h2>${info.niveau ? `<span class="lv">${esc(info.niveau)}</span>` : ""}</div>
+    ${info.mv ? `<p class="forms">çoğul: <b lang="nl">${esc(info.mv)}</b></p>` : ""}
+    ${info.vormen ? `<p class="forms" lang="nl">${esc(info.vormen)}</p>` : ""}
+    <p class="kort">${esc(info.tr || "")}</p>
+    ${info.not ? `<p class="note">${esc(info.not)}</p>` : ""}`;
+  // Meanings written by hand: numbered, each with its own patterns and examples
+  const meanings = anl.length ? `<section class="panel"><h3>Anlamları</h3><ol class="anl">${anl.map(a => `<li>
+      <span class="t">${esc(a.tr)}</span>${a.not ? ` <span class="n">(${esc(a.not)})</span>` : ""}
+      ${kalHtml(a.kalip)}${(a.voorbeelden || []).map(exHtml).join("")}</li>`).join("")}</ol></section>` : "";
+  const explain = !anl.length && info.uitleg ? `<section class="panel"><h3>Açıklama</h3><p style="margin:0">${esc(info.uitleg)}</p></section>` : "";
+  const patterns = info.kaliplar?.length ? `<section class="panel"><h3>Kalıplar</h3>${kalHtml(info.kaliplar)}</section>` : "";
+  // Sentences that are listed under "Sitede geçtiği yerler" anyway are not repeated as examples
+  const inPlaces = new Set((info.tags || []).map(t => (t.z || "").toLowerCase()));
+  info.voorbeelden = (info.voorbeelden || []).filter(v => !inPlaces.has(v.nl.toLowerCase()));
+  const examples = info.voorbeelden?.length ? `<section class="panel"><h3>${anl.length ? "Başka örnekler" : "Örnekler"}</h3>${info.voorbeelden.map(exHtml).join("")}</section>` : "";
+  // Where on the site: the sentence (with its translation when there is one) and a link to that exact item
+  const places = info.tags?.length ? `<section class="panel places"><h3>Sitede geçtiği yerler</h3>${info.tags.map(t => `<div class="ex">
+      ${t.z ? `<span lang="nl">${esc(t.z)}</span>${t.zt ? `<i lang="tr">${esc(t.zt)}</i>` : ""}` : ""}
+      <div class="src"><a href="${esc(site(t.href))}">${esc(t.t)} →</a></div></div>`).join("")}</section>` : "";
+  return `<section class="panel">${head}</section>` + meanings + explain + patterns + examples + places;
+}
+
+async function count(id) {
+  // One counter per word; a failed write (rules not published yet, offline) must not break the page
+  try { await setDoc(doc(db, "kelime_views", id), { w: word, n: increment(1), at: new Date().toISOString() }, { merge: true }); } catch {}
+}
+
+const { user, profile } = await gate({ area: "any", title: "Kelime" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let info = null;
+try {
+  if (combo != null) {
+    const d = await fetch("../oyunlar/voorzetsels.json").then(r => r.json());
+    info = d.info?.[Object.keys(d.info).find(k => k.toLowerCase() === word)];
+  } else {
+    const d = await fetch("../oyunlar/woordinfo.json").then(r => r.json());
+    info = d.woorden[word];
+  }
+} catch {}
+document.title = `${word} · NL Oefenbank`;
+document.getElementById("pagetitle").textContent = combo != null ? "Kalıp" : "Kelime";
+if (!word || !info) {
+  app.innerHTML = `<section class="panel"><p>Bu kelime için henüz bir sayfa yok${word ? `: <b lang="nl">${esc(word)}</b>` : ""}.</p></section>`;
+} else {
+  app.innerHTML = page(word, info);
+  // id: letters and digits only (Firestore ids cannot hold "/"); "k-" marks combinations
+  count((combo != null ? "k-" : "w-") + word.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
+}
+</script>
+</body>
+</html>

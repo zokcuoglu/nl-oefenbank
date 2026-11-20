@@ -1,0 +1,92 @@
+{
+ "toets": {"lid": "de", "mv": "toetsen", "niveau": "B1", "kort": "sınav, test; tuş",
+  "anlamlar": [
+   {"tr": "sınav, test", "not": "okulda, kursta", "kalip": [["een toets maken", "sınav olmak"], ["een toets hebben", "sınavı olmak (sınavı var)"]],
+    "voorbeelden": [["Tijdens de cursus maak je na zes weken en aan het einde van de cursus een toets.", "Kursta altı hafta sonra ve kursun sonunda birer sınav olursun."],
+                    ["Morgen is er een toets.", "Yarın sınav var."]]},
+   {"tr": "tuş", "not": "klavye, piyano, org",
+    "voorbeelden": [["Druk op de toets.", "Tuşa bas."],
+                    ["Elke keer als er een gaatje is, gaat de toets omhoog, gaat de pijp open en klinkt er een toon.", "Her delik geldiğinde tuş kalkar, boru açılır ve bir ses çıkar."]]}
+  ]},
+ "raam": {"lid": "het", "mv": "ramen", "niveau": "A0", "kort": "pencere",
+  "anlamlar": [
+   {"tr": "pencere", "kalip": [["het raam openzetten", "pencereyi açmak (açık bırakmak)"], ["het raam dichtdoen", "pencereyi kapatmak"]],
+    "voorbeelden": [["Het raam is open.", "Pencere açık."],
+                    ["Het raam is kapot en uw spullen ook.", "Pencere kırık, eşyalarınız da zarar görmüş."]]}
+  ]},
+ "regen": {"lid": "de", "niveau": "A1", "kort": "yağmur",
+  "anlamlar": [
+   {"tr": "yağmur", "kalip": [["in de regen", "yağmurda"], ["kans op regen", "yağmur ihtimali"]],
+    "voorbeelden": [["Vandaag wordt het een grijze dag met veel regen.", "Bugün bol yağmurlu, kapalı bir gün olacak."],
+                    ["Kom op, het is maar een beetje regen.", "Haydi, alt tarafı biraz yağmur."]]}
+  ], "not": "Fiil: regenen (yağmur yağmak): Het regent = Yağmur yağıyor."},
+ "regel": {"lid": "de", "mv": "regels", "niveau": "A2", "kort": "kural; satır",
+  "anlamlar": [
+   {"tr": "kural", "kalip": [["een regel geldt", "bir kural geçerlidir"], ["zich aan de regels houden", "kurallara uymak"]],
+    "voorbeelden": [["Welke regel geldt voor printen in het computerlokaal?", "Bilgisayar sınıfında çıktı almak için hangi kural geçerli?"],
+                    ["Er komen nieuwe regels.", "Yeni kurallar geliyor."]]},
+   {"tr": "satır", "not": "bir metinde",
+    "voorbeelden": [["Lees de eerste regel.", "İlk satırı oku."]]}
+  ],
+  "kaliplar": [["in de regel", "genellikle, kural olarak"]]},
+ "wachtlijst": {"lid": "de", "mv": "wachtlijsten", "niveau": "A2", "kort": "bekleme listesi",
+  "anlamlar": [
+   {"tr": "bekleme listesi", "kalip": [["op de wachtlijst staan", "bekleme listesinde olmak"], ["op een wachtlijst komen", "bekleme listesine alınmak"]],
+    "voorbeelden": [["Karel staat al 6 jaar op de wachtlijst voor een sociale huurwoning.", "Karel altı yıldır sosyal kiralık konut için bekleme listesinde."],
+                    ["Zodra een groep vol is, komt u op een wachtlijst.", "Bir grup dolar dolmaz bekleme listesine alınırsınız."]]}
+  ]},
+ "wijziging": {"lid": "de", "mv": "wijzigingen", "niveau": "B1", "kort": "değişiklik",
+  "not": "Resmî dil (mektup, kurallar, plan). Günlük dilde: verandering. Fiil: wijzigen (değiştirmek).",
+  "anlamlar": [
+   {"tr": "değişiklik", "kalip": [["Wijzigingen voorbehouden.", "Değişiklik hakkı saklıdır."], ["een wijziging doorgeven", "bir değişikliği bildirmek"]],
+    "voorbeelden": [["Er is een wijziging in de planning.", "Planda bir değişiklik var."],
+                    ["Vertel wat u van deze wijziging vindt.", "Bu değişiklik hakkında ne düşündüğünüzü anlatın."]]}
+  ]},
+ "onderzoeker": {"lid": "de", "mv": "onderzoekers", "niveau": "B1", "kort": "araştırmacı",
+  "not": "onderzoek = araştırma; onderzoeken = araştırmak, incelemek.",
+  "anlamlar": [
+   {"tr": "araştırmacı",
+    "voorbeelden": [["Wat kunnen kleine fossielen volgens de onderzoeker vertellen?", "Araştırmacıya göre küçük fosiller bize ne anlatabilir?"],
+                    ["De onderzoekers zijn heel blij.", "Araştırmacılar çok mutlu."]]}
+  ]},
+ "tegengestelde": {"lid": "het", "niveau": "B1", "kort": "zıt, karşıt",
+  "not": "Sıfat: tegengesteld = ters, zıt.",
+  "anlamlar": [
+   {"tr": "zıt, karşıt (bir şeyin tersi)", "kalip": [["het tegengestelde van", "…-in zıttı"], ["in tegengestelde richting", "ters yönde"]],
+    "voorbeelden": [["Warm is het tegengestelde van koud.", "Sıcak, soğuğun zıttıdır."]]}
+  ]},
+ "sok": {"lid": "de", "mv": "sokken", "niveau": "A1", "kort": "çorap",
+  "anlamlar": [
+   {"tr": "çorap (tek)",
+    "voorbeelden": [["Ik heb natte sokken.", "Çoraplarım ıslak."]]}
+  ],
+  "kaliplar": [["iemand van de sokken lopen", "birine çarpıp yere düşürmek"]]},
+ "lopen": {"vormen": "liep / liepen · heeft/is gelopen", "niveau": "A0", "kort": "yürümek; (iş) gitmek; akmak",
+  "not": "Perfectum: bir yere doğru yürümekte zijn (Ik ben naar huis gelopen), yalnızca yürümekte hebben (Ik heb veel gelopen).",
+  "anlamlar": [
+   {"tr": "yürümek",
+    "voorbeelden": [["Laten we een rondje lopen.", "Hadi bir tur yürüyelim."],
+                    ["De route naar school is makkelijk te lopen.", "Okul yolu yürüyerek kolayca gidilebilir."]]},
+   {"tr": "(iş, süreç) gitmek, yürümek", "kalip": [["Het loopt goed.", "İşler iyi gidiyor."], ["Hoe loopt het?", "İşler nasıl gidiyor?"]],
+    "voorbeelden": [["Het project loopt nog tot juni.", "Proje hâlâ hazirana kadar sürüyor."]]},
+   {"tr": "(su, burun) akmak", "kalip": [["Mijn neus loopt.", "Burnum akıyor."]]}
+  ]},
+ "vinden": {"vormen": "vond / vonden · heeft gevonden", "niveau": "A1", "kort": "bulmak; (fikir olarak) bulmak, düşünmek",
+  "anlamlar": [
+   {"tr": "bulmak",
+    "voorbeelden": [["Ik probeer een oplossing te vinden.", "Bir çözüm bulmaya çalışıyorum."],
+                    ["Kon je het makkelijk vinden?", "Kolay bulabildin mi?"]]},
+   {"tr": "(bir şeyi) … bulmak, düşünmek", "not": "fikir bildirirken", "kalip": [["Wat vind je ervan?", "Ne düşünüyorsun?"], ["Ik vind het leuk.", "Bence güzel. / Hoşuma gidiyor."]],
+    "voorbeelden": [["Ik vind dit boek moeilijk.", "Bu kitabı zor buluyorum."]]}
+  ]},
+ "staan": {"vormen": "stond / stonden · heeft gestaan", "niveau": "A0", "kort": "ayakta durmak; durmak, bulunmak; yazılı olmak",
+  "anlamlar": [
+   {"tr": "ayakta durmak",
+    "voorbeelden": [["Kom maar hier staan.", "Gel, buraya dur."], ["Sta even stil.", "Bir dur."]]},
+   {"tr": "(dik) durmak, bulunmak", "not": "şişe, bardak, ev gibi dik duran şeyler",
+    "voorbeelden": [["De fles staat op tafel.", "Şişe masada duruyor."]]},
+   {"tr": "yazılı olmak", "kalip": [["Het staat in de brief.", "Mektupta yazıyor."]],
+    "voorbeelden": [["Waarop alle regels staan over ziek- en betermelden op het werk.", "Üzerinde işte hastalık ve iyileşme bildirimiyle ilgili bütün kuralların yazılı olduğu."]]},
+   {"tr": "yakışmak", "kalip": [["Die jas staat je goed.", "O mont sana yakışıyor."]]}
+  ]}
+}

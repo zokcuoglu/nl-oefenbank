@@ -195,6 +195,17 @@ def main():
                          "tur": u.get("tur") or NIEUWS_TUR.get(u["nl"], "uitdr"), "subthema": "", "register": reg(u["nl"]),
                          "voorbeeld": u.get("voorbeeld", ""), "voorbeeld_tr": u.get("voorbeeld_tr", ""), "uitleg": u.get("uitleg", "")})
 
+    # Reviewed meanings (scripts/content/anlamlar/*.json, written for the word page) replace the short meaning of
+    # basis/werk/school words. News words keep theirs: they give the meaning in that one text (toets = tuş there).
+    hand = {}
+    for f in sorted((Path(__file__).resolve().parent / "anlamlar").glob("*.json")):
+        hand.update(json.loads(f.read_text(encoding="utf-8")))
+    bare = lambda nl: re.sub(r"^(de|het|een)\s+", "", nl.strip().lower())
+    for w in pool:
+        h = hand.get(bare(w["nl"]))
+        if h and w["bron"] in ("basis", "werk", "school") and w["soort"] == "woord":
+            w["tr"] = h["kort"]
+
     for w in pool:
         assert w["niveau"] in LEVELS, f"{w['id']}: niveau {w['niveau']}"
         assert w["groep"] in GROEPEN, f"{w['id']}: groep {w['groep']}"
