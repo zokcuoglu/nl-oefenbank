@@ -61,6 +61,7 @@ setTimeout(function () {
 // Admin screen: accounts (status, type, role, parent), statistics, mail schedule and announcements.
 // The page is hidden from non-admins, and firestore.rules also refuse their reads and writes.
 import { gate, userBox, esc, db, TYPES, ROLES, STATUSES, roleOf, statusOf, loadAllAttempts } from "./js/core.js";
+import { pointsOf, pointsSummary } from "./js/puan.js";
 import { summarize, pct, recentRounds, dayBars, scoreChips } from "./js/stats.js";
 import { TOPICS as REKEN_TOPICS } from "./kids/rekenen-vragen.js?v=3";
 import { TOPICS as NATUUR_TOPICS } from "./kids/natuur-vragen.js?v=3";
@@ -98,6 +99,7 @@ const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { 
 // Wishes from the "istek kutusu" (js/talep.js), newest first
 let talepler = [], talepErr = "";
 const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
+let vzData = {};
 let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null, sentNews = [], weeklyLog = [], logErr = "";
 // Statistics: attempts of every account, the catalog, and the news items
 let stats = {}, rawAtt = {}, statsErr = "", cat = { modules: [] }, nieuws = { items: [], toetsen: [] }, teksten = { teksten: [] }, woorden = { woorden: [] }, dersler = { lessen: [] };
@@ -132,6 +134,8 @@ async function load() {
   } catch (e) { rekenErr = e.code || e.message; }
   try {
     [cat, nieuws, teksten, woorden, dersler] = await Promise.all(["catalog", "nieuws", "lezen-teksten", "woorden", "dersler"].map(f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => r.json())));
+    // Combinations of the preposition games, to name their questions in the "hardest" box (missing file: ids stay)
+    vzData = await fetch("oyunlar/voorzetsels.json", { cache: "no-cache" }).then(r => r.json()).catch(() => ({}));
     // One read of each account's attempts (fine for a small group)
     const all = await Promise.all(users.map(u => loadAllAttempts(u.uid)));
     stats = Object.fromEntries(users.map((u, i) => [u.uid, summarize(all[i])])); rawAtt = Object.fromEntries(users.map((u, i) => [u.uid, all[i]])); statsErr = "";
@@ -202,12 +206,38 @@ function newsCat(qid) {
 }
 const CATNAME = { begrip: "Anlama", woorden: "Kelime", uitdrukkingen: "Deyim", grammatica: "Gramer" };
 
+// "Uitdaging van de dag": per game the items missed most in the last 30 days (everyone together)
+const GAME_NAMES = { "oyun-werkwoorden": "Düzensiz fiiller", "oyun-voorzetsels": "Edatlar", "oyun-erop": "er + edat", "oyun-dehet": "de / het",
+  "oyun-verbanden": "Bağlantılar", "oyun-kruiswoord": "NT2 Bulmaca", "slimspel-woordle": "Woordle · Hollandaca", "slimspel-woordle-tr": "Woordle · Türkçe" };
+function gameItemLabel(module, qid) {
+  if (module === "oyun-werkwoorden") { const [inf, part] = qid.split(":"); return `${inf} · ${part === "imp" ? "verleden tijd" : "perfectum"}`; }
+  if (module === "oyun-voorzetsels" || module === "oyun-erop") {
+    const q = [...(vzData.voorzetsels || []), ...(vzData.erop || [])].find(x => x.id === qid);
+    return q ? `${q.k}: ${q.zin.replace("___", "…")}` : qid;
+  }
+  return String(qid).toLowerCase();
+}
+function gamesHardHtml(people) {
+  const since = new Date(Date.now() - 30 * 864e5).toISOString();
+  const per = {};
+  people.flatMap(u => rawAtt[u.uid] || []).filter(x => GAME_NAMES[x.module] && (x.finished_at || "") >= since).forEach(x =>
+    (x.answers || []).forEach(a => { const m = per[x.module] ||= new Map(), v = m.get(a.qid) || { qid: a.qid, n: 0, wrong: 0 };
+      v.n++; if (!a.correct) v.wrong++; m.set(a.qid, v); }));
+  const blocks = Object.entries(GAME_NAMES).filter(([m]) => per[m]).map(([m, name]) => {
+    const top = [...per[m].values()].filter(v => v.wrong).sort((a, b) => b.wrong - a.wrong || b.wrong / b.n - a.wrong / a.n).slice(0, 5);
+    return top.length ? `<div><span class="eyebrow">${esc(name)}</span>${top.map(v => `<div class="row" style="justify-content:space-between;gap:12px;margin-top:6px;flex-wrap:nowrap">
+      <span lang="nl">${esc(gameItemLabel(m, v.qid))}</span><span class="chip ${v.wrong / v.n >= .5 ? "bad" : "warn"} num">${v.wrong}/${v.n}</span></div>`).join("")}</div>` : "";
+  }).filter(Boolean);
+  return `<details class="panel fold"><summary><h3>Uitdaging van de dag: en zor olanlar</h3><span class="muted">son 30 gün · oyun başına en çok yanlış yapılan 5</span></summary>
+    ${blocks.length ? `<div class="persondetail" style="margin-top:10px">${blocks.join("")}</div>` : `<p class="muted">Son 30 günde yanlış cevap yok.</p>`}</details>`;
+}
+
 function statsHtml() {
   if (statsErr) return `<section class="panel"><span class="eyebrow">İstatistik</span><div class="notice" style="margin-top:8px">Çalışma kayıtları okunamadı (${esc(statsErr)}). Güvenlik kurallarını güncelle (admin'in attempts okuma izni).</div></section>`;
   const active = users.filter(u => statusOf(u) === "approved" && (who === "all" || (who === "child" ? u.type === "child" : u.type !== "child")));
   const daysSince = iso => iso ? Math.floor((Date.now() - new Date(iso)) / 864e5) : Infinity;
   const tone = p => p >= 80 ? "ok" : p >= 60 ? "warn" : "bad";
-  const titleOf = id => cat.modules.find(m => m.id === id)?.title || id;
+  const titleOf = id => cat.modules.find(m => m.id === id)?.title || GAME_NAMES[id] || id;   // daily games are not in the catalog
   const everyone = summarize(active.flatMap(u => rawAtt[u.uid] || []));
   // Last 7 days, everyone together
   const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString();
@@ -225,7 +255,20 @@ function statsHtml() {
     newsAtt.forEach(x => (x.answers || []).forEach(an => { const c = newsCat(an.qid); if (!c) return; const v = byCat[c] = byCat[c] || { ok: 0, n: 0 }; v.n++; if (an.correct) v.ok++; }));
     const exams = Object.entries(u.exams || {}).filter(([, d]) => d).map(([m, d]) => `${esc(titleOf(m))}: ${esc(d)} (${Math.ceil((new Date(d) - Date.now()) / 864e5)} gün)`);
     const doneNews = [...nieuws.items.map(i => [i.id, `#${i.nr}`]), ...(nieuws.toetsen || []).map(t => [t.id, t.titel.split(" · ")[0]])].filter(([id]) => newsAtt.some(x => x.test === id));
+    // Points (js/puan.js) and every round of the last 30 days, newest first
+    const pt = pointsSummary(att);
+    const since = new Date(Date.now() - 30 * 864e5).toISOString();
+    const recent = att.filter(x => (x.finished_at || "") >= since).sort((a, b) => a.finished_at < b.finished_at ? 1 : -1);
+    const when = iso => new Date(iso).toLocaleString("tr-TR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
     return `<div class="persondetail">
+      <div style="grid-column:1/-1"><span class="eyebrow">Puan</span>
+        <div class="row" style="gap:18px;margin:6px 0 10px"><span><b class="num">${pt.today}</b> bugün</span><span><b class="num">${pt.week}</b> son 7 gün</span>
+          <span><b class="num">${pt.total}</b> toplam</span><span><b class="num">${pt.streak}</b> gün seri</span></div>
+        <span class="eyebrow">Etkinlikler · son 30 gün (${recent.length})</span>
+        ${recent.length ? `<div class="tablewrap" style="max-height:320px;overflow:auto;margin-top:6px"><table><thead><tr><th>Zaman</th><th>Etkinlik</th><th class="r">Sonuç</th><th class="r">Puan</th></tr></thead><tbody>
+          ${recent.slice(0, 120).map(x => `<tr><td class="num muted">${when(x.finished_at)}</td><td>${esc(titleOf(x.module))}${x.title ? ` <span class="muted">· ${esc(x.title)}</span>` : ""}</td>
+            <td class="r num">${x.total ? `${x.score ?? 0}/${x.total}` : "✓"}</td><td class="r num"><b>${pointsOf(x)}</b></td></tr>`).join("")}</tbody></table></div>`
+          : `<p class="muted" style="margin:6px 0 0">Son 30 günde etkinlik yok.</p>`}</div>
       <div><span class="eyebrow">Son 14 gün</span>${dayBars(s, 14)}</div>
       <div><span class="eyebrow">Alıştırmalar</span>${Object.keys(s.byModule).length ? `<table><tbody>${Object.entries(s.byModule).sort((a, b) => b[1].rounds - a[1].rounds).map(([id, m]) => `<tr><td>${esc(titleOf(id))}</td><td class="r num">${m.rounds} tur</td><td class="r num">${m.tot ? "%" + pct(m.ok, m.tot) : "-"}</td><td class="r num muted">${fmtDate(m.last)}</td></tr>`).join("")}</tbody></table>` : `<p class="muted">Henüz tur yok.</p>`}</div>
       ${Object.keys(byCat).length ? `<div><span class="eyebrow">Haber quiz'leri: alanlara göre</span><div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">${Object.entries(byCat).map(([c, v]) => { const p = pct(v.ok, v.n); return `<div class="catrow"><span>${CATNAME[c]}</span><div class="bar"><i style="width:${p}%;background:var(--${tone(p)})"></i></div><span class="num r">%${p} <span class="muted">(${v.n})</span></span></div>`; }).join("")}</div></div>` : ""}
@@ -293,13 +336,14 @@ function statsHtml() {
       <div class="panel kpi"><div class="eyebrow">14+ gündür sessiz</div><div class="v num" style="color:var(--${quiet.length ? "warn" : "ink"})">${quiet.length}</div></div>
     </section>
     <section class="panel"><div class="sectionhead"><h3>Kişiler</h3><span class="muted">bu hafta en aktif üstte · ayrıntı için isme tıkla</span></div>
-      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Son tur</th><th class="r">Bu hafta</th><th>Doğruluk</th></tr></thead><tbody>
+      <div class="tablewrap"><table><thead><tr><th>Kişi</th><th>Son tur</th><th class="r">Bu hafta</th><th class="r">Puan (7 gün)</th><th>Doğruluk</th></tr></thead><tbody>
       ${people.map(({ u, s }) => { const p = pct(s.ok, s.tot), idle = daysSince(s.last);
         return `<tr><td><button class="linkbtn" data-person="${esc(u.uid)}" aria-expanded="false">▸ <b>${esc(u.name || u.email || u.uid)}</b></button>${u.type === "child" && who === "all" ? ` <span class="chip">öğrenci</span>` : ""}</td>
           <td class="num">${s.last ? `<span class="${idle > 14 ? "chip warn" : "muted"}">${idle === 0 ? "bugün" : idle === 1 ? "dün" : idle + " gün önce"}</span>` : `<span class="chip bad">hiç</span>`}</td>
           <td class="r num"><b>${recentRounds(s, 7)}</b> <span class="muted">tur</span></td>
+          <td class="r num"><b>${pointsSummary(rawAtt[u.uid] || []).week}</b></td>
           <td>${s.tot ? `<span class="bar minibar"><i style="width:${p}%;background:var(--${tone(p)})"></i></span><span class="num">%${p}</span>` : `<span class="muted">-</span>`}</td></tr>
-          <tr id="pd-${esc(u.uid)}" hidden><td colspan="4">${detail(u, s)}</td></tr>`; }).join("")}
+          <tr id="pd-${esc(u.uid)}" hidden><td colspan="5">${detail(u, s)}</td></tr>`; }).join("")}
       </tbody></table></div></section>
     <section class="panel"><div class="sectionhead"><h3>Son 30 gün</h3><span class="muted">günlük tur sayısı</span></div>${dayBars(everyone, 30)}</section>
     <section class="panel"><div class="sectionhead"><h3>Alıştırmalar</h3><span class="muted">en çok çözülen üstte</span></div>
@@ -308,6 +352,7 @@ function statsHtml() {
         <span class="num r">${r.rounds} tur · ${r.solvers} kişi</span></div>`).join("") || `<p class="muted" style="margin:0">Henüz tur yok.</p>`}</div>
       ${modRows.some(r => !r.rounds) ? `<p class="muted" style="font-size:13px;margin:12px 0 0"><b>Kimsenin çözmediği:</b> ${modRows.filter(r => !r.rounds).map(r => esc(r.m.title) + (r.openers ? " (açıldı)" : "")).join(", ")}</p>` : ""}</section>
     ${lessonsPanel}
+    ${gamesHardHtml(active)}
     <details class="panel fold"><summary><h3>En çok yanlış yapılan sorular</h3><span class="muted">${hard.length} soru</span></summary>
       ${hard.length ? `<div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Soru</th><th>Alıştırma</th><th class="r">Yanlış</th></tr></thead><tbody>
         ${hard.map(v => `<tr><td lang="nl">${esc(questionLabel(v.module, v.qid))}</td><td class="muted">${esc(titleOf(v.module))}</td><td class="r num"><span class="chip ${tone(100 - pct(v.wrong, v.n))}">${v.wrong}/${v.n}</span></td></tr>`).join("")}
