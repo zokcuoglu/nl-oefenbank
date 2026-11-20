@@ -142,6 +142,21 @@ const CSS = `
 .og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
 .og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
 .og details.tbox>div{padding-bottom:16px}
+.og .wk{font:inherit;font-weight:700;background:none;border:0;padding:0;color:inherit;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.og .wk:hover{color:var(--og-accent)}
+.og .tags{display:inline-flex;flex-wrap:wrap;gap:4px;vertical-align:middle}
+.og a.tag{font-size:12.5px;line-height:1.3;padding:2px 9px;border-radius:999px;border:1px solid var(--og-line);background:var(--og-card);color:var(--og-ink);text-decoration:none}
+.og a.tag:hover{border-color:var(--og-accent);color:var(--og-accent)}
+.og span.tag{font-size:12.5px;color:var(--og-muted)}
+dialog.og-wi{max-width:520px;width:calc(100% - 24px);border:1px solid var(--line,#d3dae3);border-radius:12px;padding:20px;background:var(--surface,#fff);color:var(--ink,#142033)}
+dialog.og-wi::backdrop{background:rgba(20,32,51,.45)}
+dialog.og-wi h3{font-family:var(--display,system-ui,sans-serif);font-size:22px;margin:0 0 2px}
+dialog.og-wi .tr{color:var(--muted,#566377);margin:0 0 10px}
+dialog.og-wi .lv{font-size:12px;font-weight:700;border:1px solid var(--line,#d3dae3);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+dialog.og-wi .ex{background:var(--sunk,#e6eaf0);border-radius:8px;padding:8px 10px;margin:6px 0}
+dialog.og-wi .ex i{display:block;font-size:14px;color:var(--muted,#566377);font-style:normal}
+dialog.og-wi h4{font-size:14px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted,#566377)}
+dialog.og-wi .x{float:right;font:inherit;font-size:20px;background:none;border:0;cursor:pointer;color:inherit}
 .og [hidden]{display:none!important}`;
 export function injectCss(extra = "", id = "") {
   if (!document.getElementById("og-css")) { const st = document.createElement("style"); st.id = "og-css"; st.textContent = CSS; document.head.appendChild(st); }
@@ -150,4 +165,42 @@ export function injectCss(extra = "", id = "") {
 // Box with today's answers on the start screen after playing. Open by default: people look for their mistakes
 // right after the game, and a closed box looked empty. Same box in every game, so all games read the same.
 export const todayBox = inner => `<details class="tbox" open><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+// ---------- Tags and the word box ----------
+// Links in the data are relative to the site root; this file lives in oyunlar/, so resolve them from one level up.
+// That way the links work from every page that shows a game.
+export const siteUrl = href => new URL("../" + href, import.meta.url).href;
+// Source/where-taught tags: each one a small link that opens that exact text or lesson.
+// A tag without a link (own example sentence) is plain grey text.
+export const tagLinks = tags => `<span class="tags">${(tags || []).map(t => t.href
+  ? `<a class="tag" href="${esc(siteUrl(t.href))}">${esc(t.t)}</a>` : `<span class="tag">${esc(t.t)}</span>`).join("")}</span>`;
+// The word/combination itself as a button; a click anywhere on the page opens the word box (see openWordInfo)
+export const wordButton = k => `<button type="button" class="wk" data-wk="${esc(k)}">${esc(k)}</button>`;
+
+// Word box: wider explanation, level, examples and every place on the site where the word is used.
+// info = { tr, niveau, groep, uitleg, voorbeelden: [{nl, tr}], tags: [{t, href}] }; one <dialog> per page, reused.
+export function openWordInfo(k, info) {
+  if (!info) return;
+  let dlg = document.getElementById("og-wi");
+  if (!dlg) {
+    dlg = document.createElement("dialog"); dlg.id = "og-wi"; dlg.className = "og og-wi";
+    dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest("[data-close]")) dlg.close(); });
+    document.body.appendChild(dlg);
+  }
+  const ex = (info.voorbeelden || []).map(v => `<div class="ex">${esc(v.nl)}<i>${esc(v.tr)}</i></div>`).join("");
+  dlg.innerHTML = `<button class="x" data-close aria-label="Kapat">×</button>
+    <h3>${esc(k)}<span class="lv">${esc(info.niveau || "")}</span></h3>
+    <p class="tr">${esc(info.tr || "")}</p>
+    ${info.uitleg ? `<p>${esc(info.uitleg)}</p>` : ""}
+    ${ex ? `<h4>Örnekler</h4>${ex}` : ""}
+    ${info.tags?.length ? `<h4>Sitede geçtiği yerler</h4>${tagLinks(info.tags)}` : ""}`;
+  dlg.showModal();
+}
+// One click handler for all games: buttons made by wordButton look their word up in the lookup given here
+export function bindWordInfo(root, lookup) {
+  root.addEventListener("click", e => {
+    const b = e.target.closest("[data-wk]"); if (!b) return;
+    openWordInfo(b.dataset.wk, lookup(b.dataset.wk));
+  });
+}
+
 export const flash = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
