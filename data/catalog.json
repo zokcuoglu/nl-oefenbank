@@ -226,7 +226,7 @@
         "groep8"
       ],
       "title": "Natuur & techniek",
-      "desc": "Işık, kütle ve özkütle, yüzme ve batma, atomlar; groep 7-8'de elektrik, kuvvetler, ses, maddenin halleri, güneş sistemi. Hollandaca ve Türkçe anlatım, alıştırma ve sınav.",
+      "desc": "Işık, kütle ve özkütle, yüzme ve batma, atomlar; groep 7-8'de elektrik, mıknatıslar, kuvvetler, ses, maddenin halleri, güneş sistemi. Hollandaca ve Türkçe anlatım, alıştırma ve sınav.",
       "href": "kids/rekenen.html?vak=natuur",
       "status": "ready",
       "open_any": [
@@ -235,6 +235,7 @@
         "drijven",
         "atoom",
         "elektriciteit",
+        "magnetisme",
         "krachten",
         "geluid",
         "fasen",

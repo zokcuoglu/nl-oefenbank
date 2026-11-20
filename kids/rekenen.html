@@ -212,7 +212,7 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase
 const VAK = new URLSearchParams(location.search).get("vak") === "natuur" ? "natuur" : "rekenen";
 const SUBJECT = {
   rekenen: { module: "g5-rekenen", file: "./rekenen-vragen.js?v=3", h1: "<mark>Rekenen</mark> &amp; meetkunde", title: "Rekenen & meetkunde" },
-  natuur: { module: "g5-natuur", file: "./natuur-vragen.js?v=3", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
+  natuur: { module: "g5-natuur", file: "./natuur-vragen.js?v=4", h1: "<mark>Natuur</mark> &amp; techniek", title: "Natuur & techniek" }
 }[VAK];
 const MODULE = SUBJECT.module;
 const { TOPICS, THEORY, WORDS, makeQuestion, isCorrect } = await import(SUBJECT.file);

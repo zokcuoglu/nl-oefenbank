@@ -197,6 +197,12 @@
     "band": "7-8",
     "school": true
   },
+  "magnetisme": {
+    "nl": "Magnetisme",
+    "tr": "Manyetizma (mıknatıslar)",
+    "band": "7-8",
+    "school": true
+  },
   "krachten": {
     "nl": "Krachten en hefbomen",
     "tr": "Kuvvetler ve kaldıraçlar",

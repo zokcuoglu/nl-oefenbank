@@ -6,7 +6,7 @@
 // sums, so each question is written by hand with one right and a few wrong answers. Only the parts with a
 // calculation (density, volume, counting atoms) draw fresh numbers.
 import { ri, pick, shuffle, Q, svg, T, MC, maker, isCorrect } from "./vragen-basis.js?v=3";
-import { N_TOPICS, N_GEN, N_THEORY, N_WORDS } from "./natuur-78.js?v=3";
+import { N_TOPICS, N_GEN, N_THEORY, N_WORDS } from "./natuur-78.js?v=4";
 export { isCorrect };
 
 // All topics start hidden; the admin opens them on the admin page (tab İçerik).

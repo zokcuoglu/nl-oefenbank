@@ -6,6 +6,7 @@ import { ri, pick, Q, svg, T, MC } from "./vragen-basis.js?v=3";
 
 export const N_TOPICS = [
   { id: "elektriciteit", nl: "Elektriciteit", tr: "Elektrik", sub_nl: "stroomkring, geleider, schakelaar", sub_tr: "devre, iletken, anahtar", open: false, band: "7-8", school: true },
+  { id: "magnetisme", nl: "Magnetisme", tr: "Manyetizma (mıknatıslar)", sub_nl: "aantrekken, afstoten, kompas", sub_tr: "çekme, itme, pusula", open: false, band: "7-8", school: true },
   { id: "krachten", nl: "Krachten en hefbomen", tr: "Kuvvetler ve kaldıraçlar", sub_nl: "duwen, trekken, wrijving, wip", sub_tr: "itme, çekme, sürtünme, tahterevalli", open: false, band: "7-8", school: true },
   { id: "geluid", nl: "Geluid", tr: "Ses", sub_nl: "trillingen, hoog en laag, echo", sub_tr: "titreşim, ince ve kalın ses, yankı", open: false, band: "7-8", school: true },
   { id: "fasen", nl: "Vast, vloeibaar en gas", tr: "Katı, sıvı ve gaz", sub_nl: "smelten, koken, verdampen", sub_tr: "erime, kaynama, buharlaşma", open: false, band: "7-8", school: true },
@@ -16,6 +17,14 @@ const fig = {
   // closed circuit: battery on the left, lamp on top
   circuit: () => svg(`<polyline class="room" points="40,30 180,30 180,105 40,105 40,30"/><circle class="shape" cx="110" cy="30" r="13"/>${T(110, 34, "✕")}
     <rect class="shape" x="30" y="55" width="20" height="26"/>${T(64, 72, "batterij", "start")}${T(110, 60, "lampje")}`),
+  // bar magnet: north half filled, south half open, with dashed field lines from N to Z
+  magnet: () => svg(`<path class="room dash" d="M80,52 C60,10 160,10 140,52"/><path class="room dash" d="M80,78 C60,120 160,120 140,78"/>
+    <path class="room dash" d="M70,58 C20,30 20,100 70,72"/><path class="room dash" d="M150,58 C200,30 200,100 150,72"/>
+    <rect class="shape" x="70" y="52" width="40" height="26"/><rect class="room" x="110" y="52" width="40" height="26"/>${T(90, 70, "N")}${T(130, 70, "Z")}`),
+  // two magnets: same poles facing (push away) or different poles (pull together)
+  poles: (same) => svg(`<rect class="shape" x="20" y="50" width="35" height="26"/><rect class="room" x="55" y="50" width="35" height="26"/>${T(37, 68, "N")}${T(72, 68, "Z")}
+    <rect class="${same ? "room" : "shape"}" x="130" y="50" width="35" height="26"/><rect class="${same ? "shape" : "room"}" x="165" y="50" width="35" height="26"/>
+    ${T(147, 68, same ? "Z" : "N")}${T(182, 68, same ? "N" : "Z")}${T(110, 40, same ? "← →" : "→ ←")}`),
   // seesaw with two loads
   wip: (l, r) => svg(`<line x1="25" y1="70" x2="195" y2="70" style="stroke-width:4"/><polygon class="shape" points="110,72 96,104 124,104"/>
     <rect class="shape" x="30" y="46" width="26" height="22"/><rect class="shape" x="164" y="46" width="26" height="22"/>${T(43, 40, l)}${T(177, 40, r)}`)
@@ -35,7 +44,11 @@ N_GEN.elektriciteit = [
     MC("Waarom zit er plastic om een stroomdraad?", "Elektrik kablosunun etrafında neden plastik vardır?", ["plastic houdt de stroom tegen, zodat je geen schok krijgt", "plastik akımı geçirmez, böylece çarpılmazsın"], [["plastic maakt de stroom sneller", "plastik akımı hızlandırır"], ["plastic geeft licht", "plastik ışık verir"], ["anders roest de draad", "yoksa kablo paslanır"]],
       "Plastic is een isolator. Het koper binnenin geleidt de stroom, het plastic eromheen beschermt jou.", "Plastik yalıtkandır. İçindeki bakır akımı iletir, dışındaki plastik seni korur."),
     MC("Wat doet een schakelaar?", "Anahtar (düğme) ne yapar?", ["hij opent of sluit de stroomkring", "devreyi açar ya da kapatır"], [["hij maakt stroom", "elektrik üretir"], ["hij bewaart stroom", "elektriği depolar"], ["hij maakt de lamp feller", "ampulü daha parlak yapar"]],
-      "Zet je het licht uit, dan onderbreek je de kring en kan de stroom niet meer rond.", "Işığı kapattığında devreyi kesersin ve akım artık dolaşamaz.")
+      "Zet je het licht uit, dan onderbreek je de kring en kan de stroom niet meer rond.", "Işığı kapattığında devreyi kesersin ve akım artık dolaşamaz."),
+    MC("Je wrijft een ballon een tijdje over je haar en houdt hem dan tegen de muur. Wat gebeurt er?", "Bir balonu bir süre saçına sürtüp sonra duvara tutuyorsun. Ne olur?", ["de ballon blijft aan de muur plakken", "balon duvara yapışıp kalır"], [["de ballon knapt", "balon patlar"], ["de ballon wordt warm", "balon ısınır"], ["er gebeurt niets", "hiçbir şey olmaz"]],
+      "Door het wrijven krijgt de ballon een elektrische lading. Die lading trekt aan de muur en aan je haren. Dat heet statische elektriciteit.", "Sürtünce balon elektrik yükü kazanır. Bu yük duvarı ve saçlarını çeker. Buna statik elektrik denir."),
+    MC("Waar mag je <b>nooit</b> iets in steken?", "Hangisinin içine <b>asla</b> bir şey sokmamalısın?", ["in een stopcontact", "prize"], [["in een spaarpot", "kumbaraya"], ["in een etui", "kalem kutusuna"], ["in een zandbak", "kum havuzuna"]],
+      "In het stopcontact zit 230 volt. Daar kun je een zware schok van krijgen. Een stekker is gemaakt om erin te gaan; een vork of een vinger niet.", "Prizde 230 volt vardır. Ağır bir elektrik çarpması yaşayabilirsin. Fiş prize takılmak için yapılmıştır; çatal ya da parmak değil.")
   ],
   [
     MC("Twee lampjes zitten achter elkaar in één kring (serie). Eén lampje gaat kapot. Wat gebeurt er met het andere?", "İki ampul aynı devrede art arda bağlı (seri). Biri bozuluyor. Diğerine ne olur?", ["het gaat ook uit", "o da söner"], [["het blijft branden", "yanmaya devam eder"], ["het gaat feller branden", "daha parlak yanar"], ["het gaat knipperen", "yanıp söner"]],
@@ -44,7 +57,9 @@ N_GEN.elektriciteit = [
       "Bij parallel heeft elke lamp zijn eigen weg naar de stroombron.", "Paralel bağlantıda her lambanın kaynağa giden kendi yolu vardır."),
     () => { const n = ri(2, 4); return Q(`Eén batterij is 1,5 volt. Je zet ${n * 2} batterijen achter elkaar. Hoeveel volt is dat samen?`, `Bir pil 1,5 volttur. ${n * 2} pili art arda bağlıyorsun. Toplam kaç volt eder?`, n * 3, "volt", `${n * 2} × 1,5 = ${n * 3} volt.`, `${n * 2} × 1,5 = ${n * 3} volt.`); },
     MC("Waarom mag je een föhn niet gebruiken in bad?", "Banyoda küvetin içindeyken neden saç kurutma makinesi kullanılmaz?", ["water met zouten erin geleidt stroom, en jouw lichaam ook", "içinde tuz bulunan su elektriği iletir, senin vücudun da"], [["de föhn wordt dan te koud", "makine çok soğur"], ["water maakt de föhn zwaarder", "su makineyi ağırlaştırır"], ["het haar droogt dan niet", "saç kurumaz"]],
-      "Kraanwater geleidt stroom. Valt een apparaat in het water, dan kan de stroom door jouw lichaam lopen. Dat is levensgevaarlijk.", "Musluk suyu elektriği iletir. Bir cihaz suya düşerse akım vücudundan geçebilir. Bu ölümcül tehlikelidir.")
+      "Kraanwater geleidt stroom. Valt een apparaat in het water, dan kan de stroom door jouw lichaam lopen. Dat is levensgevaarlijk.", "Musluk suyu elektriği iletir. Bir cihaz suya düşerse akım vücudundan geçebilir. Bu ölümcül tehlikelidir."),
+    MC("Een batterij van 1,5 volt kun je gewoon vastpakken, het stopcontact niet. Waarom?", "1,5 voltluk bir pili rahatça tutabilirsin ama prize dokunamazsın. Neden?", ["het stopcontact heeft veel meer spanning (230 volt) en dat is gevaarlijk", "prizin gerilimi çok daha yüksektir (230 volt) ve bu tehlikelidir"], [["een batterij heeft geen stroom", "pilde elektrik yoktur"], ["het stopcontact is warmer", "priz daha sıcaktır"], ["batterijen zijn van plastic", "piller plastiktir"]],
+      "Hoe hoger de spanning, hoe harder de stroom kan duwen. 1,5 volt voel je niet, 230 volt kan levensgevaarlijk zijn.", "Gerilim ne kadar yüksekse akım o kadar güçlü itilir. 1,5 voltu hissetmezsin, 230 volt ise hayati tehlike yaratabilir.")
   ],
   [
     () => { const w = pick([5, 10, 40, 60]), h = ri(2, 6); return Q(`Een lamp gebruikt ${w} watt. Hoeveel wattuur energie gebruikt hij als hij ${h} uur brandt?`, `Bir lamba ${w} watt harcıyor. ${h} saat yanarsa kaç watt-saat enerji harcar?`, w * h, "wattuur", `Energie = vermogen × tijd = ${w} × ${h} = ${w * h} wattuur.`, `Enerji = güç × zaman = ${w} × ${h} = ${w * h} watt-saat.`); },
@@ -52,7 +67,47 @@ N_GEN.elektriciteit = [
     MC("Een zonnepaneel maakt stroom. Waar komt de energie vandaan?", "Güneş paneli elektrik üretir. Enerji nereden gelir?", ["uit het licht van de zon", "Güneş'in ışığından"], [["uit de wind", "rüzgârdan"], ["uit de warmte van het dak", "çatının ısısından"], ["uit een batterij in het paneel", "panelin içindeki pilden"]],
       "Een zonnepaneel zet zonlicht om in elektriciteit. Daarom levert het 's nachts niets.", "Güneş paneli güneş ışığını elektriğe çevirir. Bu yüzden gece hiç üretmez."),
     MC("Bij onweer zie je een bliksemflits. Wat is bliksem?", "Fırtınada şimşek çakar. Şimşek nedir?", ["een hele grote elektrische vonk", "çok büyük bir elektrik kıvılcımı"], [["vuur dat uit een wolk valt", "buluttan düşen ateş"], ["licht van de zon dat weerkaatst", "Güneş ışığının yansıması"], ["twee wolken die botsen", "iki bulutun çarpışması"]],
-      "In een onweerswolk bouwt zich elektrische lading op. Wordt die te groot, dan springt er een vonk over: de bliksem.", "Fırtına bulutunda elektrik yükü birikir. Çok artınca bir kıvılcım atlar: şimşek.")
+      "In een onweerswolk bouwt zich elektrische lading op. Wordt die te groot, dan springt er een vonk over: de bliksem.", "Fırtına bulutunda elektrik yükü birikir. Çok artınca bir kıvılcım atlar: şimşek."),
+    () => { const n = ri(4, 12), k = ri(6, 14); return Q(`In een straat staan ${n} huizen. Op elk dak liggen ${k} zonnepanelen. Hoeveel zonnepanelen zijn er in de hele straat?`, `Bir sokakta ${n} ev var. Her evin çatısında ${k} güneş paneli var. Bütün sokakta kaç güneş paneli var?`, n * k, "",
+      `${n} × ${k} = ${n * k}.`, `${n} × ${k} = ${n * k}.`); }
+  ]
+];
+
+// ----- Magnetisme
+// What a magnet attracts: iron and steel yes; aluminium, copper, plastic, wood, paper and glass no.
+// (Euro coins are left out on purpose: some of them are attracted and some are not.)
+const MAGNETIC = [["een paperclip", "ataş"], ["een ijzeren spijker", "demir çivi"], ["een schaar van staal", "çelik makas"], ["een punaise van staal", "çelik raptiye"]];
+const NOT_MAGNETIC = [["een plastic lepel", "plastik kaşık"], ["een houten potlood", "tahta kalem"], ["een blikje van aluminium", "alüminyum kutu"], ["een gum", "silgi"], ["een glazen knikker", "cam bilye"], ["een koperen sleutel", "bakır anahtar"]];
+N_GEN.magnetisme = [
+  [
+    () => { const r = pick(MAGNETIC), w = NOT_MAGNETIC.slice().sort(() => Math.random() - 0.5).slice(0, 3);
+      return MC("Wat wordt door een magneet aangetrokken?", "Hangisi mıknatıs tarafından çekilir?", r, w,
+        "Een magneet trekt ijzer en staal aan. Plastic, hout, glas en de meeste andere metalen (zoals aluminium en koper) niet.", "Mıknatıs demiri ve çeliği çeker. Plastik, tahta, cam ve diğer metallerin çoğu (alüminyum ve bakır gibi) çekilmez.")(); },
+    MC("Je houdt twee <b>noordpolen</b> naar elkaar toe. Wat gebeurt er?", "İki mıknatısın <b>kuzey kutuplarını</b> birbirine yaklaştırıyorsun. Ne olur?", ["ze duwen elkaar weg", "birbirlerini iterler"], [["ze trekken elkaar aan", "birbirlerini çekerler"], ["er gebeurt niets", "hiçbir şey olmaz"], ["ze worden warm", "ısınırlar"]],
+      "Gelijke polen stoten elkaar af: noord en noord, of zuid en zuid.", "Aynı kutuplar birbirini iter: kuzey ile kuzey ya da güney ile güney.", { fig: fig.poles(true) }),
+    MC("Je houdt een noordpool en een zuidpool naar elkaar toe. Wat gebeurt er?", "Bir kuzey kutbunu bir güney kutbuna yaklaştırıyorsun. Ne olur?", ["ze trekken elkaar aan", "birbirlerini çekerler"], [["ze duwen elkaar weg", "birbirlerini iterler"], ["er gebeurt niets", "hiçbir şey olmaz"], ["de magneten breken", "mıknatıslar kırılır"]],
+      "Ongelijke polen trekken elkaar aan: noord en zuid klikken tegen elkaar.", "Farklı kutuplar birbirini çeker: kuzey ile güney birbirine yapışır.", { fig: fig.poles(false) }),
+    () => Q("Hoeveel polen heeft een magneet?", "Bir mıknatısın kaç kutbu vardır?", 2, "", "Een noordpool (N) en een zuidpool (Z).", "Bir kuzey kutbu (N) ve bir güney kutbu (Z; Türkçede S).", { fig: fig.magnet() })
+  ],
+  [
+    MC("Een magneet houdt een tekening op de koelkast vast. Wat leert dat je?", "Bir mıknatıs buzdolabındaki resmi tutuyor. Bu sana ne öğretir?", ["de kracht van een magneet werkt door papier heen", "mıknatısın kuvveti kâğıdın içinden geçer"], [["papier is magnetisch", "kâğıt manyetiktir"], ["de koelkast is van plastic", "buzdolabı plastiktir"], ["de magneet is nat", "mıknatıs ıslaktır"]],
+      "Het magneetveld gaat door papier, glas, water en zelfs je hand heen. De deur van de koelkast is van staal.", "Manyetik alan kâğıttan, camdan, sudan, hatta elinden bile geçer. Buzdolabının kapısı çeliktir."),
+    MC("Je breekt een staafmagneet in twee stukken. Wat heb je dan?", "Bir çubuk mıknatısı ikiye kırıyorsun. Elinde ne olur?", ["twee kleinere magneten, elk met een noord- en een zuidpool", "her birinin kuzey ve güney kutbu olan iki küçük mıknatıs"], [["een losse noordpool en een losse zuidpool", "tek başına bir kuzey ve tek başına bir güney kutbu"], ["twee stukken ijzer zonder kracht", "kuvveti olmayan iki demir parçası"], ["één magneet en één stuk ijzer", "bir mıknatıs ve bir demir parçası"]],
+      "Een magneet heeft altijd twee polen. Breek je hem, dan krijgt elk stuk weer een noord- en een zuidpool.", "Mıknatısın her zaman iki kutbu vardır. Kırarsan her parçanın yine bir kuzey ve bir güney kutbu olur."),
+    MC("Waarom wijst een kompasnaald altijd naar het noorden?", "Pusula iğnesi neden hep kuzeyi gösterir?", ["de aarde is zelf een grote magneet", "Dünya'nın kendisi büyük bir mıknatıstır"], [["de zon trekt aan de naald", "Güneş iğneyi çeker"], ["de wind duwt de naald", "rüzgâr iğneyi iter"], ["het noorden is kouder", "kuzey daha soğuktur"]],
+      "De kompasnaald is een klein magneetje. Het magneetveld van de aarde draait de naald naar het noorden.", "Pusula iğnesi küçük bir mıknatıstır. Dünya'nın manyetik alanı iğneyi kuzeye çevirir."),
+    MC("Een elektromagneet houdt een stuk ijzer vast. Wat gebeurt er als je de stroom uitzet?", "Bir elektromıknatıs bir demir parçasını tutuyor. Elektriği kesersen ne olur?", ["het ijzer valt los, want zonder stroom is het geen magneet meer", "demir düşer, çünkü elektrik olmadan artık mıknatıs değildir"], [["het ijzer blijft altijd hangen", "demir hep asılı kalır"], ["het ijzer wordt zelf een magneet", "demirin kendisi mıknatıs olur"], ["de magneet wordt sterker", "mıknatıs güçlenir"]],
+      "Een elektromagneet is alleen een magneet zolang er stroom door de draad loopt. Daarom kun je hem aan- en uitzetten.", "Elektromıknatıs, yalnızca telinden akım geçtiği sürece mıknatıstır. Bu yüzden açılıp kapatılabilir.")
+  ],
+  [
+    () => { const n = ri(4, 12) * 10, a = ri(1, n / 10 - 1) * 10; return Q(`In een bak liggen ${n} lege blikjes. ${a} zijn van staal, de rest van aluminium. Een grote magneet haalt de stalen blikjes eruit. Hoeveel blikjes blijven er liggen?`, `Bir kutuda ${n} boş teneke var. ${a} tanesi çelik, geri kalanı alüminyum. Büyük bir mıknatıs çelik olanları çekip alıyor. Kaç teneke kalır?`, n - a, "",
+      `De magneet pakt alleen het staal. Er blijven ${n} − ${a} = ${n - a} aluminium blikjes over.`, `Mıknatıs sadece çeliği çeker. Geriye ${n} − ${a} = ${n - a} alüminyum teneke kalır.`); },
+    () => { const p = ri(2, 4), w = pick([20, 30, 40, 50]); return Q(`Proefje: je wikkelt draad om een spijker en sluit een batterij aan. Met 10 wikkelingen pakt de spijker ${p} paperclips op. In dit proefje pakt hij er bij elke 10 wikkelingen extra ${p} meer op. Hoeveel paperclips pakt hij op met ${w} wikkelingen?`, `Deney: bir çivinin etrafına tel sarıp bir pile bağlıyorsun. 10 sarımla çivi ${p} ataş kaldırıyor. Bu deneyde her 10 sarım fazlası ${p} ataş daha kaldırıyor. ${w} sarımla kaç ataş kaldırır?`, p * w / 10, "",
+      `${w} wikkelingen is ${w / 10} keer 10. ${w / 10} × ${p} = ${p * w / 10}. Meer wikkelingen maken de elektromagneet sterker.`, `${w} sarım, 10'un ${w / 10} katıdır. ${w / 10} × ${p} = ${p * w / 10}. Sarım arttıkça elektromıknatıs güçlenir.`); },
+    MC("Hoe maak je van een gewone ijzeren naald een kompasnaald?", "Sıradan bir demir iğneyi nasıl pusula iğnesine çevirirsin?", ["vaak met een magneet in dezelfde richting langs de naald strijken", "bir mıknatısı iğne boyunca hep aynı yönde defalarca sürtmek"], [["de naald in de vriezer leggen", "iğneyi dondurucuya koymak"], ["de naald heen en weer buigen", "iğneyi ileri geri bükmek"], ["de naald nat maken", "iğneyi ıslatmak"]],
+      "Door het strijken wordt de naald zelf een magneetje. Leg je hem op een kurkje in een bak water, dan draait hij naar het noorden.", "Sürtünce iğnenin kendisi küçük bir mıknatıs olur. Su dolu bir kapta mantar tıpanın üstüne koyarsan kuzeye döner."),
+    MC("Je kompas wijst recht vooruit: daar is het noorden. Je draait je helemaal om. Welke kant kijk je nu op?", "Pusulan tam önünü gösteriyor: kuzey orada. Tamamen arkanı dönüyorsun. Şimdi hangi yöne bakıyorsun?", ["het zuiden", "güney"], [["het noorden", "kuzey"], ["het oosten", "doğu"], ["het westen", "batı"]],
+      "Tegenover het noorden ligt het zuiden. De naald wijst nog steeds naar het noorden, nu achter je.", "Kuzeyin tam tersi güneydir. İğne hâlâ kuzeyi gösterir, artık senin arkanda.")
   ]
 ];
 
@@ -187,12 +242,30 @@ N_GEN.zonnestelsel = [
 
 export const N_THEORY = {
   elektriciteit: [
+    { nl: "<b>Wat is stroom?</b> Denk aan een kring van kinderen die een bal doorgeven. De batterij is het kind dat de bal steeds weer een duw geeft. De draad is de weg. Het lampje gaat branden als de bal erlangs komt. Is de kring ergens open, dan stopt alles.<br>Stroom kun je niet zien, maar wel wat hij doet: licht, warmte, beweging en geluid.",
+      tr: "<b>Elektrik akımı nedir?</b> Topu birbirine paslayan, halka olmuş çocukları düşün. Pil, topa durmadan itiş veren çocuktur. Kablo yoldur. Top ampulün yanından geçince ampul yanar. Halka bir yerden açılırsa her şey durur.<br>Akımı göremezsin ama yaptıklarını görürsün: ışık, ısı, hareket ve ses." },
     { fig: fig.circuit(), nl: "Stroom loopt alleen in een <b>gesloten stroomkring</b>: van de batterij, door de draad en het lampje, terug naar de batterij. Een <b>schakelaar</b> opent of sluit de kring.<br><b>Geleiders</b> laten stroom door (metalen zoals koper). <b>Isolatoren</b> houden stroom tegen (plastic, rubber, hout, glas).",
       tr: "Akım yalnızca <b>kapalı devrede</b> dolaşır: pilden kabloya ve ampule, oradan tekrar pile. <b>Anahtar</b> devreyi açar ya da kapatır.<br><b>İletkenler</b> akımı geçirir (bakır gibi metaller). <b>Yalıtkanlar</b> geçirmez (plastik, lastik, tahta, cam)." },
     { nl: "<b>Serie</b>: lampjes achter elkaar in één kring. Gaat er één kapot, dan gaan ze allemaal uit.<br><b>Parallel</b>: elk lampje heeft een eigen weg. Gaat er één kapot, dan blijft de rest branden. Zo is het thuis.",
       tr: "<b>Seri</b>: ampuller tek devrede art arda. Biri bozulursa hepsi söner.<br><b>Paralel</b>: her ampulün kendi yolu vardır. Biri bozulursa diğerleri yanar. Evde böyledir." },
     { eg: true, nl: "<b>Kerstlampjes</b>: bij oude slingers ging de hele slinger uit als één lampje stuk was. Die waren in serie geschakeld.<br><b>Stroomdraad</b>: het koper binnenin geleidt, het plastic eromheen beschermt jou.<br><b>Water en stroom</b>: nooit een apparaat gebruiken met natte handen of bij het bad. Water geleidt stroom, en jouw lichaam ook.",
-      tr: "<b>Yılbaşı ışıkları</b>: eski süslerde bir ampul bozulunca bütün dizi sönerdi. Çünkü seri bağlıydılar.<br><b>Elektrik kablosu</b>: içindeki bakır iletir, dışındaki plastik seni korur.<br><b>Su ve elektrik</b>: ıslak elle ya da küvetin yanında asla cihaz kullanma. Su elektriği iletir, senin vücudun da." }
+      tr: "<b>Yılbaşı ışıkları</b>: eski süslerde bir ampul bozulunca bütün dizi sönerdi. Çünkü seri bağlıydılar.<br><b>Elektrik kablosu</b>: içindeki bakır iletir, dışındaki plastik seni korur.<br><b>Su ve elektrik</b>: ıslak elle ya da küvetin yanında asla cihaz kullanma. Su elektriği iletir, senin vücudun da." },
+    { eg: true, nl: "<b>Ballonproefje</b>: wrijf een ballon over je haar. Je haren gaan rechtop staan en de ballon blijft aan de muur plakken. Dat is <b>statische elektriciteit</b>. Ook de kleine knetter als je je trui uittrekt is een piepkleine vonk. Bliksem is precies hetzelfde, alleen enorm groot.",
+      tr: "<b>Balon deneyi</b>: bir balonu saçına sürt. Saçların dikilir ve balon duvara yapışır kalır. Bu <b>statik elektriktir</b>. Kazağını çıkarırken duyduğun çıtırtı da minicik bir kıvılcımdır. Şimşek de tamamen aynı şeydir, sadece dev boyutta." },
+    { eg: true, nl: "<b>Waar komt de stroom thuis vandaan?</b> Uit een energiecentrale, een windmolen of zonnepanelen. Het reist door dikke kabels onder de grond naar jouw huis.<br><b>Batterij of stopcontact?</b> Een batterij heeft 1,5 volt: die kun je gewoon vastpakken. Het stopcontact heeft 230 volt: daar steek je nooit iets in behalve een stekker.",
+      tr: "<b>Evdeki elektrik nereden gelir?</b> Bir elektrik santralinden, rüzgâr türbininden ya da güneş panellerinden. Toprağın altındaki kalın kablolarla evine kadar gelir.<br><b>Pil mi priz mi?</b> Pil 1,5 volttur: rahatça tutabilirsin. Priz 230 volttur: içine fişten başka asla bir şey sokulmaz." }
+  ],
+  magnetisme: [
+    { fig: fig.magnet(), nl: "Een <b>magneet</b> trekt dingen van <b>ijzer</b> en <b>staal</b> aan: een paperclip, een spijker, de deur van de koelkast. Niet alles wat van metaal is: aluminium (blikjes) en koper niet. Plastic, hout, papier en glas ook niet.<br>Elke magneet heeft twee <b>polen</b>: een <b>noordpool (N)</b> en een <b>zuidpool (Z)</b>. Daar is de kracht het sterkst.",
+      tr: "<b>Mıknatıs</b>, <b>demir</b> ve <b>çelikten</b> yapılmış şeyleri çeker: ataş, çivi, buzdolabının kapısı. Metal olan her şeyi değil: alüminyum (içecek kutuları) ve bakır çekilmez. Plastik, tahta, kâğıt ve cam da çekilmez.<br>Her mıknatısın iki <b>kutbu</b> vardır: <b>kuzey kutbu (N)</b> ve <b>güney kutbu</b> (Hollandacada Z, Türkçede S). Kuvvet en çok kutuplardadır." },
+    { fig: fig.poles(true), nl: "<b>Gelijke polen stoten elkaar af</b>: noord tegen noord duwt weg.<br><b>Ongelijke polen trekken elkaar aan</b>: noord en zuid klikken vast.<br>Rond een magneet zit een onzichtbaar <b>magneetveld</b>. Het werkt door papier, glas en water heen, en hoe dichterbij, hoe sterker.",
+      tr: "<b>Aynı kutuplar birbirini iter</b>: kuzey kuzeyi iter.<br><b>Farklı kutuplar birbirini çeker</b>: kuzey ile güney yapışır.<br>Mıknatısın etrafında görünmez bir <b>manyetik alan</b> vardır. Kâğıttan, camdan ve sudan geçer; ne kadar yakınsa o kadar güçlüdür." },
+    { nl: "<b>De aarde is een grote magneet.</b> Daarom draait een kompasnaald (een klein magneetje) altijd naar het noorden.<br><b>Elektromagneet</b>: wikkel een draad om een spijker en sluit een batterij aan. Zolang er stroom loopt, is de spijker een magneet. Stroom uit: geen magneet meer. Meer wikkelingen maken hem sterker. Zo hangen <b>elektriciteit en magnetisme</b> samen.",
+      tr: "<b>Dünya büyük bir mıknatıstır.</b> Bu yüzden pusula iğnesi (küçük bir mıknatıs) hep kuzeye döner.<br><b>Elektromıknatıs</b>: bir çivinin etrafına tel sar ve bir pile bağla. Akım geçtiği sürece çivi mıknatıstır. Akım kesilince artık mıknatıs değildir. Sarım arttıkça güçlenir. <b>Elektrik ile manyetizma</b> böyle birbirine bağlıdır." },
+    { eg: true, nl: "<b>Om je heen</b>: koelkastmagneten, het deurtje van een keukenkastje dat dichtklikt, een magneetbord in de klas.<br><b>Schroothoop</b>: een kraan met een enorme elektromagneet tilt een hele auto op. Zet de kraanmachinist de stroom uit, dan valt de auto los.<br><b>Afval scheiden</b>: met een grote magneet haalt men stalen blikjes uit het afval; aluminium blijft liggen.<br><b>Luidspreker en koptelefoon</b>: daarin laat een magneet een vliesje trillen, en dat hoor je als geluid.",
+      tr: "<b>Etrafında</b>: buzdolabı mıknatısları, kapanınca tık diye duran mutfak dolabı kapağı, sınıftaki mıknatıslı tahta.<br><b>Hurdalık</b>: dev bir elektromıknatısı olan vinç koca bir arabayı kaldırır. Vinç operatörü elektriği kesince araba düşer.<br><b>Çöp ayırma</b>: büyük bir mıknatısla çöpten çelik tenekeler ayıklanır; alüminyumlar yerinde kalır.<br><b>Hoparlör ve kulaklık</b>: içlerinde bir mıknatıs ince bir zarı titreştirir, sen bunu ses olarak duyarsın." },
+    { eg: true, nl: "<b>Proefje: maak zelf een kompas.</b> Strijk een naald een paar keer met een magneet, steeds in dezelfde richting. Leg de naald op een plat kurkje in een bak water. De naald draait langzaam tot hij noord-zuid ligt.<br><b>Noorderlicht</b>: deeltjes van de zon worden door het magneetveld van de aarde naar de polen geleid. Daar laten ze de lucht gekleurd oplichten.",
+      tr: "<b>Deney: kendi pusulanı yap.</b> Bir iğneyi bir mıknatısla, hep aynı yönde birkaç kez sürt. İğneyi su dolu bir kapta yassı bir mantar tıpanın üstüne koy. İğne yavaşça dönüp kuzey-güney yönünde durur.<br><b>Kuzey ışıkları</b>: Güneş'ten gelen parçacıklar Dünya'nın manyetik alanıyla kutuplara yönlendirilir. Orada havayı renkli renkli parlatırlar." }
   ],
   krachten: [
     { nl: "Een <b>kracht</b> is duwen of trekken. Een kracht kan iets in beweging brengen, afremmen, laten draaien of vervormen. Je meet kracht in <b>newton</b>.<br><b>Zwaartekracht</b> trekt alles naar de aarde. <b>Wrijving</b> remt alles af wat ergens langs schuurt. <b>Luchtweerstand</b> is wrijving met de lucht.",
@@ -223,7 +296,8 @@ export const N_THEORY = {
 };
 
 export const N_WORDS = {
-  elektriciteit: [["stroom", "akım / elektrik"], ["stroomkring", "devre"], ["batterij", "pil"], ["draad", "kablo"], ["schakelaar", "anahtar"], ["geleider", "iletken"], ["isolator", "yalıtkan"], ["lampje", "ampul"]],
+  elektriciteit: [["stroom", "akım / elektrik"], ["stroomkring", "devre"], ["batterij", "pil"], ["draad", "kablo"], ["schakelaar", "anahtar"], ["geleider", "iletken"], ["isolator", "yalıtkan"], ["lampje", "ampul"], ["statische elektriciteit", "statik elektrik"], ["stopcontact", "priz"], ["stekker", "fiş"], ["spanning (volt)", "gerilim (volt)"]],
+  magnetisme: [["magneet", "mıknatıs"], ["aantrekken", "çekmek"], ["afstoten", "itmek"], ["noordpool", "kuzey kutbu"], ["zuidpool", "güney kutbu"], ["magneetveld", "manyetik alan"], ["kompas", "pusula"], ["elektromagneet", "elektromıknatıs"], ["ijzer / staal", "demir / çelik"]],
   krachten: [["kracht", "kuvvet"], ["duwen", "itmek"], ["trekken", "çekmek"], ["wrijving", "sürtünme"], ["zwaartekracht", "yer çekimi"], ["hefboom", "kaldıraç"], ["wip", "tahterevalli"], ["evenwicht", "denge"], ["luchtweerstand", "hava direnci"]],
   geluid: [["geluid", "ses"], ["trillen", "titreşmek"], ["hoge toon", "ince ses"], ["lage toon", "kalın ses"], ["hard", "yüksek sesli"], ["zacht", "alçak sesli"], ["echo", "yankı"], ["snaar", "tel"]],
   fasen: [["vast", "katı"], ["vloeibaar", "sıvı"], ["gas", "gaz"], ["smelten", "erimek"], ["bevriezen", "donmak"], ["verdampen", "buharlaşmak"], ["condenseren", "yoğuşmak"], ["koken", "kaynamak"], ["waterdamp", "su buharı"]],
