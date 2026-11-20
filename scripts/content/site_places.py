@@ -38,7 +38,8 @@ def sentences(obj):
     out = []
     for s in strings(obj):
         s = untag(s).replace("**", "")
-        if TURKISH & set(s) or "___" in s: continue
+        # Turkish: letters Dutch does not use; ö only in Dutch as "oö" (coördinator), ü as "uü" hardly ever
+        if TURKISH & set(s) or "___" in s or re.search(r"(?<!o)ö|(?<!u)ü", s): continue
         for zin in re.split(r"(?<=[.!?])\s+|\n+", s.strip()):
             zin = zin.strip()
             n = len(zin.split())
