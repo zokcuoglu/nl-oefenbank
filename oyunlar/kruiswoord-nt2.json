@@ -1,5 +1,5 @@
 {
-"_about": "Snapshot of NL Oefenbank words (data/woorden.json, niveau A0-B1, single words of 3-9 letters, no IJ) for the daily NT2 crossword. w = answer, c = Turkish clue, n = niveau. A fixed copy so today's puzzle does not change when the word list changes; rebuild it only between days. z = Dutch example sentence with the answer blanked (___), zt = its Turkish translation (added later; the words and their order did not change, so the puzzles stay the same).",
+"_about": "Snapshot of NL Oefenbank words (data/woorden.json, niveau A0-B1, single words of 3-9 letters, no IJ) for the daily NT2 crossword. w = answer, c = Turkish clue, n = niveau. A fixed copy so today's puzzle does not change when the word list changes; rebuild it only between days. z = Dutch example sentence with the answer blanked (___), zt = its Turkish translation (added later; the words and their order did not change, so the puzzles stay the same). zf = the full example sentence when the answer appears there in another form (moet, nieuwe, handen); the game shows zf instead of filling the blank with the answer.",
 "words": [
 {
 "w": "HALLO",
@@ -301,7 +301,8 @@
 "c": "el (isim, de)",
 "n": "A0",
 "z": "Was je ___.",
-"zt": "Ellerini yıka."
+"zt": "Ellerini yıka.",
+"zf": "Was je handen."
 },
 {
 "w": "VOET",
@@ -315,7 +316,8 @@
 "c": "kol (isim, de)",
 "n": "A0",
 "z": "Ik heb lange ___.",
-"zt": "Uzun kollarım var."
+"zt": "Uzun kollarım var.",
+"zf": "Ik heb lange armen."
 },
 {
 "w": "BEEN",
@@ -341,7 +343,8 @@
 "c": "diş (isim, de)",
 "n": "A0",
 "z": "Ik poets mijn ___.",
-"zt": "Dişlerimi fırçalıyorum."
+"zt": "Dişlerimi fırçalıyorum.",
+"zf": "Ik poets mijn tanden."
 },
 {
 "w": "WATER",
@@ -596,7 +599,8 @@
 "c": "gelmek (fiil)",
 "n": "A0",
 "z": "___ je ook?",
-"zt": "Sen de geliyor musun?"
+"zt": "Sen de geliyor musun?",
+"zf": "Kom je ook?"
 },
 {
 "w": "ETEN",
@@ -610,7 +614,8 @@
 "c": "içmek (fiil)",
 "n": "A0",
 "z": "Ik ___ melk.",
-"zt": "Süt içiyorum."
+"zt": "Süt içiyorum.",
+"zf": "Ik drink melk."
 },
 {
 "w": "SLAPEN",
@@ -634,7 +639,8 @@
 "c": "görmek (fiil)",
 "n": "A0",
 "z": "Ik ___ een vogel.",
-"zt": "Bir kuş görüyorum."
+"zt": "Bir kuş görüyorum.",
+"zf": "Ik zie een vogel."
 },
 {
 "w": "LOPEN",
@@ -658,7 +664,8 @@
 "c": "ayakta durmak (fiil)",
 "n": "A0",
 "z": "___ even stil.",
-"zt": "Bir dur."
+"zt": "Bir dur.",
+"zf": "Sta even stil."
 },
 {
 "w": "WILLEN",
@@ -736,14 +743,16 @@
 "c": "güzel (sıfat)",
 "n": "A0",
 "z": "Wat een ___ bloem!",
-"zt": "Ne güzel bir çiçek!"
+"zt": "Ne güzel bir çiçek!",
+"zf": "Wat een mooie bloem!"
 },
 {
 "w": "NIEUW",
 "c": "yeni (sıfat)",
 "n": "A0",
 "z": "Ik heb ___ schoenen.",
-"zt": "Yeni ayakkabılarım var."
+"zt": "Yeni ayakkabılarım var.",
+"zf": "Ik heb nieuwe schoenen."
 },
 {
 "w": "OUD",
@@ -953,21 +962,24 @@
 "c": "öğle, öğleden sonra (isim, de)",
 "n": "A1",
 "z": "'s ___ speel ik buiten.",
-"zt": "Öğleden sonra dışarıda oynarım."
+"zt": "Öğleden sonra dışarıda oynarım.",
+"zf": "'s Middags speel ik buiten."
 },
 {
 "w": "AVOND",
 "c": "akşam (isim, de)",
 "n": "A1",
 "z": "'s ___ kijk ik tv.",
-"zt": "Akşamları televizyon izlerim."
+"zt": "Akşamları televizyon izlerim.",
+"zf": "'s Avonds kijk ik tv."
 },
 {
 "w": "NACHT",
 "c": "gece (isim, de)",
 "n": "A1",
 "z": "'s ___ slaap ik.",
-"zt": "Geceleri uyurum."
+"zt": "Geceleri uyurum.",
+"zf": "'s Nachts slaap ik."
 },
 {
 "w": "UUR",
@@ -1159,7 +1171,8 @@
 "c": "çorap (isim, de)",
 "n": "A1",
 "z": "Ik heb natte ___.",
-"zt": "Çoraplarım ıslak."
+"zt": "Çoraplarım ıslak.",
+"zf": "Ik heb natte sokken."
 },
 {
 "w": "JURK",
@@ -1337,7 +1350,8 @@
 "c": "çalışmak (fiil)",
 "n": "A1",
 "z": "Mama ___ in een ziekenhuis.",
-"zt": "Annem hastanede çalışıyor."
+"zt": "Annem hastanede çalışıyor.",
+"zf": "Mama werkt in een ziekenhuis."
 },
 {
 "w": "POLITIE",
@@ -1356,7 +1370,8 @@
 "c": "-meli, zorunda olmak (fiil)",
 "n": "A1",
 "z": "Ik ___ naar huis.",
-"zt": "Eve gitmem lazım."
+"zt": "Eve gitmem lazım.",
+"zf": "Ik moet naar huis."
 },
 {
 "w": "MOGEN",
@@ -1373,7 +1388,8 @@
 "c": "düşünmek (fiil)",
 "n": "A1",
 "z": "Ik ___ dat het regent.",
-"zt": "Bence yağmur yağıyor."
+"zt": "Bence yağmur yağıyor.",
+"zf": "Ik denk dat het regent."
 },
 {
 "w": "ZEGGEN",
@@ -1402,14 +1418,16 @@
 "c": "aramak (fiil)",
 "n": "A1",
 "z": "Ik ___ mijn sleutel.",
-"zt": "Anahtarımı arıyorum."
+"zt": "Anahtarımı arıyorum.",
+"zf": "Ik zoek mijn sleutel."
 },
 {
 "w": "VINDEN",
 "c": "bulmak; bence ... olmak (fiil)",
 "n": "A1",
 "z": "Ik ___ het leuk.",
-"zt": "Hoşuma gidiyor."
+"zt": "Hoşuma gidiyor.",
+"zf": "Ik vind het leuk."
 },
 {
 "w": "WONEN",
@@ -1426,21 +1444,24 @@
 "c": "resim çizmek (fiil)",
 "n": "A1",
 "z": "Ik ___ een huis.",
-"zt": "Bir ev çiziyorum."
+"zt": "Bir ev çiziyorum.",
+"zf": "Ik teken een huis."
 },
 {
 "w": "LUISTEREN",
 "c": "dinlemek (fiil)",
 "n": "A1",
 "z": "___ goed!",
-"zt": "İyi dinle!"
+"zt": "İyi dinle!",
+"zf": "Luister goed!"
 },
 {
 "w": "WACHTEN",
 "c": "beklemek (fiil)",
 "n": "A1",
 "z": "___ even.",
-"zt": "Biraz bekle."
+"zt": "Biraz bekle.",
+"zf": "Wacht even."
 },
 {
 "w": "BELLEN",
@@ -1457,7 +1478,8 @@
 "c": "bisiklet sürmek (fiil)",
 "n": "A1",
 "z": "Ik ___ naar school.",
-"zt": "Okula bisikletle gidiyorum."
+"zt": "Okula bisikletle gidiyorum.",
+"zf": "Ik fiets naar school."
 },
 {
 "w": "ZWEMMEN",
@@ -1498,7 +1520,8 @@
 "c": "tatlı, sevimli (sıfat)",
 "n": "A1",
 "z": "Wat een ___ hond!",
-"zt": "Ne tatlı bir köpek!"
+"zt": "Ne tatlı bir köpek!",
+"zf": "Wat een lieve hond!"
 },
 {
 "w": "SNEL",
@@ -2114,7 +2137,8 @@
 "c": "harika, süper (sıfat)",
 "n": "A2",
 "z": "Wat een ___ dag!",
-"zt": "Ne harika bir gün!"
+"zt": "Ne harika bir gün!",
+"zf": "Wat een toffe dag!"
 },
 {
 "w": "BERICHT",
@@ -2316,7 +2340,8 @@
 "c": "çıtır (sıfat)",
 "n": "A1",
 "z": "Vers brood heeft een ___ korst.",
-"zt": ""
+"zt": "",
+"zf": "Vers brood heeft een knapperige korst."
 },
 {
 "w": "VULLING",
@@ -2379,7 +2404,8 @@
 "c": "preslemek (fiil)",
 "n": "B1",
 "z": "De machine ___ de ragout in staafjes.",
-"zt": ""
+"zt": "",
+"zf": "De machine perst de ragout in staafjes."
 },
 {
 "w": "WOLK",
@@ -2428,7 +2454,8 @@
 "c": "oluşmak (fiil)",
 "n": "B1",
 "z": "Zo ___ een wolk.",
-"zt": ""
+"zt": "",
+"zf": "Zo ontstaat een wolk."
 },
 {
 "w": "GLUTEN",
@@ -2548,14 +2575,16 @@
 "c": "bilgisayar korsanı (isim, de)",
 "n": "B1",
 "z": "___ vielen het systeem aan.",
-"zt": ""
+"zt": "",
+"zf": "Hackers vielen het systeem aan."
 },
 {
 "w": "WOLF",
 "c": "kurt (isim, de)",
 "n": "A1",
 "z": "In Nederland leven weer ___.",
-"zt": ""
+"zt": "",
+"zf": "In Nederland leven weer wolven."
 },
 {
 "w": "BOS",
@@ -2640,7 +2669,8 @@
 "c": "ziyaretçi (isim, de)",
 "n": "A2",
 "z": "Het museum had veel ___.",
-"zt": ""
+"zt": "",
+"zf": "Het museum had veel bezoekers."
 },
 {
 "w": "OPVANGEN",
@@ -2652,7 +2682,8 @@
 "c": "bakmak (fiil)",
 "n": "B1",
 "z": "De dierenarts ___ de zeehond.",
-"zt": ""
+"zt": "",
+"zf": "De dierenarts verzorgt de zeehond."
 },
 {
 "w": "ONDERZOEK",
@@ -2666,7 +2697,8 @@
 "c": "bağışlamak (fiil)",
 "n": "B1",
 "z": "Ze ___ elk jaar geld aan het goede doel.",
-"zt": ""
+"zt": "",
+"zf": "Ze schenkt elk jaar geld aan het goede doel."
 },
 {
 "w": "GEMEENTE",
@@ -2694,7 +2726,8 @@
 "c": "çevirmek (fiil)",
 "n": "A1",
 "z": "Je ___ aan het wiel.",
-"zt": ""
+"zt": "",
+"zf": "Je draait aan het wiel."
 },
 {
 "w": "DANSEN",
@@ -2830,7 +2863,8 @@
 "c": "katlamak (fiil)",
 "n": "A2",
 "z": "___ het papier in twee.",
-"zt": ""
+"zt": "",
+"zf": "Vouw het papier in twee."
 },
 {
 "w": "MAAT",
@@ -2873,7 +2907,8 @@
 "c": "dokunarak hissetmek (fiil)",
 "n": "A1",
 "z": "___ eens hoe zacht dit is.",
-"zt": ""
+"zt": "",
+"zf": "Voel eens hoe zacht dit is."
 },
 {
 "w": "NEP",
@@ -2913,7 +2948,8 @@
 "c": "lif (isim, de)",
 "n": "B1",
 "z": "Katoen heeft lange ___.",
-"zt": ""
+"zt": "",
+"zf": "Katoen heeft lange vezels."
 },
 {
 "w": "WATERMERK",
