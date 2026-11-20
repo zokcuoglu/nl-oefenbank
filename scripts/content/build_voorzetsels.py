@@ -164,42 +164,51 @@ def clean(s):
 def norm(s):   # compare without case, quotes and extra spaces
     return re.sub(r"\s+", " ", re.sub(r"['\"*]", "", clean(s))).strip().lower()
 
-texts = []   # (source label, normalised text)
+# Every place a sentence can come from: (label, link on the site, normalised text).
+# The link opens that exact text where the page allows it (news item, Lezen text, Luisteren fragment);
+# otherwise the section page. Links are relative to the site root.
+texts = []
 news = json.loads((ROOT / "data/nieuws.json").read_text())
 for it in news["items"]:
-    texts.append((f"Nieuws · {it['titel']}", norm(json.dumps(it, ensure_ascii=False))))
-for f, lab in [("lezen-teksten.json", "Lezen B1"), ("lezen-a2.json", "Lezen A2")]:
+    texts.append((f"Nieuws · {it['titel']}", f"nieuws/?id={it['id']}", norm(json.dumps(it, ensure_ascii=False))))
+for f, lab, base in [("lezen-teksten.json", "Lezen B1", "lezen/teksten.html?t="), ("lezen-a2.json", "Lezen A2", "lezen/teksten.html?set=a2&t=")]:
     for t in json.loads((ROOT / "data" / f).read_text())["teksten"]:
-        texts.append((f"{lab} · {t['titel']}", norm(json.dumps(t, ensure_ascii=False))))
-for f, lab in [("luisteren-b1.json", "Luisteren B1"), ("luisteren-a2.json", "Luisteren A2")]:
+        texts.append((f"{lab} · {t['titel']}", base + t["id"], norm(json.dumps(t, ensure_ascii=False))))
+for f, lab, base in [("luisteren-b1.json", "Luisteren B1", "luisteren/?f="), ("luisteren-a2.json", "Luisteren A2", "luisteren/?set=a2&f=")]:
     for e in json.loads((ROOT / "data" / f).read_text())["examens"]:
         for fr in e["fragmenten"]:
-            texts.append((f"{lab} · {fr.get('intro', '').rstrip('.')}", norm(json.dumps(fr, ensure_ascii=False))))
-for f, lab in [("knm.json", "KNM"), ("spreken.json", "Spreken B1"), ("spreken-a2.json", "Spreken A2"), ("spreken-hulp.json", "Spreken B1"),
-               ("schrijven-b1.json", "Schrijven B1"), ("schrijven-a2.json", "Schrijven A2"),
-               ("woorden.json", "Woordenlijst"), ("lezen-bank.json", "Lezen woordenlijst")]:
-    texts.append((lab, norm((ROOT / "data" / f).read_text())))
+            texts.append((f"{lab} · {fr.get('intro', '').rstrip('.')}", base + fr["id"], norm(json.dumps(fr, ensure_ascii=False))))
+for f, lab, href in [("knm.json", "KNM", "knm/"), ("spreken.json", "Spreken B1", "spreken/"), ("spreken-a2.json", "Spreken A2", "spreken-a2/"),
+                     ("spreken-hulp.json", "Spreken B1", "spreken/"), ("schrijven-b1.json", "Schrijven B1", "schrijven/"),
+                     ("schrijven-a2.json", "Schrijven A2", "schrijven-a2/"), ("lezen-bank.json", "Lezen woordenlijst", "lezen/")]:
+    texts.append((lab, href, norm((ROOT / "data" / f).read_text())))
+# The word pool entry by entry, so the tag can name the word (and a news word links to its news item)
+WOORDEN = json.loads((ROOT / "data/woorden.json").read_text())["woorden"]
+def woord_href(w):
+    return f"nieuws/?id={w['item']}" if w.get("bron") == "nieuws" and w.get("item") else "woorden/"
+for w in WOORDEN:
+    texts.append((f"Kelime listesi · {w['nl']}", woord_href(w), norm(json.dumps(w, ensure_ascii=False))))
 # json.dumps escapes nothing for ensure_ascii=False, but the raw files may contain \" etc.: unescape those too
-texts = [(lab, t.replace("\\n", " ").replace('\\"', "")) for lab, t in texts]
+texts = [(lab, href, t.replace("\\n", " ").replace('\\"', "")) for lab, href, t in texts]
 
 def source(full):
     n = norm(full)
-    for lab, t in texts:
-        if n in t: return lab
-    return None
+    for lab, href, t in texts:
+        if n in t: return lab, href
+    return None, None
 
 def build(rows, prefix):
     out, missing, ids = [], [], set()
     for k, ans, alt, tr, zin, src in rows:
         assert zin.count("___") == 1, zin
         full = zin.replace("___", ans)   # the sentence as it appears in the text
-        bron = "Eigen voorbeeldzin" if src == EIGEN else source(full)
+        bron, href = ("Eigen voorbeeldzin", "") if src == EIGEN else source(full)
         if bron is None: missing.append(full)
         base = prefix + "-" + re.sub(r"[^a-z]+", "-", unicodedata.normalize("NFKD", k).encode("ascii", "ignore").decode().lower()).strip("-")
         i, qid = 1, base
         while qid in ids: i += 1; qid = f"{base}-{i}"
         ids.add(qid)
-        out.append({"id": qid, "k": k, "a": ans, "alt": alt, "tr": tr, "zin": zin, "bron": bron, "eigen": src == EIGEN})
+        out.append({"id": qid, "k": k, "a": ans, "alt": alt, "tr": tr, "zin": zin, "bron": bron, "href": href, "eigen": src == EIGEN})
     return out, missing
 
 vz, m1 = build(VZ, "vz")
@@ -208,13 +217,57 @@ if m1 or m2:
     print("Not found in our texts (fix the sentence or mark it EIGEN):")
     for s in m1 + m2: print("  -", s)
     raise SystemExit(1)
+# ---------- Word info: the box that opens when a combination is clicked ----------
+# Explanation, level and two extra examples per combination come from voorzetsel_uitleg.csv (written by hand).
+# Tags = every place on the site where the combination is used or taught; each tag links straight to it.
+import csv
+UITLEG = {r["k"]: r for r in csv.DictReader(open(Path(__file__).resolve().parent / "voorzetsel_uitleg.csv", encoding="utf-8"))}
+LEVELS, GROEPEN = {"A0", "A1", "A2", "B1", "B2", "C1", "C2"}, {"1-2", "3", "4", "5", "6", "7", "8", "vo"}
+
+def core(k):
+    """The searchable part of a combination: 'zich houden aan' -> 'houden aan', 'doen aan (sport)' -> 'doen aan'."""
+    k = re.sub(r"\(.*?\)", "", k)
+    k = re.sub(r"^(zich|het|de) ", "", k.strip())
+    return k.replace(" iets ", " ").strip()
+
+LESSEN = json.loads((ROOT / "data/dersler.json").read_text())["lessen"]
+STUDIE = json.loads((ROOT / "data/woordstudie.json").read_text())["woorden"]
+places = ([(f"Ders · {l['titel']}", f"dersler/?les={l['id']}", norm(json.dumps(l, ensure_ascii=False))) for l in LESSEN]
+          + [(f"Kelime incelemesi · {w['woord']}", f"woordstudie/?w={w['id']}", norm(json.dumps(w, ensure_ascii=False))) for w in STUDIE]
+          + [(lab, href, t) for lab, href, t in texts if href.startswith("nieuws/") and lab.startswith("Nieuws")])
+
+def word_info(k, qs):
+    r = UITLEG[k]
+    tags = [{"t": q["bron"], "href": q["href"]} for q in qs if q["href"]]
+    c = " " + norm(core(k)) + " "
+    for lab, href, t in places:                       # lessons, word studies, news where the phrase itself occurs
+        if len(c.split()) > 1 and c in " " + re.sub(r"[^\w' ]", " ", t) + " ":
+            tags.append({"t": lab, "href": href})
+    for w in WOORDEN:                                 # the word pool (e.g. "wat erbij komt kijken")
+        if len(c.split()) > 1 and c in " " + norm(w["nl"]) + " ":
+            tags.append({"t": f"Kelime listesi · {w['nl']}", "href": woord_href(w)})
+    seen, out = set(), []
+    for tg in tags:
+        if tg["href"] + tg["t"] not in seen:
+            seen.add(tg["href"] + tg["t"]); out.append(tg)
+    return {"tr": qs[0]["tr"], "niveau": r["niveau"], "groep": r["groep"], "uitleg": r["uitleg"],
+            "voorbeelden": [{"nl": r["v1"], "tr": r["v1_tr"]}, {"nl": r["v2"], "tr": r["v2_tr"]}], "tags": out[:8]}
+
+by_k = {}
+for q in vz + er:
+    by_k.setdefault(q["k"], []).append(q)
+bad = [k for k in by_k if k not in UITLEG or UITLEG[k]["niveau"] not in LEVELS or UITLEG[k]["groep"] not in GROEPEN]
+if bad:
+    print("Missing or wrong in voorzetsel_uitleg.csv (every combination needs niveau, groep, uitleg, 2 examples):")
+    for k in bad: print("  -", k)
+    raise SystemExit(1)
+info = {k: word_info(k, qs) for k, qs in by_k.items()}
+
 data = {
-    "_about": "Daily games 'Günün edatları' (vaste voorzetsels) and 'er + edat'. Generated by scripts/content/build_voorzetsels.py - edit that file, not this one.",
+    "_about": "Daily games 'Günün edatları' (vaste voorzetsels) and 'er + edat'. Generated by scripts/content/build_voorzetsels.py - edit that file (and voorzetsel_uitleg.csv), not this one.",
     "voorzetsels": vz,
     "erop": er,
+    "info": info,
 }
 (ROOT / "oyunlar/voorzetsels.json").write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n")
-own = sum(x["eigen"] for x in vz), sum(x["eigen"] for x in er)
-print(f"voorzetsels: {len(vz)} sentences ({len(vz) - own[0]} from our texts, {own[0]} own), "
-      f"{len({x['k'] for x in vz})} combinations")
-print(f"erop: {len(er)} sentences ({len(er) - own[1]} from our texts, {own[1]} own)")
+print(f"{len(vz)} + {len(er)} sentences, {len(info)} combinations, {sum(len(i['tags']) for i in info.values())} tags")

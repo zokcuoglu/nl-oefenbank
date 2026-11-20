@@ -8,7 +8,7 @@
 // After playing, today's answers stay visible on this page (taken from the saved attempt), to learn from them.
 import { shareText, trDate, squares } from "./share.js";
 import { esc, fmt, today, dayNr, isoOf, hash, loadLocal, saveLocal, dropOldProgress, savePlay, loadPlays,
-         drawRanking, resetRanking, drawStats, injectCss, flash, todayBox } from "./common.js";
+         drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, tagLinks, wordButton, bindWordInfo } from "./common.js";
 
 const SETTINGS = {
   voorzetsels: {
@@ -121,9 +121,12 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
   const $ = r => root.querySelector(`[data-r="${r}"]`);
 
   let items = [];
+
+  let info = {};   // combination -> explanation, examples, tags (built by build_voorzetsels.py)
   try {
     const data = await fetch(new URL("./voorzetsels.json", import.meta.url), { cache: "no-cache" }).then(r => r.json());
     items = data[game];
+    info = data.info || {};
   } catch { root.innerHTML = `<p class="notice">Cümleler yüklenemedi. Sayfayı yenile.</p>`; return; }
   const byId = new Map(items.map(q => [q.id, q]));
 
@@ -134,11 +137,20 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
   const playedToday = () => history.find(h => h.day === today());
   let S = null;
 
+  // Line under a sentence: the combination (click = word box), its meaning, then tags: where this sentence comes from
+  // (opens that text) and the other places on the site where the combination is used or taught
+  const meta = q => {
+    const own = { t: q.bron, href: q.href || "" };
+    const more = (info[q.k]?.tags || []).filter(x => x.href !== own.href);
+    return `${wordButton(q.k)} = ${esc(q.tr)} ${tagLinks([own, ...more].slice(0, 3))}`;
+  };
+  bindWordInfo(root, k => info[k]);
+
   // Review list: every question with the right answer; wrong ones in red with what was typed
   const reviewHtml = answers => answers.map(a => {
     const q = byId.get(a.qid); if (!q) return "";
     return `<li class="${a.correct ? "" : "no"}"><div class="s">${filled(q, a.correct ? "" : a.chosen || "—")}</div>
-      <div class="m"><b>${esc(q.k)}</b> = ${esc(q.tr)} · ${esc(q.bron)}</div></li>`;
+      <div class="m">${meta(q)}</div></li>`;
   }).join("");
 
   function drawSetup() {
@@ -208,7 +220,7 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
     flash(inp, ok ? "pop" : "shake");
     $("fb").innerHTML = `<div class="k ${ok ? "good" : "bad"}">${ok ? "Doğru!" : "Doğrusu: " + esc(q.a)}${q.alt?.length ? ` <span class="small">(${esc(q.alt.join(" / "))} da olur)</span>` : ""}</div>
       ${ok ? "" : `<div>${filled(q)}</div>`}
-      <div class="small"><b>${esc(q.k)}</b> = ${esc(q.tr)} · ${esc(q.bron)}</div>`;
+      <div class="small">${meta(q)}</div>`;
     $("check").hidden = true; $("next").hidden = false;
     $("next").textContent = S.answers.length >= S.list.length ? "Sonucu gör" : "Sonraki →";
     $("next").focus();   // Enter goes on to the next sentence
