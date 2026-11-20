@@ -138,9 +138,16 @@ const CSS = `
 @keyframes og-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .og .pop{animation:og-pop .3s ease}.og .shake{animation:og-shake .25s ease 2}
 @media (prefers-reduced-motion: reduce){.og .pop,.og .shake{animation:none}}
+.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
+.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
+.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
+.og details.tbox>div{padding-bottom:16px}
 .og [hidden]{display:none!important}`;
 export function injectCss(extra = "", id = "") {
   if (!document.getElementById("og-css")) { const st = document.createElement("style"); st.id = "og-css"; st.textContent = CSS; document.head.appendChild(st); }
   if (extra && id && !document.getElementById(id)) { const st = document.createElement("style"); st.id = id; st.textContent = extra; document.head.appendChild(st); }
 }
+// Box with today's answers on the start screen after playing. Open by default: people look for their mistakes
+// right after the game, and a closed box looked empty. Same box in every game, so all games read the same.
+export const todayBox = inner => `<details class="tbox" open><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
 export const flash = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };

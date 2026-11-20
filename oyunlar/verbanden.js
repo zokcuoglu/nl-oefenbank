@@ -6,7 +6,7 @@
 //   - r: a rule the code can check (het, -je, ui, ij, oo, 3 letters): no other word that day may fit it.
 // Score: 3 points per group found + 1 per mistake left (max 16).
 import { shareText, trDate } from "./share.js";
-import { esc, fmt, today, hash, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash } from "./common.js";
+import { esc, fmt, today, hash, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox } from "./common.js";
 
 const GAME = "verbanden", MODULE = "oyun-verbanden", LEVEL = "dag", LIVES = 4;
 const COLORS = { 1: "#f4d35e", 2: "#7cc47f", 3: "#6fa8dc", 4: "#b48ad6" };   // easy → tricky
@@ -31,12 +31,7 @@ const CSS = `
 .vb .example{border:2px dashed var(--og-line);border-radius:12px;padding:12px 14px;margin:12px 0;display:grid;gap:6px}
 .vb .example .hd{font-weight:700;font-family:var(--og-font)}
 .vb .steps{margin:2px 0 0;padding-left:20px;display:grid;gap:4px}
-.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
-.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
-.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
-.og details.tbox>div{padding-bottom:16px}`;
-// Collapsible box with today's answers on the start screen (after playing), to learn from them
-const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+`;
 
 
 // Small seeded random from a text (same text → same numbers), for the daily choice

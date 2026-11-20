@@ -3,7 +3,7 @@
 // 2 points per verb: 1 for the past tense, 1 for auxiliary + participle together.
 // Verbs: werkwoorden.json (next to this file). Where both hebben and zijn are right (lopen, rijden, vergeten…), both count.
 import { shareText, trDate, squares } from "./share.js";
-import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash } from "./common.js";
+import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox } from "./common.js";
 
 const GAME = "werkwoorden", MODULE = "oyun-werkwoorden", LEVEL = "dag", COUNT = 5;
 const CSS = `
@@ -34,12 +34,7 @@ const CSS = `
 .ww .lab small{display:block;font-weight:400;color:var(--og-muted)}
 .ww .rule{text-align:center;font-size:13.5px;color:var(--og-muted);margin-top:-2px}
 .ww .full{text-align:center;margin-top:8px;font-size:15px;background:var(--og-sunk);border-radius:8px;padding:8px}
-.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
-.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
-.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
-.og details.tbox>div{padding-bottom:16px}`;
-// Collapsible box with today's answers on the start screen (after playing), to learn from them
-const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+`;
 
 
 // Lower case, single spaces, no spaces at the ends: "  Liep " counts as "liep"
@@ -137,9 +132,15 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
     $("go").textContent = loadLocal(progressKey(), null) ? "Devam et" : "Başla";
     // After playing: today's verbs again, with what was right and wrong (answers are saved per verb as "<inf>:imp" / "<inf>:perf")
     if (done?.answers?.length) {
-      const got = new Map(done.answers.map(a => [a.qid, a.correct]));
-      const list = [...new Set(done.answers.map(a => a.qid.split(":")[0]))].map(inf => verbs.find(v => v.inf === inf)).filter(Boolean);
-      $("todayBox").innerHTML = todayBox(tableHtml(rowsHtml(list, list.map(v => ({ imp: got.get(`${v.inf}:imp`), perf: got.get(`${v.inf}:perf`) })))));
+      const got = new Map(done.answers.map(a => [a.qid, a]));
+      const infs = [...new Set(done.answers.map(a => String(a.qid || "").split(":")[0]).filter(Boolean))];
+      // Normally the verb is in werkwoorden.json; if it was renamed or removed later, still show what was typed,
+      // so the box is never empty
+      const list = infs.map(inf => verbs.find(v => v.inf === inf)
+        || { inf, tr: "", imp: [got.get(`${inf}:imp`)?.chosen || "?"], hulp: [], vd: got.get(`${inf}:perf`)?.chosen || "?" });
+      $("todayBox").innerHTML = list.length
+        ? todayBox(tableHtml(rowsHtml(list, list.map(v => ({ imp: got.get(`${v.inf}:imp`)?.correct, perf: got.get(`${v.inf}:perf`)?.correct })))))
+        : todayBox(`<p class="small">Bugünkü cevaplar bu cihazda okunamadı.</p>`);
     } else $("todayBox").innerHTML = "";
     drawStats($("stats"), history);
     drawRanking($("rank"), { game: GAME, levels: { dag: "" }, user });

@@ -49,10 +49,6 @@ const CSS = `
 .kw .list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
 .kw .list li.miss{background:var(--og-bad-soft)}
 .kw .list li{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:8px;background:var(--og-sunk)}
-.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
-.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
-.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
-.og details.tbox>div{padding-bottom:16px}
 .kw .sq.miss{background:var(--og-bad-soft);color:var(--og-bad);border-color:var(--og-bad)}
 .kw .cw.ro .sq.on{cursor:default}
 .kw .todaypan{margin-top:18px}
