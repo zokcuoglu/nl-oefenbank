@@ -65,7 +65,7 @@ COMMON = 25    # a word in more places than this is too common for "used in" tag
 AMBIGUOUS = {"voer", "voeren", "at", "las", "was", "lag", "reden", "mat", "maten", "rook", "roken", "schoot", "schoten",
              "bad", "baden", "vocht", "sloot", "sloten"}
 # Verbs whose infinitive itself is another common word (wegen = roads): no "used in" search at all
-NO_SEARCH = {"wegen"}
+NO_SEARCH = {"wegen", "haar", "rijst"}   # haar = her, rijst = rises
 
 def pattern(k, info):
     """Whole-word match on the word and, for irregular verbs, on their past forms too (liep, gelopen ...)."""
