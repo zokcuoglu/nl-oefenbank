@@ -142,22 +142,12 @@ const CSS = `
 .og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
 .og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
 .og details.tbox>div{padding-bottom:16px}
-.og .wk{font:inherit;font-weight:700;background:none;border:0;padding:0;color:inherit;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.og .wk{font-weight:700;color:inherit;text-decoration:underline dotted;text-underline-offset:3px}
 .og .wk:hover{color:var(--og-accent)}
 .og .tags{display:inline-flex;flex-wrap:wrap;gap:4px;vertical-align:middle}
 .og a.tag{font-size:12.5px;line-height:1.3;padding:2px 9px;border-radius:999px;border:1px solid var(--og-line);background:var(--og-card);color:var(--og-ink);text-decoration:none}
 .og a.tag:hover{border-color:var(--og-accent);color:var(--og-accent)}
 .og span.tag{font-size:12.5px;color:var(--og-muted)}
-dialog.og-wi{max-width:520px;width:calc(100% - 24px);border:1px solid var(--line,#d3dae3);border-radius:12px;padding:20px;background:var(--surface,#fff);color:var(--ink,#142033)}
-dialog.og-wi::backdrop{background:rgba(20,32,51,.45)}
-dialog.og-wi h3{font-family:var(--display,system-ui,sans-serif);font-size:22px;margin:0 0 2px}
-dialog.og-wi .tr{color:var(--muted,#566377);margin:0 0 10px}
-dialog.og-wi .lv{font-size:12px;font-weight:700;border:1px solid var(--line,#d3dae3);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
-dialog.og-wi .ex{background:var(--sunk,#e6eaf0);border-radius:8px;padding:8px 10px;margin:6px 0}
-dialog.og-wi .ex i{display:block;font-size:14px;color:var(--muted,#566377);font-style:normal}
-dialog.og-wi .ex a{color:inherit;text-decoration:underline;text-underline-offset:2px}
-dialog.og-wi h4{font-size:14px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted,#566377)}
-dialog.og-wi .x{float:right;font:inherit;font-size:20px;background:none;border:0;cursor:pointer;color:inherit}
 .og [hidden]{display:none!important}`;
 export function injectCss(extra = "", id = "") {
   if (!document.getElementById("og-css")) { const st = document.createElement("style"); st.id = "og-css"; st.textContent = CSS; document.head.appendChild(st); }
@@ -180,31 +170,11 @@ export const tagLinks = tags => `<span class="tags">${(tags || []).map(t => {
 // Placeholder for the tags of a word in the word games; filled from woordinfo.json once it is on the page
 export const tagSlot = word => `<span class="tags" data-tagsfor="${esc(word)}"></span>`;
 export const TAGS_IN_ROW = 3;   // tags on the line under a word; all of them are in the word box
-// The word/combination itself as a button; a click anywhere on the page opens the word box (see openWordInfo)
-export const wordButton = k => `<button type="button" class="wk" data-wk="${esc(k)}">${esc(k)}</button>`;
+// The word/combination itself as a link to its word page (kelime/?w=… or, for a preposition combination, ?k=…)
+export const wordButton = (k, combo = false) =>
+  `<a class="wk" href="${esc(siteUrl(`kelime/?${combo ? "k" : "w"}=${encodeURIComponent(k)}`))}">${esc(k)}</a>`;
 
-// Word box: wider explanation, level, examples and every place on the site where the word is used.
-// info = { tr, niveau, groep, uitleg, voorbeelden: [{nl, tr}], tags: [{t, href}] }; one <dialog> per page, reused.
-export function openWordInfo(k, info) {
-  if (!info) return;
-  let dlg = document.getElementById("og-wi");
-  if (!dlg) {
-    dlg = document.createElement("dialog"); dlg.id = "og-wi"; dlg.className = "og og-wi";
-    dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest("[data-close]")) dlg.close(); });
-    document.body.appendChild(dlg);
-  }
-  // Example: Dutch sentence, Turkish translation if there is one, else the text it comes from (a link)
-  const ex = (info.voorbeelden || []).map(v => `<div class="ex">${esc(v.nl)}${v.tr ? `<i>${esc(v.tr)}</i>`
-    : v.href ? `<i><a href="${esc(siteUrl(v.href))}">${esc(v.t)}</a></i>` : ""}</div>`).join("");
-  dlg.innerHTML = `<button class="x" data-close aria-label="Kapat">×</button>
-    <h3>${esc(k)}<span class="lv">${esc(info.niveau || "")}</span></h3>
-    <p class="tr">${esc(info.tr || "")}</p>
-    ${info.uitleg ? `<p>${esc(info.uitleg)}</p>` : ""}
-    ${ex ? `<h4>Örnekler</h4>${ex}` : ""}
-    ${info.tags?.length ? `<h4>Sitede geçtiği yerler</h4>${tagLinks(info.tags)}` : ""}`;
-  dlg.showModal();
-}
-// One click handler for all games: buttons made by wordButton look their word up in the lookup given here
+// Fills the tag placeholders of a game (tagSlot) from the lookup given here
 export function bindWordInfo(root, lookup) {
   // Fill every empty tag placeholder (tagSlot) as soon as a game puts it on the page
   const fill = async () => {
@@ -217,14 +187,11 @@ export function bindWordInfo(root, lookup) {
   };
   new MutationObserver(fill).observe(root, { childList: true, subtree: true });
   fill();
-  root.addEventListener("click", async e => {
-    const b = e.target.closest("[data-wk]"); if (!b) return;
-    e.preventDefault(); e.stopPropagation();          // inside a clickable row: open the box, not the row
-    openWordInfo(b.dataset.wk, await lookup(b.dataset.wk));
-  });
+  // A word link inside a clickable row opens the word page, not the row
+  root.addEventListener("click", e => { if (e.target.closest("a.wk")) e.stopPropagation(); });
 }
-// Word box data of the word games (built by scripts/content/build_woordinfo.py). Loaded on the first click only,
-// so opening a game does not get slower. Lookup by the word without de/het, in lower case.
+// Word data of the word games (built by scripts/content/build_woordinfo.py), for the tags under each word.
+// Loaded once, when the first tag placeholder is on the page. Lookup by the word without de/het, in lower case.
 let woordInfo = null;
 export async function wordInfoOf(word) {
   woordInfo ??= fetch(new URL("./woordinfo.json", import.meta.url)).then(r => r.json()).then(d => d.woorden).catch(() => ({}));

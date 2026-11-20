@@ -142,7 +142,7 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
   const meta = q => {
     const own = { t: q.bron, href: q.href || "" };
     const more = (info[q.k]?.tags || []).filter(x => x.href !== own.href);
-    return `${wordButton(q.k)} = ${esc(q.tr)} ${tagLinks([own, ...more].slice(0, 3))}`;
+    return `${wordButton(q.k, true)} = ${esc(q.tr)} ${tagLinks([own, ...more].slice(0, 3))}`;
   };
   bindWordInfo(root, k => info[k]);
 
