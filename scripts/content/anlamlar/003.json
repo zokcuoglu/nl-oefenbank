@@ -1,0 +1,213 @@
+{
+ "hangen": {"vormen": "hing / hingen · heeft gehangen", "niveau": "A2", "kort": "asılı olmak; asmak",
+  "anlamlar": [
+   {"tr": "asılı olmak, asılı durmak", "voorbeelden": [["Deze regels hangen bij de ingang van het zwembad.", "Bu kurallar yüzme havuzunun girişinde asılı."], ["Er hangen vijf sleutels aan, met een kleine groene schoen als sleutelhanger.", "Üzerinde beş anahtar asılı, anahtarlık olarak da küçük yeşil bir ayakkabı var."]]},
+   {"tr": "asmak", "kalip": [["ophangen", "asmak"]], "voorbeelden": [["Vroeger hingen we posters op.", "Eskiden poster asardık."]]}
+  ],
+  "kaliplar": [["aan een zijden draad hangen", "pamuk ipliğine bağlı olmak"], ["afhangen van", "…-e bağlı olmak"]]},
+ "vangen": {"vormen": "ving / vingen · heeft gevangen", "niveau": "A2", "kort": "yakalamak, tutmak",
+  "anlamlar": [
+   {"tr": "yakalamak, tutmak", "voorbeelden": [["Hij vangt de bal.", "Topu tutuyor."]]},
+   {"tr": "(opvangen) karşılamak, bakmak; tutmak", "kalip": [["opvangen", "karşılamak, (bakım için) yanına almak"]],
+    "voorbeelden": [["Veertig medewerkers staan dan op straat, en in Lauwersoog is er geen plek meer om zeehonden op te vangen.", "O zaman kırk çalışan işsiz kalır ve Lauwersoog'da fokları barındıracak yer kalmaz."]]}
+  ]},
+ "slaan": {"vormen": "sloeg / sloegen · heeft geslagen", "niveau": "A2", "kort": "vurmak",
+  "anlamlar": [
+   {"tr": "vurmak, dövmek", "voorbeelden": [["Mag u de jongen slaan?", "Çocuğa vurabilir misiniz?"],
+     ["Ze sloegen het glas van de bushalte kapot.", "Otobüs durağının camını kırdılar."]]}
+  ],
+  "kaliplar": [["opslaan", "kaydetmek (dosya)"], ["overslaan", "atlamak (bir şeyi)"]]},
+ "dragen": {"vormen": "droeg / droegen · heeft gedragen", "niveau": "A2", "kort": "giymek, takmak; taşımak",
+  "anlamlar": [
+   {"tr": "giymek, takmak", "voorbeelden": [["Elke werknemer moet werkkleding dragen.", "Her çalışan iş kıyafeti giymek zorunda."], ["Is het verplicht in Nederland om een autogordel te dragen?", "Hollanda'da emniyet kemeri takmak zorunlu mu?"]]},
+   {"tr": "taşımak", "voorbeelden": [["Wil jij helpen met dozen dragen?", "Koli taşımaya yardım eder misin?"]]}
+  ]},
+ "vragen": {"vormen": "vroeg / vroegen · heeft gevraagd", "niveau": "A1", "kort": "sormak; istemek",
+  "anlamlar": [
+   {"tr": "sormak", "kalip": [["vragen naar", "(birini, bir şeyi) sormak"]], "voorbeelden": [["Mag ik iets vragen?", "Bir şey sorabilir miyim?"]]},
+   {"tr": "istemek, rica etmek", "kalip": [["vragen om", "istemek"]], "voorbeelden": [["Bij het uitzendbureau wordt gevraagd wat uw arbeidswensen zijn.", "Geçici iş bürosunda iş isteklerinizin ne olduğu sorulur."]]}
+  ],
+  "kaliplar": [["Zijn er nog vragen?", "Başka sorusu olan var mı? (de vraag = soru)"]]},
+ "lachen": {"vormen": "lachte / lachten · heeft gelachen", "niveau": "A1", "kort": "gülmek",
+  "anlamlar": [
+   {"tr": "gülmek", "kalip": [["lachen om", "…-e gülmek"]], "voorbeelden": [["Iedereen moet naar de camera lachen.", "Herkes kameraya gülümsemeli."], ["Niemand wil hem; Waalwijk moest zelfs hard lachen.", "Kimse onu istemiyor; Waalwijk'te kahkahalarla güldüler bile."]]}
+  ]},
+ "bakken": {"vormen": "bakte / bakten · heeft gebakken", "niveau": "A1", "kort": "(fırında) pişirmek; kızartmak",
+  "anlamlar": [
+   {"tr": "(fırında) pişirmek", "voorbeelden": [["Als huiswerk voor vandaag moest u een taart bakken.", "Bugünkü ödev olarak bir pasta yapmanız gerekiyordu."], ["En je gaat heel veel pizza's bakken.", "Ve çok sayıda pizza pişireceksin."]]},
+   {"tr": "(tavada) kızartmak", "kalip": [["een ei bakken", "yumurta kızartmak"]]}
+  ],
+  "not": "Yarı düzensiz: geçmiş zaman düzenli (bakte), ortaç düzensiz (gebakken)."},
+ "wassen": {"vormen": "waste / wasten · heeft gewassen", "niveau": "A0", "kort": "yıkamak",
+  "anlamlar": [
+   {"tr": "yıkamak", "kalip": [["afwassen", "bulaşık yıkamak"], ["zich wassen", "yıkanmak"]],
+    "voorbeelden": [["Ik was mijn handen.", "Ellerimi yıkıyorum."], ["U moet bij een klant de ramen wassen.", "Bir müşterinin evinde camları silmeniz gerekiyor."]]}
+  ]},
+ "zitten": {"vormen": "zat / zaten · heeft gezeten", "niveau": "A0", "kort": "oturmak; bulunmak; (zitten te) -iyor olmak",
+  "anlamlar": [
+   {"tr": "oturmak", "kalip": [["gaan zitten", "oturmak (oturmaya geçmek)"]], "voorbeelden": [["Ik zit op de bank.", "Kanepede oturuyorum."], ["Ga lekker zitten, hoor.", "Rahatına bak, otur."]]},
+   {"tr": "(içinde) bulunmak", "kalip": [["Er zit suiker in.", "İçinde şeker var."]]},
+   {"tr": "(zitten te + fiil) oturmuş …-iyor", "voorbeelden": [["We zitten te wachten tot je slaapt.", "Uyumanı bekliyoruz."]]}
+  ]},
+ "liggen": {"vormen": "lag / lagen · heeft gelegen", "niveau": "A1", "kort": "yatmak; (bir yerde) durmak, bulunmak",
+  "anlamlar": [
+   {"tr": "yatmak, uzanmak", "voorbeelden": [["De baby ligt in bed.", "Bebek yatakta yatıyor."]]},
+   {"tr": "(yatay) durmak, bulunmak", "not": "kitap, anahtar, şehir gibi", "voorbeelden": [["De pakketjes liggen klaar, ingepakt en wel.", "Paketler hazır, paketlenmiş bekliyor."], ["Waar liggen de Deltawerken?", "Delta İşleri nerede?"]]}
+  ],
+  "kaliplar": [["laten liggen", "(bir yerde) unutmak, bırakmak"], ["plat liggen", "(sistem) çökmüş olmak"], ["in een deuk liggen", "gülmekten kırılmak"]]},
+ "kijken": {"vormen": "keek / keken · heeft gekeken", "niveau": "A0", "kort": "bakmak; izlemek",
+  "anlamlar": [
+   {"tr": "bakmak", "kalip": [["kijken naar", "…-e bakmak"]], "voorbeelden": [["Kijk eens!", "Bir bak!"], ["Ik moet even kijken of het kan.", "Olup olmayacağına bir bakmam lazım."]]},
+   {"tr": "izlemek", "kalip": [["tv kijken", "televizyon izlemek"]]}
+  ],
+  "kaliplar": [["uitkijken naar", "dört gözle beklemek"]]},
+ "bijten": {"vormen": "beet / beten · heeft gebeten", "niveau": "A2", "kort": "ısırmak",
+  "anlamlar": [
+   {"tr": "ısırmak", "voorbeelden": [["Pas op, die hond bijt!", "Dikkat, o köpek ısırır!"], ["En daarna heeft een hond me in mijn been gebeten.", "Sonra da bir köpek bacağımdan ısırdı."]]}
+  ]},
+ "kiezen": {"vormen": "koos / kozen · heeft gekozen", "niveau": "A2", "kort": "seçmek",
+  "anlamlar": [
+   {"tr": "seçmek", "kalip": [["kiezen voor", "…-i tercih etmek"]], "voorbeelden": [["Kiezen de burgers de burgemeester?", "Belediye başkanını vatandaşlar mı seçer?"]]}
+  ]},
+ "verliezen": {"vormen": "verloor / verloren · heeft verloren", "niveau": "A2", "kort": "kaybetmek",
+  "anlamlar": [
+   {"tr": "kaybetmek", "voorbeelden": [["Zij verliezen tijd in de file.", "Trafik sıkışıklığında zaman kaybediyorlar."], ["Lukt het niet om het hoofd boven water te houden, dan verliezen veertig medewerkers hun baan.", "Ayakta kalmayı başaramazlarsa kırk çalışan işini kaybedecek."]]}
+  ]},
+ "begrijpen": {"vormen": "begreep / begrepen · heeft begrepen", "niveau": "A2", "kort": "anlamak",
+  "anlamlar": [
+   {"tr": "anlamak", "voorbeelden": [["Sorry, dat heb ik niet helemaal begrepen.", "Kusura bakmayın, onu tam anlamadım."], ["Ik wil begrijpen hoe een motor werkt.", "Bir motorun nasıl çalıştığını anlamak istiyorum."]]}
+  ]},
+ "helpen": {"vormen": "hielp / hielpen · heeft geholpen", "niveau": "A0", "kort": "yardım etmek",
+  "anlamlar": [
+   {"tr": "yardım etmek", "kalip": [["helpen met", "(bir işte) yardım etmek"]], "voorbeelden": [["Kun je me helpen?", "Bana yardım edebilir misin?"], ["Zal ik je helpen?", "Sana yardım edeyim mi?"]]},
+   {"tr": "(dükkânda) ilgilenmek", "kalip": [["Wordt u al geholpen?", "Size yardımcı olan var mı?"]]}
+  ]},
+ "trekken": {"vormen": "trok / trokken · heeft getrokken", "niveau": "B1", "kort": "çekmek",
+  "anlamlar": [
+   {"tr": "çekmek", "voorbeelden": [["De tandarts gaat de kies trekken.", "Diş hekimi azı dişini çekecek."], ["Ik heb een kies laten trekken.", "Bir azı dişimi çektirdim."]]},
+   {"tr": "(ziyaretçi) çekmek", "voorbeelden": [["De overheden waren immers betrokken bij de bouw, stelt hij, en het centrum trok vorig jaar 100.000 bezoekers naar Lauwersoog.", "Ona göre sonuçta yapımda devlet kurumları da yer aldı ve merkez geçen yıl Lauwersoog'a 100.000 ziyaretçi çekti."]]}
+  ],
+  "kaliplar": [["aantrekken", "giymek"], ["aftrekken", "düşmek, çıkarmak (hesapta)"]]},
+ "breken": {"vormen": "brak / braken · heeft/is gebroken", "niveau": "A2", "kort": "kırmak; kırılmak",
+  "anlamlar": [
+   {"tr": "kırmak", "voorbeelden": [["Ik heb mijn been gebroken.", "Bacağımı kırdım."]]},
+   {"tr": "kırılmak, yıkılmak", "voorbeelden": [["De Watersnoodramp: de dijken braken en het land overstroomde.", "Sel felaketi: setler yıkıldı ve kara su altında kaldı."], ["De ruit en het glas zijn gebroken.", "Pencere camı ve bardak kırıldı."]]}
+  ],
+  "kaliplar": [["afbreken", "yıkmak"]]},
+ "stelen": {"vormen": "stal / stalen · heeft gestolen", "niveau": "A2", "kort": "çalmak (hırsızlık)",
+  "anlamlar": [
+   {"tr": "çalmak", "voorbeelden": [["Uw fiets is gestolen.", "Bisikletiniz çalındı."], ["Als er iets gestolen is uit je huis, krijg je geld terug van je inboedelverzekering.", "Evinden bir şey çalınırsa ev eşyası sigortan parasını öder."]]}
+  ]},
+ "zingen": {"vormen": "zong / zongen · heeft gezongen", "niveau": "A1", "kort": "şarkı söylemek",
+  "anlamlar": [
+   {"tr": "şarkı söylemek", "voorbeelden": [["Het Wilhelmus wordt nog steeds gezongen.", "Wilhelmus hâlâ söyleniyor."], ["Bovendien leren ze samenwerken als ze samen zingen.", "Ayrıca birlikte şarkı söyleyince iş birliği yapmayı öğreniyorlar."]]}
+  ]},
+ "winnen": {"vormen": "won / wonnen · heeft gewonnen", "niveau": "A2", "kort": "kazanmak",
+  "anlamlar": [
+   {"tr": "kazanmak", "voorbeelden": [["Uw voetbalclub heeft een prijs van € 500 gewonnen in een wedstrijd 'Schoonste club'.", "Futbol kulübünüz 'En Temiz Kulüp' yarışmasında 500 euroluk bir ödül kazandı."]]}
+  ]},
+ "sluiten": {"vormen": "sloot / sloten · heeft gesloten", "niveau": "A2", "kort": "kapatmak; kapanmak",
+  "anlamlar": [
+   {"tr": "kapatmak, kapanmak", "kalip": [["gesloten zijn", "kapalı olmak"]], "voorbeelden": [["Op feestdagen is de bibliotheek gesloten.", "Bayram ve tatil günlerinde kütüphane kapalı."], ["Alle Nederlanders hebben vrij en de scholen zijn gesloten.", "Bütün Hollandalılar izinli ve okullar kapalı."]]},
+   {"tr": "(anlaşma) yapmak", "kalip": [["een verzekering afsluiten", "sigorta yaptırmak"], ["een contract sluiten", "sözleşme yapmak"]]}
+  ]},
+ "schieten": {"vormen": "schoot / schoten · heeft geschoten", "niveau": "A2", "kort": "ateş etmek; (topa) vurmak, şut çekmek",
+  "not": "schoot aynı zamanda 'kucak' demektir (op schoot = kucakta).",
+  "anlamlar": [
+   {"tr": "ateş etmek", "voorbeelden": [["De politie heeft niet geschoten.", "Polis ateş etmedi."]]},
+   {"tr": "(topa) vurmak, şut çekmek", "voorbeelden": [["Hij schiet de bal in het doel.", "Topu kaleye vuruyor."]]}
+  ],
+  "kaliplar": [["Het schiet me te binnen.", "Aklıma geliyor."]]},
+ "wegen": {"vormen": "woog / wogen · heeft gewogen", "niveau": "A2", "kort": "tartmak; ağırlığında olmak",
+  "not": "de wegen = yollar (de weg'in çoğulu); aynı yazılır, anlamı cümleden anlaşılır.",
+  "anlamlar": [
+   {"tr": "tartmak", "voorbeelden": [["De verpleegkundige weegt de baby.", "Hemşire bebeği tartıyor."]]},
+   {"tr": "(…) ağırlığında olmak", "voorbeelden": [["Ik weeg 70 kilo.", "70 kiloyum."]]}
+  ]},
+ "wijzen": {"vormen": "wees / wezen · heeft gewezen", "niveau": "B1", "kort": "(parmakla) göstermek, işaret etmek",
+  "anlamlar": [
+   {"tr": "göstermek, işaret etmek", "kalip": [["wijzen op", "…-e dikkat çekmek"], ["de weg wijzen", "yol göstermek"]],
+    "voorbeelden": [["Inmiddels wijzen de aanwijzingen in de richting van hackers uit het buitenland.", "Bu arada ipuçları yurtdışındaki bilgisayar korsanlarını işaret ediyor."]]}
+  ]},
+ "snijden": {"vormen": "sneed / sneden · heeft gesneden", "niveau": "A2", "kort": "kesmek, doğramak",
+  "anlamlar": [
+   {"tr": "kesmek, doğramak", "voorbeelden": [["Je moet eerst de broodjes snijden.", "Önce ekmekleri kesmelisin."], ["De vorige les hebt u geleerd hoe u het best een ui kunt snijden.", "Önceki derste bir soğanı en iyi nasıl doğrayacağınızı öğrendiniz."]]},
+   {"tr": "(zich snijden) bir yerini kesmek", "voorbeelden": [["Ik heb mij gesneden.", "Elimi (bir yerimi) kestim."]]}
+  ]},
+ "lijken": {"vormen": "leek / leken · heeft geleken", "niveau": "A2", "kort": "görünmek, gibi gelmek; benzemek",
+  "anlamlar": [
+   {"tr": "görünmek, gibi gelmek", "kalip": [["Het lijkt me leuk.", "Bana güzel geliyor."]], "voorbeelden": [["Met een vergrootglas lijken kleine dingen groter.", "Büyüteçle küçük şeyler daha büyük görünür."], ["Bioscoopkaartjes lijken me leuker.", "Sinema biletleri bana daha güzel geliyor."]]},
+   {"tr": "benzemek", "kalip": [["lijken op", "…-e benzemek"]]}
+  ]},
+ "blazen": {"vormen": "blies / bliezen · heeft geblazen", "niveau": "A2", "kort": "üflemek; (rüzgâr) esmek",
+  "anlamlar": [
+   {"tr": "üflemek", "voorbeelden": [["Blaas de kaarsjes uit!", "Mumları üfle!"]]},
+   {"tr": "(rüzgâr) esmek", "voorbeelden": [["De wind blaast hard.", "Rüzgâr sert esiyor."]]}
+  ]},
+ "gieten": {"vormen": "goot / goten · heeft gegoten", "niveau": "B1", "kort": "dökmek; sulamak",
+  "anlamlar": [
+   {"tr": "dökmek", "voorbeelden": [["Giet de melk in de pan.", "Sütü tencereye dök."]]},
+   {"tr": "(bitki) sulamak", "voorbeelden": [["Vergeet de planten niet te gieten.", "Bitkileri sulamayı unutma."]]}
+  ],
+  "kaliplar": [["als gegoten zitten", "(kıyafet) tam oturmak"], ["Het giet.", "Bardaktan boşanırcasına yağıyor."]]},
+ "buigen": {"vormen": "boog / bogen · heeft gebogen", "niveau": "B1", "kort": "eğmek, bükmek; eğilmek",
+  "anlamlar": [
+   {"tr": "eğmek, bükmek", "voorbeelden": [["Buig je knieën.", "Dizlerini bük."]]},
+   {"tr": "eğilmek", "kalip": [["zich bukken / buigen", "eğilmek"]]}
+  ]},
+ "meten": {"vormen": "mat / maten · heeft gemeten", "niveau": "A2", "kort": "ölçmek",
+  "not": "de mat = paspas; de maat / maten = ölçü, beden. Aynı yazılır, cümleden anlaşılır.",
+  "anlamlar": [
+   {"tr": "ölçmek", "voorbeelden": [["Eerst heb ik de hoogte gemeten.", "Önce yüksekliği ölçtüm."], ["Ik moet haar meten.", "Onu ölçmem lazım."]]}
+  ]},
+ "vechten": {"vormen": "vocht / vochten · heeft gevochten", "niveau": "B1", "kort": "kavga etmek, dövüşmek; savaşmak",
+  "not": "het vocht = nem, sıvı; aynı yazılır.",
+  "anlamlar": [
+   {"tr": "kavga etmek, dövüşmek", "voorbeelden": [["U wordt erg boos en gaat vechten met de buren.", "Çok sinirleniyorsunuz ve komşularla kavgaya başlıyorsunuz."]]},
+   {"tr": "savaşmak, mücadele etmek", "voorbeelden": [["De naam voor mensen die in het geheim vochten tegen de Duitsers.", "Almanlara karşı gizlice savaşan insanların adı."]]}
+  ]},
+ "ruiken": {"vormen": "rook / roken · heeft geroken", "niveau": "A2", "kort": "koklamak; kokmak",
+  "not": "Dikkat: roken = sigara içmek, de rook = duman. ruiken'in geçmişi de rook/roken yazılır.",
+  "anlamlar": [
+   {"tr": "koklamak; koku almak", "voorbeelden": [["Ik ruik gas!", "Gaz kokusu alıyorum!"]]},
+   {"tr": "kokmak", "kalip": [["lekker ruiken", "güzel kokmak"], ["ruiken naar", "… kokmak"]], "voorbeelden": [["Het ruikt hier naar koffie.", "Burası kahve kokuyor."]]}
+  ]},
+ "genieten": {"vormen": "genoot / genoten · heeft genoten", "niveau": "A2", "kort": "keyif almak, tadını çıkarmak",
+  "anlamlar": [
+   {"tr": "keyif almak, tadını çıkarmak", "kalip": [["genieten van", "…-in tadını çıkarmak"], ["Geniet ervan!", "Tadını çıkar!"]],
+    "voorbeelden": [["We hebben genoten van de vakantie.", "Tatilin tadını çıkardık."]]}
+  ]},
+ "bewegen": {"vormen": "bewoog / bewogen · heeft bewogen", "niveau": "A2", "kort": "hareket etmek; spor yapmak",
+  "anlamlar": [
+   {"tr": "hareket etmek, kıpırdamak", "voorbeelden": [["Wie kan je helpen als je problemen hebt met bewegen?", "Hareket etmekte sorun yaşarsan sana kim yardım edebilir?"]]},
+   {"tr": "(sağlık için) hareket etmek, spor yapmak", "voorbeelden": [["Kinderen bewegen dan meer en ze maken vrienden.", "Çocuklar o zaman daha çok hareket ediyor ve arkadaş ediniyor."], ["IK WIL MEER BEWEGEN, MAAR IK VIND DE SPORTSCHOOL ZO DUUR.", "DAHA ÇOK HAREKET ETMEK İSTİYORUM AMA SPOR SALONUNU ÇOK PAHALI BULUYORUM."]]}
+  ]},
+ "zwijgen": {"vormen": "zweeg / zwegen · heeft gezwegen", "niveau": "B1", "kort": "susmak, sessiz kalmak",
+  "anlamlar": [
+   {"tr": "susmak, sessiz kalmak", "voorbeelden": [["Over het precieze recept blijft de fabriek angstvallig zwijgen; het is, zogezegd, het geheim van de smid.", "Fabrika tarifin tam hâli konusunda titizlikle susuyor; tabiri caizse bu, ustanın sırrı."]]}
+  ]},
+ "graven": {"vormen": "groef / groeven · heeft gegraven", "niveau": "B1", "kort": "kazmak",
+  "anlamlar": [
+   {"tr": "kazmak", "voorbeelden": [["Nederlanders groeven veel waterwegen van 1800-1900.", "Hollandalılar 1800-1900 yılları arasında çok sayıda su yolu kazdı."], ["De hond graaft een gat.", "Köpek bir çukur kazıyor."]]}
+  ]},
+ "bidden": {"vormen": "bad / baden · heeft gebeden", "niveau": "B1", "kort": "dua etmek",
+  "not": "het bad = küvet, havuz; aynı yazılır.",
+  "anlamlar": [
+   {"tr": "dua etmek", "voorbeelden": [["Hij bidt vijf keer per dag.", "Günde beş kez dua ediyor (namaz kılıyor)."]]}
+  ]},
+ "liegen": {"vormen": "loog / logen · heeft gelogen", "niveau": "B1", "kort": "yalan söylemek",
+  "not": "Karıştırma: liggen = yatmak.",
+  "anlamlar": [
+   {"tr": "yalan söylemek", "voorbeelden": [["Je mag niet liegen.", "Yalan söylememelisin."]]}
+  ]},
+ "schijnen": {"vormen": "scheen / schenen · heeft geschenen", "niveau": "B1", "kort": "parlamak; anlaşılan, -mış",
+  "anlamlar": [
+   {"tr": "(güneş, ışık) parlamak", "voorbeelden": [["De zon schijnt.", "Güneş parlıyor."], ["De zon kan er dan minder goed doorheen schijnen en je ziet een soort schaduw.", "O zaman güneş içinden daha az geçebilir ve bir tür gölge görürsün."]]},
+   {"tr": "anlaşılan, -mış (duyduğuna göre)", "kalip": [["Het schijnt dat …", "Duyduğuma göre … / Anlaşılan …"]]}
+  ]},
+ "vriezen": {"vormen": "vroor / vroren · heeft gevroren", "niveau": "B1", "kort": "donmak (hava); dondurmak",
+  "anlamlar": [
+   {"tr": "(hava) donmak, ayaz olmak", "voorbeelden": [["Vannacht gaat het vriezen.", "Bu gece don olacak."]]},
+   {"tr": "dondurmak (invriezen)", "kalip": [["invriezen", "dondurucuya koyup dondurmak"]]}
+  ]}
+}
