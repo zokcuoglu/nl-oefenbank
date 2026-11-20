@@ -5,7 +5,7 @@
 // "Bitir" ends the puzzle early: the words not found are shown with their answer and give no points.
 import { makePuzzle, seededRandom } from "../slimspel/kruiswoord/engine.js";
 import { shareText, trDate } from "./share.js";
-import { esc, fmt, today, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, injectCss, flash, wordButton, bindWordInfo, wordInfoOf } from "./common.js";
+import { esc, fmt, today, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, injectCss, flash, wordButton, bindWordInfo, wordInfoOf, tagSlot } from "./common.js";
 
 const GAME = "kruiswoord", MODULE = "oyun-kruiswoord";
 // niv = which word levels may be used; count = words, maxLen = longest word, size = build space (cropped after)
@@ -137,7 +137,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   };
   // The puzzle's words with their meaning and example sentence (💡 = a hint letter was used in that word)
   // missed (optional): true per word that was not found when the player pressed "Bitir"; those come first
-  const wordsHtml = (P, wordHints, missed = []) => P.words.map((x, k) => [x, k]).sort((a, b) => !!missed[b[1]] - !!missed[a[1]]).map(([x, k]) => `<li class="${missed[k] ? "miss" : ""}"><span>${wordButton(x.w.toLowerCase())}${missed[k] ? " ✗ bulamadın" : wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(fullSentence(sentenceOf(x), x.w))}</i>` : ""}</span></li>`).join("");
+  const wordsHtml = (P, wordHints, missed = []) => P.words.map((x, k) => [x, k]).sort((a, b) => !!missed[b[1]] - !!missed[a[1]]).map(([x, k]) => `<li class="${missed[k] ? "miss" : ""}"><span>${wordButton(x.w.toLowerCase())}${missed[k] ? " ✗ bulamadın" : wordHints[k] ? " 💡" : ""}</span><span class="small" style="margin:0">${esc(x.c)}${sentenceOf(x)?.z ? `<br><i lang="nl">${esc(fullSentence(sentenceOf(x), x.w))}</i>` : ""} ${tagSlot(x.w.toLowerCase())}</span></li>`).join("");
 
   // The solved grid, read-only: green = found, grey italic = found with a hint letter, red = not found.
   // The attempt does not store the typed grid, so it is rebuilt from the solution and the per-word flags.

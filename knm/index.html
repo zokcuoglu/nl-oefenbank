@@ -244,6 +244,15 @@ async function boot() {
     S.vchunks = b.vocab; rebuildVocab();
     S.attempts = await loadAttempts(user.uid, "knm");
     S.dbState = "ok";
+    // Direct links from other pages (the tags in the daily games):
+    //   ?q=<question id>  shows that one question (read-only card: no run, no saved result, a draft stays as it is)
+    //   ?w=<word id>      opens the word list at that critical word, with a button for its questions
+    const link = new URLSearchParams(location.search);
+    if (link.get("q") && getQ(link.get("q"))) { S.oneId = link.get("q"); S.oneShow = false; S.view = "one"; }
+    else if (link.get("w")) {
+      const t = Object.keys(S.W).find(t => S.W[t].some(w => w.id === link.get("w")));
+      if (t) { S.vOpen = t; S.vFocus = link.get("w"); S.vScroll = true; S.view = "vocab"; }
+    }
   } catch (e) { console.warn(e); S.dbState = "error"; S.dbError = e.code || e.message; }
   render();
 }
@@ -308,7 +317,8 @@ function render() {
   if (S.dbState === "loading" || !Object.keys(S.Q).length && S.view !== "run") { app.innerHTML = `<p class="muted">Sorular yükleniyor…</p>`; return; }
   // Practice views get the source filter on top
   const withSrc = ["home", "quick", "topics", "mock", "vocab"].includes(S.view) ? srcBar() : "";
-  app.innerHTML = withSrc + ({ home: vHome, quick: vQuick, topics: vTopics, mock: vMock, vocab: vVocab, run: vRun, result: vResult, stats: vStats, history: vHistory }[S.view] || vHome)();
+  requestAnimationFrame(() => { if (S.vScroll && S.view === "vocab") { S.vScroll = false; document.getElementById("kw-" + S.vFocus)?.scrollIntoView({ block: "center" }); } });
+  app.innerHTML = withSrc + ({ home: vHome, quick: vQuick, topics: vTopics, mock: vMock, vocab: vVocab, one: vOne, run: vRun, result: vResult, stats: vStats, history: vHistory }[S.view] || vHome)();
 }
 
 function barRow(label, ok, n, extra) {
@@ -407,14 +417,37 @@ function vVocab() {
   const lists = themeIds().filter(t => (S.W[t] || []).length).map(t =>
     `<details class="panel" ${S.vOpen === t ? "open" : ""} data-vt="${t}"><summary style="cursor:pointer"><b>${t}</b> ${esc(themeName(t))} <span class="muted">· ${S.W[t].length} kelime</span></summary>
       <div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Kelime</th><th>Türkçe</th><th>Açıklama</th></tr></thead><tbody>
-      ${S.W[t].map(w => `<tr><td><b>${esc(w.nl)}</b></td><td>${esc(w.tr)}</td><td class="muted">${esc(w.def)}</td></tr>`).join("")}</tbody></table></div></details>`).join("");
-  return `<section class="panel"><span class="eyebrow">Kelime bilgisi</span><h2 style="margin-top:4px">Sadece kelime soran sorular</h2>
+      ${S.W[t].map(w => `<tr id="kw-${esc(w.id)}" ${S.vFocus === w.id ? `style="background:var(--accent-soft,#fde9dc)"` : ""}><td><b>${esc(w.nl)}</b></td><td>${esc(w.tr)}</td><td class="muted">${esc(w.def)}</td></tr>`).join("")}</tbody></table></div></details>`).join("");
+  // Opened from a link (?w=): the word on top, with its own questions (ids <word id>-m, -t, -i ...)
+  const fw = S.vFocus && Object.values(S.W).flat().find(w => w.id === S.vFocus);
+  const fq = fw ? Object.keys(S.V).filter(id => id.startsWith(fw.id + "-")) : [];
+  const focus = fw ? `<section class="panel" style="border-color:var(--accent)"><span class="eyebrow">KNM kelimesi</span>
+      <h2 style="margin:4px 0">${esc(fw.nl)}</h2><p style="margin:0 0 6px"><b>${esc(fw.tr)}</b></p><p class="muted" style="margin:0 0 12px">${esc(fw.def)}</p>
+      ${fq.length ? `<button class="btn primary" data-act="vword">Bu kelimenin soruları (${fq.length})</button>` : ""}</section>` : "";
+  return focus + `<section class="panel"><span class="eyebrow">Kelime bilgisi</span><h2 style="margin-top:4px">Sadece kelime soran sorular</h2>
       <p class="muted" style="max-width:62ch">Her kelime için üç soru tipi var: Hollandaca anlamı, Türkçesi ve cümlede boşluk doldurma. Kaynak: MarianNt2 KNM kelime videoları ve Taalcompleet KNM woordenlijsten. Önce görmediklerin, sonra yanlışların gelir.</p>
       <div class="row" style="margin-bottom:12px"><div class="seg" role="group">${seg}</div></div>
       <div class="row"><span class="chip num">${Object.values(S.W).reduce((n, l) => n + l.length, 0)} kelime · ${total} soru</span>
         <button class="btn primary" data-act="vmix">Karışık 10</button>${wrongN ? `<button class="btn" data-act="vwrong">Yanlış kelimeler (${wrongN})</button>` : ""}</div></section>
     <section class="cards">${cards}</section>
     <section><div class="sectionhead"><h2>Kelime listesi</h2><span class="muted">tema başlığına tıkla</span></div><div class="review">${lists}</div></section>`;
+}
+
+// One question opened from a link: question, options, then the answer and explanation on request
+function vOne() {
+  const q = getQ(S.oneId); if (!q) return vHome();
+  const show = S.oneShow;
+  return `<section class="panel">
+    <div class="row" style="margin-bottom:10px"><span class="chip blue">${esc(q.theme)} ${esc(themeName(q.theme))}</span></div>
+    <p class="qtext">${fmt(q.q)}</p>
+    ${q.q_tr ? `<p class="qtr">${fmt(q.q_tr)}</p>` : ""}
+    <div class="opts">${Object.entries(q.opts).map(([k, v]) =>
+      `<div class="opt ${show && (q.key || "").includes(k) ? "right" : ""}"><span class="mark">${k}</span><span>${fmt(v)}</span></div>`).join("")}</div>
+    ${show ? `<div class="why"><b>Doğru cevap ${esc(q.key)}.</b> ${fmt(q.why_tr || "")}</div>`
+           : `<div class="row" style="margin-top:12px"><button class="btn primary" data-act="one-show">Cevabı göster</button></div>`}
+    <div class="row" style="margin-top:14px"><button class="btn" data-act="theme" data-t="${esc(q.theme)}">Bu temadan 10 soru</button>
+      <button class="btn" data-act="go" data-view="home">KNM ana sayfa</button></div>
+  </section>`;
 }
 
 function vRun() {
@@ -511,6 +544,9 @@ app.addEventListener("click", e => {
   const el = e.target.closest("[data-act]"); if (!el) return; const r = S.run;
   switch (el.dataset.act) {
     case "quick": start("quick", "Hızlı 5", pick(poolAll(), 5)); break;
+    case "one-show": S.oneShow = true; render(); break;
+    case "vword": { const fw = Object.values(S.W).flat().find(w => w.id === S.vFocus);
+      if (fw) start("vocab", `Kelimeler · ${fw.nl}`, Object.keys(S.V).filter(id => id.startsWith(fw.id + "-"))); break; }
     case "theme": start("theme", `${el.dataset.t} · ${themeName(el.dataset.t)}`, pick(poolTheme(el.dataset.t), 10)); break;
     case "wrong": start("wrong", "Yanlışlarım", shuffle(poolWrong()).slice(0, 20)); break;
     case "mock": start("mock", "Deneme sınavı", pickMock(40)); break;

@@ -172,8 +172,14 @@ export const todayBox = inner => `<details class="tbox" open><summary>Bugünkü 
 export const siteUrl = href => new URL("../" + href, import.meta.url).href;
 // Source/where-taught tags: each one a small link that opens that exact text or lesson.
 // A tag without a link (own example sentence) is plain grey text.
-export const tagLinks = tags => `<span class="tags">${(tags || []).map(t => t.href
-  ? `<a class="tag" href="${esc(siteUrl(t.href))}">${esc(t.t)}</a>` : `<span class="tag">${esc(t.t)}</span>`).join("")}</span>`;
+// The sentence that made the match (z) is the tooltip, so the player sees why the tag is there.
+export const tagLinks = tags => `<span class="tags">${(tags || []).map(t => {
+  const tip = t.z ? ` title="${esc(t.z)}"` : "";
+  return t.href ? `<a class="tag" href="${esc(siteUrl(t.href))}"${tip}>${esc(t.t)}</a>` : `<span class="tag"${tip}>${esc(t.t)}</span>`;
+}).join("")}</span>`;
+// Placeholder for the tags of a word in the word games; filled from woordinfo.json once it is on the page
+export const tagSlot = word => `<span class="tags" data-tagsfor="${esc(word)}"></span>`;
+export const TAGS_IN_ROW = 3;   // tags on the line under a word; all of them are in the word box
 // The word/combination itself as a button; a click anywhere on the page opens the word box (see openWordInfo)
 export const wordButton = k => `<button type="button" class="wk" data-wk="${esc(k)}">${esc(k)}</button>`;
 
@@ -200,6 +206,17 @@ export function openWordInfo(k, info) {
 }
 // One click handler for all games: buttons made by wordButton look their word up in the lookup given here
 export function bindWordInfo(root, lookup) {
+  // Fill every empty tag placeholder (tagSlot) as soon as a game puts it on the page
+  const fill = async () => {
+    const slots = [...root.querySelectorAll("[data-tagsfor]:not([data-done])")];
+    for (const el of slots) {
+      el.dataset.done = "1";
+      const info = await lookup(el.dataset.tagsfor);
+      el.outerHTML = tagLinks((info?.tags || []).slice(0, TAGS_IN_ROW));
+    }
+  };
+  new MutationObserver(fill).observe(root, { childList: true, subtree: true });
+  fill();
   root.addEventListener("click", async e => {
     const b = e.target.closest("[data-wk]"); if (!b) return;
     e.preventDefault(); e.stopPropagation();          // inside a clickable row: open the box, not the row

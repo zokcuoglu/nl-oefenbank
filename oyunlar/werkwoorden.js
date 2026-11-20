@@ -3,7 +3,7 @@
 // 2 points per verb: 1 for the past tense, 1 for auxiliary + participle together.
 // Verbs: werkwoorden.json (next to this file). Where both hebben and zijn are right (lopen, rijden, vergeten…), both count.
 import { shareText, trDate, squares } from "./share.js";
-import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, wordButton, bindWordInfo, wordInfoOf } from "./common.js";
+import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, wordButton, bindWordInfo, wordInfoOf, tagSlot } from "./common.js";
 
 const GAME = "werkwoorden", MODULE = "oyun-werkwoorden", LEVEL = "dag", COUNT = 5;
 const CSS = `
@@ -119,7 +119,7 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
   let S = null;
 
   // One row per verb: right forms; red where the answer was wrong (ok = { imp, perf } per verb)
-  const rowsHtml = (list, oks) => list.map((v, k) => `<tr><td>${wordButton(v.inf)}<br><span class="small" style="margin:0">${esc(v.tr)}</span></td>
+  const rowsHtml = (list, oks) => list.map((v, k) => `<tr><td>${wordButton(v.inf)}<br><span class="small" style="margin:0">${esc(v.tr)}</span>${tagSlot(v.inf)}</td>
       <td class="${oks[k].imp ? "" : "no"}">${esc(impText(v))}${v.impMv ? ` / ${esc(v.impMv)}` : ""}</td><td class="${oks[k].perf ? "" : "no"}">${esc(perfText(v))}</td></tr>`).join("");
   const tableHtml = rows => `<table class="tbl"><thead><tr><th>Fiil</th><th>Verleden tijd<br><small>ik / wij</small></th><th>Perfectum</th></tr></thead><tbody>${rows}</tbody></table>`;
 

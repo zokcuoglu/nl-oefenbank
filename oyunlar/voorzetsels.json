@@ -8,8 +8,8 @@
    "alt": [],
    "tr": "düşünmek; aklında tutmak",
    "zin": "Je denkt veel ___ de problemen in jouw land.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM (artık kullanılmayan soru)",
+   "href": "",
    "eigen": false
   },
   {
@@ -30,8 +30,8 @@
    "alt": [],
    "tr": "dinlemek",
    "zin": "Luister ___ de politieagent en vertel hem wat u gezien hebt.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Vertellen aan politie",
+   "href": "spreken/?v=317",
    "eigen": false
   },
   {
@@ -63,8 +63,8 @@
    "alt": [],
    "tr": "beklemek",
    "zin": "U trekt een nummertje en wacht ___ uw beurt.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Birlikte yaşam",
+   "href": "knm/?q=k023-31",
    "eigen": false
   },
   {
@@ -118,8 +118,8 @@
    "alt": [],
    "tr": "sevmek",
    "zin": "Ik kies de bakkerij, want ik houd ___ brood en gebak.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Keuze baan",
+   "href": "spreken/?v=118",
    "eigen": false
   },
   {
@@ -217,8 +217,8 @@
    "alt": [],
    "tr": "-e benzemek",
    "zin": "Hij lijkt ___ zijn vader.",
-   "bron": "Kelime listesi · ergens op lijken",
-   "href": "woorden/",
+   "bron": "Kelime incelemesi · Lijkt het je leuk om …? / Lijkt me leuk!",
+   "href": "woordstudie/?w=lijkt-het-je-leuk",
    "eigen": false
   },
   {
@@ -250,8 +250,8 @@
    "alt": [],
    "tr": "istemek, talep etmek",
    "zin": "Uw werkgever vraagt ___ een Verklaring Omtrent Gedrag (VOG).",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · İş",
+   "href": "knm/?q=y02-47",
    "eigen": false
   },
   {
@@ -272,8 +272,8 @@
    "alt": [],
    "tr": "-i arıyor olmak",
    "zin": "Starters op de woningmarkt zijn mensen die voor het eerst op zoek zijn ___ een woning.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Ev ve ülke",
+   "href": "knm/?q=k013-38",
    "eigen": false
   },
   {
@@ -360,8 +360,8 @@
    "alt": [],
    "tr": "-e tepki vermek, cevap vermek",
    "zin": "Maria reageert ___ een vacature en stuurt een brief en haar cv.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · İş",
+   "href": "knm/?q=y04-03",
    "eigen": false
   },
   {
@@ -415,8 +415,8 @@
    "alt": [],
    "tr": "-e kaydolmak",
    "zin": "Petra wil zich aanmelden ___ zwemles.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Birlikte yaşam",
+   "href": "knm/?q=k006-25",
    "eigen": false
   },
   {
@@ -454,8 +454,8 @@
    ],
    "tr": "-de yardım etmek",
    "zin": "Het uitzendbureau helpt u ___ het zoeken naar werk.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Keuze baan",
+   "href": "spreken/?v=118",
    "eigen": false
   },
   {
@@ -509,8 +509,8 @@
    "alt": [],
    "tr": "-e ait olmak",
    "zin": "De pincode is geheim en hoort alléén ___ uw bankpas.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Ev ve ülke",
+   "href": "knm/?q=k001-14",
    "eigen": false
   },
   {
@@ -553,8 +553,8 @@
    "alt": [],
    "tr": "üzerinde çalışmak",
    "zin": "Maak een planning en werk elke dag een paar uur ___ je werkstuk.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Werkstuk",
+   "href": "spreken/?v=341",
    "eigen": false
   },
   {
@@ -575,7 +575,7 @@
    "alt": [],
    "tr": "hakkında yazmak",
    "zin": "Ik schrijf je ___ ons afdelingsuitje.",
-   "bron": "Schrijven B1",
+   "bron": "Schrijven B1 · Schrijven I proefexamen 3",
    "href": "schrijven/",
    "eigen": false
   },
@@ -608,8 +608,8 @@
    "alt": [],
    "tr": "-den şikâyet etmek",
    "zin": "Ik wil niet klagen ___ een collega.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Problemen met collega",
+   "href": "spreken/?v=224",
    "eigen": false
   },
   {
@@ -619,8 +619,8 @@
    "alt": [],
    "tr": "hakkında bilgi vermek",
    "zin": "U wilt de gemeente informeren ___ uw nieuwe adres.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Kurumlar",
+   "href": "knm/?q=k026-36",
    "eigen": false
   },
   {
@@ -630,8 +630,8 @@
    "alt": [],
    "tr": "hakkında karar vermek",
    "zin": "Je beslist zelf ___ je leven.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Birlikte yaşam",
+   "href": "knm/?q=y05-01",
    "eigen": false
   },
   {
@@ -663,8 +663,8 @@
    "alt": [],
    "tr": "-e uymak, yakışmak",
    "zin": "Het beroep van kok past ___ mij, omdat ik creatief ben in de keuken.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Werk kiezen",
+   "href": "spreken/?v=335",
    "eigen": false
   },
   {
@@ -773,8 +773,8 @@
    "alt": [],
    "tr": "için endişelenmek",
    "zin": "U maakt zich zorgen ___ zijn gedrag.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Çocuk ve eğitim",
+   "href": "knm/?q=k014-11",
    "eigen": false
   },
   {
@@ -817,8 +817,8 @@
    "alt": [],
    "tr": "ile geçinmek, davranmak",
    "zin": "Hoe kunt u het beste omgaan ___ mensen die anders leven of denken dan u?",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Birlikte yaşam",
+   "href": "knm/?q=k014-07",
    "eigen": false
   },
   {
@@ -839,8 +839,8 @@
    "alt": [],
    "tr": "-den korkmak",
    "zin": "Ik werk liever bij woonhuizen, want ik ben bang ___ hoogte.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Glazenwasser",
+   "href": "spreken/?v=90",
    "eigen": false
   },
   {
@@ -907,8 +907,8 @@
    "alt": [],
    "tr": "-e kızgın olmak",
    "zin": "Mijn chef werd heel boos ___ mij.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Heftruckchauffeur in fabriek",
+   "href": "spreken/?v=96",
    "eigen": false
   },
   {
@@ -918,8 +918,8 @@
    "alt": [],
    "tr": "-e sevinmek",
    "zin": "De jarige is wel blij ___ uw cadeautje.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Birlikte yaşam",
+   "href": "knm/?q=k011-09",
    "eigen": false
   },
   {
@@ -929,8 +929,8 @@
    "alt": [],
    "tr": "-de iyi olmak",
    "zin": "Je bent goed ___ praten met mensen.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Deelname studentenraad",
+   "href": "spreken/?v=54",
    "eigen": false
   },
   {
@@ -951,8 +951,8 @@
    "alt": [],
    "tr": "-i bitirmiş olmak",
    "zin": "De zoon van Jan is klaar ___ de basisschool.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Çocuk ve eğitim",
+   "href": "knm/?q=k025-27",
    "eigen": false
   },
   {
@@ -973,8 +973,8 @@
    "alt": [],
    "tr": "için gerekli olmak",
    "zin": "U heeft een diploma nodig ___ het werk dat u wilt gaan doen.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · İş",
+   "href": "knm/?q=k010-04",
    "eigen": false
   },
   {
@@ -984,8 +984,8 @@
    "alt": [],
    "tr": "için önemli olmak",
    "zin": "Daarom is zwemles belangrijk ___ de kinderen.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · Çocuk ve eğitim",
+   "href": "knm/?q=k001-36",
    "eigen": false
   },
   {
@@ -1039,8 +1039,8 @@
    "alt": [],
    "tr": "ile aynı fikirde olmak",
    "zin": "Louisa is het niet eens ___ haar leidinggevende.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · İş",
+   "href": "knm/?q=y05-16",
    "eigen": false
   },
   {
@@ -1061,8 +1061,8 @@
    "alt": [],
    "tr": "-e şans, ihtimal",
    "zin": "Als je vrijwilligerswerk doet, heb je meer kans ___ een baan.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM soru · İş",
+   "href": "knm/?q=k016-08",
    "eigen": false
   },
   {
@@ -1094,8 +1094,8 @@
    "alt": [],
    "tr": "-e ilgi",
    "zin": "U praat met een vrouw die interesse heeft ___ de vacature.",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Een dag bij de kinderboerderij",
+   "href": "spreken/?v=63",
    "eigen": false
   },
   {
@@ -1283,8 +1283,8 @@
    "alt": [],
    "tr": "-den ölmek",
    "zin": "Je kunt ___ overlijden.",
-   "bron": "KNM",
-   "href": "knm/",
+   "bron": "KNM kelime · levensbedreigend",
+   "href": "knm/?w=w073",
    "eigen": false
   },
   {
@@ -1316,8 +1316,8 @@
    "alt": [],
    "tr": "görünmek",
    "zin": "Hoe ziet de nieuwe studieruimte ___?",
-   "bron": "Spreken B1",
-   "href": "spreken/",
+   "bron": "Spreken B1 · Nieuwe studieruimte",
+   "href": "spreken/?v=1013",
    "eigen": false
   },
   {
@@ -1526,8 +1526,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "Lezen B1 · Informatie voor huurders",
+     "href": "lezen/teksten.html?t=huurders",
+     "z": "Denk aan het plaatsen van een nieuwe keuken, het weghalen van een muur of het plaatsen van een dakkapel."
     }
    ]
   },
@@ -1548,8 +1549,44 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Vertellen aan politie",
+     "href": "spreken/?v=317",
+     "z": "Luister naar de politieagent en vertel hem wat u gezien hebt."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k024-39",
+     "z": "De buurjongen luistert naar de harde muziek op zijn kamer."
+    },
+    {
+     "t": "Luisteren A2 · U luistert naar het weerbericht op de radio",
+     "href": "luisteren/?set=a2&f=l1-weer",
+     "z": "U luistert naar het weerbericht op de radio."
+    },
+    {
+     "t": "Luisteren A2 · U luistert naar het weerbericht",
+     "href": "luisteren/?set=a2&f=l2-weer-wind",
+     "z": "U luistert naar het weerbericht."
+    },
+    {
+     "t": "Spreken B1 · Bakkersopleiding",
+     "href": "spreken/?v=16",
+     "z": "Luister naar uw docent en reageer."
+    },
+    {
+     "t": "Spreken B1 · Bibliotheek",
+     "href": "spreken/?v=27",
+     "z": "Luister naar uw vriend en reageer."
+    },
+    {
+     "t": "Spreken B1 · Boek niet aanwezig",
+     "href": "spreken/?v=32",
+     "z": "Luister naar de docente en reageer."
+    },
+    {
+     "t": "Spreken B1 · Boerderij",
+     "href": "spreken/?v=34",
+     "z": "Luister naar uw buurjongen en reageer."
     }
    ]
   },
@@ -1571,15 +1608,43 @@
    "tags": [
     {
      "t": "Lezen B1 · Thuiswerken: vrijheid of eenzaamheid?",
-     "href": "lezen/teksten.html?t=thuiswerken"
+     "href": "lezen/teksten.html?t=thuiswerken",
+     "z": "De laptop staat op de keukentafel, dus je kijkt 's avonds nog even naar je mail."
     },
     {
      "t": "Nieuws · Het bankbiljet onder de loep",
-     "href": "nieuws/?id=bankbiljet"
+     "href": "nieuws/?id=bankbiljet",
+     "z": "Kijk naar een briefje van tien euro."
     },
     {
      "t": "Luisteren B1 · U hoort een gesprek tussen een huurder en een medewerker van de woningcorporatie",
-     "href": "luisteren/?f=b1-woningcorporatie"
+     "href": "luisteren/?f=b1-woningcorporatie",
+     "z": "Ik stuur een monteur om ernaar te kijken."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k002-22",
+     "z": "De arts kijkt naar de groei van het kind en wat het kind kan en doet."
+    },
+    {
+     "t": "Lezen B1 · Op je vijftigste nog een nieuw vak leren",
+     "href": "lezen/teksten.html?t=omscholing",
+     "z": "Praat met mensen die het werk al doen, of loop een dag mee.' Daarna is het belangrijk om te kijken naar de praktische kant."
+    },
+    {
+     "t": "Spreken B1 · Activiteit schoolfeest",
+     "href": "spreken/?v=3",
+     "z": "Kijk naar het plaatje."
+    },
+    {
+     "t": "Spreken B1 · Andere afdeling",
+     "href": "spreken/?v=7",
+     "z": "Kijk naar de plaatjes."
+    },
+    {
+     "t": "Spreken B1 · Auto met reclame",
+     "href": "spreken/?v=10",
+     "z": "Kijk naar het plaatje."
     }
    ]
   },
@@ -1600,12 +1665,14 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k023-31",
+     "z": "U trekt een nummertje en wacht op uw beurt."
     },
     {
-     "t": "Ders · İki fiilli cümleler",
-     "href": "dersler/?les=iki-fiil"
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k025-16",
+     "z": "U zegt dat u het huis niet wilt en wacht op een ander huis."
     }
    ]
   },
@@ -1627,15 +1694,43 @@
    "tags": [
     {
      "t": "Nieuws · Zeehondencentrum in geldnood",
-     "href": "nieuws/?id=pieterburen"
+     "href": "nieuws/?id=pieterburen",
+     "z": "Daar zorgen ze voor jonge zeehonden."
     },
     {
      "t": "Nieuws · Hoe maak je een kroket?",
-     "href": "nieuws/?id=kroket"
+     "href": "nieuws/?id=kroket",
+     "z": "Een dubbele laag eiwit en paneermeel zorgt voor de kenmerkende krokante korst."
     },
     {
      "t": "Lezen B1 · Thuiswerken: vrijheid of eenzaamheid?",
-     "href": "lezen/teksten.html?t=thuiswerken"
+     "href": "lezen/teksten.html?t=thuiswerken",
+     "z": "En zorg thuis voor een vaste werkplek en vaste werktijden."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k005-31",
+     "z": "U zorgt voor de broodjes en drankjes voor de werknemers."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k009-37",
+     "z": "De vrouw hoeft niet te studeren, want die zorgt voor het huishouden."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k012-20",
+     "z": "U zorgt voor de broodjes en drankjes voor de werknemers."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=y03-18",
+     "z": "Wie zorgt voor de veiligheid van het huis?"
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=y05-12",
+     "z": "Wat hoort bij zorg voor de omgeving?"
     }
    ]
   },
@@ -1657,11 +1752,43 @@
    "tags": [
     {
      "t": "Nieuws · Sketch: 'U bent geen Johan Cruijff!'",
-     "href": "nieuws/?id=ober"
+     "href": "nieuws/?id=ober",
+     "z": "Hij is sportief, houdt van geld en kan zelfs een Schwalbe maken – 'hartstikke professioneel'."
     },
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Keuze baan",
+     "href": "spreken/?v=118",
+     "z": "Ik kies de bakkerij, want ik houd van brood en gebak."
+    },
+    {
+     "t": "Kelime incelemesi · winkel",
+     "href": "woordstudie/?w=winkel",
+     "z": "Ze houdt van winkelen."
+    },
+    {
+     "t": "Lezen B1 · Informatie voor huurders",
+     "href": "lezen/teksten.html?t=huurders",
+     "z": "Het houden van meer dan twee honden of katten in een appartement is niet toegestaan."
+    },
+    {
+     "t": "Spreken B1 · Andere afdeling",
+     "href": "spreken/?v=7",
+     "z": "Ik houd van kinderen."
+    },
+    {
+     "t": "Spreken B1 · Sollicitatie tuincentrum",
+     "href": "spreken/?v=251",
+     "z": "Ik houd van tuinieren, dus ik weet veel van planten."
+    },
+    {
+     "t": "Spreken B1 · Steeds meer wegen",
+     "href": "spreken/?v=271",
+     "z": "Ik houd van de natuur."
+    },
+    {
+     "t": "Spreken B1 · Welke sport",
+     "href": "spreken/?v=333",
+     "z": "Zwemmen, want ik houd van water."
     }
    ]
   },
@@ -1683,11 +1810,43 @@
    "tags": [
     {
      "t": "Lezen B1 · Werken in de kinderopvang: iets voor jou?",
-     "href": "lezen/teksten.html?t=kinderopvang"
+     "href": "lezen/teksten.html?t=kinderopvang",
+     "z": "Je let goed op hoe elk kind zich ontwikkelt."
     },
     {
      "t": "Luisteren B1 · U hoort een medewerker van een informatiepunt uitleg geven over zorgtoeslag",
-     "href": "luisteren/?f=b1-uitleg-zorgtoeslag"
+     "href": "luisteren/?f=b1-uitleg-zorgtoeslag",
+     "z": "Let op: geef veranderingen in uw inkomen altijd snel door."
+    },
+    {
+     "t": "Nieuws · Zeehondencentrum in geldnood",
+     "href": "nieuws/?id=pieterburen",
+     "z": "Let op: in het Nederlands zet je bij grote getallen een punt (100.000) en bij decimalen een komma (2,5 miljoen)."
+    },
+    {
+     "t": "Lezen B1 · Studiegids Taalcentrum De Brug: praktische informatie",
+     "href": "lezen/teksten.html?t=studiegids",
+     "z": "Let op: werkboeken waarin al geschreven is, kun je in de les niet meer gebruiken."
+    },
+    {
+     "t": "Luisteren B1 · U hoort een telefoongesprek met de gemeente",
+     "href": "luisteren/?f=b1-gemeente-paspoort",
+     "z": "Let op: in de maanden voor de zomervakantie is het erg druk."
+    },
+    {
+     "t": "Luisteren A2 · U bent in de supermarkt. U hoort een omroepbericht",
+     "href": "luisteren/?set=a2&f=l1-supermarkt",
+     "z": "Let op: de winkel gaat vanavond om acht uur dicht."
+    },
+    {
+     "t": "Luisteren A2 · U hoort een bericht in de parkeergarage",
+     "href": "luisteren/?set=a2&f=l2-parkeren",
+     "z": "Let op: de parkeergarage gaat vanavond om elf uur dicht."
+    },
+    {
+     "t": "Lezen woordenlijst",
+     "href": "lezen/",
+     "z": "We letten op de kwaliteit van het brood."
     }
    ]
   },
@@ -1709,11 +1868,13 @@
    "tags": [
     {
      "t": "Nieuws · Volgend jaar een hoger pensioen",
-     "href": "nieuws/?id=pensioen"
+     "href": "nieuws/?id=pensioen",
+     "z": "Zo'n twee miljoen Nederlanders kunnen volgend jaar vermoedelijk rekenen op een hoger pensioen."
     },
     {
      "t": "Nieuws · Zeehondencentrum in geldnood",
-     "href": "nieuws/?id=pieterburen"
+     "href": "nieuws/?id=pieterburen",
+     "z": "Het centrum rekende op steun van gemeente en provincie, maar die blijft uit – tot onbegrip van de directeur."
     }
    ]
   },
@@ -1735,19 +1896,23 @@
    "tags": [
     {
      "t": "Lezen B1 · Belangrijke informatie over de examentraining",
-     "href": "lezen/teksten.html?t=examentraining"
+     "href": "lezen/teksten.html?t=examentraining",
+     "z": "De training bestaat uit zes lessen van twee uur, op zaterdagochtend van 10.00 tot 12.00 uur."
     },
     {
      "t": "Nieuws · Waarom zijn wolken wit?",
-     "href": "nieuws/?id=wolken"
+     "href": "nieuws/?id=wolken",
+     "z": "Wolken bestaan uit kleine waterdruppels."
     },
     {
      "t": "Nieuws · Wat zijn gluten?",
-     "href": "nieuws/?id=gluten"
+     "href": "nieuws/?id=gluten",
+     "z": "Gluten komen voor in granen als tarwe, rogge, spelt en gerst en bestaan uit twee eiwitten: het lange, omvangrijke glutenine en het kleinere, bolvormige gliadine."
     },
     {
      "t": "Nieuws · Het bankbiljet onder de loep",
-     "href": "nieuws/?id=bankbiljet"
+     "href": "nieuws/?id=bankbiljet",
+     "z": "Katoen en papier bestaan uit vezels: heel dunne draadjes."
     }
    ]
   },
@@ -1786,15 +1951,18 @@
    "tags": [
     {
      "t": "Nieuws · Wat zijn gluten?",
-     "href": "nieuws/?id=gluten"
-    },
-    {
-     "t": "Kelime listesi · ergens op lijken",
-     "href": "woorden/"
+     "href": "nieuws/?id=gluten",
+     "z": "Er blijft iets over dat lijkt op elastiek."
     },
     {
      "t": "Kelime incelemesi · Lijkt het je leuk om …? / Lijkt me leuk!",
-     "href": "woordstudie/?w=lijkt-het-je-leuk"
+     "href": "woordstudie/?w=lijkt-het-je-leuk",
+     "z": "Hij lijkt op zijn vader."
+    },
+    {
+     "t": "Spreken B1 · Sleutels kwijt",
+     "href": "spreken/?v=248",
+     "z": "Het lijkt op een schoentje."
     }
    ]
   },
@@ -1833,11 +2001,43 @@
    "tags": [
     {
      "t": "Luisteren B1 · U hoort een radio-interview over fietsen naar het werk",
-     "href": "luisteren/?f=b1-radio-fiets"
+     "href": "luisteren/?f=b1-radio-fiets",
+     "z": "Wij vragen de gemeente om bredere fietspaden."
     },
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · İş",
+     "href": "knm/?q=y02-47",
+     "z": "Uw werkgever vraagt om een Verklaring Omtrent Gedrag (VOG)."
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k006-36",
+     "z": "Een aanvraag voor naturalisatie is een officiële vraag om de Nederlandse nationaliteit te krijgen."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k024-20",
+     "z": "U wordt boos en vraagt om meer pillen."
+    },
+    {
+     "t": "KNM soru · Devlet ve tarih",
+     "href": "knm/?q=tc07-18",
+     "z": "Een winkel vraagt om je BSN."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=y01-17",
+     "z": "De vrouw aan de balie vragen om Amel te bellen."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=y02-43",
+     "z": "De woningcorporatie vragen om het probleem op te lossen."
+    },
+    {
+     "t": "Luisteren B1 · U hoort een gesprek tussen twee buren in een flat",
+     "href": "luisteren/?f=b1-gesprek-buren",
+     "z": "Zullen we de woningcorporatie vragen om die weg te halen?"
     }
    ]
   },
@@ -1859,7 +2059,33 @@
    "tags": [
     {
      "t": "Lezen B1 · Informatie voor huurders",
-     "href": "lezen/teksten.html?t=huurders"
+     "href": "lezen/teksten.html?t=huurders",
+     "z": "Samen zoeken we naar een oplossing, bijvoorbeeld een betalingsregeling."
+    },
+    {
+     "t": "Spreken B1 · Functie van chauffeur",
+     "href": "spreken/?v=82",
+     "z": "Zij helpen u met het zoeken naar een baan."
+    },
+    {
+     "t": "Spreken B1 · Keuze baan",
+     "href": "spreken/?v=118",
+     "z": "Het uitzendbureau helpt u bij het zoeken naar werk."
+    },
+    {
+     "t": "Spreken B1 · Studieadviseur",
+     "href": "spreken/?v=279",
+     "z": "De studieadviseur helpt u bij het zoeken naar een opleiding."
+    },
+    {
+     "t": "Spreken B1 · Werk kiezen",
+     "href": "spreken/?v=335",
+     "z": "Het uitzendbureau helpt u bij het zoeken naar werk."
+    },
+    {
+     "t": "Kelime listesi · ik ben op zoek naar ...",
+     "href": "woorden/",
+     "z": "Ik ben op zoek naar vitamines."
     }
    ]
   },
@@ -1880,8 +2106,14 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k013-38",
+     "z": "Starters op de woningmarkt zijn mensen die voor het eerst op zoek zijn naar een woning."
+    },
+    {
+     "t": "Kelime listesi · ik ben op zoek naar ...",
+     "href": "woorden/",
+     "z": "Ik ben op zoek naar vitamines."
     }
    ]
   },
@@ -1903,11 +2135,43 @@
    "tags": [
     {
      "t": "Nieuws · Sketch: 'U bent geen Johan Cruijff!'",
-     "href": "nieuws/?id=ober"
+     "href": "nieuws/?id=ober",
+     "z": "'Johan Cruijff begon ook met voetballen tegen een muurtje,' zegt hij."
     },
     {
      "t": "Nieuws · Hoe worden verpakkingsdoosjes gemaakt?",
-     "href": "nieuws/?id=doosjes"
+     "href": "nieuws/?id=doosjes",
+     "z": "Alles begint met een stuk karton."
+    },
+    {
+     "t": "Ders · İki fiilli cümleler",
+     "href": "dersler/?les=iki-fiil",
+     "z": "Ik ben begonnen met de documentatie."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k005-11",
+     "z": "Timothy moet beginnen met werken."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k008-09",
+     "z": "U gaat beginnen met het verbouwen van je huis."
+    },
+    {
+     "t": "Nieuws · Hoe maak je een kroket?",
+     "href": "nieuws/?id=kroket",
+     "z": "De zin begint met een bijzin; daarna komt in de hoofdzin meteen het werkwoord: '…, ontstaat er bouillon.'"
+    },
+    {
+     "t": "Nieuws · Waarom zijn wolken wit?",
+     "href": "nieuws/?id=wolken",
+     "z": "De zin begint met een als-bijzin, dus het werkwoord komt meteen daarna."
+    },
+    {
+     "t": "Nieuws · Lege schappen bij Albert Heijn",
+     "href": "nieuws/?id=albertheijn",
+     "z": "Een nieuwe hoofdzin begint met 'daardoor' (+ werkwoord meteen)."
     }
    ]
   },
@@ -1929,11 +2193,43 @@
    "tags": [
     {
      "t": "Nieuws · Volgend jaar een hoger pensioen",
-     "href": "nieuws/?id=pensioen"
+     "href": "nieuws/?id=pensioen",
+     "z": "In Nederland stop je op je 67e met werken."
     },
     {
      "t": "Nieuws · Sketch: 'U bent geen Johan Cruijff!'",
-     "href": "nieuws/?id=ober"
+     "href": "nieuws/?id=ober",
+     "z": "Hij stopte met voetbal toen hij 11 was."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k005-11",
+     "z": "Timothy gaat stoppen met werken."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k009-36",
+     "z": "U weet hoeveel pensioen u krijgt als u stopt met werken."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k019-08",
+     "z": "Jannie kan het beste stoppen met werken."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k019-21",
+     "z": "Stoppen met school en werk zoeken."
+    },
+    {
+     "t": "Lezen B1 · Studiegids Taalcentrum De Brug: praktische informatie",
+     "href": "lezen/teksten.html?t=studiegids",
+     "z": "Wil je stoppen met je cursus?"
+    },
+    {
+     "t": "Spreken B1 · Keuze opleiding of baan",
+     "href": "spreken/?v=120",
+     "z": "Hij moet dan wel stoppen met de opleiding."
     }
    ]
   },
@@ -1955,19 +2251,43 @@
    "tags": [
     {
      "t": "Luisteren B1 · U hoort een vrijwilliger vertellen over het taalcafé in de bibliotheek",
-     "href": "luisteren/?f=b1-bibliotheek-taalcafe"
+     "href": "luisteren/?f=b1-bibliotheek-taalcafe",
+     "z": "We praten in kleine groepen over allerlei onderwerpen: werk, het nieuws, feestdagen."
     },
     {
      "t": "Lezen B1 · Problemen met de buren? Buurtbemiddeling helpt",
-     "href": "lezen/teksten.html?t=buurtbemiddeling"
+     "href": "lezen/teksten.html?t=buurtbemiddeling",
+     "z": "Toch praten veel mensen er niet over."
     },
     {
      "t": "Lezen B1 · Studiegids Taalcentrum De Brug: praktische informatie",
-     "href": "lezen/teksten.html?t=studiegids"
+     "href": "lezen/teksten.html?t=studiegids",
+     "z": "Praat er dan eerst over met je docent."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k005-29",
+     "z": "Zij praten over de zwangerschap van Tineke."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k018-36",
+     "z": "De arts wil praten over de medicijnen die hij heeft voorgeschreven."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k020-13",
+     "z": "Bij de voorlichting over veiligheid wordt gepraat over zebrapaden, stoplichten en kruispunten."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=y04-19",
+     "z": "U gaat met uw baas praten over uw salaris."
     },
     {
      "t": "Nieuws · Sketch: 'U bent geen Johan Cruijff!'",
-     "href": "nieuws/?id=ober"
+     "href": "nieuws/?id=ober",
+     "z": "De gasten praten over voetbal."
     }
    ]
   },
@@ -1989,11 +2309,43 @@
    "tags": [
     {
      "t": "Nieuws · Waarom zijn wolken wit?",
-     "href": "nieuws/?id=wolken"
+     "href": "nieuws/?id=wolken",
+     "z": "Daar praat hij met een meteoroloog: iemand die het weer bestudeert."
     },
     {
      "t": "Luisteren B1 · U hoort een radio-interview over fietsen naar het werk",
-     "href": "luisteren/?f=b1-radio-fiets"
+     "href": "luisteren/?f=b1-radio-fiets",
+     "z": "Vandaag praat ik met Kees Mulder van de Fietsersbond."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k001-39",
+     "z": "Alena praat met Marieke."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k004-38",
+     "z": "Lena praat met Marieke."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k006-05",
+     "z": "Praten met een medewerker van het UWV."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k006-23",
+     "z": "De moeder van Sara gaat praten met de juf."
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k013-07",
+     "z": "U gaat praten met de huisarts."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k013-19",
+     "z": "De leraar praat met u."
     }
    ]
   },
@@ -2014,12 +2366,24 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · İş",
+     "href": "knm/?q=y04-03",
+     "z": "Maria reageert op een vacature en stuurt een brief en haar cv."
     },
     {
      "t": "Nieuws · Lege schappen bij Albert Heijn",
-     "href": "nieuws/?id=albertheijn"
+     "href": "nieuws/?id=albertheijn",
+     "z": "Ze reageerde laconiek op het nieuws."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k026-10",
+     "z": "Natascha reageert op de woningadvertentie in de krant voor een sociale huurwoning."
+    },
+    {
+     "t": "Spreken B1 · Hondenpoep op straat",
+     "href": "spreken/?v=99",
+     "z": "Reageer op uw buurman."
     }
    ]
   },
@@ -2041,11 +2405,13 @@
    "tags": [
     {
      "t": "Lezen B1 · Kies het abonnement dat bij jou past",
-     "href": "lezen/teksten.html?t=sportschool"
+     "href": "lezen/teksten.html?t=sportschool",
+     "z": "Bij alle abonnementen mag je gratis meedoen aan de groepslessen, zoals yoga en spinning."
     },
     {
-     "t": "Nieuws · Zeehondencentrum in geldnood",
-     "href": "nieuws/?id=pieterburen"
+     "t": "KNM soru · Devlet ve tarih",
+     "href": "knm/?q=k012-32",
+     "z": "Mag u meedoen aan de verkiezingen voor het Europese Parlement?"
     }
    ]
   },
@@ -2067,7 +2433,13 @@
    "tags": [
     {
      "t": "Nieuws · Sketch: 'U bent geen Johan Cruijff!'",
-     "href": "nieuws/?id=ober"
+     "href": "nieuws/?id=ober",
+     "z": "Abel doet aan freestyle voetbal: in je eentje, zonder veel regels, de bal hoog houden."
+    },
+    {
+     "t": "Spreken B1 · Naar zee",
+     "href": "spreken/?v=173",
+     "z": "WAT HEBBEN JULLIE GEDAAN AAN ZEE?"
     }
    ]
   },
@@ -2089,7 +2461,18 @@
    "tags": [
     {
      "t": "Kelime listesi · deelnemen aan",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "Ik neem deel aan de vergadering."
+    },
+    {
+     "t": "Spreken B1 · Deelname studentenraad",
+     "href": "spreken/?v=54",
+     "z": "MAAR WAAROM ZOU IK DEELNEMEN AAN DE STUDENTENRAAD?"
+    },
+    {
+     "t": "Lezen woordenlijst",
+     "href": "lezen/",
+     "z": "Wil je deelnemen aan de training?"
     }
    ]
   },
@@ -2110,8 +2493,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k006-25",
+     "z": "Petra wil zich aanmelden voor zwemles."
     }
    ]
   },
@@ -2133,11 +2517,43 @@
    "tags": [
     {
      "t": "Lezen B1 · Op je vijftigste nog een nieuw vak leren",
-     "href": "lezen/teksten.html?t=omscholing"
+     "href": "lezen/teksten.html?t=omscholing",
+     "z": "Maar mijn klasgenoten, die vaak twintig jaar jonger waren, hielpen me met de computer."
     },
     {
      "t": "Lezen B1 · Werken in de kinderopvang: iets voor jou?",
-     "href": "lezen/teksten.html?t=kinderopvang"
+     "href": "lezen/teksten.html?t=kinderopvang",
+     "z": "Je speelt met de kinderen, leest voor, gaat met ze naar buiten en helpt ze met eten en drinken."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k004-30",
+     "z": "De buren vinden het fijn als iedereen helpt met organiseren."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k004-39",
+     "z": "Lena heeft Marieke ook geholpen met kleding vouwen, want Marieke had niet zoveel tijd."
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k005-39",
+     "z": "De gemeente helpt met het invullen van het aanvraagformulier."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k009-31",
+     "z": "U kunt helpen met voorlezen, of met schoolreisjes."
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k011-40",
+     "z": "Sociaal Raadslieden kunnen je helpen met het invullen van formulieren."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=y01-03",
+     "z": "Een makelaar helpt met verhuizen naar de nieuwe flat."
     }
    ]
   },
@@ -2158,8 +2574,44 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Keuze baan",
+     "href": "spreken/?v=118",
+     "z": "Het uitzendbureau helpt u bij het zoeken naar werk."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k004-17",
+     "z": "De huurcommissie kan je helpen bij problemen met je huisbaas."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k013-09",
+     "z": "Wie helpt bij problemen met de opvoeding?"
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k019-18",
+     "z": "Jeugdzorg kan je helpen bij problemen met je kind."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k020-07",
+     "z": "De verloskundige helpt bij de bevalling als je baby thuis wordt geboren."
+    },
+    {
+     "t": "Spreken B1 · Onderwijsassistent",
+     "href": "spreken/?v=192",
+     "z": "Ik heb geholpen bij de sporties."
+    },
+    {
+     "t": "Spreken B1 · Stageplek kiezen",
+     "href": "spreken/?v=269",
+     "z": "Het liefst werk ik met gehandicapten, omdat ik graag help bij sport en spel."
+    },
+    {
+     "t": "Schrijven B1 · Schrijven I proefexamen 2",
+     "href": "schrijven/",
+     "z": "Ervaring: Ja, ik heb twee jaar geholpen bij de moskee met de iftar-maaltijden."
     }
    ]
   },
@@ -2198,7 +2650,8 @@
    "tags": [
     {
      "t": "Lezen B1 · Op je vijftigste nog een nieuw vak leren",
-     "href": "lezen/teksten.html?t=omscholing"
+     "href": "lezen/teksten.html?t=omscholing",
+     "z": "Ook twijfelen veel oudere werknemers aan zichzelf."
     }
    ]
   },
@@ -2220,15 +2673,18 @@
    "tags": [
     {
      "t": "Nieuws · Zeehondencentrum in geldnood",
-     "href": "nieuws/?id=pieterburen"
+     "href": "nieuws/?id=pieterburen",
+     "z": "'Het gaat over veel meer dan alleen maar zeehonden,' benadrukt hij."
     },
     {
      "t": "Lezen B1 · Vakantie en verlof",
-     "href": "lezen/teksten.html?t=verlof"
+     "href": "lezen/teksten.html?t=verlof",
+     "z": "De tekst gaat over vakantie en verlof: tijd dat je niet hoeft te werken."
     },
     {
-     "t": "Nieuws · Hoe worden verpakkingsdoosjes gemaakt?",
-     "href": "nieuws/?id=doosjes"
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k005-28",
+     "z": "De notulen gaan over de vorige vergadering."
     }
    ]
   },
@@ -2249,8 +2705,29 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k001-14",
+     "z": "De pincode is geheim en hoort alléén bij uw bankpas."
+    },
+    {
+     "t": "KNM soru · Devlet ve tarih",
+     "href": "knm/?q=k019-04",
+     "z": "Wat hoort bij elkaar?"
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k025-07",
+     "z": "Wat hoort bij elkaar?"
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=y03-20",
+     "z": "Wat hoort bij de vrije sector?"
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=y05-12",
+     "z": "Wat hoort bij zorg voor de omgeving?"
     }
    ]
   },
@@ -2272,7 +2749,43 @@
    "tags": [
     {
      "t": "Lezen B1 · Parkeervergunning voor bewoners",
-     "href": "lezen/teksten.html?t=parkeren"
+     "href": "lezen/teksten.html?t=parkeren",
+     "z": "U betaalt alleen voor de stroom die u gebruikt."
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k002-10",
+     "z": "Belasting die je betaalt voor het ophalen van afval."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k017-32",
+     "z": "Geld dat je betaalt voor je zorgverzekering."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k022-03",
+     "z": "Hoe heet het geld dat je betaalt voor je zorgverzekering?"
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k026-12",
+     "z": "Dit betekent dat zij op sommige dagen en tijden minder betalen voor hun stroom."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=tc03-05",
+     "z": "Wat moet je meestal betalen voor een tolk bij de huisarts?"
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=y01-05",
+     "z": "Jan en Hanna gaan elke maand €500 rente betalen voor hun flat."
+    },
+    {
+     "t": "Schrijven B1 · Schrijven I proefexamen 1",
+     "href": "schrijven/",
+     "z": "Koop twee taarten en u betaalt voor de tweede taart maar de helft."
     }
    ]
   },
@@ -2294,11 +2807,43 @@
    "tags": [
     {
      "t": "Lezen B1 · Op je vijftigste nog een nieuw vak leren",
-     "href": "lezen/teksten.html?t=omscholing"
+     "href": "lezen/teksten.html?t=omscholing",
+     "z": "Steeds meer mensen kiezen op latere leeftijd voor omscholing."
     },
     {
      "t": "Lezen B1 · Open dag ROC Rijnstad: ontdek jouw toekomst!",
-     "href": "lezen/teksten.html?t=opendag"
+     "href": "lezen/teksten.html?t=opendag",
+     "z": "Kies dan voor een BBL-opleiding."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k003-09",
+     "z": "Als je kiest voor een eigen risico, betaal je alle kosten zelf."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k006-29",
+     "z": "Eind groep 8 moeten ouders en kinderen kiezen voor een school van het voortgezet onderwijs."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k011-15",
+     "z": "Als je kiest voor een hoger eigen risico moet je meer eigen risico betalen."
+    },
+    {
+     "t": "Luisteren B1 · U hoort een voicemailbericht van het zwembad",
+     "href": "luisteren/?f=b1-zwembad-bericht",
+     "z": "Dan kunt u kiezen voor de les op zaterdagochtend om negen uur."
+    },
+    {
+     "t": "Spreken B1 · Computer kiezen",
+     "href": "spreken/?v=46",
+     "z": "Ik kies voor betalen in twee jaar, want ik heb nu niet genoeg geld."
+    },
+    {
+     "t": "Spreken B1 · Concert kiezen",
+     "href": "spreken/?v=48",
+     "z": "Ik kies voor het grote concert."
     }
    ]
   },
@@ -2319,8 +2864,14 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Werkstuk",
+     "href": "spreken/?v=341",
+     "z": "Maak een planning en werk elke dag een paar uur aan je werkstuk."
+    },
+    {
+     "t": "Lezen B1 · Thuiswerken: vrijheid of eenzaamheid?",
+     "href": "lezen/teksten.html?t=thuiswerken",
+     "z": "'Veel mensen werken aan een te lage tafel of op de bank,' zegt Visser."
     }
    ]
   },
@@ -2342,7 +2893,43 @@
    "tags": [
     {
      "t": "Lezen B1 · Open dag ROC Rijnstad: ontdek jouw toekomst!",
-     "href": "lezen/teksten.html?t=opendag"
+     "href": "lezen/teksten.html?t=opendag",
+     "z": "Nu werk ik bij een installatiebedrijf en over een jaar heb ik mijn diploma."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k019-09",
+     "z": "U werkt bij een schoonmaakbedrijf."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=y04-01",
+     "z": "Karin werkt bij een bedrijf."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=y04-28",
+     "z": "Nora werkt een maand in een kledingwinkel om te kijken of het werk bij haar past."
+    },
+    {
+     "t": "Lezen B1 · Werken in de kinderopvang: iets voor jou?",
+     "href": "lezen/teksten.html?t=kinderopvang",
+     "z": "Welke bewering over werken bij Zonnebloem is juist?"
+    },
+    {
+     "t": "Spreken B1 · Broodjes bestellen",
+     "href": "spreken/?v=38",
+     "z": "U werkt bij een bakker."
+    },
+    {
+     "t": "Spreken B1 · Drukkerij",
+     "href": "spreken/?v=59",
+     "z": "U werkt bij een drukkerij."
+    },
+    {
+     "t": "Spreken B1 · Extra werken",
+     "href": "spreken/?v=76",
+     "z": "U werkt bij de administratie van een groot bedrijf."
     }
    ]
   },
@@ -2363,8 +2950,9 @@
    ],
    "tags": [
     {
-     "t": "Schrijven B1",
-     "href": "schrijven/"
+     "t": "Schrijven B1 · Schrijven I proefexamen 3",
+     "href": "schrijven/",
+     "z": "Ik schrijf je over ons afdelingsuitje."
     }
    ]
   },
@@ -2386,11 +2974,43 @@
    "tags": [
     {
      "t": "Nieuws · Sketch: 'U bent geen Johan Cruijff!'",
-     "href": "nieuws/?id=ober"
+     "href": "nieuws/?id=ober",
+     "z": "Dan vertelt hij over zijn grote droom."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k020-17",
+     "z": "Er komt iemand bij u aan de deur die u wil vertellen over zijn geloof."
+    },
+    {
+     "t": "Nieuws · Oud station in Vught 13 meter verschoven",
+     "href": "nieuws/?id=station",
+     "z": "De kleindochter van de man is erbij en vertelt over haar opa."
+    },
+    {
+     "t": "Luisteren B1 · U hoort een vrijwilliger vertellen over het taalcafé in de bibliotheek",
+     "href": "luisteren/?f=b1-bibliotheek-taalcafe",
+     "z": "U hoort een vrijwilliger vertellen over het taalcafé in de bibliotheek."
+    },
+    {
+     "t": "Spreken B1 · Themadag in bibliotheek",
+     "href": "spreken/?v=291",
+     "z": "Kinderen vertellen over hun favoriete dier."
+    },
+    {
+     "t": "Spreken B1 · Begeleid wonen",
+     "href": "spreken/?v=1016",
+     "z": "Vertel over uw werkzaamheden."
+    },
+    {
+     "t": "Schrijven B1 · Schrijven I proefexamen 3",
+     "href": "schrijven/",
+     "z": "De vriendin vertellen over de open dag."
     },
     {
      "t": "Kelime listesi · vandaag ga ik vertellen over ...",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "Vandaag ga ik vertellen over ons nieuwe project."
     }
    ]
   },
@@ -2412,7 +3032,13 @@
    "tags": [
     {
      "t": "Lezen B1 · Op je vijftigste nog een nieuw vak leren",
-     "href": "lezen/teksten.html?t=omscholing"
+     "href": "lezen/teksten.html?t=omscholing",
+     "z": "De Graaf adviseert om eerst goed na te denken over wat je wilt en kunt."
+    },
+    {
+     "t": "Spreken B1 · Drukkerij",
+     "href": "spreken/?v=59",
+     "z": "Stuur een e-mail, dan kun je rustig nadenken over wat je schrijft."
     }
    ]
   },
@@ -2433,8 +3059,19 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Problemen met collega",
+     "href": "spreken/?v=224",
+     "z": "Ik wil niet klagen over een collega."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k020-17",
+     "z": "U kunt de politie bellen om te klagen over deze man."
+    },
+    {
+     "t": "Luisteren A2 · Uw buurvrouw praat met u",
+     "href": "luisteren/?set=a2&f=l2-buren-feest",
+     "z": "Ze wil klagen over lawaai."
     }
    ]
   },
@@ -2455,8 +3092,14 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k026-36",
+     "z": "U wilt de gemeente informeren over uw nieuwe adres."
+    },
+    {
+     "t": "Schrijven B1 · Schrijven I proefexamen 1",
+     "href": "schrijven/",
+     "z": "De leidinggevende informeren over het uitje en een idee geven voor volgend jaar."
     }
    ]
   },
@@ -2477,8 +3120,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=y05-01",
+     "z": "Je beslist zelf over je leven."
     }
    ]
   },
@@ -2533,8 +3177,44 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Werk kiezen",
+     "href": "spreken/?v=335",
+     "z": "Het beroep van kok past bij mij, omdat ik creatief ben in de keuken."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k009-33",
+     "z": "U ziet een mooi huis, dat past bij uw gezin."
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k010-03",
+     "z": "U moet een cursus of opleiding zoeken die past bij dit werk."
+    },
+    {
+     "t": "Nieuws · Hoe worden verpakkingsdoosjes gemaakt?",
+     "href": "nieuws/?id=doosjes",
+     "z": "Het openvouwen, vullen en sluiten gebeurt pas bij de fabrikant zelf."
+    },
+    {
+     "t": "Lezen B1 · Kies het abonnement dat bij jou past",
+     "href": "lezen/teksten.html?t=sportschool",
+     "z": "Welk abonnement past bij haar?"
+    },
+    {
+     "t": "Lezen A2 · Openingstijden Bibliotheek Oosterhaven",
+     "href": "lezen/teksten.html?set=a2&t=a2-bibliotheek-tijden",
+     "z": "Welke activiteit past bij haar dochter?"
+    },
+    {
+     "t": "Spreken B1 · Studieadviseur",
+     "href": "spreken/?v=279",
+     "z": "Ja, dat past bij mij."
+    },
+    {
+     "t": "Spreken A2",
+     "href": "spreken-a2/",
+     "z": "Het antwoord past bij de vraag en geeft alles wat gevraagd wordt (bijvoorbeeld ook 'waarom')."
     }
    ]
   },
@@ -2556,7 +3236,23 @@
    "tags": [
     {
      "t": "Schrijven B1",
-     "href": "schrijven/"
+     "href": "schrijven/",
+     "z": "Uw buurman Peter heeft op uw kat gepast toen u op vakantie was."
+    },
+    {
+     "t": "Kelime incelemesi · een wolf in schaapskleren",
+     "href": "woordstudie/?w=wolf-in-schaapskleren",
+     "z": "Pas op met die verkoper: het is een wolf in schaapskleren."
+    },
+    {
+     "t": "Nieuws · Een wolf, wat nu?",
+     "href": "nieuws/?id=wolf",
+     "z": "Pas op met die verkoper: het is een wolf in schaapskleren."
+    },
+    {
+     "t": "Schrijven B1 · Schrijven I proefexamen 1",
+     "href": "schrijven/",
+     "z": "De levering zou op 3 mei zijn, maar nu hoor ik dat hij pas op 24 mei komt."
     }
    ]
   },
@@ -2578,7 +3274,43 @@
    "tags": [
     {
      "t": "Lezen A2 · Nieuw rooster",
-     "href": "lezen/teksten.html?set=a2&t=a2-werkrooster"
+     "href": "lezen/teksten.html?set=a2&t=a2-werkrooster",
+     "z": "Bel dan vóór 7.00 uur naar de winkel."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k010-21",
+     "z": "Je belt naar de huisartsenpost."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=y01-33",
+     "z": "Bellen naar een basisschool."
+    },
+    {
+     "t": "Luisteren A2 · U belt naar de huisarts",
+     "href": "luisteren/?set=a2&f=l1-huisarts",
+     "z": "U belt naar de huisarts."
+    },
+    {
+     "t": "Luisteren A2 · U belt naar de gemeente",
+     "href": "luisteren/?set=a2&f=l1-gemeente",
+     "z": "U belt naar de gemeente."
+    },
+    {
+     "t": "Luisteren A2 · U belt naar de tandarts",
+     "href": "luisteren/?set=a2&f=l1-tandarts",
+     "z": "U belt naar de tandarts."
+    },
+    {
+     "t": "Luisteren A2 · Een man belt naar zijn werk",
+     "href": "luisteren/?set=a2&f=l2-ziek",
+     "z": "Een man belt naar zijn werk."
+    },
+    {
+     "t": "Luisteren A2 · U belt naar de kapper",
+     "href": "luisteren/?set=a2&f=l2-kapper",
+     "z": "U belt naar de kapper."
     }
    ]
   },
@@ -2600,7 +3332,8 @@
    "tags": [
     {
      "t": "Kelime listesi · verwijzen naar",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "De naam verwijst naar ons verleden."
     }
    ]
   },
@@ -2673,7 +3406,8 @@
    "tags": [
     {
      "t": "Lezen B1 · Problemen met de buren? Buurtbemiddeling helpt",
-     "href": "lezen/teksten.html?t=buurtbemiddeling"
+     "href": "lezen/teksten.html?t=buurtbemiddeling",
+     "z": "Familie Bos ergerde zich al maanden aan de hond van de buren, die elke dag urenlang blafte."
     }
    ]
   },
@@ -2695,7 +3429,13 @@
    "tags": [
     {
      "t": "Lezen woordenlijst",
-     "href": "lezen/"
+     "href": "lezen/",
+     "z": "Houd je aan de regels."
+    },
+    {
+     "t": "KNM kelime · zich houden aan",
+     "href": "knm/?w=w373",
+     "z": ""
     }
    ]
   },
@@ -2716,8 +3456,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k014-11",
+     "z": "U maakt zich zorgen over zijn gedrag."
     }
    ]
   },
@@ -2739,15 +3480,18 @@
    "tags": [
     {
      "t": "Luisteren B1 · U hoort een medewerker van een informatiepunt uitleg geven over zorgtoeslag",
-     "href": "luisteren/?f=b1-uitleg-zorgtoeslag"
+     "href": "luisteren/?f=b1-uitleg-zorgtoeslag",
+     "z": "Of u het krijgt, hangt af van uw inkomen."
     },
     {
      "t": "Lezen B1 · Informatie voor huurders",
-     "href": "lezen/teksten.html?t=huurders"
+     "href": "lezen/teksten.html?t=huurders",
+     "z": "Wie de reparatie betaalt, hangt af van wat er kapot is."
     },
     {
      "t": "Kelime incelemesi · dat hangt ervan af / het ligt eraan",
-     "href": "woordstudie/?w=hangt-ervan-af"
+     "href": "woordstudie/?w=hangt-ervan-af",
+     "z": "Je zegt dat iets niet zeker is, omdat het afhangt van iets anders."
     }
    ]
   },
@@ -2785,8 +3529,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k014-07",
+     "z": "Hoe kunt u het beste omgaan met mensen die anders leven of denken dan u?"
     }
    ]
   },
@@ -2808,19 +3553,18 @@
    "tags": [
     {
      "t": "Lezen woordenlijst",
-     "href": "lezen/"
+     "href": "lezen/",
+     "z": "Houd rekening met de buren."
     },
     {
-     "t": "Ders · Sofradan uğurlamaya: Hollandalı misafir rehberi",
-     "href": "dersler/?les=misafir"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=y05-12",
+     "z": "Rekening houden met buren."
     },
     {
-     "t": "Ders · Toplantıda ve stand-up'ta",
-     "href": "dersler/?les=toplanti"
-    },
-    {
-     "t": "Nieuws · Een heel klein fossiel uit de tijd van de dinosaurussen",
-     "href": "nieuws/?id=fossiel"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=y05-18",
+     "z": "Rekening houden met de buren."
     }
    ]
   },
@@ -2841,8 +3585,14 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Glazenwasser",
+     "href": "spreken/?v=90",
+     "z": "Ik werk liever bij woonhuizen, want ik ben bang voor hoogte."
+    },
+    {
+     "t": "Schrijven A2 · Aanmelden voor zwemles",
+     "href": "schrijven-a2/",
+     "z": "Schrijf bij 'Opmerking' één zin: Noor is een beetje bang voor water."
     }
    ]
   },
@@ -2881,7 +3631,18 @@
    "tags": [
     {
      "t": "Lezen A2 · Regels in zwembad De Golf",
-     "href": "lezen/teksten.html?set=a2&t=a2-zwembad"
+     "href": "lezen/teksten.html?set=a2&t=a2-zwembad",
+     "z": "Wij zijn niet verantwoordelijk voor spullen die u kwijtraakt."
+    },
+    {
+     "t": "Lezen B1 · Studiegids Taalcentrum De Brug: praktische informatie",
+     "href": "lezen/teksten.html?t=studiegids",
+     "z": "Hebben wij het formulier niet op tijd ontvangen, dan blijf je zelf verantwoordelijk voor de betaling."
+    },
+    {
+     "t": "Lezen woordenlijst",
+     "href": "lezen/",
+     "z": "Wie is verantwoordelijk voor de planning?"
     }
    ]
   },
@@ -2903,7 +3664,8 @@
    "tags": [
     {
      "t": "Nieuws · Lege schappen bij Albert Heijn",
-     "href": "nieuws/?id=albertheijn"
+     "href": "nieuws/?id=albertheijn",
+     "z": "De storing legt bloot hoe afhankelijk een moderne supermarktketen van haar IT is."
     }
    ]
   },
@@ -2942,7 +3704,28 @@
    "tags": [
     {
      "t": "Schrijven B1",
-     "href": "schrijven/"
+     "href": "schrijven/",
+     "z": "Ik schrijf u omdat ik niet tevreden ben over mijn bestelling."
+    },
+    {
+     "t": "Lezen B1 · Studiegids Taalcentrum De Brug: praktische informatie",
+     "href": "lezen/teksten.html?t=studiegids",
+     "z": "Ben je ergens niet tevreden over?"
+    },
+    {
+     "t": "Spreken B1 · Huurbaas",
+     "href": "spreken/?v=103",
+     "z": "IK BEN ECHT NIET TEVREDEN OVER DE HUURBAAS."
+    },
+    {
+     "t": "Spreken B1 · Niet tevreden over stage",
+     "href": "spreken/?v=180",
+     "z": "U bent niet tevreden over uw stage."
+    },
+    {
+     "t": "Lezen woordenlijst",
+     "href": "lezen/",
+     "z": "Bent u tevreden over onze service?"
     }
    ]
   },
@@ -2963,8 +3746,9 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Heftruckchauffeur in fabriek",
+     "href": "spreken/?v=96",
+     "z": "Mijn chef werd heel boos op mij."
     }
    ]
   },
@@ -2985,8 +3769,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k011-09",
+     "z": "De jarige is wel blij met uw cadeautje."
     }
    ]
   },
@@ -3007,8 +3792,34 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Deelname studentenraad",
+     "href": "spreken/?v=54",
+     "z": "Je bent goed in praten met mensen."
+    },
+    {
+     "t": "Nieuws · Waarom zijn wolken wit?",
+     "href": "nieuws/?id=wolken",
+     "z": "Dat merk je goed in een vliegtuig: onder de wolken is alles grijs, maar als je erbovenuit vliegt, zijn ze ineens stralend wit."
+    },
+    {
+     "t": "Lezen B1 · Op je vijftigste nog een nieuw vak leren",
+     "href": "lezen/teksten.html?t=omscholing",
+     "z": "'Kijk niet alleen naar wat je vroeger hebt gedaan, maar vooral naar wat je leuk vindt en waar je goed in bent."
+    },
+    {
+     "t": "Spreken B1 · Computercursus",
+     "href": "spreken/?v=47",
+     "z": "Het past goed in mijn rooster, want op de andere dagen werk ik en op zaterdag heb ik tijd."
+    },
+    {
+     "t": "Spreken B1 · Nekklachten voorkomen",
+     "href": "spreken/?v=175",
+     "z": "En stel je stoel goed in."
+    },
+    {
+     "t": "Spreken B1 · Passende opleiding",
+     "href": "spreken/?v=209",
+     "z": "Bovendien ben je goed in klussen."
     }
    ]
   },
@@ -3046,8 +3857,29 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k025-27",
+     "z": "De zoon van Jan is klaar met de basisschool."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k019-21",
+     "z": "Uw zoon is klaar met het vmbo."
+    },
+    {
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=y01-06",
+     "z": "Emma is bijna klaar met de basisschool."
+    },
+    {
+     "t": "Spreken B1 · Informeren opleiding ziekenverzorgster",
+     "href": "spreken/?v=105",
+     "z": "Een vriendin van u is bijna klaar met deze opleiding."
+    },
+    {
+     "t": "Spreken B1 · Lunchpauze",
+     "href": "spreken/?v=157",
+     "z": "Ik vind een korte pauze beter, want dan ben ik eerder klaar met werken en kan ik eerder naar huis."
     }
    ]
   },
@@ -3085,8 +3917,44 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k010-04",
+     "z": "U heeft een diploma nodig voor het werk dat u wilt gaan doen."
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k003-14",
+     "z": "Welk briefje heb je nodig voor de specialist?"
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k006-37",
+     "z": "Dat betekent dat hij alle stappen wil weten die nodig zijn voor naturalisatie."
+    },
+    {
+     "t": "KNM soru · Birlikte yaşam",
+     "href": "knm/?q=k008-03",
+     "z": "Het is niet nodig voor vrouwen om te lezen en te schrijven."
+    },
+    {
+     "t": "Luisteren B1 · U hoort een voicemailbericht van het zwembad",
+     "href": "luisteren/?f=b1-zwembad-bericht",
+     "z": "Het bad is 's middags langer nodig voor schoolzwemmen."
+    },
+    {
+     "t": "Spreken B1 · Muntgeld",
+     "href": "spreken/?v=167",
+     "z": "U hebt een munt van € 1,- nodig voor het winkelwagentje."
+    },
+    {
+     "t": "Spreken B1 · Voetbalvereniging",
+     "href": "spreken/?v=321",
+     "z": "We hebben mensen nodig voor de nieuwsbrief."
+    },
+    {
+     "t": "Spreken B1 · Telefoon of laptop",
+     "href": "spreken/?v=1017",
+     "z": "En ik heb een laptop nodig voor mijn opleiding."
     }
    ]
   },
@@ -3107,8 +3975,24 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · Çocuk ve eğitim",
+     "href": "knm/?q=k001-36",
+     "z": "Daarom is zwemles belangrijk voor de kinderen."
+    },
+    {
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=k013-13",
+     "z": "Wat is belangrijk voor internetbankieren?"
+    },
+    {
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k024-35",
+     "z": "Deze informatie is niet belangrijk voor de deelnemers."
+    },
+    {
+     "t": "Spreken B1 · Auto kopen",
+     "href": "spreken/?v=9",
+     "z": "WAT VINDT U BELANGRIJK VOOR UW NIEUWE AUTO?"
     }
    ]
   },
@@ -3130,7 +4014,8 @@
    "tags": [
     {
      "t": "Lezen woordenlijst",
-     "href": "lezen/"
+     "href": "lezen/",
+     "z": "Deze baan is geschikt voor studenten."
     }
    ]
   },
@@ -3202,16 +4087,29 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · İş",
+     "href": "knm/?q=y05-16",
+     "z": "Louisa is het niet eens met haar leidinggevende."
     },
     {
-     "t": "Ders · Toplantıda ve stand-up'ta",
-     "href": "dersler/?les=toplanti"
+     "t": "KNM soru · Kurumlar",
+     "href": "knm/?q=tc06-11",
+     "z": "Je bent het niet eens met een beslissing van een instantie."
+    },
+    {
+     "t": "Lezen B1 · Ziek? Zo meld je je af",
+     "href": "lezen/teksten.html?t=ziekmelden",
+     "z": "Ben je het niet eens met het advies van de bedrijfsarts?"
+    },
+    {
+     "t": "Lezen B1 · Informatie voor huurders",
+     "href": "lezen/teksten.html?t=huurders",
+     "z": "Bent u het niet eens met de huurverhoging?"
     },
     {
      "t": "Kelime listesi · het (niet) eens zijn met",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "Daar ben ik het niet mee eens."
     }
    ]
   },
@@ -3233,7 +4131,8 @@
    "tags": [
     {
      "t": "Kelime listesi · volop bezig zijn met",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "We zijn volop bezig met de verhuizing."
     }
    ]
   },
@@ -3254,8 +4153,19 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM soru · İş",
+     "href": "knm/?q=k016-08",
+     "z": "Als je vrijwilligerswerk doet, heb je meer kans op een baan."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=tc01-09",
+     "z": "Hoe langer je ingeschreven staat, hoe groter je kans op een huis."
+    },
+    {
+     "t": "Lezen woordenlijst",
+     "href": "lezen/",
+     "z": "Met een diploma heb je meer kans op werk."
     }
    ]
   },
@@ -3277,11 +4187,23 @@
    "tags": [
     {
      "t": "Lezen B1 · Werken in de kinderopvang: iets voor jou?",
-     "href": "lezen/teksten.html?t=kinderopvang"
+     "href": "lezen/teksten.html?t=kinderopvang",
+     "z": "Want steeds meer ouders werken allebei, en daardoor groeit de vraag naar opvang voor hun kinderen."
     },
     {
      "t": "Luisteren B1 · U hoort een nieuwsbericht van een lokale omroep",
-     "href": "luisteren/?f=b1-nieuws-bieb"
+     "href": "luisteren/?f=b1-nieuws-bieb",
+     "z": "Volgens de wethouder is er veel vraag naar, vooral van studenten en gezinnen."
+    },
+    {
+     "t": "Spreken B1 · Functie van chauffeur",
+     "href": "spreken/?v=82",
+     "z": "ER IS OP DIT MOMENT VEEL VRAAG NAAR CHAUFFEURS."
+    },
+    {
+     "t": "Lezen woordenlijst",
+     "href": "lezen/",
+     "z": "Er is veel vraag naar technici op de arbeidsmarkt."
     }
    ]
   },
@@ -3303,7 +4225,8 @@
    "tags": [
     {
      "t": "Lezen woordenlijst",
-     "href": "lezen/"
+     "href": "lezen/",
+     "z": "Het weer heeft invloed op je humeur."
     }
    ]
   },
@@ -3324,8 +4247,9 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Een dag bij de kinderboerderij",
+     "href": "spreken/?v=63",
+     "z": "U praat met een vrouw die interesse heeft in de vacature."
     }
    ]
   },
@@ -3344,7 +4268,13 @@
      "tr": "Konut eksikliği yüzünden kiralar yüksek."
     }
    ],
-   "tags": []
+   "tags": [
+    {
+     "t": "Spreken B1 · Geen stage",
+     "href": "spreken/?v=84",
+     "z": "Eris dit jaar een tekort aan stageplaatsen."
+    }
+   ]
   },
   "de behoefte aan": {
    "tr": "-e ihtiyaç",
@@ -3397,12 +4327,14 @@
    ],
    "tags": [
     {
-     "t": "Nieuws · Zeehondencentrum in geldnood",
-     "href": "nieuws/?id=pieterburen"
+     "t": "Kelime incelemesi · gerei",
+     "href": "woordstudie/?w=gerei",
+     "z": "Alles is gereed voor vertrek."
     },
     {
-     "t": "Nieuws · Hoe werkt een draaiorgel?",
-     "href": "nieuws/?id=draaiorgel"
+     "t": "Nieuws · Zeehondencentrum in geldnood",
+     "href": "nieuws/?id=pieterburen",
+     "z": "Wat is volgens het bericht een reden voor de geldproblemen?"
     }
    ]
   },
@@ -3424,7 +4356,43 @@
    "tags": [
     {
      "t": "Nieuws · Volgend jaar een hoger pensioen",
-     "href": "nieuws/?id=pensioen"
+     "href": "nieuws/?id=pensioen",
+     "z": "Twee vrouwen die vroeger in het onderwijs werkten, weten al wat ze ermee doen: reizen en leuke dingen doen met de kinderen en kleinkinderen."
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k009-26",
+     "z": "Wat moet u doen met de lege verfblikken?"
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=k016-16",
+     "z": "Wat moet Petra doen met het lege plastic zakje?"
+    },
+    {
+     "t": "KNM soru · Sağlık",
+     "href": "knm/?q=k022-04",
+     "z": "Wat moet u doen met deze brief?"
+    },
+    {
+     "t": "KNM soru · Ev ve ülke",
+     "href": "knm/?q=y03-22",
+     "z": "Wat moet je doen met oude verf en batterijen?"
+    },
+    {
+     "t": "Lezen A2 · Nieuwe afvalbakken",
+     "href": "lezen/teksten.html?set=a2&t=a2-afval",
+     "z": "Wat moet u doen met uw oude grijze bak?"
+    },
+    {
+     "t": "Lezen A2 · Aanmelden bij Sportclub Vooruit",
+     "href": "lezen/teksten.html?set=a2&t=a2-sportclub",
+     "z": "Wat moet u doen met het formulier?"
+    },
+    {
+     "t": "Spreken B1 · Meer bewegen",
+     "href": "spreken/?v=159",
+     "z": "En je kunt ook thuis oefeningen doen met een filmpje op internet."
     }
    ]
   },
@@ -3446,7 +4414,8 @@
    "tags": [
     {
      "t": "Nieuws · Lege schappen bij Albert Heijn",
-     "href": "nieuws/?id=albertheijn"
+     "href": "nieuws/?id=albertheijn",
+     "z": "Het bedrijf gaat ervan uit dat dat niet is gebeurd, al is dat niet zeker."
     }
    ]
   },
@@ -3468,7 +4437,28 @@
    "tags": [
     {
      "t": "Kelime listesi · benieuwd",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "Ik ben benieuwd wat zij ervan vindt."
+    },
+    {
+     "t": "KNM soru · Devlet ve tarih",
+     "href": "knm/?q=k008-02",
+     "z": "Doordat ze het dagboek vond van een joods meisje in de oorlog."
+    },
+    {
+     "t": "Spreken B1 · Langer doorwerken",
+     "href": "spreken/?v=144",
+     "z": "Vertel wat u vindt van langer doorwerken."
+    },
+    {
+     "t": "Spreken B1 · Reparatiebedrijf",
+     "href": "spreken/?v=233",
+     "z": "Vertel uw collega wat u vindt van het plan van de baas."
+    },
+    {
+     "t": "Spreken B1 · Theater",
+     "href": "spreken/?v=290",
+     "z": "Uw collega vraagt aan u wat u het leukst vindt van dit werk."
     }
    ]
   },
@@ -3490,7 +4480,8 @@
    "tags": [
     {
      "t": "Kelime listesi · het erover hebben",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "Ik had het erover dat we later beginnen."
     }
    ]
   },
@@ -3512,7 +4503,13 @@
    "tags": [
     {
      "t": "Lezen B1 · Vakantie en verlof",
-     "href": "lezen/teksten.html?t=verlof"
+     "href": "lezen/teksten.html?t=verlof",
+     "z": "Je moet de uren dan wel later inhalen of er vakantie-uren voor gebruiken."
+    },
+    {
+     "t": "Schrijven B1 · Schrijven I proefexamen 3",
+     "href": "schrijven/",
+     "z": "U wilt een ruimte in de bibliotheek gebruiken voor uw taalgroep."
     }
    ]
   },
@@ -3534,7 +4531,8 @@
    "tags": [
     {
      "t": "Nieuws · Lege schappen bij Albert Heijn",
-     "href": "nieuws/?id=albertheijn"
+     "href": "nieuws/?id=albertheijn",
+     "z": "Net werd bekend dat er waarschijnlijk hackers uit het buitenland achter zitten."
     }
    ]
   },
@@ -3556,7 +4554,8 @@
    "tags": [
     {
      "t": "Nieuws · Wat zijn gluten?",
-     "href": "nieuws/?id=gluten"
+     "href": "nieuws/?id=gluten",
+     "z": "Gluten zijn de laatste jaren een veelbesproken onderwerp: sommige mensen mijden ze, anderen zweren erbij."
     }
    ]
   },
@@ -3578,7 +4577,8 @@
    "tags": [
     {
      "t": "Nieuws · Het bankbiljet onder de loep",
-     "href": "nieuws/?id=bankbiljet"
+     "href": "nieuws/?id=bankbiljet",
+     "z": "Wie nu nog denkt dat het om papier gaat, zal ervan staan te kijken: briefgeld is gemaakt van katoen, hetzelfde materiaal als veel van onze kleding."
     }
    ]
   },
@@ -3599,8 +4599,9 @@
    ],
    "tags": [
     {
-     "t": "KNM",
-     "href": "knm/"
+     "t": "KNM kelime · levensbedreigend",
+     "href": "knm/?w=w073",
+     "z": "Je kunt eraan overlijden."
     }
    ]
   },
@@ -3622,7 +4623,8 @@
    "tags": [
     {
      "t": "Kelime listesi · wat erbij komt kijken",
-     "href": "woorden/"
+     "href": "woorden/",
+     "z": "Ik weet nog niet wat erbij komt kijken."
     }
    ]
   },
@@ -3644,7 +4646,8 @@
    "tags": [
     {
      "t": "Luisteren B1 · U hoort een gesprek bij de apotheek",
-     "href": "luisteren/?f=b1-apotheek"
+     "href": "luisteren/?f=b1-apotheek",
+     "z": "Mag ik er alcohol bij drinken?"
     }
    ]
   },
@@ -3665,8 +4668,9 @@
    ],
    "tags": [
     {
-     "t": "Spreken B1",
-     "href": "spreken/"
+     "t": "Spreken B1 · Nieuwe studieruimte",
+     "href": "spreken/?v=1013",
+     "z": "Hoe ziet de nieuwe studieruimte eruit?"
     }
    ]
   },
@@ -3719,16 +4723,7 @@
      "tr": "Gelmek ister misin?"
     }
    ],
-   "tags": [
-    {
-     "t": "Ders · Tekliflere spontan cevap vermek",
-     "href": "dersler/?les=tekliflere-cevap"
-    },
-    {
-     "t": "Kelime incelemesi · ik heb er (geen) zin in",
-     "href": "woordstudie/?w=zin-in"
-    }
-   ]
+   "tags": []
   }
  }
 }

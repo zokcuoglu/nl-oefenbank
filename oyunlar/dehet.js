@@ -1,7 +1,7 @@
 // Günün de/het'i: 10 nouns a day (the same for everybody), choose "de" or "het".
 // Words: all nouns with de/het in the nl-oefenbank word pool (data/woorden.json), read live.
 import { shareText, trDate, squares } from "./share.js";
-import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, wordButton, bindWordInfo, wordInfoOf } from "./common.js";
+import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox, wordButton, bindWordInfo, wordInfoOf, tagSlot } from "./common.js";
 
 const GAME = "dehet", MODULE = "oyun-dehet", LEVEL = "dag", COUNT = 10;
 const CSS = `
@@ -77,7 +77,7 @@ export async function mountDeHet(root, { user, profile, api, shareUrl = location
   const playedToday = () => history.find(h => h.day === today());
   let S = null;
   // Today's words with the right article; wrong ones in red (oks: right/wrong per word, in order)
-  const reviewHtml = (list, oks) => list.map((q, k) => `<li class="${oks[k] ? "" : "no"}"><span><b>${q.art}</b> ${wordButton(q.w)}</span><span class="small" style="margin:0">${esc(q.tr)}</span></li>`).join("");
+  const reviewHtml = (list, oks) => list.map((q, k) => `<li class="${oks[k] ? "" : "no"}"><span><b>${q.art}</b> ${wordButton(q.w)}</span><span class="small" style="margin:0">${esc(q.tr)} ${tagSlot(q.w)}</span></li>`).join("");
 
   function drawSetup() {
     const done = playedToday();
