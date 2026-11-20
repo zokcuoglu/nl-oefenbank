@@ -255,7 +255,7 @@
       "area": "slimspel",
       "title": "Sudoku",
       "desc": "Günün bulmacası: her gün her seviyeden bir tane, herkes için aynı. 4×4 ve 6×6.",
-      "href": "../slimspel/sudoku/",
+      "href": "slimspel/sudoku/",
       "status": "ready"
     },
     {
@@ -263,7 +263,7 @@
       "area": "slimspel",
       "title": "Kruiswoord",
       "desc": "Günün çengel bulmacası: her gün her seviyeden bir tane, herkes için aynı. Makkelijk'te emoji ipuçları.",
-      "href": "../slimspel/kruiswoord/",
+      "href": "slimspel/kruiswoord/",
       "status": "ready"
     },
     {
@@ -271,7 +271,7 @@
       "area": "slimspel",
       "title": "Paspuzzel",
       "desc": "Bulmaca dergilerindeki gibi: listedeki kelimeleri sık bir tabloya yerleştir, en altta çözüm kelimesi çıkar. Her gün yeni.",
-      "href": "../slimspel/paspuzzel/",
+      "href": "slimspel/paspuzzel/",
       "status": "ready"
     },
     {
@@ -279,7 +279,7 @@
       "area": "slimspel",
       "title": "Kriskras",
       "desc": "Günün kelime yerleştirme bulmacası: listedeki kelimeleri tabloda doğru yere koy.",
-      "href": "../slimspel/kriskras/",
+      "href": "slimspel/kriskras/",
       "status": "ready"
     },
     {
@@ -287,7 +287,7 @@
       "area": "slimspel",
       "title": "Woordzoeker",
       "desc": "Günün kelime avı: her gün her seviyeden bir tane, herkes için aynı. Dieren, landen, voetbal ve daha fazlası.",
-      "href": "../slimspel/woordzoeker/",
+      "href": "slimspel/woordzoeker/",
       "status": "ready"
     },
     {
@@ -295,7 +295,7 @@
       "area": "slimspel",
       "title": "Woordle",
       "desc": "Günün kelimesini 6 denemede bul (4, 5 ya da 6 harf). Kelimeler bizim listelerden; sonunda Türkçe anlamı çıkar.",
-      "href": "../slimspel/woordle/",
+      "href": "slimspel/woordle/",
       "status": "ready"
     },
     {
@@ -303,7 +303,7 @@
       "area": "slimspel",
       "title": "Blokjes",
       "desc": "Günün şekil bulmacası: blokları çerçeveye boşluksuz yerleştir. Her gün yeni, herkes için aynı.",
-      "href": "../slimspel/blokjes/",
+      "href": "slimspel/blokjes/",
       "status": "ready"
     },
     {
@@ -311,7 +311,7 @@
       "area": "slimspel",
       "title": "Tafels",
       "desc": "Çarpım tablosu 1–10: 10 soruluk alıştırma ya da 60 saniyede rekor denemesi.",
-      "href": "../slimspel/tafels/",
+      "href": "slimspel/tafels/",
       "status": "ready"
     },
     {
@@ -319,7 +319,7 @@
       "area": "slimspel",
       "title": "Algemene kennis",
       "desc": "Landen, talen, voetbal, dieren, natuur ve Nederland: 10 soruluk turlar, her cevaptan sonra kısa bir bilgi.",
-      "href": "../slimspel/kennis/",
+      "href": "slimspel/kennis/",
       "status": "ready"
     },
     {
@@ -327,7 +327,7 @@
       "area": "slimspel",
       "title": "Memory",
       "desc": "Eşleri bul: ülke–başkent, hayvan–yavrusu, İngilizce–Hollandaca, çarpım tablosu.",
-      "href": "../slimspel/memory/",
+      "href": "slimspel/memory/",
       "status": "ready"
     },
     {
@@ -335,7 +335,7 @@
       "area": "slimspel",
       "title": "Snake",
       "desc": "Yılan doğru cevabı yiyerek büyür: çarpım tablosu ya da 100'e kadar toplama-çıkarma.",
-      "href": "../slimspel/snake/",
+      "href": "slimspel/snake/",
       "status": "ready"
     },
     {
@@ -343,7 +343,7 @@
       "area": "slimspel",
       "title": "Schuifpuzzel",
       "desc": "Kaydırmalı bulmaca: sayıları boş kare üzerinden sıraya diz. 3×3, 4×4, 5×5.",
-      "href": "../slimspel/schuifpuzzel/",
+      "href": "slimspel/schuifpuzzel/",
       "status": "ready"
     },
     {
@@ -351,7 +351,7 @@
       "area": "slimspel",
       "title": "2048",
       "desc": "Aynı sayıları birleştirerek 2048'e ulaş.",
-      "href": "../slimspel/2048/",
+      "href": "slimspel/2048/",
       "status": "ready"
     },
     {

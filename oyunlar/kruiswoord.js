@@ -3,7 +3,7 @@
 // The grid builder is the Slimspel kruiswoord engine (slimspel/kruiswoord/engine.js), with own settings per level.
 // Score = letters he typed himself in the words he found (letters filled by "İpucu" do not count), total = all letters.
 // "Bitir" ends the puzzle early: the words not found are shown with their answer and give no points.
-import { makePuzzle, seededRandom } from "../../slimspel/kruiswoord/engine.js";
+import { makePuzzle, seededRandom } from "../slimspel/kruiswoord/engine.js";
 import { shareText, trDate } from "./share.js";
 import { esc, fmt, today, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, injectCss, flash, wordButton, bindWordInfo, wordInfoOf } from "./common.js";
 

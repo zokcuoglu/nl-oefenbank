@@ -191,7 +191,7 @@ const slim = cat.modules.filter(m => m.area === "slimspel" && m.home !== false);
 // Adults get the games as a short list of links; children keep the big cards
 const slimBody = isChild
   ? `<section class="cards">${slim.map(card).join("")}</section>`
-  : `<div class="linklist">${slim.map(m => `<a href="${ROOT}${m.href}">${esc(m.title)}</a>`).join("")}<a href="${ROOT}../slimspel/">Tüm oyunlar →</a></div>`;
+  : `<div class="linklist">${slim.map(m => `<a href="${ROOT}${m.href}">${esc(m.title)}</a>`).join("")}<a href="${ROOT}slimspel/">Tüm oyunlar →</a></div>`;
 
 // Two panes inside this page, one per tab: general Dutch ("calisma") and NT2 exam practice ("nt2").
 // Why: learning Dutch for daily life and preparing for the exam are different goals; mixed together the page looked exam-only.
@@ -236,8 +236,8 @@ const api = { saveAttempt, loadAttempts, saveWoordlePlay, loadWoordlePlays };
 // Link that opens one game directly (used in the "Paylaş" text): ...nl-oefenbank/#oyunlar/<id>
 const gameUrl = id => location.origin + location.pathname + "#oyunlar/" + id;
 const GAMES = [
-  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api, shareUrl: gameUrl("woordle-tr") }) },
-  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}../slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
+  { id: "woordle-tr", title: "Woordle · Türkçe", load: async box => (await import(`${ROOT}slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "tr", user, profile, api, shareUrl: gameUrl("woordle-tr") }) },
+  { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
   { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js?v=2")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
   { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js?v=3")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
   { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=6")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
@@ -291,7 +291,7 @@ showTab(hashTab());
 
 // Children: the games tab counts toward the 15 minutes a day of play time and has set hours (shared with Slimspel).
 // Studying in the "Çalışma" tab is never limited. Loaded on its own so a problem there never stops the page.
-if (profile.type === "child" && !profile._view) import(`${ROOT}../slimspel/js/speeltijd.js?v=1`).then(m => m.startPlaytime({
+if (profile.type === "child" && !profile._view) import(`${ROOT}slimspel/js/speeltijd.js?v=1`).then(m => m.startPlaytime({
   db, user, profile, lang: "tr",
   isOn: () => !document.getElementById("games").hidden,
   onLeave: () => { history.replaceState(null, "", location.pathname); showTab("calisma"); }
