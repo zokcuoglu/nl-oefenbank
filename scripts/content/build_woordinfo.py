@@ -62,7 +62,10 @@ COMMON = 25    # a word in more places than this is too common for "used in" tag
 
 # Past forms that are also another common word: searching them finds the wrong word
 # (voer/voeren = feed, at, las, was = laundry, reden = reason). The infinitive is still searched.
-AMBIGUOUS = {"voer", "voeren", "at", "las", "was", "lag", "reden"}
+AMBIGUOUS = {"voer", "voeren", "at", "las", "was", "lag", "reden", "mat", "maten", "rook", "roken", "schoot", "schoten",
+             "bad", "baden", "vocht", "sloot", "sloten"}
+# Verbs whose infinitive itself is another common word (wegen = roads): no "used in" search at all
+NO_SEARCH = {"wegen"}
 
 def pattern(k, info):
     """Whole-word match on the word and, for irregular verbs, on their past forms too (liep, gelopen ...)."""
@@ -114,7 +117,7 @@ for k, src in sorted(words.items()):
     tags = [{"t": pl["t"], "href": pl["href"], "z": ""} for pl in TAUGHT.get(k, [])]
     for nid in p.get("in_nieuws") or []:
         if nid in NEWS: tags.append({"t": f"Nieuws · {NEWS[nid]}", "href": f"nieuws/?id={nid}", "z": ""})
-    rx = pattern(k, src)
+    rx = pattern(k, src) if k not in NO_SEARCH else re.compile(r"(?!x)x")   # never matches
     real = []                                                           # real sentences from the site, with their link
     for pl in PLACES:
         if pl["kind"] in ("knm-woord", "woordstudie"): continue
