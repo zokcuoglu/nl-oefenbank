@@ -8,7 +8,7 @@
 // After playing, today's answers stay visible on this page (taken from the saved attempt), to learn from them.
 import { shareText, trDate, squares } from "./share.js";
 import { esc, fmt, today, dayNr, isoOf, hash, loadLocal, saveLocal, dropOldProgress, savePlay, loadPlays,
-         drawRanking, resetRanking, drawStats, injectCss, flash } from "./common.js";
+         drawRanking, resetRanking, drawStats, injectCss, flash, todayBox } from "./common.js";
 
 const SETTINGS = {
   voorzetsels: {
@@ -53,12 +53,7 @@ const CSS = `
 .vz .review .s{font-size:16px;line-height:1.5}
 .vz .review .m{font-size:13.5px;color:var(--og-muted);margin-top:3px}
 .vz .review s{color:var(--og-bad)}
-.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
-.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
-.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
-.og details.tbox>div{padding-bottom:16px}`;
-// Collapsible box with today's answers on the start screen (after playing), to learn from them
-const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+`;
 
 
 // Lower case, no spaces, curly quotes made straight: " Aan " counts as "aan"

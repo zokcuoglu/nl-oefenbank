@@ -1,7 +1,7 @@
 // Günün de/het'i: 10 nouns a day (the same for everybody), choose "de" or "het".
 // Words: all nouns with de/het in the nl-oefenbank word pool (data/woorden.json), read live.
 import { shareText, trDate, squares } from "./share.js";
-import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash } from "./common.js";
+import { esc, fmt, today, pickDaily, loadLocal, saveLocal, dropOldProgress, savePlay, drawRanking, resetRanking, drawStats, injectCss, flash, todayBox } from "./common.js";
 
 const GAME = "dehet", MODULE = "oyun-dehet", LEVEL = "dag", COUNT = 10;
 const CSS = `
@@ -19,12 +19,7 @@ const CSS = `
 .dh .list li{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:8px;background:var(--og-sunk)}
 .dh .list li.no{background:var(--og-bad-soft)}
 .dh .tip{font-size:14px;color:var(--og-muted);margin-top:14px}
-.og details.tbox{margin-top:18px;background:var(--og-card);border:1px solid var(--og-line);border-radius:10px;padding:0 18px}
-.og details.tbox>summary{cursor:pointer;font-family:var(--og-font);font-weight:600;font-size:17px;padding:14px 0;list-style-position:inside}
-.og details.tbox[open]>summary{border-bottom:1px solid var(--og-line);margin-bottom:10px}
-.og details.tbox>div{padding-bottom:16px}`;
-// Collapsible box with today's answers on the start screen (after playing), to learn from them
-const todayBox = inner => `<details class="tbox"><summary>Bugünkü cevapların</summary><div>${inner}</div></details>`;
+`;
 
 
 export async function mountDeHet(root, { user, profile, api, shareUrl = location.href }) {
