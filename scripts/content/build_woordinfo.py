@@ -67,6 +67,10 @@ AMBIGUOUS = {"voer", "voeren", "at", "las", "was", "lag", "reden", "mat", "maten
 # Verbs whose infinitive itself is another common word (wegen = roads): no "used in" search at all
 NO_SEARCH = {"wegen", "haar", "rijst"}   # haar = her, rijst = rises
 
+def real_hit(rx, z):
+    """A match that is not a name: 'mevrouw Bos', 'Familie Bos' (capital in the middle of a sentence) does not count."""
+    return any(m.start() == 0 or not m.group(0)[0].isupper() for m in rx.finditer(z))
+
 def pattern(k, info):
     """Whole-word match on the word and, for irregular verbs, on their past forms too (liep, gelopen ...)."""
     forms = {k}
@@ -121,7 +125,7 @@ for k, src in sorted(words.items()):
     real = []                                                           # real sentences from the site, with their link
     for pl in PLACES:
         if pl["kind"] in ("knm-woord", "woordstudie"): continue
-        hit = next((z for z in pl["zinnen"] if rx.search(z)), None)
+        hit = next((z for z in pl["zinnen"] if real_hit(rx, z)), None)
         if hit:
             tags.append({"t": pl["t"], "href": pl["href"], "z": hit})
             if len(real) < 2 and hit.lower() not in seen_ex: real.append({"nl": hit, "tr": zin_tr(hit), "t": pl["t"], "href": pl["href"]})
