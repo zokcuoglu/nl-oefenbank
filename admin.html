@@ -95,10 +95,10 @@ let filter = "all", search = "", openUid = null;
 const WHO = { all: "Herkes", adult: "Yetişkinler", child: "Öğrenciler" };
 let who = "all";
 // Mail schedule (Firestore settings/mail, read by scripts/mailer.py). weekday: 1 = Monday ... 7 = Sunday
-const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 }, brief: { enabled: true, weekday: 4, hour: 19 }, woord: { enabled: true, weekday: 2, hour: 19 }, talep: { enabled: true, weekday: 1, hour: 9 } };
+const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 }, brief: { enabled: true, weekday: 4, hour: 19 }, woord: { enabled: true, weekday: 2, hour: 19 }, talep: { enabled: true, weekday: 1, hour: 9 }, daily: { enabled: true, weekday: 0, hour: 16 } };
 // Wishes from the "istek kutusu" (js/talep.js), newest first
 let talepler = [], talepErr = "";
-const WEEKDAYS = { 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
+const WEEKDAYS = { 0: "Her gün", 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
 let vzData = {};
 let sched = structuredClone(DEFAULT_SCHED), schedErr = "", lastNews = null, sentNews = [], weeklyLog = [], logErr = "";
 // Statistics: attempts of every account, the catalog, and the news items
@@ -397,7 +397,7 @@ function schedHtml() {
   return `<section class="panel"><div class="sectionhead"><h3>E-posta zamanlaması</h3><span class="muted">Amsterdam saati</span></div>
     ${schedErr ? `<div class="notice" style="margin-bottom:10px">Ayarlar okunamadı (${esc(schedErr)}). Güvenlik kurallarını güncelle. Şimdilik varsayılanlar gösteriliyor.</div>` : ""}
     <div class="tablewrap"><table><thead><tr><th>E-posta</th><th>Durum</th><th>Gün</th><th>Saat</th></tr></thead><tbody>
-      ${schedRow("news", "Haber (Nieuws in niveaus)")}${schedRow("weekly", "Haftalık özet")}${schedRow("brief", "Haftanın Hollandacası (yetişkinler)")}${schedRow("woord", "Kelime incelemesi (yetişkinler)")}${schedRow("talep", "İstek özeti (sadece adminler)")}</tbody></table></div>
+      ${schedRow("news", "Haber (Nieuws in niveaus)")}${schedRow("weekly", "Haftalık özet")}${schedRow("brief", "Haftanın Hollandacası (yetişkinler)")}${schedRow("woord", "Kelime incelemesi (yetişkinler)")}${schedRow("daily", "Günlük hatırlatma (yetişkinler, ≤3 etkinlik)")}${schedRow("talep", "İstek özeti (sadece adminler)")}</tbody></table></div>
     <div class="row" style="margin-top:10px"><button class="btn primary" id="sc-save">Zamanlamayı kaydet</button><span id="sc-msg"></span></div>
     <p class="muted" style="font-size:13px;margin:10px 0 0">Gönderim seçilen saatten sonraki ilk çalışmada olur. GitHub bir çalışmayı atlarsa 48 saat içindeki bir sonraki çalışmada gider; iki kez gitmez.
       ${lastNews ? `Son haber: <b>${esc(lastNews.titel || lastNews.item_id)}</b> · ${esc(lastNews.date)} · ${lastNews.recipients || 0} kişi.` : "Henüz haber gönderilmedi."}</p></section>`;
@@ -437,6 +437,7 @@ function render() {
 function nextSlot(job) {
   const d = new Date(); d.setMinutes(0, 0, 0); d.setHours(job.hour);
   const dow = d.getDay() || 7;
+  if (+job.weekday === 0) { if (d <= new Date()) d.setDate(d.getDate() + 1); return d; }   // every day
   d.setDate(d.getDate() + (job.weekday - dow + 7) % 7);
   if (d <= new Date()) d.setDate(d.getDate() + 7);
   return d;
@@ -457,7 +458,7 @@ function todayHtml() {
   const quiet = approved.filter(u => !u.last_active || Date.now() - new Date(u.last_active) > 14 * 864e5);
   const noParent = users.filter(u => u.type === "child" && !u.parent_uid && statusOf(u) !== "blocked");
   const time = iso => new Date(iso).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
-  const jobs = [["news", "Haber"], ["weekly", "Haftalık özet"], ["brief", "Haftanın Hollandacası"], ["woord", "Kelime incelemesi"], ["talep", "İstek özeti (sana)"]].filter(([j]) => sched[j]?.enabled)
+  const jobs = [["news", "Haber"], ["weekly", "Haftalık özet"], ["brief", "Haftanın Hollandacası"], ["woord", "Kelime incelemesi"], ["talep", "İstek özeti (sana)"], ["daily", "Günlük hatırlatma"]].filter(([j]) => sched[j]?.enabled)
     .map(([j, label]) => ({ label, at: nextSlot(sched[j]) })).sort((a, b) => a.at - b.at);
   const tile = (n, label) => `<div class="panel" style="padding:14px 16px"><div class="scorebig num" style="font-size:28px">${n}</div><span class="muted" style="font-size:13px">${label}</span></div>`;
   return `
