@@ -65,7 +65,7 @@ COMMON = 25    # a word in more places than this is too common for "used in" tag
 AMBIGUOUS = {"voer", "voeren", "at", "las", "was", "lag", "reden", "mat", "maten", "rook", "roken", "schoot", "schoten",
              "bad", "baden", "vocht", "sloot", "sloten"}
 # Verbs whose infinitive itself is another common word (wegen = roads): no "used in" search at all
-NO_SEARCH = {"wegen", "haar", "rijst"}   # haar = her, rijst = rises
+NO_SEARCH = {"wegen", "haar", "rijst", "weer", "werk"}   # haar = her, rijst = rises, weer = again, werk = I work
 
 def real_hit(rx, z):
     """A match that is not a name: 'mevrouw Bos', 'Familie Bos' (capital in the middle of a sentence) does not count."""
