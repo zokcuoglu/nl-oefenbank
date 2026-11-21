@@ -58,7 +58,7 @@ POOL_BY_KEY = {}
 for w in POOL:
     if w.get("tur") != "uitdr": POOL_BY_KEY.setdefault(key(w["nl"]), w)
 NEWS = {it["id"]: it["titel"] for it in load("data/nieuws.json")["items"]}
-COMMON = 25    # a word in more places than this is too common for "used in" tags
+COMMON = 12    # a word in more places than this is too common for "used in" tags
 
 # Past forms that are also another common word: searching them finds the wrong word
 # (voer/voeren = feed, at, las, was = laundry, reden = reason). The infinitive is still searched.
