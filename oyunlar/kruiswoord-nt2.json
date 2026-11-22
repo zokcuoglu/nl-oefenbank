@@ -693,7 +693,7 @@
 },
 {
 "w": "MAKEN",
-"c": "yapmak (fiil)",
+"c": "yapmak, hazırlamak; tamir etmek (fiil)",
 "n": "A0"
 },
 {
@@ -1375,7 +1375,7 @@
 },
 {
 "w": "MOGEN",
-"c": "izinli olmak (fiil)",
+"c": "-ebilmek (izin): -mesine izin verilmek (fiil)",
 "n": "A1"
 },
 {
@@ -1415,7 +1415,7 @@
 },
 {
 "w": "ZOEKEN",
-"c": "aramak (fiil)",
+"c": "aramak (kayıp bir şeyi) (fiil)",
 "n": "A1",
 "z": "Ik ___ mijn sleutel.",
 "zt": "Anahtarımı arıyorum.",
@@ -1605,7 +1605,7 @@
 "c": "boş (sıfat)",
 "n": "A1",
 "z": "De fles is ___.",
-"zt": ""
+"zt": "Şişe boş."
 },
 {
 "w": "EERST",
@@ -1658,14 +1658,14 @@
 },
 {
 "w": "WANT",
-"c": "çünkü (küçük kelime)",
+"c": "çünkü (sonra normal cümle sırası) (küçük kelime)",
 "n": "A1",
 "z": "Ik blijf thuis, ___ ik ben ziek.",
 "zt": "Evde kalıyorum çünkü hastayım."
 },
 {
 "w": "OMDAT",
-"c": "çünkü (fiil sona) (küçük kelime)",
+"c": "çünkü, -diği için (fiil sona) (küçük kelime)",
 "n": "A1",
 "z": "Ik blijf thuis ___ ik ziek ben.",
 "zt": "Hasta olduğum için evde kalıyorum."
@@ -1726,7 +1726,7 @@
 },
 {
 "w": "KASSA",
-"c": "kasa (isim, de)",
+"c": "kasa (ödeme yapılan yer) (isim, de)",
 "n": "A1",
 "z": "U kunt betalen bij de ___.",
 "zt": "Kasada ödeyebilirsiniz."
@@ -1808,7 +1808,7 @@
 },
 {
 "w": "PUNTJE",
-"c": "not edilecek açık madde (isim, het)",
+"c": "(toplantıda) ufak bir konu, madde (isim, het)",
 "n": "B1",
 "z": "Ik heb nog een ___.",
 "zt": "Bir maddem daha var."
@@ -1829,7 +1829,7 @@
 },
 {
 "w": "DINGETJES",
-"c": "ufak tefek şeyler / işler (isim, de)",
+"c": "ufak tefek işler, şeyler (çoğul) (isim)",
 "n": "A2",
 "z": "Gisteren heb ik wat documentatie ___ gedaan.",
 "zt": "Dün biraz dokümantasyon işi yaptım."
@@ -1958,7 +1958,7 @@
 "c": "tamamlamak, bitirmek (fiil)",
 "n": "B1",
 "z": "We moeten nog even ___.",
-"zt": "Turu tamamlamamız lazım."
+"zt": "Biraz daha toparlayıp bitirmemiz lazım."
 },
 {
 "w": "DOORGEVEN",
@@ -1989,7 +1989,7 @@
 "c": "pratik, işe yarar (sıfat)",
 "n": "A2",
 "z": "Het is ___ om de vraag alvast te delen.",
-"zt": "Soruyu önceden paylaşmak iyi olur."
+"zt": "Soruyu önceden paylaşmak pratik olur."
 },
 {
 "w": "BENIEUWD",
@@ -2173,7 +2173,7 @@
 },
 {
 "w": "ONDANKS",
-"c": "-e rağmen (küçük kelime)",
+"c": "-e rağmen (isimle: ondanks de regen) (küçük kelime)",
 "n": "B1",
 "z": "___ de regen gingen we wandelen.",
 "zt": "Yağmura rağmen yürüyüşe çıktık."
@@ -2290,7 +2290,7 @@
 },
 {
 "w": "OPWARMEN",
-"c": "ısınmak (fiil)",
+"c": "ısıtmak (yemek); ısınmak (sporda) (fiil)",
 "n": "B1"
 },
 {
@@ -2319,28 +2319,28 @@
 "c": "kroket (isim, de)",
 "n": "A1",
 "z": "Ik neem een broodje ___.",
-"zt": ""
+"zt": "Bir kroketli sandviç alıyorum."
 },
 {
 "w": "FABRIEK",
 "c": "fabrika (isim, de)",
 "n": "A1",
 "z": "Mijn oom werkt in een ___.",
-"zt": ""
+"zt": "Amcam bir fabrikada çalışıyor."
 },
 {
 "w": "GEHEIM",
 "c": "gizli (sıfat)",
 "n": "A1",
 "z": "Het recept is ___.",
-"zt": ""
+"zt": "Tarif gizli."
 },
 {
 "w": "KNAPPERIG",
 "c": "çıtır (sıfat)",
 "n": "A1",
 "z": "Vers brood heeft een ___ korst.",
-"zt": "",
+"zt": "Taze ekmeğin kabuğu çıtırdır.",
 "zf": "Vers brood heeft een knapperige korst."
 },
 {
@@ -2348,63 +2348,63 @@
 "c": "iç dolgu (isim, de)",
 "n": "A2",
 "z": "De ___ van de kroket is warm.",
-"zt": ""
+"zt": "Kroketin içi sıcak."
 },
 {
 "w": "RAGOUT",
 "c": "ragu (kroketin içi) (isim, de)",
 "n": "A2",
 "z": "In een kroket zit ___.",
-"zt": ""
+"zt": "Kroketin içinde ragu var."
 },
 {
 "w": "KETEL",
-"c": "kazan (isim, de)",
+"c": "kazan; su ısıtıcısı (isim, de)",
 "n": "A2",
 "z": "Het water kookt in de ___.",
-"zt": ""
+"zt": "Su kazanda kaynıyor."
 },
 {
 "w": "BOUILLON",
 "c": "et/sebze suyu (isim, de)",
 "n": "A2",
 "z": "Ik maak soep van ___.",
-"zt": ""
+"zt": "Et suyundan çorba yapıyorum."
 },
 {
 "w": "VLOEIBAAR",
 "c": "sıvı, akışkan (sıfat)",
 "n": "A2",
 "z": "Warme honing is ___.",
-"zt": ""
+"zt": "Sıcak bal akışkandır."
 },
 {
 "w": "STEVIG",
 "c": "sıkı, katı (sıfat)",
 "n": "A2",
 "z": "De ragout wordt ___ in de koelcel.",
-"zt": ""
+"zt": "Ragu soğuk hava odasında katılaşıyor."
 },
 {
 "w": "KOELCEL",
 "c": "soğuk hava odası (isim, de)",
 "n": "B1",
 "z": "Het vlees ligt in de ___.",
-"zt": ""
+"zt": "Et soğuk hava odasında duruyor."
 },
 {
 "w": "TRECHTER",
 "c": "huni (isim, de)",
 "n": "B1",
 "z": "Giet de olie via een ___ in de fles.",
-"zt": ""
+"zt": "Yağı huniyle şişeye dök."
 },
 {
 "w": "PERSEN",
 "c": "preslemek (fiil)",
 "n": "B1",
 "z": "De machine ___ de ragout in staafjes.",
-"zt": "",
+"zt": "Makine raguyu çubuklar halinde presliyor.",
 "zf": "De machine perst de ragout in staafjes."
 },
 {
@@ -2412,49 +2412,49 @@
 "c": "bulut (isim, de)",
 "n": "A1",
 "z": "Er is geen ___ te zien.",
-"zt": ""
+"zt": "Hiç bulut görünmüyor."
 },
 {
 "w": "DRUPPEL",
 "c": "damla (isim, de)",
 "n": "A1",
 "z": "Er valt een ___ op mijn hand.",
-"zt": ""
+"zt": "Elime bir damla düşüyor."
 },
 {
 "w": "WEER",
-"c": "hava durumu (isim, het)",
+"c": "hava (durumu) (isim, het)",
 "n": "A1",
 "z": "Hoe is het ___ morgen?",
-"zt": ""
+"zt": "Yarın hava nasıl?"
 },
 {
 "w": "WATERDAMP",
 "c": "su buharı (isim, de)",
 "n": "A2",
 "z": "In de badkamer zit veel ___.",
-"zt": ""
+"zt": "Banyoda çok su buharı var."
 },
 {
 "w": "AFKOELEN",
 "c": "soğumak (fiil)",
 "n": "A2",
 "z": "Laat de thee even ___.",
-"zt": ""
+"zt": "Çayı biraz soğumaya bırak."
 },
 {
 "w": "PROEFJE",
 "c": "küçük deney (isim, het)",
 "n": "A2",
 "z": "We doen een ___ met ijs.",
-"zt": ""
+"zt": "Buzla küçük bir deney yapıyoruz."
 },
 {
 "w": "ONTSTAAN",
 "c": "oluşmak (fiil)",
 "n": "B1",
 "z": "Zo ___ een wolk.",
-"zt": "",
+"zt": "Bulut böyle oluşur.",
 "zf": "Zo ontstaat een wolk."
 },
 {
@@ -2462,21 +2462,21 @@
 "c": "glüten (isim, de)",
 "n": "A1",
 "z": "In brood zitten ___.",
-"zt": ""
+"zt": "Ekmekte glüten var."
 },
 {
 "w": "DEEG",
 "c": "hamur (isim, het)",
 "n": "A1",
 "z": "Het ___ moet even rusten.",
-"zt": ""
+"zt": "Hamurun biraz dinlenmesi lazım."
 },
 {
 "w": "LUCHTIG",
 "c": "kabarık, hafif (sıfat)",
 "n": "A1",
 "z": "Deze cake is heel ___.",
-"zt": ""
+"zt": "Bu kek çok kabarık."
 },
 {
 "w": "KNEDEN",
@@ -2488,21 +2488,21 @@
 "c": "tahıl (isim, het)",
 "n": "A2",
 "z": "Brood maak je van ___.",
-"zt": ""
+"zt": "Ekmek tahıldan yapılır."
 },
 {
 "w": "EIWIT",
 "c": "protein; yumurta akı (isim, het)",
 "n": "A2",
 "z": "Bonen bevatten veel ___.",
-"zt": ""
+"zt": "Fasulyede çok protein var."
 },
 {
 "w": "UITREKKEN",
 "c": "germek (fiil)",
 "n": "A2",
 "z": "Je kunt het deeg ver ___.",
-"zt": ""
+"zt": "Hamuru epey uzatabilirsin."
 },
 {
 "w": "KLEVEN",
@@ -2514,42 +2514,42 @@
 "c": "uzun ince şerit (isim, de)",
 "n": "B1",
 "z": "Er hangt een ___ spaghetti van zijn vork.",
-"zt": ""
+"zt": "Çatalından uzun bir spagetti şeridi sarkıyor."
 },
 {
 "w": "ZETMEEL",
 "c": "nişasta (isim, het)",
 "n": "B1",
 "z": "Aardappels bevatten veel ___.",
-"zt": ""
+"zt": "Patateste çok nişasta var."
 },
 {
 "w": "KUILTJE",
 "c": "küçük çukur (isim, het)",
 "n": "B1",
 "z": "Maak een ___ in de bloem.",
-"zt": ""
+"zt": "Unun ortasında küçük bir çukur aç."
 },
 {
 "w": "COMPUTER",
 "c": "bilgisayar (isim, de)",
 "n": "A1",
 "z": "De ___ doet het niet.",
-"zt": ""
+"zt": "Bilgisayar çalışmıyor."
 },
 {
 "w": "SCHAP",
-"c": "raf (isim, het)",
+"c": "raf (dükkânda) (isim, het)",
 "n": "A2",
 "z": "De melk staat op het onderste ___.",
-"zt": ""
+"zt": "Süt en alt rafta duruyor."
 },
 {
 "w": "KRAT",
-"c": "kasa (isim, de)",
+"c": "kasa (meyve, şişe kasası) (isim, de)",
 "n": "A2",
 "z": "Het fruit ligt in een ___.",
-"zt": ""
+"zt": "Meyve bir kasanın içinde."
 },
 {
 "w": "BESTELLEN",
@@ -2561,21 +2561,21 @@
 "c": "stok (isim, de)",
 "n": "B1",
 "z": "De ___ koffie is op.",
-"zt": ""
+"zt": "Kahve stoku bitti."
 },
 {
 "w": "STORING",
 "c": "arıza (isim, de)",
 "n": "B1",
 "z": "Door een ___ rijden er geen treinen.",
-"zt": ""
+"zt": "Bir arıza yüzünden tren çalışmıyor."
 },
 {
 "w": "HACKER",
 "c": "bilgisayar korsanı (isim, de)",
 "n": "B1",
 "z": "___ vielen het systeem aan.",
-"zt": "",
+"zt": "Bilgisayar korsanları sisteme saldırdı.",
 "zf": "Hackers vielen het systeem aan."
 },
 {
@@ -2583,7 +2583,7 @@
 "c": "kurt (isim, de)",
 "n": "A1",
 "z": "In Nederland leven weer ___.",
-"zt": "",
+"zt": "Hollanda'da yeniden kurtlar yaşıyor.",
 "zf": "In Nederland leven weer wolven."
 },
 {
@@ -2591,14 +2591,14 @@
 "c": "orman (isim, het)",
 "n": "A1",
 "z": "We wandelen in het ___.",
-"zt": ""
+"zt": "Ormanda yürüyoruz."
 },
 {
 "w": "WANDELEN",
 "c": "yürüyüş yapmak (fiil)",
 "n": "A1",
 "z": "Op zondag ___ we graag.",
-"zt": ""
+"zt": "Pazar günleri yürüyüş yapmayı severiz."
 },
 {
 "w": "WEGRENNEN",
@@ -2610,7 +2610,7 @@
 "c": "yırtıcı hayvan (isim, het)",
 "n": "B1",
 "z": "De wolf is een ___.",
-"zt": ""
+"zt": "Kurt yırtıcı bir hayvandır."
 },
 {
 "w": "WENKBRAUW",
@@ -2622,21 +2622,21 @@
 "c": "geriye doğru (zarf)",
 "n": "B1",
 "z": "Doe een stap ___.",
-"zt": ""
+"zt": "Bir adım geri at."
 },
 {
 "w": "ZEEHOND",
 "c": "fok (isim, de)",
 "n": "A1",
 "z": "Op het strand ligt een ___.",
-"zt": ""
+"zt": "Plajda bir fok yatıyor."
 },
 {
 "w": "STRAND",
 "c": "plaj (isim, het)",
 "n": "A1",
 "z": "We gaan naar het ___.",
-"zt": ""
+"zt": "Plaja gidiyoruz."
 },
 {
 "w": "OPVANG",
@@ -2648,56 +2648,56 @@
 "c": "taşınmak (fiil)",
 "n": "A2",
 "z": "We ___ naar Leiden.",
-"zt": ""
+"zt": "Leiden'e taşınıyoruz."
 },
 {
 "w": "KAARTJE",
 "c": "bilet (isim, het)",
 "n": "A2",
 "z": "Een ___ kost tien euro.",
-"zt": ""
+"zt": "Bir bilet on avro."
 },
 {
 "w": "SCHULD",
-"c": "borç (isim, de)",
+"c": "borç; suç, kabahat (isim, de)",
 "n": "A2",
 "z": "Hij heeft een ___ bij de bank.",
-"zt": ""
+"zt": "Bankaya borcu var."
 },
 {
 "w": "BEZOEKER",
 "c": "ziyaretçi (isim, de)",
 "n": "A2",
 "z": "Het museum had veel ___.",
-"zt": "",
+"zt": "Müzenin çok ziyaretçisi oldu.",
 "zf": "Het museum had veel bezoekers."
 },
 {
 "w": "OPVANGEN",
-"c": "bakımını üstlenmek, barındırmak (fiil)",
+"c": "(hayvanı, insanı) alıp barındırmak; (topu) yakalamak (fiil)",
 "n": "B1"
 },
 {
 "w": "VERZORGEN",
-"c": "bakmak (fiil)",
+"c": "bakımını yapmak, ilgilenmek (hasta, hayvan) (fiil)",
 "n": "B1",
 "z": "De dierenarts ___ de zeehond.",
-"zt": "",
+"zt": "Veteriner foka bakıyor.",
 "zf": "De dierenarts verzorgt de zeehond."
 },
 {
 "w": "ONDERZOEK",
-"c": "araştırma (isim, het)",
+"c": "araştırma; muayene (isim, het)",
 "n": "B1",
 "z": "Wetenschappelijk ___ kost veel geld.",
-"zt": ""
+"zt": "Bilimsel araştırma çok paraya mal olur."
 },
 {
 "w": "SCHENKEN",
-"c": "bağışlamak (fiil)",
+"c": "bağışlamak; (içecek) doldurmak (fiil)",
 "n": "B1",
 "z": "Ze ___ elk jaar geld aan het goede doel.",
-"zt": "",
+"zt": "Her yıl bir hayır kurumuna para bağışlıyor.",
 "zf": "Ze schenkt elk jaar geld aan het goede doel."
 },
 {
@@ -2705,28 +2705,28 @@
 "c": "belediye (isim, de)",
 "n": "B1",
 "z": "De ___ legt een nieuw park aan.",
-"zt": ""
+"zt": "Belediye yeni bir park yapıyor."
 },
 {
 "w": "PROVINCIE",
-"c": "il (isim, de)",
+"c": "il, eyalet (Hollanda'da 12 tane) (isim, de)",
 "n": "B1",
 "z": "Groningen is een ___.",
-"zt": ""
+"zt": "Groningen bir il."
 },
 {
 "w": "MUZIEK",
 "c": "müzik (isim, de)",
 "n": "A1",
 "z": "Ik luister graag naar ___.",
-"zt": ""
+"zt": "Müzik dinlemeyi severim."
 },
 {
 "w": "DRAAIEN",
-"c": "çevirmek (fiil)",
+"c": "çevirmek; dönmek (fiil)",
 "n": "A1",
 "z": "Je ___ aan het wiel.",
-"zt": "",
+"zt": "Tekerleği çeviriyorsun.",
 "zf": "Je draait aan het wiel."
 },
 {
@@ -2734,91 +2734,91 @@
 "c": "dans etmek (fiil)",
 "n": "A1",
 "z": "Op het feest ___ we.",
-"zt": ""
+"zt": "Partide dans ediyoruz."
 },
 {
 "w": "GAATJE",
 "c": "küçük delik (isim, het)",
 "n": "A1",
 "z": "In het papier zit een ___.",
-"zt": ""
+"zt": "Kâğıtta küçük bir delik var."
 },
 {
 "w": "FEEST",
 "c": "kutlama, parti (isim, het)",
 "n": "A1",
 "z": "Morgen is er een ___.",
-"zt": ""
+"zt": "Yarın bir parti var."
 },
 {
 "w": "LIEDJE",
 "c": "şarkı (isim, het)",
 "n": "A1",
 "z": "Dit ___ ken ik.",
-"zt": ""
+"zt": "Bu şarkıyı biliyorum."
 },
 {
 "w": "POPULAIR",
 "c": "popüler (sıfat)",
 "n": "A2",
 "z": "Voetbal is ___ in Nederland.",
-"zt": ""
+"zt": "Futbol Hollanda'da popüler."
 },
 {
 "w": "VIEREN",
 "c": "kutlamak (fiil)",
 "n": "A2",
 "z": "We ___ mijn verjaardag.",
-"zt": ""
+"zt": "Doğum günümü kutluyoruz."
 },
 {
 "w": "LUCHT",
-"c": "hava (isim, de)",
+"c": "hava (soluduğumuz); gökyüzü (isim, de)",
 "n": "A2",
 "z": "De ballon zit vol ___.",
-"zt": ""
+"zt": "Balon hava dolu."
 },
 {
 "w": "BUIS",
 "c": "boru (isim, de)",
 "n": "A2",
 "z": "Het water loopt door een ___.",
-"zt": ""
+"zt": "Su bir borudan akıyor."
 },
 {
 "w": "RITME",
 "c": "ritim (isim, het)",
 "n": "A2",
 "z": "Klap mee op het ___.",
-"zt": ""
+"zt": "Ritme eşlik ederek alkışla."
 },
 {
 "w": "VAK",
-"c": "meslek, zanaat (isim, het)",
+"c": "meslek, zanaat; okul dersi (isim, het)",
 "n": "A2",
 "z": "Bakker is een mooi ___.",
-"zt": ""
+"zt": "Fırıncılık güzel bir meslek."
 },
 {
 "w": "BLAASBALG",
 "c": "körük (isim, de)",
 "n": "B1",
 "z": "De ___ pompt lucht in het orgel.",
-"zt": ""
+"zt": "Körük orga hava basıyor."
 },
 {
 "w": "TOETS",
-"c": "tuş (isim, de)",
+"c": "tuş (klavye, piyano); kısa sınav (isim, de)",
 "n": "B1",
 "z": "Druk op de ___.",
-"zt": ""
+"zt": "Tuşa bas."
 },
 {
 "w": "INDRUKKEN",
-"c": "bastırmak (fiil)",
+"c": "(düğmeye) basıp basılı tutmak (fiil)",
 "n": "B1",
 "z": "Je moet de knop twee seconden ___.",
-"zt": ""
+"zt": "Düğmeye iki saniye basılı tutman lazım."
 },
 {
 "w": "LEEGLOPEN",
@@ -2827,7 +2827,7 @@
 },
 {
 "w": "AANHOUDEN",
-"c": "sürdürmek (fiil)",
+"c": "uzun tutmak, sürdürmek; (polis) durdurmak (fiil)",
 "n": "B1"
 },
 {
@@ -2835,35 +2835,35 @@
 "c": "davul (isim, de)",
 "n": "B1",
 "z": "De jongen slaat op de ___.",
-"zt": ""
+"zt": "Çocuk davula vuruyor."
 },
 {
 "w": "DOOS",
 "c": "kutu (isim, de)",
 "n": "A1",
 "z": "De schoenen zitten in een ___.",
-"zt": ""
+"zt": "Ayakkabılar bir kutunun içinde."
 },
 {
 "w": "KARTON",
 "c": "karton (isim, het)",
 "n": "A1",
 "z": "De doos is van ___.",
-"zt": ""
+"zt": "Kutu kartondan."
 },
 {
 "w": "PLAT",
 "c": "yassı, düz (sıfat)",
 "n": "A1",
 "z": "Het doosje is nog ___.",
-"zt": ""
+"zt": "Kutucuk hâlâ yassı."
 },
 {
 "w": "VOUWEN",
 "c": "katlamak (fiil)",
 "n": "A2",
 "z": "___ het papier in twee.",
-"zt": "",
+"zt": "Kâğıdı ikiye katla.",
 "zf": "Vouw het papier in twee."
 },
 {
@@ -2871,19 +2871,19 @@
 "c": "ölçü, beden (isim, de)",
 "n": "A2",
 "z": "Welke ___ heeft je jas?",
-"zt": ""
+"zt": "Montun kaç beden?"
 },
 {
 "w": "DRUKKEN",
-"c": "basmak (fiil)",
+"c": "basmak, itmek; (matbaada) basmak (fiil)",
 "n": "B1"
 },
 {
 "w": "VEL",
-"c": "tabaka (isim, het)",
+"c": "(kâğıt) tabaka, yaprak; deri (isim, het)",
 "n": "B1",
 "z": "Pak een ___ papier.",
-"zt": ""
+"zt": "Bir yaprak kâğıt al."
 },
 {
 "w": "BEDENKEN",
@@ -2892,7 +2892,7 @@
 },
 {
 "w": "KLOPPEN",
-"c": "doğru olmak (fiil)",
+"c": "doğru olmak, tutmak (hesap); kapıyı çalmak (fiil)",
 "n": "B1"
 },
 {
@@ -2900,14 +2900,14 @@
 "c": "tasarım (isim, het)",
 "n": "B1",
 "z": "Het ___ van het huis is klaar.",
-"zt": ""
+"zt": "Evin tasarımı hazır."
 },
 {
 "w": "VOELEN",
 "c": "dokunarak hissetmek (fiil)",
 "n": "A1",
 "z": "___ eens hoe zacht dit is.",
-"zt": "",
+"zt": "Bunun ne kadar yumuşak olduğunu bir hisset.",
 "zf": "Voel eens hoe zacht dit is."
 },
 {
@@ -2915,21 +2915,21 @@
 "c": "sahte (sıfat)",
 "n": "A2",
 "z": "Dat is een ___ tientje.",
-"zt": ""
+"zt": "Bu sahte bir on avroluk."
 },
 {
 "w": "KATOEN",
 "c": "pamuk (isim, het)",
 "n": "A2",
 "z": "Dit T-shirt is van ___.",
-"zt": ""
+"zt": "Bu tişört pamuktan."
 },
 {
 "w": "SALARIS",
 "c": "maaş (isim, het)",
 "n": "A2",
 "z": "Mijn ___ komt aan het eind van de maand.",
-"zt": ""
+"zt": "Maaşım ay sonunda yatıyor."
 },
 {
 "w": "UITGEVEN",
@@ -2941,14 +2941,14 @@
 "c": "dijital (sıfat)",
 "n": "B1",
 "z": "Ik betaal mijn rekeningen ___.",
-"zt": ""
+"zt": "Faturalarımı dijital ödüyorum."
 },
 {
 "w": "VEZEL",
 "c": "lif (isim, de)",
 "n": "B1",
 "z": "Katoen heeft lange ___.",
-"zt": "",
+"zt": "Pamuğun lifleri uzundur.",
 "zf": "Katoen heeft lange vezels."
 },
 {
@@ -2956,21 +2956,21 @@
 "c": "filigran (isim, het)",
 "n": "B1",
 "z": "Op het biljet zit een ___.",
-"zt": ""
+"zt": "Banknotta bir filigran var."
 },
 {
 "w": "FLEXIBEL",
 "c": "esnek (sıfat)",
 "n": "B1",
 "z": "Het biljet is sterk en ___.",
-"zt": ""
+"zt": "Banknot sağlam ve esnek."
 },
 {
 "w": "HOEWEL",
-"c": "-e rağmen (küçük kelime)",
+"c": "-diği halde (cümleyle, fiil sona) (küçük kelime)",
 "n": "B1",
 "z": "___ het regent, gaan we fietsen.",
-"zt": ""
+"zt": "Yağmur yağdığı halde bisiklete biniyoruz."
 }
 ]
 }
