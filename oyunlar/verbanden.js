@@ -14,7 +14,9 @@ const SQUARE = { 1: "🟨", 2: "🟩", 3: "🟦", 4: "🟪" };
 const CSS = `
 .vb .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
 .vb .tile{font:inherit;font-family:var(--og-font);font-weight:700;font-size:clamp(13px,3.6vw,18px);min-height:62px;padding:6px 4px;border-radius:10px;
-  border:0;background:var(--og-sunk);color:var(--og-ink);cursor:pointer;overflow-wrap:anywhere;text-transform:uppercase;letter-spacing:.02em}
+  border:0;background:var(--og-sunk);color:var(--og-ink);cursor:pointer;overflow-wrap:normal;word-break:keep-all;hyphens:none;text-transform:uppercase;letter-spacing:.02em}
+.vb .tile.l9{font-size:clamp(11px,3vw,16px);letter-spacing:0}
+.vb .tile.l11{font-size:clamp(10px,2.6vw,15px);letter-spacing:0}
 .vb .tile.on{background:#5a5f73;color:#fff}
 .vb .found{border-radius:10px;padding:10px 12px;margin-top:8px;text-align:center;color:#1d2a4d}
 .vb .found b{display:block;font-family:var(--og-font);font-size:15px;text-transform:uppercase;letter-spacing:.04em}
@@ -175,7 +177,7 @@ export async function mountVerbanden(root, { user, profile, api, shareUrl = loca
   function draw() {
     $("foundBox").innerHTML = S.found.map(foundHtml).join("");
     const left = S.order.filter(i => !S.found.includes(S.words[i].gi));
-    $("grid").innerHTML = left.map(i => `<button class="tile${S.sel.has(i) ? " on" : ""}" data-i="${i}">${esc(S.words[i].word)}</button>`).join("");
+    $("grid").innerHTML = left.map(i => `<button class="tile${S.sel.has(i) ? " on" : ""}${S.words[i].word.length >= 11 ? " l11" : S.words[i].word.length >= 9 ? " l9" : ""}" data-i="${i}" lang="nl">${esc(S.words[i].word)}</button>`).join("");
     $("grid").querySelectorAll(".tile").forEach(b => b.onclick = () => toggle(Number(b.dataset.i)));
     $("lives").innerHTML = `Kalan hak: ${[...Array(LIVES)].map((_, k) => `<i class="${k < LIVES - S.mistakes ? "" : "gone"}"></i>`).join("")}`;
     $("count").textContent = `${S.found.length} / 4 grup`;

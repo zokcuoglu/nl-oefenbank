@@ -81,10 +81,10 @@ export async function mountWerkwoorden(root, { user, profile, api, shareUrl = lo
         <div class="verb" data-r="verb"></div>
         <div class="tr" data-r="tr"></div>
         <div class="lab">① Verleden tijd <small>geçmiş zaman</small></div>
-        <div class="row">Ik <input data-r="imp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="liep" aria-label="geçmiş zaman"> gisteren.</div>
+        <div class="row">Ik <input data-r="imp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="nl" enterkeyhint="go" placeholder="liep" aria-label="geçmiş zaman"> gisteren.</div>
         <div class="lab">② Perfectum <small>heb ya da ben seç + voltooid deelwoord yaz</small></div>
         <div class="row">Ik <span class="aux"><button data-aux="hebben">heb</button><button data-aux="zijn">ben</button></span>
-          <input data-r="vd" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gelopen" aria-label="voltooid deelwoord">.</div>
+          <input data-r="vd" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="nl" enterkeyhint="go" placeholder="gelopen" aria-label="voltooid deelwoord">.</div>
         <div class="rule">Çoğu fiil <b>heb</b> alır. Yer değiştirme (gaan, komen) ya da durum değişimi (worden, sterven) → <b>ben</b>.</div>
         <div class="fix" data-r="fix"></div>
         <div class="full" data-r="full" hidden></div>

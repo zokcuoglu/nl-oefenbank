@@ -199,7 +199,7 @@ export async function mountVoorzetsels(root, { game = "voorzetsels", user, profi
     S.checked = false;
     $("count").textContent = `${i + 1} / ${S.list.length}`;
     $("again").hidden = !S.again.has(q.id);
-    $("zin").innerHTML = esc(q.zin).replace("___", `<input data-r="inp" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="edat">`);
+    $("zin").innerHTML = esc(q.zin).replace("___", `<input data-r="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="nl" enterkeyhint="go" aria-label="edat">`);
     $("fb").innerHTML = "";
     $("check").hidden = false; $("next").hidden = true;
     $("dots").innerHTML = S.list.map((_, k) => `<i class="${k < i ? (S.answers[k].ok ? "ok" : "no") : ""}"></i>`).join("");
