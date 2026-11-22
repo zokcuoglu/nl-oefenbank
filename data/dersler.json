@@ -1,5 +1,5 @@
 {
- "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video. Lesson kinds (soort): video = with a YouTube video (Goed Bezig), gramer = grammar topic, konusma = everyday conversation; the last two have no video. Order questions may list other correct orders in 'ook'. A lesson may list related YouTube playlists in 'series' (titel, list = playlist id, aantal = number of videos, over = which part of the lesson it covers); the page shows them in one player.",
+ "_about": "Video lessons (dersler/). Each lesson: a YouTube video, a short summary in parts (delen) and questions (vragen). Question types: mc (opties + juist = index of the right option), order (woorden = the sentence in the right order, the page shuffles it; einde = closing mark, default a full stop) and type (antwoorden = accepted answers; compared without capitals and punctuation). The Dutch sentences are written for this site; the topic and the Turkish sentences follow the video. Lesson kinds (soort): video = with a YouTube video (Goed Bezig), gramer = grammar topic, konusma = everyday conversation; the last two have no video. Order questions may list other correct orders in 'ook'. A lesson may list related YouTube playlists in 'series' (titel, list = playlist id, aantal = number of videos, over = which part of the lesson it covers); the page shows them in one player. Optional visual fields: lesson 'boom' (decision tree: stappen = [{vraag, fiil, not}], anders = {fiil, not}); per part 'kaarten' ([{icon, fiil, vormen, anlam, nl, tr}]), 'ring' ({merkez, alt, kollar: up to 8 [{ok, onek, betekenis, fiil, anlam}]}), 'sahneler' ([{merkez, kutular: [{fiil, fark, nl}]}]) and 'fout' ([{fout, goed, tr}] = wrong literal translation vs right). The page shows them above the part's text.",
  "lessen": [
   {
    "id": "zullen",
@@ -2709,6 +2709,48 @@
        "nl": "Ik pak even een jas mee.",
        "tr": "Yanıma bir mont da alayım."
       }
+     ],
+     "kaarten": [
+      {
+       "icon": "🤔",
+       "fiil": "nemen",
+       "vormen": "nam · genomen",
+       "anlam": "Seçerek almak; nötr, kibar.",
+       "nl": "Ik neem de soep.",
+       "tr": "Çorbayı alıyorum."
+      },
+      {
+       "icon": "✋",
+       "fiil": "pakken",
+       "vormen": "pakte · gepakt",
+       "anlam": "Uzanıp almak; günlük dil.",
+       "nl": "Pak je jas!",
+       "tr": "Montunu al!"
+      },
+      {
+       "icon": "🦅",
+       "fiil": "grijpen",
+       "vormen": "greep · gegrepen",
+       "anlam": "Hızla, sıkıca kavramak.",
+       "nl": "Grijp je kans!",
+       "tr": "Fırsatı değerlendir!"
+      },
+      {
+       "icon": "⬆️",
+       "fiil": "oppakken",
+       "vormen": "pakte op · opgepakt",
+       "anlam": "Yerden almak; konuyu ele almak; gözaltına almak.",
+       "nl": "Ik pak dat morgen op.",
+       "tr": "Onu yarın ele alıyorum."
+      },
+      {
+       "icon": "🫳",
+       "fiil": "afpakken",
+       "vormen": "pakte af · afgepakt",
+       "anlam": "Birinin elinden almak.",
+       "nl": "Hij pakte mijn pen af.",
+       "tr": "Kalemimi elimden aldı."
+      }
      ]
     },
     {
@@ -2740,6 +2782,32 @@
       {
        "nl": "Ik krijg het pakket morgen thuisbezorgd.",
        "tr": "Paket yarın evime getiriliyor."
+      }
+     ],
+     "kaarten": [
+      {
+       "icon": "🎁",
+       "fiil": "krijgen",
+       "vormen": "kreeg · gekregen",
+       "anlam": "Sana veriliyor. Günlük dil.",
+       "nl": "Ik kreeg een cadeau.",
+       "tr": "Bir hediye aldım."
+      },
+      {
+       "icon": "📨",
+       "fiil": "ontvangen",
+       "vormen": "ontving · ontvangen",
+       "anlam": "Resmî: mektup, e-posta, form.",
+       "nl": "Wij hebben uw brief ontvangen.",
+       "tr": "Mektubunuzu aldık."
+      },
+      {
+       "icon": "🏛️",
+       "fiil": "verkrijgen",
+       "vormen": "verkreeg · verkregen",
+       "anlam": "Çok resmî: elde etmek.",
+       "nl": "Zonder recept verkrijgbaar.",
+       "tr": "Reçetesiz satılır."
       }
      ]
     },
@@ -2783,6 +2851,48 @@
        "nl": "De school haalt geld op voor een goed doel.",
        "tr": "Okul iyi bir amaç için para topluyor."
       }
+     ],
+     "kaarten": [
+      {
+       "icon": "🚶",
+       "fiil": "halen",
+       "vormen": "haalde · gehaald",
+       "anlam": "Gidip getirmek (genel).",
+       "nl": "Ik ga brood halen.",
+       "tr": "Ekmek almaya gidiyorum."
+      },
+      {
+       "icon": "🏫",
+       "fiil": "ophalen",
+       "vormen": "haalde op · opgehaald",
+       "anlam": "Seni bekleyen şeyi/kişiyi almak.",
+       "nl": "Ik haal de kinderen op.",
+       "tr": "Çocukları alıyorum."
+      },
+      {
+       "icon": "🥡",
+       "fiil": "afhalen",
+       "vormen": "haalde af · afgehaald",
+       "anlam": "Hazır siparişi teslim noktasından almak.",
+       "nl": "We halen eten af.",
+       "tr": "Paket yemek alıyoruz."
+      },
+      {
+       "icon": "🔁",
+       "fiil": "terughalen",
+       "vormen": "haalde terug · teruggehaald",
+       "anlam": "Geri getirmek, geri almak.",
+       "nl": "Ik haal mijn fiets terug.",
+       "tr": "Bisikletimi geri alıyorum."
+      },
+      {
+       "icon": "🚆",
+       "fiil": "de trein halen",
+       "vormen": "istisna",
+       "anlam": "Trene yetişmek.",
+       "nl": "We haalden de trein net.",
+       "tr": "Trene son anda yetiştik."
+      }
      ]
     },
     {
@@ -2806,6 +2916,32 @@
       {
        "nl": "Mag ik je pen even lenen?",
        "tr": "Kalemini bir ödünç alabilir miyim?"
+      }
+     ],
+     "kaarten": [
+      {
+       "icon": "💶",
+       "fiil": "kopen",
+       "vormen": "kocht · gekocht",
+       "anlam": "Satın almak.",
+       "nl": "Ik koop een fiets.",
+       "tr": "Bisiklet alıyorum."
+      },
+      {
+       "icon": "🛋️",
+       "fiil": "aanschaffen",
+       "vormen": "schafte aan · aangeschaft",
+       "anlam": "Resmî; büyük, kalıcı alışlar.",
+       "nl": "We schaffen een bank aan.",
+       "tr": "Bir kanepe alıyoruz."
+      },
+      {
+       "icon": "🤝",
+       "fiil": "lenen",
+       "vormen": "leende · geleend",
+       "anlam": "Ödünç almak VE ödünç vermek.",
+       "nl": "Mag ik je pen lenen?",
+       "tr": "Kalemini ödünç alabilir miyim?"
       }
      ]
     },
@@ -2851,7 +2987,69 @@
        "nl": "De docent neemt een toets af.",
        "tr": "Öğretmen sınav yapıyor."
       }
-     ]
+     ],
+     "ring": {
+      "merkez": "nemen",
+      "alt": "ön ek = yön",
+      "kollar": [
+       {
+        "ok": "⬆️",
+        "onek": "op",
+        "betekenis": "yukarı / içeri",
+        "fiil": "opnemen",
+        "anlam": "telefonu açmak, para çekmek, kayda almak"
+       },
+       {
+        "ok": "➡️",
+        "onek": "mee",
+        "betekenis": "birlikte",
+        "fiil": "meenemen",
+        "anlam": "yanında götürmek"
+       },
+       {
+        "ok": "🤝",
+        "onek": "aan",
+        "betekenis": "kabul",
+        "fiil": "aannemen",
+        "anlam": "kabul etmek, işe almak, teslim almak"
+       },
+       {
+        "ok": "🔄",
+        "onek": "over",
+        "betekenis": "birinden öbürüne",
+        "fiil": "overnemen",
+        "anlam": "devralmak"
+       },
+       {
+        "ok": "↩️",
+        "onek": "terug",
+        "betekenis": "geri",
+        "fiil": "terugnemen",
+        "anlam": "geri almak (ürün, söz)"
+       },
+       {
+        "ok": "🧩",
+        "onek": "deel",
+        "betekenis": "pay",
+        "fiil": "deelnemen aan",
+        "anlam": "katılmak"
+       },
+       {
+        "ok": "⬅️",
+        "onek": "af",
+        "betekenis": "-den, uzaklaşma",
+        "fiil": "afnemen",
+        "anlam": "azalmak; sınav yapmak"
+       },
+       {
+        "ok": "⤵️",
+        "onek": "in",
+        "betekenis": "içeri",
+        "fiil": "innemen",
+        "anlam": "ilaç içmek"
+       }
+      ]
+     }
     },
     {
      "titel": "6. krijgen ailesi: durum, duygu ve kalıplar",
@@ -2907,6 +3105,56 @@
        "nl": "Ik krijg er genoeg van.",
        "tr": "Bundan bıktım."
       }
+     ],
+     "kaarten": [
+      {
+       "icon": "😋",
+       "fiil": "honger krijgen",
+       "vormen": "durum başlıyor",
+       "anlam": "Acıkmak (dorst, hoofdpijn, zin da aynı).",
+       "nl": "Ik krijg honger.",
+       "tr": "Acıkıyorum."
+      },
+      {
+       "icon": "🥶",
+       "fiil": "het koud krijgen",
+       "vormen": "het + sıfat",
+       "anlam": "Üşümek (het warm krijgen = ısınmak).",
+       "nl": "Ik krijg het koud.",
+       "tr": "Üşüyorum."
+      },
+      {
+       "icon": "🚓",
+       "fiil": "een boete krijgen",
+       "vormen": "olay",
+       "anlam": "Ceza yemek (bezoek krijgen = misafir gelmek).",
+       "nl": "Hij kreeg een boete.",
+       "tr": "Ceza yedi."
+      },
+      {
+       "icon": "↩️",
+       "fiil": "terugkrijgen",
+       "vormen": "teruggekregen",
+       "anlam": "Geri almak.",
+       "nl": "Ik kreeg mijn geld terug.",
+       "tr": "Paramı geri aldım."
+      },
+      {
+       "icon": "🏆",
+       "fiil": "voor elkaar krijgen",
+       "vormen": "kalıp",
+       "anlam": "Başarmak.",
+       "nl": "Hoe krijg je dat voor elkaar?",
+       "tr": "Bunu nasıl başarıyorsun?"
+      },
+      {
+       "icon": "😩",
+       "fiil": "er genoeg van krijgen",
+       "vormen": "kalıp",
+       "anlam": "Bıkmak.",
+       "nl": "Ik krijg er genoeg van.",
+       "tr": "Bundan bıktım."
+      }
      ]
     },
     {
@@ -2937,6 +3185,40 @@
       },
       {
        "nl": "Hij heeft veel kennis verworven.",
+       "tr": "Çok bilgi edindi."
+      }
+     ],
+     "kaarten": [
+      {
+       "icon": "🎓",
+       "fiil": "halen",
+       "vormen": "gehaald",
+       "anlam": "Sınavı geçip almak: rijbewijs, diploma, cijfer.",
+       "nl": "Ik heb mijn rijbewijs gehaald.",
+       "tr": "Ehliyetimi aldım."
+      },
+      {
+       "icon": "📜",
+       "fiil": "behalen",
+       "vormen": "behaald",
+       "anlam": "Resmî: diploma, sonuç, hedef.",
+       "nl": "Zij behaalde haar diploma.",
+       "tr": "Diplomasını aldı."
+      },
+      {
+       "icon": "🧳",
+       "fiil": "opdoen",
+       "vormen": "opgedaan",
+       "anlam": "Deneyim, bilgi, izlenim edinmek.",
+       "nl": "Ik doe ervaring op.",
+       "tr": "Deneyim kazanıyorum."
+      },
+      {
+       "icon": "📚",
+       "fiil": "verwerven",
+       "vormen": "verworven",
+       "anlam": "Resmî: bilgi, hak, ün edinmek.",
+       "nl": "Hij verwierf veel kennis.",
        "tr": "Çok bilgi edindi."
       }
      ]
@@ -3006,6 +3288,98 @@
        "nl": "Ik haal mijn medicijnen op bij de apotheek.",
        "tr": "İlaçlarımı eczaneden alıyorum."
       }
+     ],
+     "sahneler": [
+      {
+       "merkez": "📖 kitap almak",
+       "kutular": [
+        {
+         "fiil": "nemen",
+         "fark": "seçip alıyorum",
+         "nl": "Ik neem een boek uit de kast."
+        },
+        {
+         "fiil": "pakken",
+         "fark": "uzanıp alıyorum",
+         "nl": "Ik pak een boek."
+        },
+        {
+         "fiil": "halen",
+         "fark": "gidip getiriyorum",
+         "nl": "Ik haal een boek in de bibliotheek."
+        },
+        {
+         "fiil": "krijgen",
+         "fark": "bana veriliyor",
+         "nl": "Ik krijg een boek van mama."
+        },
+        {
+         "fiil": "kopen",
+         "fark": "para ödüyorum",
+         "nl": "Ik koop een boek."
+        },
+        {
+         "fiil": "lenen",
+         "fark": "ödünç alıyorum",
+         "nl": "Ik leen een boek."
+        },
+        {
+         "fiil": "ophalen",
+         "fark": "siparişi teslim alıyorum",
+         "nl": "Ik haal mijn boek op."
+        }
+       ]
+      },
+      {
+       "merkez": "📱 telefon",
+       "kutular": [
+        {
+         "fiil": "pakken",
+         "fark": "elime alıyorum",
+         "nl": "Ik pak mijn telefoon."
+        },
+        {
+         "fiil": "opnemen",
+         "fark": "açıyorum",
+         "nl": "Ik neem de telefoon op."
+        },
+        {
+         "fiil": "afpakken",
+         "fark": "elimden alındı",
+         "nl": "Hij pakte mijn telefoon af."
+        },
+        {
+         "fiil": "terugkrijgen",
+         "fark": "geri aldım",
+         "nl": "Ik kreeg mijn telefoon terug."
+        }
+       ]
+      },
+      {
+       "merkez": "💊 ilaç almak",
+       "kutular": [
+        {
+         "fiil": "nemen",
+         "fark": "bir tane alıyorum",
+         "nl": "Ik neem een paracetamol."
+        },
+        {
+         "fiil": "innemen",
+         "fark": "prospektüs dili",
+         "nl": "Neem de tablet in."
+        },
+        {
+         "fiil": "gebruiken",
+         "fark": "düzenli kullanıyorum",
+         "nl": "Ik gebruik medicijnen."
+        },
+        {
+         "fiil": "ophalen",
+         "fark": "eczaneden alıyorum",
+         "nl": "Ik haal mijn medicijnen op."
+        }
+       ]
+      }
      ]
     },
     {
@@ -3058,6 +3432,98 @@
        "nl": "Ik heb een 6 gekregen.",
        "tr": "(Öğretmen) bana 6 verdi."
       }
+     ],
+     "sahneler": [
+      {
+       "merkez": "💰 para almak",
+       "kutular": [
+        {
+         "fiil": "krijgen",
+         "fark": "maaş, para üstü",
+         "nl": "Ik krijg mijn salaris."
+        },
+        {
+         "fiil": "opnemen",
+         "fark": "bankamatikten çekmek",
+         "nl": "Ik neem geld op."
+        },
+        {
+         "fiil": "ontvangen",
+         "fark": "resmî",
+         "nl": "Wij hebben uw betaling ontvangen."
+        },
+        {
+         "fiil": "ophalen",
+         "fark": "para toplamak",
+         "nl": "We halen geld op."
+        },
+        {
+         "fiil": "verdienen",
+         "fark": "kazanmak",
+         "nl": "Ik verdien goed."
+        }
+       ]
+      },
+      {
+       "merkez": "👧 birini almak",
+       "kutular": [
+        {
+         "fiil": "ophalen",
+         "fark": "okuldan, istasyondan",
+         "nl": "Ik haal de kinderen op."
+        },
+        {
+         "fiil": "meenemen",
+         "fark": "yanımda götürmek",
+         "nl": "Ik neem de kinderen mee."
+        },
+        {
+         "fiil": "aannemen",
+         "fark": "işe almak",
+         "nl": "Het bedrijf neemt mensen aan."
+        },
+        {
+         "fiil": "opnemen",
+         "fark": "hastaneye yatırmak",
+         "nl": "Hij is opgenomen."
+        }
+       ]
+      },
+      {
+       "merkez": "📦 paket almak",
+       "kutular": [
+        {
+         "fiil": "krijgen",
+         "fark": "paketim geliyor",
+         "nl": "Ik krijg een pakket."
+        },
+        {
+         "fiil": "aannemen",
+         "fark": "kapıda teslim almak",
+         "nl": "Ik neem het pakket aan."
+        },
+        {
+         "fiil": "ophalen / afhalen",
+         "fark": "teslim noktasından",
+         "nl": "Ik haal het pakket op."
+        }
+       ]
+      },
+      {
+       "merkez": "📝 not almak",
+       "kutular": [
+        {
+         "fiil": "halen",
+         "fark": "çalışıp aldım",
+         "nl": "Ik heb een 8 gehaald."
+        },
+        {
+         "fiil": "krijgen",
+         "fark": "öğretmen verdi",
+         "nl": "Ik heb een 8 gekregen."
+        }
+       ]
+      }
      ]
     },
     {
@@ -3102,6 +3568,48 @@
       {
        "nl": "Ik neem pianoles.",
        "tr": "Piyano dersi alıyorum."
+      }
+     ],
+     "fout": [
+      {
+       "fout": "Ik neem adem.",
+       "goed": "Ik haal adem.",
+       "tr": "Nefes alıyorum."
+      },
+      {
+       "fout": "Ik heb twee kilo genomen.",
+       "goed": "Ik ben twee kilo aangekomen.",
+       "tr": "İki kilo aldım."
+      },
+      {
+       "fout": "Ik neem een cursus.",
+       "goed": "Ik volg een cursus.",
+       "tr": "Kurs alıyorum."
+      },
+      {
+       "fout": "Ik heb koud genomen.",
+       "goed": "Ik ben verkouden geworden.",
+       "tr": "Soğuk aldım, üşüttüm."
+      },
+      {
+       "fout": "Ik neem toestemming.",
+       "goed": "Ik vraag toestemming.",
+       "tr": "İzin alıyorum (müsaade)."
+      },
+      {
+       "fout": "Ik neem nieuws van hem.",
+       "goed": "Ik hoor iets van hem.",
+       "tr": "Ondan haber alıyorum."
+      },
+      {
+       "fout": "Ik neem plezier van de vakantie.",
+       "goed": "Ik geniet van de vakantie.",
+       "tr": "Tatilden zevk alıyorum."
+      },
+      {
+       "fout": "Ik heb mijn rijbewijs genomen.",
+       "goed": "Ik heb mijn rijbewijs gehaald.",
+       "tr": "Ehliyetimi aldım."
       }
      ]
     }
@@ -3398,7 +3906,35 @@
      "uitleg": "iets voor elkaar krijgen = başarmak.",
      "einde": "?"
     }
-   ]
+   ],
+   "boom": {
+    "stappen": [
+     {
+      "vraag": "💶 Para ödüyor musun?",
+      "fiil": "kopen",
+      "not": "satın almak"
+     },
+     {
+      "vraag": "🎁 Biri sana mı veriyor / gönderiyor?",
+      "fiil": "krijgen",
+      "not": "resmî: ontvangen"
+     },
+     {
+      "vraag": "🚶 Bir yere gidip mi getiriyorsun?",
+      "fiil": "halen",
+      "not": "seni bekliyorsa: ophalen"
+     },
+     {
+      "vraag": "🤔 Seçenekler arasından mı seçiyorsun?",
+      "fiil": "nemen",
+      "not": "restoran, otobüs, karar"
+     }
+    ],
+    "anders": {
+     "fiil": "pakken",
+     "not": "✋ elini uzatıp alıyorsun"
+    }
+   }
   },
   {
    "id": "randevu",
