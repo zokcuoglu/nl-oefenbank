@@ -7877,6 +7877,172 @@
    ],
    "soort": "kalip",
    "lidwoord": ""
+  },
+  {
+   "id": "wind-van-voren",
+   "soort": "deyim",
+   "datum": "2027-02-16",
+   "woord": "de wind van voren krijgen",
+   "lidwoord": "",
+   "niveau": "B1",
+   "thema": "werk",
+   "tr": "sert azar işitmek, fırça yemek",
+   "definitie": "Hard bekritiseerd of berispt worden.",
+   "kort": "Birinden sert bir eleştiri ya da azar işitmek. Resim denizcilikten: fırtınada rüzgâr birden ve sertçe önden, tam yüzüne vurur. Çok konuşmak ya da birini rahatsız etmekle ilgisi yok.",
+   "opbouw": [
+    {
+     "deel": "de wind",
+     "uitleg": "rüzgâr"
+    },
+    {
+     "deel": "van voren",
+     "uitleg": "önden (voren = ön taraf). Dikkat: van tevoren başka bir şey, 'önceden' demek."
+    },
+    {
+     "deel": "krijgen",
+     "uitleg": "almak: rüzgârı önden almak, yani sert bir darbe yemek"
+    }
+   ],
+   "geschiedenis": [
+    "Stoett'in deyimler sözlüğüne göre gerçek anlamı: sağanak sırasında rüzgârın hiçbir uyarı olmadan, büyük bir güçle önden gelmesi.",
+    "Eski biçimi “de wind voor in krijgen”. Eski denizcilik metinlerinde (ör. Bontekoe'nin seyir hikâyesi) de geçer.",
+    "Mecaz anlamı da aynı sözlükte: sert bir azar, büyük bir fırça yemek. Örneğin Het Volk gazetesi 1913'te bir milletvekili için kullanıyor.",
+    "Bugün gazetede, iş yerinde ve günlük konuşmada sık geçer; kaba bir ifade değildir."
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "fırça yemek, zılgıt yemek",
+     "uitleg": "anlam aynı, resim farklı"
+    },
+    {
+     "taal": "Frizce",
+     "woord": "hy kriget de wyn fen foaren",
+     "uitleg": "aynı resim (Stoett)"
+    },
+    {
+     "taal": "Doğu Frizce",
+     "woord": "he krigt de Wind fan förn",
+     "uitleg": "aynı resim (Stoett)"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "iemand de wind van voren geven",
+     "tr": "birine fırça atmak, birini sertçe azarlamak"
+    },
+    {
+     "nl": "de volle laag krijgen",
+     "tr": "eleştiri yağmuruna tutulmak (eş anlamlı)"
+    },
+    {
+     "nl": "de wind mee hebben / de wind in de rug hebben",
+     "tr": "rüzgârı arkadan almak; mecaz: işleri yolunda gitmek"
+    },
+    {
+     "nl": "voor de wind gaan",
+     "tr": "işler iyi gitmek (rüzgârı arkasına almış gemi gibi)"
+    },
+    {
+     "nl": "tegenwind",
+     "tr": "karşıdan esen rüzgâr; mecaz: zorluk, direnç"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik kwam te laat op mijn werk en kreeg de wind van voren.",
+     "tr": "İşe geç kaldım ve fırça yedim."
+    },
+    {
+     "nl": "Hoe was het gesprek met je baas? – Niet best, ik kreeg flink de wind van voren.",
+     "tr": "Patronunla görüşme nasıldı? – İyi değil, epey azar işittim."
+    },
+    {
+     "nl": "De wethouder kreeg de wind van voren van de bewoners.",
+     "tr": "Belediye meclis üyesi mahalle sakinlerinden sert eleştiri aldı."
+    }
+   ],
+   "gramer": {
+    "titel": "krijgen ve geven",
+    "tekst": "krijgen düzensizdir: kreeg / kregen, heeft gekregen. Azarlayan kişiyi anlatmak için geven kullanılır: iemand de wind van voren geven (gaf / gaven, heeft gegeven). Kimden olduğunu van ile söylersin: van mijn baas. Güçlendirmek için flink ya da goed eklenir.",
+    "voorbeelden": [
+     {
+      "nl": "Hij heeft de wind van voren gekregen.",
+      "tr": "Fırça yedi."
+     },
+     {
+      "nl": "De trainer gaf ons flink de wind van voren.",
+      "tr": "Antrenör bize epey fırça attı."
+     }
+    ]
+   },
+   "weetje": "Bisiklette bu resmi her gün yaşarsın: wind tegen (tegenwind) önden eser ve zor gidersin; wind mee ya da de wind in de rug hebben arkadan eser ve kolay gidersin. Deyim de bu duyguyu anlatır: önden gelen sert rüzgâr gibi bir azar.",
+   "vragen": [
+    {
+     "id": "dy-wv1",
+     "type": "mc",
+     "vraag": "“de wind van voren krijgen” ne demek?",
+     "opties": [
+      "Çok konuşmak",
+      "Sert azar işitmek",
+      "Şanslı olmak"
+     ],
+     "juist": 1,
+     "uitleg": "Önden gelen sert rüzgâr gibi bir eleştiri."
+    },
+    {
+     "id": "dy-wv2",
+     "type": "mc",
+     "vraag": "Birini azarlayan kişi için ne denir?",
+     "opties": [
+      "iemand de wind van voren geven",
+      "de wind mee hebben",
+      "voor de wind gaan"
+     ],
+     "juist": 0,
+     "uitleg": "krijgen = almak, geven = vermek."
+    },
+    {
+     "id": "dy-wv3",
+     "type": "mc",
+     "vraag": "“de wind in de rug hebben” ne demek?",
+     "opties": [
+      "İşleri yolunda gitmek",
+      "Azar işitmek",
+      "Üşümek"
+     ],
+     "juist": 0,
+     "uitleg": "Rüzgâr arkadan iter: her şey kolay."
+    },
+    {
+     "id": "dy-wv4",
+     "type": "mc",
+     "vraag": "“van tevoren” ne demek?",
+     "opties": [
+      "önden",
+      "önceden",
+      "sonradan"
+     ],
+     "juist": 1,
+     "uitleg": "van tevoren bellen = önceden aramak. Deyimde ise van voren (önden) var."
+    },
+    {
+     "id": "dy-wv5",
+     "type": "type",
+     "tr": "İşe geç kaldım ve fırça yedim.",
+     "antwoorden": [
+      "Ik kwam te laat op mijn werk en kreeg de wind van voren",
+      "Ik was te laat op mijn werk en kreeg de wind van voren",
+      "Ik kwam te laat op het werk en kreeg de wind van voren"
+     ],
+     "uitleg": "Geçmiş zaman: kreeg."
+    }
+   ],
+   "bronnen": [
+    "F.A. Stoett, Nederlandsche spreekwoorden, spreekwijzen, uitdrukkingen en gezegden, nr. 2587 (wind van voren) ve 2591 (voor de wind gaan) – dbnl.org",
+    "sublearn.com: de wind van voren krijgen (ilgili deyimler)",
+    "Dutch Language Blog (transparent.com): Windy sayings"
+   ]
   }
  ]
 }
