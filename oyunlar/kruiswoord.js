@@ -48,6 +48,8 @@ const CSS = `
 .kw .curwrap{position:relative}
 /* Phone, while playing: the site header no longer sticks to the top, so clue bar + grid + keyboard fit on one screen */
 body.kw-focus .top,body.kw-focus #viewbar{position:static}
+/* ... and the clue bar sticks to the top instead, the grid scrolls under it */
+body.kw-focus .kw .curwrap{position:sticky;top:0;z-index:3;padding-top:4px;background:var(--ground,#F2F4F7)}
 .kw .choice{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .kw .list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
 .kw .list li.miss{background:var(--og-bad-soft)}
@@ -198,7 +200,9 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     const rows = Math.ceil(S.P.solution.length / S.P.w), vh = window.visualViewport?.height || innerHeight;
     const room = vh - ($("cur").offsetHeight || 70) - 70;            // 70px: level / word count / clock row and margins
     const byHeight = Math.max(170, room) * S.P.w / rows;
-    $("cw").style.width = `min(100%, ${S.P.w * 50}px, ${Math.round(byHeight)}px)`;
+    // Never smaller than 34px a square (smaller is hard to read and to tap); a taller grid then scrolls under the clue bar
+    const floor = S.P.w * 34 + (S.P.w - 1) * 3;
+    $("cw").style.width = `min(100%, ${S.P.w * 50}px, ${Math.round(Math.max(floor, byHeight))}px)`;
   }
   window.visualViewport?.addEventListener("resize", () => { fitGrid(); keepInView(); });
 
@@ -250,8 +254,16 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   // Scroll only when the clue bar is hidden under the site header or sits in the lower half (where the phone keyboard opens)
   function keepInView() {
     const bar = $("cur"); if (!bar || !bar.offsetParent) return;
-    const top = document.body.classList.contains("kw-focus") ? 0 : document.querySelector(".top")?.getBoundingClientRect().bottom || 0;
-    const vh = window.visualViewport?.height || innerHeight, r = bar.getBoundingClientRect();
+    const vh = window.visualViewport?.height || innerHeight;
+    if (document.body.classList.contains("kw-focus")) {
+      // Phone: the bar sticks at the top; make sure the selected square is between the bar and the keyboard
+      const cell = $("cw").querySelector(".sq.sel"); if (!cell) return;
+      const c = cell.getBoundingClientRect(), barBottom = bar.getBoundingClientRect().bottom;
+      if (c.top < barBottom + 6) scrollBy({ top: c.top - barBottom - 10, behavior: "smooth" });
+      else if (c.bottom > vh - 6) scrollBy({ top: c.bottom - vh + 14, behavior: "smooth" });
+      return;
+    }
+    const top = document.querySelector(".top")?.getBoundingClientRect().bottom || 0, r = bar.getBoundingClientRect();
     // 44px: keeps the level, word count and clock row visible above the bar
     if (r.top < top + 30 || r.top > vh * 0.4) scrollBy({ top: r.top - top - 44, behavior: "smooth" });
   }
@@ -274,6 +286,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     });
     $("count").textContent = `${S.okWords.size} / ${S.P.words.length} kelime`;
     drawCur();
+    if (document.body.classList.contains("kw-focus")) keepInView();   // phone: follow the cursor while typing
   }
   // Bar above the grid: the clue of the word being typed (same text as in the list) and buttons to the previous/next open word
   function drawCur() {
