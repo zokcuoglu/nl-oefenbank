@@ -2648,6 +2648,759 @@
    "kanaal": "Goed Bezig | Sait Faik Gülşen"
   },
   {
+   "id": "almak",
+   "soort": "gramer",
+   "titel": "Hollandacada “almak”: nemen, pakken, krijgen, halen …",
+   "serie": "Gramer",
+   "intro": "Türkçede tek fiil var: almak. Hollandacada ise kim veriyor, kim gidiyor, para ödeniyor mu, ona göre fiil değişir. Bu ders önce fiil gruplarını, sonra aynı Türkçe cümlenin farklı Hollandaca karşılıklarını, en sonda da Türkçeden çevirirken düşülen tuzakları gösteriyor. Altın soru: Seçiyor muyum (nemen)? Uzanıyor muyum (pakken)? Bana mı veriliyor (krijgen)? Gidip mi getiriyorum (halen)? Para mı ödüyorum (kopen)?",
+   "delen": [
+    {
+     "titel": "1. Elle almak: nemen, pakken, grijpen",
+     "uitleg": "Üçü de bir şeyi elle almak. nemen nötr ve seçerek almak; pakken günlük dilde uzanıp almak; grijpen hızlı ve sıkıca kavramak.",
+     "regels": [
+      "nemen: nam / namen, heeft genomen. Seçim ve ikram: Neem nog een koekje. Restoranda: Ik neem de soep.",
+      "pakken: pakte, heeft gepakt. Konuşma dilinde ulaşım ve mekân için de: de trein pakken, een terrasje pakken.",
+      "grijpen: greep / grepen, heeft gegrepen. Konuşmada da var: Grijp je kans!",
+      "oppakken = yerden almak; bir konuyu/görevi ele almak; (polis) gözaltına almak.",
+      "afpakken = birinin elinden almak. meepakken = yanına da almak; fırsattan yararlanmak."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik neem de soep van de dag.",
+       "tr": "Günün çorbasını alıyorum."
+      },
+      {
+       "nl": "Neem nog een koekje!",
+       "tr": "Bir kurabiye daha al!"
+      },
+      {
+       "nl": "Kun je even de sleutels pakken?",
+       "tr": "Anahtarları bir alabilir misin?"
+      },
+      {
+       "nl": "Ik pak de trein van half negen.",
+       "tr": "Sekiz buçuk trenine biniyorum."
+      },
+      {
+       "nl": "Hij greep snel naar zijn telefoon.",
+       "tr": "Hızla telefonuna uzandı."
+      },
+      {
+       "nl": "Grijp je kans!",
+       "tr": "Fırsatı değerlendir!"
+      },
+      {
+       "nl": "Kun je die pen even oppakken?",
+       "tr": "Şu kalemi yerden alabilir misin?"
+      },
+      {
+       "nl": "Ik pak dat punt morgen op.",
+       "tr": "O konuyu yarın ele alıyorum."
+      },
+      {
+       "nl": "De inbreker werd meteen opgepakt.",
+       "tr": "Hırsız hemen gözaltına alındı."
+      },
+      {
+       "nl": "Hij pakte het speelgoed van zijn broertje af.",
+       "tr": "Oyuncağı küçük kardeşinin elinden aldı."
+      },
+      {
+       "nl": "Ik pak even een jas mee.",
+       "tr": "Yanıma bir mont da alayım."
+      }
+     ]
+    },
+    {
+     "titel": "2. Sana gelen: krijgen, ontvangen, verkrijgen",
+     "uitleg": "Burada sen bir şey yapmıyorsun; bir şey sana veriliyor ya da gönderiliyor. krijgen günlük, ontvangen resmî, verkrijgen çok resmî.",
+     "regels": [
+      "krijgen: kreeg / kregen, heeft gekregen. Günlük dilde neredeyse her “almak” için.",
+      "ontvangen: ontving, heeft ontvangen. Mektup, e-posta, form dili: Wij hebben uw aanvraag ontvangen. Misafir ağırlamak anlamı da var.",
+      "verkrijgen: verkreeg, heeft verkregen. Çok resmî: elde etmek. verkrijgbaar = satışta, temin edilebilir.",
+      "B1+: krijgen + geçmiş ortaç: Ik krijg het pakket thuisbezorgd. = Paket evime getiriliyor."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik kreeg een cadeau van mijn collega's.",
+       "tr": "İş arkadaşlarımdan bir hediye aldım."
+      },
+      {
+       "nl": "Wij hebben uw e-mail in goede orde ontvangen.",
+       "tr": "E-postanızı sorunsuz aldık."
+      },
+      {
+       "nl": "U ontvangt binnen twee weken een brief.",
+       "tr": "İki hafta içinde bir mektup alacaksınız."
+      },
+      {
+       "nl": "Dit medicijn is zonder recept verkrijgbaar.",
+       "tr": "Bu ilaç reçetesiz satılıyor."
+      },
+      {
+       "nl": "Ik krijg het pakket morgen thuisbezorgd.",
+       "tr": "Paket yarın evime getiriliyor."
+      }
+     ]
+    },
+    {
+     "titel": "3. Gidip almak: halen, ophalen, afhalen, terughalen",
+     "uitleg": "Bir yere gidip bir şeyi ya da birini getiriyorsun. halen genel; ophalen belli bir yerde seni bekleyen şeyi/kişiyi almak; afhalen hazır siparişi teslim noktasından almak.",
+     "regels": [
+      "halen: haalde, heeft gehaald. Ik ga brood halen. Kişi için de olur: Kom je me halen?",
+      "ophalen: haalde op, heeft opgehaald. Önceden hazır ya da ayarlanmış: kinderen ophalen van school, een pakket ophalen. Dükkândan bir şişe su için halen daha doğal.",
+      "ophalen'in başka anlamları: geld ophalen (para toplamak), herinneringen ophalen (anıları tazelemek), de vlag ophalen (bayrağı çekmek).",
+      "afhalen: ticari dil: afhaalmaaltijd (paket yemek), afhaalpunt (teslim noktası).",
+      "terughalen = geri getirmek, geri almak.",
+      "halen'in iki istisnası: de trein halen = trene yetişmek; een diploma halen = sınavı geçip diploma almak."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik ga even boodschappen halen.",
+       "tr": "Gidip alışveriş yapıp geleyim."
+      },
+      {
+       "nl": "Ik haal de kinderen om drie uur op.",
+       "tr": "Çocukları saat üçte alıyorum."
+      },
+      {
+       "nl": "Mijn pakket ligt klaar bij het afhaalpunt.",
+       "tr": "Paketim teslim noktasında hazır bekliyor."
+      },
+      {
+       "nl": "Zullen we vanavond eten afhalen?",
+       "tr": "Bu akşam paket yemek alalım mı?"
+      },
+      {
+       "nl": "Ik moet mijn fiets nog terughalen.",
+       "tr": "Bisikletimi daha geri almam gerekiyor."
+      },
+      {
+       "nl": "We hebben de trein nog net gehaald.",
+       "tr": "Trene son anda yetiştik."
+      },
+      {
+       "nl": "De school haalt geld op voor een goed doel.",
+       "tr": "Okul iyi bir amaç için para topluyor."
+      }
+     ]
+    },
+    {
+     "titel": "4. Para karşılığı: kopen, aanschaffen (ve lenen)",
+     "uitleg": "Türkçede “satın almak” çoğu zaman sadece “almak”. Hollandacada para varsa kopen kullanılır.",
+     "regels": [
+      "kopen: kocht, heeft gekocht.",
+      "aanschaffen: schafte aan, heeft aangeschaft. Daha resmî; büyük ve kalıcı alışlar için: een nieuwe auto aanschaffen.",
+      "bestellen = sipariş etmek (internetten ya da restoranda).",
+      "Tuzak: lenen hem “ödünç almak” hem “ödünç vermek”. Ik leen een boek van de bibliotheek. = Kütüphaneden kitap ödünç alıyorum. Mag ik je fiets lenen? = Bisikletini ödünç alabilir miyim?"
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik heb nieuwe schoenen gekocht.",
+       "tr": "Yeni ayakkabı aldım."
+      },
+      {
+       "nl": "Het bedrijf schaft nieuwe laptops aan.",
+       "tr": "Şirket yeni dizüstü bilgisayarlar alıyor."
+      },
+      {
+       "nl": "Mag ik je pen even lenen?",
+       "tr": "Kalemini bir ödünç alabilir miyim?"
+      }
+     ]
+    },
+    {
+     "titel": "5. nemen ailesi: ön ek anlamı değiştirir",
+     "uitleg": "Ön ekin kendi anlamını bilirsen fiili tahmin edebilirsin: mee = birlikte, aan = kabul/-e doğru, op = yukarı/içeri, in = içeri, over = bir yerden öbürüne, af = -den, uzaklaşma, terug = geri, deel = pay.",
+     "regels": [
+      "meenemen = yanında götürmek. aannemen = kabul etmek; işe almak; (paket) teslim almak; varsaymak.",
+      "opnemen = telefonu açmak; kayda almak; bankamatikten para çekmek; izin günü kullanmak; contact opnemen = iletişime geçmek. Hastane: Hij is in het ziekenhuis opgenomen (edilgen).",
+      "innemen = (ilaç) içmek; yer kaplamak. overnemen = devralmak. afnemen = azalmak; (sınav) yapmak. terugnemen = geri almak (ürünü, sözünü). deelnemen aan = katılmak.",
+      "Hepsi ayrılabilir: Ik neem de telefoon op. Ik heb de telefoon opgenomen."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Neem een paraplu mee.",
+       "tr": "Yanına bir şemsiye al."
+      },
+      {
+       "nl": "Ze heeft de baan aangenomen.",
+       "tr": "İşi kabul etti."
+      },
+      {
+       "nl": "Kun je dit pakket voor de buren aannemen?",
+       "tr": "Bu paketi komşular için teslim alabilir misin?"
+      },
+      {
+       "nl": "Ik neem morgen een dag vrij op.",
+       "tr": "Yarın bir gün izin kullanıyorum."
+      },
+      {
+       "nl": "Ik neem geld op bij de pinautomaat.",
+       "tr": "Bankamatikten para çekiyorum."
+      },
+      {
+       "nl": "Neem de tabletten na het eten in.",
+       "tr": "Tabletleri yemekten sonra alın."
+      },
+      {
+       "nl": "De winkel neemt de jas terug.",
+       "tr": "Mağaza montu geri alıyor."
+      },
+      {
+       "nl": "De docent neemt een toets af.",
+       "tr": "Öğretmen sınav yapıyor."
+      }
+     ]
+    },
+    {
+     "titel": "6. krijgen ailesi: durum, duygu ve kalıplar",
+     "uitleg": "krijgen sadece “bir şey verilmek” değil; bir durumun ya da duygunun başlamasını da anlatır. Türkçede çoğu zaman fiille söylenir: acıkmak, üşümek.",
+     "regels": [
+      "Duygu/beden: honger, dorst, hoofdpijn, zin krijgen. Sıfatla: het koud / warm krijgen = üşümek / ısınmak.",
+      "Olay: bezoek krijgen (misafiri gelmek), een boete krijgen (ceza yemek), een kind krijgen (çocuğu olmak).",
+      "Ön ekli: terugkrijgen (geri almak), meekrijgen (yanında götürmek üzere verilmek; bilgi edinmek), binnenkrijgen (ödeme/sipariş gelmek).",
+      "Kalıplar: iets voor elkaar krijgen (başarmak), iets gedaan krijgen (bir işi bitirmeyi başarmak), iets onder de knie krijgen (öğrenmek, ustalaşmak), er genoeg van krijgen (bıkmak), de wind van voren krijgen (fırça yemek)."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik krijg honger.",
+       "tr": "Acıkıyorum."
+      },
+      {
+       "nl": "Ik krijg het koud.",
+       "tr": "Üşüyorum."
+      },
+      {
+       "nl": "Van dat lawaai krijg ik hoofdpijn.",
+       "tr": "O gürültüden başım ağrıyor."
+      },
+      {
+       "nl": "We krijgen zaterdag bezoek.",
+       "tr": "Cumartesi misafirimiz geliyor."
+      },
+      {
+       "nl": "Hij kreeg een boete voor te hard rijden.",
+       "tr": "Hız yaptığı için ceza yedi."
+      },
+      {
+       "nl": "Heb je je geld teruggekregen?",
+       "tr": "Paranı geri aldın mı?"
+      },
+      {
+       "nl": "Heb je de documenten meegekregen?",
+       "tr": "Belgeleri yanına verdiler mi?"
+      },
+      {
+       "nl": "We hebben de betaling binnengekregen.",
+       "tr": "Ödeme hesabımıza geçti."
+      },
+      {
+       "nl": "Hoe heb je dat voor elkaar gekregen?",
+       "tr": "Bunu nasıl başardın?"
+      },
+      {
+       "nl": "Na drie maanden had ik het onder de knie.",
+       "tr": "Üç ay sonra işi kapmıştım."
+      },
+      {
+       "nl": "Ik krijg er genoeg van.",
+       "tr": "Bundan bıktım."
+      }
+     ]
+    },
+    {
+     "titel": "7. Emekle elde etmek: halen, behalen, opdoen, verwerven",
+     "uitleg": "Türkçe “almak” bazen “kazanmak, elde etmek” demek. Hollandacada bunlar için ayrı fiiller var.",
+     "regels": [
+      "halen / behalen: sınav, not, diploma, hedef. behalen daha resmî: een diploma, een resultaat, een doel behalen.",
+      "Not: een 8 halen = (çalışıp) 8 almak; een 8 krijgen = (öğretmen) 8 vermek. İkisi de doğru, bakış açısı farklı.",
+      "opdoen: deed op, heeft opgedaan. Deneyim, bilgi, izlenim: ervaring opdoen.",
+      "verwerven: verwierf, heeft verworven. Resmî: kennis, rechten, bekendheid verwerven."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik heb mijn rijbewijs gehaald.",
+       "tr": "Ehliyetimi aldım."
+      },
+      {
+       "nl": "Ik heb een 8 gehaald voor mijn toets.",
+       "tr": "Sınavımdan 8 aldım."
+      },
+      {
+       "nl": "Ze heeft haar diploma behaald.",
+       "tr": "Diplomasını aldı."
+      },
+      {
+       "nl": "Tijdens mijn stage heb ik veel ervaring opgedaan.",
+       "tr": "Stajım sırasında çok deneyim kazandım."
+      },
+      {
+       "nl": "Hij heeft veel kennis verworven.",
+       "tr": "Çok bilgi edindi."
+      }
+     ]
+    },
+    {
+     "titel": "8. Aynı Türkçe, farklı fiil (1): kitap, telefon, ilaç",
+     "uitleg": "Türkçede hepsi “almak”. Hollandacada önce sor: Seçiyor muyum? Uzanıyor muyum? Gidip mi getiriyorum? Bana mı veriliyor? Para mı ödüyorum?",
+     "regels": [
+      "Kitap: neem (seçip alıyorum) · pak (uzanıp alıyorum) · haal (gidip getiriyorum) · krijg (bana veriliyor) · koop (satın alıyorum) · leen (ödünç alıyorum) · haal op (siparişi teslim alıyorum).",
+      "Telefon: pakken (elime almak) · opnemen (açmak) · afpakken (elinden almak) · terugkrijgen (geri almak).",
+      "İlaç: nemen (bir tane almak) · innemen (prospektüs dili) · gebruiken (düzenli kullanmak) · ophalen (eczaneden almak)."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik neem een boek uit de kast.",
+       "tr": "Dolaptan bir kitap seçip alıyorum."
+      },
+      {
+       "nl": "Ik pak een boek.",
+       "tr": "Uzanıp bir kitap alıyorum."
+      },
+      {
+       "nl": "Ik haal een boek in de bibliotheek.",
+       "tr": "Kütüphaneden bir kitap alıp geliyorum."
+      },
+      {
+       "nl": "Ik krijg een boek van mijn moeder.",
+       "tr": "Annem bana bir kitap veriyor."
+      },
+      {
+       "nl": "Ik koop een boek.",
+       "tr": "Bir kitap satın alıyorum."
+      },
+      {
+       "nl": "Ik leen een boek.",
+       "tr": "Bir kitap ödünç alıyorum."
+      },
+      {
+       "nl": "Ik haal mijn bestelde boek op.",
+       "tr": "Sipariş ettiğim kitabı teslim alıyorum."
+      },
+      {
+       "nl": "Ik pak mijn telefoon.",
+       "tr": "Telefonumu elime alıyorum."
+      },
+      {
+       "nl": "Ik neem de telefoon op.",
+       "tr": "Telefonu açıyorum."
+      },
+      {
+       "nl": "Hij pakte mijn telefoon af.",
+       "tr": "Telefonumu elimden aldı."
+      },
+      {
+       "nl": "Ik heb mijn telefoon teruggekregen.",
+       "tr": "Telefonumu geri aldım."
+      },
+      {
+       "nl": "Ik neem een paracetamol.",
+       "tr": "Bir parasetamol alıyorum."
+      },
+      {
+       "nl": "Ik gebruik medicijnen voor mijn bloeddruk.",
+       "tr": "Tansiyonum için ilaç kullanıyorum."
+      },
+      {
+       "nl": "Ik haal mijn medicijnen op bij de apotheek.",
+       "tr": "İlaçlarımı eczaneden alıyorum."
+      }
+     ]
+    },
+    {
+     "titel": "9. Aynı Türkçe, farklı fiil (2): para, insan, paket, not",
+     "uitleg": "Aynı soru yine işe yarar: kim veriyor, kim gidiyor, kim seçiyor?",
+     "regels": [
+      "Para: krijgen (maaş, para üstü) · opnemen (bankamatik) · ontvangen (resmî) · ophalen (para toplamak) · verdienen (kazanmak).",
+      "İnsan: ophalen / halen (gidip almak) · meenemen (yanında götürmek) · aannemen (işe almak) · opnemen (hastaneye yatırmak).",
+      "Paket: krijgen (geliyor) · aannemen (kapıda teslim almak) · ophalen / afhalen (teslim noktasından almak).",
+      "Not, belge: halen (çalışıp almak) · krijgen (verilmek) · behalen (resmî)."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Ik krijg mijn salaris op de 25e.",
+       "tr": "Maaşımı ayın 25'inde alıyorum."
+      },
+      {
+       "nl": "Ik krijg nog twee euro terug.",
+       "tr": "Daha iki euro para üstü alacağım."
+      },
+      {
+       "nl": "Wij hebben uw betaling ontvangen.",
+       "tr": "Ödemenizi aldık."
+      },
+      {
+       "nl": "Ik kom je om acht uur halen.",
+       "tr": "Seni saat sekizde almaya geliyorum."
+      },
+      {
+       "nl": "Ik neem de kinderen mee naar het park.",
+       "tr": "Çocukları yanıma alıp parka götürüyorum."
+      },
+      {
+       "nl": "Het bedrijf neemt tien nieuwe mensen aan.",
+       "tr": "Şirket on yeni kişiyi işe alıyor."
+      },
+      {
+       "nl": "Ik krijg vandaag een pakket.",
+       "tr": "Bugün bir paketim geliyor."
+      },
+      {
+       "nl": "Ik haal het pakket op bij het PostNL-punt.",
+       "tr": "Paketi PostNL noktasından alıyorum."
+      },
+      {
+       "nl": "Ik heb een 6 gehaald.",
+       "tr": "(Çalıştım ve) 6 aldım."
+      },
+      {
+       "nl": "Ik heb een 6 gekregen.",
+       "tr": "(Öğretmen) bana 6 verdi."
+      }
+     ]
+    },
+    {
+     "titel": "10. Tuzaklar: Türkçede “almak”, Hollandacada başka fiil",
+     "uitleg": "Bu hatalar Türkçeden kelime kelime çevirince olur. Bunları kalıp olarak öğren.",
+     "regels": [
+      "nefes almak = ademhalen · kilo almak = aankomen · kurs almak = een cursus volgen · üşütmek = verkouden worden.",
+      "karar / önlem / risk almak = een besluit / maatregelen / risico nemen · intikam almak = wraak nemen.",
+      "izin almak: tatil için vrij nemen / vakantiedagen opnemen; müsaade için toestemming vragen (krijgen = izin çıkmak).",
+      "haber almak = bericht krijgen / iets horen · zevk almak = genieten van · deneyim kazanmak = ervaring opdoen.",
+      "ders almak: les nemen (ders alıyorum, ücretli) / les krijgen (bana ders veriliyor)."
+     ],
+     "voorbeelden": [
+      {
+       "nl": "Adem diep in.",
+       "tr": "Derin nefes al."
+      },
+      {
+       "nl": "Ik ben twee kilo aangekomen.",
+       "tr": "İki kilo aldım."
+      },
+      {
+       "nl": "Ik volg een cursus Nederlands.",
+       "tr": "Hollandaca kursu alıyorum."
+      },
+      {
+       "nl": "De gemeente neemt maatregelen.",
+       "tr": "Belediye önlem alıyor."
+      },
+      {
+       "nl": "Je moet eerst toestemming vragen.",
+       "tr": "Önce izin alman gerekiyor."
+      },
+      {
+       "nl": "Ik heb nog niets van hem gehoord.",
+       "tr": "Ondan henüz haber almadım."
+      },
+      {
+       "nl": "We hebben genoten van de vakantie.",
+       "tr": "Tatilden çok keyif aldık."
+      },
+      {
+       "nl": "Ik neem pianoles.",
+       "tr": "Piyano dersi alıyorum."
+      }
+     ]
+    }
+   ],
+   "vragen": [
+    {
+     "id": "al01",
+     "type": "mc",
+     "vraag": "Restoranda: “Çorbayı alıyorum.”",
+     "opties": [
+      "Ik neem de soep.",
+      "Ik krijg de soep.",
+      "Ik haal de soep."
+     ],
+     "juist": 0,
+     "uitleg": "Seçerek almak: nemen."
+    },
+    {
+     "id": "al02",
+     "type": "mc",
+     "vraag": "“Kitabı annemden aldım.” (Annem verdi.)",
+     "opties": [
+      "Ik heb het boek van mijn moeder genomen.",
+      "Ik heb het boek van mijn moeder gekregen.",
+      "Ik heb het boek van mijn moeder gehaald."
+     ],
+     "juist": 1,
+     "uitleg": "Sana veriliyor: krijgen. genomen olursa izinsiz almış gibi olur!"
+    },
+    {
+     "id": "al03",
+     "type": "mc",
+     "vraag": "“Ehliyetimi aldım.”",
+     "opties": [
+      "Ik heb mijn rijbewijs gekocht.",
+      "Ik heb mijn rijbewijs genomen.",
+      "Ik heb mijn rijbewijs gehaald."
+     ],
+     "juist": 2,
+     "uitleg": "Sınavı geçip almak: halen."
+    },
+    {
+     "id": "al04",
+     "type": "mc",
+     "vraag": "“Çocukları okuldan alıyorum.”",
+     "opties": [
+      "Ik haal de kinderen op van school.",
+      "Ik neem de kinderen van school.",
+      "Ik krijg de kinderen van school."
+     ],
+     "juist": 0,
+     "uitleg": "Belli bir yerde seni bekleyen kişi: ophalen."
+    },
+    {
+     "id": "al05",
+     "type": "mc",
+     "vraag": "“Telefonu açar mısın?”",
+     "opties": [
+      "Kun jij de telefoon pakken?",
+      "Kun jij de telefoon opnemen?",
+      "Kun jij de telefoon halen?"
+     ],
+     "juist": 1,
+     "uitleg": "Telefonu açmak: opnemen. (pakken = sadece elime almak.)"
+    },
+    {
+     "id": "al06",
+     "type": "mc",
+     "vraag": "Resmî mektup: “Başvurunuzu aldık.”",
+     "opties": [
+      "Wij hebben uw aanvraag gepakt.",
+      "Wij hebben uw aanvraag ontvangen.",
+      "Wij hebben uw aanvraag gehaald."
+     ],
+     "juist": 1,
+     "uitleg": "Resmî dil: ontvangen."
+    },
+    {
+     "id": "al07",
+     "type": "mc",
+     "vraag": "“İki kilo aldım.”",
+     "opties": [
+      "Ik heb twee kilo genomen.",
+      "Ik heb twee kilo gekregen.",
+      "Ik ben twee kilo aangekomen."
+     ],
+     "juist": 2,
+     "uitleg": "Kilo almak = aankomen (zijn ile)."
+    },
+    {
+     "id": "al08",
+     "type": "mc",
+     "vraag": "“Hollandaca kursu alıyorum.”",
+     "opties": [
+      "Ik neem een cursus Nederlands.",
+      "Ik volg een cursus Nederlands.",
+      "Ik krijg een cursus Nederlands."
+     ],
+     "juist": 1,
+     "uitleg": "Kurs almak = een cursus volgen."
+    },
+    {
+     "id": "al09",
+     "type": "mc",
+     "vraag": "“Ik krijg het koud.” ne demek?",
+     "opties": [
+      "Soğuk bir şey alıyorum.",
+      "Üşüyorum.",
+      "Soğuk algınlığım var."
+     ],
+     "juist": 1,
+     "uitleg": "krijgen + sıfat: bir duruma girmek."
+    },
+    {
+     "id": "al10",
+     "type": "mc",
+     "vraag": "“Hij pakte mijn telefoon af.”",
+     "opties": [
+      "Telefonumu elimden aldı.",
+      "Telefonumu açtı.",
+      "Telefonumu geri verdi."
+     ],
+     "juist": 0,
+     "uitleg": "afpakken = birinin elinden almak."
+    },
+    {
+     "id": "al11",
+     "type": "mc",
+     "vraag": "“We hebben de trein net gehaald.”",
+     "opties": [
+      "Treni kaçırdık.",
+      "Trene son anda yetiştik.",
+      "Trenden indik."
+     ],
+     "juist": 1,
+     "uitleg": "de trein halen = trene yetişmek."
+    },
+    {
+     "id": "al12",
+     "type": "mc",
+     "vraag": "Bankamatik: “Para çekiyorum.”",
+     "opties": [
+      "Ik neem geld op.",
+      "Ik haal geld op.",
+      "Ik krijg geld op."
+     ],
+     "juist": 0,
+     "uitleg": "geld opnemen = hesaptan çekmek. geld ophalen = para toplamak (bağış)."
+    },
+    {
+     "id": "al13",
+     "type": "mc",
+     "vraag": "“Stajda çok deneyim kazandım.”",
+     "opties": [
+      "Ik heb veel ervaring gekregen.",
+      "Ik heb veel ervaring opgedaan.",
+      "Ik heb veel ervaring genomen."
+     ],
+     "juist": 1,
+     "uitleg": "Deneyim edinmek: ervaring opdoen."
+    },
+    {
+     "id": "al14",
+     "type": "mc",
+     "vraag": "“Ik pak dit punt morgen op.” (toplantıda)",
+     "opties": [
+      "Bu konuyu yarın ele alıyorum.",
+      "Bu noktayı yarın siliyorum.",
+      "Bunu yarın yerden alıyorum."
+     ],
+     "juist": 0,
+     "uitleg": "oppakken = (görev/konu) ele almak."
+    },
+    {
+     "id": "al15",
+     "type": "mc",
+     "vraag": "İlaç prospektüsü: “… yemekten sonra alın.”",
+     "opties": [
+      "Neem de tabletten na het eten in.",
+      "Haal de tabletten na het eten.",
+      "Krijg de tabletten na het eten."
+     ],
+     "juist": 0,
+     "uitleg": "innemen = ilaç içmek (resmî). Günlük dilde: Ik neem een tablet."
+    },
+    {
+     "id": "al16",
+     "type": "mc",
+     "vraag": "“Mag ik je fiets lenen?” ne demek?",
+     "opties": [
+      "Bisikletini ödünç verir misin? (= ödünç alabilir miyim?)",
+      "Bisikletimi ödünç ister misin?",
+      "Bisikletini satın alabilir miyim?"
+     ],
+     "juist": 0,
+     "uitleg": "lenen iki yönlü: burada ben ödünç alıyorum."
+    },
+    {
+     "id": "al17",
+     "type": "mc",
+     "vraag": "“Önlem alıyoruz.”",
+     "opties": [
+      "We krijgen maatregelen.",
+      "We nemen maatregelen.",
+      "We halen maatregelen."
+     ],
+     "juist": 1,
+     "uitleg": "Karar, önlem, risk: nemen."
+    },
+    {
+     "id": "al18",
+     "type": "type",
+     "tr": "Acıkıyorum.",
+     "antwoorden": [
+      "Ik krijg honger",
+      "Ik heb honger"
+     ],
+     "uitleg": "krijgen = başlıyor (acıkıyorum); hebben = durum (açım)."
+    },
+    {
+     "id": "al19",
+     "type": "type",
+     "tr": "Yanına bir şemsiye al.",
+     "antwoorden": [
+      "Neem een paraplu mee",
+      "Neem je paraplu mee",
+      "Neem een paraplu mee!"
+     ],
+     "uitleg": "meenemen ayrılabilir: neem … mee."
+    },
+    {
+     "id": "al20",
+     "type": "type",
+     "tr": "Paranı geri aldın mı?",
+     "antwoorden": [
+      "Heb je je geld teruggekregen",
+      "Heb jij je geld teruggekregen",
+      "Heb je jouw geld teruggekregen"
+     ],
+     "uitleg": "terugkrijgen → teruggekregen."
+    },
+    {
+     "id": "al21",
+     "type": "type",
+     "tr": "Derin nefes al.",
+     "antwoorden": [
+      "Adem diep in",
+      "Haal diep adem"
+     ],
+     "uitleg": "inademen ya da ademhalen: Haal diep adem."
+    },
+    {
+     "id": "al22",
+     "type": "order",
+     "tr": "Bu akşam paket yemek alalım mı?",
+     "woorden": [
+      "Zullen",
+      "we",
+      "vanavond",
+      "eten",
+      "afhalen"
+     ],
+     "uitleg": "Zullen we + … + mastar (afhalen sonda).",
+     "einde": "?"
+    },
+    {
+     "id": "al23",
+     "type": "order",
+     "tr": "Şirket on yeni kişiyi işe alıyor.",
+     "woorden": [
+      "Het",
+      "bedrijf",
+      "neemt",
+      "tien",
+      "nieuwe",
+      "mensen",
+      "aan"
+     ],
+     "uitleg": "aannemen ayrılır: neemt … aan."
+    },
+    {
+     "id": "al24",
+     "type": "order",
+     "tr": "Bunu nasıl başardın?",
+     "woorden": [
+      "Hoe",
+      "heb",
+      "je",
+      "dat",
+      "voor",
+      "elkaar",
+      "gekregen"
+     ],
+     "uitleg": "iets voor elkaar krijgen = başarmak.",
+     "einde": "?"
+    }
+   ]
+  },
+  {
    "id": "randevu",
    "soort": "konusma",
    "titel": "Randevu ayarlamak ve ertelemek",

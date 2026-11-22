@@ -13,7 +13,7 @@
       "deyim": { "nl": "Iets door de vingers zien.", "tr": "Bir şeye göz yummak.", "uitleg": "Küçük bir hatayı bu seferlik affetmek, görmezden gelmek.", "voorbeeld": "Je bent te laat, maar deze keer zie ik het door de vingers.", "voorbeeld_tr": "Geç kaldın ama bu seferlik göz yumuyorum." },
       "woord": { "nl": "uitstellen", "tr": "ertelemek", "niveau": "B1", "voorbeeld": "Kunnen we de afspraak naar volgende week uitstellen?", "voorbeeld_tr": "Randevuyu gelecek haftaya erteleyebilir miyiz?" },
       "cultuur": { "titel": "Lootjes trekken", "tekst": "Yetişkinler ve büyük çocuklar Sinterklaas için genelde kura çeker (lootjes trekken): herkes çektiği kişiye küçük bir hediye alır. Hediye çoğu zaman komik bir paketin (surprise) içine saklanır ve yanına o kişiye takılan kısa bir şiir (gedicht) yazılır. Şiir genelde “Sinterklaas zat te denken…” gibi bir cümleyle başlar." },
-      "probeer": { "tekst": "Kelime çalışması: kartlarla ve eşleştirmeyle, sadece işine yarayan konuyu seçerek.", "href": "woorden/" }
+      "probeer": { "tekst": "Yeni gramer dersi: Hollandacada “almak”. nemen, pakken, krijgen, halen … Aynı Türkçe cümle, farklı fiiller, Türkçeden çevirirken düşülen tuzaklar ve 24 soru.", "href": "dersler/?les=almak" }
     },
     {
       "id": "w03", "datum": "2026-12-03",
