@@ -135,6 +135,12 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Mail record (scripts/mailer.py writes it with the admin SDK): who got which mail and its text. Admins only.
+    match /mail_sent/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
     // Wishes ("istek kutusu", js/talep.js): an approved adult asks for a word, idiom, pattern or topic.
     // Own create and read; the admin reads all, marks them done ("yapildi") or deletes them. Up to 2 small screenshots
     // (JPEG data URLs, ss1/ss2) are kept in the same document; the size checks keep it under the 1 MiB limit.

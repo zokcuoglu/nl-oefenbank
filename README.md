@@ -111,3 +111,12 @@ the pages show "about 18 of 25" only as a rough guideline. The writing criteria 
 ## İstek kutusu (wish box)
 
 `js/talep.js`: under the word study and daily-speech lists, approved adults ask for a word, idiom, pattern or topic (text up to 4000 characters, up to 2 screenshots shrunk in the browser to JPEG and stored in the same document). Firestore collection `talepler` (rules: own create/read, admin reads, marks `yapildi` or deletes). The admin sees them on the "Bugün" tab; mailer job `talep` (default Monday 09:00) mails the admins the open wishes that arrived since the last summary, no mail when there are none.
+
+## Mail record
+
+`scripts/mailer.py` wraps the sender in `LoggingSender`; at the end of every run `save_sent` writes one document per kind of mail and subject to `mail_sent` (recipients with names, count, the text of the first mail). The admin panel shows them on the E-posta tab ("Mail kaydı") and today's on the Bugün tab. Firestore rule: admins read, nobody writes from the browser.
+
+## Word links in the games
+
+`oyunlar/common.js` `wordInfoOf` adds two kinds of tags at run time: "Kelime incelemesi" for words with a published word study page (`data/woordstudie.json`, date reached) and "Gramer · almak" for the verbs of the lesson `dersler/?les=almak`. The word page (`kelime/`) shows them as "Ayrıntılı anlatım".
+

@@ -1722,7 +1722,9 @@
 {
 "w": "AFREKENEN",
 "c": "hesabı ödemek (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "Je kunt ___ bij de kassa.",
+"zt": "Kasada ödeyebilirsin."
 },
 {
 "w": "KASSA",
@@ -1762,7 +1764,9 @@
 {
 "w": "VERTRAGEN",
 "c": "geciktirmek, yavaşlatmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Het slechte weer kan de bouw ___.",
+"zt": "Kötü hava inşaatı geciktirebilir."
 },
 {
 "w": "RIT",
@@ -1963,7 +1967,9 @@
 {
 "w": "DOORGEVEN",
 "c": "devretmek, iletmek (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Kun je dit bericht aan je collega ___?",
+"zt": "Bu mesajı iş arkadaşına iletebilir misin?"
 },
 {
 "w": "BEHALVE",
@@ -1982,7 +1988,9 @@
 {
 "w": "OMVALLEN",
 "c": "devrilmek; (sistem) çökmek (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Pas op, de fiets gaat ___!",
+"zt": "Dikkat, bisiklet devrilecek!"
 },
 {
 "w": "HANDIG",
@@ -2008,7 +2016,9 @@
 {
 "w": "MEEVALLEN",
 "c": "beklenenden iyi çıkmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Maak je geen zorgen, dat kan nog ___.",
+"zt": "Merak etme, beklediğinden iyi çıkabilir."
 },
 {
 "w": "AFSPREKEN",
@@ -2020,7 +2030,10 @@
 {
 "w": "VERWARREN",
 "c": "kafa karıştırmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Ik ___ deze twee woorden vaak.",
+"zt": "Bu iki kelimeyi sık karıştırıyorum.",
+"zf": "Ik verwar deze twee woorden vaak."
 },
 {
 "w": "BALLENHOK",
@@ -2081,7 +2094,9 @@
 {
 "w": "BEWAREN",
 "c": "saklamak (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "Je moet het bonnetje goed ___.",
+"zt": "Fişi iyi saklaman lazım."
 },
 {
 "w": "VANWEGE",
@@ -2164,12 +2179,16 @@
 {
 "w": "UITMAKEN",
 "c": "fark etmek; ayrılmak; karar vermek (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Hij wil het ___ met zijn vriendin.",
+"zt": "Kız arkadaşından ayrılmak istiyor."
 },
 {
 "w": "MEEMAKEN",
 "c": "yaşamak, başından geçmek (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Dat wil ik nooit meer ___.",
+"zt": "Bunu bir daha asla yaşamak istemem."
 },
 {
 "w": "ONDANKS",
@@ -2195,7 +2214,9 @@
 {
 "w": "RODDELEN",
 "c": "dedikodu yapmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Het is niet aardig om over collega's te ___.",
+"zt": "İş arkadaşları hakkında dedikodu yapmak hoş değil."
 },
 {
 "w": "TEGENOVER",
@@ -2221,32 +2242,44 @@
 {
 "w": "AANNEMEN",
 "c": "varsaymak; kabul etmek; işe almak; (telefonu) açmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Wil je dit pakket voor de buren ___?",
+"zt": "Bu paketi komşular için teslim alır mısın?"
 },
 {
 "w": "AANPASSEN",
 "c": "uyarlamak, değiştirmek, düzenlemek (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Kun je de planning ___?",
+"zt": "Planı değiştirebilir misin?"
 },
 {
 "w": "TOEPASSEN",
 "c": "uygulamak (kural, yöntem) (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Je moet deze regel ook in de tekst ___.",
+"zt": "Bu kuralı metinde de uygulaman lazım."
 },
 {
 "w": "AANVRAGEN",
 "c": "talep etmek, başvurmak (izin, erişim) (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Ik wil een parkeervergunning ___.",
+"zt": "Park izni için başvurmak istiyorum."
 },
 {
 "w": "INPLANNEN",
 "c": "planlamak, takvime koymak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Zullen we een gesprek ___?",
+"zt": "Bir görüşme planlayalım mı?"
 },
 {
 "w": "TESTEN",
 "c": "test etmek (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "We moeten de nieuwe app eerst ___.",
+"zt": "Yeni uygulamayı önce test etmemiz lazım."
 },
 {
 "w": "VERZOEK",
@@ -2279,7 +2312,9 @@
 {
 "w": "KLIMAAT",
 "c": "iklim (isim, het)",
-"n": "B1"
+"n": "B1",
+"z": "Het ___ in Nederland is mild.",
+"zt": "Hollanda'nın iklimi ılımandır."
 },
 {
 "w": "NEERSLAG",
@@ -2291,7 +2326,9 @@
 {
 "w": "OPWARMEN",
 "c": "ısıtmak (yemek); ısınmak (sporda) (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Ik ga de soep even ___.",
+"zt": "Çorbayı biraz ısıtacağım."
 },
 {
 "w": "PERIODE",
@@ -2481,7 +2518,9 @@
 {
 "w": "KNEDEN",
 "c": "yoğurmak (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "Je moet het deeg tien minuten ___.",
+"zt": "Hamuru on dakika yoğurman lazım."
 },
 {
 "w": "GRAAN",
@@ -2507,7 +2546,9 @@
 {
 "w": "KLEVEN",
 "c": "yapışmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "De rijst blijft aan de pan ___.",
+"zt": "Pirinç tencereye yapışıp kalıyor."
 },
 {
 "w": "SLIERT",
@@ -2554,7 +2595,9 @@
 {
 "w": "BESTELLEN",
 "c": "sipariş etmek (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "Zullen we pizza ___?",
+"zt": "Pizza sipariş edelim mi?"
 },
 {
 "w": "VOORRAAD",
@@ -2603,7 +2646,9 @@
 {
 "w": "WEGRENNEN",
 "c": "koşarak kaçmak (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "Als je een wolf ziet, moet je niet ___.",
+"zt": "Bir kurt görürsen koşarak kaçmamalısın."
 },
 {
 "w": "ROOFDIER",
@@ -2615,7 +2660,9 @@
 {
 "w": "WENKBRAUW",
 "c": "kaş (isim, de)",
-"n": "B1"
+"n": "B1",
+"z": "Hij trekt een ___ op.",
+"zt": "Bir kaşını kaldırıyor."
 },
 {
 "w": "ACHTERUIT",
@@ -2641,7 +2688,9 @@
 {
 "w": "OPVANG",
 "c": "barınak, bakımevi (isim, de)",
-"n": "A2"
+"n": "A2",
+"z": "De zieke zeehond gaat naar de ___.",
+"zt": "Hasta fok bakımevine gidiyor."
 },
 {
 "w": "VERHUIZEN",
@@ -2675,7 +2724,9 @@
 {
 "w": "OPVANGEN",
 "c": "(hayvanı, insanı) alıp barındırmak; (topu) yakalamak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Het centrum wil zieke zeehonden ___.",
+"zt": "Merkez hasta fokları alıp bakmak istiyor."
 },
 {
 "w": "VERZORGEN",
@@ -2823,12 +2874,17 @@
 {
 "w": "LEEGLOPEN",
 "c": "boşalmak, sönmek (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Laat het bad maar ___.",
+"zt": "Küveti boşalmaya bırak."
 },
 {
 "w": "AANHOUDEN",
 "c": "uzun tutmak, sürdürmek; (polis) durdurmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Het is moeilijk om dat tempo ___.",
+"zt": "O tempoyu sürdürmek zor.",
+"zf": "Het is moeilijk om dat tempo aan te houden."
 },
 {
 "w": "TROMMEL",
@@ -2876,7 +2932,9 @@
 {
 "w": "DRUKKEN",
 "c": "basmak, itmek; (matbaada) basmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Je moet op de knop ___.",
+"zt": "Düğmeye basman lazım."
 },
 {
 "w": "VEL",
@@ -2888,12 +2946,16 @@
 {
 "w": "BEDENKEN",
 "c": "düşünüp bulmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Kun jij een goede naam ___?",
+"zt": "İyi bir isim bulabilir misin?"
 },
 {
 "w": "KLOPPEN",
 "c": "doğru olmak, tutmak (hesap); kapıyı çalmak (fiil)",
-"n": "B1"
+"n": "B1",
+"z": "Dat kan niet ___.",
+"zt": "Bu doğru olamaz."
 },
 {
 "w": "ONTWERP",
@@ -2934,7 +2996,9 @@
 {
 "w": "UITGEVEN",
 "c": "harcamak (fiil)",
-"n": "A2"
+"n": "A2",
+"z": "Ik wil niet te veel geld ___.",
+"zt": "Çok fazla para harcamak istemiyorum."
 },
 {
 "w": "DIGITAAL",

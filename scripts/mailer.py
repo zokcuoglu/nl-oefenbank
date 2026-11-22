@@ -28,6 +28,7 @@ import html
 import json
 import os
 import re
+import hashlib
 import smtplib
 from collections import Counter
 from email.message import EmailMessage
@@ -155,6 +156,45 @@ class PrintSender:
     def send(self, to, subject, body, bcc=None, html_body=None):
         self.sent.append({"to": to, "subject": subject, "body": body, "bcc": list(bcc or []), "html": html_body or ""})
         print(f"--- MAIL to={to} bcc={len(bcc or [])} subject={subject!r} html={len(html_body or '')} chars\n{body}\n")
+
+
+class LoggingSender:
+    """Wraps the real sender and remembers every mail of this run, so the admin panel can show who got which mail
+    (collection mail_sent, written by save_sent at the end of the run). `job` is set before each kind of mail."""
+
+    def __init__(self, inner):
+        self.inner, self.job, self.log = inner, "hourly", []
+
+    def __getattr__(self, name):            # user, smtp … of the real sender
+        return getattr(self.inner, name)
+
+    def send(self, to, subject, body, bcc=None, html_body=None):
+        self.inner.send(to, subject, body, bcc=bcc, html_body=html_body)
+        self.log.append({"job": self.job, "to": [to] + list(bcc or []), "subject": subject, "body": body})
+
+
+def save_sent(db, sender, now):
+    """One document per kind of mail and subject in this run: recipients (name + address), count and the text of the
+    first mail (personal summaries differ per person, so this is one example). Mails to admins are listed too."""
+    log = getattr(sender, "log", [])
+    if not log:
+        return
+    names = {}
+    for d in db.collection("users").stream():
+        u = d.to_dict()
+        if u.get("email"):
+            names[u["email"].lower()] = u.get("name", "")
+    groups = {}
+    for m in log:
+        groups.setdefault((m["job"], m["subject"]), []).append(m)
+    for (job, subject), mails in groups.items():
+        to = sorted({a for m in mails for a in m["to"]})
+        key = hashlib.sha1(f"{job}|{subject}".encode()).hexdigest()[:8]
+        db.collection("mail_sent").document(f"{now.astimezone(AMS):%Y%m%d%H}-{job}-{key}").set({
+            "job": job, "subject": subject, "date": now.astimezone(AMS).date().isoformat(), "sent_at": iso(now),
+            "count": len(to), "to": [{"email": a, "name": names.get(a.lower(), "")} for a in to],
+            "body": mails[0]["body"][:20000]})
+    print(f"mail_sent: {len(groups)} entries, {len(log)} mails")
 
 
 def sender_address(sender):
@@ -944,6 +984,7 @@ def run_talep(db, sender, now, dry_run=False, force=False):
 
 def run_scheduled(db, sender, now, dry_run=False):
     """The hourly job: always the quick checks, plus news/weekly/brief when the schedule says so."""
+    sender.job = "hourly"
     run_hourly(db, sender, now, dry_run=dry_run)
     sched = load_schedule(db)
     print(f"schedule: {sched} | now {now.astimezone(AMS):%a %H:%M} Amsterdam")
@@ -955,17 +996,24 @@ def run_scheduled(db, sender, now, dry_run=False):
     talep_dates = [x.get("date", "") for x in mail_log if x.get("job") == "talep"]
     daily_dates = [x.get("date", "") for x in mail_log if x.get("job") == "daily"]
     if is_due(sched["news"], now, news_dates):
+        sender.job = "news"
         run_news(db, sender, now, dry_run=dry_run)
     if is_due(sched["weekly"], now, weekly_dates):
+        sender.job = "weekly"
         run_weekly(db, sender, now, dry_run=dry_run)
     if is_due(sched["brief"], now, brief_dates):
+        sender.job = "brief"
         run_brief(db, sender, now, dry_run=dry_run)
     if is_due(sched["woord"], now, woord_dates):
+        sender.job = "woord"
         run_woord(db, sender, now, dry_run=dry_run)
     if is_due(sched["talep"], now, talep_dates):
+        sender.job = "talep"
         run_talep(db, sender, now, dry_run=dry_run)
     if is_due(sched["daily"], now, daily_dates) and now - last_slot(sched["daily"], now) <= DAILY_WINDOW:
+        sender.job = "daily"
         run_daily(db, sender, now, dry_run=dry_run)
+    sender.job = "groep"
     run_groep_up(db, sender, now, dry_run=dry_run)  # does nothing outside August
 
 
@@ -1002,8 +1050,9 @@ def main():
     firebase_admin.initialize_app(credentials.Certificate(info))
     db = firestore.client()
 
-    sender = PrintSender() if args.dry_run else GmailSender(os.environ["GMAIL_USER"].strip(), os.environ["GMAIL_APP_PASSWORD"].replace(" ", ""))
+    sender = LoggingSender(PrintSender() if args.dry_run else GmailSender(os.environ["GMAIL_USER"].strip(), os.environ["GMAIL_APP_PASSWORD"].replace(" ", "")))
     now = dt.datetime.now(dt.timezone.utc)
+    sender.job = {"hourly": "hourly", "weekly": "weekly"}.get(args.mode, args.mode)
     if args.mode == "hourly":
         run_scheduled(db, sender, now, dry_run=args.dry_run)
     elif args.mode == "test":
@@ -1022,6 +1071,8 @@ def main():
         run_groep_up(db, sender, now, dry_run=args.dry_run, force=True)
     else:
         run_weekly(db, sender, now, dry_run=args.dry_run, force=True)
+    if not args.dry_run:
+        save_sent(db, sender, now)
     print(f"done: mode={args.mode} dry_run={args.dry_run}")
 
 

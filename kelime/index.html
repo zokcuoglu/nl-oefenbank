@@ -60,6 +60,7 @@ setTimeout(function () {
 // scripts/content/anlamlar/) and oyunlar/voorzetsels.json "info" (combinations, build_voorzetsels.py).
 // Every opening adds 1 to kelime_views/{id}, so the admin page can list the most viewed words.
 import { gate, userBox, esc, db } from "../js/core.js";
+import { wordInfoOf } from "../oyunlar/common.js";
 import { doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const app = document.getElementById("app");
@@ -91,10 +92,15 @@ function page(w, info) {
   info.voorbeelden = (info.voorbeelden || []).filter(v => !inPlaces.has(v.nl.toLowerCase()));
   const examples = info.voorbeelden?.length ? `<section class="panel"><h3>${anl.length ? "Başka örnekler" : "Örnekler"}</h3>${info.voorbeelden.map(exHtml).join("")}</section>` : "";
   // Where on the site: the sentence (with its translation when there is one) and a link to that exact item
+  // Links to a page that teaches this word in depth (word study, grammar lesson)
+  const extras = (info.tags || []).filter(t => t.extra);
+  info.tags = (info.tags || []).filter(t => !t.extra);
+  const more = extras.length ? `<section class="panel"><h3>Ayrıntılı anlatım</h3>${extras.map(t => `<div class="ex">${t.z ? `<span lang="tr">${esc(t.z)}</span>` : ""}
+      <div class="src"><a href="${esc(site(t.href))}">${esc(t.t)} →</a></div></div>`).join("")}</section>` : "";
   const places = info.tags?.length ? `<section class="panel places"><h3>Sitede geçtiği yerler</h3>${info.tags.map(t => `<div class="ex">
       ${t.z ? `<span lang="nl">${esc(t.z)}</span>${t.zt ? `<i lang="tr">${esc(t.zt)}</i>` : ""}` : ""}
       <div class="src"><a href="${esc(site(t.href))}">${esc(t.t)} →</a></div></div>`).join("")}</section>` : "";
-  return `<section class="panel">${head}</section>` + meanings + explain + patterns + examples + places;
+  return `<section class="panel">${head}</section>` + more + meanings + explain + patterns + examples + places;
 }
 
 async function count(id) {
@@ -110,8 +116,8 @@ try {
     const d = await fetch("../oyunlar/voorzetsels.json").then(r => r.json());
     info = d.info?.[Object.keys(d.info).find(k => k.toLowerCase() === word)];
   } else {
-    const d = await fetch("../oyunlar/woordinfo.json").then(r => r.json());
-    info = d.woorden[word];
+    // woordinfo.json plus the links added at run time (word study page, "almak" lesson), marked extra
+    info = await wordInfoOf(word);
   }
 } catch {}
 document.title = `${word} · NL Oefenbank`;

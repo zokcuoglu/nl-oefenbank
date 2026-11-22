@@ -192,10 +192,35 @@ export function bindWordInfo(root, lookup) {
 }
 // Word data of the word games (built by scripts/content/build_woordinfo.py), for the tags under each word.
 // Loaded once, when the first tag placeholder is on the page. Lookup by the word without de/het, in lower case.
-let woordInfo = null;
+let woordInfo = null, extraTags = null;
+// Verbs of the grammar lesson "Hollandacada almak" (data/dersler.json, id "almak"): they get a link to that lesson
+const ALMAK = ["nemen", "pakken", "grijpen", "krijgen", "ontvangen", "verkrijgen", "halen", "ophalen", "afhalen", "terughalen",
+  "kopen", "aanschaffen", "bestellen", "lenen", "oppakken", "afpakken", "meenemen", "aannemen", "overnemen", "opnemen",
+  "innemen", "afnemen", "behalen", "opdoen", "verwerven"];
+// Extra tags shown first: the word study page of the word (only once it is published) and the "almak" lesson
+async function loadExtraTags() {
+  const out = {};
+  const add = (w, tag) => (out[w] ??= []).push(tag);
+  try {
+    const ws = await fetch(siteUrl("data/woordstudie.json")).then(r => r.json());
+    const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
+    for (const x of ws.woorden) {
+      if ((x.soort || "woord") !== "woord" || x.datum > today) continue;
+      // "tellen / vertellen" -> both words
+      for (const w of x.woord.toLowerCase().split("/").map(t => t.trim()).filter(Boolean))
+        add(w, { t: "Kelime incelemesi", href: "woordstudie/?w=" + x.id, z: x.kort, extra: true });
+    }
+  } catch { /* no word studies: only the lesson links */ }
+  for (const w of ALMAK) add(w, { t: "Gramer · almak", href: "dersler/?les=almak", z: "Hollandacada “almak”: nemen, pakken, krijgen, halen …", extra: true });
+  return out;
+}
 export async function wordInfoOf(word) {
   woordInfo ??= fetch(new URL("./woordinfo.json", import.meta.url)).then(r => r.json()).then(d => d.woorden).catch(() => ({}));
-  return (await woordInfo)[String(word).toLowerCase().replace(/^(de|het|een)\s+/, "").trim()];
+  extraTags ??= loadExtraTags();
+  const key = String(word).toLowerCase().replace(/^(de|het|een)\s+/, "").trim();
+  const [info, extra] = [(await woordInfo)[key], (await extraTags)[key]];
+  if (!extra || !info) return info;   // no word data: no word page either, so no extra links
+  return { ...(info || {}), tags: [...extra, ...((info?.tags) || [])] };
 }
 
 export const flash = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
