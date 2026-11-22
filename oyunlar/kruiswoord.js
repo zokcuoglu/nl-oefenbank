@@ -44,7 +44,10 @@ const CSS = `
 .kw .clues .zt{font-size:12.5px;color:var(--og-muted)}
 .kw .clues li.done .zin,.kw .clues li.done .zt{display:none}
 .kw .tools{display:flex;gap:10px;flex-wrap:wrap}
-.kw .kbd{position:fixed;left:-200px;top:0;width:40px;height:20px;opacity:0}
+.kw .kbd{position:absolute;left:50%;top:0;width:1px;height:1px;opacity:0;font-size:16px;border:0;padding:0;pointer-events:none}
+.kw .curwrap{position:relative}
+/* Phone, while playing: the site header no longer sticks to the top, so clue bar + grid + keyboard fit on one screen */
+body.kw-focus .top,body.kw-focus #viewbar{position:static}
 .kw .choice{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .kw .list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
 .kw .list li.miss{background:var(--og-bad-soft)}
@@ -78,14 +81,13 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     <section data-r="play" hidden>
       <div class="bar"><span class="pill" data-r="what"></span><span class="pill" data-r="count"></span><span class="pill" data-r="clock">0:00</span></div>
       <div class="game">
-        <div><div class="cur" data-r="cur"></div><div class="cw" data-r="cw"></div></div>
+        <div><div class="curwrap"><div class="cur" data-r="cur"></div><input class="kbd" data-r="kbd" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" lang="nl" aria-label="harf yaz"></div><div class="cw" data-r="cw"></div></div>
         <div class="clues">
           <h3>Yatay →</h3><ol data-r="cluesH"></ol>
           <h3>Dikey ↓</h3><ol data-r="cluesV"></ol>
           <div class="tools"><button class="bt" data-r="hint">İpucu</button><button class="bt" data-r="giveup">Bitir, cevapları göster</button><button class="bt" data-r="stop">← Geri</button></div>
         </div>
       </div>
-      <input class="kbd" data-r="kbd" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" lang="nl" aria-label="harf yaz">
     </section>
     <section data-r="done" hidden>
       <div class="pan">
@@ -184,7 +186,21 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     drawRanking($("rank"), { game: GAME, levels: RANK_LEVELS, user });
   }
   $("go").onclick = () => start();
-  const show = s => ["setup", "play", "done"].forEach(x => $(x).hidden = x !== s);
+  const show = s => {
+    ["setup", "play", "done"].forEach(x => $(x).hidden = x !== s);
+    document.body.classList.toggle("kw-focus", s === "play" && matchMedia("(max-width:700px)").matches);
+    if (s === "play") fitGrid();
+  };
+  // Grid size on a phone: as wide as the screen allows, but small enough that clue bar + grid stay above the keyboard
+  // (visualViewport is the part not covered by the on-screen keyboard)
+  function fitGrid() {
+    if (!S || $("play").hidden) return;
+    const rows = Math.ceil(S.P.solution.length / S.P.w), vh = window.visualViewport?.height || innerHeight;
+    const room = vh - ($("cur").offsetHeight || 70) - 70;            // 70px: level / word count / clock row and margins
+    const byHeight = Math.max(170, room) * S.P.w / rows;
+    $("cw").style.width = `min(100%, ${S.P.w * 50}px, ${Math.round(byHeight)}px)`;
+  }
+  window.visualViewport?.addEventListener("resize", () => { fitGrid(); keepInView(); });
 
   function start() {
     if (doneToday(level)) return drawSetup();
@@ -234,8 +250,10 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   // Scroll only when the clue bar is hidden under the site header or sits in the lower half (where the phone keyboard opens)
   function keepInView() {
     const bar = $("cur"); if (!bar || !bar.offsetParent) return;
-    const head = document.querySelector(".top")?.getBoundingClientRect().bottom || 0, r = bar.getBoundingClientRect();
-    if (r.top < head || r.top > innerHeight * 0.45) scrollBy({ top: r.top - head - 44, behavior: "smooth" })   // 44px: keeps the level, word count and clock row visible;
+    const top = document.body.classList.contains("kw-focus") ? 0 : document.querySelector(".top")?.getBoundingClientRect().bottom || 0;
+    const vh = window.visualViewport?.height || innerHeight, r = bar.getBoundingClientRect();
+    // 44px: keeps the level, word count and clock row visible above the bar
+    if (r.top < top + 30 || r.top > vh * 0.4) scrollBy({ top: r.top - top - 44, behavior: "smooth" });
   }
 
   function draw() {
@@ -328,7 +346,8 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   }
   // Letters come in through the hidden input (also brings up tablet keyboards)
   $("kbd").addEventListener("input", e => {
-    const ch = e.target.value.toUpperCase().replace(/[^A-Z]/g, "").slice(-1);
+    // Turkish keyboards: with capitals on, "i" gives "İ" (and there is "ı"): both are the Dutch letter I; é/ë -> E
+    const ch = e.target.value.replace(/[İIıi]/g, "I").toUpperCase().normalize("NFD").replace(/[^A-Z]/g, "").slice(-1);
     e.target.value = "";
     if (ch) type(ch);
   });
@@ -345,7 +364,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       const n = S.P.words.length, next = [...Array(n).keys()].map(j => (S.word + 1 + j) % n).find(j => !S.okWords.has(j));
       if (next !== undefined) { S.word = next; S.cell = firstOpen(next); draw(); }
     }
-    else if (document.activeElement !== $("kbd") && /^[a-zA-Z]$/.test(e.key)) { type(e.key.toUpperCase()); focusKbd(); }
+    else if (document.activeElement !== $("kbd") && /^[a-zA-Zİı]$/.test(e.key)) { type(e.key.replace(/[İı]/g, "I").toUpperCase()); focusKbd(); }
   });
   // Hint: fills one letter (the selected cell if wrong/empty, else the first wrong cell of the word, else anywhere)
   // At most 3 hint letters per puzzle: with unlimited hints the daily puzzle (and the ranking) means nothing

@@ -247,7 +247,7 @@ const GAMES = [
   { id: "woordle-nl", title: "Woordle · Hollandaca", load: async box => (await import(`${ROOT}slimspel/woordle/game.js?v=${WDL_V}`)).mountWoordle(box, { lang: "nl", user, profile, api, shareUrl: gameUrl("woordle-nl") }) },
   { id: "dehet", title: "de / het", load: async box => (await import("./oyunlar/dehet.js?v=4")).mountDeHet(box, { user, profile, api, shareUrl: gameUrl("dehet") }) },
   { id: "werkwoorden", title: "Düzensiz fiiller", load: async box => (await import("./oyunlar/werkwoorden.js?v=6")).mountWerkwoorden(box, { user, profile, api, shareUrl: gameUrl("werkwoorden") }) },
-  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=9")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
+  { id: "kruiswoord", title: "NT2 Bulmaca", load: async box => (await import("./oyunlar/kruiswoord.js?v=10")).mountKruiswoord(box, { user, profile, api, shareUrl: gameUrl("kruiswoord") }) },
   { id: "verbanden", title: "Bağlantılar", load: async box => (await import("./oyunlar/verbanden.js?v=6")).mountVerbanden(box, { user, profile, api, shareUrl: gameUrl("verbanden") }) },
   // Fixed prepositions (denken aan …) and er + preposition (erop, eraan …): one module, two games
   { id: "voorzetsels", title: "Edatlar", load: async box => (await import("./oyunlar/voorzetsels.js?v=5")).mountVoorzetsels(box, { game: "voorzetsels", user, profile, api, shareUrl: gameUrl("voorzetsels") }) },
