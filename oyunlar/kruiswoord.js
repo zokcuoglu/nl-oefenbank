@@ -11,9 +11,9 @@ const GAME = "kruiswoord", MODULE = "oyun-kruiswoord";
 // niv = which word levels may be used; count = words, maxLen = longest word, size = build space (cropped after)
 // WARNING: changing these (or kruiswoord-nt2.json) changes the daily puzzles: only do it between days.
 const LEVELS = {
-  a1: { title: "A1", info: "6 kelime, kolay (A0–A1).", niv: ["A0", "A1"], cfg: { count: 6, maxLen: 7, size: 10 } },
-  a2: { title: "A2", info: "7 kelime (A1–A2).", niv: ["A1", "A2"], cfg: { count: 7, maxLen: 8, size: 11 } },
-  b1: { title: "B1", info: "8 kelime, daha uzun (A2–B1).", niv: ["A2", "B1"], cfg: { count: 8, maxLen: 9, size: 12 } }
+  a1: { title: "A1", info: "6 kelime, kolay (A0–A1). 2 ipucu.", niv: ["A0", "A1"], hints: 2, cfg: { count: 6, maxLen: 7, size: 10 } },
+  a2: { title: "A2", info: "7 kelime (A1–A2). 3 ipucu.", niv: ["A1", "A2"], hints: 3, cfg: { count: 7, maxLen: 8, size: 11 } },
+  b1: { title: "B1", info: "8 kelime, daha uzun (A2–B1). 5 ipucu.", niv: ["A2", "B1"], hints: 5, cfg: { count: 8, maxLen: 9, size: 12 } }
 };
 const RANK_LEVELS = Object.fromEntries(Object.entries(LEVELS).map(([k, v]) => [k, v.title]));
 
@@ -59,6 +59,8 @@ body.kw-focus .kw .curwrap{position:sticky;top:0;z-index:3;padding-top:4px;backg
 .kw .cur{display:flex;align-items:center;gap:6px;margin:0 auto 8px;max-width:calc(var(--w,7) * 50px);background:color-mix(in srgb,var(--og-accent) 14%,var(--og-card));border:1px solid var(--og-accent);border-radius:10px;padding:6px}
 .kw .cur .ct{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;font-size:15px;line-height:1.3}
 .kw .cur .ct b{font-size:15px}
+.kw .cur .navs{display:flex;flex-direction:column;gap:4px}
+.kw .cur .hint2{font-size:13px;height:32px}
 .kw .cur .nav{flex:none;width:42px;height:42px;border-radius:8px;border:1px solid var(--og-line);background:var(--og-card);color:var(--og-ink);font-size:18px;cursor:pointer}
 .kw .todaypan{margin-top:18px}
 .kw .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:10px 0 0}`;
@@ -204,7 +206,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     const floor = S.P.w * 34 + (S.P.w - 1) * 3;
     $("cw").style.width = `min(100%, ${S.P.w * 50}px, ${Math.round(Math.max(floor, byHeight))}px)`;
   }
-  window.visualViewport?.addEventListener("resize", () => { fitGrid(); keepInView(); });
+  window.visualViewport?.addEventListener("resize", fitGrid);   // no scrolling here: iOS also resizes while the user scrolls
 
   function start() {
     if (doneToday(level)) return drawSetup();
@@ -286,7 +288,8 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     });
     $("count").textContent = `${S.okWords.size} / ${S.P.words.length} kelime`;
     drawCur();
-    if (document.body.classList.contains("kw-focus")) keepInView();   // phone: follow the cursor while typing
+    if (S.follow && document.body.classList.contains("kw-focus")) keepInView();   // phone: follow the cursor, only after typing
+    S.follow = false;
   }
   // Bar above the grid: the clue of the word being typed (same text as in the list) and buttons to the previous/next open word
   function drawCur() {
@@ -294,8 +297,9 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     $("cur").style.setProperty("--w", S.P.w);
     $("cur").innerHTML = `<button class="nav" data-r="prevW" aria-label="önceki kelime">‹</button>
       <span class="ct"><b>${x.num} ${x.dir === "H" ? "→" : "↓"} ${esc(x.c)} <span class="len">(${x.w.length})</span></b>${ex?.z ? `<span class="zin" lang="nl"><i>${esc(ex.z)}</i></span>` : ""}${ex?.zt ? `<span class="zt">${esc(ex.zt)}</span>` : ""}</span>
-      <button class="nav" data-r="nextW" aria-label="sonraki kelime">›</button>`;
-    $("prevW").onclick = () => stepWord(-1); $("nextW").onclick = () => stepWord(1);
+      <span class="navs"><button class="nav" data-r="nextW" aria-label="sonraki kelime">›</button><button class="nav hint2" data-r="hint2" aria-label="ipucu harf"></button></span>`;
+    $("prevW").onclick = () => stepWord(-1); $("nextW").onclick = () => stepWord(1); $("hint2").onclick = () => $("hint").click();
+    hintLabel();
   }
   // Next/previous word that is not found yet (wraps around); all found: just the next one
   function stepWord(d) {
@@ -308,6 +312,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   const locked = i => S.hinted.has(i) || [...S.okWords].some(k => S.P.words[k].cells.includes(i));
   function type(ch) {
     if (!S || S.done) return;
+    S.follow = true;
     const cells = S.P.words[S.word].cells;
     let pos = cells.indexOf(S.cell);
     // Typing on a locked cell writes into the next open cell of the word instead
@@ -321,6 +326,7 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
   }
   function backspace() {
     if (!S || S.done) return;
+    S.follow = true;
     const cells = S.P.words[S.word].cells;
     let pos = cells.indexOf(S.cell);
     // Empty or locked cell: step back to the previous cell that can still be erased
@@ -380,15 +386,17 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     else if (document.activeElement !== $("kbd") && /^[a-zA-Zİı]$/.test(e.key)) { type(e.key.replace(/[İı]/g, "I").toUpperCase()); focusKbd(); }
   });
   // Hint: fills one letter (the selected cell if wrong/empty, else the first wrong cell of the word, else anywhere)
-  // At most 3 hint letters per puzzle: with unlimited hints the daily puzzle (and the ranking) means nothing
-  const MAX_HINTS = 3;
+  // Hint letters per puzzle depend on the level (A1 2, A2 3, B1 5): with unlimited hints the daily puzzle (and the ranking) means nothing
+  const maxHints = () => LEVELS[S.level].hints;
   function hintLabel() {
-    const left = Math.max(0, MAX_HINTS - S.hinted.size);
+    const left = Math.max(0, maxHints() - S.hinted.size);
     $("hint").textContent = `İpucu (${left} kaldı)`;
     $("hint").disabled = left === 0;
+    const h2 = $("hint2"); if (h2) { h2.textContent = `💡 ${left}`; h2.disabled = left === 0; }   // copy in the clue bar
   }
   $("hint").onclick = () => {
-    if (!S || S.done || S.hinted.size >= MAX_HINTS) return;
+    if (!S || S.done || S.hinted.size >= maxHints()) return;
+    S.follow = true;
     const wrong = i => S.grid[i] !== S.P.solution[i];
     let i = wrong(S.cell) ? S.cell : S.P.words[S.word].cells.find(wrong);
     if (i === undefined) i = S.P.solution.findIndex((ch, j) => ch && wrong(j));
