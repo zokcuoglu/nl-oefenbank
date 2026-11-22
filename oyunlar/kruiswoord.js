@@ -51,6 +51,10 @@ const CSS = `
 .kw .list li{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:8px;background:var(--og-sunk)}
 .kw .sq.miss{background:var(--og-bad-soft);color:var(--og-bad);border-color:var(--og-bad)}
 .kw .cw.ro .sq.on{cursor:default}
+.kw .cur{display:flex;align-items:center;gap:6px;margin:0 auto 8px;max-width:calc(var(--w,7) * 50px);background:color-mix(in srgb,var(--og-accent) 14%,var(--og-card));border:1px solid var(--og-accent);border-radius:10px;padding:6px}
+.kw .cur .ct{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;font-size:15px;line-height:1.3}
+.kw .cur .ct b{font-size:15px}
+.kw .cur .nav{flex:none;width:42px;height:42px;border-radius:8px;border:1px solid var(--og-line);background:var(--og-card);color:var(--og-ink);font-size:18px;cursor:pointer}
 .kw .todaypan{margin-top:18px}
 .kw .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:10px 0 0}`;
 
@@ -74,14 +78,14 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     <section data-r="play" hidden>
       <div class="bar"><span class="pill" data-r="what"></span><span class="pill" data-r="count"></span><span class="pill" data-r="clock">0:00</span></div>
       <div class="game">
-        <div><div class="cw" data-r="cw"></div></div>
+        <div><div class="cur" data-r="cur"></div><div class="cw" data-r="cw"></div></div>
         <div class="clues">
           <h3>Yatay →</h3><ol data-r="cluesH"></ol>
           <h3>Dikey ↓</h3><ol data-r="cluesV"></ol>
           <div class="tools"><button class="bt" data-r="hint">İpucu</button><button class="bt" data-r="giveup">Bitir, cevapları göster</button><button class="bt" data-r="stop">← Geri</button></div>
         </div>
       </div>
-      <input class="kbd" data-r="kbd" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="harf yaz">
+      <input class="kbd" data-r="kbd" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" lang="nl" aria-label="harf yaz">
     </section>
     <section data-r="done" hidden>
       <div class="pan">
@@ -226,7 +230,13 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
     else if (!ws.includes(S.word)) S.word = ws[0];
     S.cell = i; draw(); focusKbd();
   }
-  const focusKbd = () => $("kbd").focus({ preventScroll: true });
+  const focusKbd = () => { $("kbd").focus({ preventScroll: true }); keepInView(); };
+  // Scroll only when the clue bar is hidden under the site header or sits in the lower half (where the phone keyboard opens)
+  function keepInView() {
+    const bar = $("cur"); if (!bar || !bar.offsetParent) return;
+    const head = document.querySelector(".top")?.getBoundingClientRect().bottom || 0, r = bar.getBoundingClientRect();
+    if (r.top < head || r.top > innerHeight * 0.45) scrollBy({ top: r.top - head - 44, behavior: "smooth" })   // 44px: keeps the level, word count and clock row visible;
+  }
 
   function draw() {
     const active = new Set(S.P.words[S.word].cells);
@@ -245,6 +255,22 @@ export async function mountKruiswoord(root, { user, profile, api, shareUrl = loc
       el.classList.toggle("done", S.okWords.has(k));
     });
     $("count").textContent = `${S.okWords.size} / ${S.P.words.length} kelime`;
+    drawCur();
+  }
+  // Bar above the grid: the clue of the word being typed (same text as in the list) and buttons to the previous/next open word
+  function drawCur() {
+    const x = S.P.words[S.word], ex = sentenceOf(x);
+    $("cur").style.setProperty("--w", S.P.w);
+    $("cur").innerHTML = `<button class="nav" data-r="prevW" aria-label="önceki kelime">‹</button>
+      <span class="ct"><b>${x.num} ${x.dir === "H" ? "→" : "↓"} ${esc(x.c)} <span class="len">(${x.w.length})</span></b>${ex?.z ? `<span class="zin" lang="nl"><i>${esc(ex.z)}</i></span>` : ""}${ex?.zt ? `<span class="zt">${esc(ex.zt)}</span>` : ""}</span>
+      <button class="nav" data-r="nextW" aria-label="sonraki kelime">›</button>`;
+    $("prevW").onclick = () => stepWord(-1); $("nextW").onclick = () => stepWord(1);
+  }
+  // Next/previous word that is not found yet (wraps around); all found: just the next one
+  function stepWord(d) {
+    const n = S.P.words.length;
+    for (let j = 1; j <= n; j++) { const k = (S.word + d * j + n * n) % n; if (!S.okWords.has(k) || j === n) { S.word = k; break; } }
+    S.cell = firstOpen(S.word); draw(); focusKbd();
   }
 
   // A cell is locked once it is green (part of a found word) or was given as a hint: it can no longer be changed or erased
