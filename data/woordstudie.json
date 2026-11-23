@@ -1,5 +1,5 @@
 {
- "_about": "Weekly word studies (woordstudie/). Each word: meaning, how the word is built (opbouw), its history (geschiedenis), relatives in other languages (verwant), words from the same family (familie), example sentences, a grammar note, a 'weetje' and 5 questions; optional 'keten' (the chain of meanings, shown as steps) and 'anders' (a word spelled the same that is a different word) (mc: opties + juist index; type: antwoorden). 'datum' = the Tuesday it is published and mailed (scripts/mailer.py job 'woord'); members see a word from that day, admins always. Sources are listed per word in 'bronnen'; only add etymology that a source confirms.",
+ "_about": "Weekly word studies (woordstudie/). Each word: meaning, how the word is built (opbouw), its history (geschiedenis), relatives in other languages (verwant), words from the same family (familie), example sentences, a grammar note, a 'weetje' and 5 questions; optional 'keten' (the chain of meanings, shown as steps) and 'anders' (a word spelled the same that is a different word) (mc: opties + juist index; type: antwoorden). 'datum' = the Tuesday it is published and mailed (scripts/mailer.py job 'woord'); members see a word from that day, admins always. Sources are listed per word in 'bronnen'; only add etymology that a source confirms. Optional 'schaal' = {titel, uitleg, laag, hoog, treden: [{sterkte 1-5, nl, tr, waar}]}: an intensity scale for a family of expressions.",
  "woorden": [
   {
    "id": "schaal",
@@ -8042,6 +8042,246 @@
     "F.A. Stoett, Nederlandsche spreekwoorden, spreekwijzen, uitdrukkingen en gezegden, nr. 2587 (wind van voren) ve 2591 (voor de wind gaan) – dbnl.org",
     "sublearn.com: de wind van voren krijgen (ilgili deyimler)",
     "Dutch Language Blog (transparent.com): Windy sayings"
+   ]
+  },
+  {
+   "id": "genoeg-van",
+   "soort": "deyim",
+   "datum": "2027-02-23",
+   "woord": "er genoeg van hebben",
+   "lidwoord": "",
+   "niveau": "B1",
+   "thema": "werk",
+   "tr": "bıkmak, artık yeter demek",
+   "definitie": "Iets niet langer willen verdragen of doen.",
+   "kort": "Bir şeyden bıkmak, artık istememek. Hollandacada bunun hafiften çok serte kadar bir sürü yolu var; hangisini seçtiğin, ne kadar sinirli olduğunu ve kiminle konuştuğunu gösterir.",
+   "schaal": {
+    "titel": "Bıkkınlık termometresi",
+    "uitleg": "Yukarıdan aşağı ifade sertleşiyor. Etiket, nerede rahatça kullanabileceğini gösteriyor.",
+    "laag": "hafif",
+    "hoog": "çok sert",
+    "treden": [
+     {
+      "sterkte": 1,
+      "nl": "iets moe zijn",
+      "tr": "bir şeyden yorulmak, bıkmaya başlamak",
+      "waar": "her yerde"
+     },
+     {
+      "sterkte": 1,
+      "nl": "er genoeg van krijgen",
+      "tr": "bıkmaya başlamak",
+      "waar": "her yerde"
+     },
+     {
+      "sterkte": 2,
+      "nl": "er genoeg van hebben",
+      "tr": "bıkmak, yeter demek",
+      "waar": "iş maili de olur"
+     },
+     {
+      "sterkte": 2,
+      "nl": "het beu zijn",
+      "tr": "bıkmak (Belçika'da çok yaygın)",
+      "waar": "her yerde"
+     },
+     {
+      "sterkte": 3,
+      "nl": "er schoon genoeg van hebben",
+      "tr": "artık gına gelmek",
+      "waar": "konuşmada"
+     },
+     {
+      "sterkte": 3,
+      "nl": "balen (van)",
+      "tr": "canı sıkılmak, bıkmak",
+      "waar": "arkadaşla"
+     },
+     {
+      "sterkte": 3,
+      "nl": "er klaar mee zijn",
+      "tr": "artık yeter, işim bitti",
+      "waar": "arkadaşla"
+     },
+     {
+      "sterkte": 4,
+      "nl": "het zat zijn",
+      "tr": "bıkmak, usanmak",
+      "waar": "arkadaşla"
+     },
+     {
+      "sterkte": 4,
+      "nl": "er de buik vol van hebben",
+      "tr": "karnı tok olmak, bıkmak",
+      "waar": "arkadaşla"
+     },
+     {
+      "sterkte": 4,
+      "nl": "het komt me de keel uit",
+      "tr": "boğazıma kadar geldi",
+      "waar": "arkadaşla"
+     },
+     {
+      "sterkte": 5,
+      "nl": "het spuugzat zijn",
+      "tr": "kusacak kadar bıkmak",
+      "waar": "sadece samimi"
+     },
+     {
+      "sterkte": 5,
+      "nl": "de maat is vol",
+      "tr": "sabrım taştı, buraya kadar",
+      "waar": "ciddi bir uyarı"
+     }
+    ]
+   },
+   "opbouw": [
+    {
+     "deel": "er … van",
+     "uitleg": "ondan, bundan (konu daha önce söylendi)"
+    },
+    {
+     "deel": "genoeg",
+     "uitleg": "yeterince, yeter"
+    },
+    {
+     "deel": "hebben",
+     "uitleg": "sahip olmak: “ondan yeterince var bende” → artık istemiyorum"
+    }
+   ],
+   "geschiedenis": [
+    "balen: Onze Taal'a göre fiil “ergens balen tabak van hebben” deyiminden geliyor. Güçlendirmesi “balen als een stekker”, daha eski biçimi “balen als een stier”.",
+    "er de buik vol van hebben: Stoett'e göre 17. yüzyıldan beri kullanılıyor; “er de maag vol van hebben” biçimi de var. Yemek resmi: midem doldu, daha fazlası girmez.",
+    "het komt me de keel uit: aynı sözlükte bu ailenin bir parçası olarak geçiyor. Resim yine yemek: boğazıma kadar doldum.",
+    "spuugzat: spugen (tükürmek, kusmak) + zat (tok, doymuş). Kusacak kadar doymak."
+   ],
+   "familie": [
+    {
+     "nl": "de druppel die de emmer doet overlopen",
+     "tr": "bardağı taşıran son damla"
+    },
+    {
+     "nl": "de maat is vol",
+     "tr": "sabrım taştı"
+    },
+    {
+     "nl": "iets zo beu zijn als koude pap",
+     "tr": "bir şeyden iyice bıkmak (Belçika)"
+    },
+    {
+     "nl": "balen als een stekker",
+     "tr": "çok canı sıkılmak"
+    },
+    {
+     "nl": "er genoeg van krijgen",
+     "tr": "bıkmaya başlamak (almak dersine bak: krijgen = başlıyor)"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Ik heb er genoeg van dat de trein steeds te laat is.",
+     "tr": "Trenin sürekli geç kalmasından bıktım."
+    },
+    {
+     "nl": "Na drie weken regen had iedereen er schoon genoeg van.",
+     "tr": "Üç haftalık yağmurdan sonra herkese gına gelmişti."
+    },
+    {
+     "nl": "Ik baal ervan dat ik het examen niet heb gehaald.",
+     "tr": "Sınavı geçemediğim için canım çok sıkkın."
+    },
+    {
+     "nl": "Ik ben dat gezeur echt zat.",
+     "tr": "O sızlanmalardan gerçekten bıktım."
+    },
+    {
+     "nl": "Dit was de druppel die de emmer deed overlopen.",
+     "tr": "Bu bardağı taşıran son damla oldu."
+    }
+   ],
+   "gramer": {
+    "titel": "er … van, yoksa van + isim?",
+    "tekst": "Neyden bıktığını söylersen “er” düşer: Ik heb genoeg van dat lawaai. Konu belliyse “er … van” kullanılır ve araya başka kelimeler girer: Ik heb er genoeg van. Vurgulamak için “daar … van”: Daar heb ik genoeg van! Bir cümleyle: Ik heb er genoeg van dat … (er … van + dat-cümlesi). Ayrılabilir fiillerde de aynı: Ik baal ervan.",
+    "voorbeelden": [
+     {
+      "nl": "Ik heb genoeg van dat lawaai.",
+      "tr": "O gürültüden bıktım."
+     },
+     {
+      "nl": "Ik heb er genoeg van.",
+      "tr": "Bundan bıktım."
+     },
+     {
+      "nl": "Daar heb ik genoeg van!",
+      "tr": "Ben bundan bıktım!"
+     }
+    ]
+   },
+   "weetje": "İş yerinde biri “Ik ben er klaar mee” derse durum ciddidir: artık o konuyla uğraşmak istemiyor. Resmî bir yazıda ise sert ifadeler yerine “Ik ben hier niet tevreden over” (bundan memnun değilim) gibi nötr cümleler tercih edilir.",
+   "vragen": [
+    {
+     "id": "dy-gv1",
+     "type": "mc",
+     "vraag": "Hangisi en sert?",
+     "opties": [
+      "er genoeg van hebben",
+      "het spuugzat zijn",
+      "iets moe zijn"
+     ],
+     "juist": 1,
+     "uitleg": "spuugzat = kusacak kadar bıkmak."
+    },
+    {
+     "id": "dy-gv2",
+     "type": "mc",
+     "vraag": "İşverene yazdığın bir mailde hangisi uygun?",
+     "opties": [
+      "Ik ben het spuugzat.",
+      "Het komt me de keel uit.",
+      "Ik heb er genoeg van dat de planning steeds verandert."
+     ],
+     "juist": 2,
+     "uitleg": "er genoeg van hebben nötr; diğerleri çok samimi."
+    },
+    {
+     "id": "dy-gv3",
+     "type": "mc",
+     "vraag": "“er genoeg van krijgen” ile “er genoeg van hebben” farkı?",
+     "opties": [
+      "Fark yok",
+      "krijgen = bıkmaya başlamak, hebben = bıkmış olmak",
+      "krijgen daha kaba"
+     ],
+     "juist": 1,
+     "uitleg": "krijgen bir durumun başlamasını anlatır (honger krijgen gibi)."
+    },
+    {
+     "id": "dy-gv4",
+     "type": "mc",
+     "vraag": "“de druppel die de emmer doet overlopen” ne demek?",
+     "opties": [
+      "Bardağı taşıran son damla",
+      "Damlaya damlaya göl olur",
+      "Yağmur yağacak"
+     ],
+     "juist": 0,
+     "uitleg": "Zaten dolu olan sabrı taşıran son küçük olay."
+    },
+    {
+     "id": "dy-gv5",
+     "type": "type",
+     "tr": "O gürültüden bıktım.",
+     "antwoorden": [
+      "Ik heb genoeg van dat lawaai",
+      "Ik ben dat lawaai zat",
+      "Ik heb genoeg van die herrie"
+     ],
+     "uitleg": "İsimle: genoeg van + isim (er yok)."
+    }
+   ],
+   "bronnen": [
+    "Onze Taal: Wat betekent balen als een stekker en waar komt deze uitdrukking vandaan? – onzetaal.nl",
+    "F.A. Stoett, Nederlandsche spreekwoorden, spreekwijzen, uitdrukkingen en gezegden – dbnl.org (de keel uit / den buik vol hebben)"
    ]
   }
  ]
