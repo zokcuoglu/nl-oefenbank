@@ -36,6 +36,15 @@ ol.story{margin:10px 0 0;padding-left:22px;max-width:70ch} ol.story li{margin:4p
 .typed{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 .fb{margin-top:12px;padding:12px 14px;border-radius:8px;font-size:15px}
 .fb.good{background:var(--ok-soft)} .fb.wrong{background:var(--bad-soft)}
+/* intensity scale: one row per expression, bar length = strength, tag = where you can use it */
+.scale{display:grid;gap:8px;margin-top:12px;max-width:720px}
+.scale .row{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center}
+.scale .deg{font-family:var(--display);font-weight:700;font-size:15px;text-align:center;border-radius:8px;padding:6px 0;color:#fff;background:var(--c)}
+.scale .body{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);position:relative;overflow:hidden}
+.scale .bar{position:absolute;left:0;bottom:0;height:4px;background:var(--c);width:var(--w)}
+.scale .body b{font-size:16px} .scale .body .t{color:var(--muted);font-size:13.5px}
+.scale .tag{display:inline-block;margin-left:6px;font-size:11.5px;padding:1px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);vertical-align:2px}
+.scale .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-left:54px}
 </style>
 <script>
 // Watchdog: explain on screen when the login module cannot load (network block)
@@ -200,6 +209,12 @@ function renderWord() {
       <p class="muted" style="margin:6px 0 0;max-width:68ch">Aynı kalıp, cümleye göre farklı anlamlar:</p>
       ${w.betekenissen.map((b, i) => `<div class="anders" style="margin-top:10px"><h3 style="margin:0 0 6px">${i + 1}. ${esc(b.titel)}</h3>
         <p style="margin:0;max-width:68ch">${esc(b.tekst)}</p>${exList(b.voorbeelden)}</div>`).join("")}</section>` : ""}
+    ${w.schaal ? `<section class="panel"><span class="eyebrow">${esc(w.schaal.titel)}</span>
+      <p class="muted" style="margin:6px 0 0;max-width:68ch">${esc(w.schaal.uitleg)}</p>
+      <div class="scale"><div class="ends"><span>${esc(w.schaal.laag || "")}</span><span>${esc(w.schaal.hoog || "")}</span></div>
+      ${w.schaal.treden.map(t => { const c = t.sterkte <= 2 ? "var(--ok)" : t.sterkte === 3 ? "var(--blue)" : t.sterkte === 4 ? "var(--warn)" : "var(--bad)";
+        return `<div class="row" style="--c:${c};--w:${t.sterkte * 20}%"><div class="deg">${"🌡".repeat(1)}${t.sterkte}</div>
+        <div class="body"><b lang="nl">${esc(t.nl)}</b><span class="tag">${esc(t.waar)}</span><div class="t">${esc(t.tr)}</div><div class="bar"></div></div></div>`; }).join("")}</div></section>` : ""}
     ${w.opbouw ? `<section class="panel"><span class="eyebrow">${L.opbouw}</span>
       <div class="parts">${w.opbouw.map(p => `<div class="part"><b lang="nl">${esc(p.deel)}</b>${esc(p.uitleg)}</div>`).join("")}</div></section>` : ""}
     ${w.geschiedenis ? `<section class="panel"><span class="eyebrow">Kökeni</span>
