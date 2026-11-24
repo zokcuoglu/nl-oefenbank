@@ -1,0 +1,37 @@
+# Keeps every generated file current (see scripts/build_all.py).
+# Why: a change in one source (a news item, a lesson, a word) also changes word pages, game tags and the
+# counters of docs/bekleme_listesi.md. This job rebuilds everything after each push to main and commits the
+# result, so nothing stays stale even when a builder was forgotten. A failing builder makes the job red.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: build
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # needed to push the rebuilt files
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Rebuild generated files
+        run: python scripts/build_all.py
+      - name: Commit changes (if any)
+        # The commit made here is pushed with GITHUB_TOKEN, which does not start this workflow again (no loop)
+        run: |
+          if git diff --quiet; then echo "nothing changed"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Rebuild generated files (scripts/build_all.py)"
+          git push

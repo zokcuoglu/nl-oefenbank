@@ -121,7 +121,7 @@ het kaartje | zn | (hier) bewijs dat je mag binnenkomen | Een kaartje kost tien 
 de schuld | zn | geld dat je nog moet betalen | Hij heeft een schuld bij de bank. | borç | A2 | 6
 de bezoeker | zn | iemand die ergens op bezoek komt | Het museum had veel bezoekers. | ziyaretçi | A2 | 5
 opvangen | sch ww | (dieren of mensen) tijdelijk onderdak en zorg geven | Het centrum vangt jonge zeehonden op. | bakımını üstlenmek, barındırmak | B1 | 6
-verzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakmak | B1 | 5
+verzorgen | ww | zorgen voor iemand die hulp nodig heeft | De dierenarts verzorgt de zeehond. | bakımını yapmak, ilgilenmek (hasta, hayvan) | B1 | 5
 het onderzoek | zn | goed kijken en testen om iets te weten te komen | Wetenschappelijk onderzoek kost veel geld. | araştırma | B1 | 6
 schenken | ww | (geld) geven zonder iets terug te vragen | Ze schenkt elk jaar geld aan het goede doel. | bağışlamak | B1 | 7
 verwachten | ww | denken dat iets gaat gebeuren | Het was duurder dan verwacht. | beklemek | B1 | 6

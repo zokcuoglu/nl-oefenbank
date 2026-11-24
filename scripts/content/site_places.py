@@ -98,6 +98,27 @@ def all_places():
     P.append(place("Lezen woordenlijst", "lezen/", "lezen", load("data/lezen-bank.json")))
     return P
 
+_TR = None
+def zin_tr(z):
+    """Turkish translation of a Dutch sentence of the site, or "".
+    Why: a translation written once (zinnen_tr.json, or a {nl, tr} pair in a lesson, word study ...) must be
+    used everywhere the sentence appears, so no word page or game tag shows the sentence without Turkish."""
+    global _TR
+    if _TR is None:
+        _TR = {}
+        def walk(x):   # every dict with a Dutch sentence and its Turkish, in any data file
+            if isinstance(x, dict):
+                if isinstance(x.get("nl"), str) and isinstance(x.get("tr"), str) and x["tr"]:
+                    _TR.setdefault(x["nl"].strip(), x["tr"])
+                for y in x.values(): walk(y)
+            elif isinstance(x, list):
+                for y in x: walk(y)
+        for f in ("dersler.json", "woordstudie.json"):
+            walk(load(f"data/{f}"))
+        # hand-made translations win over pairs found in the data
+        _TR.update(json.loads((ROOT / "scripts/content/zinnen_tr.json").read_text(encoding="utf-8")))
+    return _TR.get(z.strip(), "")
+
 def match_in(p, rx):
     """The first sentence of place p that matches regex rx (None if the word only occurs outside sentences)."""
     return next((z for z in p["zinnen"] if rx.search(z)), None)

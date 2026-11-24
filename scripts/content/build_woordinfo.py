@@ -92,8 +92,7 @@ for f in sorted((Path(__file__).resolve().parent / "anlamlar").glob("*.json")):
         assert k not in HAND, f"{f.name}: {k} is already in another file"
         assert v.get("kort") and v.get("anlamlar"), f"{f.name}: {k} needs kort and anlamlar"
         HAND[k] = v
-ZIN_TR = json.loads((Path(__file__).resolve().parent / "zinnen_tr.json").read_text(encoding="utf-8"))
-zin_tr = lambda z: ZIN_TR.get(z, "")
+from site_places import zin_tr   # shared lookup: zinnen_tr.json + {nl, tr} pairs in lessons / word study
 
 # ---------- 4. One info block per word ----------
 info = {}
