@@ -2033,7 +2033,14 @@
      "tr": "Tatilinin tadını çıkar!"
     }
    ],
-   "tags": []
+   "tags": [
+    {
+     "t": "Ders · Hollandacada “almak”: nemen, pakken, krijgen, halen …",
+     "href": "dersler/?les=almak",
+     "z": "We hebben genoten van de vakantie.",
+     "zt": "Tatilden çok keyif aldık."
+    }
+   ]
   },
   "vragen om": {
    "tr": "istemek, talep etmek",
