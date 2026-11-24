@@ -16,6 +16,7 @@ Everything here is plain data in -> text/HTML out (no Firestore), so it can be t
 import datetime as dt
 import html as _html
 import json
+from urllib.parse import quote as _q
 import random
 import re
 from collections import defaultdict
@@ -182,6 +183,35 @@ def official_block(rounds, M, when):
     return plain, html
 
 
+_SK = None
+SK_PER_MAIL = 5
+SK_START = dt.date(2026, 11, 24)   # the list starts with its most frequent words from this day on
+
+
+def exam_words_block(today, slot, M):
+    """(plain lines, html): 5 of the B1+ words that come up most in the official exams 2023-2025
+    (data/sinav-kelimeleri.json, most frequent first). Every mail (morning = slot 0, evening = 1) takes the next 5."""
+    global _SK
+    if _SK is None:
+        _SK = json.loads((ROOT / "data" / "sinav-kelimeleri.json").read_text(encoding="utf-8"))["woorden"]
+    n = len(_SK)
+    k = max(0, (today - SK_START).days * 2 + slot - 1)    # evening mail of SK_START = first 5 words
+    start = (k * SK_PER_MAIL) % n
+    ws = [_SK[(start + i) % n] for i in range(SK_PER_MAIL)]
+    page = SITE + "lezen/sinav-kelimeleri.html"
+    href = lambda w: SITE + "kelime/?w=" + _q(re.sub(r"^(de|het|een)\s+", "", w["nl"].lower()).strip())
+    plain = ["", "SINAVDA EN ÇOK ÇIKAN KELİMELER (2023-2025, B1+)"] + \
+            [f"  {w['nl']} – {w['tr']} ({w['y']}/3 yıl, {w['n']} kez)" for w in ws] + [f"  Hepsi: {page}"]
+    rows = "".join(f'<tr><td style="padding:3px 10px 3px 0;font-weight:700" lang="nl"><a href="{href(w)}" style="color:{M.C["ink"]};text-decoration:none">{esc(w["nl"])}</a></td>'
+                   f'<td style="padding:3px 10px 3px 0">{esc(w["tr"])}</td>'
+                   f'<td style="padding:3px 0;color:{M.C["muted"]};font-size:13px;white-space:nowrap">{"●" * w["y"]}{"○" * (3 - w["y"])} {w["n"]}×</td></tr>' for w in ws)
+    html = (f'<div style="border:1px solid {M.C["line"]};border-radius:10px;padding:12px 14px;margin:16px 0">'
+            f'<b>Sınavda en çok çıkan kelimeler</b> <span style="color:{M.C["muted"]};font-size:13px">(resmî sınavlar 2023–2025, B1+; ●●● = 3 yılın üçünde de)</span>'
+            f'<table style="border-collapse:collapse;margin-top:6px">{rows}</table>'
+            f'<a href="{page}" style="color:{M.C["blue"]};font-size:14px">Bütün liste ve konular →</a></div>')
+    return plain, html
+
+
 def wrong_answers(attempts, sets):
     """Wrong answers of Lezen rounds, newest round first; one row per question (the last wrong try counts)."""
     rows, seen = [], set()
@@ -321,8 +351,9 @@ def morning_mail(u, wrong, today, exam, pc, M, rounds=()):
     inner += (f'<div style="background:{M.C["blue_soft"]};border-radius:10px;padding:12px 14px;margin:18px 0">'
               f'<b>Günün ipucu: {esc(title)}</b><br>{esc(tip)}</div>')
     op, oh = official_block(rounds, M, "bugün")
-    plain[-3:-3] = op
-    inner += oh
+    wp, wh = exam_words_block(today, 0, M)
+    plain[-3:-3] = op + wp
+    inner += oh + wh
     plain += [pc["kop"], plain_text(pc["body"])] + [f"{k}. {v['vraag']}\n" + "\n".join(f"   {'ABCD'[i]}. {o}" for i, o in enumerate(v["opties"]))
                                                        for k, v in enumerate(pc["vragen"], 1)]
     inner += piece_html(pc, M)
@@ -371,8 +402,9 @@ def evening_mail(u, today_att, all_att, today, exam, pc, sets, M):
     inner += _p(f'<b>Yarın şunu çöz:</b> <a href="{link}" style="color:{M.C["blue"]}" lang="nl">{esc(t["titel"])}</a>'
                 + (f' <span style="color:{M.C["muted"]}">({why} metin)</span>' if why else ""))
     op, oh = official_block(all_att, M, "yarın")
-    plain += op
-    inner += oh
+    wp, wh = exam_words_block(today, 1, M)
+    plain += op + wp
+    inner += oh + wh
     plain += ["", "OKUMA PARÇASI", pc["tekst"]["titel"], pc["kop"], plain_text(pc["body"])] + \
              [f"{k}. {v['vraag']}\n" + "\n".join(f"   {'ABCD'[i]}. {o}" for i, o in enumerate(v["opties"])) for k, v in enumerate(pc["vragen"], 1)]
     inner += piece_html(pc, M)

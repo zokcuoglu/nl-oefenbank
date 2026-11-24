@@ -27,6 +27,12 @@
 "niveau": "B1"
 },
 {
+"id": "k601",
+"nl": "de organisatie",
+"tr": "kuruluş, organizasyon",
+"niveau": "B1"
+},
+{
 "id": "k381",
 "nl": "de regio",
 "tr": "bölge",
@@ -39,6 +45,12 @@
 "niveau": "B1"
 },
 {
+"id": "k642",
+"nl": "het doel",
+"tr": "amaç, hedef; kale (futbol)",
+"niveau": "B1"
+},
+{
 "id": "n-doosjes-w11",
 "nl": "het vel",
 "tr": "tabaka",
@@ -48,6 +60,12 @@
 "id": "w069",
 "nl": "hoor",
 "tr": "(cümle sonunda) yumuşatıcı/rahatlatıcı söz",
+"niveau": "B1"
+},
+{
+"id": "k568",
+"nl": "informeren",
+"tr": "bilgilendirmek",
 "niveau": "B1"
 },
 {
@@ -78,6 +96,12 @@
 "id": "k384",
 "nl": "ruim",
 "tr": "geniş; bol",
+"niveau": "B1"
+},
+{
+"id": "k657",
+"nl": "vast",
+"tr": "sabit, kalıcı; kesin",
 "niveau": "B1"
 },
 {
@@ -117,6 +141,12 @@
 "niveau": "A2"
 },
 {
+"id": "k645",
+"nl": "de schrijver",
+"tr": "yazar",
+"niveau": "A2"
+},
+{
 "id": "k057",
 "nl": "het contact",
 "tr": "iletişim, temas",
@@ -150,36 +180,6 @@
 "id": "k328",
 "nl": "kennismaken",
 "tr": "tanışmak",
-"niveau": "A2"
-},
-{
-"id": "k352",
-"nl": "meteen",
-"tr": "hemen",
-"niveau": "A2"
-},
-{
-"id": "k070",
-"nl": "mogelijk",
-"tr": "mümkün",
-"niveau": "A2"
-},
-{
-"id": "k363",
-"nl": "oppassen",
-"tr": "dikkat etmek; (çocuğa) bakmak",
-"niveau": "A2"
-},
-{
-"id": "k099",
-"nl": "steeds",
-"tr": "hep, gittikçe",
-"niveau": "A2"
-},
-{
-"id": "k101",
-"nl": "vanaf",
-"tr": "-den itibaren",
 "niveau": "A2"
 }
 ],
@@ -439,6 +439,18 @@
 "niveau": "B1"
 },
 {
+"id": "k642",
+"nl": "het doel",
+"tr": "amaç, hedef; kale (futbol)",
+"niveau": "B1"
+},
+{
+"id": "k583",
+"nl": "het geval",
+"tr": "durum, vaka",
+"niveau": "B1"
+},
+{
 "id": "n-pensioen-w9",
 "nl": "het onderwijs",
 "tr": "eğitim",
@@ -460,6 +472,12 @@
 "id": "k533",
 "nl": "omscholen",
 "tr": "yeni meslek eğitimi almak",
+"niveau": "B1"
+},
+{
+"id": "k571",
+"nl": "overtuigen",
+"tr": "ikna etmek",
 "niveau": "B1"
 },
 {
@@ -517,33 +535,15 @@
 "niveau": "A2"
 },
 {
-"id": "w080",
-"nl": "de werkgever",
-"tr": "işveren",
+"id": "k633",
+"nl": "de ouderen",
+"tr": "yaşlılar",
 "niveau": "A2"
 },
 {
-"id": "k175",
-"nl": "de werknemer",
-"tr": "çalışan, işçi",
-"niveau": "A2"
-},
-{
-"id": "k181",
-"nl": "eerder",
-"tr": "daha önce, daha erken",
-"niveau": "A2"
-},
-{
-"id": "k288",
-"nl": "ernaast",
-"tr": "yanında",
-"niveau": "A2"
-},
-{
-"id": "k489",
-"nl": "hen",
-"tr": "onları, onlara",
+"id": "k645",
+"nl": "de schrijver",
+"tr": "yazar",
 "niveau": "A2"
 }
 ],
@@ -651,6 +651,12 @@
 "niveau": "A2"
 },
 {
+"id": "k631",
+"nl": "de ziekte",
+"tr": "hastalık",
+"niveau": "A2"
+},
+{
 "id": "k132",
 "nl": "dezelfde",
 "tr": "aynı (de-kelimeleri)",
@@ -720,12 +726,6 @@
 "id": "k065",
 "nl": "tijdens",
 "tr": "sırasında, esnasında",
-"niveau": "A2"
-},
-{
-"id": "k100",
-"nl": "volgen",
-"tr": "takip etmek; (kurs) almak",
 "niveau": "A2"
 }
 ],
@@ -925,6 +925,12 @@
 "niveau": "B1"
 },
 {
+"id": "k652",
+"nl": "aanwezig",
+"tr": "mevcut, hazır bulunan",
+"niveau": "B1"
+},
+{
 "id": "k223",
 "nl": "afwezig",
 "tr": "yok, bulunmayan",
@@ -1039,6 +1045,12 @@
 "niveau": "B1"
 },
 {
+"id": "k623",
+"nl": "ondertekenen",
+"tr": "imzalamak",
+"niveau": "B1"
+},
+{
 "id": "k197",
 "nl": "ontvangen",
 "tr": "almak, teslim almak",
@@ -1079,18 +1091,6 @@
 "nl": "voorleggen",
 "tr": "sunmak, danışmak",
 "niveau": "B1"
-},
-{
-"id": "k450",
-"nl": "waarin",
-"tr": "içinde (ki)",
-"niveau": "B1"
-},
-{
-"id": "k451",
-"nl": "waarmee",
-"tr": "-le (ki), ne ile",
-"niveau": "B1"
 }
 ],
 "thuiswerken": [
@@ -1107,15 +1107,33 @@
 "niveau": "B1"
 },
 {
+"id": "k553",
+"nl": "bovendien",
+"tr": "üstelik",
+"niveau": "B1"
+},
+{
 "id": "w225",
 "nl": "daarnaast",
 "tr": "bunun yanında, ayrıca; yanında",
 "niveau": "B1"
 },
 {
+"id": "k649",
+"nl": "de conclusie",
+"tr": "sonuç (çıkarım)",
+"niveau": "B1"
+},
+{
 "id": "n-pieterburen-w15",
 "nl": "de gemeente",
 "tr": "belediye",
+"niveau": "B1"
+},
+{
+"id": "k559",
+"nl": "de praktijk",
+"tr": "uygulama, pratik; muayenehane",
 "niveau": "B1"
 },
 {
@@ -1128,6 +1146,12 @@
 "id": "k281",
 "nl": "eenvoudig",
 "tr": "basit, kolay",
+"niveau": "B1"
+},
+{
+"id": "k672",
+"nl": "geschikt",
+"tr": "uygun",
 "niveau": "B1"
 },
 {
@@ -1167,6 +1191,12 @@
 "niveau": "B1"
 },
 {
+"id": "k657",
+"nl": "vast",
+"tr": "sabit, kalıcı; kesin",
+"niveau": "B1"
+},
+{
 "id": "k426",
 "nl": "verbieden",
 "tr": "yasaklamak",
@@ -1191,9 +1221,27 @@
 "niveau": "A2"
 },
 {
+"id": "k645",
+"nl": "de schrijver",
+"tr": "yazar",
+"niveau": "A2"
+},
+{
 "id": "k175",
 "nl": "de werknemer",
 "tr": "çalışan, işçi",
+"niveau": "A2"
+},
+{
+"id": "k643",
+"nl": "duidelijk",
+"tr": "açık, net",
+"niveau": "A2"
+},
+{
+"id": "k653",
+"nl": "eigen",
+"tr": "kendi",
 "niveau": "A2"
 },
 {
@@ -1224,54 +1272,6 @@
 "id": "k009",
 "nl": "het gezin",
 "tr": "çekirdek aile (anne, baba, çocuklar)",
-"niveau": "A2"
-},
-{
-"id": "k023",
-"nl": "juist",
-"tr": "doğru, tam; (vurgu) aksine, tam tersine",
-"niveau": "A2"
-},
-{
-"id": "w219",
-"nl": "mezelf",
-"tr": "kendim",
-"niveau": "A2"
-},
-{
-"id": "k357",
-"nl": "net",
-"tr": "az önce; tam",
-"niveau": "A2"
-},
-{
-"id": "k362",
-"nl": "oplossen",
-"tr": "çözmek",
-"niveau": "A2"
-},
-{
-"id": "k176",
-"nl": "positief",
-"tr": "olumlu",
-"niveau": "A2"
-},
-{
-"id": "k104",
-"nl": "sommige",
-"tr": "bazı",
-"niveau": "A2"
-},
-{
-"id": "k099",
-"nl": "steeds",
-"tr": "hep, gittikçe",
-"niveau": "A2"
-},
-{
-"id": "w071",
-"nl": "thuiswerken",
-"tr": "evden çalışmak",
 "niveau": "A2"
 }
 ],
@@ -1391,6 +1391,12 @@
 "niveau": "A2"
 },
 {
+"id": "k653",
+"nl": "eigen",
+"tr": "kendi",
+"niveau": "A2"
+},
+{
 "id": "k284",
 "nl": "elektrisch",
 "tr": "elektrikli",
@@ -1421,6 +1427,12 @@
 "niveau": "A2"
 },
 {
+"id": "k651",
+"nl": "nodig",
+"tr": "gerekli",
+"niveau": "A2"
+},
+{
 "id": "k141",
 "nl": "parkeren",
 "tr": "park etmek",
@@ -1442,18 +1454,6 @@
 "id": "k031",
 "nl": "via",
 "tr": "üzerinden, aracılığıyla",
-"niveau": "A2"
-},
-{
-"id": "k100",
-"nl": "volgen",
-"tr": "takip etmek; (kurs) almak",
-"niveau": "A2"
-},
-{
-"id": "k014",
-"nl": "vooral",
-"tr": "özellikle; (ricada) mutlaka",
 "niveau": "A2"
 }
 ],
@@ -1501,6 +1501,18 @@
 "niveau": "B1"
 },
 {
+"id": "k642",
+"nl": "het doel",
+"tr": "amaç, hedef; kale (futbol)",
+"niveau": "B1"
+},
+{
+"id": "k568",
+"nl": "informeren",
+"tr": "bilgilendirmek",
+"niveau": "B1"
+},
+{
 "id": "k058",
 "nl": "melden",
 "tr": "bildirmek",
@@ -1543,6 +1555,12 @@
 "niveau": "B1"
 },
 {
+"id": "k600",
+"nl": "de baan",
+"tr": "iş (pozisyon); şerit",
+"niveau": "A2"
+},
+{
 "id": "k283",
 "nl": "de elektricien",
 "tr": "elektrikçi",
@@ -1561,6 +1579,12 @@
 "niveau": "A2"
 },
 {
+"id": "k645",
+"nl": "de schrijver",
+"tr": "yazar",
+"niveau": "A2"
+},
+{
 "id": "k290",
 "nl": "eruitzien",
 "tr": "görünmek",
@@ -1573,9 +1597,21 @@
 "niveau": "A2"
 },
 {
+"id": "k651",
+"nl": "nodig",
+"tr": "gerekli",
+"niveau": "A2"
+},
+{
 "id": "k170",
 "nl": "overdag",
 "tr": "gündüz",
+"niveau": "A2"
+},
+{
+"id": "k660",
+"nl": "speciaal",
+"tr": "özel",
 "niveau": "A2"
 },
 {
@@ -1597,21 +1633,9 @@
 "niveau": "A2"
 },
 {
-"id": "k031",
-"nl": "via",
-"tr": "üzerinden, aracılığıyla",
-"niveau": "A2"
-},
-{
-"id": "k100",
-"nl": "volgen",
-"tr": "takip etmek; (kurs) almak",
-"niveau": "A2"
-},
-{
-"id": "k014",
-"nl": "vooral",
-"tr": "özellikle; (ricada) mutlaka",
+"id": "k573",
+"nl": "uitleggen",
+"tr": "açıklamak",
 "niveau": "A2"
 }
 ],
@@ -1791,9 +1815,9 @@
 "niveau": "A2"
 },
 {
-"id": "w061",
-"nl": "gewoon",
-"tr": "normal, alışılmış; sadece, öylece",
+"id": "k653",
+"nl": "eigen",
+"tr": "kendi",
 "niveau": "A2"
 }
 ],
@@ -1809,6 +1833,12 @@
 "nl": "voorkomen",
 "tr": "önlemek",
 "niveau": "B2"
+},
+{
+"id": "k652",
+"nl": "aanwezig",
+"tr": "mevcut, hazır bulunan",
+"niveau": "B1"
 },
 {
 "id": "k131",
@@ -1841,6 +1871,12 @@
 "niveau": "B1"
 },
 {
+"id": "k642",
+"nl": "het doel",
+"tr": "amaç, hedef; kale (futbol)",
+"niveau": "B1"
+},
+{
 "id": "k531",
 "nl": "het lesmateriaal",
 "tr": "ders materyali",
@@ -1856,6 +1892,12 @@
 "id": "w069",
 "nl": "hoor",
 "tr": "(cümle sonunda) yumuşatıcı/rahatlatıcı söz",
+"niveau": "B1"
+},
+{
+"id": "k568",
+"nl": "informeren",
+"tr": "bilgilendirmek",
 "niveau": "B1"
 },
 {
@@ -1958,24 +2000,6 @@
 "id": "k378",
 "nl": "raden",
 "tr": "tahmin etmek",
-"niveau": "A2"
-},
-{
-"id": "k031",
-"nl": "via",
-"tr": "üzerinden, aracılığıyla",
-"niveau": "A2"
-},
-{
-"id": "k100",
-"nl": "volgen",
-"tr": "takip etmek; (kurs) almak",
-"niveau": "A2"
-},
-{
-"id": "k445",
-"nl": "vriendelijk",
-"tr": "nazik",
 "niveau": "A2"
 }
 ],
@@ -2083,6 +2107,12 @@
 "niveau": "B1"
 },
 {
+"id": "k622",
+"nl": "de toestemming",
+"tr": "izin, onay",
+"niveau": "B1"
+},
+{
 "id": "k423",
 "nl": "de ventilatie",
 "tr": "havalandırma",
@@ -2153,12 +2183,6 @@
 "nl": "maandelijks",
 "tr": "aylık",
 "niveau": "B1"
-},
-{
-"id": "k069",
-"nl": "maximaal",
-"tr": "en fazla",
-"niveau": "B1"
 }
 ],
 "a2-schoolreis": [
@@ -2169,10 +2193,22 @@
 "niveau": "B1"
 },
 {
+"id": "k568",
+"nl": "informeren",
+"tr": "bilgilendirmek",
+"niveau": "B1"
+},
+{
 "id": "k059",
 "nl": "uiterlijk",
 "tr": "en geç",
 "niveau": "B1"
+},
+{
+"id": "k651",
+"nl": "nodig",
+"tr": "gerekli",
+"niveau": "A2"
 },
 {
 "id": "k433",
@@ -2422,6 +2458,12 @@
 "id": "k084",
 "nl": "de werkdag",
 "tr": "iş günü",
+"niveau": "A2"
+},
+{
+"id": "k651",
+"nl": "nodig",
+"tr": "gerekli",
 "niveau": "A2"
 },
 {
@@ -2747,6 +2789,12 @@
 "niveau": "A1"
 },
 {
+"id": "k567",
+"nl": "houden",
+"tr": "tutmak; (houden van) sevmek",
+"niveau": "A1"
+},
+{
 "id": "k046",
 "nl": "krijgen",
 "tr": "almak (verileni), edinmek",
@@ -2967,6 +3015,12 @@
 "niveau": "A2"
 },
 {
+"id": "k651",
+"nl": "nodig",
+"tr": "gerekli",
+"niveau": "A2"
+},
+{
 "id": "k106",
 "nl": "voordat",
 "tr": "-meden önce",
@@ -3051,6 +3105,12 @@
 "nl": "bezorgd",
 "tr": "endişeli",
 "niveau": "B1"
+},
+{
+"id": "k651",
+"nl": "nodig",
+"tr": "gerekli",
+"niveau": "A2"
 },
 {
 "id": "b230",
@@ -3657,6 +3717,12 @@
 "niveau": "B1"
 },
 {
+"id": "k642",
+"nl": "het doel",
+"tr": "amaç, hedef; kale (futbol)",
+"niveau": "B1"
+},
+{
 "id": "k293",
 "nl": "de flat",
 "tr": "apartman binası",
@@ -3805,12 +3871,6 @@
 "nl": "vóór",
 "tr": "önce; önünde",
 "niveau": "A1"
-},
-{
-"id": "b232",
-"nl": "werken",
-"tr": "çalışmak; işlemek, çalışmak (cihaz)",
-"niveau": "A1"
 }
 ],
 "a2-bezorgen": [
@@ -3958,6 +4018,12 @@
 "id": "k251",
 "nl": "de bibliotheek",
 "tr": "kütüphane",
+"niveau": "A1"
+},
+{
+"id": "k567",
+"nl": "houden",
+"tr": "tutmak; (houden van) sevmek",
 "niveau": "A1"
 },
 {
