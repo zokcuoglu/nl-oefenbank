@@ -98,6 +98,7 @@ function page(w, info) {
   const more = extras.length ? `<section class="panel"><h3>Ayrıntılı anlatım</h3>${extras.map(t => `<div class="ex">${t.z ? `<span lang="tr">${esc(t.z)}</span>` : ""}
       <div class="src"><a href="${esc(site(t.href))}">${esc(t.t)} →</a></div></div>`).join("")}</section>` : "";
   const places = info.tags?.length ? `<section class="panel places"><h3>Sitede geçtiği yerler</h3>${info.tags.map(t => `<div class="ex">
+      ${t.anl ? `<div class="src" style="margin-bottom:2px"><b>Anlam ${t.anl}:</b> ${esc(t.anlt)}</div>` : ""}
       ${t.z ? `<span lang="nl">${esc(t.z)}</span>${t.zt ? `<i lang="tr">${esc(t.zt)}</i>` : ""}` : ""}
       <div class="src"><a href="${esc(site(t.href))}">${esc(t.t)} →</a></div></div>`).join("")}</section>` : "";
   return `<section class="panel">${head}</section>` + more + meanings + explain + patterns + examples + places;

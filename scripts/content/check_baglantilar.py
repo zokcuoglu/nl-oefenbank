@@ -67,3 +67,10 @@ if errors:
     print("\n".join(sorted(set(errors))[:60]))
     sys.exit(f"{len(set(errors))} link problem(s)")
 print(f"links ok: {len(pages)} word pages, every pool word has one, mail / word study / waiting list ids exist")
+
+# Not an error (yet), but tracked: a word with more meanings should say for every sentence on the site which
+# meaning it is. Sentences without a meaning are counted here; add them as examples to scripts/content/anlamlar/.
+_W = json.loads((ROOT / "oyunlar/woordinfo.json").read_text(encoding="utf-8"))["woorden"]
+_un = [(k, t["t"]) for k, v in _W.items() if len(v.get("anlamlar", [])) > 1
+       for t in v.get("tags", []) if t.get("z") and not t.get("extra") and not t.get("anl")]
+print(f"meanings: {len(_un)} sentences of {len({k for k, _ in _un})} words with more meanings do not say which meaning yet")
