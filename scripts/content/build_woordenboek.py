@@ -45,7 +45,7 @@ def main():
         keys = {key_of(w["nl"])}
         if w["tur"] in PHRASE_TUR:          # expressions: also findable by each content word
             keys |= set(entry_words(w["nl"]))
-        for k in keys:
+        for k in sorted(keys):                # sorted: same output on every run (no needless rebuild commits)
             if k and item not in e.setdefault(k, []):
                 e[k].append(item)
     # Irregular verb forms -> infinitive. The verb list has the base verbs (vangen, nemen, lijken); pool verbs
