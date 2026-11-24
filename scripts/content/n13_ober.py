@@ -77,7 +77,8 @@ Wanneer de gasten zich afvragen of ze zijn droom aan diggelen hebben geslagen, b
         "n-ober-u4",
         "n-ober-u5",
         "n-ober-u6",
-        "n-ober-u7"
+        "n-ober-u7",
+        {"id": "u043", "voorbeeld": "Waarop een gast droog zegt: 'U bent geen Johan Cruijff.'", "voorbeeld_tr": "Bunun üzerine konuklardan biri hiç gülmeden: 'Siz Johan Cruijff değilsiniz' diyor."}
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep

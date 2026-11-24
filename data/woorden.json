@@ -43540,6 +43540,54 @@
 "meer": [],
 "in_nieuws": [],
 "definitie": "door iets of iemand te gebruiken"
+},
+{
+"id": "u043",
+"bron": "nieuws",
+"bronnen": [
+"nieuws"
+],
+"nl": "iets droog zeggen",
+"soort": "uitdrukking",
+"tr": "bir şeyi gülmeden, ciddi bir yüzle söylemek (kuru espri)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "uitdr",
+"voorbeeld": "Waarop een gast droog zegt: 'U bent geen Johan Cruijff.'",
+"voorbeeld_tr": "Bunun üzerine konuklardan biri hiç gülmeden: 'Siz Johan Cruijff değilsiniz' diyor.",
+"uitleg": "'droog' burada 'kuru' değil: söyleyiş biçimi. Komik ya da iğneleyici bir söz, yüz ifadesi değiştirmeden söyleniyor.",
+"meer": [],
+"in_nieuws": [
+"ober"
+],
+"definitie": "iets grappigs of scherps zeggen zonder te lachen, met een serieus gezicht",
+"item": "ober",
+"nr": 13
+},
+{
+"id": "u044",
+"bron": "nieuws",
+"bronnen": [
+"nieuws"
+],
+"nl": "droge humor",
+"soort": "uitdrukking",
+"tr": "kuru espri, ciddi yüzle yapılan espri",
+"niveau": "B1",
+"groep": "vo",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "vaste_comb",
+"voorbeeld": "Hij heeft echt droge humor: je weet nooit of hij een grapje maakt.",
+"voorbeeld_tr": "Gerçekten kuru esprili biri: şaka yapıp yapmadığını hiç anlamazsın.",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "humor waarbij iemand grappige dingen heel serieus zegt"
 }
 ]
 }

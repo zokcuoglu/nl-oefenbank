@@ -1,16 +1,30 @@
 {
- "acht": {"niveau": "A0", "kort": "sekiz", "anlamlar": [{"tr": "sekiz (8)", "voorbeelden": [["Om acht uur ga ik naar school.", "Saat sekizde okula gidiyorum."]]}],
-  "not": "acht slaan op = dikkate almak (resmî): Geen acht slaan op de regels."},
+ "acht": {"niveau": "A0", "kort": "sekiz", "not": "acht slaan op = dikkate almak (resmî): Geen acht slaan op de regels.",
+  "anlamlar": [
+   {"tr": "sekiz (8)", "voorbeelden": [["Om acht uur ga ik naar school.", "Saat sekizde okula gidiyorum."]]}
+  ]},
  "binnen": {"niveau": "A0", "kort": "içeride, içeri; (süre) içinde",
   "anlamlar": [
    {"tr": "içeride, içeri", "kalip": [["Kom binnen!", "İçeri gel!"], ["naar binnen", "içeriye"]], "voorbeelden": [["Echte koukleumen blijven vandaag lekker binnen!", "Gerçek üşüngeçler bugün içeride kalıyor!"]]},
    {"tr": "(süre) içinde", "kalip": [["binnen twee weken", "iki hafta içinde"]], "voorbeelden": [["U moet uw nieuwe adres aan de gemeente binnen vijf dagen doorgeven.", "Yeni adresinizi beş gün içinde belediyeye bildirmelisiniz."]]}
   ]},
- "blauw": {"niveau": "A0", "kort": "mavi", "anlamlar": [{"tr": "mavi", "voorbeelden": [["De lucht is blauw.", "Gökyüzü mavi."], ["De fietstassen zijn blauw.", "Bisiklet çantaları mavi."]]}]},
- "blij": {"niveau": "A0", "kort": "mutlu, sevinçli", "anlamlar": [{"tr": "mutlu, sevinçli", "kalip": [["blij zijn met", "…-e sevinmek"]], "voorbeelden": [["Ik ben blij.", "Mutluyum."], ["U bent blij, want u bent Nederlander geworden.", "Mutlusunuz, çünkü Hollanda vatandaşı oldunuz."]]}]},
- "boos": {"niveau": "A0", "kort": "kızgın, sinirli", "anlamlar": [{"tr": "kızgın, sinirli", "kalip": [["boos worden", "sinirlenmek"], ["boos zijn op", "…-e kızgın olmak"]], "voorbeelden": [["Papa is boos.", "Babam kızgın."], ["U wordt boos en stuurt de man weg.", "Sinirlenip adamı gönderiyorsunuz."]]}]},
- "bruin": {"niveau": "A0", "kort": "kahverengi; esmer (bronz)", "anlamlar": [{"tr": "kahverengi", "voorbeelden": [["De hond is bruin.", "Köpek kahverengi."]]}, {"tr": "(güneşte) bronzlaşmış", "kalip": [["bruin worden", "bronzlaşmak"]]}],
-  "kaliplar": [["bruin brood", "kepekli ekmek"]]},
+ "blauw": {"niveau": "A0", "kort": "mavi",
+  "anlamlar": [
+   {"tr": "mavi", "voorbeelden": [["De lucht is blauw.", "Gökyüzü mavi."], ["De fietstassen zijn blauw.", "Bisiklet çantaları mavi."]]}
+  ]},
+ "blij": {"niveau": "A0", "kort": "mutlu, sevinçli",
+  "anlamlar": [
+   {"tr": "mutlu, sevinçli", "kalip": [["blij zijn met", "…-e sevinmek"]], "voorbeelden": [["Ik ben blij.", "Mutluyum."], ["U bent blij, want u bent Nederlander geworden.", "Mutlusunuz, çünkü Hollanda vatandaşı oldunuz."]]}
+  ]},
+ "boos": {"niveau": "A0", "kort": "kızgın, sinirli",
+  "anlamlar": [
+   {"tr": "kızgın, sinirli", "kalip": [["boos worden", "sinirlenmek"], ["boos zijn op", "…-e kızgın olmak"]], "voorbeelden": [["Papa is boos.", "Babam kızgın."], ["U wordt boos en stuurt de man weg.", "Sinirlenip adamı gönderiyorsunuz."]]}
+  ]},
+ "bruin": {"niveau": "A0", "kort": "kahverengi; esmer (bronz)", "kaliplar": [["bruin brood", "kepekli ekmek"]],
+  "anlamlar": [
+   {"tr": "kahverengi", "voorbeelden": [["De hond is bruin.", "Köpek kahverengi."], ["Buiten is hij bruin.", "Dışı kahverengi."]]},
+   {"tr": "(güneşte) bronzlaşmış", "kalip": [["bruin worden", "bronzlaşmak"]]}
+  ]},
  "buiten": {"niveau": "A0", "kort": "dışarıda, dışarı; (… dışında)",
   "anlamlar": [
    {"tr": "dışarıda, dışarı", "kalip": [["naar buiten", "dışarıya"]], "voorbeelden": [["We spelen buiten.", "Dışarıda oynuyoruz."], ["Zullen we naar buiten gaan?", "Dışarı çıkalım mı?"]]},
@@ -19,128 +33,227 @@
  "daar": {"niveau": "A0", "kort": "orada; (daar + edat) onu, ona",
   "anlamlar": [
    {"tr": "orada, oraya", "voorbeelden": [["Daar is de bus.", "Otobüs orada."]]},
-   {"tr": "(daar + edat) onu, ona, onunla", "not": "bir şeyin yerine geçer: daarover, daarmee, daaraan", "kalip": [["Daar heb ik zin in.", "Bunu çok isterim."]],
-    "voorbeelden": [["Dat weet ik nog niet, ik ga daar even naar kijken.", "Henüz bilmiyorum, ona bir bakacağım."]]}
+   {"tr": "(daar + edat) onu, ona, onunla", "not": "bir şeyin yerine geçer: daarover, daarmee, daaraan", "kalip": [["Daar heb ik zin in.", "Bunu çok isterim."]], "voorbeelden": [["Dat weet ik nog niet, ik ga daar even naar kijken.", "Henüz bilmiyorum, ona bir bakacağım."]]}
   ]},
- "doei": {"niveau": "A0", "kort": "bay bay, hoşça kal (samimi)", "anlamlar": [{"tr": "bay bay, hoşça kal (samimi)", "voorbeelden": [["Doei, tot morgen!", "Bay bay, yarın görüşürüz!"]]}],
-  "not": "Daha resmî: Dag! / Tot ziens!"},
- "drie": {"niveau": "A0", "kort": "üç", "anlamlar": [{"tr": "üç (3)", "voorbeelden": [["Drie kinderen spelen.", "Üç çocuk oynuyor."], ["Lina is drie jaar.", "Lina üç yaşında."]]}]},
+ "doei": {"niveau": "A0", "kort": "bay bay, hoşça kal (samimi)", "not": "Daha resmî: Dag! / Tot ziens!",
+  "anlamlar": [
+   {"tr": "bay bay, hoşça kal (samimi)", "voorbeelden": [["Doei, tot morgen!", "Bay bay, yarın görüşürüz!"]]}
+  ]},
+ "drie": {"niveau": "A0", "kort": "üç",
+  "anlamlar": [
+   {"tr": "üç (3)", "voorbeelden": [["Drie kinderen spelen.", "Üç çocuk oynuyor."], ["Lina is drie jaar.", "Lina üç yaşında."]]}
+  ]},
  "een": {"niveau": "A0", "kort": "bir (belirsiz artikel); bir (sayı: één)",
   "anlamlar": [
    {"tr": "bir (belirsiz artikel)", "not": "okunuşu 'ın'", "voorbeelden": [["Heb je al een plan?", "Bir planın var mı?"]]},
    {"tr": "bir (sayı)", "not": "vurgulu yazılış: één, okunuşu 'een'", "voorbeelden": [["Ik heb één appel.", "Bir elmam var."]]}
   ]},
- "geel": {"niveau": "A0", "kort": "sarı", "anlamlar": [{"tr": "sarı", "voorbeelden": [["De zon is geel.", "Güneş sarı."]]}]},
- "goed": {"niveau": "A0", "kort": "iyi; doğru",
+ "geel": {"niveau": "A0", "kort": "sarı",
+  "anlamlar": [
+   {"tr": "sarı", "voorbeelden": [["De zon is geel.", "Güneş sarı."]]}
+  ]},
+ "goed": {"niveau": "A0", "kort": "iyi; doğru", "kaliplar": [["Goed zo!", "Aferin!"], ["Goedemorgen / Goedemiddag / Goedenavond", "Günaydın / Tünaydın / İyi akşamlar"]],
   "anlamlar": [
    {"tr": "iyi", "kalip": [["Het gaat goed.", "İyiyim. / İyi gidiyor."], ["goed zijn in", "…-de iyi olmak"]], "voorbeelden": [["Goed plan, ik heb frisse lucht nodig.", "İyi plan, temiz havaya ihtiyacım var."]]},
    {"tr": "doğru", "kalip": [["Dat is goed.", "Doğru. / Tamam."]], "voorbeelden": [["Het antwoord is goed.", "Cevap doğru."]]}
-  ],
-  "kaliplar": [["Goed zo!", "Aferin!"], ["Goedemorgen / Goedemiddag / Goedenavond", "Günaydın / Tünaydın / İyi akşamlar"]]},
+  ]},
  "groen": {"niveau": "A0", "kort": "yeşil; (het groen) yeşil alan",
-  "anlamlar": [{"tr": "yeşil", "voorbeelden": [["Het gras is groen.", "Çimen yeşil."]]},
-   {"tr": "yeşil alan (het groen)", "voorbeelden": [["Onze buurt heeft nu te weinig groen.", "Mahallemizde şu an çok az yeşil alan var."]]}]},
- "groot": {"niveau": "A0", "kort": "büyük", "anlamlar": [{"tr": "büyük", "kalip": [["groot worden", "büyümek"]], "voorbeelden": [["De olifant is groot.", "Fil büyük."], ["Het is te groot voor de container, dus moet het naar de milieustraat.", "Çöp konteynerine sığmayacak kadar büyük, bu yüzden atık toplama merkezine gitmeli."]]}]},
- "hallo": {"niveau": "A0", "kort": "merhaba; (telefonda) alo", "anlamlar": [{"tr": "merhaba; alo", "voorbeelden": [["Hallo, ik ben Ellen en ik ben vrijwilliger bij het taalcafé.", "Merhaba, ben Ellen, dil kafesinde gönüllüyüm."], ["Hallo, heeft u misschien een pakje voor mij aangenomen?", "Merhaba, benim için bir paket almış olabilir misiniz?"]]}]},
- "hier": {"niveau": "A0", "kort": "burada, buraya", "anlamlar": [{"tr": "burada, buraya", "kalip": [["hiermee, hierover", "bununla, bunun hakkında"]], "voorbeelden": [["Kom hier!", "Buraya gel!"], ["Wat jammer maar ik kan hier niets voor u doen.", "Ne yazık, ama burada sizin için bir şey yapamam."]]}]},
- "hoi": {"niveau": "A0", "kort": "selam (samimi)", "anlamlar": [{"tr": "selam (samimi)", "voorbeelden": [["Hoi, hoe gaat het?", "Selam, nasılsın?"], ["Hoi, ik ben Joke van nummer twaalf.", "Selam, ben on iki numaradan Joke."]]}]},
- "ik": {"niveau": "A0", "kort": "ben", "anlamlar": [{"tr": "ben (özne zamiri)", "not": "nesne hâli: mij / me; iyelik: mijn", "voorbeelden": [["Ik ben moe.", "Yorgunum."], ["Zal ik je helpen?", "Sana yardım edeyim mi?"]]}]},
- "jij": {"niveau": "A0", "kort": "sen", "anlamlar": [{"tr": "sen (özne zamiri, vurgulu)", "not": "vurgusuz: je; nesne hâli: jou / je; resmî: u", "voorbeelden": [["Wil jij iets drinken?", "Sen bir şey içmek ister misin?"], ["Kun jij de kinderen even in de gaten houden?", "Çocuklara biraz göz kulak olabilir misin?"]]}]},
- "jouw": {"niveau": "A0", "kort": "senin", "anlamlar": [{"tr": "senin (iyelik)", "not": "vurgusuz: je; resmî: uw", "voorbeelden": [["Is dit jouw jas?", "Bu senin montun mu?"], ["Ze zeggen of je jouw huis mag verbouwen.", "Evini tadilat edip edemeyeceğini onlar söylüyor."]]}]},
- "klein": {"niveau": "A0", "kort": "küçük", "anlamlar": [{"tr": "küçük", "kalip": [["een klein beetje", "birazcık"]], "voorbeelden": [["De muis is klein.", "Fare küçük."], ["Het huis is erg klein.", "Ev çok küçük."]]}]},
- "koud": {"niveau": "A0", "kort": "soğuk", "anlamlar": [{"tr": "soğuk", "kalip": [["Ik heb het koud.", "Üşüyorum."]], "voorbeelden": [["Het water is koud.", "Su soğuk."], ["Het is koud in huis.", "Ev soğuk."]]}]},
- "lekker": {"niveau": "A0", "kort": "lezzetli; hoş, güzel, rahat",
   "anlamlar": [
-   {"tr": "lezzetli", "voorbeelden": [["Dit is lekker!", "Bu lezzetli!"], ["De kroket is lekker!", "Kroket lezzetli!"]]},
-   {"tr": "hoş, keyifli, rahat (günlük dil)", "kalip": [["lekker weer", "güzel hava"], ["Lekker slapen!", "İyi uykular!"]], "voorbeelden": [["In de vakantie wil ik lekker buiten zijn.", "Tatilde keyifle dışarıda olmak istiyorum."]]}
-  ],
-  "kaliplar": [["niet lekker in je vel zitten", "keyfi yerinde olmamak, kendini iyi hissetmemek"], ["Ik voel me niet lekker.", "Kendimi iyi hissetmiyorum."]]},
- "maken": {"vormen": "maakte / maakten · heeft gemaakt", "niveau": "A0", "kort": "yapmak; tamir etmek",
+   {"tr": "yeşil", "voorbeelden": [["Het gras is groen.", "Çimen yeşil."]]},
+   {"tr": "yeşil alan (het groen)", "voorbeelden": [["Onze buurt heeft nu te weinig groen.", "Mahallemizde şu an çok az yeşil alan var."], ["Er moet genoeg groen zijn, zoals een park.", "Park gibi yeterince yeşil alan olmalı."], ["Eris steeds minder groen.", "Giderek daha az yeşil alan var."]]}
+  ]},
+ "groot": {"niveau": "A0", "kort": "büyük",
+  "anlamlar": [
+   {"tr": "büyük", "kalip": [["groot worden", "büyümek"]], "voorbeelden": [["De olifant is groot.", "Fil büyük."], ["Het is te groot voor de container, dus moet het naar de milieustraat.", "Çöp konteynerine sığmayacak kadar büyük, bu yüzden atık toplama merkezine gitmeli."]]}
+  ]},
+ "hallo": {"niveau": "A0", "kort": "merhaba; (telefonda) alo",
+  "anlamlar": [
+   {"tr": "merhaba; alo", "voorbeelden": [["Hallo, ik ben Ellen en ik ben vrijwilliger bij het taalcafé.", "Merhaba, ben Ellen, dil kafesinde gönüllüyüm."], ["Hallo, heeft u misschien een pakje voor mij aangenomen?", "Merhaba, benim için bir paket almış olabilir misiniz?"]]}
+  ]},
+ "hier": {"niveau": "A0", "kort": "burada, buraya",
+  "anlamlar": [
+   {"tr": "burada, buraya", "kalip": [["hiermee, hierover", "bununla, bunun hakkında"]], "voorbeelden": [["Kom hier!", "Buraya gel!"], ["Wat jammer maar ik kan hier niets voor u doen.", "Ne yazık, ama burada sizin için bir şey yapamam."]]}
+  ]},
+ "hoi": {"niveau": "A0", "kort": "selam (samimi)",
+  "anlamlar": [
+   {"tr": "selam (samimi)", "voorbeelden": [["Hoi, hoe gaat het?", "Selam, nasılsın?"], ["Hoi, ik ben Joke van nummer twaalf.", "Selam, ben on iki numaradan Joke."]]}
+  ]},
+ "ik": {"niveau": "A0", "kort": "ben",
+  "anlamlar": [
+   {"tr": "ben (özne zamiri)", "not": "nesne hâli: mij / me; iyelik: mijn", "voorbeelden": [["Ik ben moe.", "Yorgunum."], ["Zal ik je helpen?", "Sana yardım edeyim mi?"]]}
+  ]},
+ "jij": {"niveau": "A0", "kort": "sen",
+  "anlamlar": [
+   {"tr": "sen (özne zamiri, vurgulu)", "not": "vurgusuz: je; nesne hâli: jou / je; resmî: u", "voorbeelden": [["Wil jij iets drinken?", "Sen bir şey içmek ister misin?"], ["Kun jij de kinderen even in de gaten houden?", "Çocuklara biraz göz kulak olabilir misin?"]]}
+  ]},
+ "jouw": {"niveau": "A0", "kort": "senin",
+  "anlamlar": [
+   {"tr": "senin (iyelik)", "not": "vurgusuz: je; resmî: uw", "voorbeelden": [["Is dit jouw jas?", "Bu senin montun mu?"], ["Ze zeggen of je jouw huis mag verbouwen.", "Evini tadilat edip edemeyeceğini onlar söylüyor."]]}
+  ]},
+ "klein": {"niveau": "A0", "kort": "küçük",
+  "anlamlar": [
+   {"tr": "küçük", "kalip": [["een klein beetje", "birazcık"]], "voorbeelden": [["De muis is klein.", "Fare küçük."], ["Het huis is erg klein.", "Ev çok küçük."]]}
+  ]},
+ "koud": {"niveau": "A0", "kort": "soğuk",
+  "anlamlar": [
+   {"tr": "soğuk", "kalip": [["Ik heb het koud.", "Üşüyorum."]], "voorbeelden": [["Het water is koud.", "Su soğuk."], ["Het is koud in huis.", "Ev soğuk."]]}
+  ]},
+ "lekker": {"niveau": "A0", "kort": "lezzetli; hoş, güzel, rahat", "kaliplar": [["niet lekker in je vel zitten", "keyfi yerinde olmamak, kendini iyi hissetmemek"], ["Ik voel me niet lekker.", "Kendimi iyi hissetmiyorum."]],
+  "anlamlar": [
+   {"tr": "lezzetli", "voorbeelden": [["Dit is lekker!", "Bu lezzetli!"], ["De kroket is lekker!", "Kroket lezzetli!"], ["Het was erg lekker en gezellig.", "Çok lezzetli ve keyifliydi."]]},
+   {"tr": "hoş, keyifli, rahat (günlük dil)", "kalip": [["lekker weer", "güzel hava"], ["Lekker slapen!", "İyi uykular!"]], "voorbeelden": [["In de vakantie wil ik lekker buiten zijn.", "Tatilde keyifle dışarıda olmak istiyorum."], ["Je bent lekker op tijd.", "Tam zamanında geldin."], ["Echte koukleumen blijven vandaag lekker binnen!", "Gerçek üşüngeçler bugün içeride kalıyor!"]]},
+   {"tr": "(deyim) (niet) lekker in je vel zitten: kendini (iyi) hissetmemek", "kalip": [["niet lekker in je vel zitten", "kendini iyi hissetmemek"]], "voorbeelden": [["Merk je dat een kind achterloopt met praten of dat het niet lekker in zijn vel zit?", "Bir çocuğun konuşmada geride kaldığını ya da kendini iyi hissetmediğini fark ediyor musun?"]]}
+  ]},
+ "maken": {"vormen": "maakte / maakten · heeft gemaakt", "niveau": "A0", "kort": "yapmak; tamir etmek", "kaliplar": [["Hoe maakt u het?", "Nasılsınız? (resmî)"], ["Dat maakt niet uit.", "Fark etmez."]],
   "anlamlar": [
    {"tr": "yapmak, hazırlamak", "kalip": [["een foto maken", "fotoğraf çekmek"], ["een afspraak maken", "randevu almak"], ["huiswerk maken", "ödev yapmak"]], "voorbeelden": [["Ik maak een tekening.", "Bir resim yapıyorum."], ["Laten we een goed plan maken.", "Hadi iyi bir plan yapalım."]]},
    {"tr": "tamir etmek", "voorbeelden": [["Wanneer wordt de lamp gemaakt?", "Lamba ne zaman tamir edilecek?"]]}
-  ],
-  "kaliplar": [["Hoe maakt u het?", "Nasılsınız? (resmî)"], ["Dat maakt niet uit.", "Fark etmez."]]},
- "moe": {"niveau": "A0", "kort": "yorgun", "anlamlar": [{"tr": "yorgun", "voorbeelden": [["Ik ben moe.", "Yorgunum."], ["Ik vind 's middags het fijnst, want 's ochtends ben ik nog moe.", "En çok öğleden sonrayı seviyorum, çünkü sabahları hâlâ yorgunum."]]}]},
- "mooi": {"niveau": "A0", "kort": "güzel", "anlamlar": [{"tr": "güzel", "kalip": [["mooi weer", "güzel hava"]], "voorbeelden": [["Wat een mooie bloem!", "Ne güzel bir çiçek!"], ["Het is vanavond mooi weer.", "Bu akşam hava güzel."]]}]},
- "nee": {"niveau": "A0", "kort": "hayır", "anlamlar": [{"tr": "hayır", "kalip": [["Nee, dank je.", "Hayır, teşekkürler."], ["Nee hoor.", "Yok canım. / Hayır."]], "voorbeelden": [["Nee hoor, toch bedankt.", "Yok, yine de teşekkürler."], ["Nee joh, dat hoeft niet.", "Yok canım, gerek yok."]]}]},
- "negen": {"niveau": "A0", "kort": "dokuz", "anlamlar": [{"tr": "dokuz (9)", "voorbeelden": [["Mijn broer is negen.", "Kardeşim dokuz yaşında."], ["De milieustraat is open van negen tot vier uur.", "Atık toplama merkezi dokuzdan dörde kadar açık."]]}]},
- "nieuw": {"niveau": "A0", "kort": "yeni", "anlamlar": [{"tr": "yeni", "voorbeelden": [["Ik heb nieuwe schoenen.", "Yeni ayakkabılarım var."], ["U koopt een nieuw bankstel.", "Yeni bir koltuk takımı alıyorsunuz."]]}],
-  "kaliplar": [["Gelukkig nieuwjaar!", "Mutlu yıllar! (yılbaşı)"]]},
- "onder": {"niveau": "A0", "kort": "altında; arasında",
+  ]},
+ "moe": {"niveau": "A0", "kort": "yorgun",
+  "anlamlar": [
+   {"tr": "yorgun", "voorbeelden": [["Ik ben moe.", "Yorgunum."], ["Ik vind 's middags het fijnst, want 's ochtends ben ik nog moe.", "En çok öğleden sonrayı seviyorum, çünkü sabahları hâlâ yorgunum."]]}
+  ]},
+ "mooi": {"niveau": "A0", "kort": "güzel",
+  "anlamlar": [
+   {"tr": "güzel", "kalip": [["mooi weer", "güzel hava"]], "voorbeelden": [["Wat een mooie bloem!", "Ne güzel bir çiçek!"], ["Het is vanavond mooi weer.", "Bu akşam hava güzel."]]}
+  ]},
+ "nee": {"niveau": "A0", "kort": "hayır",
+  "anlamlar": [
+   {"tr": "hayır", "kalip": [["Nee, dank je.", "Hayır, teşekkürler."], ["Nee hoor.", "Yok canım. / Hayır."]], "voorbeelden": [["Nee hoor, toch bedankt.", "Yok, yine de teşekkürler."], ["Nee joh, dat hoeft niet.", "Yok canım, gerek yok."]]}
+  ]},
+ "negen": {"niveau": "A0", "kort": "dokuz",
+  "anlamlar": [
+   {"tr": "dokuz (9)", "voorbeelden": [["Mijn broer is negen.", "Kardeşim dokuz yaşında."], ["De milieustraat is open van negen tot vier uur.", "Atık toplama merkezi dokuzdan dörde kadar açık."]]}
+  ]},
+ "nieuw": {"niveau": "A0", "kort": "yeni", "kaliplar": [["Gelukkig nieuwjaar!", "Mutlu yıllar! (yılbaşı)"]],
+  "anlamlar": [
+   {"tr": "yeni", "voorbeelden": [["Ik heb nieuwe schoenen.", "Yeni ayakkabılarım var."], ["U koopt een nieuw bankstel.", "Yeni bir koltuk takımı alıyorsunuz."]]}
+  ]},
+ "onder": {"niveau": "A0", "kort": "altında; arasında", "kaliplar": [["onder andere", "diğerlerinin yanında, örneğin"], ["onder controle", "kontrol altında"]],
   "anlamlar": [
    {"tr": "altında, altına", "voorbeelden": [["De kat zit onder de tafel.", "Kedi masanın altında."], ["Hoeveel procent van Nederland ligt onder de zee?", "Hollanda'nın yüzde kaçı deniz seviyesinin altında?"]]},
    {"tr": "(… -nin) altında, aşağısında (sayı, sınır)", "voorbeelden": [["Je salaris mag niet onder het minimumloon zijn.", "Maaşın asgari ücretin altında olamaz."]]}
-  ],
-  "kaliplar": [["onder andere", "diğerlerinin yanında, örneğin"], ["onder controle", "kontrol altında"]]},
- "oranje": {"niveau": "A0", "kort": "turuncu", "anlamlar": [{"tr": "turuncu", "voorbeelden": [["Een sinaasappel is oranje.", "Portakal turuncudur."], ["Plastic en blik doet u in een oranje zak.", "Plastik ve teneke kutuları turuncu bir torbaya atarsınız."]]}],
-  "not": "Oranje = Hollanda kraliyet ailesi (Huis van Oranje) ve millî takım; Koningsdag'da herkes turuncu giyer."},
+  ]},
+ "oranje": {"niveau": "A0", "kort": "turuncu", "not": "Oranje = Hollanda kraliyet ailesi (Huis van Oranje) ve millî takım; Koningsdag'da herkes turuncu giyer.",
+  "anlamlar": [
+   {"tr": "turuncu", "voorbeelden": [["Een sinaasappel is oranje.", "Portakal turuncudur."], ["Plastic en blik doet u in een oranje zak.", "Plastik ve teneke kutuları turuncu bir torbaya atarsınız."]]}
+  ]},
  "oud": {"niveau": "A0", "kort": "yaşlı; eski; … yaşında",
   "anlamlar": [
    {"tr": "yaşlı", "voorbeelden": [["Uw vader is oud en ziek.", "Babanız yaşlı ve hasta."]]},
    {"tr": "eski", "kalip": [["oud papier", "atık kâğıt"]], "voorbeelden": [["De auto is oud en repareren is te duur.", "Araba eski ve tamiri çok pahalı."]]},
    {"tr": "(… ) yaşında", "kalip": [["Hoe oud ben je?", "Kaç yaşındasın?"]], "voorbeelden": [["Fleur is elf maanden oud.", "Fleur on bir aylık."]]}
   ]},
- "praten": {"vormen": "praatte / praatten · heeft gepraat", "niveau": "A0", "kort": "konuşmak",
-  "not": "praten: sohbet, konuşma. spreken: bir dili konuşmak, resmî görüşme.",
-  "anlamlar": [{"tr": "konuşmak", "kalip": [["praten met", "ile konuşmak"], ["praten over", "hakkında konuşmak"]], "voorbeelden": [["We praten samen.", "Birlikte konuşuyoruz."], ["Kun je iets langzamer praten?", "Biraz daha yavaş konuşabilir misin?"]]}]},
- "rennen": {"vormen": "rende / renden · heeft/is gerend", "niveau": "A0", "kort": "koşmak", "anlamlar": [{"tr": "koşmak", "voorbeelden": [["De hond rent snel.", "Köpek hızlı koşuyor."], ["De kinderen rennen steeds de keuken in.", "Çocuklar sürekli mutfağa koşuyor."]]}]},
- "rood": {"niveau": "A0", "kort": "kırmızı", "anlamlar": [{"tr": "kırmızı", "voorbeelden": [["De appel is rood.", "Elma kırmızı."], ["De paraplu is rood met zwarte stippen.", "Şemsiye siyah puantiyeli kırmızı."]]}],
-  "kaliplar": [["rood staan", "(banka hesabı) eksiye düşmek"]]},
- "roze": {"niveau": "A0", "kort": "pembe", "anlamlar": [{"tr": "pembe", "voorbeelden": [["Ze heeft een roze jurk.", "Pembe bir elbisesi var."]]}]},
- "sorry": {"niveau": "A0", "kort": "pardon, özür dilerim", "anlamlar": [{"tr": "pardon, özür dilerim", "kalip": [["sorry zeggen", "özür dilemek"]], "voorbeelden": [["Sorry dat ik je laat wachten.", "Seni beklettiğim için özür dilerim."], ["Sorry, ik was eerst.", "Pardon, sıra bendeydi."]]}],
-  "not": "Daha resmî: Neemt u mij niet kwalijk. / Excuseer."},
- "spelen": {"vormen": "speelde / speelden · heeft gespeeld", "niveau": "A0", "kort": "oynamak; çalmak (müzik)",
+ "praten": {"vormen": "praatte / praatten · heeft gepraat", "niveau": "A0", "kort": "konuşmak", "not": "praten: sohbet, konuşma. spreken: bir dili konuşmak, resmî görüşme.",
+  "anlamlar": [
+   {"tr": "konuşmak", "kalip": [["praten met", "ile konuşmak"], ["praten over", "hakkında konuşmak"]], "voorbeelden": [["We praten samen.", "Birlikte konuşuyoruz."], ["Kun je iets langzamer praten?", "Biraz daha yavaş konuşabilir misin?"]]}
+  ]},
+ "rennen": {"vormen": "rende / renden · heeft/is gerend", "niveau": "A0", "kort": "koşmak",
+  "anlamlar": [
+   {"tr": "koşmak", "voorbeelden": [["De hond rent snel.", "Köpek hızlı koşuyor."], ["De kinderen rennen steeds de keuken in.", "Çocuklar sürekli mutfağa koşuyor."]]}
+  ]},
+ "rood": {"niveau": "A0", "kort": "kırmızı", "kaliplar": [["rood staan", "(banka hesabı) eksiye düşmek"]],
+  "anlamlar": [
+   {"tr": "kırmızı", "voorbeelden": [["De appel is rood.", "Elma kırmızı."], ["De paraplu is rood met zwarte stippen.", "Şemsiye siyah puantiyeli kırmızı."]]}
+  ]},
+ "roze": {"niveau": "A0", "kort": "pembe",
+  "anlamlar": [
+   {"tr": "pembe", "voorbeelden": [["Ze heeft een roze jurk.", "Pembe bir elbisesi var."]]}
+  ]},
+ "sorry": {"niveau": "A0", "kort": "pardon, özür dilerim", "not": "Daha resmî: Neemt u mij niet kwalijk. / Excuseer.",
+  "anlamlar": [
+   {"tr": "pardon, özür dilerim", "kalip": [["sorry zeggen", "özür dilemek"]], "voorbeelden": [["Sorry dat ik je laat wachten.", "Seni beklettiğim için özür dilerim."], ["Sorry, ik was eerst.", "Pardon, sıra bendeydi."]]}
+  ]},
+ "spelen": {"vormen": "speelde / speelden · heeft gespeeld", "niveau": "A0", "kort": "oynamak; çalmak (müzik)", "kaliplar": [["een rol spelen", "rol oynamak"]],
   "anlamlar": [
    {"tr": "oynamak", "voorbeelden": [["We spelen buiten.", "Dışarıda oynuyoruz."], ["Ik hoor de kinderen spelen.", "Çocukların oynadığını duyuyorum."]]},
    {"tr": "(çalgı) çalmak", "voorbeelden": [["Maar het orgel weet nog niet wat het moet spelen.", "Ama org henüz ne çalacağını bilmiyor."]]}
-  ],
-  "kaliplar": [["een rol spelen", "rol oynamak"]]},
- "tien": {"niveau": "A0", "kort": "on", "anlamlar": [{"tr": "on (10)", "voorbeelden": [["Ik tel tot tien.", "Ona kadar sayıyorum."], ["Er zijn tien kamers!", "On oda var!"]]}]},
- "twee": {"niveau": "A0", "kort": "iki", "anlamlar": [{"tr": "iki (2)", "voorbeelden": [["Ik heb twee handen.", "İki elim var."], ["Ze hebben een kind van twee jaar.", "İki yaşında bir çocukları var."]]}]},
- "veel": {"niveau": "A0", "kort": "çok", "anlamlar": [{"tr": "çok (miktar)", "not": "sıfat önünde 'çok' için: heel (heel mooi)", "kalip": [["te veel", "fazla, çok fazla"], ["Veel plezier!", "İyi eğlenceler!"]], "voorbeelden": [["Ik heb veel boeken.", "Çok kitabım var."]]}]},
- "verdrietig": {"niveau": "A0", "kort": "üzgün", "anlamlar": [{"tr": "üzgün", "voorbeelden": [["Ze is verdrietig.", "O üzgün."], ["Ben je verdrietig als ik niet kom?", "Gelmezsem üzülür müsün?"]]}],
-  "not": "het verdriet = üzüntü, keder."},
- "vier": {"niveau": "A0", "kort": "dört", "anlamlar": [{"tr": "dört (4)", "voorbeelden": [["De tafel heeft vier poten.", "Masanın dört ayağı var."], ["Uw dochter zit in groep vier van de basisschool.", "Kızınız ilkokulda dördüncü grupta (birinci sınıfta)."]]}],
-  "not": "vieren (fiil) = kutlamak."},
- "vijf": {"niveau": "A0", "kort": "beş", "anlamlar": [{"tr": "beş (5)", "voorbeelden": [["Ik ben vijf jaar.", "Beş yaşındayım."], ["U hebt vijf kinderen.", "Beş çocuğunuz var."]]}]},
- "warm": {"niveau": "A0", "kort": "sıcak", "anlamlar": [{"tr": "sıcak", "kalip": [["Ik heb het warm.", "Sıcakladım."]], "voorbeelden": [["Het is warm vandaag.", "Bugün hava sıcak."], ["Het is veel te warm in huis.", "Ev çok fazla sıcak."]]}]},
- "weinig": {"niveau": "A0", "kort": "az", "anlamlar": [{"tr": "az", "kalip": [["te weinig", "çok az, yetersiz"]], "voorbeelden": [["Er is weinig melk.", "Az süt var."], ["Wijken met te weinig huizen.", "Çok az evi olan mahalleler."]]}]},
- "wij": {"niveau": "A0", "kort": "biz", "anlamlar": [{"tr": "biz (özne zamiri, vurgulu)", "not": "vurgusuz: we; nesne: ons", "voorbeelden": [["Wij gaan naar huis.", "Biz eve gidiyoruz."], ["Daarna sturen wij de factuur naar je werkgever.", "Sonra faturayı işverenine gönderiyoruz."]]}]},
- "wit": {"niveau": "A0", "kort": "beyaz", "anlamlar": [{"tr": "beyaz", "voorbeelden": [["De melk is wit.", "Süt beyaz."], ["Waarom zijn wolken wit?", "Bulutlar neden beyaz?"]]}]},
- "zes": {"niveau": "A0", "kort": "altı", "anlamlar": [{"tr": "altı (6)", "voorbeelden": [["Zes eieren in een doos.", "Bir kutuda altı yumurta."], ["Het VWO duurt zes jaar.", "VWO (üniversiteye hazırlayan lise) altı yıl sürer."]]}]},
- "zeven": {"niveau": "A0", "kort": "yedi", "anlamlar": [{"tr": "yedi (7)", "voorbeelden": [["Een week heeft zeven dagen.", "Bir haftada yedi gün var."], ["Sara is zeven jaar.", "Sara yedi yaşında."]]}]},
- "zij": {"niveau": "A0", "kort": "o (kadın); onlar", "anlamlar": [
+  ]},
+ "tien": {"niveau": "A0", "kort": "on",
+  "anlamlar": [
+   {"tr": "on (10)", "voorbeelden": [["Ik tel tot tien.", "Ona kadar sayıyorum."], ["Er zijn tien kamers!", "On oda var!"]]}
+  ]},
+ "twee": {"niveau": "A0", "kort": "iki",
+  "anlamlar": [
+   {"tr": "iki (2)", "voorbeelden": [["Ik heb twee handen.", "İki elim var."], ["Ze hebben een kind van twee jaar.", "İki yaşında bir çocukları var."]]}
+  ]},
+ "veel": {"niveau": "A0", "kort": "çok",
+  "anlamlar": [
+   {"tr": "çok (miktar)", "not": "sıfat önünde 'çok' için: heel (heel mooi)", "kalip": [["te veel", "fazla, çok fazla"], ["Veel plezier!", "İyi eğlenceler!"]], "voorbeelden": [["Ik heb veel boeken.", "Çok kitabım var."]]}
+  ]},
+ "verdrietig": {"niveau": "A0", "kort": "üzgün", "not": "het verdriet = üzüntü, keder.",
+  "anlamlar": [
+   {"tr": "üzgün", "voorbeelden": [["Ze is verdrietig.", "O üzgün."], ["Ben je verdrietig als ik niet kom?", "Gelmezsem üzülür müsün?"]]}
+  ]},
+ "vier": {"niveau": "A0", "kort": "dört", "not": "vieren (fiil) = kutlamak.",
+  "anlamlar": [
+   {"tr": "dört (4)", "voorbeelden": [["De tafel heeft vier poten.", "Masanın dört ayağı var."], ["Uw dochter zit in groep vier van de basisschool.", "Kızınız ilkokulda dördüncü grupta (birinci sınıfta)."]]}
+  ]},
+ "vijf": {"niveau": "A0", "kort": "beş",
+  "anlamlar": [
+   {"tr": "beş (5)", "voorbeelden": [["Ik ben vijf jaar.", "Beş yaşındayım."], ["U hebt vijf kinderen.", "Beş çocuğunuz var."]]}
+  ]},
+ "warm": {"niveau": "A0", "kort": "sıcak",
+  "anlamlar": [
+   {"tr": "sıcak", "kalip": [["Ik heb het warm.", "Sıcakladım."]], "voorbeelden": [["Het is warm vandaag.", "Bugün hava sıcak."], ["Het is veel te warm in huis.", "Ev çok fazla sıcak."]]}
+  ]},
+ "weinig": {"niveau": "A0", "kort": "az",
+  "anlamlar": [
+   {"tr": "az", "kalip": [["te weinig", "çok az, yetersiz"]], "voorbeelden": [["Er is weinig melk.", "Az süt var."], ["Wijken met te weinig huizen.", "Çok az evi olan mahalleler."]]}
+  ]},
+ "wij": {"niveau": "A0", "kort": "biz",
+  "anlamlar": [
+   {"tr": "biz (özne zamiri, vurgulu)", "not": "vurgusuz: we; nesne: ons", "voorbeelden": [["Wij gaan naar huis.", "Biz eve gidiyoruz."], ["Daarna sturen wij de factuur naar je werkgever.", "Sonra faturayı işverenine gönderiyoruz."]]}
+  ]},
+ "wit": {"niveau": "A0", "kort": "beyaz",
+  "anlamlar": [
+   {"tr": "beyaz", "voorbeelden": [["De melk is wit.", "Süt beyaz."], ["Waarom zijn wolken wit?", "Bulutlar neden beyaz?"]]}
+  ]},
+ "zes": {"niveau": "A0", "kort": "altı",
+  "anlamlar": [
+   {"tr": "altı (6)", "voorbeelden": [["Zes eieren in een doos.", "Bir kutuda altı yumurta."], ["Het VWO duurt zes jaar.", "VWO (üniversiteye hazırlayan lise) altı yıl sürer."]]}
+  ]},
+ "zeven": {"niveau": "A0", "kort": "yedi",
+  "anlamlar": [
+   {"tr": "yedi (7)", "voorbeelden": [["Een week heeft zeven dagen.", "Bir haftada yedi gün var."], ["Sara is zeven jaar.", "Sara yedi yaşında."]]}
+  ]},
+ "zij": {"niveau": "A0", "kort": "o (kadın); onlar", "not": "de zij = yan, taraf (aynı yazılır).",
+  "anlamlar": [
    {"tr": "o (kadın)", "not": "vurgusuz: ze", "voorbeelden": [["Zij is mijn zus.", "O benim kız kardeşim."]]},
    {"tr": "onlar", "voorbeelden": [["Zij moeten nu alles netjes opruimen.", "Onlar şimdi her şeyi düzgünce toplamak zorunda."]]}
-  ], "not": "de zij = yan, taraf (aynı yazılır)."},
- "zwart": {"niveau": "A0", "kort": "siyah; (zwart werken) kayıt dışı", "anlamlar": [
-   {"tr": "siyah", "voorbeelden": [["De kat is zwart.", "Kedi siyah."]]},
+  ]},
+ "zwart": {"niveau": "A0", "kort": "siyah; (zwart werken) kayıt dışı",
+  "anlamlar": [
+   {"tr": "siyah", "voorbeelden": [["De kat is zwart.", "Kedi siyah."], ["Mijn agenda is heel kleurrijk, en de pen is zwart met groene bloemetjes.", "Ajandam çok renkli, kalem de yeşil çiçekli siyah."]]},
    {"tr": "kayıt dışı, kaçak", "kalip": [["zwart werken", "kaçak (vergisiz) çalışmak"]], "voorbeelden": [["Samuel werkt zwart voor een vriend.", "Samuel bir arkadaşının yanında kaçak çalışıyor."]]}
   ]},
- "aandoen": {"vormen": "deed aan / deden aan · heeft aangedaan", "niveau": "A1", "kort": "giymek; (ışık, cihaz) açmak",
-  "not": "Ayrılabilen fiil: Ik doe mijn jas aan.",
+ "aandoen": {"vormen": "deed aan / deden aan · heeft aangedaan", "niveau": "A1", "kort": "giymek; (ışık, cihaz) açmak", "not": "Ayrılabilen fiil: Ik doe mijn jas aan.",
   "anlamlar": [
-   {"tr": "giymek", "voorbeelden": [["Doe je schoenen aan.", "Ayakkabılarını giy."], ["Na het sporten kun Je droge kleding aandoen.", "Spordan sonra kuru kıyafet giyebilirsin."]]},
+   {"tr": "giymek", "voorbeelden": [["Doe je schoenen aan.", "Ayakkabılarını giy."], ["Na het sporten kun Je droge kleding aandoen.", "Spordan sonra kuru kıyafet giyebilirsin."], ["Wacht even, ik moet nog snel iets eten, mijn schoenen aandoen en geld halen bij de pinautomaat.", "Bir dakika, daha hızlıca bir şey yemem, ayakkabılarımı giymem ve bankamatikten para çekmem lazım."], ["Dat betekent: je moet goede schoenen aandoen.", "Bu şu demek: iyi ayakkabı giymelisin."], ["Hij wil een oude spijkerbroek en een t-shirt aandoen.", "Eski bir kot pantolon ve tişört giymek istiyor."]]},
    {"tr": "(ışık, cihaz) açmak", "voorbeelden": [["Ze gaan het licht aandoen op het werk.", "İş yerinde ışıkları açacaklar."]]}
   ]},
- "achter": {"niveau": "A1", "kort": "arkasında, arkaya; geride",
-  "anlamlar": [{"tr": "arkasında, arkasına", "voorbeelden": [["De bal ligt achter de boom.", "Top ağacın arkasında."], ["U gaat direct achter de vrouw staan.", "Hemen kadının arkasında duruyorsunuz."]]}],
-  "kaliplar": [["achter elkaar", "art arda, üst üste"], ["achter de schermen", "perde arkasında"], ["achter iemand aan rennen", "birinin peşinden koşmak"]]},
+ "achter": {"niveau": "A1", "kort": "arkasında, arkaya; geride", "kaliplar": [["achter elkaar", "art arda, üst üste"], ["achter de schermen", "perde arkasında"], ["achter iemand aan rennen", "birinin peşinden koşmak"]],
+  "anlamlar": [
+   {"tr": "arkasında, arkasına", "voorbeelden": [["De bal ligt achter de boom.", "Top ağacın arkasında."], ["U gaat direct achter de vrouw staan.", "Hemen kadının arkasında duruyorsunuz."]]}
+  ]},
  "bellen": {"vormen": "belde / belden · heeft gebeld", "niveau": "A1", "kort": "(telefonla) aramak; zil çalmak",
   "anlamlar": [
    {"tr": "(telefonla) aramak", "kalip": [["iemand bellen", "birini aramak"], ["bellen naar", "(bir yeri) aramak"]], "voorbeelden": [["Ik bel je morgen.", "Seni yarın ararım."], ["Zullen we morgen even bellen?", "Yarın bir telefonlaşalım mı?"]]},
    {"tr": "(kapı) zilini çalmak", "kalip": [["aanbellen", "kapı zilini çalmak"]]}
   ]},
  "betalen": {"vormen": "betaalde / betaalden · heeft betaald", "niveau": "A1", "kort": "ödemek",
-  "anlamlar": [{"tr": "ödemek", "kalip": [["pinnen / met de kaart betalen", "kartla ödemek"], ["contant betalen", "nakit ödemek"], ["betalen voor", "… için ödemek"]],
-    "voorbeelden": [["Mag ik met de kaart betalen?", "Kartla ödeyebilir miyim?"], ["Wat kun je niet automatisch betalen?", "Neyi otomatik ödeme ile ödeyemezsin?"]]}]},
+  "anlamlar": [
+   {"tr": "ödemek", "kalip": [["pinnen / met de kaart betalen", "kartla ödemek"], ["contant betalen", "nakit ödemek"], ["betalen voor", "… için ödemek"]], "voorbeelden": [["Mag ik met de kaart betalen?", "Kartla ödeyebilir miyim?"], ["Wat kun je niet automatisch betalen?", "Neyi otomatik ödeme ile ödeyemezsin?"]]}
+  ]},
  "beter": {"niveau": "A1", "kort": "daha iyi; iyileşmiş",
   "anlamlar": [
    {"tr": "daha iyi (goed'un karşılaştırması)", "kalip": [["Je kunt beter …", "… -sen daha iyi olur"]], "voorbeelden": [["We kunnen beter tot morgen wachten.", "Yarına kadar beklesek daha iyi olur."]]},
    {"tr": "iyileşmiş (hastalıktan sonra)", "kalip": [["Beterschap!", "Geçmiş olsun!"], ["zich beter melden", "(işe) iyileştiğini bildirmek"]], "voorbeelden": [["Ben je weer beter?", "İyileştin mi?"]]}
   ]},
- "daarna": {"niveau": "A1", "kort": "ondan sonra, sonra", "anlamlar": [{"tr": "ondan sonra, sonra", "not": "cümle başında gelirse fiil hemen ardından gelir: Daarna lezen we.", "voorbeelden": [["Daarna lezen we een boek.", "Ondan sonra kitap okuyoruz."], ["U wilt liever dat ze daarna gaat trouwen.", "Ondan sonra evlenmesini tercih ediyorsunuz."]]}]},
+ "daarna": {"niveau": "A1", "kort": "ondan sonra, sonra",
+  "anlamlar": [
+   {"tr": "ondan sonra, sonra", "not": "cümle başında gelirse fiil hemen ardından gelir: Daarna lezen we.", "voorbeelden": [["Daarna lezen we een boek.", "Ondan sonra kitap okuyoruz."], ["U wilt liever dat ze daarna gaat trouwen.", "Ondan sonra evlenmesini tercih ediyorsunuz."]]}
+  ]},
  "dan": {"niveau": "A1", "kort": "sonra; o zaman; -den (karşılaştırma)",
   "anlamlar": [
    {"tr": "sonra; o zaman", "voorbeelden": [["Dan gaan we naar huis.", "Sonra eve gidiyoruz."], ["Dan hebben ze het vergeten.", "O zaman unutmuşlardır."]]},

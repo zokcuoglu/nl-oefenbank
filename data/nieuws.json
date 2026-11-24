@@ -5043,6 +5043,17 @@
      "voorbeeld_tr": "Bütün eleştiriler ona vız geliyor.",
      "groep": "vo",
      "tur": "uitdr"
+    },
+    {
+     "id": "u043",
+     "nl": "iets droog zeggen",
+     "niveau": "B1",
+     "tr": "bir şeyi gülmeden, ciddi bir yüzle söylemek (kuru espri)",
+     "uitleg": "'droog' burada 'kuru' değil: söyleyiş biçimi. Komik ya da iğneleyici bir söz, yüz ifadesi değiştirmeden söyleniyor.",
+     "voorbeeld": "Waarop een gast droog zegt: 'U bent geen Johan Cruijff.'",
+     "voorbeeld_tr": "Bunun üzerine konuklardan biri hiç gülmeden: 'Siz Johan Cruijff değilsiniz' diyor.",
+     "groep": "vo",
+     "tur": "uitdr"
     }
    ],
    "woordenschat": "de ober | zn | iemand die in een restaurant eten en drinken brengt | De ober brengt de koffie. | garson | A1 | 3\nde bal | zn | rond ding waarmee je speelt | Gooi de bal naar mij! | top | A1 | 1-2\nde droom | zn | (hier) iets wat je heel graag wilt | Zijn droom is profvoetballer worden. | hayal | A2 | 4\nde slagroom | zn | geklopte room, zoet en wit | Wil je slagroom op je taart? | krem şanti | A2 | 3\nde club | zn | (hier) vereniging, team | Bij welke club speel je? | kulüp | A2 | 4\noud | bn | (hier) veel jaren geleefd | U bent te oud voor profvoetbal. | eski; yaşlı | A0 | 1-2\nwaardeloos | bn | heel slecht | Je voetbalt waardeloos. | berbat | B1 | 6\nde vereniging | zn | club van mensen met dezelfde hobby | Hij zit bij een voetbalvereniging. | dernek, kulüp | B1 | 6\nde blessure | zn | pijn of wond door sport | Hij kan niet spelen door een blessure. | sakatlık | B1 | 7\nde carrière | zn | hoe je werk zich in de loop van je leven ontwikkelt | Ze heeft een mooie carrière als arts. | kariyer | B1 | 8\nvreemd | bn | anders dan normaal, raar | Dat is niet heel vreemd. | tuhaf | B1 | 5\nstimuleren | ww | aanmoedigen, iemand helpen om iets te doen | Mijn ouders stimuleerden me om te lezen. | teşvik etmek | B1 | 8\noppakken | sch ww | (hier) weer beginnen met iets | Na de vakantie pak ik mijn studie weer op. | (bir işi) üstlenmek, ele almak; yeniden ele almak | B1 | 6\ntegenhouden | sch ww | zorgen dat iemand iets niet kan doen | De politie houdt de auto tegen. | engel olmak, durdurmak | B1 | 6\nrondbellen | sch ww | veel mensen of bedrijven één voor één bellen | Ik heb rondgebeld, maar niemand heeft tijd. | tek tek aramak | B2 | 8\nsportief | bn | (hier) die graag en goed sport | Mijn zus is heel sportief. | sporcu ruhlu | B2 | 7\nhet lijf | zn | lichaam | Je lijf is niet in vorm. | vücut | B2 | 8\nkoesteren | ww | met liefde bewaren of beschermen | Ze koestert de foto van haar oma. | sevgiyle korumak | C1 | vo\nkieskeurig | bn | die niet alles goed vindt, die veel eisen heeft | Hij is kieskeurig met eten. | seçici, titiz | C1 | vo",
@@ -5336,7 +5347,8 @@
     "n-ober-u4",
     "n-ober-u5",
     "n-ober-u6",
-    "n-ober-u7"
+    "n-ober-u7",
+    "u043"
    ]
   }
  ],

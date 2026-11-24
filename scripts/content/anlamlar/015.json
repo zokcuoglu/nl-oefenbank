@@ -1,110 +1,407 @@
 {
- "maan": {"lid": "de", "mv": "manen", "niveau": "A1", "kort": "ay (gökyüzünde)", "anlamlar": [{"tr": "ay (gök cismi)", "kalip": [["volle maan", "dolunay"]], "voorbeelden": [["Vannacht is het volle maan.", "Bu gece dolunay var."]]}], "not": "Takvim ayı: de maand."},
- "maart": {"niveau": "A1", "kort": "mart", "anlamlar": [{"tr": "mart (ay)", "voorbeelden": [["Vanaf 1 maart krijgt u nieuwe afvalbakken.", "1 Mart'tan itibaren yeni çöp kutuları alıyorsunuz."]]}]},
- "mandje": {"lid": "het", "mv": "mandjes", "niveau": "A1", "kort": "küçük sepet; (alışveriş) sepeti", "anlamlar": [{"tr": "küçük sepet; (internette) alışveriş sepeti", "kalip": [["in je mandje", "sepetine (eklemek)"]], "voorbeelden": [["Pak een mandje bij de ingang.", "Girişten bir sepet al."]]}]},
- "meedoen": {"vormen": "deed mee / deden mee · heeft meegedaan", "niveau": "A2", "kort": "katılmak", "anlamlar": [{"tr": "katılmak (etkinliğe, yarışmaya, seçime)", "kalip": [["meedoen aan", "…-e katılmak"]], "voorbeelden": [["Wat moet je doen als je wilt meedoen?", "Katılmak istersen ne yapmalısın?"], ["Meedoen is vrijwillig: als uw buren niet willen, kunnen wij niets doen.", "Katılım gönüllüdür: komşularınız istemezse bir şey yapamayız."]]}]},
- "meeuw": {"lid": "de", "mv": "meeuwen", "niveau": "A1", "kort": "martı", "anlamlar": [{"tr": "martı", "voorbeelden": [["De meeuw pakt mijn patat!", "Martı patatesimi kapıyor!"]]}]},
- "mes": {"lid": "het", "mv": "messen", "niveau": "A1", "kort": "bıçak", "anlamlar": [{"tr": "bıçak", "kalip": [["mes en vork", "bıçak ve çatal"]], "voorbeelden": [["Ik heb me gesneden met het mes.", "Bıçakla elimi kestim."]]}]},
- "mexico": {"niveau": "A1", "kort": "Meksika", "anlamlar": [{"tr": "Meksika", "voorbeelden": [["Mexico ligt in Noord-Amerika.", "Meksika Kuzey Amerika'da."]]}]},
- "miauwen": {"vormen": "miauwde / miauwden · heeft gemiauwd", "niveau": "A1", "kort": "miyavlamak", "anlamlar": [{"tr": "miyavlamak", "voorbeelden": [["De kat miauwt bij de deur.", "Kedi kapının önünde miyavlıyor."]]}]},
- "mier": {"lid": "de", "mv": "mieren", "niveau": "A1", "kort": "karınca", "anlamlar": [{"tr": "karınca", "voorbeelden": [["Er lopen mieren in de keuken.", "Mutfakta karıncalar dolaşıyor."]]}]},
- "mijter": {"lid": "de", "mv": "mijters", "niveau": "A2", "kort": "piskopos başlığı (Sinterklaas'ın başlığı)", "anlamlar": [{"tr": "piskopos başlığı; Sinterklaas'ın kırmızı başlığı", "voorbeelden": [["Sinterklaas draagt een rode mijter.", "Sinterklaas kırmızı bir başlık takar."]]}]},
- "minuut": {"lid": "de", "mv": "minuten", "niveau": "A1", "kort": "dakika", "anlamlar": [{"tr": "dakika", "voorbeelden": [["Elke minuut rollen er honderden kroketten van de band.", "Her dakika banttan yüzlerce kroket çıkıyor."], ["Je moet je publiek in de eerste minuut nieuwsgierig maken.", "İzleyicini ilk dakikada meraklandırmalısın."]]}]},
- "mok": {"lid": "de", "mv": "mokken", "niveau": "A1", "kort": "kupa (kulplu büyük bardak)", "anlamlar": [{"tr": "kupa (kulplu büyük bardak)", "voorbeelden": [["Een mok thee, graag.", "Bir kupa çay lütfen."]]}]},
- "muis": {"lid": "de", "mv": "muizen", "niveau": "A1", "kort": "fare (hayvan; bilgisayar)", "anlamlar": [{"tr": "fare (hayvan; bilgisayar faresi)", "voorbeelden": [["De kat vangt een muis.", "Kedi bir fare yakalıyor."]]}]},
- "muur": {"lid": "de", "mv": "muren", "niveau": "A1", "kort": "duvar", "anlamlar": [{"tr": "duvar", "kalip": [["een kroket uit de muur", "otomattan kroket (FEBO)"]], "voorbeelden": [["En hang wat foto's aan de muur.", "Ve duvara birkaç fotoğraf as."], ["Daarmee sla ik een spijker in de muur.", "Onunla duvara çivi çakıyorum."]]}]},
- "oktober": {"niveau": "A1", "kort": "ekim", "anlamlar": [{"tr": "ekim (ay)", "voorbeelden": [["De cursus begint in oktober.", "Kurs ekimde başlıyor."]]}]},
- "opbellen": {"vormen": "belde op / belden op · heeft opgebeld", "niveau": "A1", "kort": "telefonla aramak", "anlamlar": [{"tr": "telefonla aramak", "voorbeelden": [["Ik bel je morgen op.", "Seni yarın ararım."]]}], "not": "Günlük dilde çoğunlukla sadece bellen."},
- "opstaan": {"vormen": "stond op / stonden op · is opgestaan", "niveau": "A1", "kort": "kalkmak (yataktan, yerinden)", "anlamlar": [{"tr": "kalkmak (yataktan, oturduğu yerden)", "voorbeelden": [["Ik sta om zeven uur op.", "Saat yedide kalkıyorum."], ["Ze kan niet zelf gaan zitten of opstaan.", "Kendi başına oturamıyor ya da kalkamıyor."]]}]},
- "paal": {"lid": "de", "mv": "palen", "niveau": "A2", "kort": "direk, kazık; (futbol) direk", "anlamlar": [{"tr": "direk, kazık", "kalip": [["laadpaal", "şarj istasyonu"], ["tegen de paal", "direğe (çarpmak)"]], "voorbeelden": [["De bal gaat tegen de paal.", "Top direğe çarpıyor."]]}]},
- "pad": {"lid": "het / de", "mv": "paden", "niveau": "A2", "kort": "patika, yol; (de pad) kara kurbağası", "anlamlar": [{"tr": "(het pad) patika, yol", "kalip": [["fietspad", "bisiklet yolu"], ["op pad gaan", "yola çıkmak"]], "voorbeelden": [["Het pad loopt door het bos.", "Patika ormanın içinden geçiyor."]]}, {"tr": "(de pad) kara kurbağası"}]},
- "pan": {"lid": "de", "mv": "pannen", "niveau": "A1", "kort": "tava, tencere", "anlamlar": [{"tr": "tava, tencere", "kalip": [["koekenpan", "kızartma tavası"]], "voorbeelden": [["Plaatje 3: een pan.", "Resim 3: bir tava."]]}]},
- "paprika": {"lid": "de", "mv": "paprika's", "niveau": "A1", "kort": "dolmalık biber; kırmızı toz biber", "anlamlar": [{"tr": "dolmalık (çarliston olmayan, iri) biber", "voorbeelden": [["Snijd de paprika in stukjes.", "Biberi küçük parçalara kes."]]}]},
- "parasol": {"lid": "de", "mv": "parasols", "niveau": "A1", "kort": "güneş şemsiyesi", "anlamlar": [{"tr": "güneş şemsiyesi", "voorbeelden": [["Zet de parasol open, het is warm.", "Şemsiyeyi aç, hava sıcak."]]}], "not": "Yağmur şemsiyesi: de paraplu."},
- "pasta": {"lid": "de", "niveau": "A1", "kort": "makarna", "anlamlar": [{"tr": "makarna", "voorbeelden": [["In brood, pasta, koekjes en pizza zitten gluten.", "Ekmek, makarna, bisküvi ve pizzada glüten var."]]}], "not": "Dikkat: Türkçedeki 'pasta' = de taart."},
- "pauze": {"lid": "de", "mv": "pauzes", "niveau": "A1", "kort": "mola, ara", "anlamlar": [{"tr": "mola, ara", "kalip": [["pauze nemen", "mola vermek"], ["lunchpauze", "öğle arası"]], "voorbeelden": [["Laten we even pauze nemen.", "Biraz mola verelim."], ["Elke werknemer heeft recht op pauze.", "Her çalışanın mola hakkı vardır."]]}]},
- "peer": {"lid": "de", "mv": "peren", "niveau": "A1", "kort": "armut; ampul", "anlamlar": [{"tr": "armut", "voorbeelden": [["Ik eet een peer.", "Bir armut yiyorum."]]}, {"tr": "ampul (gloeipeer)"}]},
- "pepernoot": {"lid": "de", "mv": "pepernoten", "niveau": "A2", "kort": "pepernoot (Sinterklaas kurabiyesi)", "anlamlar": [{"tr": "Sinterklaas döneminde yenen baharatlı küçük kurabiye", "voorbeelden": [["De Pieten strooien pepernoten.", "Pietler kurabiye saçıyor."]]}], "not": "Bugün çoğunlukla satılan yuvarlak olanlar aslında kruidnoten'dır."},
- "peru": {"niveau": "A1", "kort": "Peru", "anlamlar": [{"tr": "Peru", "voorbeelden": [["Peru ligt in Zuid-Amerika.", "Peru Güney Amerika'da."]]}]},
- "piano": {"lid": "de", "mv": "piano's", "niveau": "A1", "kort": "piyano", "anlamlar": [{"tr": "piyano", "kalip": [["piano spelen", "piyano çalmak"]], "voorbeelden": [["Uw buurvrouw speelt vaak ‘s avonds op de piano.", "Komşunuz sık sık akşamları piyano çalıyor."]]}]},
- "piloot": {"lid": "de", "mv": "piloten", "niveau": "A1", "kort": "pilot", "anlamlar": [{"tr": "pilot", "voorbeelden": [["Mijn broer wil piloot worden.", "Erkek kardeşim pilot olmak istiyor."]]}]},
- "pizza": {"lid": "de", "mv": "pizza's", "niveau": "A1", "kort": "pizza", "anlamlar": [{"tr": "pizza", "voorbeelden": [["Het restaurant verkoopt veel pizza's.", "Restoran çok pizza satıyor."]]}]},
- "plein": {"lid": "het", "mv": "pleinen", "niveau": "A1", "kort": "meydan", "anlamlar": [{"tr": "meydan", "kalip": [["schoolplein", "okul bahçesi"]], "voorbeelden": [["Op het plein is een markt.", "Meydanda pazar var."]]}]},
- "polen": {"niveau": "A1", "kort": "Polonya", "anlamlar": [{"tr": "Polonya", "kalip": [["Pools", "Lehçe; Polonyalı"]], "voorbeelden": [["Veel mensen uit Polen werken in Nederland.", "Polonya'dan birçok kişi Hollanda'da çalışıyor."]]}]},
- "potje": {"lid": "het", "mv": "potjes", "niveau": "A2", "kort": "küçük kavanoz; kumbara, para kenarı; bir el (oyun)", "anlamlar": [
+ "maan": {"lid": "de", "mv": "manen", "niveau": "A1", "kort": "ay (gökyüzünde)", "not": "Takvim ayı: de maand.",
+  "anlamlar": [
+   {"tr": "ay (gök cismi)", "kalip": [["volle maan", "dolunay"]], "voorbeelden": [["Vannacht is het volle maan.", "Bu gece dolunay var."]]}
+  ]},
+ "maart": {"niveau": "A1", "kort": "mart",
+  "anlamlar": [
+   {"tr": "mart (ay)", "voorbeelden": [["Vanaf 1 maart krijgt u nieuwe afvalbakken.", "1 Mart'tan itibaren yeni çöp kutuları alıyorsunuz."]]}
+  ]},
+ "mandje": {"lid": "het", "mv": "mandjes", "niveau": "A1", "kort": "küçük sepet; (alışveriş) sepeti",
+  "anlamlar": [
+   {"tr": "küçük sepet; (internette) alışveriş sepeti", "kalip": [["in je mandje", "sepetine (eklemek)"]], "voorbeelden": [["Pak een mandje bij de ingang.", "Girişten bir sepet al."]]}
+  ]},
+ "meedoen": {"vormen": "deed mee / deden mee · heeft meegedaan", "niveau": "A2", "kort": "katılmak",
+  "anlamlar": [
+   {"tr": "katılmak (etkinliğe, yarışmaya, seçime)", "kalip": [["meedoen aan", "…-e katılmak"]], "voorbeelden": [["Wat moet je doen als je wilt meedoen?", "Katılmak istersen ne yapmalısın?"], ["Meedoen is vrijwillig: als uw buren niet willen, kunnen wij niets doen.", "Katılım gönüllüdür: komşularınız istemezse bir şey yapamayız."]]}
+  ]},
+ "meeuw": {"lid": "de", "mv": "meeuwen", "niveau": "A1", "kort": "martı",
+  "anlamlar": [
+   {"tr": "martı", "voorbeelden": [["De meeuw pakt mijn patat!", "Martı patatesimi kapıyor!"]]}
+  ]},
+ "mes": {"lid": "het", "mv": "messen", "niveau": "A1", "kort": "bıçak",
+  "anlamlar": [
+   {"tr": "bıçak", "kalip": [["mes en vork", "bıçak ve çatal"]], "voorbeelden": [["Ik heb me gesneden met het mes.", "Bıçakla elimi kestim."]]}
+  ]},
+ "mexico": {"niveau": "A1", "kort": "Meksika",
+  "anlamlar": [
+   {"tr": "Meksika", "voorbeelden": [["Mexico ligt in Noord-Amerika.", "Meksika Kuzey Amerika'da."]]}
+  ]},
+ "miauwen": {"vormen": "miauwde / miauwden · heeft gemiauwd", "niveau": "A1", "kort": "miyavlamak",
+  "anlamlar": [
+   {"tr": "miyavlamak", "voorbeelden": [["De kat miauwt bij de deur.", "Kedi kapının önünde miyavlıyor."]]}
+  ]},
+ "mier": {"lid": "de", "mv": "mieren", "niveau": "A1", "kort": "karınca",
+  "anlamlar": [
+   {"tr": "karınca", "voorbeelden": [["Er lopen mieren in de keuken.", "Mutfakta karıncalar dolaşıyor."]]}
+  ]},
+ "mijter": {"lid": "de", "mv": "mijters", "niveau": "A2", "kort": "piskopos başlığı (Sinterklaas'ın başlığı)",
+  "anlamlar": [
+   {"tr": "piskopos başlığı; Sinterklaas'ın kırmızı başlığı", "voorbeelden": [["Sinterklaas draagt een rode mijter.", "Sinterklaas kırmızı bir başlık takar."]]}
+  ]},
+ "minuut": {"lid": "de", "mv": "minuten", "niveau": "A1", "kort": "dakika",
+  "anlamlar": [
+   {"tr": "dakika", "voorbeelden": [["Elke minuut rollen er honderden kroketten van de band.", "Her dakika banttan yüzlerce kroket çıkıyor."], ["Je moet je publiek in de eerste minuut nieuwsgierig maken.", "İzleyicini ilk dakikada meraklandırmalısın."]]}
+  ]},
+ "mok": {"lid": "de", "mv": "mokken", "niveau": "A1", "kort": "kupa (kulplu büyük bardak)",
+  "anlamlar": [
+   {"tr": "kupa (kulplu büyük bardak)", "voorbeelden": [["Een mok thee, graag.", "Bir kupa çay lütfen."]]}
+  ]},
+ "muis": {"lid": "de", "mv": "muizen", "niveau": "A1", "kort": "fare (hayvan; bilgisayar)",
+  "anlamlar": [
+   {"tr": "fare (hayvan; bilgisayar faresi)", "voorbeelden": [["De kat vangt een muis.", "Kedi bir fare yakalıyor."]]}
+  ]},
+ "muur": {"lid": "de", "mv": "muren", "niveau": "A1", "kort": "duvar",
+  "anlamlar": [
+   {"tr": "duvar", "kalip": [["een kroket uit de muur", "otomattan kroket (FEBO)"]], "voorbeelden": [["En hang wat foto's aan de muur.", "Ve duvara birkaç fotoğraf as."], ["Daarmee sla ik een spijker in de muur.", "Onunla duvara çivi çakıyorum."]]}
+  ]},
+ "oktober": {"niveau": "A1", "kort": "ekim",
+  "anlamlar": [
+   {"tr": "ekim (ay)", "voorbeelden": [["De cursus begint in oktober.", "Kurs ekimde başlıyor."]]}
+  ]},
+ "opbellen": {"vormen": "belde op / belden op · heeft opgebeld", "niveau": "A1", "kort": "telefonla aramak", "not": "Günlük dilde çoğunlukla sadece bellen.",
+  "anlamlar": [
+   {"tr": "telefonla aramak", "voorbeelden": [["Ik bel je morgen op.", "Seni yarın ararım."]]}
+  ]},
+ "opstaan": {"vormen": "stond op / stonden op · is opgestaan", "niveau": "A1", "kort": "kalkmak (yataktan, yerinden)",
+  "anlamlar": [
+   {"tr": "kalkmak (yataktan, oturduğu yerden)", "voorbeelden": [["Ik sta om zeven uur op.", "Saat yedide kalkıyorum."], ["Ze kan niet zelf gaan zitten of opstaan.", "Kendi başına oturamıyor ya da kalkamıyor."]]}
+  ]},
+ "paal": {"lid": "de", "mv": "palen", "niveau": "A2", "kort": "direk, kazık; (futbol) direk",
+  "anlamlar": [
+   {"tr": "direk, kazık", "kalip": [["laadpaal", "şarj istasyonu"], ["tegen de paal", "direğe (çarpmak)"]], "voorbeelden": [["De bal gaat tegen de paal.", "Top direğe çarpıyor."]]}
+  ]},
+ "pad": {"lid": "het / de", "mv": "paden", "niveau": "A2", "kort": "patika, yol; (de pad) kara kurbağası",
+  "anlamlar": [
+   {"tr": "(het pad) patika, yol", "kalip": [["fietspad", "bisiklet yolu"], ["op pad gaan", "yola çıkmak"]], "voorbeelden": [["Het pad loopt door het bos.", "Patika ormanın içinden geçiyor."]]},
+   {"tr": "(de pad) kara kurbağası"},
+   {"tr": "(deyim) op je pad komen: karşına çıkmak, başına gelmek", "kalip": [["op je pad komen", "yoluna çıkmak"]], "voorbeelden": [["Een mantelzorger heeft die keuze meestal niet: de zorg komt op zijn pad omdat iemand van wie hij houdt hulp nodig heeft.", "Bir bakıcının çoğu zaman bu seçeneği yok: sevdiği biri yardıma ihtiyaç duyduğu için bakım onun karşısına çıkıyor."]]}
+  ]},
+ "pan": {"lid": "de", "mv": "pannen", "niveau": "A1", "kort": "tava, tencere",
+  "anlamlar": [
+   {"tr": "tava, tencere", "kalip": [["koekenpan", "kızartma tavası"]], "voorbeelden": [["Plaatje 3: een pan.", "Resim 3: bir tava."]]}
+  ]},
+ "paprika": {"lid": "de", "mv": "paprika's", "niveau": "A1", "kort": "dolmalık biber; kırmızı toz biber",
+  "anlamlar": [
+   {"tr": "dolmalık (çarliston olmayan, iri) biber", "voorbeelden": [["Snijd de paprika in stukjes.", "Biberi küçük parçalara kes."]]}
+  ]},
+ "parasol": {"lid": "de", "mv": "parasols", "niveau": "A1", "kort": "güneş şemsiyesi", "not": "Yağmur şemsiyesi: de paraplu.",
+  "anlamlar": [
+   {"tr": "güneş şemsiyesi", "voorbeelden": [["Zet de parasol open, het is warm.", "Şemsiyeyi aç, hava sıcak."]]}
+  ]},
+ "pasta": {"lid": "de", "niveau": "A1", "kort": "makarna", "not": "Dikkat: Türkçedeki 'pasta' = de taart.",
+  "anlamlar": [
+   {"tr": "makarna", "voorbeelden": [["In brood, pasta, koekjes en pizza zitten gluten.", "Ekmek, makarna, bisküvi ve pizzada glüten var."]]}
+  ]},
+ "pauze": {"lid": "de", "mv": "pauzes", "niveau": "A1", "kort": "mola, ara",
+  "anlamlar": [
+   {"tr": "mola, ara", "kalip": [["pauze nemen", "mola vermek"], ["lunchpauze", "öğle arası"]], "voorbeelden": [["Laten we even pauze nemen.", "Biraz mola verelim."], ["Elke werknemer heeft recht op pauze.", "Her çalışanın mola hakkı vardır."]]}
+  ]},
+ "peer": {"lid": "de", "mv": "peren", "niveau": "A1", "kort": "armut; ampul",
+  "anlamlar": [
+   {"tr": "armut", "voorbeelden": [["Ik eet een peer.", "Bir armut yiyorum."]]},
+   {"tr": "ampul (gloeipeer)"}
+  ]},
+ "pepernoot": {"lid": "de", "mv": "pepernoten", "niveau": "A2", "kort": "pepernoot (Sinterklaas kurabiyesi)", "not": "Bugün çoğunlukla satılan yuvarlak olanlar aslında kruidnoten'dır.",
+  "anlamlar": [
+   {"tr": "Sinterklaas döneminde yenen baharatlı küçük kurabiye", "voorbeelden": [["De Pieten strooien pepernoten.", "Pietler kurabiye saçıyor."]]}
+  ]},
+ "peru": {"niveau": "A1", "kort": "Peru",
+  "anlamlar": [
+   {"tr": "Peru", "voorbeelden": [["Peru ligt in Zuid-Amerika.", "Peru Güney Amerika'da."]]}
+  ]},
+ "piano": {"lid": "de", "mv": "piano's", "niveau": "A1", "kort": "piyano",
+  "anlamlar": [
+   {"tr": "piyano", "kalip": [["piano spelen", "piyano çalmak"]], "voorbeelden": [["Uw buurvrouw speelt vaak ‘s avonds op de piano.", "Komşunuz sık sık akşamları piyano çalıyor."]]}
+  ]},
+ "piloot": {"lid": "de", "mv": "piloten", "niveau": "A1", "kort": "pilot",
+  "anlamlar": [
+   {"tr": "pilot", "voorbeelden": [["Mijn broer wil piloot worden.", "Erkek kardeşim pilot olmak istiyor."]]}
+  ]},
+ "pizza": {"lid": "de", "mv": "pizza's", "niveau": "A1", "kort": "pizza",
+  "anlamlar": [
+   {"tr": "pizza", "voorbeelden": [["Het restaurant verkoopt veel pizza's.", "Restoran çok pizza satıyor."]]}
+  ]},
+ "plein": {"lid": "het", "mv": "pleinen", "niveau": "A1", "kort": "meydan",
+  "anlamlar": [
+   {"tr": "meydan", "kalip": [["schoolplein", "okul bahçesi"]], "voorbeelden": [["Op het plein is een markt.", "Meydanda pazar var."]]}
+  ]},
+ "polen": {"niveau": "A1", "kort": "Polonya",
+  "anlamlar": [
+   {"tr": "Polonya", "kalip": [["Pools", "Lehçe; Polonyalı"]], "voorbeelden": [["Veel mensen uit Polen werken in Nederland.", "Polonya'dan birçok kişi Hollanda'da çalışıyor."]]}
+  ]},
+ "potje": {"lid": "het", "mv": "potjes", "niveau": "A2", "kort": "küçük kavanoz; kumbara, para kenarı; bir el (oyun)",
+  "anlamlar": [
    {"tr": "küçük kavanoz", "voorbeelden": [["Een potje jam.", "Bir kavanoz reçel."]]},
    {"tr": "ayrılmış para, kumbara", "voorbeelden": [["Met de nieuwe regels heeft iedereen een eigen potje met het geld dat hij zelf heeft gespaard.", "Yeni kurallarla herkesin kendi biriktirdiği parayla kendi kumbarası oluyor."]]},
-   {"tr": "bir el, bir oyun", "kalip": [["een potje voetbal", "bir maçlık futbol"]]}]},
- "prijs": {"lid": "de", "mv": "prijzen", "niveau": "A1", "kort": "fiyat; ödül", "anlamlar": [
-   {"tr": "fiyat", "voorbeelden": [["De prijs gaat omhoog.", "Fiyat yükseliyor."], ["De lesboeken zitten niet in de prijs van de cursus.", "Ders kitapları kurs fiyatına dahil değil."]]},
-   {"tr": "ödül", "kalip": [["een prijs winnen", "ödül kazanmak"]]}],
-  "kaliplar": [["iets op prijs stellen", "bir şeyi takdir etmek, memnuniyetle karşılamak"]]},
- "raket": {"lid": "de / het", "mv": "raketten", "niveau": "A1", "kort": "roket; raket", "anlamlar": [{"tr": "roket", "voorbeelden": [["De raket gaat naar de maan.", "Roket aya gidiyor."]]}, {"tr": "raket (tenis)", "kalip": [["tennisracket", "tenis raketi"]]}]},
- "rekenen": {"vormen": "rekende / rekenden · heeft gerekend", "niveau": "A1", "kort": "hesap yapmak; matematik (okulda)", "anlamlar": [{"tr": "hesap yapmak; (okulda) matematik dersi", "voorbeelden": [["Mijn zoon vindt rekenen moeilijk.", "Oğlum matematiği zor buluyor."], ["Ik ben beter in talen dan in rekenen.", "Dillerde matematikten daha iyiyim."]]}, {"tr": "(rekenen op) güvenmek", "kalip": [["Je kunt op mij rekenen.", "Bana güvenebilirsin."]]}]},
- "rivier": {"lid": "de", "mv": "rivieren", "niveau": "A1", "kort": "nehir", "anlamlar": [{"tr": "nehir", "kalip": [["de grote rivieren", "büyük nehirler (Rijn, Maas, Waal)"]], "voorbeelden": [["Zij kunnen dan bekijken wat er in de rivier zwemt.", "O zaman nehirde neyin yüzdüğüne bakabilirler."]]}]},
- "robot": {"lid": "de", "mv": "robots", "niveau": "A1", "kort": "robot", "anlamlar": [{"tr": "robot", "voorbeelden": [["In de fabriek werken robots.", "Fabrikada robotlar çalışıyor."]]}]},
- "roeien": {"vormen": "roeide / roeiden · heeft/is geroeid", "niveau": "A2", "kort": "kürek çekmek", "anlamlar": [{"tr": "kürek çekmek", "kalip": [["de roeiboot", "sandal"]], "voorbeelden": [["We roeien over het meer.", "Gölde kürek çekiyoruz."]]}]},
- "roeren": {"vormen": "roerde / roerden · heeft geroerd", "niveau": "A2", "kort": "karıştırmak (kaşıkla)", "anlamlar": [{"tr": "(kaşıkla) karıştırmak", "voorbeelden": [["Roer de soep af en toe.", "Çorbayı arada bir karıştır."], ["Jij moet het cement roeren.", "Çimentoyu sen karıştırmalısın."]]}]},
- "rok": {"lid": "de", "mv": "rokken", "niveau": "A1", "kort": "etek", "anlamlar": [{"tr": "etek", "voorbeelden": [["Ze draagt een lange rok.", "Uzun bir etek giyiyor."]]}]},
- "room": {"lid": "de", "niveau": "A2", "kort": "krema", "anlamlar": [{"tr": "krema", "kalip": [["slagroom", "krem şanti"], ["zure room", "ekşi krema"]], "voorbeelden": [["Doe wat room in de saus.", "Sosa biraz krema ekle."]]}]},
- "rugby": {"lid": "het", "niveau": "A2", "kort": "ragbi", "anlamlar": [{"tr": "ragbi", "voorbeelden": [["Rugby is een harde sport.", "Ragbi sert bir spor."]]}]},
- "schaap": {"lid": "het", "mv": "schapen", "niveau": "A1", "kort": "koyun", "anlamlar": [{"tr": "koyun", "voorbeelden": [["Op de dijk lopen schapen.", "Setin üzerinde koyunlar dolaşıyor."]]}]},
- "schaar": {"lid": "de", "mv": "scharen", "niveau": "A1", "kort": "makas", "anlamlar": [{"tr": "makas", "voorbeelden": [["Plaatje 2: een schaar.", "Resim 2: bir makas."]]}]},
- "schelp": {"lid": "de", "mv": "schelpen", "niveau": "A1", "kort": "deniz kabuğu", "anlamlar": [{"tr": "deniz kabuğu", "voorbeelden": [["Op het strand zoeken we schelpen.", "Kumsalda deniz kabuğu arıyoruz."]]}]},
- "schrift": {"lid": "het", "mv": "schriften", "niveau": "A1", "kort": "defter; yazı", "anlamlar": [{"tr": "defter", "voorbeelden": [["Schrijf het in je schrift.", "Defterine yaz."]]}, {"tr": "(de schrift) yazı, el yazısı", "kalip": [["op schrift", "yazılı olarak"]]}]},
- "schroef": {"lid": "de", "mv": "schroeven", "niveau": "A2", "kort": "vida", "anlamlar": [{"tr": "vida", "kalip": [["de schroevendraaier", "tornavida"]], "voorbeelden": [["Draai de schroef vast.", "Vidayı sıkıştır."]]}]},
- "seconde": {"lid": "de", "mv": "seconden", "niveau": "A1", "kort": "saniye", "anlamlar": [{"tr": "saniye", "voorbeelden": [["Je moet de knop twee seconden indrukken.", "Düğmeyi iki saniye basılı tutman gerekiyor."]]}]},
- "shirt": {"lid": "het", "mv": "shirts", "niveau": "A1", "kort": "tişört, forma", "anlamlar": [{"tr": "tişört; (spor) forma", "voorbeelden": [["Iedereen krijgt een oranje shirt.", "Herkes turuncu bir forma alıyor."]]}]},
- "skien": {"vormen": "skiede / skieden · heeft/is geskied", "niveau": "A2", "kort": "kayak yapmak", "anlamlar": [{"tr": "kayak yapmak (doğru yazım: skiën)", "kalip": [["op wintersport gaan", "kayak tatiline gitmek"]], "voorbeelden": [["In de winter gaan we skiën in Oostenrijk.", "Kışın Avusturya'da kayağa gidiyoruz."]]}]},
- "slaapkamer": {"lid": "de", "mv": "slaapkamers", "niveau": "A1", "kort": "yatak odası", "anlamlar": [{"tr": "yatak odası", "voorbeelden": [["Het huis heeft drie slaapkamers.", "Evde üç yatak odası var."]]}]},
- "slak": {"lid": "de", "mv": "slakken", "niveau": "A1", "kort": "salyangoz, sümüklüböcek", "anlamlar": [{"tr": "salyangoz, sümüklüböcek", "voorbeelden": [["Na de regen zitten er slakken in de tuin.", "Yağmurdan sonra bahçede salyangozlar oluyor."]]}]},
- "slang": {"lid": "de", "mv": "slangen", "niveau": "A1", "kort": "yılan; hortum", "anlamlar": [{"tr": "yılan", "voorbeelden": [["In de dierentuin zie je een grote slang.", "Hayvanat bahçesinde büyük bir yılan görürsün."]]}, {"tr": "hortum", "kalip": [["tuinslang", "bahçe hortumu"]]}]},
- "slinger": {"lid": "de", "mv": "slingers", "niveau": "A2", "kort": "süs zinciri (parti); sarkaç", "anlamlar": [{"tr": "süs zinciri, kâğıt girland (doğum günü)", "voorbeelden": [["We hangen slingers op voor het feest.", "Parti için süs zincirleri asıyoruz."]]}, {"tr": "sarkaç; kol (çevrilen)"}]},
- "snoep": {"lid": "het", "niveau": "A1", "kort": "şeker, şekerleme", "anlamlar": [{"tr": "şeker, şekerleme (genel)", "kalip": [["snoepen", "şeker yemek, atıştırmak"]], "voorbeelden": [["Snoep is niet nodig.", "Şekere gerek yok."]]}]},
- "spanje": {"niveau": "A1", "kort": "İspanya", "anlamlar": [{"tr": "İspanya", "kalip": [["Spaans", "İspanyolca; İspanyol"]], "voorbeelden": [["Sinterklaas komt uit Spanje.", "Sinterklaas İspanya'dan gelir."]]}]},
- "spijker": {"lid": "de", "mv": "spijkers", "niveau": "A2", "kort": "çivi", "anlamlar": [{"tr": "çivi", "kalip": [["spijkerbroek", "kot pantolon"], ["de spijker op de kop slaan", "taşı gediğine koymak"]], "voorbeelden": [["Daarmee sla ik een spijker in de muur.", "Onunla duvara çivi çakıyorum."]]}]},
- "spin": {"lid": "de", "mv": "spinnen", "niveau": "A1", "kort": "örümcek", "anlamlar": [{"tr": "örümcek", "kalip": [["het spinnenweb", "örümcek ağı"]], "voorbeelden": [["Er zit een spin in de badkamer.", "Banyoda bir örümcek var."]]}]},
- "spits": {"lid": "de", "mv": "spitsen", "niveau": "A2", "kort": "forvet (futbol); yoğun saat; sivri uç", "anlamlar": [
+   {"tr": "bir el, bir oyun", "kalip": [["een potje voetbal", "bir maçlık futbol"]]}
+  ]},
+ "prijs": {"lid": "de", "mv": "prijzen", "niveau": "A1", "kort": "fiyat; ödül", "kaliplar": [["iets op prijs stellen", "bir şeyi takdir etmek, memnuniyetle karşılamak"]],
+  "anlamlar": [
+   {"tr": "fiyat", "voorbeelden": [["De prijs gaat omhoog.", "Fiyat yükseliyor."], ["De lesboeken zitten niet in de prijs van de cursus.", "Ders kitapları kurs fiyatına dahil değil."], ["De prijs verandert elke maand.", "Fiyat her ay değişiyor."], ["Voor cursisten die nu al een cursus bij ons volgen, is de prijs € 60.", "Şu anda bizde kurs alan kursiyerler için fiyat 60 €."], ["Ik vind de prijs ook belangrijk.", "Fiyatı da önemli buluyorum."]]},
+   {"tr": "ödül", "kalip": [["een prijs winnen", "ödül kazanmak"]]}
+  ]},
+ "raket": {"lid": "de / het", "mv": "raketten", "niveau": "A1", "kort": "roket; raket",
+  "anlamlar": [
+   {"tr": "roket", "voorbeelden": [["De raket gaat naar de maan.", "Roket aya gidiyor."]]},
+   {"tr": "raket (tenis)", "kalip": [["tennisracket", "tenis raketi"]]}
+  ]},
+ "rekenen": {"vormen": "rekende / rekenden · heeft gerekend", "niveau": "A1", "kort": "hesap yapmak; matematik (okulda)",
+  "anlamlar": [
+   {"tr": "hesap yapmak; (okulda) matematik dersi", "voorbeelden": [["Mijn zoon vindt rekenen moeilijk.", "Oğlum matematiği zor buluyor."], ["Ik ben beter in talen dan in rekenen.", "Dillerde matematikten daha iyiyim."], ["Op de basisschool krijgen de kinderen behalve Nederlands en rekenen ook andere vakken.", "İlkokulda çocuklar Hollandaca ve matematikten başka dersler de alır."], ["Ook Marja moest goed rekenen.", "Marja da iyi hesap yapmak zorundaydı."]]},
+   {"tr": "(rekenen op) güvenmek", "kalip": [["Je kunt op mij rekenen.", "Bana güvenebilirsin."]], "voorbeelden": [["Zo'n twee miljoen Nederlanders kunnen volgend jaar vermoedelijk rekenen op een hoger pensioen.", "Yaklaşık iki milyon Hollandalı gelecek yıl muhtemelen daha yüksek emekli maaşı bekleyebilir."]]}
+  ]},
+ "rivier": {"lid": "de", "mv": "rivieren", "niveau": "A1", "kort": "nehir",
+  "anlamlar": [
+   {"tr": "nehir", "kalip": [["de grote rivieren", "büyük nehirler (Rijn, Maas, Waal)"]], "voorbeelden": [["Zij kunnen dan bekijken wat er in de rivier zwemt.", "O zaman nehirde neyin yüzdüğüne bakabilirler."]]}
+  ]},
+ "robot": {"lid": "de", "mv": "robots", "niveau": "A1", "kort": "robot",
+  "anlamlar": [
+   {"tr": "robot", "voorbeelden": [["In de fabriek werken robots.", "Fabrikada robotlar çalışıyor."]]}
+  ]},
+ "roeien": {"vormen": "roeide / roeiden · heeft/is geroeid", "niveau": "A2", "kort": "kürek çekmek",
+  "anlamlar": [
+   {"tr": "kürek çekmek", "kalip": [["de roeiboot", "sandal"]], "voorbeelden": [["We roeien over het meer.", "Gölde kürek çekiyoruz."]]}
+  ]},
+ "roeren": {"vormen": "roerde / roerden · heeft geroerd", "niveau": "A2", "kort": "karıştırmak (kaşıkla)",
+  "anlamlar": [
+   {"tr": "(kaşıkla) karıştırmak", "voorbeelden": [["Roer de soep af en toe.", "Çorbayı arada bir karıştır."], ["Jij moet het cement roeren.", "Çimentoyu sen karıştırmalısın."]]}
+  ]},
+ "rok": {"lid": "de", "mv": "rokken", "niveau": "A1", "kort": "etek",
+  "anlamlar": [
+   {"tr": "etek", "voorbeelden": [["Ze draagt een lange rok.", "Uzun bir etek giyiyor."]]}
+  ]},
+ "room": {"lid": "de", "niveau": "A2", "kort": "krema",
+  "anlamlar": [
+   {"tr": "krema", "kalip": [["slagroom", "krem şanti"], ["zure room", "ekşi krema"]], "voorbeelden": [["Doe wat room in de saus.", "Sosa biraz krema ekle."]]}
+  ]},
+ "rugby": {"lid": "het", "niveau": "A2", "kort": "ragbi",
+  "anlamlar": [
+   {"tr": "ragbi", "voorbeelden": [["Rugby is een harde sport.", "Ragbi sert bir spor."]]}
+  ]},
+ "schaap": {"lid": "het", "mv": "schapen", "niveau": "A1", "kort": "koyun",
+  "anlamlar": [
+   {"tr": "koyun", "voorbeelden": [["Op de dijk lopen schapen.", "Setin üzerinde koyunlar dolaşıyor."]]}
+  ]},
+ "schaar": {"lid": "de", "mv": "scharen", "niveau": "A1", "kort": "makas",
+  "anlamlar": [
+   {"tr": "makas", "voorbeelden": [["Plaatje 2: een schaar.", "Resim 2: bir makas."]]}
+  ]},
+ "schelp": {"lid": "de", "mv": "schelpen", "niveau": "A1", "kort": "deniz kabuğu",
+  "anlamlar": [
+   {"tr": "deniz kabuğu", "voorbeelden": [["Op het strand zoeken we schelpen.", "Kumsalda deniz kabuğu arıyoruz."]]}
+  ]},
+ "schrift": {"lid": "het", "mv": "schriften", "niveau": "A1", "kort": "defter; yazı",
+  "anlamlar": [
+   {"tr": "defter", "voorbeelden": [["Schrijf het in je schrift.", "Defterine yaz."]]},
+   {"tr": "(de schrift) yazı, el yazısı", "kalip": [["op schrift", "yazılı olarak"]]}
+  ]},
+ "schroef": {"lid": "de", "mv": "schroeven", "niveau": "A2", "kort": "vida",
+  "anlamlar": [
+   {"tr": "vida", "kalip": [["de schroevendraaier", "tornavida"]], "voorbeelden": [["Draai de schroef vast.", "Vidayı sıkıştır."]]}
+  ]},
+ "seconde": {"lid": "de", "mv": "seconden", "niveau": "A1", "kort": "saniye",
+  "anlamlar": [
+   {"tr": "saniye", "voorbeelden": [["Je moet de knop twee seconden indrukken.", "Düğmeyi iki saniye basılı tutman gerekiyor."]]}
+  ]},
+ "shirt": {"lid": "het", "mv": "shirts", "niveau": "A1", "kort": "tişört, forma",
+  "anlamlar": [
+   {"tr": "tişört; (spor) forma", "voorbeelden": [["Iedereen krijgt een oranje shirt.", "Herkes turuncu bir forma alıyor."]]}
+  ]},
+ "skien": {"vormen": "skiede / skieden · heeft/is geskied", "niveau": "A2", "kort": "kayak yapmak",
+  "anlamlar": [
+   {"tr": "kayak yapmak (doğru yazım: skiën)", "kalip": [["op wintersport gaan", "kayak tatiline gitmek"]], "voorbeelden": [["In de winter gaan we skiën in Oostenrijk.", "Kışın Avusturya'da kayağa gidiyoruz."]]}
+  ]},
+ "slaapkamer": {"lid": "de", "mv": "slaapkamers", "niveau": "A1", "kort": "yatak odası",
+  "anlamlar": [
+   {"tr": "yatak odası", "voorbeelden": [["Het huis heeft drie slaapkamers.", "Evde üç yatak odası var."]]}
+  ]},
+ "slak": {"lid": "de", "mv": "slakken", "niveau": "A1", "kort": "salyangoz, sümüklüböcek",
+  "anlamlar": [
+   {"tr": "salyangoz, sümüklüböcek", "voorbeelden": [["Na de regen zitten er slakken in de tuin.", "Yağmurdan sonra bahçede salyangozlar oluyor."]]}
+  ]},
+ "slang": {"lid": "de", "mv": "slangen", "niveau": "A1", "kort": "yılan; hortum",
+  "anlamlar": [
+   {"tr": "yılan", "voorbeelden": [["In de dierentuin zie je een grote slang.", "Hayvanat bahçesinde büyük bir yılan görürsün."]]},
+   {"tr": "hortum", "kalip": [["tuinslang", "bahçe hortumu"]]}
+  ]},
+ "slinger": {"lid": "de", "mv": "slingers", "niveau": "A2", "kort": "süs zinciri (parti); sarkaç",
+  "anlamlar": [
+   {"tr": "süs zinciri, kâğıt girland (doğum günü)", "voorbeelden": [["We hangen slingers op voor het feest.", "Parti için süs zincirleri asıyoruz."]]},
+   {"tr": "sarkaç; kol (çevrilen)"}
+  ]},
+ "snoep": {"lid": "het", "niveau": "A1", "kort": "şeker, şekerleme",
+  "anlamlar": [
+   {"tr": "şeker, şekerleme (genel)", "kalip": [["snoepen", "şeker yemek, atıştırmak"]], "voorbeelden": [["Snoep is niet nodig.", "Şekere gerek yok."]]}
+  ]},
+ "spanje": {"niveau": "A1", "kort": "İspanya",
+  "anlamlar": [
+   {"tr": "İspanya", "kalip": [["Spaans", "İspanyolca; İspanyol"]], "voorbeelden": [["Sinterklaas komt uit Spanje.", "Sinterklaas İspanya'dan gelir."]]}
+  ]},
+ "spijker": {"lid": "de", "mv": "spijkers", "niveau": "A2", "kort": "çivi",
+  "anlamlar": [
+   {"tr": "çivi", "kalip": [["spijkerbroek", "kot pantolon"], ["de spijker op de kop slaan", "taşı gediğine koymak"]], "voorbeelden": [["Daarmee sla ik een spijker in de muur.", "Onunla duvara çivi çakıyorum."]]}
+  ]},
+ "spin": {"lid": "de", "mv": "spinnen", "niveau": "A1", "kort": "örümcek",
+  "anlamlar": [
+   {"tr": "örümcek", "kalip": [["het spinnenweb", "örümcek ağı"]], "voorbeelden": [["Er zit een spin in de badkamer.", "Banyoda bir örümcek var."]]}
+  ]},
+ "spits": {"lid": "de", "mv": "spitsen", "niveau": "A2", "kort": "forvet (futbol); yoğun saat; sivri uç",
+  "anlamlar": [
    {"tr": "(futbol) forvet, santrafor", "voorbeelden": [["Hij speelt in de spits.", "Forvette oynuyor."]]},
    {"tr": "yoğun saat (trafik)", "kalip": [["in de spits", "yoğun saatte"], ["de ochtendspits", "sabah trafiği"]]},
-   {"tr": "(sıfat) sivri"}]},
- "staf": {"lid": "de", "mv": "staven", "niveau": "A2", "kort": "asa (Sinterklaas); kurmay heyeti, personel", "anlamlar": [{"tr": "asa (Sinterklaas'ın asası)", "voorbeelden": [["Sinterklaas heeft een gouden staf.", "Sinterklaas'ın altın bir asası var."]]}, {"tr": "kurmay heyeti, yönetim personeli", "kalip": [["de technische staf", "teknik ekip"]]}]},
- "ster": {"lid": "de", "mv": "sterren", "niveau": "A1", "kort": "yıldız", "anlamlar": [{"tr": "yıldız (gökte; ünlü kişi)", "voorbeelden": [["'s Nachts zie je de sterren.", "Geceleri yıldızları görürsün."]]}]},
- "stoomboot": {"lid": "de", "mv": "stoomboten", "niveau": "A2", "kort": "buharlı gemi (Sinterklaas'ın gemisi)", "anlamlar": [{"tr": "buharlı gemi; Sinterklaas'ın İspanya'dan geldiği gemi", "voorbeelden": [["Sinterklaas komt met de stoomboot.", "Sinterklaas buharlı gemiyle gelir."]]}]},
- "struik": {"lid": "de", "mv": "struiken", "niveau": "A2", "kort": "çalı", "anlamlar": [{"tr": "çalı", "voorbeelden": [["De bal ligt in de struik.", "Top çalının içinde."]]}]},
- "suiker": {"lid": "de", "niveau": "A1", "kort": "şeker (toz)", "anlamlar": [{"tr": "şeker (toz/küp şeker)", "kalip": [["Suikerfeest", "Şeker Bayramı"]], "voorbeelden": [["Thee zonder suiker, graag.", "Şekersiz çay lütfen."]]}]},
- "taal": {"lid": "de", "mv": "talen", "niveau": "A1", "kort": "dil", "anlamlar": [{"tr": "dil (konuşulan dil; üslup)", "kalip": [["moedertaal", "ana dili"], ["grove taal", "kaba dil, küfür"]], "voorbeelden": [["U moet de Nederlandse taal spreken.", "Hollandacayı konuşmanız gerekiyor."], ["Daarnaast is het goed voor hun taal.", "Ayrıca dilleri için de iyi."]]}]},
- "taart": {"lid": "de", "mv": "taarten", "niveau": "A1", "kort": "pasta, turta", "anlamlar": [{"tr": "pasta, turta", "kalip": [["trakteren op taart", "pasta ısmarlamak"]], "voorbeelden": [["Daarom wilt u alle medewerkers trakteren op taart.", "Bu yüzden tüm çalışanlara pasta ısmarlamak istiyorsunuz."]]}]},
- "team": {"lid": "het", "mv": "teams", "niveau": "A1", "kort": "takım, ekip", "anlamlar": [{"tr": "takım, ekip", "voorbeelden": [["Ons team bestaat uit zes mensen.", "Ekibimiz altı kişiden oluşuyor."], ["Bovendien is een team met mannen en vrouwen gezelliger.", "Üstelik kadın ve erkeklerden oluşan bir ekip daha keyifli."]]}]},
- "tennis": {"lid": "het", "niveau": "A1", "kort": "tenis", "anlamlar": [{"tr": "tenis", "kalip": [["tennissen", "tenis oynamak"]], "voorbeelden": [["Op dinsdag speel ik tennis.", "Salı günleri tenis oynuyorum."]]}]},
- "tent": {"lid": "de", "mv": "tenten", "niveau": "A1", "kort": "çadır; (konuşma dili) mekân", "anlamlar": [{"tr": "çadır", "kalip": [["kamperen in een tent", "çadırda kamp yapmak"]], "voorbeelden": [["We slapen in een tent.", "Çadırda uyuyoruz."]]}, {"tr": "(konuşma dili) kafe, restoran, mekân"}]},
- "tijd": {"lid": "de", "mv": "tijden", "niveau": "A1", "kort": "zaman, vakit", "anlamlar": [{"tr": "zaman, vakit", "kalip": [["op tijd", "zamanında"], ["tijd hebben", "vakti olmak"], ["de hele tijd", "sürekli"]], "voorbeelden": [["Als je tijd hebt.", "Vaktin varsa."]]}]},
- "tomaat": {"lid": "de", "mv": "tomaten", "niveau": "A1", "kort": "domates", "anlamlar": [{"tr": "domates", "voorbeelden": [["Nederland kweekt veel tomaten in kassen.", "Hollanda seralarda çok domates yetiştirir."]]}]},
- "tuin": {"lid": "de", "mv": "tuinen", "niveau": "A1", "kort": "bahçe", "anlamlar": [{"tr": "bahçe", "kalip": [["achtertuin", "arka bahçe"], ["volkstuin", "hobi bahçesi"]], "voorbeelden": [["U zit te zonnen in uw tuin.", "Bahçenizde güneşleniyorsunuz."]]}]},
- "turkije": {"niveau": "A1", "kort": "Türkiye", "anlamlar": [{"tr": "Türkiye", "kalip": [["Turks", "Türkçe; Türk"], ["een Turk", "bir Türk"]], "voorbeelden": [["Mijn ouders komen uit Turkije.", "Ailem Türkiye'den geliyor."]]}]},
- "turnen": {"vormen": "turnde / turnden · heeft geturnd", "niveau": "A2", "kort": "jimnastik yapmak", "anlamlar": [{"tr": "jimnastik yapmak; jimnastik (spor)", "voorbeelden": [["Mijn dochter zit op turnen.", "Kızım jimnastiğe gidiyor."]]}]},
- "ui": {"lid": "de", "mv": "uien", "niveau": "A1", "kort": "soğan", "anlamlar": [{"tr": "soğan", "voorbeelden": [["Snijd de ui eerst door de helft.", "Soğanı önce ikiye kes."]]}]},
- "uil": {"lid": "de", "mv": "uilen", "niveau": "A1", "kort": "baykuş", "anlamlar": [{"tr": "baykuş", "voorbeelden": [["'s Nachts hoor je de uil.", "Geceleri baykuşu duyarsın."]]}]},
- "utrecht": {"niveau": "A1", "kort": "Utrecht (şehir ve il)", "anlamlar": [{"tr": "Utrecht: Hollanda'nın ortasında şehir ve il; büyük demiryolu kavşağı", "voorbeelden": [["In die periode werkte hij in Utrecht.", "O dönem Utrecht'te çalışıyordu."]]}]},
- "varken": {"lid": "het", "mv": "varkens", "niveau": "A1", "kort": "domuz", "anlamlar": [{"tr": "domuz", "kalip": [["varkensvlees", "domuz eti"]], "voorbeelden": [["Op de boerderij zijn varkens.", "Çiftlikte domuzlar var."]]}]},
- "veld": {"lid": "het", "mv": "velden", "niveau": "A1", "kort": "saha; tarla; alan (formda)", "anlamlar": [
+   {"tr": "(sıfat) sivri"}
+  ]},
+ "staf": {"lid": "de", "mv": "staven", "niveau": "A2", "kort": "asa (Sinterklaas); kurmay heyeti, personel",
+  "anlamlar": [
+   {"tr": "asa (Sinterklaas'ın asası)", "voorbeelden": [["Sinterklaas heeft een gouden staf.", "Sinterklaas'ın altın bir asası var."]]},
+   {"tr": "kurmay heyeti, yönetim personeli", "kalip": [["de technische staf", "teknik ekip"]]}
+  ]},
+ "ster": {"lid": "de", "mv": "sterren", "niveau": "A1", "kort": "yıldız",
+  "anlamlar": [
+   {"tr": "yıldız (gökte; ünlü kişi)", "voorbeelden": [["'s Nachts zie je de sterren.", "Geceleri yıldızları görürsün."]]}
+  ]},
+ "stoomboot": {"lid": "de", "mv": "stoomboten", "niveau": "A2", "kort": "buharlı gemi (Sinterklaas'ın gemisi)",
+  "anlamlar": [
+   {"tr": "buharlı gemi; Sinterklaas'ın İspanya'dan geldiği gemi", "voorbeelden": [["Sinterklaas komt met de stoomboot.", "Sinterklaas buharlı gemiyle gelir."]]}
+  ]},
+ "struik": {"lid": "de", "mv": "struiken", "niveau": "A2", "kort": "çalı",
+  "anlamlar": [
+   {"tr": "çalı", "voorbeelden": [["De bal ligt in de struik.", "Top çalının içinde."]]}
+  ]},
+ "suiker": {"lid": "de", "niveau": "A1", "kort": "şeker (toz)",
+  "anlamlar": [
+   {"tr": "şeker (toz/küp şeker)", "kalip": [["Suikerfeest", "Şeker Bayramı"]], "voorbeelden": [["Thee zonder suiker, graag.", "Şekersiz çay lütfen."]]}
+  ]},
+ "taal": {"lid": "de", "mv": "talen", "niveau": "A1", "kort": "dil",
+  "anlamlar": [
+   {"tr": "dil (konuşulan dil; üslup)", "kalip": [["moedertaal", "ana dili"], ["grove taal", "kaba dil, küfür"]], "voorbeelden": [["U moet de Nederlandse taal spreken.", "Hollandacayı konuşmanız gerekiyor."], ["Daarnaast is het goed voor hun taal.", "Ayrıca dilleri için de iyi."]]}
+  ]},
+ "taart": {"lid": "de", "mv": "taarten", "niveau": "A1", "kort": "pasta, turta",
+  "anlamlar": [
+   {"tr": "pasta, turta", "kalip": [["trakteren op taart", "pasta ısmarlamak"]], "voorbeelden": [["Daarom wilt u alle medewerkers trakteren op taart.", "Bu yüzden tüm çalışanlara pasta ısmarlamak istiyorsunuz."]]}
+  ]},
+ "team": {"lid": "het", "mv": "teams", "niveau": "A1", "kort": "takım, ekip",
+  "anlamlar": [
+   {"tr": "takım, ekip", "voorbeelden": [["Ons team bestaat uit zes mensen.", "Ekibimiz altı kişiden oluşuyor."], ["Bovendien is een team met mannen en vrouwen gezelliger.", "Üstelik kadın ve erkeklerden oluşan bir ekip daha keyifli."]]}
+  ]},
+ "tennis": {"lid": "het", "niveau": "A1", "kort": "tenis",
+  "anlamlar": [
+   {"tr": "tenis", "kalip": [["tennissen", "tenis oynamak"]], "voorbeelden": [["Op dinsdag speel ik tennis.", "Salı günleri tenis oynuyorum."]]}
+  ]},
+ "tent": {"lid": "de", "mv": "tenten", "niveau": "A1", "kort": "çadır; (konuşma dili) mekân",
+  "anlamlar": [
+   {"tr": "çadır", "kalip": [["kamperen in een tent", "çadırda kamp yapmak"]], "voorbeelden": [["We slapen in een tent.", "Çadırda uyuyoruz."]]},
+   {"tr": "(konuşma dili) kafe, restoran, mekân"}
+  ]},
+ "tijd": {"lid": "de", "mv": "tijden", "niveau": "A1", "kort": "zaman, vakit",
+  "anlamlar": [
+   {"tr": "zaman, vakit", "kalip": [["op tijd", "zamanında"], ["tijd hebben", "vakti olmak"], ["de hele tijd", "sürekli"]], "voorbeelden": [["Als je tijd hebt.", "Vaktin varsa."]]}
+  ]},
+ "tomaat": {"lid": "de", "mv": "tomaten", "niveau": "A1", "kort": "domates",
+  "anlamlar": [
+   {"tr": "domates", "voorbeelden": [["Nederland kweekt veel tomaten in kassen.", "Hollanda seralarda çok domates yetiştirir."]]}
+  ]},
+ "tuin": {"lid": "de", "mv": "tuinen", "niveau": "A1", "kort": "bahçe",
+  "anlamlar": [
+   {"tr": "bahçe", "kalip": [["achtertuin", "arka bahçe"], ["volkstuin", "hobi bahçesi"]], "voorbeelden": [["U zit te zonnen in uw tuin.", "Bahçenizde güneşleniyorsunuz."]]}
+  ]},
+ "turkije": {"niveau": "A1", "kort": "Türkiye",
+  "anlamlar": [
+   {"tr": "Türkiye", "kalip": [["Turks", "Türkçe; Türk"], ["een Turk", "bir Türk"]], "voorbeelden": [["Mijn ouders komen uit Turkije.", "Ailem Türkiye'den geliyor."]]}
+  ]},
+ "turnen": {"vormen": "turnde / turnden · heeft geturnd", "niveau": "A2", "kort": "jimnastik yapmak",
+  "anlamlar": [
+   {"tr": "jimnastik yapmak; jimnastik (spor)", "voorbeelden": [["Mijn dochter zit op turnen.", "Kızım jimnastiğe gidiyor."]]}
+  ]},
+ "ui": {"lid": "de", "mv": "uien", "niveau": "A1", "kort": "soğan",
+  "anlamlar": [
+   {"tr": "soğan", "voorbeelden": [["Snijd de ui eerst door de helft.", "Soğanı önce ikiye kes."]]}
+  ]},
+ "uil": {"lid": "de", "mv": "uilen", "niveau": "A1", "kort": "baykuş",
+  "anlamlar": [
+   {"tr": "baykuş", "voorbeelden": [["'s Nachts hoor je de uil.", "Geceleri baykuşu duyarsın."]]}
+  ]},
+ "utrecht": {"niveau": "A1", "kort": "Utrecht (şehir ve il)",
+  "anlamlar": [
+   {"tr": "Utrecht: Hollanda'nın ortasında şehir ve il; büyük demiryolu kavşağı", "voorbeelden": [["In die periode werkte hij in Utrecht.", "O dönem Utrecht'te çalışıyordu."]]}
+  ]},
+ "varken": {"lid": "het", "mv": "varkens", "niveau": "A1", "kort": "domuz",
+  "anlamlar": [
+   {"tr": "domuz", "kalip": [["varkensvlees", "domuz eti"]], "voorbeelden": [["Op de boerderij zijn varkens.", "Çiftlikte domuzlar var."]]}
+  ]},
+ "veld": {"lid": "het", "mv": "velden", "niveau": "A1", "kort": "saha; tarla; alan (formda)",
+  "anlamlar": [
    {"tr": "(spor) saha", "voorbeelden": [["Voetballen is beter, want we kunnen buiten op het veld spelen.", "Futbol daha iyi, çünkü dışarıda sahada oynayabiliyoruz."]]},
    {"tr": "tarla, kır", "kalip": [["het open veld", "açık arazi"]]},
-   {"tr": "(formda, tabloda) alan", "kalip": [["een verplicht veld", "zorunlu alan"]]}]},
- "verwerkersovereenkomst": {"lid": "de", "mv": "verwerkersovereenkomsten", "niveau": "C2", "kort": "veri işleme sözleşmesi (AVG/GDPR)", "anlamlar": [{"tr": "veri işleme sözleşmesi: kişisel verileri başka bir şirkete işlettirirken yapılan zorunlu sözleşme (AVG)", "voorbeelden": [["Met elke leverancier sluiten we een verwerkersovereenkomst.", "Her tedarikçiyle bir veri işleme sözleşmesi yapıyoruz."]]}]},
- "vierkant": {"lid": "het", "mv": "vierkanten", "niveau": "A1", "kort": "kare", "anlamlar": [{"tr": "kare (şekil; sıfat olarak kare biçimli)", "kalip": [["vierkante meter (m²)", "metrekare"]], "voorbeelden": [["Een vierkant heeft vier gelijke kanten.", "Karenin dört eşit kenarı vardır."]]}]},
- "vlinder": {"lid": "de", "mv": "vlinders", "niveau": "A1", "kort": "kelebek", "anlamlar": [{"tr": "kelebek", "kalip": [["vlinders in je buik", "midede kelebekler (âşık olmak)"]], "voorbeelden": [["Er vliegt een vlinder in de tuin.", "Bahçede bir kelebek uçuyor."]]}]},
- "voetbal": {"lid": "het / de", "niveau": "A1", "kort": "futbol; (de voetbal) futbol topu", "anlamlar": [{"tr": "(het voetbal) futbol", "kalip": [["op voetbal zitten", "futbola gitmek (kulüpte)"]], "voorbeelden": [["Ik denk dat voetbal een betere keuze is, omdat de kinderen dan leren samenspelen.", "Bence futbol daha iyi bir seçim, çünkü çocuklar birlikte oynamayı öğreniyor."], ["Hij twijfelt tussen voetbal en hardlopen.", "Futbol ile koşu arasında kararsız."]]}, {"tr": "(de voetbal) futbol topu"}]},
- "vork": {"lid": "de", "mv": "vorken", "niveau": "A1", "kort": "çatal", "anlamlar": [{"tr": "çatal", "voorbeelden": [["Er hangt een sliert spaghetti van zijn vork.", "Çatalından bir tel spagetti sarkıyor."]]}]},
- "walvis": {"lid": "de", "mv": "walvissen", "niveau": "A1", "kort": "balina", "anlamlar": [{"tr": "balina", "voorbeelden": [["Een walvis is geen vis, maar een zoogdier.", "Balina balık değil, memelidir."]]}]},
- "wang": {"lid": "de", "mv": "wangen", "niveau": "A1", "kort": "yanak", "anlamlar": [{"tr": "yanak", "kalip": [["drie zoenen op de wang", "yanağa üç öpücük (tebrik)"]], "voorbeelden": [["Alex heeft een dikke wang.", "Alex'in yanağı şiş."]]}]},
- "wortel": {"lid": "de", "mv": "wortels", "niveau": "A1", "kort": "havuç; kök", "anlamlar": [{"tr": "havuç", "voorbeelden": [["Het konijn eet een wortel.", "Tavşan havuç yiyor."]]}, {"tr": "kök (bitki; matematik)", "kalip": [["wortel schieten", "kök salmak"]]}]},
- "zaag": {"lid": "de", "mv": "zagen", "niveau": "A2", "kort": "testere", "anlamlar": [{"tr": "testere", "kalip": [["zagen", "testereyle kesmek; (mecaz) dırdır etmek"]], "voorbeelden": [["Met een zaag maak je de plank korter.", "Testereyle tahtayı kısaltırsın."]]}]},
- "zag": {"niveau": "A1", "kort": "gördü (zien fiilinin geçmişi)", "not": "zien: zag / zagen · heeft gezien.", "anlamlar": [{"tr": "gördü (zien → zag, çoğul zagen)", "voorbeelden": [["Ik zag twee jongens met stokken.", "Sopalı iki çocuk gördüm."]]}, {"tr": "(iets in iemand zien) birinde bir şey görmek, potansiyel görmek", "voorbeelden": [["Hij wilde profvoetballer worden, maar niemand zag dat in hem.", "Profesyonel futbolcu olmak istiyordu ama kimse onda bunu görmedi."]]}]},
- "zakje": {"lid": "het", "mv": "zakjes", "niveau": "A1", "kort": "küçük poşet, paket", "anlamlar": [{"tr": "küçük poşet, paket", "kalip": [["een zakje chips", "bir paket cips"], ["theezakje", "poşet çay"]], "voorbeelden": [["Wilt u een zakje?", "Poşet ister misiniz?"]]}]},
- "zand": {"lid": "het", "niveau": "A1", "kort": "kum", "anlamlar": [{"tr": "kum", "kalip": [["de zandbak", "kum havuzu"], ["het duin", "kum tepesi"]], "voorbeelden": [["Een heuvel van zand bij de zee.", "Deniz kenarında kumdan bir tepe."]]}]},
- "zebra": {"lid": "de", "mv": "zebra's", "niveau": "A1", "kort": "zebra; yaya geçidi", "anlamlar": [{"tr": "zebra (hayvan)", "voorbeelden": [["Tot slot hebben we de zebra's naar hun stal gebracht.", "Son olarak zebraları ahırlarına götürdük."]]}, {"tr": "yaya geçidi (zebrapad)", "kalip": [["oversteken bij de zebra", "yaya geçidinden karşıya geçmek"]]}]},
- "zeilen": {"vormen": "zeilde / zeilden · heeft/is gezeild", "niveau": "A2", "kort": "yelken açmak, yelkenli kullanmak", "anlamlar": [{"tr": "yelken açmak, yelkenli kullanmak", "kalip": [["de zeilboot", "yelkenli"]], "voorbeelden": [["In de zomer gaan we zeilen op het meer.", "Yazın gölde yelkenliye gidiyoruz."]]}]},
- "zolder": {"lid": "de", "mv": "zolders", "niveau": "A1", "kort": "çatı katı, tavan arası", "anlamlar": [{"tr": "çatı katı, tavan arası", "voorbeelden": [["De oude spullen staan op zolder.", "Eski eşyalar çatı katında."]]}]},
- "zweden": {"niveau": "A1", "kort": "İsveç", "anlamlar": [{"tr": "İsveç", "kalip": [["Zweeds", "İsveççe; İsveçli"]], "voorbeelden": [["Zweden ligt in Scandinavië.", "İsveç İskandinavya'da."]]}]}
+   {"tr": "(formda, tabloda) alan", "kalip": [["een verplicht veld", "zorunlu alan"]]}
+  ]},
+ "verwerkersovereenkomst": {"lid": "de", "mv": "verwerkersovereenkomsten", "niveau": "C2", "kort": "veri işleme sözleşmesi (AVG/GDPR)",
+  "anlamlar": [
+   {"tr": "veri işleme sözleşmesi: kişisel verileri başka bir şirkete işlettirirken yapılan zorunlu sözleşme (AVG)", "voorbeelden": [["Met elke leverancier sluiten we een verwerkersovereenkomst.", "Her tedarikçiyle bir veri işleme sözleşmesi yapıyoruz."]]}
+  ]},
+ "vierkant": {"lid": "het", "mv": "vierkanten", "niveau": "A1", "kort": "kare",
+  "anlamlar": [
+   {"tr": "kare (şekil; sıfat olarak kare biçimli)", "kalip": [["vierkante meter (m²)", "metrekare"]], "voorbeelden": [["Een vierkant heeft vier gelijke kanten.", "Karenin dört eşit kenarı vardır."]]}
+  ]},
+ "vlinder": {"lid": "de", "mv": "vlinders", "niveau": "A1", "kort": "kelebek",
+  "anlamlar": [
+   {"tr": "kelebek", "kalip": [["vlinders in je buik", "midede kelebekler (âşık olmak)"]], "voorbeelden": [["Er vliegt een vlinder in de tuin.", "Bahçede bir kelebek uçuyor."]]}
+  ]},
+ "voetbal": {"lid": "het / de", "niveau": "A1", "kort": "futbol; (de voetbal) futbol topu",
+  "anlamlar": [
+   {"tr": "(het voetbal) futbol", "kalip": [["op voetbal zitten", "futbola gitmek (kulüpte)"]], "voorbeelden": [["Ik denk dat voetbal een betere keuze is, omdat de kinderen dan leren samenspelen.", "Bence futbol daha iyi bir seçim, çünkü çocuklar birlikte oynamayı öğreniyor."], ["Hij twijfelt tussen voetbal en hardlopen.", "Futbol ile koşu arasında kararsız."], ["Aan de tafel zitten mensen die van voetbal houden.", "Masada futbolu seven insanlar oturuyor."], ["Hmm, ik heb dan voetbal.", "Hmm, o zaman futbolum var."]]},
+   {"tr": "(de voetbal) futbol topu", "voorbeelden": [["Een voetbal vloog door het open raam naar binnen.", "Bir futbol topu açık pencereden içeri uçtu."]]}
+  ]},
+ "vork": {"lid": "de", "mv": "vorken", "niveau": "A1", "kort": "çatal",
+  "anlamlar": [
+   {"tr": "çatal", "voorbeelden": [["Er hangt een sliert spaghetti van zijn vork.", "Çatalından bir tel spagetti sarkıyor."]]}
+  ]},
+ "walvis": {"lid": "de", "mv": "walvissen", "niveau": "A1", "kort": "balina",
+  "anlamlar": [
+   {"tr": "balina", "voorbeelden": [["Een walvis is geen vis, maar een zoogdier.", "Balina balık değil, memelidir."]]}
+  ]},
+ "wang": {"lid": "de", "mv": "wangen", "niveau": "A1", "kort": "yanak",
+  "anlamlar": [
+   {"tr": "yanak", "kalip": [["drie zoenen op de wang", "yanağa üç öpücük (tebrik)"]], "voorbeelden": [["Alex heeft een dikke wang.", "Alex'in yanağı şiş."]]}
+  ]},
+ "wortel": {"lid": "de", "mv": "wortels", "niveau": "A1", "kort": "havuç; kök",
+  "anlamlar": [
+   {"tr": "havuç", "voorbeelden": [["Het konijn eet een wortel.", "Tavşan havuç yiyor."]]},
+   {"tr": "kök (bitki; matematik)", "kalip": [["wortel schieten", "kök salmak"]]}
+  ]},
+ "zaag": {"lid": "de", "mv": "zagen", "niveau": "A2", "kort": "testere",
+  "anlamlar": [
+   {"tr": "testere", "kalip": [["zagen", "testereyle kesmek; (mecaz) dırdır etmek"]], "voorbeelden": [["Met een zaag maak je de plank korter.", "Testereyle tahtayı kısaltırsın."]]}
+  ]},
+ "zag": {"niveau": "A1", "kort": "gördü (zien fiilinin geçmişi)", "not": "zien: zag / zagen · heeft gezien.",
+  "anlamlar": [
+   {"tr": "gördü (zien → zag, çoğul zagen)", "voorbeelden": [["Ik zag twee jongens met stokken.", "Sopalı iki çocuk gördüm."], ["Volgens de verslaggever zag Albert Heijn dit weekend dat er in de systemen werd gerommeld.", "Muhabire göre Albert Heijn bu hafta sonu sistemlerle oynandığını fark etti."]]},
+   {"tr": "(iets in iemand zien) birinde bir şey görmek, potansiyel görmek", "voorbeelden": [["Hij wilde profvoetballer worden, maar niemand zag dat in hem.", "Profesyonel futbolcu olmak istiyordu ama kimse onda bunu görmedi."]]}
+  ]},
+ "zakje": {"lid": "het", "mv": "zakjes", "niveau": "A1", "kort": "küçük poşet, paket",
+  "anlamlar": [
+   {"tr": "küçük poşet, paket", "kalip": [["een zakje chips", "bir paket cips"], ["theezakje", "poşet çay"]], "voorbeelden": [["Wilt u een zakje?", "Poşet ister misiniz?"]]}
+  ]},
+ "zand": {"lid": "het", "niveau": "A1", "kort": "kum",
+  "anlamlar": [
+   {"tr": "kum", "kalip": [["de zandbak", "kum havuzu"], ["het duin", "kum tepesi"]], "voorbeelden": [["Een heuvel van zand bij de zee.", "Deniz kenarında kumdan bir tepe."]]}
+  ]},
+ "zebra": {"lid": "de", "mv": "zebra's", "niveau": "A1", "kort": "zebra; yaya geçidi",
+  "anlamlar": [
+   {"tr": "zebra (hayvan)", "voorbeelden": [["Tot slot hebben we de zebra's naar hun stal gebracht.", "Son olarak zebraları ahırlarına götürdük."]]},
+   {"tr": "yaya geçidi (zebrapad)", "kalip": [["oversteken bij de zebra", "yaya geçidinden karşıya geçmek"]]}
+  ]},
+ "zeilen": {"vormen": "zeilde / zeilden · heeft/is gezeild", "niveau": "A2", "kort": "yelken açmak, yelkenli kullanmak",
+  "anlamlar": [
+   {"tr": "yelken açmak, yelkenli kullanmak", "kalip": [["de zeilboot", "yelkenli"]], "voorbeelden": [["In de zomer gaan we zeilen op het meer.", "Yazın gölde yelkenliye gidiyoruz."]]}
+  ]},
+ "zolder": {"lid": "de", "mv": "zolders", "niveau": "A1", "kort": "çatı katı, tavan arası",
+  "anlamlar": [
+   {"tr": "çatı katı, tavan arası", "voorbeelden": [["De oude spullen staan op zolder.", "Eski eşyalar çatı katında."]]}
+  ]},
+ "zweden": {"niveau": "A1", "kort": "İsveç",
+  "anlamlar": [
+   {"tr": "İsveç", "kalip": [["Zweeds", "İsveççe; İsveçli"]], "voorbeelden": [["Zweden ligt in Scandinavië.", "İsveç İskandinavya'da."]]}
+  ]}
 }

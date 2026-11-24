@@ -1,134 +1,179 @@
 {
  "medicijn": {"lid": "het", "mv": "medicijnen", "niveau": "A1", "kort": "ilaç",
-  "anlamlar": [{"tr": "ilaç", "kalip": [["een medicijn innemen", "ilaç almak (içmek)"], ["de bijsluiter", "prospektüs"]], "voorbeelden": [["Neem je medicijn in.", "İlacını al."], ["Op de bijsluiter staat informatie over het medicijn.", "Prospektüste ilaç hakkında bilgi var."]]}]},
- "middag": {"lid": "de", "mv": "middagen", "niveau": "A1", "kort": "öğleden sonra",
-  "anlamlar": [{"tr": "öğleden sonra", "kalip": [["'s middags", "öğleden sonraları"], ["vanmiddag", "bu öğleden sonra"], ["Goedemiddag!", "Tünaydın! / İyi günler!"]],
-    "voorbeelden": [["'s Middags speel ik buiten.", "Öğleden sonraları dışarıda oynarım."], ["Kan het niet op een andere middag?", "Başka bir öğleden sonra olamaz mı?"]]}],
-  "not": "Öğle vakti (12:00 civarı): het middaguur; öğle yemeği: de lunch."},
+  "anlamlar": [
+   {"tr": "ilaç", "kalip": [["een medicijn innemen", "ilaç almak (içmek)"], ["de bijsluiter", "prospektüs"]], "voorbeelden": [["Neem je medicijn in.", "İlacını al."], ["Op de bijsluiter staat informatie over het medicijn.", "Prospektüste ilaç hakkında bilgi var."]]}
+  ]},
+ "middag": {"lid": "de", "mv": "middagen", "niveau": "A1", "kort": "öğleden sonra", "not": "Öğle vakti (12:00 civarı): het middaguur; öğle yemeği: de lunch.",
+  "anlamlar": [
+   {"tr": "öğleden sonra", "kalip": [["'s middags", "öğleden sonraları"], ["vanmiddag", "bu öğleden sonra"], ["Goedemiddag!", "Tünaydın! / İyi günler!"]], "voorbeelden": [["'s Middags speel ik buiten.", "Öğleden sonraları dışarıda oynarım."], ["Kan het niet op een andere middag?", "Başka bir öğleden sonra olamaz mı?"]]}
+  ]},
  "museum": {"lid": "het", "mv": "musea / museums", "niveau": "A1", "kort": "müze",
-  "anlamlar": [{"tr": "müze", "kalip": [["Museumkaart", "müze kartı (yıllık)"]], "voorbeelden": [["Op zondag gaan we naar het museum.", "Pazar günü müzeye gidiyoruz."], ["In Utrecht is een museum met grote draaiorgels.", "Utrecht'te büyük latarnaların (sokak orglarının) olduğu bir müze var."]]}]},
+  "anlamlar": [
+   {"tr": "müze", "kalip": [["Museumkaart", "müze kartı (yıllık)"]], "voorbeelden": [["Op zondag gaan we naar het museum.", "Pazar günü müzeye gidiyoruz."], ["In Utrecht is een museum met grote draaiorgels.", "Utrecht'te büyük latarnaların (sokak orglarının) olduğu bir müze var."]]}
+  ]},
  "muts": {"lid": "de", "mv": "mutsen", "niveau": "A1", "kort": "bere",
-  "anlamlar": [{"tr": "bere (yün)", "kalip": [["een muts opzetten", "bere takmak"]], "voorbeelden": [["Zet je muts op, het is koud.", "Bereni tak, hava soğuk."]]}]},
+  "anlamlar": [
+   {"tr": "bere (yün)", "kalip": [["een muts opzetten", "bere takmak"]], "voorbeelden": [["Zet je muts op, het is koud.", "Bereni tak, hava soğuk."]]}
+  ]},
  "muziek": {"lid": "de", "niveau": "A1", "kort": "müzik",
-  "anlamlar": [{"tr": "müzik", "kalip": [["muziek luisteren / luisteren naar muziek", "müzik dinlemek"], ["de muziek hard zetten", "müziğin sesini açmak"]],
-    "voorbeelden": [["Ik luister graag naar muziek.", "Müzik dinlemeyi severim."], ["Petra vindt het vervelend dat Janneke de muziek zo hard zet.", "Petra, Janneke'nin müziği bu kadar yüksek açmasından rahatsız."]]}]},
+  "anlamlar": [
+   {"tr": "müzik", "kalip": [["muziek luisteren / luisteren naar muziek", "müzik dinlemek"], ["de muziek hard zetten", "müziğin sesini açmak"]], "voorbeelden": [["Ik luister graag naar muziek.", "Müzik dinlemeyi severim."], ["Petra vindt het vervelend dat Janneke de muziek zo hard zet.", "Petra, Janneke'nin müziği bu kadar yüksek açmasından rahatsız."]]}
+  ]},
  "nacht": {"lid": "de", "mv": "nachten", "niveau": "A1", "kort": "gece",
-  "anlamlar": [{"tr": "gece", "kalip": [["'s nachts", "geceleri"], ["vannacht", "bu gece; dün gece"], ["Goedenacht! / Welterusten!", "İyi geceler!"]],
-    "voorbeelden": [["'s Nachts slaap ik.", "Geceleri uyurum."], ["U wilt elke nacht een pil hebben om goed te slapen.", "İyi uyumak için her gece bir hap almak istiyorsunuz."]]}]},
- "ober": {"lid": "de", "mv": "obers", "niveau": "A1", "kort": "garson",
-  "not": "Kadın garson: de serveerster.",
-  "anlamlar": [{"tr": "garson", "voorbeelden": [["De ober brengt de koffie.", "Garson kahveyi getiriyor."], ["Deze man is ober.", "Bu adam garson."]]}]},
- "ochtend": {"lid": "de", "mv": "ochtenden", "niveau": "A1", "kort": "sabah",
-  "anlamlar": [{"tr": "sabah", "kalip": [["'s ochtends", "sabahları"], ["vanochtend", "bu sabah"], ["Goedemorgen!", "Günaydın!"]],
-    "voorbeelden": [["In de ochtend eet ik brood.", "Sabah ekmek yerim."], ["Nu ga ik elke ochtend met plezier naar mijn werk.", "Şimdi her sabah işe zevkle gidiyorum."]]}],
-  "not": "Eş anlamlı: de morgen."},
- "politie": {"lid": "de", "niveau": "A1", "kort": "polis (teşkilat)",
-  "not": "Tek bir polis memuru: de agent / de politieagent.",
-  "anlamlar": [{"tr": "polis (teşkilat)", "kalip": [["de politie bellen", "polisi aramak"], ["aangifte doen bij de politie", "polise şikâyette bulunmak"]],
-    "voorbeelden": [["Bel de politie!", "Polisi ara!"], ["U gaat naar de politie om aangifte te doen.", "Şikâyette bulunmak için polise gidiyorsunuz."]]}]},
- "schoen": {"lid": "de", "mv": "schoenen", "niveau": "A1", "kort": "ayakkabı",
-  "anlamlar": [{"tr": "ayakkabı", "kalip": [["je schoenen aandoen / uitdoen", "ayakkabılarını giymek / çıkarmak"]], "voorbeelden": [["Waar zijn mijn schoenen?", "Ayakkabılarım nerede?"]]}],
-  "not": "Sinterklaas zamanı çocuklar 'schoen zetten': hediye için ayakkabılarını şöminenin önüne koyarlar."},
- "sneeuw": {"lid": "de", "niveau": "A1", "kort": "kar",
-  "anlamlar": [{"tr": "kar", "voorbeelden": [["De sneeuw is wit.", "Kar beyaz."]]}],
-  "not": "Fiil: sneeuwen (kar yağmak): Het sneeuwt."},
+  "anlamlar": [
+   {"tr": "gece", "kalip": [["'s nachts", "geceleri"], ["vannacht", "bu gece; dün gece"], ["Goedenacht! / Welterusten!", "İyi geceler!"]], "voorbeelden": [["'s Nachts slaap ik.", "Geceleri uyurum."], ["U wilt elke nacht een pil hebben om goed te slapen.", "İyi uyumak için her gece bir hap almak istiyorsunuz."]]}
+  ]},
+ "ober": {"lid": "de", "mv": "obers", "niveau": "A1", "kort": "garson", "not": "Kadın garson: de serveerster.",
+  "anlamlar": [
+   {"tr": "garson", "voorbeelden": [["De ober brengt de koffie.", "Garson kahveyi getiriyor."], ["Deze man is ober.", "Bu adam garson."]]}
+  ]},
+ "ochtend": {"lid": "de", "mv": "ochtenden", "niveau": "A1", "kort": "sabah", "not": "Eş anlamlı: de morgen.",
+  "anlamlar": [
+   {"tr": "sabah", "kalip": [["'s ochtends", "sabahları"], ["vanochtend", "bu sabah"], ["Goedemorgen!", "Günaydın!"]], "voorbeelden": [["In de ochtend eet ik brood.", "Sabah ekmek yerim."], ["Nu ga ik elke ochtend met plezier naar mijn werk.", "Şimdi her sabah işe zevkle gidiyorum."]]}
+  ]},
+ "politie": {"lid": "de", "niveau": "A1", "kort": "polis (teşkilat)", "not": "Tek bir polis memuru: de agent / de politieagent.",
+  "anlamlar": [
+   {"tr": "polis (teşkilat)", "kalip": [["de politie bellen", "polisi aramak"], ["aangifte doen bij de politie", "polise şikâyette bulunmak"]], "voorbeelden": [["Bel de politie!", "Polisi ara!"], ["U gaat naar de politie om aangifte te doen.", "Şikâyette bulunmak için polise gidiyorsunuz."]]}
+  ]},
+ "schoen": {"lid": "de", "mv": "schoenen", "niveau": "A1", "kort": "ayakkabı", "not": "Sinterklaas zamanı çocuklar 'schoen zetten': hediye için ayakkabılarını şöminenin önüne koyarlar.",
+  "anlamlar": [
+   {"tr": "ayakkabı", "kalip": [["je schoenen aandoen / uitdoen", "ayakkabılarını giymek / çıkarmak"]], "voorbeelden": [["Waar zijn mijn schoenen?", "Ayakkabılarım nerede?"]]}
+  ]},
+ "sneeuw": {"lid": "de", "niveau": "A1", "kort": "kar", "not": "Fiil: sneeuwen (kar yağmak): Het sneeuwt.",
+  "anlamlar": [
+   {"tr": "kar", "voorbeelden": [["De sneeuw is wit.", "Kar beyaz."]]}
+  ]},
  "station": {"lid": "het", "mv": "stations", "niveau": "A1", "kort": "istasyon (tren)",
-  "anlamlar": [{"tr": "(tren) istasyon(u)", "kalip": [["op het station", "istasyonda"], ["Centraal Station", "merkez istasyonu"]],
-    "voorbeelden": [["Ik wacht op het station.", "İstasyonda bekliyorum."], ["Ik wil graag een taxi naar het station.", "İstasyona bir taksi istiyorum."]]}]},
- "straat": {"lid": "de", "mv": "straten", "niveau": "A1", "kort": "sokak, cadde",
-  "anlamlar": [{"tr": "sokak, cadde", "kalip": [["op straat", "sokakta"], ["de straat oversteken", "karşıdan karşıya geçmek"]], "voorbeelden": [["Steek de straat over.", "Karşıya geç."]]}],
-  "kaliplar": [["op straat staan", "işsiz kalmak, kapı dışarı edilmek"]]},
+  "anlamlar": [
+   {"tr": "(tren) istasyon(u)", "kalip": [["op het station", "istasyonda"], ["Centraal Station", "merkez istasyonu"]], "voorbeelden": [["Ik wacht op het station.", "İstasyonda bekliyorum."], ["Ik wil graag een taxi naar het station.", "İstasyona bir taksi istiyorum."]]}
+  ]},
+ "straat": {"lid": "de", "mv": "straten", "niveau": "A1", "kort": "sokak, cadde", "kaliplar": [["op straat staan", "işsiz kalmak, kapı dışarı edilmek"]],
+  "anlamlar": [
+   {"tr": "sokak, cadde", "kalip": [["op straat", "sokakta"], ["de straat oversteken", "karşıdan karşıya geçmek"]], "voorbeelden": [["Steek de straat over.", "Karşıya geç."]]}
+  ]},
  "strand": {"lid": "het", "mv": "stranden", "niveau": "A1", "kort": "plaj, sahil",
-  "anlamlar": [{"tr": "plaj, sahil", "kalip": [["op het strand", "plajda"], ["naar het strand gaan", "plaja gitmek"]], "voorbeelden": [["We gaan naar het strand.", "Plaja gidiyoruz."], ["En we hebben een ijsje gegeten op het strand.", "Ve plajda dondurma yedik."]]}]},
+  "anlamlar": [
+   {"tr": "plaj, sahil", "kalip": [["op het strand", "plajda"], ["naar het strand gaan", "plaja gitmek"]], "voorbeelden": [["We gaan naar het strand.", "Plaja gidiyoruz."], ["En we hebben een ijsje gegeten op het strand.", "Ve plajda dondurma yedik."]]}
+  ]},
  "supermarkt": {"lid": "de", "mv": "supermarkten", "niveau": "A1", "kort": "süpermarket",
-  "anlamlar": [{"tr": "süpermarket", "voorbeelden": [["Ik doe boodschappen in de supermarkt.", "Alışverişimi süpermarkette yapıyorum."], ["Sanne werkt in een supermarkt.", "Sanne bir süpermarkette çalışıyor."]]}]},
+  "anlamlar": [
+   {"tr": "süpermarket", "voorbeelden": [["Ik doe boodschappen in de supermarkt.", "Alışverişimi süpermarkette yapıyorum."], ["Sanne werkt in een supermarkt.", "Sanne bir süpermarkette çalışıyor."]]}
+  ]},
  "trein": {"lid": "de", "mv": "treinen", "niveau": "A1", "kort": "tren",
-  "anlamlar": [{"tr": "tren", "kalip": [["met de trein", "trenle"], ["de trein missen", "treni kaçırmak"], ["het spoor", "peron; demiryolu"]],
-    "voorbeelden": [["De trein is laat.", "Tren gecikti."], ["Van welk spoor vertrekt de trein naar Utrecht?", "Utrecht treni hangi perondan kalkıyor?"]]}]},
+  "anlamlar": [
+   {"tr": "tren", "kalip": [["met de trein", "trenle"], ["de trein missen", "treni kaçırmak"], ["het spoor", "peron; demiryolu"]], "voorbeelden": [["De trein is laat.", "Tren gecikti."], ["Van welk spoor vertrekt de trein naar Utrecht?", "Utrecht treni hangi perondan kalkıyor?"]]}
+  ]},
  "trui": {"lid": "de", "mv": "truien", "niveau": "A1", "kort": "kazak",
-  "anlamlar": [{"tr": "kazak", "voorbeelden": [["Ik draag een warme trui.", "Sıcak bir kazak giyiyorum."], ["Ze heeft een trui gekocht die ze terug wil brengen.", "İade etmek istediği bir kazak almış."]]}]},
- "uur": {"lid": "het", "mv": "uren", "niveau": "A1", "kort": "saat (süre ve saat başı)",
-  "not": "Saat söylerken çoğul eki almaz: om 6 uur, twee uur. Duvar saati: de klok.",
+  "anlamlar": [
+   {"tr": "kazak", "voorbeelden": [["Ik draag een warme trui.", "Sıcak bir kazak giyiyorum."], ["Ze heeft een trui gekocht die ze terug wil brengen.", "İade etmek istediği bir kazak almış."]]}
+  ]},
+ "uur": {"lid": "het", "mv": "uren", "niveau": "A1", "kort": "saat (süre ve saat başı)", "not": "Saat söylerken çoğul eki almaz: om 6 uur, twee uur. Duvar saati: de klok.",
   "anlamlar": [
    {"tr": "saat (60 dakika)", "kalip": [["een half uur", "yarım saat"], ["anderhalf uur", "bir buçuk saat"]], "voorbeelden": [["De les duurt een uur.", "Ders bir saat sürüyor."]]},
    {"tr": "saat … (zaman söylerken)", "kalip": [["om 10 uur", "saat 10'da"]], "voorbeelden": [["Alex heeft om 10 uur een afspraak bij de tandarts.", "Alex'in saat 10'da diş hekiminde randevusu var."]]}
   ]},
  "vakantie": {"lid": "de", "mv": "vakanties", "niveau": "A1", "kort": "tatil",
-  "anlamlar": [{"tr": "tatil", "kalip": [["op vakantie gaan", "tatile gitmek"], ["op vakantie zijn", "tatilde olmak"], ["zomervakantie", "yaz tatili"]],
-    "voorbeelden": [["In de zomer gaan we op vakantie.", "Yazın tatile gidiyoruz."], ["U gaat vrijdag op vakantie.", "Cuma günü tatile gidiyorsunuz."]]}]},
- "vriend": {"lid": "de", "mv": "vrienden", "niveau": "A1", "kort": "arkadaş, dost; erkek arkadaş (sevgili)",
-  "not": "Kadın: de vriendin. 'mijn vriend' bağlama göre sevgili de demek olabilir.",
+  "anlamlar": [
+   {"tr": "tatil", "kalip": [["op vakantie gaan", "tatile gitmek"], ["op vakantie zijn", "tatilde olmak"], ["zomervakantie", "yaz tatili"]], "voorbeelden": [["In de zomer gaan we op vakantie.", "Yazın tatile gidiyoruz."], ["U gaat vrijdag op vakantie.", "Cuma günü tatile gidiyorsunuz."]]}
+  ]},
+ "vriend": {"lid": "de", "mv": "vrienden", "niveau": "A1", "kort": "arkadaş, dost; erkek arkadaş (sevgili)", "not": "Kadın: de vriendin. 'mijn vriend' bağlama göre sevgili de demek olabilir.",
   "anlamlar": [
    {"tr": "arkadaş, dost", "voorbeelden": [["Hij is mijn beste vriend.", "O benim en iyi arkadaşım."]]},
    {"tr": "erkek arkadaş, sevgili", "voorbeelden": [["Mijn zus trouwt volgend jaar met haar vriend.", "Ablam gelecek yıl erkek arkadaşıyla evleniyor."]]}
   ]},
- "week": {"lid": "de", "mv": "weken", "niveau": "A1", "kort": "hafta",
-  "anlamlar": [{"tr": "hafta", "kalip": [["volgende / vorige week", "gelecek / geçen hafta"], ["per week", "haftada"], ["het weekend", "hafta sonu"]],
-    "voorbeelden": [["Volgende week is vakantie.", "Gelecek hafta tatil."], ["De vuilniswagen komt volgende week woensdag pas langs.", "Çöp kamyonu ancak gelecek hafta çarşamba gelecek."]]}],
-  "not": "Sıfat week = yumuşak (een week ei = rafadan yumurta)."},
- "weer": {"lid": "het", "niveau": "A1", "kort": "hava (durumu)",
-  "not": "Zarf olarak weer = yine, tekrar (Tot weer ziens). Anlamı cümleden anlaşılır.",
-  "anlamlar": [{"tr": "hava (durumu)", "kalip": [["het weerbericht", "hava durumu (bülteni)"], ["mooi / slecht weer", "güzel / kötü hava"]], "voorbeelden": [["Hoe is het weer morgen?", "Yarın hava nasıl?"]]}]},
- "werk": {"lid": "het", "niveau": "A1", "kort": "iş",
-  "not": "ik werk = çalışıyorum (fiil werken). Çoğul: de werken = eserler (sanat).",
-  "anlamlar": [{"tr": "iş (çalışılan yer, görev)", "kalip": [["naar je werk gaan", "işe gitmek"], ["op het werk", "işte"], ["werk zoeken", "iş aramak"]],
-    "voorbeelden": [["Papa gaat naar zijn werk.", "Babam işe gidiyor."], ["Hoe gaat het op je werk?", "İşte işler nasıl?"]]}]},
+ "week": {"lid": "de", "mv": "weken", "niveau": "A1", "kort": "hafta", "not": "Sıfat week = yumuşak (een week ei = rafadan yumurta).",
+  "anlamlar": [
+   {"tr": "hafta", "kalip": [["volgende / vorige week", "gelecek / geçen hafta"], ["per week", "haftada"], ["het weekend", "hafta sonu"]], "voorbeelden": [["Volgende week is vakantie.", "Gelecek hafta tatil."], ["De vuilniswagen komt volgende week woensdag pas langs.", "Çöp kamyonu ancak gelecek hafta çarşamba gelecek."]]}
+  ]},
+ "weer": {"lid": "het", "niveau": "A1", "kort": "hava (durumu)", "not": "Zarf olarak weer = yine, tekrar (Tot weer ziens). Anlamı cümleden anlaşılır.",
+  "anlamlar": [
+   {"tr": "hava (durumu)", "kalip": [["het weerbericht", "hava durumu (bülteni)"], ["mooi / slecht weer", "güzel / kötü hava"]], "voorbeelden": [["Hoe is het weer morgen?", "Yarın hava nasıl?"]]}
+  ]},
+ "werk": {"lid": "het", "niveau": "A1", "kort": "iş", "not": "ik werk = çalışıyorum (fiil werken). Çoğul: de werken = eserler (sanat).",
+  "anlamlar": [
+   {"tr": "iş (çalışılan yer, görev)", "kalip": [["naar je werk gaan", "işe gitmek"], ["op het werk", "işte"], ["werk zoeken", "iş aramak"]], "voorbeelden": [["Papa gaat naar zijn werk.", "Babam işe gidiyor."], ["Hoe gaat het op je werk?", "İşte işler nasıl?"]]}
+  ]},
  "wind": {"lid": "de", "mv": "winden", "niveau": "A1", "kort": "rüzgâr",
-  "anlamlar": [{"tr": "rüzgâr", "kalip": [["harde wind", "sert rüzgâr"], ["tegenwind", "karşıdan esen rüzgâr"]], "voorbeelden": [["Er is veel wind.", "Çok rüzgâr var."], ["En er kwam veel regen en wind.", "Ve çok yağmur ve rüzgâr geldi."]]}]},
+  "anlamlar": [
+   {"tr": "rüzgâr", "kalip": [["harde wind", "sert rüzgâr"], ["tegenwind", "karşıdan esen rüzgâr"]], "voorbeelden": [["Er is veel wind.", "Çok rüzgâr var."], ["En er kwam veel regen en wind.", "Ve çok yağmur ve rüzgâr geldi."]]}
+  ]},
  "winkel": {"lid": "de", "mv": "winkels", "niveau": "A1", "kort": "dükkân, mağaza",
-  "anlamlar": [{"tr": "dükkân, mağaza", "kalip": [["winkelen", "alışveriş yapmak (gezerek)"], ["een eigen winkel beginnen", "kendi dükkânını açmak"]], "voorbeelden": [["De winkel is open.", "Dükkân açık."], ["U begint uw eigen winkel.", "Kendi dükkânınızı açıyorsunuz."]]}]},
+  "anlamlar": [
+   {"tr": "dükkân, mağaza", "kalip": [["winkelen", "alışveriş yapmak (gezerek)"], ["een eigen winkel beginnen", "kendi dükkânını açmak"]], "voorbeelden": [["De winkel is open.", "Dükkân açık."], ["U begint uw eigen winkel.", "Kendi dükkânınızı açıyorsunuz."]]}
+  ]},
  "winter": {"lid": "de", "mv": "winters", "niveau": "A1", "kort": "kış",
-  "anlamlar": [{"tr": "kış", "kalip": [["in de winter", "kışın"]], "voorbeelden": [["In de winter sneeuwt het soms.", "Kışın bazen kar yağar."], ["Het is winter en heel koud.", "Kış ve hava çok soğuk."]]}]},
- "wolf": {"lid": "de", "mv": "wolven", "niveau": "A1", "kort": "kurt",
-  "anlamlar": [{"tr": "kurt", "voorbeelden": [["In Nederland leven weer wolven.", "Hollanda'da yeniden kurtlar yaşıyor."], ["Een wolf, wat nu?", "Bir kurt; şimdi ne yapmalı?"]]}],
-  "kaliplar": [["een wolf in schaapskleren", "kuzu postuna bürünmüş kurt"]]},
- "wolk": {"lid": "de", "mv": "wolken", "niveau": "A1", "kort": "bulut",
-  "anlamlar": [{"tr": "bulut", "voorbeelden": [["Er is geen wolk te zien.", "Görünürde tek bir bulut yok."], ["Een wolk is van water: heel kleine druppels.", "Bulut sudan oluşur: çok küçük damlacıklar."]]}],
-  "kaliplar": [["in de wolken zijn", "havalara uçmak (çok mutlu olmak)"]]},
- "zeehond": {"lid": "de", "mv": "zeehonden", "niveau": "A1", "kort": "fok",
-  "anlamlar": [{"tr": "fok", "voorbeelden": [["Op het strand ligt een zeehond.", "Plajda bir fok yatıyor."]]}],
-  "not": "zee (deniz) + hond (köpek): kelime kelime 'deniz köpeği'."},
+  "anlamlar": [
+   {"tr": "kış", "kalip": [["in de winter", "kışın"]], "voorbeelden": [["In de winter sneeuwt het soms.", "Kışın bazen kar yağar."], ["Het is winter en heel koud.", "Kış ve hava çok soğuk."]]}
+  ]},
+ "wolf": {"lid": "de", "mv": "wolven", "niveau": "A1", "kort": "kurt", "kaliplar": [["een wolf in schaapskleren", "kuzu postuna bürünmüş kurt"]],
+  "anlamlar": [
+   {"tr": "kurt", "voorbeelden": [["In Nederland leven weer wolven.", "Hollanda'da yeniden kurtlar yaşıyor."], ["Een wolf, wat nu?", "Bir kurt; şimdi ne yapmalı?"]]}
+  ]},
+ "wolk": {"lid": "de", "mv": "wolken", "niveau": "A1", "kort": "bulut", "kaliplar": [["in de wolken zijn", "havalara uçmak (çok mutlu olmak)"]],
+  "anlamlar": [
+   {"tr": "bulut", "voorbeelden": [["Er is geen wolk te zien.", "Görünürde tek bir bulut yok."], ["Een wolk is van water: heel kleine druppels.", "Bulut sudan oluşur: çok küçük damlacıklar."]]}
+  ]},
+ "zeehond": {"lid": "de", "mv": "zeehonden", "niveau": "A1", "kort": "fok", "not": "zee (deniz) + hond (köpek): kelime kelime 'deniz köpeği'.",
+  "anlamlar": [
+   {"tr": "fok", "voorbeelden": [["Op het strand ligt een zeehond.", "Plajda bir fok yatıyor."]]}
+  ]},
  "zomer": {"lid": "de", "mv": "zomers", "niveau": "A1", "kort": "yaz",
-  "anlamlar": [{"tr": "yaz", "kalip": [["in de zomer", "yazın"], ["zomervakantie", "yaz tatili"]], "voorbeelden": [["In de zomer is het warm.", "Yazın hava sıcaktır."], ["Vooral in de zomer is het druk.", "Özellikle yazın kalabalık oluyor."]]}]},
+  "anlamlar": [
+   {"tr": "yaz", "kalip": [["in de zomer", "yazın"], ["zomervakantie", "yaz tatili"]], "voorbeelden": [["In de zomer is het warm.", "Yazın hava sıcaktır."], ["Vooral in de zomer is het druk.", "Özellikle yazın kalabalık oluyor."]]}
+  ]},
  "zon": {"lid": "de", "niveau": "A1", "kort": "güneş",
-  "anlamlar": [{"tr": "güneş", "kalip": [["De zon schijnt.", "Güneş parlıyor."], ["in de zon liggen", "güneşlenmek"], ["zonnebril", "güneş gözlüğü"]],
-    "voorbeelden": [["Morgen wordt het droog en komt de zon tevoorschijn.", "Yarın hava kuru olacak ve güneş açacak."]]}]},
+  "anlamlar": [
+   {"tr": "güneş", "kalip": [["De zon schijnt.", "Güneş parlıyor."], ["in de zon liggen", "güneşlenmek"], ["zonnebril", "güneş gözlüğü"]], "voorbeelden": [["Morgen wordt het droog en komt de zon tevoorschijn.", "Yarın hava kuru olacak ve güneş açacak."]]}
+  ]},
  "aanbieding": {"lid": "de", "mv": "aanbiedingen", "niveau": "A2", "kort": "indirim, kampanya; teklif",
   "anlamlar": [
-   {"tr": "indirim, kampanya", "kalip": [["in de aanbieding", "indirimde"]], "voorbeelden": [["Deze pasta is in de aanbieding.", "Bu makarna indirimde."], ["Beste klanten, vandaag zijn alle appels in de aanbieding.", "Değerli müşteriler, bugün bütün elmalar indirimde."]]},
+   {"tr": "indirim, kampanya", "kalip": [["in de aanbieding", "indirimde"]], "voorbeelden": [["Deze pasta is in de aanbieding.", "Bu makarna indirimde."], ["Beste klanten, vandaag zijn alle appels in de aanbieding.", "Değerli müşteriler, bugün bütün elmalar indirimde."], ["U schrijft een tekst voor de website over een aanbieding: elke tweede taart halve prijs.", "Web sitesi için bir kampanya metni yazıyorsunuz: her ikinci pasta yarı fiyatına."]]},
    {"tr": "teklif, sunum", "not": "fiil aanbieden = sunmak, teklif etmek"}
   ]},
- "bankbiljet": {"lid": "het", "mv": "bankbiljetten", "niveau": "A2", "kort": "banknot, kâğıt para",
-  "not": "Günlük dilde: een briefje (van tien euro).",
-  "anlamlar": [{"tr": "banknot, kâğıt para", "voorbeelden": [["Hij betaalt met een bankbiljet van twintig euro.", "Yirmi avroluk bir banknotla ödüyor."]]}]},
- "bezoeker": {"lid": "de", "mv": "bezoekers", "niveau": "A2", "kort": "ziyaretçi",
-  "anlamlar": [{"tr": "ziyaretçi", "voorbeelden": [["Het museum had veel bezoekers.", "Müzenin çok ziyaretçisi oldu."], ["Er komt een bezoeker voor een afspraak.", "Randevusu olan bir ziyaretçi geliyor."]]}],
-  "not": "het bezoek = ziyaret; op bezoek gaan = ziyarete gitmek."},
- "bonnetje": {"lid": "het", "mv": "bonnetjes", "niveau": "A2", "kort": "fiş (kasa fişi)",
-  "anlamlar": [{"tr": "fiş (kasa fişi)", "kalip": [["het bonnetje bewaren", "fişi saklamak (iade için)"]], "voorbeelden": [["Wilt u het bonnetje?", "Fişi ister misiniz?"]]}],
-  "not": "Resmî: de kassabon."},
+ "bankbiljet": {"lid": "het", "mv": "bankbiljetten", "niveau": "A2", "kort": "banknot, kâğıt para", "not": "Günlük dilde: een briefje (van tien euro).",
+  "anlamlar": [
+   {"tr": "banknot, kâğıt para", "voorbeelden": [["Hij betaalt met een bankbiljet van twintig euro.", "Yirmi avroluk bir banknotla ödüyor."]]}
+  ]},
+ "bezoeker": {"lid": "de", "mv": "bezoekers", "niveau": "A2", "kort": "ziyaretçi", "not": "het bezoek = ziyaret; op bezoek gaan = ziyarete gitmek.",
+  "anlamlar": [
+   {"tr": "ziyaretçi", "voorbeelden": [["Het museum had veel bezoekers.", "Müzenin çok ziyaretçisi oldu."], ["Er komt een bezoeker voor een afspraak.", "Randevusu olan bir ziyaretçi geliyor."]]}
+  ]},
+ "bonnetje": {"lid": "het", "mv": "bonnetjes", "niveau": "A2", "kort": "fiş (kasa fişi)", "not": "Resmî: de kassabon.",
+  "anlamlar": [
+   {"tr": "fiş (kasa fişi)", "kalip": [["het bonnetje bewaren", "fişi saklamak (iade için)"]], "voorbeelden": [["Wilt u het bonnetje?", "Fişi ister misiniz?"]]}
+  ]},
  "boodschappenlijstje": {"lid": "het", "mv": "boodschappenlijstjes", "niveau": "A2", "kort": "alışveriş listesi",
-  "anlamlar": [{"tr": "alışveriş listesi", "voorbeelden": [["Ik vergeet mijn boodschappenlijstje altijd.", "Alışveriş listemi hep unuturum."]]}]},
+  "anlamlar": [
+   {"tr": "alışveriş listesi", "voorbeelden": [["Ik vergeet mijn boodschappenlijstje altijd.", "Alışveriş listemi hep unuturum."]]}
+  ]},
  "bouillon": {"lid": "de", "niveau": "A2", "kort": "et suyu, sebze suyu",
-  "anlamlar": [{"tr": "et suyu, sebze suyu (bulyon)", "voorbeelden": [["Ik maak soep van bouillon.", "Et suyundan çorba yapıyorum."], ["Zo krijg je bouillon, een soort dunne soep.", "Böylece et suyu, yani bir tür sulu çorba elde edersin."]]}]},
+  "anlamlar": [
+   {"tr": "et suyu, sebze suyu (bulyon)", "voorbeelden": [["Ik maak soep van bouillon.", "Et suyundan çorba yapıyorum."], ["Zo krijg je bouillon, een soort dunne soep.", "Böylece et suyu, yani bir tür sulu çorba elde edersin."]]}
+  ]},
  "bron": {"lid": "de", "mv": "bronnen", "niveau": "A2", "kort": "kaynak",
   "anlamlar": [
    {"tr": "kaynak (bilgi)", "kalip": [["bronvermelding", "kaynak gösterme"]], "voorbeelden": [["Wat is de bron van deze informatie?", "Bu bilginin kaynağı ne?"]]},
    {"tr": "kaynak, pınar (su)", "voorbeelden": [["Het water komt uit een bron.", "Su bir kaynaktan geliyor."]]}
   ]},
  "buis": {"lid": "de", "mv": "buizen", "niveau": "A2", "kort": "boru, tüp",
-  "anlamlar": [{"tr": "boru, tüp", "voorbeelden": [["Het water loopt door een buis.", "Su bir borudan akıyor."]]}]},
- "club": {"lid": "de", "mv": "clubs", "niveau": "A2", "kort": "kulüp",
-  "anlamlar": [{"tr": "kulüp", "kalip": [["voetbalclub", "futbol kulübü"], ["lid worden van een club", "bir kulübe üye olmak"]], "voorbeelden": [["Bij welke club speel je?", "Hangi kulüpte oynuyorsun?"], ["Geen club wil hem.", "Hiçbir kulüp onu istemiyor."]]}],
-  "kaliplar": [["het water staat iemand tot aan de lippen", "biri çok zor durumda (batmak üzere)"]]},
- "dingetjes": {"lid": "de", "niveau": "A2", "kort": "ufak tefek şeyler, işler",
-  "not": "het ding (şey) + -etje küçültme eki, çoğul.",
-  "anlamlar": [{"tr": "ufak tefek şeyler, küçük işler", "voorbeelden": [["Gisteren heb ik wat documentatie dingetjes gedaan.", "Dün biraz dokümantasyon işi yaptım."], ["'Het gaat op aan extra dingetjes,' zegt een van hen.", "'Ekstra ufak tefek şeylere gidiyor,' diyor içlerinden biri."]]}]},
+  "anlamlar": [
+   {"tr": "boru, tüp", "voorbeelden": [["Het water loopt door een buis.", "Su bir borudan akıyor."]]}
+  ]},
+ "club": {"lid": "de", "mv": "clubs", "niveau": "A2", "kort": "kulüp", "kaliplar": [["het water staat iemand tot aan de lippen", "biri çok zor durumda (batmak üzere)"]],
+  "anlamlar": [
+   {"tr": "kulüp", "kalip": [["voetbalclub", "futbol kulübü"], ["lid worden van een club", "bir kulübe üye olmak"]], "voorbeelden": [["Bij welke club speel je?", "Hangi kulüpte oynuyorsun?"], ["Geen club wil hem.", "Hiçbir kulüp onu istemiyor."]]}
+  ]},
+ "dingetjes": {"lid": "de", "niveau": "A2", "kort": "ufak tefek şeyler, işler", "not": "het ding (şey) + -etje küçültme eki, çoğul.",
+  "anlamlar": [
+   {"tr": "ufak tefek şeyler, küçük işler", "voorbeelden": [["Gisteren heb ik wat documentatie dingetjes gedaan.", "Dün biraz dokümantasyon işi yaptım."], ["'Het gaat op aan extra dingetjes,' zegt een van hen.", "'Ekstra ufak tefek şeylere gidiyor,' diyor içlerinden biri."]]}
+  ]},
  "dinosaurus": {"lid": "de", "mv": "dinosaurussen", "niveau": "A2", "kort": "dinozor",
-  "anlamlar": [{"tr": "dinozor", "voorbeelden": [["Mijn zoon houdt van dinosaurussen.", "Oğlum dinozorları seviyor."], ["In het museum is een dinosaurus te zien.", "Müzede bir dinozor görülebiliyor."]]}]},
+  "anlamlar": [
+   {"tr": "dinozor", "voorbeelden": [["Mijn zoon houdt van dinosaurussen.", "Oğlum dinozorları seviyor."], ["In het museum is een dinosaurus te zien.", "Müzede bir dinozor görülebiliyor."]]}
+  ]},
  "droom": {"lid": "de", "mv": "dromen", "niveau": "A2", "kort": "rüya; hayal",
   "anlamlar": [
-   {"tr": "hayal", "voorbeelden": [["Zijn droom is profvoetballer worden.", "Hayali profesyonel futbolcu olmak."], ["Dat is al lang mijn droom, en ik kan dan zelf mijn tijden bepalen.", "Bu uzun zamandır hayalim; o zaman saatlerimi kendim belirleyebilirim."]]},
+   {"tr": "hayal", "voorbeelden": [["Zijn droom is profvoetballer worden.", "Hayali profesyonel futbolcu olmak."], ["Dat is al lang mijn droom, en ik kan dan zelf mijn tijden bepalen.", "Bu uzun zamandır hayalim; o zaman saatlerimi kendim belirleyebilirim."], ["Voor sommigen is dat een droom: geen file, geen lange reistijd en meer tijd voor het gezin.", "Bazıları için bu bir hayal: trafik sıkışıklığı yok, uzun yol yok ve aileye daha çok zaman."]]},
    {"tr": "rüya", "kalip": [["dromen", "rüya görmek; hayal kurmak"]], "voorbeelden": [["Ik had een rare droom.", "Garip bir rüya gördüm."]]}
   ]},
  "eiwit": {"lid": "het", "mv": "eiwitten", "niveau": "A2", "kort": "protein; yumurta akı",
@@ -142,19 +187,25 @@
    {"tr": "giriş, antre", "not": "evin ya da binanın giriş bölümü"}
   ]},
  "fossiel": {"lid": "het", "mv": "fossielen", "niveau": "A2", "kort": "fosil",
-  "anlamlar": [{"tr": "fosil", "voorbeelden": [["In de steen zit een fossiel.", "Taşın içinde bir fosil var."], ["In een museum is vanaf vandaag een bijzonder fossiel te zien.", "Bir müzede bugünden itibaren ilginç bir fosil görülebiliyor."]]}]},
+  "anlamlar": [
+   {"tr": "fosil", "voorbeelden": [["In de steen zit een fossiel.", "Taşın içinde bir fosil var."], ["In een museum is vanaf vandaag een bijzonder fossiel te zien.", "Bir müzede bugünden itibaren ilginç bir fosil görülebiliyor."]]}
+  ]},
  "geschiedenis": {"lid": "de", "niveau": "A2", "kort": "tarih; hikâye",
   "anlamlar": [
    {"tr": "tarih", "voorbeelden": [["Ik lees graag over geschiedenis.", "Tarih hakkında okumayı severim."], ["Oude gebouwen vertellen de geschiedenis van een stad, en als ze weg zijn, komen ze nooit meer terug.", "Eski binalar bir şehrin tarihini anlatır; yıkılırlarsa bir daha asla geri gelmezler."]]},
    {"tr": "hikâye, olay", "voorbeelden": [["Het station heeft ook een bijzondere geschiedenis.", "İstasyonun da ilginç bir hikâyesi var."]]}
   ]},
  "graan": {"lid": "het", "mv": "granen", "niveau": "A2", "kort": "tahıl",
-  "anlamlar": [{"tr": "tahıl", "voorbeelden": [["Brood maak je van graan.", "Ekmek tahıldan yapılır."], ["Gluten komen uit graan, zoals tarwe, rogge, spelt en gerst.", "Glüten buğday, çavdar, kavılca ve arpa gibi tahıllardan gelir."]]}]},
+  "anlamlar": [
+   {"tr": "tahıl", "voorbeelden": [["Brood maak je van graan.", "Ekmek tahıldan yapılır."], ["Gluten komen uit graan, zoals tarwe, rogge, spelt en gerst.", "Glüten buğday, çavdar, kavılca ve arpa gibi tahıllardan gelir."]]}
+  ]},
  "kaartje": {"lid": "het", "mv": "kaartjes", "niveau": "A2", "kort": "bilet; kart, tebrik kartı",
   "anlamlar": [
    {"tr": "bilet", "voorbeelden": [["Een kaartje kost tien euro.", "Bir bilet on avro."]]},
    {"tr": "kart, tebrik kartı", "voorbeelden": [["Schrijf een kaartje aan Peter.", "Peter'a bir kart yaz."], ["Een plastic kaartje met NAW gegevens.", "Ad, adres ve şehir bilgisi olan plastik bir kart."]]}
   ]},
  "katoen": {"lid": "het", "niveau": "A2", "kort": "pamuk (kumaş)",
-  "anlamlar": [{"tr": "pamuk, pamuklu kumaş", "voorbeelden": [["Dit T-shirt is van katoen.", "Bu tişört pamuklu."]]}]}
+  "anlamlar": [
+   {"tr": "pamuk, pamuklu kumaş", "voorbeelden": [["Dit T-shirt is van katoen.", "Bu tişört pamuklu."]]}
+  ]}
 }

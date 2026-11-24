@@ -1,73 +1,251 @@
 {
- "schenken": {"vormen": "schonk / schonken · heeft geschonken", "niveau": "B1", "kort": "(içecek) doldurmak, ikram etmek; bağışlamak", "anlamlar": [
-   {"tr": "(içecek) doldurmak, ikram etmek", "voorbeelden": [["Ik ga limonade schenken voor de kinderen.", "Çocuklara limonata dolduracağım."]]},
-   {"tr": "bağışlamak, hediye etmek (resmî)", "voorbeelden": [["Ze schenkt elk jaar geld aan het goede doel.", "Her yıl hayır kurumuna para bağışlıyor."]]}]},
- "skelet": {"lid": "het", "mv": "skeletten", "niveau": "B1", "kort": "iskelet", "anlamlar": [{"tr": "iskelet", "voorbeelden": [["In het museum staat het skelet van een dinosaurus.", "Müzede bir dinozor iskeleti duruyor."]]}]},
- "sliert": {"lid": "de", "mv": "slierten", "niveau": "B1", "kort": "uzun ince şerit, iplik", "anlamlar": [{"tr": "uzun ince şerit, iplik (makarna, saç, duman)", "voorbeelden": [["Er hangt een sliert spaghetti van zijn vork.", "Çatalından bir tel spagetti sarkıyor."]]}]},
- "sowieso": {"niveau": "B1", "kort": "zaten, her halükârda", "anlamlar": [{"tr": "zaten, her halükârda", "voorbeelden": [["Ik kom sowieso morgen.", "Yarın zaten geliyorum."]]}], "not": "Konuşma dilinde çok sık; resmî karşılığı: in elk geval."},
- "staking": {"lid": "de", "mv": "stakingen", "niveau": "B1", "kort": "grev", "anlamlar": [{"tr": "grev", "kalip": [["staken", "grev yapmak"]], "voorbeelden": [["Morgen is er een staking bij de NS.", "Yarın NS'de grev var."]]}]},
- "stiekem": {"niveau": "B1", "kort": "gizlice, çaktırmadan", "anlamlar": [{"tr": "gizlice, çaktırmadan", "voorbeelden": [["Hij at stiekem een koekje.", "Gizlice bir kurabiye yedi."]]}]},
- "storing": {"lid": "de", "mv": "storingen", "niveau": "B1", "kort": "arıza, kesinti", "anlamlar": [{"tr": "arıza, (teknik) kesinti", "voorbeelden": [["Door een storing rijden er geen treinen.", "Bir arıza yüzünden tren çalışmıyor."], ["Twee dagen na het begin van een grote storing is nog altijd onduidelijk wat er bij Albert Heijn precies in de soep is gelopen.", "Büyük bir arızanın başlamasından iki gün sonra Albert Heijn'de tam olarak neyin ters gittiği hâlâ belirsiz."]]}]},
- "stortbui": {"lid": "de", "mv": "stortbuien", "niveau": "B1", "kort": "şiddetli sağanak", "anlamlar": [{"tr": "şiddetli sağanak", "voorbeelden": [["Door de stortbui waren we doorweekt.", "Sağanak yüzünden sırılsıklam olduk."]]}]},
- "taalbarrière": {"lid": "de", "mv": "taalbarrières", "niveau": "B1", "kort": "dil engeli", "anlamlar": [{"tr": "dil engeli", "voorbeelden": [["Door de taalbarrière mis ik soms iets.", "Dil engeli yüzünden bazen bir şey kaçırıyorum."]]}]},
- "toepassen": {"vormen": "paste toe / pasten toe · heeft toegepast", "niveau": "B1", "kort": "uygulamak (kural, yöntem)", "anlamlar": [{"tr": "uygulamak (kural, yöntem, bilgi)", "kalip": [["van toepassing zijn op", "…-e uygulanmak, … için geçerli olmak"]], "voorbeelden": [["We passen dezelfde regels toe op alle tabellen.", "Aynı kuralları bütün tablolara uyguluyoruz."], ["Die regel is hier niet van toepassing.", "O kural burada geçerli değil."]]}]},
- "trechter": {"lid": "de", "mv": "trechters", "niveau": "B1", "kort": "huni", "anlamlar": [{"tr": "huni", "voorbeelden": [["Giet de olie via een trechter in de fles.", "Yağı huniyle şişeye dök."]]}]},
- "trommel": {"lid": "de", "mv": "trommels", "niveau": "B1", "kort": "davul; (metal) kutu", "anlamlar": [{"tr": "davul", "voorbeelden": [["De jongen slaat op de trommel.", "Çocuk davula vuruyor."]]}, {"tr": "(kapaklı metal) kutu; (çamaşır makinesi) tambur", "kalip": [["koektrommel", "kurabiye kutusu"]]}]},
- "uitkering": {"lid": "de", "mv": "uitkeringen", "niveau": "B1", "kort": "sosyal yardım ödemesi, ödenek", "anlamlar": [{"tr": "sosyal yardım ödemesi, ödenek (işsizlik, hastalık, yaşlılık)", "kalip": [["een uitkering aanvragen", "ödenek için başvurmak"], ["WW-uitkering", "işsizlik ödeneği"], ["bijstandsuitkering", "sosyal yardım"]], "voorbeelden": [["Hij krijgt een uitkering omdat hij ziek is.", "Hasta olduğu için ödenek alıyor."]]}], "not": "KNM: yaşlılık aylığı = AOW; işsizlik = WW (UWV); asgari geçim = bijstand (belediye)."},
- "uitmaken": {"vormen": "maakte uit / maakten uit · heeft uitgemaakt", "niveau": "B1", "kort": "fark etmek; (ilişkiyi) bitirmek; karar vermek", "anlamlar": [
+ "schenken": {"vormen": "schonk / schonken · heeft geschonken", "niveau": "B1", "kort": "(içecek) doldurmak, ikram etmek; bağışlamak",
+  "anlamlar": [
+   {"tr": "(içecek) doldurmak, ikram etmek", "voorbeelden": [["Ik ga limonade schenken voor de kinderen.", "Çocuklara limonata dolduracağım."], ["Je kunt T-shirts uitdelen of limonade schenken.", "Tişört dağıtabilir ya da limonata ikram edebilirsin."]]},
+   {"tr": "bağışlamak, hediye etmek (resmî)", "voorbeelden": [["Ze schenkt elk jaar geld aan het goede doel.", "Her yıl hayır kurumuna para bağışlıyor."]]}
+  ]},
+ "skelet": {"lid": "het", "mv": "skeletten", "niveau": "B1", "kort": "iskelet",
+  "anlamlar": [
+   {"tr": "iskelet", "voorbeelden": [["In het museum staat het skelet van een dinosaurus.", "Müzede bir dinozor iskeleti duruyor."]]}
+  ]},
+ "sliert": {"lid": "de", "mv": "slierten", "niveau": "B1", "kort": "uzun ince şerit, iplik",
+  "anlamlar": [
+   {"tr": "uzun ince şerit, iplik (makarna, saç, duman)", "voorbeelden": [["Er hangt een sliert spaghetti van zijn vork.", "Çatalından bir tel spagetti sarkıyor."]]}
+  ]},
+ "sowieso": {"niveau": "B1", "kort": "zaten, her halükârda", "not": "Konuşma dilinde çok sık; resmî karşılığı: in elk geval.",
+  "anlamlar": [
+   {"tr": "zaten, her halükârda", "voorbeelden": [["Ik kom sowieso morgen.", "Yarın zaten geliyorum."]]}
+  ]},
+ "staking": {"lid": "de", "mv": "stakingen", "niveau": "B1", "kort": "grev",
+  "anlamlar": [
+   {"tr": "grev", "kalip": [["staken", "grev yapmak"]], "voorbeelden": [["Morgen is er een staking bij de NS.", "Yarın NS'de grev var."]]}
+  ]},
+ "stiekem": {"niveau": "B1", "kort": "gizlice, çaktırmadan",
+  "anlamlar": [
+   {"tr": "gizlice, çaktırmadan", "voorbeelden": [["Hij at stiekem een koekje.", "Gizlice bir kurabiye yedi."]]}
+  ]},
+ "storing": {"lid": "de", "mv": "storingen", "niveau": "B1", "kort": "arıza, kesinti",
+  "anlamlar": [
+   {"tr": "arıza, (teknik) kesinti", "voorbeelden": [["Door een storing rijden er geen treinen.", "Bir arıza yüzünden tren çalışmıyor."], ["Twee dagen na het begin van een grote storing is nog altijd onduidelijk wat er bij Albert Heijn precies in de soep is gelopen.", "Büyük bir arızanın başlamasından iki gün sonra Albert Heijn'de tam olarak neyin ters gittiği hâlâ belirsiz."]]}
+  ]},
+ "stortbui": {"lid": "de", "mv": "stortbuien", "niveau": "B1", "kort": "şiddetli sağanak",
+  "anlamlar": [
+   {"tr": "şiddetli sağanak", "voorbeelden": [["Door de stortbui waren we doorweekt.", "Sağanak yüzünden sırılsıklam olduk."]]}
+  ]},
+ "taalbarrière": {"lid": "de", "mv": "taalbarrières", "niveau": "B1", "kort": "dil engeli",
+  "anlamlar": [
+   {"tr": "dil engeli", "voorbeelden": [["Door de taalbarrière mis ik soms iets.", "Dil engeli yüzünden bazen bir şey kaçırıyorum."]]}
+  ]},
+ "toepassen": {"vormen": "paste toe / pasten toe · heeft toegepast", "niveau": "B1", "kort": "uygulamak (kural, yöntem)",
+  "anlamlar": [
+   {"tr": "uygulamak (kural, yöntem, bilgi)", "kalip": [["van toepassing zijn op", "…-e uygulanmak, … için geçerli olmak"]], "voorbeelden": [["We passen dezelfde regels toe op alle tabellen.", "Aynı kuralları bütün tablolara uyguluyoruz."], ["Die regel is hier niet van toepassing.", "O kural burada geçerli değil."]]}
+  ]},
+ "trechter": {"lid": "de", "mv": "trechters", "niveau": "B1", "kort": "huni",
+  "anlamlar": [
+   {"tr": "huni", "voorbeelden": [["Giet de olie via een trechter in de fles.", "Yağı huniyle şişeye dök."]]}
+  ]},
+ "trommel": {"lid": "de", "mv": "trommels", "niveau": "B1", "kort": "davul; (metal) kutu",
+  "anlamlar": [
+   {"tr": "davul", "voorbeelden": [["De jongen slaat op de trommel.", "Çocuk davula vuruyor."]]},
+   {"tr": "(kapaklı metal) kutu; (çamaşır makinesi) tambur", "kalip": [["koektrommel", "kurabiye kutusu"]]}
+  ]},
+ "uitkering": {"lid": "de", "mv": "uitkeringen", "niveau": "B1", "kort": "sosyal yardım ödemesi, ödenek", "not": "KNM: yaşlılık aylığı = AOW; işsizlik = WW (UWV); asgari geçim = bijstand (belediye).",
+  "anlamlar": [
+   {"tr": "sosyal yardım ödemesi, ödenek (işsizlik, hastalık, yaşlılık)", "kalip": [["een uitkering aanvragen", "ödenek için başvurmak"], ["WW-uitkering", "işsizlik ödeneği"], ["bijstandsuitkering", "sosyal yardım"]], "voorbeelden": [["Hij krijgt een uitkering omdat hij ziek is.", "Hasta olduğu için ödenek alıyor."]]}
+  ]},
+ "uitmaken": {"vormen": "maakte uit / maakten uit · heeft uitgemaakt", "niveau": "B1", "kort": "fark etmek; (ilişkiyi) bitirmek; karar vermek",
+  "anlamlar": [
    {"tr": "(het maakt (niet) uit) fark et(me)mek", "voorbeelden": [["Het maakt niet uit.", "Fark etmez."]]},
    {"tr": "(het uitmaken) ilişkiyi bitirmek, ayrılmak", "kalip": [["het uitmaken met iemand", "biriyle ayrılmak"]]},
-   {"tr": "karar vermek, belirlemek; oluşturmak", "kalip": [["deel uitmaken van", "…-in parçası olmak"]]}]},
- "vanwege": {"niveau": "B1", "kort": "… nedeniyle, … yüzünden", "anlamlar": [{"tr": "… nedeniyle, … yüzünden (+ isim)", "voorbeelden": [["Vanwege het weer gaat de training niet door.", "Hava nedeniyle antrenman iptal."], ["U zegt dat u niet op tijd kunt komen vanwege autopech.", "Araba arızası nedeniyle zamanında gelemeyeceğinizi söylüyorsunuz."]]}], "not": "Cümleyle: omdat (omdat het regent)."},
- "vel": {"lid": "het", "mv": "vellen", "niveau": "B1", "kort": "tabaka (kâğıt); deri", "anlamlar": [
+   {"tr": "karar vermek, belirlemek; oluşturmak", "kalip": [["deel uitmaken van", "…-in parçası olmak"]]}
+  ]},
+ "vanwege": {"niveau": "B1", "kort": "… nedeniyle, … yüzünden", "not": "Cümleyle: omdat (omdat het regent).",
+  "anlamlar": [
+   {"tr": "… nedeniyle, … yüzünden (+ isim)", "voorbeelden": [["Vanwege het weer gaat de training niet door.", "Hava nedeniyle antrenman iptal."], ["U zegt dat u niet op tijd kunt komen vanwege autopech.", "Araba arızası nedeniyle zamanında gelemeyeceğinizi söylüyorsunuz."]]}
+  ]},
+ "vel": {"lid": "het", "mv": "vellen", "niveau": "B1", "kort": "tabaka (kâğıt); deri",
+  "anlamlar": [
    {"tr": "tabaka (kâğıt)", "voorbeelden": [["Pak een vel papier.", "Bir yaprak kâğıt al."], ["Op één vel passen acht doosjes.", "Bir tabakaya sekiz küçük kutu sığıyor."]]},
-   {"tr": "deri, kabuk", "kalip": [["lekker in je vel zitten", "kendini iyi hissetmek"]], "voorbeelden": [["Merk je dat een kind achterloopt met praten of dat het niet lekker in zijn vel zit?", "Bir çocuğun konuşmada geride kaldığını ya da kendini iyi hissetmediğini fark ediyor musun?"]]}]},
- "vereniging": {"lid": "de", "mv": "verenigingen", "niveau": "B1", "kort": "dernek, kulüp", "anlamlar": [{"tr": "dernek, kulüp", "kalip": [["lid worden van een vereniging", "bir derneğe üye olmak"], ["sportvereniging", "spor kulübü"]], "voorbeelden": [["Hij zit bij een voetbalvereniging.", "Bir futbol kulübünde."]]}]},
- "verlopen": {"vormen": "verliep / verliepen · is verlopen", "niveau": "B1", "kort": "süresi dolmak; (olay) geçmek, seyretmek", "anlamlar": [
+   {"tr": "deri, kabuk", "kalip": [["lekker in je vel zitten", "kendini iyi hissetmek"]], "voorbeelden": [["Merk je dat een kind achterloopt met praten of dat het niet lekker in zijn vel zit?", "Bir çocuğun konuşmada geride kaldığını ya da kendini iyi hissetmediğini fark ediyor musun?"]]}
+  ]},
+ "vereniging": {"lid": "de", "mv": "verenigingen", "niveau": "B1", "kort": "dernek, kulüp",
+  "anlamlar": [
+   {"tr": "dernek, kulüp", "kalip": [["lid worden van een vereniging", "bir derneğe üye olmak"], ["sportvereniging", "spor kulübü"]], "voorbeelden": [["Hij zit bij een voetbalvereniging.", "Bir futbol kulübünde."]]}
+  ]},
+ "verlopen": {"vormen": "verliep / verliepen · is verlopen", "niveau": "B1", "kort": "süresi dolmak; (olay) geçmek, seyretmek",
+  "anlamlar": [
    {"tr": "süresi dolmak, geçerliliğini yitirmek", "voorbeelden": [["Mijn paspoort is verlopen.", "Pasaportumun süresi doldu."], ["Haar pasje is verlopen.", "Kartının süresi dolmuş."]]},
-   {"tr": "(olay) geçmek, seyretmek", "kalip": [["Hoe is het verlopen?", "Nasıl geçti?"], ["goed verlopen", "iyi geçmek"]]}]},
- "vertragen": {"vormen": "vertraagde / vertraagden · heeft vertraagd", "niveau": "B1", "kort": "geciktirmek, yavaşlatmak", "anlamlar": [{"tr": "geciktirmek, yavaşlatmak", "kalip": [["de vertraging", "gecikme, rötar"]], "voorbeelden": [["Het vertraagt gewoon allemaal weer.", "Her şeyi yine geciktiriyor."]]}]},
- "verward": {"niveau": "B1", "kort": "kafası karışık, şaşkın", "anlamlar": [{"tr": "kafası karışık, şaşkın", "voorbeelden": [["Ik ben nog steeds heel erg verward.", "Hâlâ çok kafam karışık."]]}]},
- "verwarren": {"vormen": "verwarde / verwarden · heeft verward", "niveau": "B1", "kort": "karıştırmak (biri/bir şey ile)", "anlamlar": [{"tr": "karıştırmak, birbirine karıştırmak; kafasını karıştırmak", "kalip": [["iets verwarren met", "bir şeyi … ile karıştırmak"]], "voorbeelden": [["De twee namen verwarden me even.", "İki isim kafamı biraz karıştırdı."]]}]},
- "verzetten": {"vormen": "verzette / verzetten · heeft verzet", "niveau": "B1", "kort": "ertelemek, tarihini değiştirmek; yerini değiştirmek", "anlamlar": [
-   {"tr": "(randevu) ertelemek, tarihini değiştirmek", "voorbeelden": [["Zouden we het gesprek kunnen verzetten naar volgende week?", "Görüşmeyi gelecek haftaya alabilir miyiz?"], ["Zullen we de training verzetten?", "Antrenmanı başka zamana alalım mı?"]]},
-   {"tr": "(zich verzetten tegen) karşı koymak, direnmek", "kalip": [["het verzet", "direniş (savaşta)"]]}]},
- "verzoek": {"lid": "het", "mv": "verzoeken", "niveau": "B1", "kort": "rica, talep (resmî)", "anlamlar": [{"tr": "rica, talep (resmî)", "kalip": [["op verzoek van", "… talebi üzerine"], ["een verzoek doen", "talepte bulunmak"]], "voorbeelden": [["Uw verzoek is in behandeling.", "Talebiniz işleme alındı."], ["De werkgever mag dit verzoek niet weigeren.", "İşveren bu talebi reddedemez."]]}]},
- "verzorgen": {"vormen": "verzorgde / verzorgden · heeft verzorgd", "niveau": "B1", "kort": "bakmak, bakımını yapmak; düzenlemek", "anlamlar": [{"tr": "bakmak, bakımını yapmak (insan, hayvan, bitki)", "kalip": [["de verzorging", "bakım"], ["thuiszorg", "evde bakım"]], "voorbeelden": [["De dierenarts verzorgt de zeehond.", "Veteriner foka bakıyor."]]}, {"tr": "(yemek, program) hazırlamak, düzenlemek", "kalip": [["de catering verzorgen", "ikramı üstlenmek"]]}]},
- "vezel": {"lid": "de", "mv": "vezels", "niveau": "B1", "kort": "lif", "anlamlar": [{"tr": "lif (kumaş; besin)", "kalip": [["vezelrijk", "lifli (besin)"]], "voorbeelden": [["Katoen heeft lange vezels.", "Pamuğun uzun lifleri vardır."]]}]},
- "voertuig": {"lid": "het", "mv": "voertuigen", "niveau": "B1", "kort": "taşıt, araç (resmî)", "anlamlar": [{"tr": "taşıt, araç (resmî)", "voorbeelden": [["Het voertuig staat in de garage.", "Araç garajda duruyor."]]}]},
- "vondst": {"lid": "de", "mv": "vondsten", "niveau": "B1", "kort": "buluntu", "anlamlar": [{"tr": "buluntu (bulunan şey)", "voorbeelden": [["De vondst is 66 miljoen jaar oud.", "Buluntu 66 milyon yaşında."]]}]},
- "voorraad": {"lid": "de", "mv": "voorraden", "niveau": "B1", "kort": "stok, erzak", "anlamlar": [{"tr": "stok, erzak", "kalip": [["op voorraad", "stokta"], ["Op = op.", "Bitti = bitti (stok sınırlı)."]], "voorbeelden": [["De voorraad koffie is op.", "Kahve stoku bitti."]]}]},
- "vreemd": {"niveau": "B1", "kort": "tuhaf, garip; yabancı", "anlamlar": [{"tr": "tuhaf, garip", "voorbeelden": [["Dat is niet heel vreemd.", "Bu çok tuhaf değil."], ["Maar het ruikt vreemd in de keuken.", "Ama mutfakta tuhaf bir koku var."]]}, {"tr": "yabancı", "kalip": [["een vreemde taal", "yabancı dil"], ["de vreemdeling", "yabancı (kişi)"]]}]},
- "watermerk": {"lid": "het", "mv": "watermerken", "niveau": "B1", "kort": "filigran (su damgası)", "anlamlar": [{"tr": "filigran, su damgası", "voorbeelden": [["Op het biljet zit een watermerk.", "Banknotta bir filigran var."]]}]},
- "weersverwachting": {"lid": "de", "mv": "weersverwachtingen", "niveau": "B1", "kort": "hava tahmini", "anlamlar": [{"tr": "hava tahmini", "voorbeelden": [["Volgens de weersverwachting wordt het morgen droog.", "Hava tahminine göre yarın kuru olacak."]]}]},
- "wenkbrauw": {"lid": "de", "mv": "wenkbrauwen", "niveau": "B1", "kort": "kaş", "anlamlar": [{"tr": "kaş", "kalip": [["de wenkbrauwen optrekken", "kaşlarını kaldırmak (şaşırmak)"]], "voorbeelden": [["Ze trok haar wenkbrauwen omhoog.", "Kaşlarını kaldırdı."]]}]},
- "wetenschapper": {"lid": "de", "mv": "wetenschappers", "niveau": "B1", "kort": "bilim insanı", "anlamlar": [{"tr": "bilim insanı", "voorbeelden": [["Wetenschappers bestuderen de wolf.", "Bilim insanları kurdu inceliyor."]]}]},
- "windkracht": {"lid": "de", "niveau": "B1", "kort": "rüzgâr şiddeti", "anlamlar": [{"tr": "rüzgâr şiddeti (Beaufort ölçeği)", "voorbeelden": [["Morgen is het windkracht 8.", "Yarın rüzgâr şiddeti 8 olacak."]]}]},
- "zeespiegel": {"lid": "de", "niveau": "B1", "kort": "deniz seviyesi", "anlamlar": [{"tr": "deniz seviyesi", "voorbeelden": [["Door het warmere klimaat stijgt de zeespiegel.", "Isınan iklim yüzünden deniz seviyesi yükseliyor."]]}]},
- "zelfscankassa": {"lid": "de", "mv": "zelfscankassa's", "niveau": "B1", "kort": "self-servis kasa", "anlamlar": [{"tr": "self-servis kasa", "voorbeelden": [["Bij de zelfscankassa scan je alles zelf.", "Self-servis kasada her şeyi kendin okutursun."]]}]},
- "zetmeel": {"lid": "het", "niveau": "B1", "kort": "nişasta", "anlamlar": [{"tr": "nişasta", "voorbeelden": [["Aardappels bevatten veel zetmeel.", "Patates çok nişasta içerir."]]}]},
- "zichzelf": {"niveau": "B1", "kort": "kendisi, kendileri", "anlamlar": [{"tr": "kendisi, kendileri (dönüşlü zamir)", "kalip": [["op zichzelf wonen", "tek başına yaşamak"], ["zichzelf voorstellen", "kendini tanıtmak"]], "voorbeelden": [["Hij praat weleens tegen zichzelf.", "Bazen kendi kendine konuşuyor."], ["Fatima stelt zichzelf voor aan haar buurvrouw Natascha.", "Fatima kendini komşusu Natascha'ya tanıtıyor."]]}]},
- "zodra": {"niveau": "B1", "kort": "-ir -mez, -diği anda", "not": "Bağlaç: fiil sona gider.", "anlamlar": [{"tr": "-ir -mez, -diği anda", "voorbeelden": [["Zodra ik beter ben, laat ik het weten.", "İyileşir iyileşmez haber veririm."]]}]},
- "zuigen": {"vormen": "zoog / zogen · heeft gezogen", "niveau": "B1", "kort": "emmek", "anlamlar": [{"tr": "emmek", "voorbeelden": [["De luis zuigt bloed.", "Bit kan emer."]]}], "not": "de stofzuiger = elektrikli süpürge (toz emici)."},
- "zulke": {"niveau": "B1", "kort": "öyle, böyle (çoğul / de-kelimeleri)", "not": "Tekil het-kelimesiyle: zo'n / zulk (zulk weer).", "anlamlar": [{"tr": "öyle, böyle", "voorbeelden": [["Zulke vragen kun je beter direct stellen.", "Öyle soruları doğrudan sorsan daha iyi."]]}]},
- "aanspreekpunt": {"lid": "het", "mv": "aanspreekpunten", "niveau": "B2", "kort": "irtibat kişisi / noktası", "anlamlar": [{"tr": "irtibat kişisi / noktası", "voorbeelden": [["Zij is ons aanspreekpunt voor vragen.", "Sorular için irtibat kişimiz o."]]}]},
- "afstemming": {"lid": "de", "niveau": "B2", "kort": "koordinasyon, uzlaşma", "anlamlar": [{"tr": "koordinasyon, uzlaşma, karşılıklı ayarlama", "kalip": [["in afstemming met", "… ile koordineli olarak"]], "voorbeelden": [["Na afstemming met het team kiezen we voor optie B.", "Ekiple konuştuktan sonra B seçeneğini seçiyoruz."], ["Er is nog wat afstemming nodig.", "Biraz daha koordinasyon gerekiyor."]]}], "not": "Fiil: afstemmen = ayarlamak, uyumlu hâle getirmek."},
- "afwijking": {"lid": "de", "mv": "afwijkingen", "niveau": "B2", "kort": "sapma, farklılık", "anlamlar": [{"tr": "sapma, farklılık", "voorbeelden": [["Er is een kleine afwijking in de cijfers.", "Rakamlarda küçük bir sapma var."]]}], "not": "Fiil: afwijken van = …-den sapmak, farklı olmak."},
- "competentie": {"lid": "de", "mv": "competenties", "niveau": "B2", "kort": "yetkinlik", "anlamlar": [{"tr": "yetkinlik", "voorbeelden": [["Welke competenties wil je ontwikkelen?", "Hangi yetkinlikleri geliştirmek istiyorsun?"]]}]},
- "datalek": {"lid": "het", "mv": "datalekken", "niveau": "B2", "kort": "veri sızıntısı", "anlamlar": [{"tr": "veri sızıntısı", "voorbeelden": [["Er is een datalek geweest.", "Bir veri sızıntısı oldu."]]}]},
- "discussiepuntje": {"lid": "het", "mv": "discussiepuntjes", "niveau": "B2", "kort": "tartışılacak küçük bir nokta", "anlamlar": [{"tr": "tartışılacak küçük bir nokta", "voorbeelden": [["Daarbij is er nog een discussiepuntje.", "Bununla birlikte tartışılacak bir nokta daha var."]]}]},
- "donateur": {"lid": "de", "mv": "donateurs", "niveau": "B2", "kort": "bağışçı", "anlamlar": [{"tr": "(düzenli) bağışçı", "voorbeelden": [["Het centrum zoekt nieuwe donateurs.", "Merkez yeni bağışçılar arıyor."]]}]},
- "echtheidskenmerk": {"lid": "het", "mv": "echtheidskenmerken", "niveau": "B2", "kort": "gerçeklik işareti (sahte olmadığını gösteren)", "anlamlar": [{"tr": "gerçeklik işareti (banknotta, belgede)", "voorbeelden": [["De ribbels zijn een echtheidskenmerk.", "Kabartılar bir gerçeklik işareti."]]}]},
- "etmaal": {"lid": "het", "mv": "etmalen", "niveau": "B2", "kort": "24 saat, bir gün bir gece", "anlamlar": [{"tr": "24 saat, bir gün bir gece", "voorbeelden": [["De ragout koelt een etmaal af.", "Ragu 24 saat soğuyor."]]}]},
- "gebedsruimte": {"lid": "de", "mv": "gebedsruimtes", "niveau": "B2", "kort": "ibadet odası", "anlamlar": [{"tr": "ibadet odası", "voorbeelden": [["In het nieuwe kantoor komt een gebedsruimte.", "Yeni ofiste bir ibadet odası olacak."]]}]},
- "geldigheid": {"lid": "de", "niveau": "B2", "kort": "geçerlilik", "anlamlar": [{"tr": "geçerlilik (süre)", "kalip": [["geldig", "geçerli"], ["de geldigheidsduur", "geçerlilik süresi"]], "voorbeelden": [["Deze kaart is geldig van 1 januari tot 31 maart.", "Bu kart 1 Ocak'tan 31 Mart'a kadar geçerli."]]}]},
- "gepensioneerde": {"lid": "de", "mv": "gepensioneerden", "niveau": "B2", "kort": "emekli (kişi)", "anlamlar": [{"tr": "emekli (kişi)", "voorbeelden": [["Veel gepensioneerden reizen graag.", "Birçok emekli seyahat etmeyi sever."]]}]},
- "gozer": {"lid": "de", "mv": "gozers", "niveau": "B2", "kort": "adam, oğlan (samimi, argo)", "anlamlar": [{"tr": "adam, oğlan (samimi, argo)", "voorbeelden": [["Het is een prima gozer.", "İyi adamdır."], ["Ken je die gozer?", "O adamı tanıyor musun?"]]}], "not": "Resmî metinlerde kullanılmaz."},
- "guur": {"niveau": "B2", "kort": "soğuk ve rüzgârlı, sert (hava)", "anlamlar": [{"tr": "soğuk, rüzgârlı ve nemli (hava)", "voorbeelden": [["Het is guur weer vandaag; doe je jas aan.", "Bugün hava soğuk ve rüzgârlı; montunu giy."]]}]},
- "hallucinatie": {"lid": "de", "mv": "hallucinaties", "niveau": "B2", "kort": "halüsinasyon", "anlamlar": [{"tr": "halüsinasyon", "voorbeelden": [["Een AI-model kan hallucinaties geven.", "Bir yapay zekâ modeli halüsinasyon üretebilir."]]}]},
- "inbreng": {"lid": "de", "niveau": "B2", "kort": "katkı, fikir katkısı", "anlamlar": [{"tr": "katkı, fikir katkısı", "voorbeelden": [["Bedankt voor jullie inbreng.", "Katkınız için teşekkürler."]]}]},
- "jatten": {"vormen": "jatte / jatten · heeft gejat", "niveau": "B2", "kort": "aşırmak, çalmak (argo)", "anlamlar": [{"tr": "aşırmak, çalmak (argo)", "voorbeelden": [["Iemand heeft mijn fiets gejat.", "Biri bisikletimi aşırdı."]]}], "not": "Resmî karşılığı: stelen."},
- "karwei": {"lid": "het / de", "mv": "karweien", "niveau": "B2", "kort": "(zahmetli) iş", "anlamlar": [{"tr": "(zahmetli) iş, uğraş", "voorbeelden": [["Verhuizen is een flink karwei.", "Taşınmak epey zahmetli bir iş."], ["En dat was een heel lastig karwei.", "Ve bu çok zor bir işti."]]}]},
- "lijf": {"lid": "het", "mv": "lijven", "niveau": "B2", "kort": "vücut, beden", "anlamlar": [{"tr": "vücut, beden", "kalip": [["iemand de stuipen op het lijf jagen", "birinin ödünü koparmak"], ["in vorm zijn", "formda olmak"]], "voorbeelden": [["Je lijf is niet in vorm.", "Vücudun formda değil."]]}], "not": "Resmî karşılığı: het lichaam."}
+   {"tr": "(olay) geçmek, seyretmek", "kalip": [["Hoe is het verlopen?", "Nasıl geçti?"], ["goed verlopen", "iyi geçmek"]]}
+  ]},
+ "vertragen": {"vormen": "vertraagde / vertraagden · heeft vertraagd", "niveau": "B1", "kort": "geciktirmek, yavaşlatmak",
+  "anlamlar": [
+   {"tr": "geciktirmek, yavaşlatmak", "kalip": [["de vertraging", "gecikme, rötar"]], "voorbeelden": [["Het vertraagt gewoon allemaal weer.", "Her şeyi yine geciktiriyor."]]}
+  ]},
+ "verward": {"niveau": "B1", "kort": "kafası karışık, şaşkın",
+  "anlamlar": [
+   {"tr": "kafası karışık, şaşkın", "voorbeelden": [["Ik ben nog steeds heel erg verward.", "Hâlâ çok kafam karışık."]]}
+  ]},
+ "verwarren": {"vormen": "verwarde / verwarden · heeft verward", "niveau": "B1", "kort": "karıştırmak (biri/bir şey ile)",
+  "anlamlar": [
+   {"tr": "karıştırmak, birbirine karıştırmak; kafasını karıştırmak", "kalip": [["iets verwarren met", "bir şeyi … ile karıştırmak"]], "voorbeelden": [["De twee namen verwarden me even.", "İki isim kafamı biraz karıştırdı."]]}
+  ]},
+ "verzetten": {"vormen": "verzette / verzetten · heeft verzet", "niveau": "B1", "kort": "ertelemek, tarihini değiştirmek; yerini değiştirmek",
+  "anlamlar": [
+   {"tr": "(randevu) ertelemek, tarihini değiştirmek", "voorbeelden": [["Zouden we het gesprek kunnen verzetten naar volgende week?", "Görüşmeyi gelecek haftaya alabilir miyiz?"], ["Zullen we de training verzetten?", "Antrenmanı başka zamana alalım mı?"], ["Zouden we het gesprek kunnen verzetten?", "Görüşmeyi başka zamana alabilir miyiz?"]]},
+   {"tr": "(zich verzetten tegen) karşı koymak, direnmek", "kalip": [["het verzet", "direniş (savaşta)"]]}
+  ]},
+ "verzoek": {"lid": "het", "mv": "verzoeken", "niveau": "B1", "kort": "rica, talep (resmî)",
+  "anlamlar": [
+   {"tr": "rica, talep (resmî)", "kalip": [["op verzoek van", "… talebi üzerine"], ["een verzoek doen", "talepte bulunmak"]], "voorbeelden": [["Uw verzoek is in behandeling.", "Talebiniz işleme alındı."], ["De werkgever mag dit verzoek niet weigeren.", "İşveren bu talebi reddedemez."]]}
+  ]},
+ "verzorgen": {"vormen": "verzorgde / verzorgden · heeft verzorgd", "niveau": "B1", "kort": "bakmak, bakımını yapmak; düzenlemek",
+  "anlamlar": [
+   {"tr": "bakmak, bakımını yapmak (insan, hayvan, bitki)", "kalip": [["de verzorging", "bakım"], ["thuiszorg", "evde bakım"]], "voorbeelden": [["De dierenarts verzorgt de zeehond.", "Veteriner foka bakıyor."], ["Waar werkt de man of vrouw die haar thuis komt verzorgen?", "Ona evde bakmaya gelen kadın ya da erkek nerede çalışıyor?"], ["Ik werk graag met mijn handen, bijvoorbeeld planten verzorgen en water geven.", "Ellerimle çalışmayı severim, örneğin bitkilere bakmak ve sulamak."]]},
+   {"tr": "(yemek, program) hazırlamak, düzenlemek", "kalip": [["de catering verzorgen", "ikramı üstlenmek"]]}
+  ]},
+ "vezel": {"lid": "de", "mv": "vezels", "niveau": "B1", "kort": "lif",
+  "anlamlar": [
+   {"tr": "lif (kumaş; besin)", "kalip": [["vezelrijk", "lifli (besin)"]], "voorbeelden": [["Katoen heeft lange vezels.", "Pamuğun uzun lifleri vardır."]]}
+  ]},
+ "voertuig": {"lid": "het", "mv": "voertuigen", "niveau": "B1", "kort": "taşıt, araç (resmî)",
+  "anlamlar": [
+   {"tr": "taşıt, araç (resmî)", "voorbeelden": [["Het voertuig staat in de garage.", "Araç garajda duruyor."]]}
+  ]},
+ "vondst": {"lid": "de", "mv": "vondsten", "niveau": "B1", "kort": "buluntu",
+  "anlamlar": [
+   {"tr": "buluntu (bulunan şey)", "voorbeelden": [["De vondst is 66 miljoen jaar oud.", "Buluntu 66 milyon yaşında."]]}
+  ]},
+ "voorraad": {"lid": "de", "mv": "voorraden", "niveau": "B1", "kort": "stok, erzak",
+  "anlamlar": [
+   {"tr": "stok, erzak", "kalip": [["op voorraad", "stokta"], ["Op = op.", "Bitti = bitti (stok sınırlı)."]], "voorbeelden": [["De voorraad koffie is op.", "Kahve stoku bitti."]]}
+  ]},
+ "vreemd": {"niveau": "B1", "kort": "tuhaf, garip; yabancı",
+  "anlamlar": [
+   {"tr": "tuhaf, garip", "voorbeelden": [["Dat is niet heel vreemd.", "Bu çok tuhaf değil."], ["Maar het ruikt vreemd in de keuken.", "Ama mutfakta tuhaf bir koku var."], ["'Dat lijkt vreemd,' zegt De Graaf, 'want dan verlies je een medewerker.", "'Bu tuhaf görünüyor,' diyor De Graaf, 'çünkü o zaman bir çalışanını kaybediyorsun."]]},
+   {"tr": "yabancı", "kalip": [["een vreemde taal", "yabancı dil"], ["de vreemdeling", "yabancı (kişi)"]]}
+  ]},
+ "watermerk": {"lid": "het", "mv": "watermerken", "niveau": "B1", "kort": "filigran (su damgası)",
+  "anlamlar": [
+   {"tr": "filigran, su damgası", "voorbeelden": [["Op het biljet zit een watermerk.", "Banknotta bir filigran var."]]}
+  ]},
+ "weersverwachting": {"lid": "de", "mv": "weersverwachtingen", "niveau": "B1", "kort": "hava tahmini",
+  "anlamlar": [
+   {"tr": "hava tahmini", "voorbeelden": [["Volgens de weersverwachting wordt het morgen droog.", "Hava tahminine göre yarın kuru olacak."]]}
+  ]},
+ "wenkbrauw": {"lid": "de", "mv": "wenkbrauwen", "niveau": "B1", "kort": "kaş",
+  "anlamlar": [
+   {"tr": "kaş", "kalip": [["de wenkbrauwen optrekken", "kaşlarını kaldırmak (şaşırmak)"]], "voorbeelden": [["Ze trok haar wenkbrauwen omhoog.", "Kaşlarını kaldırdı."]]}
+  ]},
+ "wetenschapper": {"lid": "de", "mv": "wetenschappers", "niveau": "B1", "kort": "bilim insanı",
+  "anlamlar": [
+   {"tr": "bilim insanı", "voorbeelden": [["Wetenschappers bestuderen de wolf.", "Bilim insanları kurdu inceliyor."]]}
+  ]},
+ "windkracht": {"lid": "de", "niveau": "B1", "kort": "rüzgâr şiddeti",
+  "anlamlar": [
+   {"tr": "rüzgâr şiddeti (Beaufort ölçeği)", "voorbeelden": [["Morgen is het windkracht 8.", "Yarın rüzgâr şiddeti 8 olacak."]]}
+  ]},
+ "zeespiegel": {"lid": "de", "niveau": "B1", "kort": "deniz seviyesi",
+  "anlamlar": [
+   {"tr": "deniz seviyesi", "voorbeelden": [["Door het warmere klimaat stijgt de zeespiegel.", "Isınan iklim yüzünden deniz seviyesi yükseliyor."]]}
+  ]},
+ "zelfscankassa": {"lid": "de", "mv": "zelfscankassa's", "niveau": "B1", "kort": "self-servis kasa",
+  "anlamlar": [
+   {"tr": "self-servis kasa", "voorbeelden": [["Bij de zelfscankassa scan je alles zelf.", "Self-servis kasada her şeyi kendin okutursun."]]}
+  ]},
+ "zetmeel": {"lid": "het", "niveau": "B1", "kort": "nişasta",
+  "anlamlar": [
+   {"tr": "nişasta", "voorbeelden": [["Aardappels bevatten veel zetmeel.", "Patates çok nişasta içerir."]]}
+  ]},
+ "zichzelf": {"niveau": "B1", "kort": "kendisi, kendileri",
+  "anlamlar": [
+   {"tr": "kendisi, kendileri (dönüşlü zamir)", "kalip": [["op zichzelf wonen", "tek başına yaşamak"], ["zichzelf voorstellen", "kendini tanıtmak"]], "voorbeelden": [["Hij praat weleens tegen zichzelf.", "Bazen kendi kendine konuşuyor."], ["Fatima stelt zichzelf voor aan haar buurvrouw Natascha.", "Fatima kendini komşusu Natascha'ya tanıtıyor."]]}
+  ]},
+ "zodra": {"niveau": "B1", "kort": "-ir -mez, -diği anda", "not": "Bağlaç: fiil sona gider.",
+  "anlamlar": [
+   {"tr": "-ir -mez, -diği anda", "voorbeelden": [["Zodra ik beter ben, laat ik het weten.", "İyileşir iyileşmez haber veririm."]]}
+  ]},
+ "zuigen": {"vormen": "zoog / zogen · heeft gezogen", "niveau": "B1", "kort": "emmek", "not": "de stofzuiger = elektrikli süpürge (toz emici).",
+  "anlamlar": [
+   {"tr": "emmek", "voorbeelden": [["De luis zuigt bloed.", "Bit kan emer."]]}
+  ]},
+ "zulke": {"niveau": "B1", "kort": "öyle, böyle (çoğul / de-kelimeleri)", "not": "Tekil het-kelimesiyle: zo'n / zulk (zulk weer).",
+  "anlamlar": [
+   {"tr": "öyle, böyle", "voorbeelden": [["Zulke vragen kun je beter direct stellen.", "Öyle soruları doğrudan sorsan daha iyi."]]}
+  ]},
+ "aanspreekpunt": {"lid": "het", "mv": "aanspreekpunten", "niveau": "B2", "kort": "irtibat kişisi / noktası",
+  "anlamlar": [
+   {"tr": "irtibat kişisi / noktası", "voorbeelden": [["Zij is ons aanspreekpunt voor vragen.", "Sorular için irtibat kişimiz o."]]}
+  ]},
+ "afstemming": {"lid": "de", "niveau": "B2", "kort": "koordinasyon, uzlaşma", "not": "Fiil: afstemmen = ayarlamak, uyumlu hâle getirmek.",
+  "anlamlar": [
+   {"tr": "koordinasyon, uzlaşma, karşılıklı ayarlama", "kalip": [["in afstemming met", "… ile koordineli olarak"]], "voorbeelden": [["Na afstemming met het team kiezen we voor optie B.", "Ekiple konuştuktan sonra B seçeneğini seçiyoruz."], ["Er is nog wat afstemming nodig.", "Biraz daha koordinasyon gerekiyor."]]}
+  ]},
+ "afwijking": {"lid": "de", "mv": "afwijkingen", "niveau": "B2", "kort": "sapma, farklılık", "not": "Fiil: afwijken van = …-den sapmak, farklı olmak.",
+  "anlamlar": [
+   {"tr": "sapma, farklılık", "voorbeelden": [["Er is een kleine afwijking in de cijfers.", "Rakamlarda küçük bir sapma var."]]}
+  ]},
+ "competentie": {"lid": "de", "mv": "competenties", "niveau": "B2", "kort": "yetkinlik",
+  "anlamlar": [
+   {"tr": "yetkinlik", "voorbeelden": [["Welke competenties wil je ontwikkelen?", "Hangi yetkinlikleri geliştirmek istiyorsun?"]]}
+  ]},
+ "datalek": {"lid": "het", "mv": "datalekken", "niveau": "B2", "kort": "veri sızıntısı",
+  "anlamlar": [
+   {"tr": "veri sızıntısı", "voorbeelden": [["Er is een datalek geweest.", "Bir veri sızıntısı oldu."]]}
+  ]},
+ "discussiepuntje": {"lid": "het", "mv": "discussiepuntjes", "niveau": "B2", "kort": "tartışılacak küçük bir nokta",
+  "anlamlar": [
+   {"tr": "tartışılacak küçük bir nokta", "voorbeelden": [["Daarbij is er nog een discussiepuntje.", "Bununla birlikte tartışılacak bir nokta daha var."]]}
+  ]},
+ "donateur": {"lid": "de", "mv": "donateurs", "niveau": "B2", "kort": "bağışçı",
+  "anlamlar": [
+   {"tr": "(düzenli) bağışçı", "voorbeelden": [["Het centrum zoekt nieuwe donateurs.", "Merkez yeni bağışçılar arıyor."]]}
+  ]},
+ "echtheidskenmerk": {"lid": "het", "mv": "echtheidskenmerken", "niveau": "B2", "kort": "gerçeklik işareti (sahte olmadığını gösteren)",
+  "anlamlar": [
+   {"tr": "gerçeklik işareti (banknotta, belgede)", "voorbeelden": [["De ribbels zijn een echtheidskenmerk.", "Kabartılar bir gerçeklik işareti."]]}
+  ]},
+ "etmaal": {"lid": "het", "mv": "etmalen", "niveau": "B2", "kort": "24 saat, bir gün bir gece",
+  "anlamlar": [
+   {"tr": "24 saat, bir gün bir gece", "voorbeelden": [["De ragout koelt een etmaal af.", "Ragu 24 saat soğuyor."]]}
+  ]},
+ "gebedsruimte": {"lid": "de", "mv": "gebedsruimtes", "niveau": "B2", "kort": "ibadet odası",
+  "anlamlar": [
+   {"tr": "ibadet odası", "voorbeelden": [["In het nieuwe kantoor komt een gebedsruimte.", "Yeni ofiste bir ibadet odası olacak."]]}
+  ]},
+ "geldigheid": {"lid": "de", "niveau": "B2", "kort": "geçerlilik",
+  "anlamlar": [
+   {"tr": "geçerlilik (süre)", "kalip": [["geldig", "geçerli"], ["de geldigheidsduur", "geçerlilik süresi"]], "voorbeelden": [["Deze kaart is geldig van 1 januari tot 31 maart.", "Bu kart 1 Ocak'tan 31 Mart'a kadar geçerli."]]}
+  ]},
+ "gepensioneerde": {"lid": "de", "mv": "gepensioneerden", "niveau": "B2", "kort": "emekli (kişi)",
+  "anlamlar": [
+   {"tr": "emekli (kişi)", "voorbeelden": [["Veel gepensioneerden reizen graag.", "Birçok emekli seyahat etmeyi sever."]]}
+  ]},
+ "gozer": {"lid": "de", "mv": "gozers", "niveau": "B2", "kort": "adam, oğlan (samimi, argo)", "not": "Resmî metinlerde kullanılmaz.",
+  "anlamlar": [
+   {"tr": "adam, oğlan (samimi, argo)", "voorbeelden": [["Het is een prima gozer.", "İyi adamdır."], ["Ken je die gozer?", "O adamı tanıyor musun?"]]}
+  ]},
+ "guur": {"niveau": "B2", "kort": "soğuk ve rüzgârlı, sert (hava)",
+  "anlamlar": [
+   {"tr": "soğuk, rüzgârlı ve nemli (hava)", "voorbeelden": [["Het is guur weer vandaag; doe je jas aan.", "Bugün hava soğuk ve rüzgârlı; montunu giy."]]}
+  ]},
+ "hallucinatie": {"lid": "de", "mv": "hallucinaties", "niveau": "B2", "kort": "halüsinasyon",
+  "anlamlar": [
+   {"tr": "halüsinasyon", "voorbeelden": [["Een AI-model kan hallucinaties geven.", "Bir yapay zekâ modeli halüsinasyon üretebilir."]]}
+  ]},
+ "inbreng": {"lid": "de", "niveau": "B2", "kort": "katkı, fikir katkısı",
+  "anlamlar": [
+   {"tr": "katkı, fikir katkısı", "voorbeelden": [["Bedankt voor jullie inbreng.", "Katkınız için teşekkürler."]]}
+  ]},
+ "jatten": {"vormen": "jatte / jatten · heeft gejat", "niveau": "B2", "kort": "aşırmak, çalmak (argo)", "not": "Resmî karşılığı: stelen.",
+  "anlamlar": [
+   {"tr": "aşırmak, çalmak (argo)", "voorbeelden": [["Iemand heeft mijn fiets gejat.", "Biri bisikletimi aşırdı."]]}
+  ]},
+ "karwei": {"lid": "het / de", "mv": "karweien", "niveau": "B2", "kort": "(zahmetli) iş",
+  "anlamlar": [
+   {"tr": "(zahmetli) iş, uğraş", "voorbeelden": [["Verhuizen is een flink karwei.", "Taşınmak epey zahmetli bir iş."], ["En dat was een heel lastig karwei.", "Ve bu çok zor bir işti."]]}
+  ]},
+ "lijf": {"lid": "het", "mv": "lijven", "niveau": "B2", "kort": "vücut, beden", "not": "Resmî karşılığı: het lichaam.",
+  "anlamlar": [
+   {"tr": "vücut, beden", "kalip": [["iemand de stuipen op het lijf jagen", "birinin ödünü koparmak"], ["in vorm zijn", "formda olmak"]], "voorbeelden": [["Je lijf is niet in vorm.", "Vücudun formda değil."]]}
+  ]}
 }
