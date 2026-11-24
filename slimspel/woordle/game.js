@@ -493,6 +493,14 @@ export async function mountWoordle(root, { lang = "nl", user, profile, api, shar
     html += `<div data-r="news"></div><div data-r="site"></div><p class="small"><a href="https://nl.wiktionary.org/wiki/${encodeURIComponent(w)}" target="_blank" rel="noopener">${esc(T.origin)}</a></p>`;
     box.innerHTML = html;
     // Sentences with this word in the "Nieuws in niveaus" texts (easiest level first)
+    // Meaning per sentence when the word has more meanings (from the hand-written meanings in woordinfo.json)
+    let all = null, which = {};
+    try {
+      all = await fetch(new URL("../../oyunlar/woordinfo.json", HERE)).then(r => r.json());
+      const anl = all.woorden[w]?.anlamlar || [];
+      if (anl.length > 1) anl.forEach((a, n) => (a.voorbeelden || []).forEach(v => { which[v.nl.toLowerCase()] = `${n + 1}. ${a.tr}`; }));
+    } catch {}
+    const meaningOf = s => which[s.toLowerCase()] ? `<p class="small"><b>${LANG === "tr" ? "Anlam" : "Betekenis"} ${esc(which[s.toLowerCase()])}</b></p>` : "";
     try {
       const nieuws = await fetch(new URL("nieuws.json", POOL)).then(r => r.json());
       const re = new RegExp(`(^|[^a-zà-ÿ])${w}([^a-zà-ÿ]|$)`, "i"), hits = [];
@@ -503,12 +511,12 @@ export async function mountWoordle(root, { lang = "nl", user, profile, api, shar
         if (sent) hits.push({ id: item.id, title: item.titel, lv: lv.toUpperCase(), s: sent.trim() });
       }
       // The news title is a link that opens that news item
-      if (hits.length) $("news").innerHTML = `<h4>${esc(T.news)}</h4>` + hits.map(h => `<p class="ex">${esc(h.s)}</p><p class="small"><a href="${new URL(`../../nieuws/?id=${encodeURIComponent(h.id)}`, HERE)}">${esc(h.title)}</a> · ${h.lv}</p>`).join("");
+      if (hits.length) $("news").innerHTML = `<h4>${esc(T.news)}</h4>` + hits.map(h => `${meaningOf(h.s)}<p class="ex">${esc(h.s)}</p><p class="small"><a href="${new URL(`../../nieuws/?id=${encodeURIComponent(h.id)}`, HERE)}">${esc(h.title)}</a> · ${h.lv}</p>`).join("");
     } catch {}
     // Other places on the site where the word is used or taught (lessons, Lezen, Luisteren, word study),
     // from the same word file as the word box of the daily games (scripts/content/build_woordinfo.py)
     try {
-      const all = await fetch(new URL("../../oyunlar/woordinfo.json", HERE)).then(r => r.json());
+      if (!all) throw new Error("no word data");
       const tags = (all.woorden[w]?.tags || []).filter(t => !t.href.startsWith("nieuws/"));   // news is listed above
       if (tags.length) $("site").innerHTML = `<h4>${esc(T.site)}</h4>` + tags.map(t => `<p class="small"><a href="${new URL("../../" + t.href, HERE)}">${esc(t.t)}</a></p>`).join("");
     } catch {}

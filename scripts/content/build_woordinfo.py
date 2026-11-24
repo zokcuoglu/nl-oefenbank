@@ -182,6 +182,13 @@ for k, h in HAND.items():
               "voorbeelden": [e for e in i["voorbeelden"] if e["nl"].lower() not in used]})
     for f in ("lid", "mv", "vormen", "not", "kaliplar"):
         if h.get(f): i[f] = h[f]
+    # A sentence on the site that is an example of one meaning gets that meaning, so a word with more meanings
+    # never shows a sentence without saying which meaning it is ("droog" = dry weather or said with a straight face)
+    if len(h["anlamlar"]) > 1:
+        which = {nl.lower(): (n + 1, a["tr"]) for n, a in enumerate(h["anlamlar"]) for nl, _ in a.get("voorbeelden", [])}
+        for t in i["tags"]:
+            m = which.get((t.get("z") or "").lower())
+            if m: t["anl"], t["anlt"] = m
 missing = sorted(set(HAND) - set(info))
 if missing: print("in anlamlar/ but not in any game:", ", ".join(missing))
 
