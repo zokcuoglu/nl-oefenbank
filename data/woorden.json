@@ -20756,6 +20756,28 @@
 "woordsoort": "ww"
 },
 {
+"id": "k028",
+"bron": "bekleme",
+"bronnen": [
+"bekleme"
+],
+"nl": "immers",
+"soort": "woord",
+"tr": "çünkü malum, ne de olsa (bilinen bir gerekçeyi hatırlatır)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "algemeen",
+"subthema": "",
+"register": "formeel",
+"tur": "bw",
+"voorbeeld": "Hij komt niet, hij is immers ziek.",
+"voorbeeld_tr": "Gelmiyor, ne de olsa hasta.",
+"uitleg": "Yazı dilinde (haber, resmi mail, Lezen metinleri) sık; konuşmada aynı işi 'toch' görür: 'Hij is toch ziek?'. immer (= altijd, eski/resmi) + -s; Almanca immer ile aynı kökten.",
+"meer": [],
+"in_nieuws": [],
+"woordsoort": "bw"
+},
+{
 "id": "b008",
 "bron": "basis",
 "bronnen": [
