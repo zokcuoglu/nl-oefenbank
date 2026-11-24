@@ -1,5 +1,5 @@
 {
-  "_about": "Content of the weekly Thursday mail for adults, 'Haftanın Hollandacası' (scripts/mailer.py, job 'brief'). Each week: an idiom (deyim) and a word (woord) as ids of scripts/content/uitdrukkingen.csv / woorden.csv (meaning and example come from there; a week may add its own voorbeeld/voorbeeld_tr), a short note about life in the Netherlands (cultuur) and one thing to try on the site (probeer, href relative to the site). 'datum' is the Thursday the week is meant for: the mailer sends the newest week whose datum has come and that was not sent yet. 'nieuw' lists what changed on the site; a mail shows the items added since the previous brief (at most 3). Add new weeks at the end and a line to 'nieuw' when something new goes live.",
+  "_about": "Content of the weekly Thursday mail for adults, 'Haftanın Hollandacası' (scripts/mailer.py, job 'brief'). Each week: an idiom (deyim) and a word (woord) as ids of scripts/content/uitdrukkingen.csv / woorden.csv (meaning and example come from there; a week may add its own voorbeeld/voorbeeld_tr), a short note about life in the Netherlands (cultuur) and one thing to try on the site (probeer, href relative to the site). 'datum' is the Thursday the week is meant for: the mailer sends the newest week whose datum has come and that was not sent yet. 'nieuw' lists what changed on the site; a mail shows the items added since the previous brief (at most 3). Add new weeks at the end. 'nieuw' is the site's change log for users; the rule for adding lines is in CLAUDE.md (section 'Sitede yeni').",
   "weken": [
     {
       "id": "w01", "datum": "2026-11-19",
@@ -63,6 +63,20 @@
     { "datum": "2026-11-13", "tekst": "Video dersler: Goed Bezig kanalından 4 ders; üstte video, altında özet ve alıştırmalar.", "href": "dersler/?soort=video" },
     { "datum": "2026-11-15", "tekst": "Gramer ve günlük konuşma dersleri: iki fiilli cümleler, fiilin yeri, randevu, toplantı, saha.", "href": "dersler/" },
     { "datum": "2026-11-16", "tekst": "Bugünkü tekrarın: derslerde yanlış yaptığın sorular birkaç gün sonra ana sayfada yeniden karşına çıkıyor.", "href": "" },
-    { "datum": "2026-11-24", "tekst": "Kelime incelemesi: her salı bir kelime, kökeni, başka dillerdeki akrabaları ve 5 soru.", "href": "woordstudie/" }
+    { "datum": "2026-11-18", "tekst": "Konuşma kalıpları ayrı sayfada: even, eens, maar, hoor, hè, toch, wel gibi küçük kelimelerin günlük konuşmada nasıl kullanıldığı, ipuçlarıyla.", "href": "woordstudie/?bolum=gunluk" },
+    { "datum": "2026-11-18", "tekst": "İstek kutusu: öğrenmek istediğin bir kelimeyi, deyimi, kalıbı ya da konuyu yaz (en fazla 2 ekran görüntüsüyle), siteye eklensin.", "href": "woordstudie/" },
+    { "datum": "2026-11-20", "tekst": "Uitdaging van de dag: günlük oyunlar yeni adıyla. Bitirince cevapların açık kalıyor; kaynak etiketine tıklayınca kelimenin geçtiği metne gidiyorsun.", "href": "#oyunlar" },
+    { "datum": "2026-11-20", "tekst": "Kelime sayfası: oyunlarda ya da metinlerde bir kelimeye tıklayınca tam sayfa açılıyor: Türkçe anlamlar, örnek cümleler ve çevirileri, sitede geçtiği yerler.", "href": "kelime/?w=terecht" },
+    { "datum": "2026-11-20", "tekst": "Slimspel artık sitenin içinde: çocuk oyunları ve bulmacalar aynı hesapla, ana sayfadan açılıyor.", "href": "slimspel/" },
+    { "datum": "2026-11-20", "tekst": "Çocuk bölümü: Natuur & techniek'e mıknatıs konusu ve çocuklara göre elektrik anlatımı eklendi.", "href": "kids/rekenen.html?vak=natuur" },
+    { "datum": "2026-11-22", "tekst": "Yeni gramer dersi: Hollandacada “almak” (nemen, pakken, krijgen, halen …): 10 bölüm, görsel karar ağacı, tuzaklar ve 24 soru.", "href": "dersler/?les=almak" },
+    { "datum": "2026-11-22", "tekst": "NT2 Bulmaca telefonda daha rahat: büyük kareler, üstte ipucu çubuğu, seviyeye göre ipucu hakkı (A1 2, A2 3, B1 5) ve 31 ipucu daha anlaşılır.", "href": "#oyunlar" },
+    { "datum": "2026-11-24", "tekst": "Kelime incelemesi: her salı bir kelime, kökeni, başka dillerdeki akrabaları ve 5 soru.", "href": "woordstudie/" },
+    { "datum": "2026-11-24", "tekst": "Lezen e-postaları: sınava kadar her gün sabah ve akşam; dünkü yanlışların açıklamasıyla, bir ipucu ve kısa bir okuma parçası.", "href": "lezen/" },
+    { "datum": "2026-11-24", "tekst": "Resmî sınav rehberi: oefenexamensnt2.nl'de çözdüğün 2023, 2024 ve 2025 Lezen sınavlarının harflerini gir, puanını ve yanlışlarının açıklamasını gör.", "href": "lezen/officieel.html" },
+    { "datum": "2026-11-24", "tekst": "Hollandaca-Hollandaca sözlük: Lezen metinlerinde bir kelimeye tıkla, sınavdaki gibi Hollandaca açıklamasını gör.", "href": "lezen/teksten.html" },
+    { "datum": "2026-11-24", "tekst": "Sınav kelimeleri: 18 resmî Lezen metninin konuları ve en sık çıkan B1+ kelimeler tek sayfada.", "href": "lezen/sinav-kelimeleri.html" },
+    { "datum": "2026-11-24", "tekst": "Yeni Lezen metni: Mantelzorg (sınav uzunluğunda, 7 soru).", "href": "lezen/teksten.html?t=mantelzorg" },
+    { "datum": "2026-11-24", "tekst": "Kelime sayfalarında birden çok anlamı olan kelimelerin her örnek cümlesi hangi anlamda kullanıldığını gösteriyor (ör. droog).", "href": "kelime/?w=droog" }
   ]
 }
