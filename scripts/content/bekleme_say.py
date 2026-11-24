@@ -5,9 +5,13 @@ bit by bit. Seeing how often (and where) an item already occurs shows where it s
 met in different places (word study, news, lezen, spreken, crossword ...) and learned better.
 
 Run from the repo root:  python3 scripts/content/bekleme_say.py
-Only the two count columns are rewritten; everything else in the file stays as written by hand.
+Only the two count columns and the Id links are rewritten; everything else stays as written by hand.
+Id column: the id(s) of the item in the one word source (woorden.csv / uitdrukkingen.csv, ";" = several).
+The script checks that every id exists (an unknown id stops it) and writes it as a link to the word page,
+so the list, the word pages and the counts always point at the same item.
 """
 import re, json
+from urllib.parse import quote
 from pathlib import Path
 from site_places import all_places, ROOT, norm
 
@@ -30,7 +34,21 @@ def cells(line):
 def row(cs):
     return "| " + " | ".join(c.replace("|", "\\|") for c in cs) + " |"
 
+def id_cell(cell, rows, aliases, where):
+    """'k022' or '[k022](…)' (already a link) -> checked id(s), written as word-page links."""
+    ids = re.findall(r"\[([^\]]+)\]\([^)]*\)", cell) or [x.strip() for x in cell.split(";") if x.strip()]
+    assert ids, f"{where}: Id is empty: add the item to woorden.csv / uitdrukkingen.csv and write its id here"
+    out = []
+    for i in ids:
+        i = aliases.get(i, i)
+        assert i in rows, f"{where}: Id '{i}' is not in woorden.csv / uitdrukkingen.csv"
+        key = re.sub(r"^(de|het|een)\s+", "", rows[i]["nl"].strip().lower())
+        out.append(f"[{i}]({SITE}kelime/?w={quote(key)})")
+    return "; ".join(out)
+
 def main():
+    import woordbron
+    rows, aliases = woordbron.load()
     places = all_places() + extra_places()
     lines = LIST.read_text(encoding="utf-8").split("\n")
     head = None
@@ -47,6 +65,8 @@ def main():
         c = dict(zip(head, cs))
         if "Aranan" not in c:
             continue
+        if "Id" in c:
+            c["Id"] = id_cell(c["Id"], rows, aliases, c.get("İfade", "?"))
         rx = re.compile(c["Aranan"], re.I)
         hits = [p for p in places if rx.search(p["text"])]
         links = [f"[{p['t']}]({SITE}{p['href']})" if p["href"] else p["t"] for p in hits[:MAX_LINKS]]

@@ -106,3 +106,50 @@ def resolve(rows, aliases, ref, where):
     rid = aliases.get(rid, rid)
     assert rid in rows, f"{where}: word id '{rid}' is not in woorden.csv / uitdrukkingen.csv"
     return rows[rid], ({k: v for k, v in ref.items() if k != "id"} if isinstance(ref, dict) else {})
+
+
+# ---------- Finding an entry back in a text (word pages, Lezen review) ----------
+import re as _re
+_SLOT = {"iets", "ergens", "iemand", "…", "...", "x"}
+# Small function words: an entry made only of these ("zij het", "van", "op") is found in almost every text,
+# so it is never matched (no link is better than a wrong one)
+_STOP = set("""de het een en of maar want dus dan als dat die dit deze zo ook nog al wel niet geen er hier daar
+waar wat wie hoe ik je jij u hij zij ze we wij jullie het me mij hem haar ons hun zijn mijn jouw zich
+van op in aan met voor naar bij uit over om tot door te tegen na onder per zonder is was zijn heeft hebben""".split())
+_SPLIT = _re.compile(r"(?<=[.!?:;])\s+|\n+")
+
+def _words(s):
+    return _re.findall(r"[a-zà-ÿ']+", s.lower())
+
+def entry_words(nl):
+    """The words that must appear: 'iets achter de hand houden' -> ['achter', 'de', 'hand', 'houden'].
+    Placeholders (iets, ergens, zich ...) and text in brackets are left out."""
+    t = _re.sub(r"\(.*?\)|\[.*?\]", " ", nl.lower())
+    return [w for w in _words(t) if w not in _SLOT]
+
+def found_in(nl, text):
+    """True when the entry is used in the text. Strict on purpose (a wrong link is worse than a missing one):
+    one word  -> the word itself or with an ordinary ending (-e, -en, -s, -t, -n, -er, -ste);
+    expression -> every one of its words, exactly, in this order, in one sentence (other words may come between,
+                  so 'houd ik achter de hand' is found for 'iets achter de hand houden' only when 'houden' is
+                  written as 'houden'). The last word of an expression may also have an ending."""
+    ws = entry_words(nl)
+    if not ws or all(w in _STOP for w in ws):
+        return False
+    if len(ws) == 1:
+        end = r"(e|en|s|t|n|er|ste)?" if len(ws[0]) > 3 else ""   # 'vel' must not match 'velen'
+        rx = _re.compile(r"(?<![a-zà-ÿ'])" + _re.escape(ws[0]) + end + r"(?![a-zà-ÿ'])", _re.I)
+        return bool(rx.search(text))
+    if ws[0] not in text.lower():
+        return False
+    for zin in _SPLIT.split(_re.sub(r"<[^>]+>", " ", text)):
+        tok, pos = _words(zin), 0
+        for k, w in enumerate(ws):
+            last = k == len(ws) - 1
+            hit = next((i for i in range(pos, len(tok)) if tok[i] == w or (last and len(w) > 3 and _re.fullmatch(_re.escape(w) + r"(e|en|s|t|n)", tok[i]))), None)
+            if hit is None:
+                break
+            pos = hit + 1
+        else:
+            return True
+    return False

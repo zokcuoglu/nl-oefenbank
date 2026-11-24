@@ -201,16 +201,7 @@ const ALMAK = ["nemen", "pakken", "grijpen", "krijgen", "ontvangen", "verkrijgen
 async function loadExtraTags() {
   const out = {};
   const add = (w, tag) => (out[w] ??= []).push(tag);
-  try {
-    const ws = await fetch(siteUrl("data/woordstudie.json")).then(r => r.json());
-    const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
-    for (const x of ws.woorden) {
-      if ((x.soort || "woord") !== "woord" || x.datum > today) continue;
-      // "tellen / vertellen" -> both words
-      for (const w of x.woord.toLowerCase().split("/").map(t => t.trim()).filter(Boolean))
-        add(w, { t: "Kelime incelemesi", href: "woordstudie/?w=" + x.id, z: x.kort, extra: true });
-    }
-  } catch { /* no word studies: only the lesson links */ }
+  // Word study links are in woordinfo.json ("studie", from the study's word ids); see wordInfoOf
   for (const w of ALMAK) add(w, { t: "Gramer · almak", href: "dersler/?les=almak", z: "Hollandacada “almak”: nemen, pakken, krijgen, halen …", extra: true });
   return out;
 }
@@ -218,9 +209,13 @@ export async function wordInfoOf(word) {
   woordInfo ??= fetch(new URL("./woordinfo.json", import.meta.url)).then(r => r.json()).then(d => d.woorden).catch(() => ({}));
   extraTags ??= loadExtraTags();
   const key = String(word).toLowerCase().replace(/^(de|het|een)\s+/, "").trim();
-  const [info, extra] = [(await woordInfo)[key], (await extraTags)[key]];
-  if (!extra || !info) return info;   // no word data: no word page either, so no extra links
-  return { ...(info || {}), tags: [...extra, ...((info?.tags) || [])] };
+  const info = (await woordInfo)[key];
+  if (!info) return info;   // no word data: no word page either, so no extra links
+  // Word studies that explain this word, from their date on (a future study stays hidden until its Tuesday)
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
+  const studie = (info.studie || []).filter(x => x.datum <= today).map(x => ({ t: x.t, href: x.href, z: x.z, extra: true }));
+  const extra = [...studie, ...((await extraTags)[key] || [])];
+  return extra.length ? { ...info, tags: [...extra, ...(info.tags || [])] } : info;
 }
 
 export const flash = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };

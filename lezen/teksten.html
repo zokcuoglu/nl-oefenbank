@@ -173,6 +173,23 @@ function tick() {
     if (s <= 0 && isExam(r.test)) finish(true);   // exam: time is up
   }, 1000);
 }
+// After "Bitir": the words of this text that are in the word pool, each a link to its word page
+// (data/tekst-woorden.json, built by scripts/content/build_tekst_woorden.py). Not shown while answering.
+let TW = null;
+async function loadTW() {
+  if (TW) return;
+  try { TW = (await (await fetch("../data/tekst-woorden.json", { cache: "no-cache" })).json()).teksten; } catch { TW = {}; }
+  if (S.run?.done) render();
+}
+function wordsPanel(t) {
+  if (!TW) { loadTW(); return ""; }
+  const list = TW[t.id] || [];
+  if (!list.length) return "";
+  const href = nl => "../kelime/?w=" + encodeURIComponent(nl.toLowerCase().replace(/^(de|het|een)\s+/, "").trim());
+  return `<section class="panel"><h3 style="margin:0 0 8px">Bu metindeki kelimeler</h3>
+    <p class="muted" style="margin:0 0 8px;font-size:14px">Kelimeye tıkla: bütün anlamları, örnekler ve sitede geçtiği yerler.</p>
+    <div class="row" style="flex-wrap:wrap;gap:6px 14px">${list.map(w => `<span><a href="${esc(href(w.nl))}" lang="nl">${esc(w.nl)}</a> <span class="muted" style="font-size:13px">${esc(w.tr)} · ${esc(w.niveau)}</span></span>`).join("")}</div></section>`;
+}
 function vRun() {
   const r = S.run, t = byId[r.texts[r.cur]], exam = isExam(r.test);
   const all = r.texts.flatMap(id => byId[id].vragen.map(q => id + ":" + q.id));
@@ -206,6 +223,7 @@ function vRun() {
     </div>
     <div id="finishmsg"></div>
     ${res}
+    ${r.done ? wordsPanel(t) : ""}
     <div class="reader">
       <div class="textcol">${renderText(t, marks)}</div>
       <div>${t.zoektekst ? `<div class="notice" style="margin-bottom:12px">Arama metni: metnin tamamını okuma. Önce soruyu oku, sonra cevabı metinde ara (başlıklara bak).</div>` : ""}${qhtml}

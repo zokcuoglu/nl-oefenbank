@@ -30,6 +30,7 @@ import os
 import re
 import hashlib
 import smtplib
+import urllib.parse
 from collections import Counter
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
@@ -593,14 +594,36 @@ def pick_tanitim(sent_ids):
     return next((t for t in items if rounds[t["id"]] <= done), None)
 
 
+_POOL = None
+def word_entry(ref):
+    """A word or idiom of the mail, read from the word pool (data/woorden.json, built from scripts/content/
+    woorden.csv + uitdrukkingen.csv), so the mail shows the same meaning as the site. ref = {"id": ..., and
+    optionally this mail's own voorbeeld / voorbeeld_tr}. Adds "href": the word page of this word."""
+    global _POOL
+    if _POOL is None:
+        data = json.loads((ROOT / "data" / "woorden.json").read_text(encoding="utf-8"))
+        _POOL = ({w["id"]: w for w in data["woorden"]}, data.get("alias", {}))
+    by_id, alias = _POOL
+    rid = alias.get(ref["id"], ref["id"])
+    if rid not in by_id:
+        raise SystemExit(f"weekbrief: word id {ref['id']} is not in the word pool")
+    w = dict(by_id[rid])
+    w.update({k: v for k, v in ref.items() if k != "id"})
+    # same key as kelime/index.html: lower case, no article
+    key = re.sub(r"^(de|het|een)\s+", "", w["nl"].strip().lower())
+    w["href"] = "kelime/?w=" + urllib.parse.quote(key)
+    return w
+
+
 def brief_mail(week, nieuw, greeting, tanitim=None):
     """Plain text and HTML of one brief. nieuw = list of {tekst, href} to show under "Sitede yeni";
     tanitim = one game or kids section to introduce this week."""
-    d, w, c, pr = week["deyim"], week["woord"], week["cultuur"], week["probeer"]
+    d, w, c, pr = word_entry(week["deyim"]), word_entry(week["woord"]), week["cultuur"], week["probeer"]
     link = lambda href: SITE + (href or "")
     plain = [greeting, "",
-             "HAFTANIN DEYİMİ", f"{d['nl']}  –  {d['tr']}", d["uitleg"], f"Örnek: {d['voorbeeld']}", f"({d['voorbeeld_tr']})", "",
-             f"HAFTANIN KELİMESİ ({w['niveau']})", f"{w['nl']}  –  {w['tr']}", f"Örnek: {w['voorbeeld']}", f"({w['voorbeeld_tr']})", "",
+             "HAFTANIN DEYİMİ", f"{d['nl']}  –  {d['tr']}"] + ([d["uitleg"]] if d["uitleg"] else []) + [
+             f"Örnek: {d['voorbeeld']}", f"({d['voorbeeld_tr']})", link(d["href"]), "",
+             f"HAFTANIN KELİMESİ ({w['niveau']})", f"{w['nl']}  –  {w['tr']}", f"Örnek: {w['voorbeeld']}", f"({w['voorbeeld_tr']})", link(w["href"]), "",
              f"HOLLANDA'DA: {c['titel']}", c["tekst"], ""]
     if nieuw:
         plain += ["SİTEDE YENİ"] + [f"  • {n['tekst']}" + (f" {link(n['href'])}" if n.get("href") else "") for n in nieuw] + [""]
@@ -609,13 +632,15 @@ def brief_mail(week, nieuw, greeting, tanitim=None):
     plain += ["BU HAFTA BUNU DENE", pr["tekst"], link(pr["href"])]
 
     label = lambda t: f'<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:{C["muted"]};margin:22px 0 6px">{esc(t)}</div>'
-    big = lambda nl, tr: (f'<div style="font-size:19px;font-weight:700;line-height:1.35" lang="nl">{esc(nl)}</div>'
-                          f'<div style="color:{C["muted"]};margin:2px 0 8px">{esc(tr)}</div>')
+    # The word itself links to its word page (all meanings, examples, where it is used on the site)
+    big = lambda nl, tr, href: (f'<div style="font-size:19px;font-weight:700;line-height:1.35" lang="nl">'
+                                f'<a href="{esc(link(href))}" style="color:inherit;text-decoration:underline">{esc(nl)}</a></div>'
+                                f'<div style="color:{C["muted"]};margin:2px 0 8px">{esc(tr)}</div>')
     example = lambda nl, tr: (f'<div style="border-left:3px solid {C["accent"]};padding:4px 0 4px 12px;margin:8px 0 0">'
                               f'<span lang="nl" style="font-style:italic">{esc(nl)}</span><br><span style="color:{C["muted"]};font-size:14px">{esc(tr)}</span></div>')
     inner = (f'<p style="margin:0 0 4px">{esc(greeting)}</p>'
-             + label("Haftanın deyimi") + big(d["nl"], d["tr"]) + f'<div style="line-height:1.55">{esc(d["uitleg"])}</div>' + example(d["voorbeeld"], d["voorbeeld_tr"])
-             + label(f"Haftanın kelimesi · {w['niveau']}") + big(w["nl"], w["tr"]) + example(w["voorbeeld"], w["voorbeeld_tr"])
+             + label("Haftanın deyimi") + big(d["nl"], d["tr"], d["href"]) + (f'<div style="line-height:1.55">{esc(d["uitleg"])}</div>' if d["uitleg"] else "") + example(d["voorbeeld"], d["voorbeeld_tr"])
+             + label(f"Haftanın kelimesi · {w['niveau']}") + big(w["nl"], w["tr"], w["href"]) + example(w["voorbeeld"], w["voorbeeld_tr"])
              + label("Hollanda'da") + f'<div style="font-weight:700;margin-bottom:4px">{esc(c["titel"])}</div><div style="line-height:1.6">{esc(c["tekst"])}</div>')
     if nieuw:
         inner += label("Sitede yeni") + "".join(

@@ -44,6 +44,7 @@ main a:not(.btn):not(.newsrow){color:var(--blue)}
 .toetsrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;margin:2px 0 6px;border:2px dashed var(--line);border-radius:10px;color:inherit;text-decoration:none}
 .lvlfilter .seg button{font-family:var(--mono)}
 details.ans summary{cursor:pointer;font-weight:600;color:var(--blue)}
+  .klink{color:inherit;text-decoration:underline dotted;text-underline-offset:3px}
 </style>
 <script>
 // Watchdog: explain on screen when the login module cannot load (network block)
@@ -163,6 +164,9 @@ function grammar(raw) {
   return (raw || "").split("\n").map(t => t.trim()).filter(Boolean).map(t =>
     /^\d+\)/.test(t) ? `<p class="gh">${esc(t)}</p>` : t.startsWith("•") ? `<div class="gx">${esc(t.slice(1).trim())}</div>` : `<p style="margin:4px 0">${esc(t)}</p>`).join("");
 }
+// A word or idiom as a link to its word page (kelime/): every word of the pool has one (checked by
+// scripts/content/check_baglantilar.py). Same key as the word page: lower case, without de/het/een.
+const kLink = nl => `<a class="klink" href="../kelime/?w=${encodeURIComponent(String(nl).toLowerCase().replace(/^(de|het|een)\s+/, "").trim())}" lang="nl">${esc(nl)}</a>`;
 function vItem(item) {
   const vid = ytId(item.video_url);
   const lv = levelFor(item), upTo = lv === "all" ? 6 : RANK[lv.toUpperCase()];
@@ -185,17 +189,17 @@ function vItem(item) {
     <section class="panel"><div class="sectionhead"><h3>Metin</h3>${levelSeg(item)}</div>
       ${(lv === "all" ? levelsOf(item) : [lv]).map(l => levelBox(item, l)).join("")}</section>
     ${item.werk?.length ? `<section class="panel"><div class="sectionhead"><h3>İş notlarından kelimeler</h3><span class="muted">bu haberde geçiyor</span></div>
-      ${item.werk.map(w => `<div class="idiom"><div class="row">${lvlChip(w.niveau)} <b lang="nl">${esc(w.nl)}</b></div><span>${esc(w.tr)}</span>
+      ${item.werk.map(w => `<div class="idiom"><div class="row">${lvlChip(w.niveau)} <b>${kLink(w.nl)}</b></div><span>${esc(w.tr)}</span>
         ${w.voorbeeld ? `<span style="font-size:14.5px"><i lang="nl">${esc(w.voorbeeld)}</i><br><span class="muted">${esc(w.voorbeeld_tr || "")}</span></span>` : ""}</div>`).join("")}
       <p class="muted" style="font-size:13px;margin:8px 0 0"><a href="../woorden/">Kelime testi</a> sayfasında bu kelimelerle de alıştırma yapabilirsin.</p></section>` : ""}
     ${idioms.length ? `<section class="panel"><div class="sectionhead"><h3>Günlük deyimler</h3><span class="muted">${lv === "all" ? "tümü" : "bu seviyeye kadar + metinde geçenler"}</span></div>
-      ${idioms.map(u => `<div class="idiom"><div class="row">${lvlChip(u.niveau)} <b lang="nl">${esc(u.nl)}</b>
+      ${idioms.map(u => `<div class="idiom"><div class="row">${lvlChip(u.niveau)} <b>${kLink(u.nl)}</b>
           <button class="btn ghost" style="padding:1px 8px;font-size:12px;margin-left:auto" data-act="say" data-t="${esc(u.voorbeeld || u.nl)}">Sesli</button></div>
         <span>${esc(u.tr)}</span><span class="muted" style="font-size:14px">${esc(u.uitleg || "")}</span>
         ${u.voorbeeld ? `<span style="font-size:14.5px"><i lang="nl">${esc(u.voorbeeld)}</i><br><span class="muted">${esc(u.voorbeeld_tr || "")}</span></span>` : ""}</div>`).join("")}</section>` : ""}
     ${vocab.length ? `<section class="panel"><div class="sectionhead"><h3>Kelimeler</h3><span class="muted">${vocab.length} kelime</span></div><div class="tablewrap"><table>
       <thead><tr><th>Kelime</th><th>Anlamı (NL)</th><th>Örnek</th><th>Türkçe</th><th></th></tr></thead>
-      <tbody>${vocab.map(c => `<tr><td><b lang="nl">${esc(c[0])}</b> <span class="muted">${esc(c[1])}</span></td><td lang="nl">${esc(c[2])}</td><td><i lang="nl">${esc(c[3])}</i></td><td>${esc(c[4])}</td><td>${c[5] ? lvlChip(c[5]) : ""}</td></tr>`).join("")}</tbody></table></div></section>` : ""}
+      <tbody>${vocab.map(c => `<tr><td><b>${kLink(c[0])}</b> <span class="muted">${esc(c[1])}</span></td><td lang="nl">${esc(c[2])}</td><td><i lang="nl">${esc(c[3])}</i></td><td>${esc(c[4])}</td><td>${c[5] ? lvlChip(c[5]) : ""}</td></tr>`).join("")}</tbody></table></div></section>` : ""}
     ${item.grammatica ? `<section class="panel grammar"><span class="eyebrow" lang="nl">Grammatica</span><div lang="nl">${grammar(item.grammatica)}</div></section>` : ""}
     <section class="panel" id="quiz">${vQuiz()}</section>`;
 }
