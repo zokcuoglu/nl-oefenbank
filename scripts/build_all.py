@@ -22,6 +22,7 @@ STEPS = [
     "scripts/content/build_officieel.py",            # official exam guide -> data/officieel.json
     "scripts/content/build_tekst_woorden.py",        # words per Lezen text-> data/tekst-woorden.json
     "scripts/content/build_woordenboek.py",          # NL-NL dictionary   -> data/woordenboek.json
+    "scripts/content/build_sinav_kelimeleri.py",     # exam topics + words -> data/sinav-kelimeleri.json
     "scripts/content/build_voorzetsels.py",          # preposition games   -> oyunlar/voorzetsels.json
     "scripts/content/build_woordinfo.py",            # word pages          -> oyunlar/woordinfo.json
     "scripts/content/bekleme_say.py",                # waiting list counts -> docs/bekleme_listesi.md

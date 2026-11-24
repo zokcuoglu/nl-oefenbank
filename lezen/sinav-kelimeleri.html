@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sınavın kelimeleri · Lezen I · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+/* 16:9 "slides" that scale with the screen width (container units), so the page also works on a big TV */
+.slides{display:flex;flex-direction:column;gap:18px;margin:12px 0 30px}
+.slide{container-type:inline-size;aspect-ratio:16/9;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sl{height:100%;box-sizing:border-box;padding:2.4cqw 3cqw;display:flex;flex-direction:column;gap:1.4cqw;font-size:1.45cqw;line-height:1.35}
+.sl h2{font-family:var(--display);font-size:3cqw;margin:0;line-height:1.1}
+.sl .sub{color:var(--muted);font-size:1.3cqw;margin:0}
+.cols{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;min-height:0}
+.grp h3{font-family:var(--display);font-size:2cqw;margin:0 0 .8cqw;padding-bottom:.4cqw;border-bottom:.25cqw solid var(--c)}
+.wl{display:grid;grid-template-columns:auto 1fr auto;gap:.35cqw 1cqw;align-items:center}
+.wl a{font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.wl .tr{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wl .f{display:flex;align-items:center;gap:.5cqw;font-family:var(--mono);font-size:1.15cqw;color:var(--muted);white-space:nowrap}
+.wl .bw{width:7cqw;flex:none} .wl .bar{display:block;min-width:0;height:.8cqw;border-radius:.4cqw;background:var(--c)}
+.dots{letter-spacing:.1cqw;color:var(--c)}
+.chart{display:grid;grid-template-columns:auto 1fr;gap:1cqw 1.4cqw;align-items:center;font-size:1.7cqw}
+.chart .b{height:2.6cqw;border-radius:.5cqw;background:var(--c);color:#fff;font-weight:700;display:flex;align-items:center;padding-left:1cqw;box-sizing:border-box}
+.years{display:grid;grid-template-columns:auto repeat(6,1fr);gap:.5cqw;font-size:1.05cqw;align-items:stretch}
+.years .y{font-family:var(--mono);font-weight:600;align-self:center;font-size:1.4cqw}
+.years .t{background:var(--c);color:#fff;border-radius:.5cqw;padding:.5cqw .6cqw;line-height:1.2}
+.legend{display:flex;gap:1.6cqw;flex-wrap:wrap;font-size:1.2cqw;color:var(--muted)}
+.legend i{display:inline-block;width:1.1cqw;height:1.1cqw;border-radius:.25cqw;background:var(--c);margin-right:.4cqw;vertical-align:middle}
+.c-werk{--c:#C8551B} .c-opleiding{--c:#1F4E8C} .c-geld{--c:#9A6410} .c-zorg{--c:#2E7D4F} .c-dagelijks{--c:#6B5CA5}
+.g-is{--c:#C8551B} .g-egitim{--c:#1F4E8C} .g-para{--c:#9A6410} .g-saglik{--c:#2E7D4F} .g-baglac{--c:#B3403A}
+.g-fiil{--c:#6B5CA5} .g-genel{--c:#3D7A8A} .g-zarf{--c:#7A6A4F} .g-sinav{--c:#566377}
+/* ?tv=N: only slide N, full window (for a TV or for making a 16:9 picture) */
+body.tv header.top,body.tv .tvhide{display:none} body.tv{margin:0;padding:0} body.tv .wrap,body.tv main{max-width:none;padding:0;margin:0}
+body.tv .slides{margin:0} body.tv .slide{width:100vw;height:100vh;aspect-ratio:auto;border:0;border-radius:0}
+</style>
+<script>
+// Watchdog: if the login module has not loaded after 10 s (network block, old cache), explain it on screen
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <a href="./">Lezen I (B1)</a></small><h1>Sınavın kelimeleri</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+<script type="module">
+// Overview of the official Lezen exams 2023-2025: which topics the texts are about and which B1+ words come up
+// most, per word group. 16:9 slides (they scale with the width, so they can be shown full screen on a TV).
+// Data: data/sinav-kelimeleri.json (scripts/content/build_sinav_kelimeleri.py); every word links to its word page.
+import { gate, userBox, esc } from "../js/core.js";
+const app = document.getElementById("app");
+const { user, profile } = await gate({ area: "nt2", title: "Sınavın kelimeleri", seen: "sinav-kelimeleri" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let D;
+try { D = await (await fetch("../data/sinav-kelimeleri.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Veri yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+
+const PER = 15;   // words per group on a slide (the rest would not fit in 16:9)
+const href = nl => "../kelime/?w=" + encodeURIComponent(nl.toLowerCase().replace(/^(de|het|een)\s+/, "").trim());
+const maxN = Math.max(...D.woorden.map(w => w.n));
+const thName = Object.fromEntries(D.themas.map(t => [t.id, t.tr]));
+
+function group(g, from = 0, title = g.tr) {
+  const ws = D.woorden.filter(w => w.groep === g.id).slice(from, from + PER);
+  return `<div class="grp g-${g.id}"><h3>${esc(title)}</h3><div class="wl">${ws.map(w => `
+    <a href="${esc(href(w.nl))}" lang="nl">${esc(w.nl)}</a><span class="tr">${esc(w.tr)}</span>
+    <span class="f"><span class="dots" title="${w.y} / 3 yıl">${"●".repeat(w.y)}${"○".repeat(3 - w.y)}</span>
+      <span class="bw"><span class="bar" style="width:${Math.max(4, 100 * w.n / maxN).toFixed(1)}%"></span></span>${w.n}×</span>`).join("")}</div></div>`;
+}
+const slide = inner => `<section class="slide"><div class="sl">${inner}</div></section>`;
+const maxT = Math.max(...D.themas.map(t => t.teksten));
+const s1 = slide(`<h2>Sınavda metinler ne hakkında?</h2>
+  <p class="sub">Resmî Lezen I sınavları 2023, 2024 ve 2025: 18 metin. Her metnin konusu (bizim sınıflandırmamız).</p>
+  <div class="chart">${D.themas.map(t => `<b>${esc(t.tr)}</b><div class="c-${t.id}"><div class="b" style="width:${(100 * t.teksten / maxT).toFixed(1)}%">${t.teksten}</div></div>`).join("")}</div>
+  <div class="years">${["2023", "2024", "2025"].map(y => `<span class="y">${y}</span>` + D.teksten.filter(t => t.jaar === y).map(t =>
+    `<span class="t c-${t.thema}" lang="nl">${esc(t.titel)}</span>`).join("")).join("")}</div>
+  <p class="sub" style="margin-top:auto">Sonuç: metinlerin yarısı iş, dörtte biri eğitim hakkında. İş ve eğitim kelimelerini iyi bil; bağlaçlar her metinde var.</p>`);
+const pairs = [["is", "egitim"], ["para", "saglik"], ["baglac", "sinav"], ["fiil", "genel"], ["zarf"]];
+const G = Object.fromEntries(D.groepen.map(g => [g.id, g]));
+const rest = pairs.map(p => slide(`<h2>${p.map(id => esc(G[id].tr)).join(" · ")}</h2>
+  <p class="sub">Sadece B1 ve üstü kelimeler, en çok çıkandan başlayarak. ●●● = 3 yılın üçünde de çıktı · sayı = toplam kaç kez. Kelimeye tıkla: kelime sayfası.</p>
+  <div class="cols">${p.length > 1 ? p.map(id => group(G[id])).join("") : group(G[p[0]], 0, "1–" + PER) + group(G[p[0]], PER, (PER + 1) + "+")}</div>`));
+const all = [s1, ...rest], tv = +new URLSearchParams(location.search).get("tv");
+if (tv >= 1 && tv <= all.length) { document.body.classList.add("tv"); app.innerHTML = `<div class="slides">${all[tv - 1]}</div>`; }
+else app.innerHTML = `<p class="muted tvhide" style="margin:6px 0 0">TV için: tarayıcıyı tam ekran yap (F11); slaytlar ekran genişliğine göre büyür. Toplam ${D.woorden.length} kelime (B1+), A0–A2 kelimeler listede yok.
+  Tek slayt tam ekran: ${all.map((_, i) => `<a href="?tv=${i + 1}">${i + 1}</a>`).join(" · ")}</p>
+  <div class="slides">${all.join("")}</div>`;
+</script>
+</body>
+</html>
