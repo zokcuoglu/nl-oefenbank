@@ -100,8 +100,8 @@ catch (e) { app.innerHTML = `<div class="notice">Kelimeler yüklenemedi: ${esc(e
 const admin = isAdmin(profile);
 const soortOf = w => w.soort || "woord";
 // Patterns are open at once on the daily-speech page; words and idioms open on their Tuesday
-// The daily-speech page holds the patterns and the things Zana heard during the day ("gunluk": true; open at once, no mail)
-const onGunluk = w => soortOf(w) === "kalip" || !!w.gunluk;
+// The daily-speech page holds the patterns (open at once, no separate mail)
+const onGunluk = w => soortOf(w) === "kalip";
 const open = w => admin || w.datum <= today || (GUNLUK && onGunluk(w));
 const words = data.woorden.filter(open).sort((a, b) => b.datum.localeCompare(a.datum));   // newest first
 const attempts = await loadAttempts(user.uid, MODULE).catch(() => []);
@@ -129,9 +129,9 @@ function renderList() {
   if (GUNLUK) return renderGunluk();
   // Word study page: words and idioms; daily-speech patterns live on their own page (one link card here)
   const tab = params.get("soort") === "deyim" ? "deyim" : "woord";
-  const curOf = s => words.find(w => soortOf(w) === s && !w.gunluk && w.datum <= today) || words.find(w => soortOf(w) === s && !w.gunluk);
+  const curOf = s => words.find(w => soortOf(w) === s && w.datum <= today) || words.find(w => soortOf(w) === s);
   const cur = curOf("woord"), deyim = curOf("deyim");
-  const list = words.filter(w => soortOf(w) === tab && !w.gunluk);
+  const list = words.filter(w => soortOf(w) === tab);
   app.innerHTML = `
     ${cur ? `<section class="panel"><span class="eyebrow">${SOORT.woord.deze} · ${esc(fmtDate(cur.datum))}</span>
       <div class="hero" style="margin-top:6px"><h2 lang="nl">${esc(title(cur))}</h2><span class="muted">${esc(cur.tr)}</span></div>
@@ -167,17 +167,13 @@ const TIPS = [
   ["Dinlerken bu küçük kelimeleri atla.", "Anlamı fiil ve isim taşır; even, maar, toch, hoor tonu verir. Önce ana kelimeleri yakala.", null]
 ];
 function renderGunluk() {
-  const list = words.filter(w => soortOf(w) === "kalip" && !w.gunluk).sort((a, b) => a.datum.localeCompare(b.datum));
-  const heard = words.filter(w => w.gunluk).sort((a, b) => b.datum.localeCompare(a.datum));   // newest first
+  const list = words.filter(w => soortOf(w) === "kalip").sort((a, b) => a.datum.localeCompare(b.datum));
   const has = id => list.some(w => w.id === id);
   app.innerHTML = `
     <section class="panel"><span class="eyebrow">İpuçları</span>
       <p class="muted" style="margin:6px 0 4px;max-width:62ch">WhatsApp'ta, kulüpte, iş yerinde en çok işine yarayacak beş kural. Her kalıbın sayfasında açıklama, gerçek cümleler, kısa bir diyalog ve 5 soru var.</p>
       <ol class="story">${TIPS.map(([t, x, id]) => `<li><b>${esc(t)}</b> <span lang="nl">${esc(x)}</span>${id && has(id) ? ` <a href="${wLink(id)}">Alıştırma →</a>` : ""}</li>`).join("")}</ol>
       <p class="muted" style="margin:8px 0 0;font-size:14px">${words.some(w => w.id === "terecht") ? `terecht için ayrıntılı sayfa: <a href="./?w=terecht">Kelime incelemesi: terecht</a> · ` : ""}Duruma göre hazır cümleler: <a href="../dersler/?soort=konusma">Günlük konuşma dersleri</a></p></section>
-    ${heard.length ? `<section class="panel"><span class="eyebrow">Duyduklarından · ${heard.length}</span>
-      <p class="muted" style="margin:6px 0 8px;max-width:62ch">Gün içinde duyulan ve buraya eklenen deyimler, kelimeler ve kalıplar; benzerleriyle birlikte. En yenisi üstte.</p>
-      ${heard.map(w => rowHtml(w, false)).join("")}</section>` : ""}
     <section class="panel"><span class="eyebrow">Bütün kalıplar · ${list.length}</span>
       <p class="muted" style="margin:6px 0 8px;max-width:62ch">${SOORT.kalip.intro}</p>
       ${list.length ? list.map(w => rowHtml(w, false)).join("") : `<p class="muted">İlki yakında.</p>`}

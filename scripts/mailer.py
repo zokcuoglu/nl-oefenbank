@@ -643,8 +643,7 @@ def soort(w):
 def pick_woord(words, sent_ids, today, kind="woord"):
     """The oldest entry of this kind whose date has come and that was not mailed yet. Unlike the brief, a missed
     one is not skipped: they are not tied to a season, so they go out one by one in order."""
-    # "gunluk" entries (heard during the day, on the daily-speech page) are never mailed
-    due = [w for w in words if soort(w) == kind and not w.get("gunluk") and w["datum"] <= today and w["id"] not in sent_ids]
+    due = [w for w in words if soort(w) == kind and w["datum"] <= today and w["id"] not in sent_ids]
     return min(due, key=lambda w: w["datum"]) if due else None
 
 

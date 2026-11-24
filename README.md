@@ -120,7 +120,6 @@ the pages show "about 18 of 25" only as a rough guideline. The writing criteria 
 
 `oyunlar/common.js` `wordInfoOf` adds two kinds of tags at run time: "Kelime incelemesi" for words with a published word study page (`data/woordstudie.json`, date reached) and "Gramer · almak" for the verbs of the lesson `dersler/?les=almak`. The word page (`kelime/`) shows them as "Ayrıntılı anlatım".
 
-## Heard during the day ("Duyduklarından")
+## Waiting list (`docs/bekleme_listesi.md`)
 
-Words, idioms and rules Zana hears during the day are added to `data/woordstudie.json` with `"gunluk": true` (any `soort`, `datum` = the day added). They are listed on the daily-speech page (`woordstudie/?bolum=gunluk`, newest first), open at once for every member, are not on the word study lists and are never mailed (`pick_woord` skips them). Each one comes with its relatives and everyday alternatives (`familie`), a short dialogue and 5 questions.
-
+Words, idioms and rules Zana hears or reads during the day first go into `docs/bekleme_listesi.md` (status `bekliyor`). They are placed on the site bit by bit, in the existing place for their type (word / idiom → `woordstudie`, pattern → daily-speech page, grammar → `dersler`); idioms and words can get a future Tuesday `datum` and are then mailed that week. `python3 scripts/content/bekleme_say.py` fills the columns `Kaç yerde` / `Nerede`: in how many places on the site (via `site_places.py`, plus the NT2 crossword) the `Aranan` regex occurs, so it is clear where an item still needs to be used.
