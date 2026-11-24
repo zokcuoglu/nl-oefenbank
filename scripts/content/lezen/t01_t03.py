@@ -4,7 +4,7 @@ Text format: blocks separated by a blank line. '## ' = heading, '- ' lines = lis
 lines with ' | ' = table (first line is the header). 'kop' = e-mail header lines.
 Questions: 3 options, the right one first (the page shuffles), 'uitleg' in Turkish,
 'bewijs' = the exact sentence from the text that gives the answer (highlighted on the result page).
-'patroon' = number of the question pattern (1-17) in data/lezen-bank.json patterns.
+'patroon' = number of the question pattern (1-20) in data/lezen-bank.json patterns.
 """
 
 T01 = {

@@ -126,13 +126,15 @@ def officieel_rows(a):
     global _OFF
     if _OFF is None:
         _OFF = json.loads((ROOT / "data" / "officieel.json").read_text(encoding="utf-8"))
+    if a is None:
+        return []
     ex = next((e for e in _OFF["examens"] if e["id"] == a.get("test")), None)
     if not ex:
         return []
     out = []
     for x in a.get("answers", []):
-        if x.get("correct"):
-            continue
+        if x.get("correct") or not x.get("chosen"):
+            continue                                  # blank = that text was not done yet (one text a day), not a mistake
         n = int(x["qid"].split(":")[1])
         v = ex["vragen"][n - 1]
         t = ex["teksten"][v["tekst"] - 1]
@@ -140,6 +142,44 @@ def officieel_rows(a):
                     "vraag": {"vraag": f"Vraag {n} · {_OFF['types'][v['soort']]['label']}", "uitleg": v["uitleg"], "bewijs": ""},
                     "gekozen": x.get("chosen") or "", "juist": v["juist"], "link": SITE + "lezen/officieel.html?jaar=" + ex["id"]})
     return out
+
+
+OFFICIEEL_ORDER = ("2025", "2023")   # newest official exam first
+
+
+def next_official(rounds):
+    """Next official exam text not done yet: (exam, text) or None when all are done.
+    A text counts as done when any of its questions has an answer in a lezen-officieel round."""
+    officieel_rows(None)                          # loads data/officieel.json once
+    done = {(a.get("test"), int(x["qid"].split(":")[1])) for a in rounds if a.get("module") == OFFICIEEL
+            for x in a.get("answers", []) if x.get("chosen")}
+    for y in OFFICIEEL_ORDER:
+        ex = next((e for e in _OFF["examens"] if e["id"] == y), None)
+        for t in (ex["teksten"] if ex else []):
+            if not any((y, n) in done for n in range(t["van"], t["tot"] + 1)):
+                return ex, t
+    return None
+
+
+def official_block(rounds, M, when):
+    """(plain lines, html) suggesting one official exam text for 'when' (bugün / yarın). We only link to the official
+    practice site; the CvTE text itself is never in the mail."""
+    nx = next_official(rounds)
+    link = SITE + "lezen/officieel.html?jaar="
+    if not nx:
+        line = "Resmî 2023 ve 2025 sınavlarının bütün metinlerini çözdün. Zorlandığın birini tekrar çözebilirsin."
+        return ["", line], _p(esc(line))
+    ex, t = nx
+    head = f"Resmî sınavdan {when}: {ex['id']} – Tekst {t['nr']}: {t['titel']} (vraag {t['van']}–{t['tot']})"
+    how = (f"{_OFF['site']} sitesinde bu metni çöz, sonra sadece bu soruların harflerini Officieel sayfasına gir ve "
+           "'Kontrol et'e bas. Yanlışlarını ertesi sabahki mailde açıklamalarıyla görürsün.")
+    plain = ["", head, how, f"  Sınav sitesi: {_OFF['site']}", f"  Cevap sayfası: {link}{ex['id']}"]
+    html = (f'<div style="border:1px solid {M.C["line"]};border-radius:10px;padding:12px 14px;margin:16px 0">'
+            f'<b>Resmî sınavdan {esc(when)}:</b> {esc(ex["id"])} – Tekst {t["nr"]}: <span lang="nl">{esc(t["titel"])}</span> '
+            f'<span style="color:{M.C["muted"]}">(vraag {t["van"]}–{t["tot"]})</span><br>{esc(how)}<br>'
+            f'<a href="{_OFF["site"]}" style="color:{M.C["blue"]}">Sınav sitesini aç →</a> &nbsp; '
+            f'<a href="{link}{ex["id"]}" style="color:{M.C["blue"]}">Cevaplarını gir →</a></div>')
+    return plain, html
 
 
 def wrong_answers(attempts, sets):
@@ -248,7 +288,7 @@ def countdown(today, exam):
     return "Sınav bugün. Succes!" if n == 0 else ("Sınav yarın!" if n == 1 else f"Sınava {n} gün kaldı.")
 
 
-def morning_mail(u, wrong, today, exam, pc, M):
+def morning_mail(u, wrong, today, exam, pc, M, rounds=()):
     """(subject, plain, inner html) of the morning mail."""
     name = M.first_name(u)
     cd = countdown(today, exam)
@@ -280,6 +320,9 @@ def morning_mail(u, wrong, today, exam, pc, M):
     plain += ["", f"GÜNÜN İPUCU: {title}", tip, "", "OKUMA PARÇASI", pc["tekst"]["titel"]]
     inner += (f'<div style="background:{M.C["blue_soft"]};border-radius:10px;padding:12px 14px;margin:18px 0">'
               f'<b>Günün ipucu: {esc(title)}</b><br>{esc(tip)}</div>')
+    op, oh = official_block(rounds, M, "bugün")
+    plain[-3:-3] = op
+    inner += oh
     plain += [pc["kop"], plain_text(pc["body"])] + [f"{k}. {v['vraag']}\n" + "\n".join(f"   {'ABCD'[i]}. {o}" for i, o in enumerate(v["opties"]))
                                                        for k, v in enumerate(pc["vragen"], 1)]
     inner += piece_html(pc, M)
@@ -327,6 +370,9 @@ def evening_mail(u, today_att, all_att, today, exam, pc, sets, M):
     plain += ["", f"YARIN ŞUNU ÇÖZ: {t['titel']}" + (f" ({why} metin)" if why else ""), link]
     inner += _p(f'<b>Yarın şunu çöz:</b> <a href="{link}" style="color:{M.C["blue"]}" lang="nl">{esc(t["titel"])}</a>'
                 + (f' <span style="color:{M.C["muted"]}">({why} metin)</span>' if why else ""))
+    op, oh = official_block(all_att, M, "yarın")
+    plain += op
+    inner += oh
     plain += ["", "OKUMA PARÇASI", pc["tekst"]["titel"], pc["kop"], plain_text(pc["body"])] + \
              [f"{k}. {v['vraag']}\n" + "\n".join(f"   {'ABCD'[i]}. {o}" for i, o in enumerate(v["opties"])) for k, v in enumerate(pc["vragen"], 1)]
     inner += piece_html(pc, M)

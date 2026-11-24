@@ -380,7 +380,7 @@ function render() {
   if (S.user) who.innerHTML = userBox(S.user, S.profile);
   if (S.dbState === "error") { app.innerHTML = `<div class="notice">Bir sorun oluştu: <b>${esc(S.dbError)}</b>. Sayfayı yenile; devam ederse bu mesajı Zana'ya gönder.</div>`; return; }
   if (signedIn && !S.config.exam_date && S.view !== "run") { app.innerHTML = vSetup(); return; }
-  if (S.dbState === "loading" || (!S.words.length && S.view !== "run")) { app.innerHTML = `<section class="panel"><span class="eyebrow">Kelime bankası</span><h2 style="margin-top:4px">Kelimeler yükleniyor…</h2><p class="muted">2023, 2024 ve 2025 Lezen I sınavlarından çıkarılan 302 kelime ve 17 soru kalıbı burada görünecek.</p></section>`; return; }
+  if (S.dbState === "loading" || (!S.words.length && S.view !== "run")) { app.innerHTML = `<section class="panel"><span class="eyebrow">Kelime bankası</span><h2 style="margin-top:4px">Kelimeler yükleniyor…</h2><p class="muted">2023, 2024 ve 2025 Lezen I sınavlarından çıkarılan 302 kelime ve 20 soru kalıbı burada görünecek.</p></section>`; return; }
   app.innerHTML = ({ home: vHome, quick: vQuick, topics: vTopics, words: vWords, patterns: vPatterns, run: vRun, result: vResult, stats: vStats, history: vHistory }[S.view] || vHome)();
 }
 

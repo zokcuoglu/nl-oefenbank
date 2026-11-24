@@ -70,6 +70,9 @@ const loadDraft = y => { try { return JSON.parse(localStorage.getItem(KEY(y)) ||
 const saveDraft = (y, a) => { try { localStorage.setItem(KEY(y), JSON.stringify(a)); } catch { /* private mode: keep in memory only */ } };
 let S = { y: year(), ans: loadDraft(year()), done: null };
 
+// One text a day is fine: only texts with at least one letter typed in are checked ("partial" round)
+const activeQs = e => { const t = new Set(e.vragen.filter(v => S.ans[v.nr]).map(v => v.tekst)); return e.vragen.filter(v => t.has(v.tekst)); };
+const isPartial = e => activeQs(e).length < e.vragen.length;
 function scoreOf(e, ok) { return e.score[Math.max(0, Math.min(ok, e.score.length - 1))]; }
 
 function render() {
@@ -86,16 +89,18 @@ function render() {
   const answered = Object.keys(S.ans).length;
   let result = "";
   if (done) {
-    const ok = e.vragen.filter(v => S.ans[v.nr] === v.juist).length, pass = ok >= e.geslaagd, sc = scoreOf(e, ok);
+    const Q = activeQs(e), partial = Q.length < e.vragen.length;
+    const ok = Q.filter(v => S.ans[v.nr] === v.juist).length, pass = !partial && ok >= e.geslaagd, sc = scoreOf(e, ok);
     // per question type: correct / total
     const byType = {};
-    e.vragen.forEach(v => { const b = byType[v.soort] = byType[v.soort] || [0, 0]; b[1]++; if (S.ans[v.nr] === v.juist) b[0]++; });
-    const wrong = e.vragen.filter(v => S.ans[v.nr] !== v.juist);
+    Q.forEach(v => { const b = byType[v.soort] = byType[v.soort] || [0, 0]; b[1]++; if (S.ans[v.nr] === v.juist) b[0]++; });
+    const wrong = Q.filter(v => S.ans[v.nr] !== v.juist);
     result = `<section class="panel">
       <div class="row" style="gap:18px;align-items:flex-end;flex-wrap:wrap">
-        <div class="num" style="font-size:44px;font-weight:700;color:var(--${pass ? "ok" : "bad"})">${ok} / 35</div>
-        <div><span class="chip ${pass ? "ok" : "bad"} num" style="font-size:15px">Puan ${sc} · ${pass ? "geçer" : `geçmek için ${e.geslaagd - ok} doğru daha`}</span>
-        <div class="muted" style="font-size:13px;margin-top:4px">Resmî ${esc(S.y)} tablosu: ${e.geslaagd} doğru = 500 = geçer.</div></div>
+        <div class="num" style="font-size:44px;font-weight:700;color:var(--${partial ? (ok / Q.length >= .7 ? "ok" : "bad") : pass ? "ok" : "bad"})">${ok} / ${Q.length}</div>
+        ${partial ? `<div class="muted" style="font-size:14px">Sadece harf girdiğin metinler değerlendirildi (Tekst ${[...new Set(Q.map(v => v.tekst))].join(", ")}).<br>Puan, 35 sorunun hepsini girince resmî tabloyla hesaplanır.</div>`
+        : `<div><span class="chip ${pass ? "ok" : "bad"} num" style="font-size:15px">Puan ${sc} · ${pass ? "geçer" : `geçmek için ${e.geslaagd - ok} doğru daha`}</span>
+        <div class="muted" style="font-size:13px;margin-top:4px">Resmî ${esc(S.y)} tablosu: ${e.geslaagd} doğru = 500 = geçer.</div></div>`}
         <div style="margin-left:auto" class="row"><button class="btn" data-act="again">Yeniden gir</button></div></div>
       <h3 style="margin:16px 0 6px">Soru türüne göre</h3>
       <div class="tablewrap"><table class="typetable"><thead><tr><th>Tür</th><th>Doğru</th><th>İpucu</th></tr></thead><tbody>
@@ -112,10 +117,10 @@ function render() {
       <div class="yeartabs">${D.examens.map(x => `<a href="?jaar=${x.id}" class="${x.id === S.y ? "on" : ""}">${esc(x.id)}</a>`).join("")}</div>
       <ol style="margin:12px 0 0;padding-left:20px;line-height:1.6">
         <li>Sınavı resmî alıştırma sitesinde çöz: <a href="${D.site}" target="_blank" rel="noopener">oefenexamensnt2.nl</a> → Programma I → Lezen → openbaar examen ${esc(S.y)}. Gerçek sınavdaki gibi 110 dakika tut.</li>
-        <li>Seçtiğin harfleri buraya gir (A = ilk şık, B = ikinci…). Boş bıraktığın soruyu boş bırak.</li>
+        <li>Seçtiğin harfleri buraya gir (A = ilk şık, B = ikinci…). Boş bıraktığın soruyu boş bırak. Günde bir metin çözüyorsan sadece o metnin harflerini gir: sadece o metin değerlendirilir.</li>
         <li>"Kontrol et": puan, soru türlerin ve her yanlışın için açıklama. Sonuç kaydedilir; ertesi sabahki Lezen mailinde de gelir.</li>
       </ol>
-      <p class="muted" style="font-size:13px;margin:8px 0 0">Resmî sorular ve metinler telif nedeniyle burada yok; açıklamalar bizim. ${prev.length ? `Önceki denemelerin: ${prev.slice(0, 5).map(a => `${a.score}/35`).join(", ")}.` : ""}</p>
+      <p class="muted" style="font-size:13px;margin:8px 0 0">Resmî sorular ve metinler telif nedeniyle burada yok; açıklamalar bizim. ${prev.length ? `Önceki denemelerin: ${prev.slice(0, 5).map(a => `${a.score}/${a.total}`).join(", ")}.` : ""}</p>
     </section>
     ${result}
     <section class="panel">
@@ -135,11 +140,13 @@ app.addEventListener("click", async ev => {
   if (b.dataset.act === "again") { S.done = null; S.ans = {}; saveDraft(S.y, S.ans); render(); }
   if (b.dataset.act === "check") {
     const e = D.examens.find(x => x.id === S.y);
-    if (Object.keys(S.ans).length < 35 && !confirm(`${35 - Object.keys(S.ans).length} soru boş. Boşlar yanlış sayılır. Kontrol edilsin mi?`)) return;
+    if (!Object.keys(S.ans).length) return;
+    const Q = activeQs(e), open = Q.filter(v => !S.ans[v.nr]).length;
+    if (open && !confirm(`Girdiğin metinlerde ${open} soru boş; boşlar yanlış sayılır. Kontrol edilsin mi?`)) return;
     S.done = true; render(); window.scrollTo({ top: 0, behavior: "smooth" });
-    const answers = e.vragen.map(v => ({ qid: `${S.y}:${v.nr}`, chosen: S.ans[v.nr] || "", correct: S.ans[v.nr] === v.juist, soort: v.soort }));
+    const answers = Q.map(v => ({ qid: `${S.y}:${v.nr}`, chosen: S.ans[v.nr] || "", correct: S.ans[v.nr] === v.juist, soort: v.soort }));
     const att = { kind: "officieel", test: S.y, title: e.titel, finished_at: new Date().toISOString(),
-                  score: answers.filter(a => a.correct).length, total: 35, answers };
+                  score: answers.filter(a => a.correct).length, total: answers.length, answers };
     try { await saveAttempt(user.uid, "lezen-officieel", att); attempts.unshift(att); saveDraft(S.y, {}); } catch (err) { console.warn(err); }
   }
 });
