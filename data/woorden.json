@@ -20690,6 +20690,72 @@
 "woordsoort": "ww"
 },
 {
+"id": "k025",
+"bron": "bekleme",
+"bronnen": [
+"bekleme"
+],
+"nl": "bijwerken",
+"soort": "woord",
+"tr": "güncellemek",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "Ik werk de lijst vandaag nog bij.",
+"voorbeeld_tr": "Listeyi bugün güncelliyorum.",
+"uitleg": "Ayrılabilen fiil: ik werk bij, ik heb bijgewerkt. İş yerinde dosya, liste, planning için: 'de planning bijwerken'. Okulda başka anlamı: ders takviyesi (bijles).",
+"meer": [],
+"in_nieuws": [],
+"woordsoort": "ww"
+},
+{
+"id": "k026",
+"bron": "bekleme",
+"bronnen": [
+"bekleme"
+],
+"nl": "afstemmen",
+"soort": "woord",
+"tr": "(başkalarıyla) konuşup uzlaşmak, uyumlu hâle getirmek",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "Ik stem het even af met mijn collega.",
+"voorbeeld_tr": "Bunu meslektaşımla bir konuşayım.",
+"uitleg": "Ayrılabilen fiil: ik stem af, ik heb afgestemd. 'afstemmen met iemand' = biriyle karara varmak; 'afstemmen op iets' = bir şeye göre ayarlamak. İş yerinde ve okul-veli yazışmalarında çok sık.",
+"meer": [],
+"in_nieuws": [],
+"woordsoort": "ww"
+},
+{
+"id": "k027",
+"bron": "bekleme",
+"bronnen": [
+"bekleme"
+],
+"nl": "invoeren",
+"soort": "woord",
+"tr": "(veri) girmek; (kural) yürürlüğe koymak",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "Je moet je code invoeren.",
+"voorbeeld_tr": "Kodunu girmen gerekiyor.",
+"uitleg": "Ayrılabilen fiil: ik voer in, ik heb ingevoerd. Bilgisayarda/formda veri girmek. Haberlerde: 'een nieuwe regel invoeren' (yeni kural getirmek).",
+"meer": [],
+"in_nieuws": [],
+"woordsoort": "ww"
+},
+{
 "id": "b008",
 "bron": "basis",
 "bronnen": [
