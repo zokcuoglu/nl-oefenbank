@@ -2185,6 +2185,188 @@
 "niveau": "B1"
 }
 ],
+"mantelzorg": [
+{
+"id": "n-ober-u4",
+"nl": "desnoods",
+"tr": "gerekirse, olmadı",
+"niveau": "B2"
+},
+{
+"id": "n-fossiel-w18",
+"nl": "onderling",
+"tr": "kendi aralarında",
+"niveau": "B2"
+},
+{
+"id": "w422",
+"nl": "aanvragen",
+"tr": "başvurmak, talep etmek (resmî)",
+"niveau": "B1"
+},
+{
+"id": "k267",
+"nl": "daardoor",
+"tr": "bu yüzden, onun sayesinde",
+"niveau": "B1"
+},
+{
+"id": "n-pieterburen-w15",
+"nl": "de gemeente",
+"tr": "belediye",
+"niveau": "B1"
+},
+{
+"id": "k124",
+"nl": "de zorg",
+"tr": "bakım; endişe",
+"niveau": "B1"
+},
+{
+"id": "u028",
+"nl": "door de bomen het bos niet meer zien",
+"tr": "ağaçlardan ormanı görememek; ayrıntılarda boğulmak",
+"niveau": "B1"
+},
+{
+"id": "k289",
+"nl": "ernstig",
+"tr": "ciddi, ağır",
+"niveau": "B1"
+},
+{
+"id": "n-pensioen-w11",
+"nl": "het bedrag",
+"tr": "tutar",
+"niveau": "B1"
+},
+{
+"id": "k642",
+"nl": "het doel",
+"tr": "amaç, hedef; kale (futbol)",
+"niveau": "B1"
+},
+{
+"id": "k118",
+"nl": "het verlof",
+"tr": "izin (işten)",
+"niveau": "B1"
+},
+{
+"id": "k461",
+"nl": "het wijkcentrum",
+"tr": "semt merkezi",
+"niveau": "B1"
+},
+{
+"id": "k550",
+"nl": "indien",
+"tr": "eğer (resmî)",
+"niveau": "B1"
+},
+{
+"id": "k568",
+"nl": "informeren",
+"tr": "bilgilendirmek",
+"niveau": "B1"
+},
+{
+"id": "k674",
+"nl": "kortdurend",
+"tr": "kısa süreli",
+"niveau": "B1"
+},
+{
+"id": "n-kroket-u4",
+"nl": "laagdrempelig",
+"tr": "herkesin kolayca erişebileceği, girişi zahmetsiz",
+"niveau": "B1"
+},
+{
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
+"id": "k623",
+"nl": "ondertekenen",
+"tr": "imzalamak",
+"niveau": "B1"
+},
+{
+"id": "k208",
+"nl": "opnemen",
+"tr": "(izin) kullanmak; (telefonu) açmak; kaydetmek",
+"niveau": "B1"
+},
+{
+"id": "k571",
+"nl": "overtuigen",
+"tr": "ikna etmek",
+"niveau": "B1"
+},
+{
+"id": "k380",
+"nl": "regelmatig",
+"tr": "düzenli olarak",
+"niveau": "B1"
+},
+{
+"id": "k384",
+"nl": "ruim",
+"tr": "geniş; bol",
+"niveau": "B1"
+},
+{
+"id": "k188",
+"nl": "schriftelijk",
+"tr": "yazılı",
+"niveau": "B1"
+},
+{
+"id": "k675",
+"nl": "tijdelijk",
+"tr": "geçici",
+"niveau": "B1"
+},
+{
+"id": "u032",
+"nl": "van tevoren",
+"tr": "önceden",
+"niveau": "B1"
+},
+{
+"id": "k448",
+"nl": "vrijwillig",
+"tr": "gönüllü",
+"niveau": "B1"
+},
+{
+"id": "k581",
+"nl": "weigeren",
+"tr": "reddetmek",
+"niveau": "B1"
+},
+{
+"id": "w221",
+"nl": "zichzelf",
+"tr": "kendisi, kendileri",
+"niveau": "B1"
+},
+{
+"id": "k467",
+"nl": "zodat",
+"tr": "böylece, -sin diye",
+"niveau": "B1"
+}
+],
 "a2-schoolreis": [
 {
 "id": "w008",
