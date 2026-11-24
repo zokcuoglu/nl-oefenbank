@@ -935,7 +935,7 @@ def run_lezen(db, sender, now, slot, dry_run=False, force=False, only_to=None, o
             continue                                  # no exam date and not active lately
         in_day = [a for a in rounds if iso(day_start) <= a.get("finished_at", "") < iso(day_end)]
         if slot == 0:
-            subject, plain, inner = lezen_mail.morning_mail(u, lezen_mail.wrong_answers(in_day, sets), today, exam, piece, sys.modules[__name__])
+            subject, plain, inner = lezen_mail.morning_mail(u, lezen_mail.wrong_answers(in_day, sets), today, exam, piece, sys.modules[__name__], rounds)
             title = "Lezen · günaydın"
         else:
             subject, plain, inner = lezen_mail.evening_mail(u, in_day, rounds, today, exam, piece, sets, sys.modules[__name__])

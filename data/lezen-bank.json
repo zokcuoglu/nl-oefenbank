@@ -3390,7 +3390,7 @@
   {
    "p": "Wat is het (belangrijkste) doel van deze tekst?",
    "tr": "Bu metnin (asıl) amacı nedir?",
-   "tip": "Başlığa ve ilk/son paragrafa bak; şıklarda 'informeren / overtuigen / waarschuwen / uitleggen' gibi fiiller çıkar."
+   "tip": "Önce metin türüne bak, cevabı çoğu zaman o verir: reklam/folder → overtuigen of enthousiast maken; bilgi sayfası → informeren; talimat/kurallar → uitleggen hoe; tartışma yazısı → voor- en nadelen geven. Resmî 2023 ve 2025 sınavlarında 9 doel sorusunun 9'unda bu kural tuttu."
   },
   {
    "p": "Wat wil de schrijver (met dit voorbeeld) duidelijk maken?",
@@ -3420,7 +3420,7 @@
   {
    "p": "Wat gebeurt er (als / na / nu)?",
    "tr": "(Eğer / sonra / şimdi) ne olur?",
-   "tip": "Tarih/süre/koşul cümlelerini ara: 'na zes weken / indien / zodra'."
+   "tip": "Tarih/süre/koşul cümlelerini ara: 'na zes weken / indien / zodra'. Dikkat: metin eski durumu (vroeger / tot nu toe) ve yeni durumu (voortaan / vanaf …) anlatıyorsa, şıklardan biri eski durumu yazar; soru hangisini soruyor, kontrol et."
   },
   {
    "p": "Wanneer kan / mag …?",
@@ -3440,7 +3440,7 @@
   {
    "p": "Welke … past bij hem/haar?",
    "tr": "Ona hangi … uyar?",
-   "tip": "Sorudaki kişinin şartlarını yaz ve metindeki seçeneklerle tek tek eşleştir."
+   "tip": "Uygulama sorusu: önce kişinin durumunu kısaca not et (yaş, gün/saat, ne istiyor, ne yapamıyor). Sonra metinde tam bu duruma uyan kuralı bul, istisnaları da oku. 2025 resmî sınavında 35 sorunun 11'i bu tipteydi; en çok puan buradan gelir."
   },
   {
    "p": "Welke regel geldt voor …?",
@@ -3470,7 +3470,22 @@
   {
    "p": "Welke bewering is juist?",
    "tr": "Hangi ifade doğru?",
-   "tip": "Her şıkkı metinde ayrı ayrı kontrol et; 'altijd / nooit / alleen' gibi kesin kelimelere dikkat."
+   "tip": "Her şıkkı metinde ayrı ayrı kontrol et. Tuzaklar: 'zowel … als' / 'én … én' (iki şey birden) şıkta tek şeye inmiş mi; roller değişmiş mi (kim karar veriyor, kim ödüyor); sayı başka bir cümleden mi alınmış. 'altijd / nooit / alleen' çoğu zaman yanlıştır ama metin de 'alleen' diyorsa doğru olabilir."
+  },
+  {
+   "p": "Welke samenvatting past het best bij deel …?",
+   "tr": "… bölümüne en iyi uyan özet hangisi?",
+   "tip": "Sadece o ara başlığın (ya da I / II / III bölümünün) altını oku. Doğru şık o bölümün ana fikrini söyler; başka bölümden bir bilgi içeren şık tuzaktır, ayrıntıya takılan şık da genelde yanlıştır."
+  },
+  {
+   "p": "Wat is er veranderd? / Hoe was het vroeger?",
+   "tr": "Ne değişti? / Eskiden nasıldı?",
+   "tip": "'vroeger / tot nu toe / voorheen' eski durumu, 'voortaan / vanaf … / nu / niet meer' yeni durumu anlatır. İki durumu yan yana not et; yanlış şıklar genelde eski ile yeniyi karıştırır."
+  },
+  {
+   "p": "In welk deel (I, II, III …) staat informatie over …?",
+   "tr": "… hakkındaki bilgi hangi bölümde (I, II, III …)?",
+   "tip": "Bütün metni okuma: her bölümün başlığını ve ilk cümlesini oku, sorudaki anahtar kelimeyi ara. Bir konu iki bölümde geçiyorsa, soruyu en tam cevaplayan bölümü seç."
   }
  ]
 }
