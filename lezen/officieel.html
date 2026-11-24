@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Resmî sınav rehberi · Lezen I · NL Oefenbank</title>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+/* Answer sheet: one row per question with letter buttons, grouped per text (like the bubble sheet of a paper exam) */
+.sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 22px}
+.qrow{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--line)}
+.qrow .n{font-family:var(--mono);width:4.5ch;color:var(--muted)}
+.qrow button{width:38px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:8px;font-weight:600}
+.qrow button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.qrow.ok .n{color:var(--ok);font-weight:700} .qrow.no .n{color:var(--bad);font-weight:700}
+.qrow button.right{outline:3px solid var(--ok)} .qrow button.wrongpick{background:var(--bad);color:#fff;border-color:var(--bad)}
+.tgroup{margin-bottom:16px} .tgroup h3{margin:0 0 6px;font-size:16px}
+.tgroup h3 .muted{font-weight:400;font-size:13px}
+.yeartabs{display:flex;gap:8px;flex-wrap:wrap}
+.yeartabs a{border:1px solid var(--line);border-radius:8px;padding:7px 14px;text-decoration:none;color:inherit;font-weight:600}
+.yeartabs a.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.why{border-left:4px solid var(--bad);padding:8px 0 8px 12px;margin:10px 0}
+.why .k{font-size:13px;color:var(--muted)}
+.typetable td,.typetable th{padding:5px 10px}
+</style>
+<script>
+// Watchdog: if the login module has not loaded after 10 s (network block, old cache), explain it on screen
+setTimeout(function () {
+  if (window.__coreReady) return;
+  var d = document.createElement("div");
+  d.setAttribute("style", "position:fixed;left:16px;right:16px;bottom:16px;z-index:200;background:#F7ECD6;color:#7a4e0c;border-radius:10px;padding:14px 16px;font:15px/1.5 system-ui,sans-serif;max-width:640px;margin:0 auto");
+  d.innerHTML = "<b>Sayfa yüklenemedi.</b> Giriş sistemi (Google/Firebase) indirilemedi. Ctrl+Shift+R ile yenile. Ağ veya reklam engelleyici Google'ı engelliyor olabilir.";
+  document.body.appendChild(d);
+}, 10000);
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><small><a href="../">← Ana sayfa</a> · <a href="./">Lezen I (B1)</a></small><h1>Resmî sınav rehberi</h1></div>
+    <div class="navlinks" id="ub"></div>
+  </div>
+</header>
+<div class="wrap"><main id="app"><p class="muted">Yükleniyor…</p></main></div>
+
+<script type="module">
+// Guide to the official Lezen I practice exams 2023 and 2025. The exam itself is made on the official site
+// (oefenexamensnt2.nl); here you type in the letters you chose and get the score, the official score table
+// result and OUR explanation per wrong answer (data/officieel.json, built by scripts/content/build_officieel.py).
+// The CvTE questions and texts are not on this site (copyright); only the answer key and our explanations.
+// A round is saved as an attempt (module "lezen-officieel", test = year); the morning Lezen mail shows its mistakes.
+import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
+
+const app = document.getElementById("app");
+const { user, profile } = await gate({ area: "nt2", title: "Resmî sınav rehberi", seen: "lezen-officieel" });
+document.getElementById("ub").innerHTML = userBox(user, profile);
+let D;
+try { D = await (await fetch("../data/officieel.json", { cache: "no-cache" })).json(); }
+catch (e) { app.innerHTML = `<div class="notice">Veri yüklenemedi: ${esc(e.message)}</div>`; throw e; }
+let attempts = await loadAttempts(user.uid, "lezen-officieel").catch(() => []);
+const year = () => { const y = new URLSearchParams(location.search).get("jaar"); return D.examens.some(e => e.id === y) ? y : D.examens[D.examens.length - 1].id; };
+// Draft answers per year stay in this browser until "Kontrol et" (a closed tab loses nothing)
+const KEY = y => `officieel-${y}-${user.uid}`;
+const loadDraft = y => { try { return JSON.parse(localStorage.getItem(KEY(y)) || "{}"); } catch { return {}; } };
+const saveDraft = (y, a) => { try { localStorage.setItem(KEY(y), JSON.stringify(a)); } catch { /* private mode: keep in memory only */ } };
+let S = { y: year(), ans: loadDraft(year()), done: null };
+
+function scoreOf(e, ok) { return e.score[Math.max(0, Math.min(ok, e.score.length - 1))]; }
+
+function render() {
+  const e = D.examens.find(x => x.id === S.y), done = S.done;
+  const prev = attempts.filter(a => a.test === S.y && a.total).sort((a, b) => (b.finished_at || "").localeCompare(a.finished_at || ""));
+  const rows = t => e.vragen.filter(v => v.tekst === t.nr).map(v => {
+    const a = S.ans[v.nr], cls = done ? (a === v.juist ? "ok" : "no") : "";
+    const btn = L => {
+      const c = done ? (L === v.juist ? "right" : (L === a ? "wrongpick" : "")) : (L === a ? "on" : "");
+      return `<button data-q="${v.nr}" data-l="${L}" class="${c}" ${done ? "disabled" : ""} aria-label="Vraag ${v.nr} ${L}">${L}</button>`;
+    };
+    return `<div class="qrow ${cls}"><span class="n">${v.nr}</span>${"ABCD".slice(0, v.opties).split("").map(btn).join("")}</div>`;
+  }).join("");
+  const answered = Object.keys(S.ans).length;
+  let result = "";
+  if (done) {
+    const ok = e.vragen.filter(v => S.ans[v.nr] === v.juist).length, pass = ok >= e.geslaagd, sc = scoreOf(e, ok);
+    // per question type: correct / total
+    const byType = {};
+    e.vragen.forEach(v => { const b = byType[v.soort] = byType[v.soort] || [0, 0]; b[1]++; if (S.ans[v.nr] === v.juist) b[0]++; });
+    const wrong = e.vragen.filter(v => S.ans[v.nr] !== v.juist);
+    result = `<section class="panel">
+      <div class="row" style="gap:18px;align-items:flex-end;flex-wrap:wrap">
+        <div class="num" style="font-size:44px;font-weight:700;color:var(--${pass ? "ok" : "bad"})">${ok} / 35</div>
+        <div><span class="chip ${pass ? "ok" : "bad"} num" style="font-size:15px">Puan ${sc} · ${pass ? "geçer" : `geçmek için ${e.geslaagd - ok} doğru daha`}</span>
+        <div class="muted" style="font-size:13px;margin-top:4px">Resmî ${esc(S.y)} tablosu: ${e.geslaagd} doğru = 500 = geçer.</div></div>
+        <div style="margin-left:auto" class="row"><button class="btn" data-act="again">Yeniden gir</button></div></div>
+      <h3 style="margin:16px 0 6px">Soru türüne göre</h3>
+      <div class="tablewrap"><table class="typetable"><thead><tr><th>Tür</th><th>Doğru</th><th>İpucu</th></tr></thead><tbody>
+      ${Object.entries(byType).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1]).map(([k, [o, n]]) =>
+        `<tr><td><b>${esc(D.types[k].label)}</b></td><td class="num" style="color:var(--${o === n ? "ok" : o / n >= .6 ? "warn" : "bad"})">${o} / ${n}</td><td style="font-size:14px">${o < n ? esc(D.types[k].tip) : ""}</td></tr>`).join("")}
+      </tbody></table></div>
+      <h3 style="margin:16px 0 4px">Yanlışların ve açıklamaları (${wrong.length})</h3>
+      ${wrong.map(v => `<div class="why"><div class="k">Vraag ${v.nr} · Tekst ${v.tekst}: <span lang="nl">${esc(e.teksten[v.tekst - 1].titel)}</span> · ${esc(D.types[v.soort].label)}</div>
+        <div><b>Senin cevabın: ${esc(S.ans[v.nr] || "boş")} · doğru: ${v.juist}</b></div><div>${esc(v.uitleg)}</div></div>`).join("") || "<p>Hepsi doğru!</p>"}
+    </section>`;
+  }
+  app.innerHTML = `
+    <section class="panel">
+      <div class="yeartabs">${D.examens.map(x => `<a href="?jaar=${x.id}" class="${x.id === S.y ? "on" : ""}">${esc(x.id)}</a>`).join("")}</div>
+      <ol style="margin:12px 0 0;padding-left:20px;line-height:1.6">
+        <li>Sınavı resmî alıştırma sitesinde çöz: <a href="${D.site}" target="_blank" rel="noopener">oefenexamensnt2.nl</a> → Programma I → Lezen → openbaar examen ${esc(S.y)}. Gerçek sınavdaki gibi 110 dakika tut.</li>
+        <li>Seçtiğin harfleri buraya gir (A = ilk şık, B = ikinci…). Boş bıraktığın soruyu boş bırak.</li>
+        <li>"Kontrol et": puan, soru türlerin ve her yanlışın için açıklama. Sonuç kaydedilir; ertesi sabahki Lezen mailinde de gelir.</li>
+      </ol>
+      <p class="muted" style="font-size:13px;margin:8px 0 0">Resmî sorular ve metinler telif nedeniyle burada yok; açıklamalar bizim. ${prev.length ? `Önceki denemelerin: ${prev.slice(0, 5).map(a => `${a.score}/35`).join(", ")}.` : ""}</p>
+    </section>
+    ${result}
+    <section class="panel">
+      ${e.teksten.map(t => `<div class="tgroup"><h3><span lang="nl">Tekst ${t.nr}: ${esc(t.titel)}</span> <span class="muted">vraag ${t.van}–${t.tot} · ${esc(t.tekstsoort)}</span></h3><div class="sheet">${rows(t)}</div></div>`).join("")}
+      ${done ? "" : `<div class="row" style="margin-top:12px;gap:12px"><button class="btn primary" data-act="check">Kontrol et</button><span class="muted num">${answered} / 35 girildi</span><button class="btn ghost" data-act="clear">Temizle</button></div>`}
+    </section>`;
+}
+
+app.addEventListener("click", async ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.dataset.q) {
+    const n = +b.dataset.q;
+    if (S.ans[n] === b.dataset.l) delete S.ans[n]; else S.ans[n] = b.dataset.l;   // tap again = empty
+    saveDraft(S.y, S.ans); render(); return;
+  }
+  if (b.dataset.act === "clear") { if (!confirm("Girdiğin bütün harfler silinsin mi?")) return; S.ans = {}; saveDraft(S.y, S.ans); render(); }
+  if (b.dataset.act === "again") { S.done = null; S.ans = {}; saveDraft(S.y, S.ans); render(); }
+  if (b.dataset.act === "check") {
+    const e = D.examens.find(x => x.id === S.y);
+    if (Object.keys(S.ans).length < 35 && !confirm(`${35 - Object.keys(S.ans).length} soru boş. Boşlar yanlış sayılır. Kontrol edilsin mi?`)) return;
+    S.done = true; render(); window.scrollTo({ top: 0, behavior: "smooth" });
+    const answers = e.vragen.map(v => ({ qid: `${S.y}:${v.nr}`, chosen: S.ans[v.nr] || "", correct: S.ans[v.nr] === v.juist, soort: v.soort }));
+    const att = { kind: "officieel", test: S.y, title: e.titel, finished_at: new Date().toISOString(),
+                  score: answers.filter(a => a.correct).length, total: 35, answers };
+    try { await saveAttempt(user.uid, "lezen-officieel", att); attempts.unshift(att); saveDraft(S.y, {}); } catch (err) { console.warn(err); }
+  }
+});
+render();
+</script>
+</body>
+</html>
