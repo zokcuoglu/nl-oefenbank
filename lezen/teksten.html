@@ -155,7 +155,7 @@ function vList() {
     ${S.data.examens.map(examCard).join("")}
     ${S.data.teksten.some(t => !t.examen) ? `<section class="panel"><div class="sectionhead"><h3>Tek metinler</h3><span class="muted">henüz bir deneme sınavında değil · sınav uzunluğunda</span></div>
       ${S.data.teksten.filter(t => !t.examen).map(textRow).join("")}</section>` : ""}
-    ${A2 ? "" : `<section class="panel"><b>Resmî örnek sınavlar (2023, 2025)</b> <span class="muted">· resmî sitede çöz, harfleri buraya gir: puan + her yanlış için açıklama</span>
+    ${A2 ? "" : `<section class="panel"><b>Resmî örnek sınavlar (2023, 2024, 2025)</b> <span class="muted">· resmî sitede çöz, harfleri buraya gir: puan + her yanlış için açıklama</span>
       <a class="btn" style="margin-left:8px;text-decoration:none" href="officieel.html">Resmî sınav rehberi →</a></section>`}
     ${pats.length ? `<section class="panel"><div class="sectionhead"><h3>Soru tiplerine göre</h3><span class="muted">en zayıf olan üstte</span></div>
       <div style="display:flex;flex-direction:column;gap:6px">${pats.map(([p, v]) => { const q = pct(v.ok, v.n); return `<div class="catrow" style="grid-template-columns:minmax(0,1fr) 120px 5em"><span lang="nl" style="font-size:13.5px">${esc(patternName(+p))}</span><div class="bar"><i style="width:${q}%;background:var(--${tone(q)})"></i></div><span class="num r">%${q} <span class="muted">(${v.n})</span></span></div>`; }).join("")}</div>

@@ -1,10 +1,10 @@
-"""Build data/officieel.json: our study guide to the official Lezen I practice exams (openbaar examen) 2023 and 2025.
+"""Build data/officieel.json: our study guide to the official Lezen I practice exams (openbaar examen) 2023, 2024 and 2025.
 
 The exams themselves are made on the official practice site (oefenexamensnt2.nl). This file holds NO question text
 and NO answer options (they belong to the CvTE): only the answer key, how many options each question has, the
 question type, the text it belongs to and OUR OWN explanation in Turkish (where in the text the answer is, which
 trap the wrong options use). The page lezen/officieel.html checks the letters someone typed in and explains.
-Answer keys and score tables: beoordelingsmodel Lezen I 2023 and 2025 (2025 key with the correction of Feb 2026:
+Answer keys and score tables: beoordelingsmodel Lezen I 2023, 2024 and 2025 (2025 key with the correction of Feb 2026:
 question 2 = A). Run: python3 scripts/content/build_officieel.py (part of scripts/build_all.py).
 """
 import json
@@ -75,6 +75,51 @@ EXAMS = {
    (3, "C", "bij-wie", "Arama metni 6 (Bezwaar en beroep): itiraz yazılı olarak management'a. Hoofdkantoor sınav kâğıdını görmek ve özel durum başvurusu için (tuzak)."),
    (3, "C", "toepassing", "Arama metni 2.2: 'Bij te laat komen beslist de examenleider…'. 50 dakika, salondan erken çıkma kuralı (başka yerden alınmış sayı)."),
    (3, "B", "doel", "Instructief metin (sınav yönetmeliği): okuru kurallar hakkında bilgilendirmek ('goed geïnformeerd'). İkna ya da reklam yok."),
+  ]},
+"2024": {
+  "titel": "Openbaar examen Lezen I 2024", "geslaagd": 24,
+  "score": [283, 332, 356, 372, 384, 394, 402, 410, 417, 423, 430, 435, 441, 446, 451, 456, 461, 466, 471, 476, 482, 487, 493, 498,
+            504, 511, 518, 525, 534, 543, 553, 566, 581, 601, 631, 694],
+  "teksten": [("Bakkerij", "persuasief", 1, 6), ("De beursstand", "instructief", 7, 11),
+              ("Verzuim op het werk", "descriptief", 12, 17), ("Met deze opleiding heb je echt een voorsprong", "beschouwend", 18, 24),
+              ("Arbeidsmarkt: jongere op zoek naar zekerheid, oudere naar uitdaging", "beschouwend", 25, 30),
+              ("Abonnement Wonderrijk", "descriptief", 31, 35)],
+  "vragen": [
+   (3, 'B', 'toepassing', "Kantoor listesi: planlamaları 'bedrijfsbureau' yapıyor. Administratie sadece idari işleri, personeelszaken personel işlerini yürütüyor; Sanne planlama istiyor."),
+   (3, 'B', 'toepassing', "'Decentrale bakkerij' bölümü: krem çekmek, krema sıkmak, pasta süslemek (gebak decoreren) burada öğreniliyor. Proefbakkerij yeni ürün geliştiriyor, centrale bakkerij makinelerle seri üretim yapıyor."),
+   (3, 'B', 'detail', "Decentrale bakkerijde iş 7.00'de başlıyor. 2.00–4.00 şoförlerin başlama saati, 17.00 ise işin bittiği saat: sayı başka bir cümleden alınmış tuzak."),
+   (3, 'A', 'toepassing', "'Heb je gevoel voor techniek, vind je het leuk om met machines te werken…' cümlesi centrale bakkerij bölümünde. Teknik ve makine = centrale bakkerij."),
+   (3, 'C', 'detail', "'Uitdagende werkomgeving': fırın geçmişi ya da gıda ile çalışma deneyimi olan kişiler aranıyor. BBL eğitimi bir seçenek (staj), şart değil; 'zelfstandig en stressbestendig' sadece şoförler için yararlı."),
+   (3, 'B', 'doel', "Persuasief metin (işe alım sayfası): 'dan is dit de plek voor jou', 'stuur dan je cv' → okuru başvurmaya ikna etmek. Süreçleri anlatması sadece araç."),
+   (4, 'A', 'detail', "'De meeste mogelijkheden biedt een eilandstand' → düzenlemede en çok çeşitlilik eilandstand'da. Tussenstand en az imkân veriyor."),
+   (3, 'C', 'toepassing', "'Verlichting': takılar (sieraden) sıcak ışık ister; küpe = takı. Renkleri gösteren ışık giysi içindir. Girişte fazla ışık sevilmiyor (B ters)."),
+   (4, 'D', 'vindplaats', "'Routing': insanlar hangi yönde yürüyor, önce ne görüyor, bütün bölümlerin önünden mantıklı bir sırayla geçiyorlar → ürünlerin yeri. Diğer başlıklar giriş, oturma yeri ve ışık hakkında."),
+   (3, 'A', 'detail', "Son paragraf: 'laat je zakelijke kennissen weten dat je er zult zijn' = ilişkilerini bilgilendir. 'Flinke investering' bir uyarı, tavsiye değil; looprichting ise ziyaretçi geldikten sonra."),
+   (4, 'A', 'doel', 'Instructief metin (ders kitabından): stand nasıl seçilir, düzenlenir, hazırlanır → fuar katılımını hazırlama konusunda tavsiye. Kira şartları ve standbouwer sadece ayrıntı.'),
+   (3, 'B', 'toepassing', "'Frequent kortdurend verzuim': iş stresi gibi sebeplerde 'de oorzaken op te sporen en maatregelen te nemen'. Bedrijfsarts uzun süreli hastalıkta; iki bekleme günü cao kuralı, öneri değil."),
+   (3, 'B', 'wanneer', "Altı hafta veya daha uzun = langdurend verzuim → Wet verbetering poortwachter: işe dönüş planı (re-integratietraject). Bedrijfsarts'a bildirim ilk günlerde olur; sigorta işverenin seçimi."),
+   (3, 'B', 'detail', "Sigorta maaşı karşılıyor 'en biedt vaak dienstverlening bij het voorkomen en verminderen van verzuim'. WIA ve yerine birini bulma metinde maliyet olarak geçiyor, sigortanın hizmeti olarak değil."),
+   (3, 'A', 'toepassing', "'Verzuim in kleuren': wit = gerçekten hasta, çalışamıyor. Kırık kolla çalışamayan Carmen gerçekten çalışamıyor; spor kazası da normal hastalık bildirimi sayılıyor."),
+   (3, 'B', 'detail', "'Sporten is gezond en vermindert over het algemeen het arbeidsverzuim' → çoğunlukla daha az devamsızlık. Sakatlanma mümkün ama genel etkisi azaltmak."),
+   (3, 'A', 'doel', 'Giriş: türleri, önleme yolları ve finansal riskleri sigortalama → işverene tavsiye. Sigorta sadece bir bölüm (B), uzun süreli devamsızlık da sadece bir tür (C).'),
+   (3, 'B', 'detail', "'De auto's worden beschikbaar gesteld door het ministerie van Defensie' = arabaları veriyor. Öğretmen 'Defensie için eleman yetiştirmiyoruz' diyor (A ve C tuzak)."),
+   (3, 'B', 'detail', 'Seçim: iyi notlar tek başına yetmez; azim, disiplin, motivasyon ve ekip çalışması da önemli → B üçünü birleştiriyor. Mentor görüşmesi öğretmenlerle mentor arasında, öğrenciyle değil (C tuzak).'),
+   (3, 'A', 'mening', "Bitar: traject'i geliştirmek en büyük zorluk değil; en büyük zorluk onu sürdürmek, 'in dit geval ook financieel'. Sponsorlara bağımlılar. B tam tersini söylüyor."),
+   (3, 'C', 'detail', "'allebei' tuzağı: ikisi için de geçerli olan tek şey hevesli olmaları. Race branşında devam etmek sadece Abel'in sözü, niveau 3'ten 4'e geçmek sadece Hussam'ın hikâyesi."),
+   (3, 'B', 'detail', "Ramos raceklas'ı tek sezonla sınırlamayıp örneğin üç sezona yaymak istiyor. Leerbedrijven bu isteği dile getirenlerden biri (A tuzak); ayrı bir traject olması Newton'un isteği."),
+   (3, 'C', 'mening', "Marelis: 'Maar het meest leren de studenten in de praktijk, tijdens de races.' 'Maar' kelimesinden sonra geliyor: geziler ve misafir dersler önce sayılıyor ama en öğretici olan pratik."),
+   (3, 'A', 'conclusie', 'Metnin ana mesajı başlıkta ve ilk paragrafta: sadece en iyi öğrencilerin girebildiği, zorlu ve heyecanlı ek bir program. Genişletme ve uluslararası kariyer sadece bölümler.'),
+   (3, 'C', 'detail', "'De resultaten zijn soms verrassend': 'we denken vaak dat jongeren eerder risico's willen nemen dan ouderen. Maar het tegenovergestelde is waar.' Gençler risk almak istemiyor. A ve B fazla genel/aşırı."),
+   (3, 'B', 'detail', "Yaşlıların 1 numarası 'creatief denken'; gençlerin yüzde 26'sı da yaratıcı düşünmeyi önemli buluyor. Diğer iki madde gençler için metinde geçmiyor."),
+   (3, 'A', 'mening', "Tames: 'Veel 45-plussers hebben een financiële basis' → güvenceleri zaten var, yaratıcı olmak istediklerini söylemek bu yüzden kolay. Bahçe ve boya örneği bir yıl işsiz kaldıktan sonrası için, sebep değil."),
+   (4, 'D', 'mening', "Van Veen: 'Onder werklozen is het voor 50-plussers vaak heel lastig om werk te vinden. Toch willen juist zij zich ontwikkelen.' 'zij' = işsiz yaşlılar. Grubu tam oku: sadece 'ouderen' ya da sadece 'werklozen' eksik."),
+   (4, 'A', 'mening', "Bregman: 'Werkgevers kunnen steeds gemakkelijker van hun werknemers af' → işten çıkarılmaktan korkuyorlar. Ev ve çocuk güvenceyi önemli kılıyor ama korktukları şey değil (C tuzak)."),
+   (3, 'A', 'detail', "Son bölüm: 'Van Veen adviseert werkgevers die zoeken naar jong personeel…' Sonuçları kullanabilecek olanlar genç personel arayan işverenler."),
+   (3, 'A', 'toepassing', "Arama metni 4.1 (ve 5.1): aylık ödenen abonelik ilk yıldan sonra 'loopt door voor onbepaalde tijd'. Otomatik biten abonelik tek seferde ödenen (C tuzak)."),
+   (3, 'B', 'toepassing', "1.1: 'Hoewel jouw gegevens … geregistreerd staan, wordt de toegang geweigerd als je het abonnement niet kan tonen.' A'daki 'geregistreerd' kelimesi metinden alınmış tuzak."),
+   (3, 'C', 'toepassing', "3.4: park aboneliği 'geen voorrang of garantie op een parkeerplaats'; yer yoksa para geri istenemez. Özel park yeri metinde yok."),
+   (3, 'A', 'toepassing', "4.5: kayıp, hırsızlık VEYA hasar durumunda kopya istenebilir; idari ücret 'per abonnement' 7 euro. Hasar da sayıldığı için herkes öder; 'alleen bij verlies' tuzak."),
+   (3, 'C', 'toepassing', "6: fiyat değişikliği ilk 12 aydan sonra mümkün; aylık iptal edilebilen abonelikte 'word je minimaal één maand van tevoren geïnformeerd'. Meryem iki yıldır abone → ancak bir ay önceden haber verilirse. 'op ieder moment' fazla kesin."),
   ]},
 "2025": {
   "titel": "Openbaar examen Lezen I 2025", "geslaagd": 24,
