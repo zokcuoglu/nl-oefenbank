@@ -27,7 +27,8 @@ SETS = {   # attempt module -> data file and how a link to one text looks
     "lezen-teksten": {"file": "lezen-teksten.json", "link": "lezen/teksten.html?t=", "name": "Lezen B1"},
     "lezen-a2": {"file": "lezen-a2.json", "link": "lezen/teksten.html?set=a2&t=", "name": "Lezen A2"},
 }
-MODULES = tuple(SETS)
+OFFICIEEL = "lezen-officieel"   # letters typed in on lezen/officieel.html after an official practice exam
+MODULES = tuple(SETS) + (OFFICIEEL,)
 WITHOUT_DATE_DAYS = 14
 MAX_WRONG = 8
 esc = _html.escape
@@ -118,10 +119,37 @@ def exam_date(u):
         return None
 
 
+_OFF = None
+def officieel_rows(a):
+    """Wrong answers of an official practice exam: no CvTE question text, only number, text title, type, letters and
+    our explanation (data/officieel.json)."""
+    global _OFF
+    if _OFF is None:
+        _OFF = json.loads((ROOT / "data" / "officieel.json").read_text(encoding="utf-8"))
+    ex = next((e for e in _OFF["examens"] if e["id"] == a.get("test")), None)
+    if not ex:
+        return []
+    out = []
+    for x in a.get("answers", []):
+        if x.get("correct"):
+            continue
+        n = int(x["qid"].split(":")[1])
+        v = ex["vragen"][n - 1]
+        t = ex["teksten"][v["tekst"] - 1]
+        out.append({"set": {"name": f"Resmî sınav {ex['id']}"}, "tekst": {"titel": t["titel"]},
+                    "vraag": {"vraag": f"Vraag {n} · {_OFF['types'][v['soort']]['label']}", "uitleg": v["uitleg"], "bewijs": ""},
+                    "gekozen": x.get("chosen") or "", "juist": v["juist"], "link": SITE + "lezen/officieel.html?jaar=" + ex["id"]})
+    return out
+
+
 def wrong_answers(attempts, sets):
     """Wrong answers of Lezen rounds, newest round first; one row per question (the last wrong try counts)."""
     rows, seen = [], set()
     for a in sorted(attempts, key=lambda a: a.get("finished_at", ""), reverse=True):
+        if a.get("module") == OFFICIEEL:
+            rows += [r for r in officieel_rows(a) if r["vraag"]["vraag"] + r["set"]["name"] not in seen]
+            seen.update(r["vraag"]["vraag"] + r["set"]["name"] for r in rows)
+            continue
         s = sets.get(a.get("module"))
         if not s:
             continue
@@ -234,15 +262,15 @@ def morning_mail(u, wrong, today, exam, pc, M):
             v = r["vraag"]
             plain += ["", f"{r['tekst']['titel']} ({r['set']['name']})", v["vraag"],
                       f"  Senin cevabın: {r['gekozen'] or '(boş)'}", f"  Doğru cevap: {r['juist']}",
-                      f"  Neden: {v['uitleg']}", f"  Metinde: \"{v['bewijs']}\"", f"  {r['link']}"]
+                      f"  Neden: {v['uitleg']}"] + ([f"  Metinde: \"{v['bewijs']}\""] if v["bewijs"] else []) + [f"  {r['link']}"]
             inner += (f'<div style="border-left:4px solid {M.C["accent"]};padding:6px 0 6px 12px;margin:12px 0">'
                       f'<div style="font-size:12px;color:{M.C["muted"]}">{esc(r["tekst"]["titel"])} · {esc(r["set"]["name"])}</div>'
                       f'<div style="font-weight:700;margin:2px 0 6px" lang="nl">{esc(v["vraag"])}</div>'
                       f'<div lang="nl">✗ <s style="color:{M.C["muted"]}">{esc(r["gekozen"] or "(boş)")}</s></div>'
                       f'<div lang="nl" style="color:{M.C["a1"]};font-weight:700">✓ {esc(r["juist"])}</div>'
                       f'<div style="margin-top:6px">{esc(v["uitleg"])}</div>'
-                      f'<div style="margin-top:4px;color:{M.C["muted"]}" lang="nl">Metinde: “{esc(v["bewijs"])}”</div>'
-                      f'<a href="{r["link"]}" style="color:{M.C["blue"]};font-size:14px">Metni aç →</a></div>')
+                      + (f'<div style="margin-top:4px;color:{M.C["muted"]}" lang="nl">Metinde: “{esc(v["bewijs"])}”</div>' if v["bewijs"] else "")
+                      + f'<a href="{r["link"]}" style="color:{M.C["blue"]};font-size:14px">Metni aç →</a></div>')
         if len(wrong) > MAX_WRONG:
             plain.append(f"(+{len(wrong) - MAX_WRONG} yanlış daha; sitede metnin sonuç ekranında görebilirsin)")
             inner += _p(f'<span style="color:{M.C["muted"]}">+{len(wrong) - MAX_WRONG} yanlış daha: sitede metnin sonuç ekranında.</span>')

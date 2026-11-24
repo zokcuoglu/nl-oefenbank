@@ -106,6 +106,10 @@ Finding a word in a text uses one strict rule (`woordbron.found_in`): single wor
 
 `python3 scripts/build_all.py` rebuilds every generated file in order and ends with `scripts/content/check_baglantilar.py`, which stops when a pool word has no word page or an id / link in the data, the mail, the word study or the waiting list points at nothing. The *Build* workflow (`.github/workflows/build.yml`) runs it on every push to main and commits the result, so counts and links stay current.
 
+## Official practice exams (Lezen I 2023, 2025)
+
+`lezen/officieel.html`: the exam is made on the official site (oefenexamensnt2.nl); the user types the chosen letters in and gets the score (official table of that year), a summary per question type and our Turkish explanation for every wrong answer. `data/officieel.json` (built by `scripts/content/build_officieel.py`) holds only the answer keys (2025 with the Feb 2026 correction: question 2 = A), the number of options, the question type and our explanations: the CvTE question texts and texts are not on the site (copyright). Rounds are attempts with module `lezen-officieel`; the morning Lezen mail lists their mistakes.
+
 ## Exam level (B1 / A2)
 
 Adults choose their exam level on the profile (`examen_niveau`: `B1` = Staatsexamen NT2 I, `A2` = inburgeringsexamen, `beide`).
