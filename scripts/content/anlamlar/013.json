@@ -1,58 +1,229 @@
 {
- "mazzel": {"lid": "de", "niveau": "B2", "kort": "şans (konuşma dili)", "anlamlar": [{"tr": "şans (konuşma dili)", "kalip": [["mazzel hebben", "şanslı olmak"]], "voorbeelden": [["Wat een mazzel!", "Ne şans!"], ["'Dus ze heeft mazzel.'", "'Yani şanslı.'"]]}], "not": "Resmî karşılığı: geluk."},
- "mechaniek": {"lid": "het / de", "niveau": "B2", "kort": "mekanizma", "anlamlar": [{"tr": "mekanizma", "voorbeelden": [["Het mechaniek van de klok is oud.", "Saatin mekanizması eski."]]}]},
- "meldpunt": {"lid": "het", "mv": "meldpunten", "niveau": "B2", "kort": "ihbar / bildirim noktası", "anlamlar": [{"tr": "ihbar / bildirim noktası (kurum, hat)", "kalip": [["Meld Misdaad Anoniem", "anonim suç ihbar hattı"]], "voorbeelden": [["U belt de politie of een meldpunt.", "Polisi ya da bir ihbar hattını arıyorsunuz."]]}]},
- "motregen": {"lid": "de", "niveau": "B2", "kort": "çisenti, ince yağmur", "anlamlar": [{"tr": "çisenti, ince yağmur", "voorbeelden": [["Door de motregen werden mijn haren nat.", "Çisenti yüzünden saçlarım ıslandı."]]}]},
- "notulen": {"lid": "de (mv)", "niveau": "B2", "kort": "toplantı tutanağı", "anlamlar": [{"tr": "toplantı tutanağı", "kalip": [["notuleren", "tutanak tutmak"]], "voorbeelden": [["Wie maakt de notulen?", "Tutanağı kim tutuyor?"]]}]},
- "ondernemer": {"lid": "de", "mv": "ondernemers", "niveau": "B2", "kort": "girişimci, işletme sahibi", "anlamlar": [{"tr": "girişimci, işletme sahibi, esnaf", "kalip": [["zelfstandig ondernemer", "serbest çalışan (zzp'er)"]], "voorbeelden": [["Ondernemers in de buurt verdienen aan toeristen.", "Çevredeki esnaf turistlerden kazanıyor."]]}]},
- "onrust": {"lid": "de", "niveau": "B2", "kort": "huzursuzluk, tedirginlik", "anlamlar": [{"tr": "huzursuzluk, tedirginlik; karışıklık", "voorbeelden": [["Er is veel onrust in het team.", "Takımda çok huzursuzluk var."]]}]},
- "opzet": {"lid": "de", "niveau": "B2", "kort": "kurgu, yapı, taslak; kasıt", "anlamlar": [{"tr": "kurgu, yapı, ilk taslak", "voorbeelden": [["De opzet van het project is klaar.", "Projenin kurgusu hazır."]]}, {"tr": "(het opzet) kasıt", "kalip": [["met opzet", "kasten, bilerek"]]}]},
- "overblijfsel": {"lid": "het", "mv": "overblijfselen", "niveau": "B2", "kort": "kalıntı", "anlamlar": [{"tr": "kalıntı", "voorbeelden": [["Er zijn overblijfselen van een oude stad gevonden.", "Eski bir şehrin kalıntıları bulundu."]]}]},
- "parasiet": {"lid": "de", "mv": "parasieten", "niveau": "B2", "kort": "parazit", "anlamlar": [{"tr": "parazit", "voorbeelden": [["Een luis is een parasiet.", "Bit bir parazittir."]]}]},
- "pensioenfonds": {"lid": "het", "mv": "pensioenfondsen", "niveau": "B2", "kort": "emeklilik fonu", "anlamlar": [{"tr": "emeklilik fonu (işyeri emekliliği)", "voorbeelden": [["Mijn werkgever betaalt aan een pensioenfonds.", "İşverenim bir emeklilik fonuna ödeme yapıyor."]]}]},
- "precisiewerk": {"lid": "het", "niveau": "B2", "kort": "hassas iş", "anlamlar": [{"tr": "hassas iş, ince iş", "voorbeelden": [["Een horloge maken is precisiewerk.", "Saat yapmak ince bir iş."]]}]},
- "raamwerk": {"lid": "het", "mv": "raamwerken", "niveau": "B2", "kort": "çerçeve", "anlamlar": [{"tr": "çerçeve (kurallar, yapı)", "voorbeelden": [["We werken binnen een vast raamwerk.", "Sabit bir çerçeve içinde çalışıyoruz."]]}]},
- "reserve": {"lid": "de", "mv": "reserves", "niveau": "B2", "kort": "yedek, rezerv", "anlamlar": [{"tr": "yedek, rezerv (para, stok)", "kalip": [["in reserve", "yedekte"]], "voorbeelden": [["Het fonds had een grote reserve.", "Fonun büyük bir rezervi vardı."]]}, {"tr": "yedek oyuncu", "kalip": [["reservespeler", "yedek oyuncu"]]}]},
- "telefooncentrale": {"lid": "de", "mv": "telefooncentrales", "niveau": "B2", "kort": "telefon santrali", "anlamlar": [{"tr": "telefon santrali", "voorbeelden": [["De telefooncentrale was overbelast.", "Telefon santrali aşırı yüklenmişti."]]}]},
- "toepassing": {"lid": "de", "mv": "toepassingen", "niveau": "B2", "kort": "uygulama, kullanım", "anlamlar": [{"tr": "uygulama, kullanım", "kalip": [["van toepassing zijn", "geçerli olmak, uygulanmak"], ["niet van toepassing (n.v.t.)", "geçerli değil (formlarda)"]], "voorbeelden": [["Dit is een slimme toepassing van AI.", "Bu, yapay zekânın akıllıca bir kullanımı."]]}, {"tr": "yazılım uygulaması", "voorbeelden": [["De toepassing draait in de cloud.", "Uygulama bulutta çalışıyor."]]}]},
- "vertrekpunt": {"lid": "het", "mv": "vertrekpunten", "niveau": "B2", "kort": "çıkış / başlangıç noktası", "anlamlar": [{"tr": "çıkış / başlangıç noktası", "voorbeelden": [["Dit is ons vertrekpunt.", "Bu bizim başlangıç noktamız."]]}]},
- "vervalsing": {"lid": "de", "mv": "vervalsingen", "niveau": "B2", "kort": "sahte (kopya); sahtecilik", "anlamlar": [{"tr": "sahte kopya; sahtecilik", "kalip": [["vervalsen", "sahtesini yapmak"]], "voorbeelden": [["Dit biljet is een vervalsing.", "Bu banknot sahte."]]}]},
- "voorproefje": {"lid": "het", "mv": "voorproefjes", "niveau": "B2", "kort": "ön tat, ön gösterim", "anlamlar": [{"tr": "ön tat, ön gösterim (ne geleceğine dair küçük örnek)", "voorbeelden": [["Hier is alvast een voorproefje.", "İşte şimdiden bir ön tat."]]}]},
- "voorwaarde": {"lid": "de", "mv": "voorwaarden", "niveau": "B2", "kort": "şart, koşul", "anlamlar": [{"tr": "şart, koşul", "kalip": [["op voorwaarde dat", "… şartıyla"], ["algemene voorwaarden", "genel şartlar"]], "voorbeelden": [["Een voorwaarde is dat je lid bent.", "Şartlardan biri üye olman."], ["Wat is een voorwaarde voor naturalisatie?", "Vatandaşlığa geçmenin bir şartı nedir?"]]}]},
- "werkpakket": {"lid": "het", "mv": "werkpakketten", "niveau": "B2", "kort": "iş paketi", "anlamlar": [{"tr": "iş paketi (bir kişiye/ekibe verilen görevler)", "voorbeelden": [["Dit werkpakket is voor de chauffeurs van morgen.", "Bu iş paketi yarınki şoförler için."]]}]},
- "werkzaamheden": {"lid": "de (mv)", "niveau": "B2", "kort": "işler, görevler; (yol, ray) çalışmaları", "anlamlar": [
-   {"tr": "işler, görevler (bir işte yapılanlar)", "voorbeelden": [["U schrijft precies welke werkzaamheden u heeft gedaan.", "Tam olarak hangi işleri yaptığınızı yazıyorsunuz."]]},
-   {"tr": "(yolda, rayda) bakım/onarım çalışmaları", "voorbeelden": [["Door werkzaamheden rijdt er geen trein.", "Çalışmalar nedeniyle tren yok."]]}]},
- "wolkbreuk": {"lid": "de", "mv": "wolkbreuken", "niveau": "B2", "kort": "bardaktan boşanırcasına yağmur", "anlamlar": [{"tr": "çok kısa sürede çok yoğun yağış", "voorbeelden": [["Na de wolkbreuk stonden de straten onder water.", "Ani yoğun yağıştan sonra sokaklar su altında kaldı."]]}]},
- "wolkenveld": {"lid": "het", "mv": "wolkenvelden", "niveau": "B2", "kort": "geniş bulut tabakası", "anlamlar": [{"tr": "geniş bulut tabakası / alanı", "voorbeelden": [["Een groot wolkenveld trekt over het land.", "Büyük bir bulut tabakası ülkenin üzerinden geçiyor."]]}]},
- "woningzoekende": {"lid": "de", "mv": "woningzoekenden", "niveau": "B2", "kort": "konut arayan kişi", "anlamlar": [{"tr": "konut arayan kişi", "voorbeelden": [["Er zijn veel woningzoekenden in de regio.", "Bölgede çok konut arayan var."]]}]},
- "wrijving": {"lid": "de", "niveau": "B2", "kort": "sürtünme; sürtüşme", "anlamlar": [{"tr": "sürtünme", "voorbeelden": [["Door wrijving worden je handen warm.", "Sürtünmeyle ellerin ısınır."]]}, {"tr": "sürtüşme, anlaşmazlık", "kalip": [["wrijving in het team", "ekipte sürtüşme"]]}]},
- "aanbesteding": {"lid": "de", "mv": "aanbestedingen", "niveau": "C1", "kort": "ihale", "anlamlar": [{"tr": "ihale", "kalip": [["een aanbesteding uitschrijven", "ihaleye çıkmak"]], "voorbeelden": [["De gemeente schrijft een aanbesteding uit.", "Belediye bir ihaleye çıkıyor."]]}]},
- "ambacht": {"lid": "het", "mv": "ambachten", "niveau": "C1", "kort": "zanaat", "anlamlar": [{"tr": "zanaat, el sanatı", "voorbeelden": [["Orgeldraaien is een oud ambacht.", "Latarna çalmak eski bir zanaat."], ["Het is, kortom, een ambacht.", "Kısacası bu bir zanaat."]]}]},
- "applicatielandschap": {"lid": "het", "niveau": "C1", "kort": "uygulama envanteri / yapısı (BT)", "anlamlar": [{"tr": "bir kurumdaki tüm uygulamaların bütünü (BT)", "voorbeelden": [["De app staat in het applicatielandschap.", "Uygulama envanterde kayıtlı."]]}]},
- "bajes": {"lid": "de", "niveau": "C1", "kort": "kodes, hapishane (argo)", "anlamlar": [{"tr": "kodes, hapishane (argo)", "voorbeelden": [["Hij zat twee jaar in de bajes.", "İki yıl hapis yattı."]]}], "not": "Resmî karşılığı: de gevangenis."},
- "beeldmerk": {"lid": "het", "mv": "beeldmerken", "niveau": "C1", "kort": "logo, simge", "anlamlar": [{"tr": "logo, simge (görsel marka işareti)", "voorbeelden": [["Het nieuwe beeldmerk is klaar.", "Yeni logo hazır."]]}]},
- "beoordelaar": {"lid": "de", "mv": "beoordelaars", "niveau": "C1", "kort": "değerlendiren kişi, sınav değerlendiricisi", "anlamlar": [{"tr": "değerlendiren kişi, sınav değerlendiricisi", "voorbeelden": [["Gebruik het plaatje in je antwoord - dat verwacht de beoordelaar.", "Cevabında resmi kullan; değerlendirici bunu bekliyor."]]}]},
- "betalingsverplichting": {"lid": "de", "mv": "betalingsverplichtingen", "niveau": "C1", "kort": "ödeme yükümlülüğü", "anlamlar": [{"tr": "ödeme yükümlülüğü", "voorbeelden": [["Je hebt geen betalingsverplichting.", "Ödeme yükümlülüğün yok."]]}]},
- "bevoorrading": {"lid": "de", "niveau": "C1", "kort": "mal ikmali, tedarik", "anlamlar": [{"tr": "mal ikmali, tedarik (dükkânlara)", "voorbeelden": [["De bevoorrading komt weer op gang.", "Tedarik yeniden başlıyor."]]}]},
- "bezettingsgraad": {"lid": "de", "niveau": "C1", "kort": "doluluk oranı", "anlamlar": [{"tr": "doluluk / kapasite kullanım oranı", "voorbeelden": [["De bezettingsgraad is dit jaar hoog.", "Bu yıl doluluk oranı yüksek."]]}]},
- "concessie": {"lid": "de", "mv": "concessies", "niveau": "C1", "kort": "işletme hakkı, imtiyaz; taviz", "anlamlar": [{"tr": "işletme hakkı, imtiyaz (ör. toplu taşıma hattı)", "voorbeelden": [["Het bedrijf heeft de concessie voor tien jaar gekregen.", "Şirket işletme hakkını on yıllığına aldı."]]}, {"tr": "taviz", "kalip": [["concessies doen", "taviz vermek"]]}]},
- "dienststaat": {"lid": "de", "niveau": "C1", "kort": "görev çizelgesi", "anlamlar": [{"tr": "görev çizelgesi (ulaşım şirketinde)", "voorbeelden": [["De dienststaat laat zien wie wanneer werkt.", "Görev çizelgesi kimin ne zaman çalıştığını gösterir."]]}]},
- "embargo": {"lid": "het", "mv": "embargo's", "niveau": "C1", "kort": "ambargo; yayın yasağı", "anlamlar": [{"tr": "ambargo", "kalip": [["een handelsembargo", "ticaret ambargosu"]]}, {"tr": "yayın yasağı (belirli tarihe kadar)", "voorbeelden": [["Het nieuws staat onder embargo tot maandag.", "Haber pazartesiye kadar yayın yasağında."]]}]},
- "erfgoed": {"lid": "het", "niveau": "C1", "kort": "miras (kültürel)", "anlamlar": [{"tr": "(kültürel) miras", "voorbeelden": [["Molens zijn Nederlands erfgoed.", "Değirmenler Hollanda'nın kültürel mirasıdır."], ["In Vught werd vandaag een stuk erfgoed letterlijk van zijn plek gehaald.", "Vught'ta bugün bir parça miras kelimenin tam anlamıyla yerinden kaldırıldı."]]}]},
- "gastheer": {"lid": "de", "mv": "gastheren", "niveau": "C1", "kort": "ev sahibi; (biyoloji) konakçı", "anlamlar": [{"tr": "ev sahibi (misafir ağırlayan)", "kalip": [["gastvrouw", "ev sahibesi"]]}, {"tr": "(biyoloji) konakçı", "voorbeelden": [["De vis was de gastheer van de luis.", "Balık bitin konakçısıydı."]]}]},
- "gemis": {"lid": "het", "niveau": "C1", "kort": "yokluk, eksiklik hissi", "anlamlar": [{"tr": "yokluk, eksiklik hissi (birini/bir şeyi özlemek)", "voorbeelden": [["Het gemis is groot.", "Yokluğu çok hissediliyor."]]}]},
- "ijkpunt": {"lid": "het", "mv": "ijkpunten", "niveau": "C1", "kort": "referans noktası", "anlamlar": [{"tr": "referans / karşılaştırma noktası", "voorbeelden": [["Dit jaar is ons ijkpunt.", "Bu yıl bizim referans noktamız."]]}]},
- "omloop": {"lid": "de", "mv": "omlopen", "niveau": "C1", "kort": "(araç) tur, görev turu; dolaşım", "anlamlar": [{"tr": "(ulaşımda) bir aracın günlük görev turu", "voorbeelden": [["Deze bus rijdt vandaag drie omlopen.", "Bu otobüs bugün üç tur yapıyor."]]}, {"tr": "dolaşım (para, bilgi)", "kalip": [["in omloop", "dolaşımda"]]}]},
- "ophef": {"lid": "de", "niveau": "C1", "kort": "velvele, yaygara", "anlamlar": [{"tr": "velvele, yaygara, tartışma", "kalip": [["ophef veroorzaken", "velvele koparmak"]], "voorbeelden": [["Er was veel ophef over het nieuws.", "Haber hakkında çok velvele koptu."]]}]},
- "optiek": {"lid": "de", "niveau": "C1", "kort": "bakış açısı; optik", "anlamlar": [{"tr": "bakış açısı", "kalip": [["in mijn optiek", "bana göre"]], "voorbeelden": [["In zijn optiek is het goed.", "Ona göre iyi."]]}]},
- "overeenstemming": {"lid": "de", "niveau": "C1", "kort": "mutabakat, uzlaşı", "anlamlar": [{"tr": "mutabakat, uzlaşı", "kalip": [["overeenstemming bereiken", "uzlaşmaya varmak"]], "voorbeelden": [["Daar moet wel overeenstemming over zijn.", "Bu konuda mutabakat olması lazım."]]}]},
- "randvoorwaarden": {"lid": "de (mv)", "niveau": "C1", "kort": "ön koşullar, temel şartlar", "anlamlar": [{"tr": "ön koşullar, temel şartlar", "voorbeelden": [["Wat zijn de randvoorwaarden?", "Ön koşullar neler?"]]}]},
- "schoning": {"lid": "de", "niveau": "C1", "kort": "temizleme, ayıklama (veri)", "anlamlar": [{"tr": "temizleme, ayıklama (veri, kayıt)", "kalip": [["schonen", "temizlemek, ayıklamak"]], "voorbeelden": [["Na de schoning blijven er duizend rijen over.", "Ayıklamadan sonra bin satır kalıyor."]]}]},
- "smoelenwand": {"lid": "de", "niveau": "C1", "kort": "çalışan fotoğrafları panosu (şaka yollu)", "anlamlar": [{"tr": "çalışanların fotoğraflarının olduğu pano / sayfa (smoel = surat, argo)", "voorbeelden": [["Iedereen komt op de smoelenwand.", "Herkes fotoğraf panosuna giriyor."]]}]},
- "speelveld": {"lid": "het", "mv": "speelvelden", "niveau": "C1", "kort": "oyun sahası; faaliyet alanı", "anlamlar": [{"tr": "oyun sahası", "kalip": [["een gelijk speelveld", "eşit rekabet koşulları"]]}, {"tr": "faaliyet alanı, piyasa", "voorbeelden": [["Het speelveld verandert snel.", "Faaliyet alanı hızla değişiyor."]]}]},
- "stelsel": {"lid": "het", "mv": "stelsels", "niveau": "C1", "kort": "sistem (resmî düzen)", "anlamlar": [{"tr": "sistem (resmî düzen)", "kalip": [["pensioenstelsel", "emeklilik sistemi"], ["zorgstelsel", "sağlık sistemi"]], "voorbeelden": [["Het nieuwe pensioenstelsel begint in januari.", "Yeni emeklilik sistemi ocakta başlıyor."]]}]},
- "taai": {"niveau": "C1", "kort": "sert ve esnek, lastik gibi; dayanıklı", "anlamlar": [{"tr": "sert ve esnek, lastik gibi (hamur, et)", "voorbeelden": [["Het deeg voelt taai aan.", "Hamur lastik gibi geliyor."]]}, {"tr": "dayanıklı, yılmaz (kişi)", "kalip": [["een taaie", "yılmaz biri"]]}]},
- "totstandkoming": {"lid": "de", "niveau": "C1", "kort": "oluşturulma, meydana getirilme", "anlamlar": [{"tr": "oluşturulma, meydana getirilme (yasa, anlaşma)", "kalip": [["tot stand komen", "meydana gelmek"]], "voorbeelden": [["Hij werkte mee aan de totstandkoming van de wet.", "Yasanın oluşturulmasında görev aldı."]]}]},
- "vermenging": {"lid": "de", "niveau": "C1", "kort": "karışma, karışım", "anlamlar": [{"tr": "karışma, karışım", "voorbeelden": [["Er is een vermenging, waardoor ik verward ben.", "Bir karışma var, o yüzden kafam karışık."]]}]}
+ "mazzel": {"lid": "de", "niveau": "B2", "kort": "şans (konuşma dili)", "not": "Resmî karşılığı: geluk.",
+  "anlamlar": [
+   {"tr": "şans (konuşma dili)", "kalip": [["mazzel hebben", "şanslı olmak"]], "voorbeelden": [["Wat een mazzel!", "Ne şans!"], ["'Dus ze heeft mazzel.'", "'Yani şanslı.'"]]}
+  ]},
+ "mechaniek": {"lid": "het / de", "niveau": "B2", "kort": "mekanizma",
+  "anlamlar": [
+   {"tr": "mekanizma", "voorbeelden": [["Het mechaniek van de klok is oud.", "Saatin mekanizması eski."]]}
+  ]},
+ "meldpunt": {"lid": "het", "mv": "meldpunten", "niveau": "B2", "kort": "ihbar / bildirim noktası",
+  "anlamlar": [
+   {"tr": "ihbar / bildirim noktası (kurum, hat)", "kalip": [["Meld Misdaad Anoniem", "anonim suç ihbar hattı"]], "voorbeelden": [["U belt de politie of een meldpunt.", "Polisi ya da bir ihbar hattını arıyorsunuz."]]}
+  ]},
+ "motregen": {"lid": "de", "niveau": "B2", "kort": "çisenti, ince yağmur",
+  "anlamlar": [
+   {"tr": "çisenti, ince yağmur", "voorbeelden": [["Door de motregen werden mijn haren nat.", "Çisenti yüzünden saçlarım ıslandı."]]}
+  ]},
+ "notulen": {"lid": "de (mv)", "niveau": "B2", "kort": "toplantı tutanağı",
+  "anlamlar": [
+   {"tr": "toplantı tutanağı", "kalip": [["notuleren", "tutanak tutmak"]], "voorbeelden": [["Wie maakt de notulen?", "Tutanağı kim tutuyor?"]]}
+  ]},
+ "ondernemer": {"lid": "de", "mv": "ondernemers", "niveau": "B2", "kort": "girişimci, işletme sahibi",
+  "anlamlar": [
+   {"tr": "girişimci, işletme sahibi, esnaf", "kalip": [["zelfstandig ondernemer", "serbest çalışan (zzp'er)"]], "voorbeelden": [["Ondernemers in de buurt verdienen aan toeristen.", "Çevredeki esnaf turistlerden kazanıyor."]]}
+  ]},
+ "onrust": {"lid": "de", "niveau": "B2", "kort": "huzursuzluk, tedirginlik",
+  "anlamlar": [
+   {"tr": "huzursuzluk, tedirginlik; karışıklık", "voorbeelden": [["Er is veel onrust in het team.", "Takımda çok huzursuzluk var."]]}
+  ]},
+ "opzet": {"lid": "de", "niveau": "B2", "kort": "kurgu, yapı, taslak; kasıt",
+  "anlamlar": [
+   {"tr": "kurgu, yapı, ilk taslak", "voorbeelden": [["De opzet van het project is klaar.", "Projenin kurgusu hazır."]]},
+   {"tr": "(het opzet) kasıt", "kalip": [["met opzet", "kasten, bilerek"]]}
+  ]},
+ "overblijfsel": {"lid": "het", "mv": "overblijfselen", "niveau": "B2", "kort": "kalıntı",
+  "anlamlar": [
+   {"tr": "kalıntı", "voorbeelden": [["Er zijn overblijfselen van een oude stad gevonden.", "Eski bir şehrin kalıntıları bulundu."]]}
+  ]},
+ "parasiet": {"lid": "de", "mv": "parasieten", "niveau": "B2", "kort": "parazit",
+  "anlamlar": [
+   {"tr": "parazit", "voorbeelden": [["Een luis is een parasiet.", "Bit bir parazittir."]]}
+  ]},
+ "pensioenfonds": {"lid": "het", "mv": "pensioenfondsen", "niveau": "B2", "kort": "emeklilik fonu",
+  "anlamlar": [
+   {"tr": "emeklilik fonu (işyeri emekliliği)", "voorbeelden": [["Mijn werkgever betaalt aan een pensioenfonds.", "İşverenim bir emeklilik fonuna ödeme yapıyor."]]}
+  ]},
+ "precisiewerk": {"lid": "het", "niveau": "B2", "kort": "hassas iş",
+  "anlamlar": [
+   {"tr": "hassas iş, ince iş", "voorbeelden": [["Een horloge maken is precisiewerk.", "Saat yapmak ince bir iş."]]}
+  ]},
+ "raamwerk": {"lid": "het", "mv": "raamwerken", "niveau": "B2", "kort": "çerçeve",
+  "anlamlar": [
+   {"tr": "çerçeve (kurallar, yapı)", "voorbeelden": [["We werken binnen een vast raamwerk.", "Sabit bir çerçeve içinde çalışıyoruz."]]}
+  ]},
+ "reserve": {"lid": "de", "mv": "reserves", "niveau": "B2", "kort": "yedek, rezerv",
+  "anlamlar": [
+   {"tr": "yedek, rezerv (para, stok)", "kalip": [["in reserve", "yedekte"]], "voorbeelden": [["Het fonds had een grote reserve.", "Fonun büyük bir rezervi vardı."]]},
+   {"tr": "yedek oyuncu", "kalip": [["reservespeler", "yedek oyuncu"]]}
+  ]},
+ "telefooncentrale": {"lid": "de", "mv": "telefooncentrales", "niveau": "B2", "kort": "telefon santrali",
+  "anlamlar": [
+   {"tr": "telefon santrali", "voorbeelden": [["De telefooncentrale was overbelast.", "Telefon santrali aşırı yüklenmişti."]]}
+  ]},
+ "toepassing": {"lid": "de", "mv": "toepassingen", "niveau": "B2", "kort": "uygulama, kullanım",
+  "anlamlar": [
+   {"tr": "uygulama, kullanım", "kalip": [["van toepassing zijn", "geçerli olmak, uygulanmak"], ["niet van toepassing (n.v.t.)", "geçerli değil (formlarda)"]], "voorbeelden": [["Dit is een slimme toepassing van AI.", "Bu, yapay zekânın akıllıca bir kullanımı."]]},
+   {"tr": "yazılım uygulaması", "voorbeelden": [["De toepassing draait in de cloud.", "Uygulama bulutta çalışıyor."]]}
+  ]},
+ "vertrekpunt": {"lid": "het", "mv": "vertrekpunten", "niveau": "B2", "kort": "çıkış / başlangıç noktası",
+  "anlamlar": [
+   {"tr": "çıkış / başlangıç noktası", "voorbeelden": [["Dit is ons vertrekpunt.", "Bu bizim başlangıç noktamız."]]}
+  ]},
+ "vervalsing": {"lid": "de", "mv": "vervalsingen", "niveau": "B2", "kort": "sahte (kopya); sahtecilik",
+  "anlamlar": [
+   {"tr": "sahte kopya; sahtecilik", "kalip": [["vervalsen", "sahtesini yapmak"]], "voorbeelden": [["Dit biljet is een vervalsing.", "Bu banknot sahte."]]}
+  ]},
+ "voorproefje": {"lid": "het", "mv": "voorproefjes", "niveau": "B2", "kort": "ön tat, ön gösterim",
+  "anlamlar": [
+   {"tr": "ön tat, ön gösterim (ne geleceğine dair küçük örnek)", "voorbeelden": [["Hier is alvast een voorproefje.", "İşte şimdiden bir ön tat."]]}
+  ]},
+ "voorwaarde": {"lid": "de", "mv": "voorwaarden", "niveau": "B2", "kort": "şart, koşul",
+  "anlamlar": [
+   {"tr": "şart, koşul", "kalip": [["op voorwaarde dat", "… şartıyla"], ["algemene voorwaarden", "genel şartlar"]], "voorbeelden": [["Een voorwaarde is dat je lid bent.", "Şartlardan biri üye olman."], ["Wat is een voorwaarde voor naturalisatie?", "Vatandaşlığa geçmenin bir şartı nedir?"]]}
+  ]},
+ "werkpakket": {"lid": "het", "mv": "werkpakketten", "niveau": "B2", "kort": "iş paketi",
+  "anlamlar": [
+   {"tr": "iş paketi (bir kişiye/ekibe verilen görevler)", "voorbeelden": [["Dit werkpakket is voor de chauffeurs van morgen.", "Bu iş paketi yarınki şoförler için."]]}
+  ]},
+ "werkzaamheden": {"lid": "de (mv)", "niveau": "B2", "kort": "işler, görevler; (yol, ray) çalışmaları",
+  "anlamlar": [
+   {"tr": "işler, görevler (bir işte yapılanlar)", "voorbeelden": [["U schrijft precies welke werkzaamheden u heeft gedaan.", "Tam olarak hangi işleri yaptığınızı yazıyorsunuz."], ["Uw werkzaamheden zijn ...", "Göreviniz şunlar: ..."], ["Op een arbo-formulier moet u beschrijven welke werkzaamheden u doet op uw werk.", "İş sağlığı formunda işte hangi görevleri yaptığınızı anlatmanız gerekir."], ["U vertelt wat voor werkzaamheden u heeft gedaan.", "Ne tür işler yaptığınızı anlatıyorsunuz."], ["Vertel over uw werkzaamheden.", "İşinizde neler yaptığınızı anlatın."]]},
+   {"tr": "(yolda, rayda) bakım/onarım çalışmaları", "voorbeelden": [["Door werkzaamheden rijdt er geen trein.", "Çalışmalar nedeniyle tren yok."], ["Beste reizigers, door werkzaamheden aan de weg rijdt deze bus vandaag niet langs het ziekenhuis.", "Değerli yolcular, yol çalışmaları nedeniyle bu otobüs bugün hastanenin önünden geçmiyor."]]}
+  ]},
+ "wolkbreuk": {"lid": "de", "mv": "wolkbreuken", "niveau": "B2", "kort": "bardaktan boşanırcasına yağmur",
+  "anlamlar": [
+   {"tr": "çok kısa sürede çok yoğun yağış", "voorbeelden": [["Na de wolkbreuk stonden de straten onder water.", "Ani yoğun yağıştan sonra sokaklar su altında kaldı."]]}
+  ]},
+ "wolkenveld": {"lid": "het", "mv": "wolkenvelden", "niveau": "B2", "kort": "geniş bulut tabakası",
+  "anlamlar": [
+   {"tr": "geniş bulut tabakası / alanı", "voorbeelden": [["Een groot wolkenveld trekt over het land.", "Büyük bir bulut tabakası ülkenin üzerinden geçiyor."]]}
+  ]},
+ "woningzoekende": {"lid": "de", "mv": "woningzoekenden", "niveau": "B2", "kort": "konut arayan kişi",
+  "anlamlar": [
+   {"tr": "konut arayan kişi", "voorbeelden": [["Er zijn veel woningzoekenden in de regio.", "Bölgede çok konut arayan var."]]}
+  ]},
+ "wrijving": {"lid": "de", "niveau": "B2", "kort": "sürtünme; sürtüşme",
+  "anlamlar": [
+   {"tr": "sürtünme", "voorbeelden": [["Door wrijving worden je handen warm.", "Sürtünmeyle ellerin ısınır."]]},
+   {"tr": "sürtüşme, anlaşmazlık", "kalip": [["wrijving in het team", "ekipte sürtüşme"]]}
+  ]},
+ "aanbesteding": {"lid": "de", "mv": "aanbestedingen", "niveau": "C1", "kort": "ihale",
+  "anlamlar": [
+   {"tr": "ihale", "kalip": [["een aanbesteding uitschrijven", "ihaleye çıkmak"]], "voorbeelden": [["De gemeente schrijft een aanbesteding uit.", "Belediye bir ihaleye çıkıyor."]]}
+  ]},
+ "ambacht": {"lid": "het", "mv": "ambachten", "niveau": "C1", "kort": "zanaat",
+  "anlamlar": [
+   {"tr": "zanaat, el sanatı", "voorbeelden": [["Orgeldraaien is een oud ambacht.", "Latarna çalmak eski bir zanaat."], ["Het is, kortom, een ambacht.", "Kısacası bu bir zanaat."]]}
+  ]},
+ "applicatielandschap": {"lid": "het", "niveau": "C1", "kort": "uygulama envanteri / yapısı (BT)",
+  "anlamlar": [
+   {"tr": "bir kurumdaki tüm uygulamaların bütünü (BT)", "voorbeelden": [["De app staat in het applicatielandschap.", "Uygulama envanterde kayıtlı."]]}
+  ]},
+ "bajes": {"lid": "de", "niveau": "C1", "kort": "kodes, hapishane (argo)", "not": "Resmî karşılığı: de gevangenis.",
+  "anlamlar": [
+   {"tr": "kodes, hapishane (argo)", "voorbeelden": [["Hij zat twee jaar in de bajes.", "İki yıl hapis yattı."]]}
+  ]},
+ "beeldmerk": {"lid": "het", "mv": "beeldmerken", "niveau": "C1", "kort": "logo, simge",
+  "anlamlar": [
+   {"tr": "logo, simge (görsel marka işareti)", "voorbeelden": [["Het nieuwe beeldmerk is klaar.", "Yeni logo hazır."]]}
+  ]},
+ "beoordelaar": {"lid": "de", "mv": "beoordelaars", "niveau": "C1", "kort": "değerlendiren kişi, sınav değerlendiricisi",
+  "anlamlar": [
+   {"tr": "değerlendiren kişi, sınav değerlendiricisi", "voorbeelden": [["Gebruik het plaatje in je antwoord - dat verwacht de beoordelaar.", "Cevabında resmi kullan; değerlendirici bunu bekliyor."]]}
+  ]},
+ "betalingsverplichting": {"lid": "de", "mv": "betalingsverplichtingen", "niveau": "C1", "kort": "ödeme yükümlülüğü",
+  "anlamlar": [
+   {"tr": "ödeme yükümlülüğü", "voorbeelden": [["Je hebt geen betalingsverplichting.", "Ödeme yükümlülüğün yok."]]}
+  ]},
+ "bevoorrading": {"lid": "de", "niveau": "C1", "kort": "mal ikmali, tedarik",
+  "anlamlar": [
+   {"tr": "mal ikmali, tedarik (dükkânlara)", "voorbeelden": [["De bevoorrading komt weer op gang.", "Tedarik yeniden başlıyor."]]}
+  ]},
+ "bezettingsgraad": {"lid": "de", "niveau": "C1", "kort": "doluluk oranı",
+  "anlamlar": [
+   {"tr": "doluluk / kapasite kullanım oranı", "voorbeelden": [["De bezettingsgraad is dit jaar hoog.", "Bu yıl doluluk oranı yüksek."]]}
+  ]},
+ "concessie": {"lid": "de", "mv": "concessies", "niveau": "C1", "kort": "işletme hakkı, imtiyaz; taviz",
+  "anlamlar": [
+   {"tr": "işletme hakkı, imtiyaz (ör. toplu taşıma hattı)", "voorbeelden": [["Het bedrijf heeft de concessie voor tien jaar gekregen.", "Şirket işletme hakkını on yıllığına aldı."]]},
+   {"tr": "taviz", "kalip": [["concessies doen", "taviz vermek"]]}
+  ]},
+ "dienststaat": {"lid": "de", "niveau": "C1", "kort": "görev çizelgesi",
+  "anlamlar": [
+   {"tr": "görev çizelgesi (ulaşım şirketinde)", "voorbeelden": [["De dienststaat laat zien wie wanneer werkt.", "Görev çizelgesi kimin ne zaman çalıştığını gösterir."]]}
+  ]},
+ "embargo": {"lid": "het", "mv": "embargo's", "niveau": "C1", "kort": "ambargo; yayın yasağı",
+  "anlamlar": [
+   {"tr": "ambargo", "kalip": [["een handelsembargo", "ticaret ambargosu"]]},
+   {"tr": "yayın yasağı (belirli tarihe kadar)", "voorbeelden": [["Het nieuws staat onder embargo tot maandag.", "Haber pazartesiye kadar yayın yasağında."]]}
+  ]},
+ "erfgoed": {"lid": "het", "niveau": "C1", "kort": "miras (kültürel)",
+  "anlamlar": [
+   {"tr": "(kültürel) miras", "voorbeelden": [["Molens zijn Nederlands erfgoed.", "Değirmenler Hollanda'nın kültürel mirasıdır."], ["In Vught werd vandaag een stuk erfgoed letterlijk van zijn plek gehaald.", "Vught'ta bugün bir parça miras kelimenin tam anlamıyla yerinden kaldırıldı."]]}
+  ]},
+ "gastheer": {"lid": "de", "mv": "gastheren", "niveau": "C1", "kort": "ev sahibi; (biyoloji) konakçı",
+  "anlamlar": [
+   {"tr": "ev sahibi (misafir ağırlayan)", "kalip": [["gastvrouw", "ev sahibesi"]]},
+   {"tr": "(biyoloji) konakçı", "voorbeelden": [["De vis was de gastheer van de luis.", "Balık bitin konakçısıydı."]]}
+  ]},
+ "gemis": {"lid": "het", "niveau": "C1", "kort": "yokluk, eksiklik hissi",
+  "anlamlar": [
+   {"tr": "yokluk, eksiklik hissi (birini/bir şeyi özlemek)", "voorbeelden": [["Het gemis is groot.", "Yokluğu çok hissediliyor."]]}
+  ]},
+ "ijkpunt": {"lid": "het", "mv": "ijkpunten", "niveau": "C1", "kort": "referans noktası",
+  "anlamlar": [
+   {"tr": "referans / karşılaştırma noktası", "voorbeelden": [["Dit jaar is ons ijkpunt.", "Bu yıl bizim referans noktamız."]]}
+  ]},
+ "omloop": {"lid": "de", "mv": "omlopen", "niveau": "C1", "kort": "(araç) tur, görev turu; dolaşım",
+  "anlamlar": [
+   {"tr": "(ulaşımda) bir aracın günlük görev turu", "voorbeelden": [["Deze bus rijdt vandaag drie omlopen.", "Bu otobüs bugün üç tur yapıyor."]]},
+   {"tr": "dolaşım (para, bilgi)", "kalip": [["in omloop", "dolaşımda"]]}
+  ]},
+ "ophef": {"lid": "de", "niveau": "C1", "kort": "velvele, yaygara",
+  "anlamlar": [
+   {"tr": "velvele, yaygara, tartışma", "kalip": [["ophef veroorzaken", "velvele koparmak"]], "voorbeelden": [["Er was veel ophef over het nieuws.", "Haber hakkında çok velvele koptu."]]}
+  ]},
+ "optiek": {"lid": "de", "niveau": "C1", "kort": "bakış açısı; optik",
+  "anlamlar": [
+   {"tr": "bakış açısı", "kalip": [["in mijn optiek", "bana göre"]], "voorbeelden": [["In zijn optiek is het goed.", "Ona göre iyi."]]}
+  ]},
+ "overeenstemming": {"lid": "de", "niveau": "C1", "kort": "mutabakat, uzlaşı",
+  "anlamlar": [
+   {"tr": "mutabakat, uzlaşı", "kalip": [["overeenstemming bereiken", "uzlaşmaya varmak"]], "voorbeelden": [["Daar moet wel overeenstemming over zijn.", "Bu konuda mutabakat olması lazım."]]}
+  ]},
+ "randvoorwaarden": {"lid": "de (mv)", "niveau": "C1", "kort": "ön koşullar, temel şartlar",
+  "anlamlar": [
+   {"tr": "ön koşullar, temel şartlar", "voorbeelden": [["Wat zijn de randvoorwaarden?", "Ön koşullar neler?"]]}
+  ]},
+ "schoning": {"lid": "de", "niveau": "C1", "kort": "temizleme, ayıklama (veri)",
+  "anlamlar": [
+   {"tr": "temizleme, ayıklama (veri, kayıt)", "kalip": [["schonen", "temizlemek, ayıklamak"]], "voorbeelden": [["Na de schoning blijven er duizend rijen over.", "Ayıklamadan sonra bin satır kalıyor."]]}
+  ]},
+ "smoelenwand": {"lid": "de", "niveau": "C1", "kort": "çalışan fotoğrafları panosu (şaka yollu)",
+  "anlamlar": [
+   {"tr": "çalışanların fotoğraflarının olduğu pano / sayfa (smoel = surat, argo)", "voorbeelden": [["Iedereen komt op de smoelenwand.", "Herkes fotoğraf panosuna giriyor."]]}
+  ]},
+ "speelveld": {"lid": "het", "mv": "speelvelden", "niveau": "C1", "kort": "oyun sahası; faaliyet alanı",
+  "anlamlar": [
+   {"tr": "oyun sahası", "kalip": [["een gelijk speelveld", "eşit rekabet koşulları"]]},
+   {"tr": "faaliyet alanı, piyasa", "voorbeelden": [["Het speelveld verandert snel.", "Faaliyet alanı hızla değişiyor."]]}
+  ]},
+ "stelsel": {"lid": "het", "mv": "stelsels", "niveau": "C1", "kort": "sistem (resmî düzen)",
+  "anlamlar": [
+   {"tr": "sistem (resmî düzen)", "kalip": [["pensioenstelsel", "emeklilik sistemi"], ["zorgstelsel", "sağlık sistemi"]], "voorbeelden": [["Het nieuwe pensioenstelsel begint in januari.", "Yeni emeklilik sistemi ocakta başlıyor."]]}
+  ]},
+ "taai": {"niveau": "C1", "kort": "sert ve esnek, lastik gibi; dayanıklı",
+  "anlamlar": [
+   {"tr": "sert ve esnek, lastik gibi (hamur, et)", "voorbeelden": [["Het deeg voelt taai aan.", "Hamur lastik gibi geliyor."]]},
+   {"tr": "dayanıklı, yılmaz (kişi)", "kalip": [["een taaie", "yılmaz biri"]]}
+  ]},
+ "totstandkoming": {"lid": "de", "niveau": "C1", "kort": "oluşturulma, meydana getirilme",
+  "anlamlar": [
+   {"tr": "oluşturulma, meydana getirilme (yasa, anlaşma)", "kalip": [["tot stand komen", "meydana gelmek"]], "voorbeelden": [["Hij werkte mee aan de totstandkoming van de wet.", "Yasanın oluşturulmasında görev aldı."]]}
+  ]},
+ "vermenging": {"lid": "de", "niveau": "C1", "kort": "karışma, karışım",
+  "anlamlar": [
+   {"tr": "karışma, karışım", "voorbeelden": [["Er is een vermenging, waardoor ik verward ben.", "Bir karışma var, o yüzden kafam karışık."]]}
+  ]}
 }

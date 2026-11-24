@@ -2,42 +2,35 @@
  "zijn": {"vormen": "ik ben, jij bent, hij is, wij zijn · was / waren · is geweest", "niveau": "A0", "kort": "olmak; (yardımcı fiil) -miş olmak",
   "anlamlar": [
    {"tr": "olmak (-dir, -dır)", "voorbeelden": [["Ik ben blij.", "Mutluyum."], ["Iets te drinken zou fijn zijn.", "İçecek bir şey iyi olurdu."]]},
-   {"tr": "bulunmak, var olmak", "not": "er is / er zijn = var", "kalip": [["Er is een probleem.", "Bir sorun var."]],
-    "voorbeelden": [["Zijn er dingen die je niet eet?", "Yemediğin şeyler var mı?"]]},
+   {"tr": "bulunmak, var olmak", "not": "er is / er zijn = var", "kalip": [["Er is een probleem.", "Bir sorun var."]], "voorbeelden": [["Zijn er dingen die je niet eet?", "Yemediğin şeyler var mı?"]]},
    {"tr": "yardımcı fiil (perfectum)", "not": "yer değiştirme ve durum değişikliği bildiren fiillerle", "kalip": [["Ik ben gekomen.", "Geldim."]]}
   ]},
- "hebben": {"vormen": "ik heb, jij hebt, hij heeft · had / hadden · heeft gehad", "niveau": "A0", "kort": "sahip olmak, …-si olmak; (yardımcı fiil)",
+ "hebben": {"vormen": "ik heb, jij hebt, hij heeft · had / hadden · heeft gehad", "niveau": "A0", "kort": "sahip olmak, …-si olmak; (yardımcı fiil)", "kaliplar": [["Ach, dat had niet gehoeven!", "Aa, hiç gerek yoktu! (hediye alırken)"], ["zin hebben in", "canı istemek"]],
   "anlamlar": [
    {"tr": "sahip olmak, …-si var", "voorbeelden": [["Ik heb een kat.", "Bir kedim var."]]},
-   {"tr": "yardımcı fiil (perfectum)", "not": "çoğu fiilin geçmişi hebben ile kurulur", "kalip": [["Ik heb gegeten.", "Yemek yedim."]],
-    "voorbeelden": [["Dat hadden we afgesproken.", "Bunu kararlaştırmıştık."]]}
-  ],
-  "kaliplar": [["Ach, dat had niet gehoeven!", "Aa, hiç gerek yoktu! (hediye alırken)"], ["zin hebben in", "canı istemek"]]},
- "gaan": {"vormen": "ging / gingen · is gegaan", "niveau": "A0", "kort": "gitmek; (gelecek) -ecek",
+   {"tr": "yardımcı fiil (perfectum)", "not": "çoğu fiilin geçmişi hebben ile kurulur", "kalip": [["Ik heb gegeten.", "Yemek yedim."]], "voorbeelden": [["Dat hadden we afgesproken.", "Bunu kararlaştırmıştık."]]}
+  ]},
+ "gaan": {"vormen": "ging / gingen · is gegaan", "niveau": "A0", "kort": "gitmek; (gelecek) -ecek", "kaliplar": [["gaan over", "hakkında olmak"]],
   "anlamlar": [
    {"tr": "gitmek", "voorbeelden": [["Ik ga naar huis.", "Eve gidiyorum."], ["Zullen we naar buiten gaan?", "Dışarı çıkalım mı?"]]},
    {"tr": "-ecek, -acak (yakın gelecek)", "kalip": [["Ik ga koken.", "Yemek yapacağım."]]},
    {"tr": "(bir şey) gitmek, olmak", "kalip": [["Hoe gaat het?", "Nasılsın? / Nasıl gidiyor?"], ["Het gaat goed.", "İyi gidiyor."]]}
-  ],
-  "kaliplar": [["gaan over", "hakkında olmak"]]},
- "komen": {"vormen": "kwam / kwamen · is gekomen", "niveau": "A0", "kort": "gelmek",
+  ]},
+ "komen": {"vormen": "kwam / kwamen · is gekomen", "niveau": "A0", "kort": "gelmek", "kaliplar": [["Hoe kom je erbij?", "Bunu da nereden çıkardın?"], ["erbij komen kijken", "(bir işin) içinde olmak, gerektirmek"]],
   "anlamlar": [
    {"tr": "gelmek", "voorbeelden": [["Kom je ook?", "Sen de geliyor musun?"], ["Je hoeft niet te komen.", "Gelmen gerekmiyor."]]},
    {"tr": "(bir yere) girmek, sıkışmak", "voorbeelden": [["Zijn vinger is tussen de deur gekomen en hij heeft veel pijn.", "Parmağı kapıya sıkıştı ve çok acıyor."]]}
-  ],
-  "kaliplar": [["Hoe kom je erbij?", "Bunu da nereden çıkardın?"], ["erbij komen kijken", "(bir işin) içinde olmak, gerektirmek"]]},
- "doen": {"vormen": "deed / deden · heeft gedaan", "niveau": "A0", "kort": "yapmak, etmek",
+  ]},
+ "doen": {"vormen": "deed / deden · heeft gedaan", "niveau": "A0", "kort": "yapmak, etmek", "kaliplar": [["Doe maar.", "Olur, yap. / Buyur."], ["Het doet pijn.", "Acıyor."]],
   "anlamlar": [
    {"tr": "yapmak, etmek", "voorbeelden": [["Zullen we iets leuks doen?", "Güzel bir şey yapalım mı?"], ["Ja, laten we dat doen.", "Evet, onu yapalım."]]},
    {"tr": "koymak", "not": "konuşma dilinde", "kalip": [["Doe het in de tas.", "Onu çantaya koy."], ["de deur dichtdoen", "kapıyı kapatmak"]]}
-  ],
-  "kaliplar": [["Doe maar.", "Olur, yap. / Buyur."], ["Het doet pijn.", "Acıyor."]]},
- "zien": {"vormen": "zag / zagen · heeft gezien", "niveau": "A0", "kort": "görmek",
+  ]},
+ "zien": {"vormen": "zag / zagen · heeft gezien", "niveau": "A0", "kort": "görmek", "kaliplar": [["Tot ziens!", "Görüşmek üzere!"], ["er moe uitzien", "yorgun görünmek"]],
   "anlamlar": [
    {"tr": "görmek", "voorbeelden": [["Ik zie een vogel.", "Bir kuş görüyorum."], ["Wat kun je zien in Rotterdam?", "Rotterdam'da neler görebilirsin?"]]},
    {"tr": "göstermek (laten zien)", "kalip": [["laten zien", "göstermek"]], "voorbeelden": [["Zal ik het huis laten zien?", "Evi göstereyim mi?"]]}
-  ],
-  "kaliplar": [["Tot ziens!", "Görüşmek üzere!"], ["er moe uitzien", "yorgun görünmek"]]},
+  ]},
  "eten": {"vormen": "at / aten · heeft gegeten", "niveau": "A0", "kort": "yemek (fiil); yemek (isim: het eten)",
   "anlamlar": [
    {"tr": "yemek (fiil)", "voorbeelden": [["We eten pasta.", "Makarna yiyoruz."], ["Zullen we snel wat eten?", "Hızlıca bir şey yiyelim mi?"]]},
@@ -45,60 +38,48 @@
   ]},
  "drinken": {"vormen": "dronk / dronken · heeft gedronken", "niveau": "A0", "kort": "içmek",
   "anlamlar": [
-   {"tr": "içmek", "kalip": [["iets gaan drinken", "bir şeyler içmeye gitmek"]],
-    "voorbeelden": [["Wil je iets drinken?", "Bir şey içmek ister misin?"], ["Wat wil je drinken: koffie, thee of fris?", "Ne içmek istersin: kahve, çay ya da soğuk içecek?"]]}
+   {"tr": "içmek", "kalip": [["iets gaan drinken", "bir şeyler içmeye gitmek"]], "voorbeelden": [["Wil je iets drinken?", "Bir şey içmek ister misin?"], ["Wat wil je drinken: koffie, thee of fris?", "Ne içmek istersin: kahve, çay ya da soğuk içecek?"]]}
   ]},
  "lezen": {"vormen": "las / lazen · heeft gelezen", "niveau": "A0", "kort": "okumak",
   "anlamlar": [
-   {"tr": "okumak", "kalip": [["nalezen", "(tekrar) okuyup kontrol etmek"], ["voorlezen", "sesli okumak"]],
-    "voorbeelden": [["Ik lees een boek.", "Kitap okuyorum."], ["U moet het etiket goed lezen zodat u weet wat belangrijk is.", "Neyin önemli olduğunu bilmek için etiketi dikkatle okumalısınız."]]}
+   {"tr": "okumak", "kalip": [["nalezen", "(tekrar) okuyup kontrol etmek"], ["voorlezen", "sesli okumak"]], "voorbeelden": [["Ik lees een boek.", "Kitap okuyorum."], ["U moet het etiket goed lezen zodat u weet wat belangrijk is.", "Neyin önemli olduğunu bilmek için etiketi dikkatle okumalısınız."]]}
   ]},
  "schrijven": {"vormen": "schreef / schreven · heeft geschreven", "niveau": "A1", "kort": "yazmak",
   "anlamlar": [
-   {"tr": "yazmak", "kalip": [["een brief schrijven aan", "…-e mektup yazmak"]],
-    "voorbeelden": [["Ik schrijf mijn naam.", "Adımı yazıyorum."], ["U moet een sollicitatiebrief schrijven.", "Bir iş başvuru mektubu yazmanız gerekiyor."]]}
+   {"tr": "yazmak", "kalip": [["een brief schrijven aan", "…-e mektup yazmak"]], "voorbeelden": [["Ik schrijf mijn naam.", "Adımı yazıyorum."], ["U moet een sollicitatiebrief schrijven.", "Bir iş başvuru mektubu yazmanız gerekiyor."]]}
   ]},
- "spreken": {"vormen": "sprak / spraken · heeft gesproken", "niveau": "A1", "kort": "konuşmak (bir dili); görüşmek",
-  "not": "praten günlük sohbet içindir; spreken bir dili konuşmak ve resmî görüşme için kullanılır.",
+ "spreken": {"vormen": "sprak / spraken · heeft gesproken", "niveau": "A1", "kort": "konuşmak (bir dili); görüşmek", "not": "praten günlük sohbet içindir; spreken bir dili konuşmak ve resmî görüşme için kullanılır.",
   "anlamlar": [
    {"tr": "(bir dili) konuşmak", "voorbeelden": [["Ook in België spreken mensen Nederlands.", "Belçika'da da insanlar Hollandaca konuşuyor."]]},
    {"tr": "görüşmek, konuşmak (resmî)", "kalip": [["Mag ik meneer De Vries spreken?", "Bay De Vries ile görüşebilir miyim?"]]}
   ]},
- "zeggen": {"vormen": "zei / zeiden · heeft gezegd", "niveau": "A1", "kort": "söylemek, demek",
+ "zeggen": {"vormen": "zei / zeiden · heeft gezegd", "niveau": "A1", "kort": "söylemek, demek", "kaliplar": [["Wat zegt dat woord?", "O kelime ne demek?"], ["dat wil zeggen (d.w.z.)", "yani"]],
   "anlamlar": [
    {"tr": "söylemek, demek", "voorbeelden": [["Wat zeg je?", "Ne diyorsun?"], ["Bij een sollicitatiegesprek moet je zeggen waarom je de baan wilt hebben.", "İş görüşmesinde o işi neden istediğini söylemelisin."]]}
-  ],
-  "kaliplar": [["Wat zegt dat woord?", "O kelime ne demek?"], ["dat wil zeggen (d.w.z.)", "yani"]]},
- "geven": {"vormen": "gaf / gaven · heeft gegeven", "niveau": "A1", "kort": "vermek",
+  ]},
+ "geven": {"vormen": "gaf / gaven · heeft gegeven", "niveau": "A1", "kort": "vermek", "kaliplar": [["Het geeft niet.", "Önemli değil."]],
   "anlamlar": [
    {"tr": "vermek", "voorbeelden": [["Geef mij de bal.", "Topu bana ver."]]},
-   {"tr": "bildirmek (doorgeven, aangeven)", "kalip": [["doorgeven", "(bilgiyi) iletmek, bildirmek"], ["aangeven", "(resmî olarak) bildirmek"]],
-    "voorbeelden": [["Jan en Marie gaan naar de gemeente om aan te geven dat ze getrouwd zijn.", "Jan ve Marie evlendiklerini bildirmek için belediyeye gidiyor."]]}
-  ],
-  "kaliplar": [["Het geeft niet.", "Önemli değil."]]},
- "nemen": {"vormen": "nam / namen · heeft genomen", "niveau": "A1", "kort": "almak",
+   {"tr": "bildirmek (doorgeven, aangeven)", "kalip": [["doorgeven", "(bilgiyi) iletmek, bildirmek"], ["aangeven", "(resmî olarak) bildirmek"]], "voorbeelden": [["Jan en Marie gaan naar de gemeente om aan te geven dat ze getrouwd zijn.", "Jan ve Marie evlendiklerini bildirmek için belediyeye gidiyor."]]}
+  ]},
+ "nemen": {"vormen": "nam / namen · heeft genomen", "niveau": "A1", "kort": "almak", "kaliplar": [["een foto nemen", "fotoğraf çekmek"], ["contact opnemen met", "ile iletişime geçmek"]],
   "anlamlar": [
    {"tr": "almak", "voorbeelden": [["Neem een koekje.", "Bir kurabiye al."], ["Laten we even pauze nemen.", "Biraz mola verelim."]]},
    {"tr": "(ulaşım aracına) binmek", "kalip": [["de bus nemen", "otobüse binmek"]]}
-  ],
-  "kaliplar": [["een foto nemen", "fotoğraf çekmek"], ["contact opnemen met", "ile iletişime geçmek"]]},
- "krijgen": {"vormen": "kreeg / kregen · heeft gekregen", "niveau": "A1", "kort": "almak (verileni), edinmek",
-  "not": "krijgen: biri sana verir (bir hediye, bir mektup alırsın). nemen: kendin alırsın.",
+  ]},
+ "krijgen": {"vormen": "kreeg / kregen · heeft gekregen", "niveau": "A1", "kort": "almak (verileni), edinmek", "not": "krijgen: biri sana verir (bir hediye, bir mektup alırsın). nemen: kendin alırsın.",
   "anlamlar": [
-   {"tr": "almak (verilen bir şeyi), edinmek", "voorbeelden": [["Ze krijgen informatie van de directeur van de school over het basisonderwijs.", "Okul müdüründen ilkokul eğitimi hakkında bilgi alıyorlar."],
-     ["Waar krijgen baby’s vaccinaties?", "Bebekler aşılarını nerede oluyor?"]]},
+   {"tr": "almak (verilen bir şeyi), edinmek", "voorbeelden": [["Ze krijgen informatie van de directeur van de school over het basisonderwijs.", "Okul müdüründen ilkokul eğitimi hakkında bilgi alıyorlar."], ["Waar krijgen baby’s vaccinaties?", "Bebekler aşılarını nerede oluyor?"]]},
    {"tr": "(bir duruma) girmek, yakalanmak", "kalip": [["griep krijgen", "gribe yakalanmak"], ["een baby krijgen", "bebeği olmak"]]}
   ]},
  "rijden": {"vormen": "reed / reden · heeft/is gereden", "niveau": "A1", "kort": "(araç) sürmek; (araçla) gitmek",
   "anlamlar": [
    {"tr": "(araçla) gitmek, gitmek (araç)", "voorbeelden": [["Er mogen auto’s op de straat rijden.", "Sokakta arabalar gidebilir."]]},
-   {"tr": "(araç) sürmek, kullanmak", "kalip": [["autorijden", "araba kullanmak"], ["fietsen / op de fiets rijden", "bisiklete binmek"]],
-    "voorbeelden": [["Belasting die je betaalt voor het rijden van een auto.", "Araba kullanmak için ödediğin vergi."]]}
+   {"tr": "(araç) sürmek, kullanmak", "kalip": [["autorijden", "araba kullanmak"], ["fietsen / op de fiets rijden", "bisiklete binmek"]], "voorbeelden": [["Belasting die je betaalt voor het rijden van een auto.", "Araba kullanmak için ödediğin vergi."]]}
   ]},
  "vliegen": {"vormen": "vloog / vlogen · heeft/is gevlogen", "niveau": "A2", "kort": "uçmak",
   "anlamlar": [
-   {"tr": "uçmak", "voorbeelden": [["Een voetbal vloog door het open raam naar binnen.", "Bir futbol topu açık pencereden içeri uçtu."],
-     ["Het vliegtuig is snel en vliegen naar Marokko is niet duur.", "Uçak hızlı ve Fas'a uçmak pahalı değil."]]}
+   {"tr": "uçmak", "voorbeelden": [["Een voetbal vloog door het open raam naar binnen.", "Bir futbol topu açık pencereden içeri uçtu."], ["Het vliegtuig is snel en vliegen naar Marokko is niet duur.", "Uçak hızlı ve Fas'a uçmak pahalı değil."]]}
   ]},
  "zwemmen": {"vormen": "zwom / zwommen · heeft/is gezwommen", "niveau": "A1", "kort": "yüzmek",
   "anlamlar": [
@@ -113,8 +94,7 @@
   "anlamlar": [
    {"tr": "tırmanmak", "voorbeelden": [["De kat klimt in de boom.", "Kedi ağaca tırmanıyor."]]}
   ]},
- "varen": {"vormen": "voer / voeren · heeft/is gevaren", "niveau": "A2", "kort": "(gemi, tekne) gitmek; gemiyle gitmek",
-  "not": "Geçmiş zaman voer/voeren, voeren (beslemek) fiiliyle karıştırılmamalı.",
+ "varen": {"vormen": "voer / voeren · heeft/is gevaren", "niveau": "A2", "kort": "(gemi, tekne) gitmek; gemiyle gitmek", "not": "Geçmiş zaman voer/voeren, voeren (beslemek) fiiliyle karıştırılmamalı.",
   "anlamlar": [
    {"tr": "(gemi, tekne) gitmek; gemiyle/tekneyle gitmek", "voorbeelden": [["De boot vaart naar Texel.", "Tekne Texel'e gidiyor."], ["We hebben door de grachten gevaren.", "Kanallarda tekneyle gezdik."]]}
   ]},
@@ -123,12 +103,10 @@
    {"tr": "emeklemek", "not": "bebek", "voorbeelden": [["De baby kan al kruipen.", "Bebek artık emekleyebiliyor."]]},
    {"tr": "sürünmek", "voorbeelden": [["De slang kruipt over het zand.", "Yılan kumun üzerinde sürünüyor."]]}
   ]},
- "vallen": {"vormen": "viel / vielen · is gevallen", "niveau": "A1", "kort": "düşmek",
+ "vallen": {"vormen": "viel / vielen · is gevallen", "niveau": "A1", "kort": "düşmek", "kaliplar": [["Het kwartje valt.", "Jeton düşüyor (sonunda anlıyor)."], ["meevallen", "beklenenden iyi çıkmak"], ["tegenvallen", "hayal kırıklığı yaratmak"]],
   "anlamlar": [
-   {"tr": "düşmek", "kalip": [["laten vallen", "düşürmek"]],
-    "voorbeelden": [["Je kind is in het weekend gevallen, misschien is zijn arm gebroken.", "Çocuğun hafta sonu düştü, belki kolu kırıldı."], ["Ik heb mijn telefoon laten vallen.", "Telefonumu düşürdüm."]]}
-  ],
-  "kaliplar": [["Het kwartje valt.", "Jeton düşüyor (sonunda anlıyor)."], ["meevallen", "beklenenden iyi çıkmak"], ["tegenvallen", "hayal kırıklığı yaratmak"]]},
+   {"tr": "düşmek", "kalip": [["laten vallen", "düşürmek"]], "voorbeelden": [["Je kind is in het weekend gevallen, misschien is zijn arm gebroken.", "Çocuğun hafta sonu düştü, belki kolu kırıldı."], ["Ik heb mijn telefoon laten vallen.", "Telefonumu düşürdüm."]]}
+  ]},
  "blijven": {"vormen": "bleef / bleven · is gebleven", "niveau": "A1", "kort": "kalmak; (…-meye) devam etmek",
   "anlamlar": [
    {"tr": "kalmak", "voorbeelden": [["Daar moet u zeker drie dagen blijven.", "Orada en az üç gün kalmanız gerekiyor."]]},
@@ -137,66 +115,53 @@
  "worden": {"vormen": "werd / werden · is geworden", "niveau": "A2", "kort": "olmak (dönüşmek); edilgen yardımcı fiil",
   "anlamlar": [
    {"tr": "olmak (bir duruma geçmek)", "voorbeelden": [["Ik ben ziek geworden.", "Hastalandım."]]},
-   {"tr": "edilgen yardımcı fiil (-ılmak)", "kalip": [["Het huis wordt verkocht.", "Ev satılıyor."]],
-    "voorbeelden": [["Wie zorgt ervoor dat de wetten worden uitgevoerd?", "Yasaların uygulanmasını kim sağlar?"]]}
+   {"tr": "edilgen yardımcı fiil (-ılmak)", "kalip": [["Het huis wordt verkocht.", "Ev satılıyor."]], "voorbeelden": [["Wie zorgt ervoor dat de wetten worden uitgevoerd?", "Yasaların uygulanmasını kim sağlar?"]]}
   ]},
- "sterven": {"vormen": "stierf / stierven · is gestorven", "niveau": "B1", "kort": "ölmek",
-  "not": "Resmî dilde ve haberlerde overlijden daha sık.",
+ "sterven": {"vormen": "stierf / stierven · is gestorven", "niveau": "B1", "kort": "ölmek", "not": "Resmî dilde ve haberlerde overlijden daha sık.",
   "anlamlar": [
    {"tr": "ölmek", "voorbeelden": [["Zijn opa is vorig jaar gestorven.", "Dedesi geçen yıl öldü."]]}
   ]},
  "beginnen": {"vormen": "begon / begonnen · is begonnen", "niveau": "A1", "kort": "başlamak",
   "anlamlar": [
-   {"tr": "başlamak", "kalip": [["beginnen met", "…-e başlamak"]],
-    "voorbeelden": [["De les begint om negen uur.", "Ders dokuzda başlıyor."], ["Het plan is om morgen te beginnen.", "Plan yarın başlamak."]]}
+   {"tr": "başlamak", "kalip": [["beginnen met", "…-e başlamak"]], "voorbeelden": [["De les begint om negen uur.", "Ders dokuzda başlıyor."], ["Het plan is om morgen te beginnen.", "Plan yarın başlamak."]]}
   ]},
  "stijgen": {"vormen": "steeg / stegen · is gestegen", "niveau": "B1", "kort": "yükselmek, artmak",
   "anlamlar": [
-   {"tr": "(fiyat, sayı) artmak, yükselmek", "voorbeelden": [["Het stroomgebruik is juist iets gestegen.", "Elektrik kullanımı ise biraz arttı."]]},
+   {"tr": "(fiyat, sayı) artmak, yükselmek", "voorbeelden": [["Het stroomgebruik is juist iets gestegen.", "Elektrik kullanımı ise biraz arttı."], ["“Deze stoffen kunnen, aan de lucht blootgesteld, zonder toevoer van energie in temperatuur stijgen en tenslotte ontbranden.” Wat betekent dat?", "“Bu maddeler havaya maruz kaldığında, enerji verilmeden ısınabilir ve sonunda tutuşabilir.” Bu ne demek?"]]},
    {"tr": "(uçak) havalanmak, yükselmek", "voorbeelden": [["Het vliegtuig stijgt op.", "Uçak havalanıyor."]]}
   ]},
  "schrikken": {"vormen": "schrok / schrokken · is geschrokken", "niveau": "B1", "kort": "irkilmek, korkmak",
   "anlamlar": [
-   {"tr": "irkilmek, korkmak (birden)", "kalip": [["iemand laten schrikken", "birini korkutmak"]],
-    "voorbeelden": [["Je laat me schrikken!", "Beni korkuttun!"], ["Ik schrok me rot!", "Ödüm koptu!"]]}
+   {"tr": "irkilmek, korkmak (birden)", "kalip": [["iemand laten schrikken", "birini korkutmak"]], "voorbeelden": [["Je laat me schrikken!", "Beni korkuttun!"], ["Ik schrok me rot!", "Ödüm koptu!"]]}
   ]},
  "verdwijnen": {"vormen": "verdween / verdwenen · is verdwenen", "niveau": "B1", "kort": "kaybolmak, yok olmak",
   "anlamlar": [
-   {"tr": "kaybolmak, yok olmak", "voorbeelden": [["Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was.", "İki yıl önce işi ortadan kalkınca çalışma hayatının bittiğini düşündü."],
-     ["En hoewel we steeds vaker digitaal afrekenen, is het bankbiljet nog lang niet verdwenen.", "Giderek daha sık dijital ödesek de banknot daha uzun süre ortadan kalkmayacak."]]}
+   {"tr": "kaybolmak, yok olmak", "voorbeelden": [["Toen haar baan twee jaar geleden verdween, dacht ze dat haar werkende leven voorbij was.", "İki yıl önce işi ortadan kalkınca çalışma hayatının bittiğini düşündü."], ["En hoewel we steeds vaker digitaal afrekenen, is het bankbiljet nog lang niet verdwenen.", "Giderek daha sık dijital ödesek de banknot daha uzun süre ortadan kalkmayacak."]]}
   ]},
  "vergeten": {"vormen": "vergat / vergaten · heeft/is vergeten", "niveau": "A2", "kort": "unutmak",
   "anlamlar": [
-   {"tr": "unutmak", "not": "bir şeyi bir yerde unutmak: zijn ile (Ik ben de taart vergeten)",
-    "voorbeelden": [["Ik ben de taart helaas thuis vergeten.", "Pastayı maalesef evde unuttum."], ["Wat mag u niet vergeten als u naar het ziekenhuis gaat?", "Hastaneye giderken neyi unutmamalısınız?"]]}
+   {"tr": "unutmak", "not": "bir şeyi bir yerde unutmak: zijn ile (Ik ben de taart vergeten)", "voorbeelden": [["Ik ben de taart helaas thuis vergeten.", "Pastayı maalesef evde unuttum."], ["Wat mag u niet vergeten als u naar het ziekenhuis gaat?", "Hastaneye giderken neyi unutmamalısınız?"]]}
   ]},
  "kopen": {"vormen": "kocht / kochten · heeft gekocht", "niveau": "A1", "kort": "satın almak",
   "anlamlar": [
    {"tr": "satın almak", "voorbeelden": [["Ik koop een brood.", "Bir ekmek alıyorum."], ["Maar u moet wel boeken kopen.", "Ama kitap satın almanız gerekiyor."]]}
   ]},
- "verkopen": {"vormen": "verkocht / verkochten · heeft verkocht", "niveau": "A2", "kort": "satmak",
+ "verkopen": {"vormen": "verkocht / verkochten · heeft verkocht", "niveau": "A2", "kort": "satmak", "kaliplar": [["uitverkocht", "tükendi"]],
   "anlamlar": [
    {"tr": "satmak", "voorbeelden": [["Maria wil tassen gaan verkopen op de markt.", "Maria pazarda çanta satmak istiyor."], ["Sorry meneer, hier verkopen we alleen koffie.", "Kusura bakmayın beyefendi, burada sadece kahve satıyoruz."]]}
-  ],
-  "kaliplar": [["uitverkocht", "tükendi"]]},
- "brengen": {"vormen": "bracht / brachten · heeft gebracht", "niveau": "A2", "kort": "getirmek, götürmek",
-  "not": "brengen hem 'getirmek' hem 'götürmek'tir: bir şeyi bir yere taşımak.",
-  "anlamlar": [
-   {"tr": "getirmek, götürmek", "kalip": [["iemand naar school brengen", "birini okula götürmek"]],
-    "voorbeelden": [["In de Milieustraat mag u al het huishoudelijke afval brengen dat niet in de afvalbakken past.", "Çöp kutularına sığmayan bütün ev atıklarını Milieustraat'a getirebilirsiniz."],
-     ["Wat brachten de schepen van de VOC naar Nederland?", "VOC gemileri Hollanda'ya ne getirdi?"]]}
   ]},
- "denken": {"vormen": "dacht / dachten · heeft gedacht", "niveau": "A1", "kort": "düşünmek; sanmak",
+ "brengen": {"vormen": "bracht / brachten · heeft gebracht", "niveau": "A2", "kort": "getirmek, götürmek", "not": "brengen hem 'getirmek' hem 'götürmek'tir: bir şeyi bir yere taşımak.",
+  "anlamlar": [
+   {"tr": "getirmek, götürmek", "kalip": [["iemand naar school brengen", "birini okula götürmek"]], "voorbeelden": [["In de Milieustraat mag u al het huishoudelijke afval brengen dat niet in de afvalbakken past.", "Çöp kutularına sığmayan bütün ev atıklarını Milieustraat'a getirebilirsiniz."], ["Wat brachten de schepen van de VOC naar Nederland?", "VOC gemileri Hollanda'ya ne getirdi?"]]}
+  ]},
+ "denken": {"vormen": "dacht / dachten · heeft gedacht", "niveau": "A1", "kort": "düşünmek; sanmak", "kaliplar": [["Wat dacht je van …?", "… ne dersin?"]],
   "anlamlar": [
    {"tr": "düşünmek, sanmak", "voorbeelden": [["Ik denk dat het regent.", "Sanırım yağmur yağıyor."], ["Ze zeggen eerlijk wat ze denken.", "Ne düşündüklerini dürüstçe söylüyorlar."]]},
-   {"tr": "(birini/bir şeyi) düşünmek; unutmamak", "kalip": [["denken aan", "düşünmek; unutmamak"], ["nadenken over", "üzerine düşünmek"]],
-    "voorbeelden": [["Alleen aan zichzelf denken.", "Sadece kendini düşünmek."]]}
-  ],
-  "kaliplar": [["Wat dacht je van …?", "… ne dersin?"]]},
+   {"tr": "(birini/bir şeyi) düşünmek; unutmamak", "kalip": [["denken aan", "düşünmek; unutmamak"], ["nadenken over", "üzerine düşünmek"]], "voorbeelden": [["Alleen aan zichzelf denken.", "Sadece kendini düşünmek."]]}
+  ]},
  "zoeken": {"vormen": "zocht / zochten · heeft gezocht", "niveau": "A1", "kort": "aramak",
   "anlamlar": [
-   {"tr": "aramak", "kalip": [["zoeken naar", "aramak"], ["op zoek zijn naar", "arıyor olmak"]],
-    "voorbeelden": [["Ik zoek mijn sleutel.", "Anahtarımı arıyorum."], ["Nederlandse ouders zoeken vaak een partner voor hun kinderen.", "Hollandalı ebeveynler çoğu zaman çocuklarına eş arar."]]}
+   {"tr": "aramak", "kalip": [["zoeken naar", "aramak"], ["op zoek zijn naar", "arıyor olmak"]], "voorbeelden": [["Ik zoek mijn sleutel.", "Anahtarımı arıyorum."], ["Nederlandse ouders zoeken vaak een partner voor hun kinderen.", "Hollandalı ebeveynler çoğu zaman çocuklarına eş arar."]]}
   ]},
  "mogen": {"vormen": "ik mag · mocht / mochten · heeft gemogen", "niveau": "A1", "kort": "izinli olmak, -ebilmek (izin)",
   "anlamlar": [
@@ -212,24 +177,20 @@
  "willen": {"vormen": "ik wil · wilde, wou / wilden · heeft gewild", "niveau": "A0", "kort": "istemek",
   "anlamlar": [
    {"tr": "istemek", "voorbeelden": [["Ik wil een ijsje.", "Dondurma istiyorum."]]},
-   {"tr": "kibar rica (zou … willen)", "kalip": [["Ik zou graag … willen.", "… istiyorum (kibarca)."]],
-    "voorbeelden": [["Zou je je schoenen willen uitdoen?", "Ayakkabılarını çıkarır mısın?"]]}
+   {"tr": "kibar rica (zou … willen)", "kalip": [["Ik zou graag … willen.", "… istiyorum (kibarca)."]], "voorbeelden": [["Zou je je schoenen willen uitdoen?", "Ayakkabılarını çıkarır mısın?"]]}
   ]},
- "moeten": {"vormen": "ik moet · moest / moesten · heeft gemoeten", "niveau": "A1", "kort": "zorunda olmak, -meli",
+ "moeten": {"vormen": "ik moet · moest / moesten · heeft gemoeten", "niveau": "A1", "kort": "zorunda olmak, -meli", "kaliplar": [["Het moet wel.", "Mecburuz."], ["niet hoeven", "gerekmemek (moeten'in olumsuzu)"]],
   "anlamlar": [
    {"tr": "zorunda olmak, -meli, -malı", "voorbeelden": [["Ik moet naar huis.", "Eve gitmem lazım."], ["Daar moeten we rekening mee houden.", "Bunu hesaba katmalıyız."]]}
-  ],
-  "kaliplar": [["Het moet wel.", "Mecburuz."], ["niet hoeven", "gerekmemek (moeten'in olumsuzu)"]]},
- "weten": {"vormen": "ik weet · wist / wisten · heeft geweten", "niveau": "A1", "kort": "bilmek",
-  "not": "weten: bir bilgiyi bilmek. kennen: bir kişiyi, yeri tanımak.",
+  ]},
+ "weten": {"vormen": "ik weet · wist / wisten · heeft geweten", "niveau": "A1", "kort": "bilmek", "not": "weten: bir bilgiyi bilmek. kennen: bir kişiyi, yeri tanımak.",
   "anlamlar": [
    {"tr": "bilmek", "voorbeelden": [["Ik weet het niet.", "Bilmiyorum."]]},
    {"tr": "haber vermek (laten weten)", "kalip": [["laten weten", "haber vermek"]], "voorbeelden": [["Ik laat het je morgen weten.", "Yarın sana haber veririm."]]}
   ]},
  "slapen": {"vormen": "sliep / sliepen · heeft geslapen", "niveau": "A0", "kort": "uyumak",
   "anlamlar": [
-   {"tr": "uyumak", "kalip": [["gaan slapen", "yatmak, uyumaya gitmek"], ["blijven slapen", "geceyi (bir yerde) geçirmek"]],
-    "voorbeelden": [["De baby slaapt.", "Bebek uyuyor."], ["De baby ligt te slapen.", "Bebek uyuyor (yatıp uyuyor)."]]}
+   {"tr": "uyumak", "kalip": [["gaan slapen", "yatmak, uyumaya gitmek"], ["blijven slapen", "geceyi (bir yerde) geçirmek"]], "voorbeelden": [["De baby slaapt.", "Bebek uyuyor."], ["De baby ligt te slapen.", "Bebek uyuyor (yatıp uyuyor)."]]}
   ]},
  "roepen": {"vormen": "riep / riepen · heeft geroepen", "niveau": "A2", "kort": "seslenmek, bağırmak; çağırmak",
   "anlamlar": [
@@ -239,14 +200,12 @@
  "laten": {"vormen": "liet / lieten · heeft gelaten", "niveau": "A2", "kort": "bırakmak; yaptırmak; (laten we) -elim",
   "anlamlar": [
    {"tr": "-elim, -alım (öneri)", "kalip": [["Laten we …", "Hadi …-elim"]], "voorbeelden": [["Laten we een terrasje pakken!", "Hadi bir kafede oturalım!"], ["Ja, laten we dat doen.", "Evet, onu yapalım."]]},
-   {"tr": "yaptırmak, izin vermek", "kalip": [["laten zien", "göstermek"], ["laten weten", "haber vermek"], ["laten vallen", "düşürmek"]],
-    "voorbeelden": [["Ik heb het door een collega laten lezen.", "Bir iş arkadaşıma okuttum."]]},
+   {"tr": "yaptırmak, izin vermek", "kalip": [["laten zien", "göstermek"], ["laten weten", "haber vermek"], ["laten vallen", "düşürmek"]], "voorbeelden": [["Ik heb het door een collega laten lezen.", "Bir iş arkadaşıma okuttum."]]},
    {"tr": "bırakmak", "kalip": [["Laat maar.", "Boş ver."], ["iets thuis laten", "bir şeyi evde bırakmak"]]}
   ]},
- "houden": {"vormen": "hield / hielden · heeft gehouden", "niveau": "A2", "kort": "tutmak; (houden van) sevmek",
+ "houden": {"vormen": "hield / hielden · heeft gehouden", "niveau": "A2", "kort": "tutmak; (houden van) sevmek", "kaliplar": [["rekening houden met", "hesaba katmak"], ["zich houden aan", "uymak"]],
   "anlamlar": [
    {"tr": "tutmak", "voorbeelden": [["Kun je de deur even open houden?", "Kapıyı biraz açık tutabilir misin?"]]},
    {"tr": "sevmek (houden van)", "kalip": [["houden van", "sevmek"]], "voorbeelden": [["Ik houd niet van vliegen.", "Uçmayı sevmem."]]}
-  ],
-  "kaliplar": [["rekening houden met", "hesaba katmak"], ["zich houden aan", "uymak"]]}
+  ]}
 }
