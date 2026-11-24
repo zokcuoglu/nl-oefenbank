@@ -18,6 +18,13 @@ export const STATUS = {
 };
 export const KNOWN_AFTER = 3;
 
+// Copies of one word were merged into one entry (data/woorden.json "alias": old id -> id). Answers saved under
+// an old id still count for the word: the pages call setAlias(data.alias) after loading the pool.
+let ALIAS = {};
+export const setAlias = a => { ALIAS = a || {}; };
+// A word can come from several sources (basis + nieuws ...): filters check all of them, labels use the first
+export const hasBron = (w, b) => (w.bronnen || [w.bron]).includes(b);
+
 export function wordStatus(attempts) {
   const streak = {};
   const oldestFirst = [...attempts].sort((a, b) => (a.finished_at || "").localeCompare(b.finished_at || ""));
@@ -25,8 +32,9 @@ export function wordStatus(attempts) {
     const selfJudged = a.test === "kaarten";
     for (const x of a.answers || []) {
       if (!x.w) continue;
-      const s = streak[x.w] ?? 0;
-      streak[x.w] = !x.correct ? 0 : selfJudged ? Math.max(s, Math.min(s + 1, KNOWN_AFTER - 1)) : s + 1;
+      const id = ALIAS[x.w] || x.w;
+      const s = streak[id] ?? 0;
+      streak[id] = !x.correct ? 0 : selfJudged ? Math.max(s, Math.min(s + 1, KNOWN_AFTER - 1)) : s + 1;
     }
   }
   return streak; // id -> streak; a missing id = never asked

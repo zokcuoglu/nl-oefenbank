@@ -112,7 +112,7 @@ setTimeout(function () {
 
 <script type="module">
 import { gate, userBox, saveAttempt, loadAllAttempts, esc } from "../js/core.js";
-import { mountCards, mountMatch, wordStatus, statusOf, STATUS, STATUS_ORDER, shuffle, fmtTime as fmt } from "../js/oefen.js";
+import { mountCards, mountMatch, wordStatus, statusOf, STATUS, STATUS_ORDER, shuffle, fmtTime as fmt, setAlias, hasBron } from "../js/oefen.js";
 
 // Which school list: ?lijst=weer -> the school words (bron "school") with thema "weer" from data/woorden.json
 const LIJST = new URLSearchParams(location.search).get("lijst") || "weer";
@@ -205,7 +205,8 @@ USER = user;
 $("ub").innerHTML = userBox(user, profile);
 try {
   const data = await (await fetch("../data/woorden.json", { cache: "no-cache" })).json();
-  WORDS = data.woorden.filter(w => w.bron === "school" && w.thema === LIJST);
+  setAlias(data.alias);
+  WORDS = data.woorden.filter(w => hasBron(w, "school") && w.thema === LIJST);
 } catch (e) { $("mSub").textContent = "Kelimeler yüklenemedi: " + e.message; throw e; }
 if (!WORDS.length) { $("mSub").textContent = `Bu liste bulunamadı: ${LIJST}`; throw new Error("empty list"); }
 ALL = await loadAllAttempts(user.uid).catch(() => []);   // all modules: the word test also counts for the status

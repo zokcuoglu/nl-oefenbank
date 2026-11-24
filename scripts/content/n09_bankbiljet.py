@@ -76,50 +76,38 @@ Tegen het licht verschijnt ten slotte een watermerk van de Griekse godin Europa,
     "gloss_c1": "doorgaans = genellikle • er komt geen … aan te pas = … hiç kullanılmıyor • het betalingsverkeer = ödeme trafiği • allerminst = hiç de • afdoen als = … diye geçiştirmek • iemand/iets tekortdoen = hakkını vermemek • onder de loep nemen = mercek altına almak • uitgekiend = ince düşünülmüş • evident = apaçık • verwerken = işlemek, yerleştirmek • ontcijferen = sökmek, okumak • appelleren aan = -e hitap etmek • in staat stellen = olanak tanımak • de coupure = banknot değeri • fungeren als = … işlevi görmek • onherroepelijk = kesinlikle • de vervalsing = sahte • dermate = o derece • schuilen in = … içinde gizli olmak • volstaan = yetmek • beduidend = önemli ölçüde • prijken = süslemek, göze çarpmak • tot spijt van menigeen = pek çok kişinin üzüntüsüne",
 
     "uitdrukkingen": [
-        {"nl": "het mis hebben", "niveau": "A2", "groep": "5", "tr": "yanılmak",
-         "uitleg": "Yanlış düşünmek. Videoda: 'Maar dan heb je het echt mis.' Tersi: 'gelijk hebben'.",
-         "voorbeeld": "Je denkt dat de winkel open is, maar je hebt het mis.", "voorbeeld_tr": "Dükkânın açık olduğunu sanıyorsun ama yanılıyorsun."},
-        {"nl": "geld maakt niet gelukkig", "niveau": "A2", "groep": "6", "tr": "para mutluluk getirmez",
-         "uitleg": "Atasözü. Videodaki espri: 'Geld maakt niet gelukkig, maar gelukkig is er wel geld' (gelukkig: hem 'mutlu' hem 'neyse ki').",
-         "voorbeeld": "Geld maakt niet gelukkig, zegt mijn opa altijd.", "voorbeeld_tr": "Para mutluluk getirmez, der dedem hep."},
-        {"nl": "met het blote oog", "niveau": "B1", "groep": "7", "tr": "çıplak gözle",
-         "uitleg": "Büyüteç ya da mikroskop olmadan.",
-         "voorbeeld": "Die sterren zie je niet met het blote oog.", "voorbeeld_tr": "O yıldızları çıplak gözle göremezsin."},
-        {"nl": "iets tegen het licht houden", "niveau": "B1", "groep": "6", "tr": "bir şeyi ışığa tutmak; (mecazi) dikkatle incelemek",
-         "uitleg": "Gerçek anlam: filigranı görmek için ışığa tutmak. Mecazi: bir planı ya da iddiayı eleştirel şekilde incelemek.",
-         "voorbeeld": "Laten we dat plan eens goed tegen het licht houden.", "voorbeeld_tr": "Şu planı bir iyice inceleyelim."},
-        {"nl": "het geld groeit me niet op de rug", "niveau": "B1", "groep": "7", "tr": "para ağaçta bitmiyor",
-         "uitleg": "Paranın sınırsız olmadığını, dikkatli harcamak gerektiğini söylemek için. Videoda: 'Maar helaas groeit het niet op mijn rug.'",
-         "voorbeeld": "Nee, geen nieuwe telefoon: het geld groeit me niet op de rug!", "voorbeeld_tr": "Hayır, yeni telefon yok: para ağaçta bitmiyor!"},
-        {"nl": "ergens van staan te kijken", "niveau": "B2", "groep": "8", "tr": "bir şeye çok şaşırmak",
-         "uitleg": "Beklemediğin bir şey karşısında şaşırmak. Videoda: 'Ik stond hier dus heel erg van te kijken.'",
-         "voorbeeld": "Ik stond ervan te kijken hoe goed hij Nederlands spreekt.", "voorbeeld_tr": "Hollandacayı ne kadar iyi konuştuğuna çok şaşırdım."},
-        {"nl": "iets onder de loep nemen", "niveau": "C1", "groep": "vo", "tr": "bir şeyi mercek altına almak",
-         "uitleg": "Bir şeyi çok dikkatle, ayrıntısıyla incelemek. 'De loep' = büyüteç; videodaki 'superzoom' ile aynı fikir.",
-         "voorbeeld": "De gemeente neemt de kosten onder de loep.", "voorbeeld_tr": "Belediye masrafları mercek altına alıyor."},
+        "n-bankbiljet-u1",
+        "n-bankbiljet-u2",
+        {"id": "n-wolken-u4", "voorbeeld": "Die sterren zie je niet met het blote oog.", "voorbeeld_tr": "O yıldızları çıplak gözle göremezsin."},
+        "n-bankbiljet-u4",
+        "n-bankbiljet-u5",
+        "n-bankbiljet-u6",
+        "n-bankbiljet-u7"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """het geld | zn | munten en biljetten waarmee je betaalt | Ik heb geen geld bij me. | para | A1 | 1-2
-betalen | ww | geld geven voor iets | Ik betaal met mijn telefoon. | ödemek | A1 | 3
-voelen | ww | met je handen merken | Voel eens hoe zacht dit is. | dokunarak hissetmek | A1 | 1-2
-nep | bn | niet echt | Dat is een nep tientje. | sahte | A2 | 4
-het katoen | zn | stof van de katoenplant | Dit T-shirt is van katoen. | pamuk | A2 | 6
-het bankbiljet | zn | geld van papier (of katoen) | Hij betaalt met een bankbiljet van twintig euro. | banknot | A2 | 6
-het salaris | zn | geld dat je elke maand voor je werk krijgt | Mijn salaris komt aan het eind van de maand. | maaş | A2 | 7
-uitgeven | sch ww | geld gebruiken om iets te kopen | Ze geeft veel geld uit aan kleding. | harcamak | A2 | 5
-digitaal | bn | met de computer, zonder papier | Ik betaal mijn rekeningen digitaal. | dijital | B1 | 7
-de vezel | zn | heel dunne draad in stof of papier | Katoen heeft lange vezels. | lif | B1 | 8
-het watermerk | zn | tekening in papier die je ziet als je het tegen het licht houdt | Op het biljet zit een watermerk. | filigran | B1 | 8
-slechtziend | bn | niet goed kunnen zien | Voor slechtziende mensen is er grote letter. | az gören | B1 | 7
-flexibel | bn | makkelijk te buigen; ook: makkelijk aan te passen | Het biljet is sterk en flexibel. | esnek | B1 | 8
-hoewel | vw | ook al | Hoewel het regent, gaan we fietsen. | -e rağmen | B1 | 6
-het echtheidskenmerk | zn | teken waaraan je ziet dat iets echt is | De ribbels zijn een echtheidskenmerk. | gerçeklik işareti | B2 | vo
-de vervalsing | zn | iets wat nagemaakt is om mensen te bedriegen | Dit biljet is een vervalsing. | sahte(cilik) | B2 | vo
-buigzaam | bn | makkelijk te buigen | Een katoenen biljet is buigzaam. | esnek, bükülebilir | B2 | vo
-ontbreken | ww | er niet zijn terwijl het er wel hoort | Er ontbreekt een pagina. | eksik olmak | B2 | 8
-uitgekiend | bn | heel slim en precies bedacht | Het plan is goed uitgekiend. | ince düşünülmüş | C1 | vo
-beduidend | bw | veel, duidelijk (formeel) | De vezels zijn beduidend langer. | önemli ölçüde | C1 | vo""",
+    "woordenschat": [
+        {"id": "b218", "voorbeeld": "Ik heb geen geld bij me."},
+        {"id": "b217", "voorbeeld": "Ik betaal met mijn telefoon."},
+        "n-bankbiljet-w3",
+        "n-bankbiljet-w4",
+        "n-bankbiljet-w5",
+        "n-bankbiljet-w6",
+        "n-bankbiljet-w7",
+        "n-bankbiljet-w8",
+        "n-bankbiljet-w9",
+        "n-bankbiljet-w10",
+        "n-bankbiljet-w11",
+        "n-bankbiljet-w12",
+        "n-bankbiljet-w13",
+        "n-bankbiljet-w14",
+        "n-bankbiljet-w15",
+        "n-bankbiljet-w16",
+        "n-bankbiljet-w17",
+        "n-bankbiljet-w18",
+        "n-bankbiljet-w19",
+        "n-bankbiljet-w20"
+    ],
 
     "grammatica": """1) Vergelijken: langer dan, sterker, flexibeler
 Vergrotende trap = bijvoeglijk naamwoord + -er (+ dan). Eindigt het woord op -r, dan -der.

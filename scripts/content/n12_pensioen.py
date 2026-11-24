@@ -78,54 +78,40 @@ Twee voormalige onderwijskrachten, tegenwoordig vrijwilliger in een museum, wete
     "gloss_c1": "rekenen op = güvenmek, beklemek • de aanleiding = vesile, neden • ingrijpend = köklü • de wijziging = değişiklik • de pensioenleeftijd = emeklilik yaşı • de werknemer = çalışan • aanvullend = ek, tamamlayıcı • reserveren = ayırmak • afdragen = (kuruma) ödemek, yatırmak • tot dusver = şimdiye kadar • het vermogen = varlık, servet • onderbrengen = yerleştirmek • bekostigen = finanse etmek • het stelsel = sistem • korte metten maken met = kısa yoldan kurtulmak, son vermek • de deelnemer = katılımcı • inleggen = (para) yatırmak • de overgang = geçiş • achter de hand houden = yedekte tutmak • de impuls = itici güç, destek • voorbehouden zijn aan = … ile sınırlı olmak • ingaan = yürürlüğe girmek • uiteenlopen = farklılık göstermek • oplopen tot = … e kadar çıkmak • voormalig = eski • de onderwijskracht = eğitimci • op pad = yolda, gezide",
 
     "uitdrukkingen": [
-        {"nl": "met pensioen gaan", "niveau": "A2", "groep": "5", "tr": "emekli olmak",
-         "uitleg": "Çalışmayı bırakıp emekli maaşı almaya başlamak. Videoda: 'In Nederland ga je nu op je 67e met pensioen.' 'Met pensioen zijn' = emekli olmak (durum).",
-         "voorbeeld": "Mijn vader gaat volgend jaar met pensioen.", "voorbeeld_tr": "Babam gelecek yıl emekli oluyor."},
-        {"nl": "dat komt door …", "niveau": "A2", "groep": "4", "tr": "bunun sebebi …",
-         "uitleg": "Bir şeyin sebebini söylemek için. Videoda: 'Dat komt door nieuwe regels.'",
-         "voorbeeld": "Ik ben moe. Dat komt door de drukke week.", "voorbeeld_tr": "Yorgunum. Bunun sebebi yoğun hafta."},
-        {"nl": "geld apart zetten", "niveau": "B1", "groep": "7", "tr": "para ayırmak, kenara koymak",
-         "uitleg": "Paranın bir kısmını sonra kullanmak için ayırmak. Videoda: 'wordt een bedrag van het salaris apart gezet'.",
-         "voorbeeld": "Elke maand zet ik vijftig euro apart voor de vakantie.", "voorbeeld_tr": "Her ay tatil için elli euro ayırıyorum."},
-        {"nl": "het geld gaat op aan …", "niveau": "B1", "groep": "8", "tr": "para … için harcanıp gidiyor",
-         "uitleg": "'Opgaan aan' = paranın bir şeye harcanması. Videoda: 'Het gaat dan op aan extra dingetjes.'",
-         "voorbeeld": "Mijn hele salaris gaat op aan huur en boodschappen.", "voorbeeld_tr": "Bütün maaşım kira ve alışverişe gidiyor."},
-        {"nl": "op stap gaan", "niveau": "B1", "groep": "6", "tr": "gezmeye çıkmak, dışarı çıkmak",
-         "uitleg": "Eğlenmek için evden çıkmak (yürüyüş, kafe, gezi). Videoda: 'vaker nog met mijn man op stap'.",
-         "voorbeeld": "Zaterdag gaan we met de kinderen op stap.", "voorbeeld_tr": "Cumartesi çocuklarla gezmeye çıkıyoruz."},
-        {"nl": "een meevaller", "niveau": "B2", "groep": "8", "tr": "beklenmedik iyi şey, şans",
-         "uitleg": "Beklenenden daha iyi olan bir şey, özellikle para. Tersi: 'een tegenvaller'.",
-         "voorbeeld": "De belastingteruggave was een mooie meevaller.", "voorbeeld_tr": "Vergi iadesi güzel bir sürpriz oldu."},
-        {"nl": "iets achter de hand houden", "niveau": "C1", "groep": "vo", "tr": "bir şeyi yedekte tutmak",
-         "uitleg": "Gerektiğinde kullanmak için bir şeyi (para, plan) saklamak. Videodaki 'als reserve bewaard' ile aynı anlam.",
-         "voorbeeld": "Het is verstandig om wat geld achter de hand te houden.", "voorbeeld_tr": "Biraz parayı yedekte tutmak akıllıca."},
-        {"nl": "korte metten maken met", "niveau": "C1", "groep": "vo", "tr": "… a kesin son vermek",
-         "uitleg": "Bir şeyi hızlı ve kararlı şekilde ortadan kaldırmak.",
-         "voorbeeld": "De nieuwe directeur maakte korte metten met de oude regels.", "voorbeeld_tr": "Yeni müdür eski kurallara kesin bir son verdi."},
+        "n-pensioen-u1",
+        "n-pensioen-u2",
+        "n-pensioen-u3",
+        "n-pensioen-u4",
+        "n-pensioen-u5",
+        "n-pensioen-u6",
+        "n-pensioen-u7",
+        "n-pensioen-u8"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """het geld | zn | munten en biljetten waarmee je betaalt | Ik spaar geld voor een fiets. | para | A1 | 1-2
-de maand | zn | deel van het jaar, ongeveer 30 dagen | Ik krijg elke maand salaris. | ay | A1 | 1-2
-reizen | ww | naar andere plaatsen of landen gaan | Mijn moeder reist graag. | seyahat etmek | A1 | 3
-het kleinkind | zn | kind van je zoon of dochter | Oma past op haar kleinkinderen. | torun | A2 | 4
-het pensioen | zn | geld dat je krijgt als je oud bent en niet meer werkt | Hij leeft van zijn pensioen. | emekli maaşı | A2 | 7
-sparen | ww | geld bewaren en niet uitgeven | Ik spaar voor een nieuwe auto. | biriktirmek | A2 | 4
-de regel | zn | afspraak over wat mag en wat moet | Er komen nieuwe regels. | kural | A2 | 3
-het salaris | zn | geld dat je elke maand voor je werk krijgt | Mijn salaris is omhooggegaan. | maaş | A2 | 7
-het onderwijs | zn | les geven op scholen | Zij werkte veertig jaar in het onderwijs. | eğitim | B1 | 8
-de uitkering | zn | geld dat je van de overheid of een fonds krijgt | Hij krijgt een uitkering omdat hij ziek is. | ödenek, yardım | B1 | 8
-het bedrag | zn | hoeveelheid geld | Het bedrag verschilt per persoon. | tutar | B1 | 7
-storten | ww | geld op een rekening zetten | Ik stort het geld op je rekening. | (para) yatırmak | B1 | 8
-gelden | ww | (een regel) van toepassing zijn | Deze regels gelden vanaf januari. | geçerli olmak | B1 | 8
-verschillen | ww | niet hetzelfde zijn | De prijzen verschillen per winkel. | farklı olmak | B1 | 6
-de vrijwilliger | zn | iemand die werkt zonder geld te krijgen | De vrijwilligers helpen in het museum. | gönüllü | B1 | 7
-de gepensioneerde | zn | iemand die met pensioen is | Veel gepensioneerden reizen graag. | emekli | B2 | vo
-het pensioenfonds | zn | organisatie die geld spaart en betaalt voor pensioenen | Mijn werkgever betaalt aan een pensioenfonds. | emeklilik fonu | B2 | vo
-de reserve | zn | geld of iets anders dat je bewaart voor later | Het fonds had een grote reserve. | yedek | B2 | 8
-eenmalig | bn | maar één keer | Je krijgt een eenmalige extra betaling. | bir kereye mahsus | B2 | vo
-de voorwaarde | zn | iets wat eerst moet, voordat iets anders kan | Een voorwaarde is dat je lid bent. | şart | B2 | 8
-het stelsel | zn | systeem van regels | Het nieuwe pensioenstelsel begint in januari. | sistem | C1 | vo""",
+    "woordenschat": [
+        {"id": "b218", "voorbeeld": "Ik spaar geld voor een fiets."},
+        {"id": "b161", "voorbeeld": "Ik krijg elke maand salaris."},
+        "n-pensioen-w3",
+        "n-pensioen-w4",
+        "n-pensioen-w5",
+        "n-pensioen-w6",
+        "n-pensioen-w7",
+        {"id": "n-bankbiljet-w7", "voorbeeld": "Mijn salaris is omhooggegaan."},
+        "n-pensioen-w9",
+        "n-pensioen-w10",
+        "n-pensioen-w11",
+        "n-pensioen-w12",
+        "n-pensioen-w13",
+        "n-pensioen-w14",
+        {"id": "w127", "voorbeeld": "De vrijwilligers helpen in het museum."},
+        "n-pensioen-w16",
+        "n-pensioen-w17",
+        "n-pensioen-w18",
+        "n-pensioen-w19",
+        "n-pensioen-w20",
+        "n-pensioen-w21"
+    ],
 
     "grammatica": """1) Wie … , … : algemene uitspraak
 'Wie' aan het begin = iedereen die …
