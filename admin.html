@@ -95,7 +95,7 @@ let filter = "all", search = "", openUid = null;
 const WHO = { all: "Herkes", adult: "Yetişkinler", child: "Öğrenciler" };
 let who = "all";
 // Mail schedule (Firestore settings/mail, read by scripts/mailer.py). weekday: 1 = Monday ... 7 = Sunday
-const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 }, brief: { enabled: true, weekday: 4, hour: 19 }, woord: { enabled: true, weekday: 2, hour: 19 }, talep: { enabled: true, weekday: 1, hour: 9 }, daily: { enabled: true, weekday: 0, hour: 16 } };
+const DEFAULT_SCHED = { news: { enabled: true, weekday: 1, hour: 8 }, weekly: { enabled: true, weekday: 7, hour: 18 }, brief: { enabled: true, weekday: 4, hour: 19 }, woord: { enabled: true, weekday: 2, hour: 19 }, talep: { enabled: true, weekday: 1, hour: 9 }, daily: { enabled: true, weekday: 0, hour: 16 }, lezen_ochtend: { enabled: true, weekday: 0, hour: 7 }, lezen_aksam: { enabled: true, weekday: 0, hour: 19 } };
 // Wishes from the "istek kutusu" (js/talep.js), newest first
 let talepler = [], talepErr = "";
 const WEEKDAYS = { 0: "Her gün", 1: "Pazartesi", 2: "Salı", 3: "Çarşamba", 4: "Perşembe", 5: "Cuma", 6: "Cumartesi", 7: "Pazar" };
@@ -176,6 +176,7 @@ function sentHtml() {
     ...weeklyLog.filter(w => w.job === "brief").map(w => ({ date: w.date, kind: "Haftanın Hollandacası", what: w.week_id ? "Hafta " + w.week_id : "liste bitti, gönderilmedi", to: w.mails || 0, effect: "" })),
     ...weeklyLog.filter(w => w.job === "talep").map(w => ({ date: w.date, kind: "İstek özeti", what: (w.count || 0) + " yeni istek", to: w.mails || 0, effect: "" })),
     ...weeklyLog.filter(w => w.job === "daily").map(w => ({ date: w.date, kind: "Günlük mail", what: "Herkese kendi maili", to: w.mails || 0, effect: "" })),
+    ...weeklyLog.filter(w => w.job === "lezen_ochtend" || w.job === "lezen_aksam").map(w => ({ date: w.date, kind: w.job === "lezen_ochtend" ? "Lezen sabah" : "Lezen akşam", what: "Parça: " + (w.piece || ""), to: w.mails || 0, effect: "" })),
     ...news.filter(n => n.sent_at).map(n => ({ date: (n.sent_at || "").slice(0, 10), kind: "Duyuru", what: n.subject, to: n.recipients || 0, effect: "" })),
   ].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   return `<section class="panel"><div class="sectionhead"><h3>Gönderilen e-postalar</h3><span class="muted">yeniden eskiye</span></div>
@@ -188,7 +189,7 @@ function sentHtml() {
 
 // ---------- mail record: who got which mail, with its text (mailer writes mail_sent since 22 Nov 2026) ----------
 const JOB_LABEL = { news: "Haber", weekly: "Haftalık özet", brief: "Haftanın Hollandacası", woord: "Kelime incelemesi", talep: "İstek özeti",
-  daily: "Günlük mail", hourly: "Bildirim", groep: "Sınıf atlatma", test: "Test" };
+  daily: "Günlük mail", lezen_ochtend: "Lezen sabah", lezen_aksam: "Lezen akşam", hourly: "Bildirim", groep: "Sınıf atlatma", test: "Test" };
 function mailRow(m) {
   const t = (m.sent_at || "").replace("T", " ").slice(0, 16);
   return `<details class="mailrow"><summary><span class="num muted">${esc(t)}</span> <b>${esc(JOB_LABEL[m.job] || m.job)}</b> · <span>${esc(m.subject)}</span> <span class="chip num">${m.count} kişi</span></summary>
@@ -434,14 +435,14 @@ function schedHtml() {
   return `<section class="panel"><div class="sectionhead"><h3>E-posta zamanlaması</h3><span class="muted">Amsterdam saati</span></div>
     ${schedErr ? `<div class="notice" style="margin-bottom:10px">Ayarlar okunamadı (${esc(schedErr)}). Güvenlik kurallarını güncelle. Şimdilik varsayılanlar gösteriliyor.</div>` : ""}
     <div class="tablewrap"><table><thead><tr><th>E-posta</th><th>Durum</th><th>Gün</th><th>Saat</th></tr></thead><tbody>
-      ${schedRow("news", "Haber (Nieuws in niveaus)")}${schedRow("weekly", "Haftalık özet")}${schedRow("brief", "Haftanın Hollandacası (yetişkinler)")}${schedRow("woord", "Kelime incelemesi (yetişkinler)")}${schedRow("daily", "Günlük hatırlatma (yetişkinler, ≤3 etkinlik)")}${schedRow("talep", "İstek özeti (sadece adminler)")}</tbody></table></div>
+      ${schedRow("news", "Haber (Nieuws in niveaus)")}${schedRow("weekly", "Haftalık özet")}${schedRow("brief", "Haftanın Hollandacası (yetişkinler)")}${schedRow("woord", "Kelime incelemesi (yetişkinler)")}${schedRow("daily", "Günlük hatırlatma (yetişkinler, ≤3 etkinlik)")}${schedRow("lezen_ochtend", "Lezen sabah: dünkü yanlışlar (sınava kadar)")}${schedRow("lezen_aksam", "Lezen akşam: günün özeti (sınava kadar)")}${schedRow("talep", "İstek özeti (sadece adminler)")}</tbody></table></div>
     <div class="row" style="margin-top:10px"><button class="btn primary" id="sc-save">Zamanlamayı kaydet</button><span id="sc-msg"></span></div>
     <p class="muted" style="font-size:13px;margin:10px 0 0">Gönderim seçilen saatten sonraki ilk çalışmada olur. GitHub bir çalışmayı atlarsa 48 saat içindeki bir sonraki çalışmada gider; iki kez gitmez.
       ${lastNews ? `Son haber: <b>${esc(lastNews.titel || lastNews.item_id)}</b> · ${esc(lastNews.date)} · ${lastNews.recipients || 0} kişi.` : "Henüz haber gönderilmedi."}</p></section>`;
 }
 async function saveSched() {
   const msg = document.getElementById("sc-msg"), val = job => ({ enabled: document.getElementById(`sc-${job}-on`).checked, weekday: +document.getElementById(`sc-${job}-day`).value, hour: +document.getElementById(`sc-${job}-hour`).value });
-  const next = { news: val("news"), weekly: val("weekly"), brief: val("brief"), woord: val("woord"), talep: val("talep") };
+  const next = Object.fromEntries(Object.keys(DEFAULT_SCHED).map(j => [j, val(j)]));   // every row on the page
   try { await setDoc(doc(db, "settings", "mail"), { ...next, updated_at: new Date().toISOString(), updated_by: user.uid }); sched = next; msg.innerHTML = `<span class="ok-msg">Kaydedildi</span>`; }
   catch (e) { msg.innerHTML = `<span class="err-msg">${esc(e.code || e.message)}</span>`; }
 }
@@ -495,7 +496,7 @@ function todayHtml() {
   const quiet = approved.filter(u => !u.last_active || Date.now() - new Date(u.last_active) > 14 * 864e5);
   const noParent = users.filter(u => u.type === "child" && !u.parent_uid && statusOf(u) !== "blocked");
   const time = iso => new Date(iso).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
-  const jobs = [["news", "Haber"], ["weekly", "Haftalık özet"], ["brief", "Haftanın Hollandacası"], ["woord", "Kelime incelemesi"], ["talep", "İstek özeti (sana)"], ["daily", "Günlük hatırlatma"]].filter(([j]) => sched[j]?.enabled)
+  const jobs = [["news", "Haber"], ["weekly", "Haftalık özet"], ["brief", "Haftanın Hollandacası"], ["woord", "Kelime incelemesi"], ["talep", "İstek özeti (sana)"], ["daily", "Günlük hatırlatma"], ["lezen_ochtend", "Lezen sabah"], ["lezen_aksam", "Lezen akşam"]].filter(([j]) => sched[j]?.enabled)
     .map(([j, label]) => ({ label, at: nextSlot(sched[j]) })).sort((a, b) => a.at - b.at);
   const tile = (n, label) => `<div class="panel" style="padding:14px 16px"><div class="scorebig num" style="font-size:28px">${n}</div><span class="muted" style="font-size:13px">${label}</span></div>`;
   return `

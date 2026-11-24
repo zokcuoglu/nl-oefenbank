@@ -9,6 +9,9 @@ The workflow runs this every hour (--mode hourly). Each run:
      when the schedule says so (default: Thursday 19:00); content in data/weekbrief.json, logged in mail_log/brief-{date}
   5. "Kelime incelemesi" for adults (one word taken apart: parts, history, relatives), when the schedule says so
      (default: Tuesday 19:00); content in data/woordstudie.json, logged in mail_log/woord-{date}
+  6. the daily Lezen mails for adults preparing for the Lezen exam (default every day 07:00 and 19:00): yesterday's
+     wrong answers explained, today's summary, a tip and a reading piece (see scripts/lezen_mail.py);
+     logged in mail_log/lezen_ochtend-{date} and mail_log/lezen_aksam-{date}
 The schedule lives in Firestore settings/mail and is edited on the admin page.
 Manual runs can force one job: --mode news, --mode weekly, --mode brief or --mode woord (ignores the schedule).
 --mode test sends a preview of the next news mail, a sample weekly summary and a sample welcome mail to one
@@ -23,6 +26,7 @@ Secrets (GitHub > Settings > Secrets and variables > Actions)
 All mails go out as plain text + an HTML version in the site's colours.
 """
 import argparse
+import sys
 import datetime as dt
 import html
 import json
@@ -31,6 +35,8 @@ import re
 import hashlib
 import smtplib
 import urllib.parse
+
+import lezen_mail   # daily Lezen mails (same folder)
 from collections import Counter
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
@@ -47,6 +53,7 @@ NOTE_WOORD = "“Kelime incelemesi” e-postasını istemiyorsan sitede Profil s
 NOTE_TALEP = "Bu özet sadece adminlere gider. Zamanını yönetim panelinin E-posta sekmesinden değiştirebilirsin."
 NOTE_BRIEF = "“Haftanın Hollandacası”nı istemiyorsan sitede Profil sayfasından kapatabilirsin."
 NOTE_DAILY = "Bu günlük hatırlatmayı istemiyorsan sitede Profil sayfasından kapatabilirsin."
+NOTE_LEZEN = "Lezen sınavına kadar günde iki kez gelir, sınav gününden sonra durur. İstemiyorsan Profil sayfasından kapatabilirsin."
 
 # Site colours (light theme) for the HTML template; inline styles because mail clients drop <style>
 C = {"ground": "#F2F4F7", "surface": "#FFFFFF", "line": "#D3DAE3", "ink": "#142033", "muted": "#566377",
@@ -251,7 +258,9 @@ DEFAULT_SCHEDULE = {"news": {"enabled": True, "weekday": 1, "hour": 8},
                     "woord": {"enabled": True, "weekday": 2, "hour": 19},
                     "talep": {"enabled": True, "weekday": 1, "hour": 9},
                     # weekday 0 = every day
-                    "daily": {"enabled": True, "weekday": 0, "hour": 16}}
+                    "daily": {"enabled": True, "weekday": 0, "hour": 16},
+                    "lezen_ochtend": {"enabled": True, "weekday": 0, "hour": 7},
+                    "lezen_aksam": {"enabled": True, "weekday": 0, "hour": 19}}
 
 
 def load_schedule(db):
@@ -876,6 +885,69 @@ def run_daily(db, sender, now, dry_run=False, force=False):
         log_ref.set({"job": "daily", "date": today, "sent_at": iso(now), "mails": count})
 
 
+# ---------- daily Lezen mails (morning: yesterday's mistakes; evening: today's summary) ----------
+
+LEZEN_WINDOW = dt.timedelta(hours=4)   # a run later than this after the slot skips it (a 07:00 mail at noon is no use)
+
+
+def wants_lezen(u):
+    """Adults, on by default; switched off on the profile page (email_lezen)."""
+    return u.get("type") != "child" and bool(u.get("email_lezen", True))
+
+
+def lezen_rounds(db, uid, since_iso):
+    """Lezen rounds (B1 and A2) of one person since a moment, newest first."""
+    att = [d.to_dict() for d in where_gte(db.collection("users").document(uid).collection("attempts"), "finished_at", since_iso).stream()]
+    return [a for a in att if a.get("module") in lezen_mail.MODULES]
+
+
+def run_lezen(db, sender, now, slot, dry_run=False, force=False, only_to=None, only_uid=None):
+    """slot 0 = morning mail (yesterday's wrong answers), 1 = evening mail (today's summary).
+    only_to/only_uid: test run, one preview of that person's mail to one address, nothing written."""
+    job = ("lezen_ochtend", "lezen_aksam")[slot]
+    local = now.astimezone(AMS)
+    today = local.date()
+    log_ref = db.collection("mail_log").document(f"{job}-{today.isoformat()}")
+    if not force and not only_to and log_ref.get().exists:
+        print(f"{job}: already sent for {today}")
+        return
+    sets = lezen_mail.load_sets()
+    piece = lezen_mail.piece_for(lezen_mail.pieces(sets), today, slot)
+    midnight = local.replace(hour=0, minute=0, second=0, microsecond=0)
+    day_start = midnight - dt.timedelta(days=1) if slot == 0 else midnight   # morning: yesterday; evening: today
+    day_end = midnight if slot == 0 else midnight + dt.timedelta(days=1)
+    count = 0
+    for d in db.collection("users").stream():
+        uid, u = d.id, d.to_dict()
+        if only_uid and uid != only_uid:
+            continue
+        if not only_uid and (not is_approved(u) or not u.get("email") or not wants_lezen(u)):
+            continue
+        exam = lezen_mail.exam_date(u)
+        if exam and exam < today and not only_uid:
+            continue                                  # exam is over: no more Lezen mails
+        if slot == 1 and exam == today and not only_uid:
+            continue                                  # exam day: only the morning "succes" mail
+        rounds = lezen_rounds(db, uid, iso(now - dt.timedelta(days=60)))
+        if not rounds and not only_uid:
+            continue                                  # never did Lezen: not preparing for it here
+        if not exam and not only_uid and not any(a.get("finished_at", "") >= iso(now - dt.timedelta(days=lezen_mail.WITHOUT_DATE_DAYS)) for a in rounds):
+            continue                                  # no exam date and not active lately
+        in_day = [a for a in rounds if iso(day_start) <= a.get("finished_at", "") < iso(day_end)]
+        if slot == 0:
+            subject, plain, inner = lezen_mail.morning_mail(u, lezen_mail.wrong_answers(in_day, sets), today, exam, piece, sys.modules[__name__])
+            title = "Lezen · günaydın"
+        else:
+            subject, plain, inner = lezen_mail.evening_mail(u, in_day, rounds, today, exam, piece, sets, sys.modules[__name__])
+            title = "Lezen · bugünün özeti"
+        to = only_to or u["email"]
+        sender.send(to, ("[TEST] " if only_to else "") + subject, plain, html_body=html_wrap(title, inner, NOTE_LEZEN))
+        count += 1
+    print(f"{job}: {count} mails (piece {piece['id']})")
+    if not dry_run and not only_to:
+        log_ref.set({"job": job, "date": today.isoformat(), "sent_at": iso(now), "mails": count, "piece": piece["id"]})
+
+
 # ---------- test: preview mails to one address ----------
 
 def run_test(db, sender, now, to):
@@ -918,6 +990,10 @@ def run_test(db, sender, now, to):
         plain, inner = woord_mail(nxt, f"Merhaba {first_name(u)},", [x for x in (nxt_of("kalip"), nxt_of("deyim")) if x])
         sender.send(to, f"[TEST] 🔎 Kelime incelemesi: {nxt['woord']}", plain, html_body=html_wrap("Kelime incelemesi", inner, NOTE_WOORD))
     print(f"test: next word study: {nxt and nxt['id']}")
+    # Lezen mails: the first admin's own real answers (yesterday's mistakes / today's rounds)
+    if uid:
+        run_lezen(db, sender, now, 0, only_to=to, only_uid=uid)
+        run_lezen(db, sender, now, 1, only_to=to, only_uid=uid)
     print(f"test: {4 if week else 3} preview mails sent (next news item: #{item.get('nr')} {item['id']}; next brief: {week and week['id']})")
 
 
@@ -1020,6 +1096,7 @@ def run_scheduled(db, sender, now, dry_run=False):
     woord_dates = [x.get("date", "") for x in mail_log if x.get("job") == "woord"]
     talep_dates = [x.get("date", "") for x in mail_log if x.get("job") == "talep"]
     daily_dates = [x.get("date", "") for x in mail_log if x.get("job") == "daily"]
+    lezen_dates = {j: [x.get("date", "") for x in mail_log if x.get("job") == j] for j in ("lezen_ochtend", "lezen_aksam")}
     if is_due(sched["news"], now, news_dates):
         sender.job = "news"
         run_news(db, sender, now, dry_run=dry_run)
@@ -1038,6 +1115,10 @@ def run_scheduled(db, sender, now, dry_run=False):
     if is_due(sched["daily"], now, daily_dates) and now - last_slot(sched["daily"], now) <= DAILY_WINDOW:
         sender.job = "daily"
         run_daily(db, sender, now, dry_run=dry_run)
+    for slot, job in enumerate(("lezen_ochtend", "lezen_aksam")):
+        if is_due(sched[job], now, lezen_dates[job]) and now - last_slot(sched[job], now) <= LEZEN_WINDOW:
+            sender.job = job
+            run_lezen(db, sender, now, slot, dry_run=dry_run)
     sender.job = "groep"
     run_groep_up(db, sender, now, dry_run=dry_run)  # does nothing outside August
 
@@ -1054,7 +1135,7 @@ def env_or_stop(names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "talep", "daily", "test", "groep"], required=True,
+    ap.add_argument("--mode", choices=["hourly", "news", "weekly", "brief", "woord", "talep", "daily", "lezen_ochtend", "lezen_aksam", "test", "groep"], required=True,
                     help="hourly = scheduled run; news/weekly/brief = send that job now, ignoring the schedule; test = previews to one address; "
                          "groep = move children up one groep now (use with --dry-run to only see what would change)")
     ap.add_argument("--dry-run", action="store_true")
@@ -1092,6 +1173,8 @@ def main():
         run_brief(db, sender, now, dry_run=args.dry_run, force=True)
     elif args.mode == "daily":
         run_daily(db, sender, now, dry_run=args.dry_run, force=True)
+    elif args.mode in ("lezen_ochtend", "lezen_aksam"):
+        run_lezen(db, sender, now, 0 if args.mode == "lezen_ochtend" else 1, dry_run=args.dry_run, force=True)
     elif args.mode == "groep":
         run_groep_up(db, sender, now, dry_run=args.dry_run, force=True)
     else:
