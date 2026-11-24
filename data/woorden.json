@@ -20668,6 +20668,28 @@
 "in_nieuws": []
 },
 {
+"id": "k024",
+"bron": "bekleme",
+"bronnen": [
+"bekleme"
+],
+"nl": "doorzetten",
+"soort": "woord",
+"tr": "(1) pes etmemek, sonuna kadar devam etmek; (2) (mail, telefon) iletmek, yönlendirmek",
+"niveau": "B1",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "Het was zwaar, maar hij heeft doorgezet.",
+"voorbeeld_tr": "Zordu ama pes etmedi.",
+"uitleg": "Ayrılabilen fiil: ik zet door, ik heb doorgezet. İş dilinde: Ik zet je mail door naar mijn collega. İlgili: de doorzetter (pes etmeyen kişi), het doorzettingsvermogen (azim).",
+"meer": [],
+"in_nieuws": [],
+"woordsoort": "ww"
+},
+{
 "id": "b008",
 "bron": "basis",
 "bronnen": [
