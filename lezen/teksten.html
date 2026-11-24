@@ -70,6 +70,9 @@ setTimeout(function () {
 // 65 minutes, no official score table (only the rough "about 18 of 25" guideline).
 import { gate, userBox, esc, saveAttempt, loadAttempts } from "../js/core.js";
 import { pct } from "../js/stats.js";
+import { mountWoordenboek } from "../js/woordenboek.js";
+// NL-NL dictionary (like the Van Dale allowed in the exam): button only while a text is open
+const WB = mountWoordenboek("../data/woordenboek.json");
 
 const app = document.getElementById("app");
 const S = { data: null, attempts: [], run: null, timer: null };
@@ -247,6 +250,7 @@ async function finish(timeout = false) {
 // ---------- Render & events ----------
 function render() {
   const p = params();
+  queueMicrotask(() => WB.show(!!S.run));
   if (S.run) { app.innerHTML = vRun(); return; }
   // ?examen=examen-2 (old links ?examen=1 open exam 1)
   const ex = examById[p.get("examen")] || (p.get("examen") ? S.data.examens[0] : null);
