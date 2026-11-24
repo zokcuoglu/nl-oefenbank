@@ -145,7 +145,7 @@ def officieel_rows(a):
     return out
 
 
-OFFICIEEL_ORDER = ("2025", "2023")   # newest official exam first
+OFFICIEEL_ORDER = ("2025", "2024", "2023")   # newest official exam first
 
 
 def next_official(rounds):
@@ -168,7 +168,7 @@ def official_block(rounds, M, when):
     nx = next_official(rounds)
     link = SITE + "lezen/officieel.html?jaar="
     if not nx:
-        line = "Resmî 2023 ve 2025 sınavlarının bütün metinlerini çözdün. Zorlandığın birini tekrar çözebilirsin."
+        line = "Resmî 2023, 2024 ve 2025 sınavlarının bütün metinlerini çözdün. Zorlandığın birini tekrar çözebilirsin."
         return ["", line], _p(esc(line))
     ex, t = nx
     head = f"Resmî sınavdan {when}: {ex['id']} – Tekst {t['nr']}: {t['titel']} (vraag {t['van']}–{t['tot']})"

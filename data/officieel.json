@@ -430,6 +430,375 @@
    ]
   },
   {
+   "id": "2024",
+   "titel": "Openbaar examen Lezen I 2024",
+   "geslaagd": 24,
+   "score": [
+    283,
+    332,
+    356,
+    372,
+    384,
+    394,
+    402,
+    410,
+    417,
+    423,
+    430,
+    435,
+    441,
+    446,
+    451,
+    456,
+    461,
+    466,
+    471,
+    476,
+    482,
+    487,
+    493,
+    498,
+    504,
+    511,
+    518,
+    525,
+    534,
+    543,
+    553,
+    566,
+    581,
+    601,
+    631,
+    694
+   ],
+   "teksten": [
+    {
+     "nr": 1,
+     "titel": "Bakkerij",
+     "tekstsoort": "persuasief",
+     "van": 1,
+     "tot": 6
+    },
+    {
+     "nr": 2,
+     "titel": "De beursstand",
+     "tekstsoort": "instructief",
+     "van": 7,
+     "tot": 11
+    },
+    {
+     "nr": 3,
+     "titel": "Verzuim op het werk",
+     "tekstsoort": "descriptief",
+     "van": 12,
+     "tot": 17
+    },
+    {
+     "nr": 4,
+     "titel": "Met deze opleiding heb je echt een voorsprong",
+     "tekstsoort": "beschouwend",
+     "van": 18,
+     "tot": 24
+    },
+    {
+     "nr": 5,
+     "titel": "Arbeidsmarkt: jongere op zoek naar zekerheid, oudere naar uitdaging",
+     "tekstsoort": "beschouwend",
+     "van": 25,
+     "tot": 30
+    },
+    {
+     "nr": 6,
+     "titel": "Abonnement Wonderrijk",
+     "tekstsoort": "descriptief",
+     "van": 31,
+     "tot": 35
+    }
+   ],
+   "vragen": [
+    {
+     "nr": 1,
+     "tekst": 1,
+     "opties": 3,
+     "juist": "B",
+     "soort": "toepassing",
+     "uitleg": "Kantoor listesi: planlamaları 'bedrijfsbureau' yapıyor. Administratie sadece idari işleri, personeelszaken personel işlerini yürütüyor; Sanne planlama istiyor."
+    },
+    {
+     "nr": 2,
+     "tekst": 1,
+     "opties": 3,
+     "juist": "B",
+     "soort": "toepassing",
+     "uitleg": "'Decentrale bakkerij' bölümü: krem çekmek, krema sıkmak, pasta süslemek (gebak decoreren) burada öğreniliyor. Proefbakkerij yeni ürün geliştiriyor, centrale bakkerij makinelerle seri üretim yapıyor."
+    },
+    {
+     "nr": 3,
+     "tekst": 1,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "Decentrale bakkerijde iş 7.00'de başlıyor. 2.00–4.00 şoförlerin başlama saati, 17.00 ise işin bittiği saat: sayı başka bir cümleden alınmış tuzak."
+    },
+    {
+     "nr": 4,
+     "tekst": 1,
+     "opties": 3,
+     "juist": "A",
+     "soort": "toepassing",
+     "uitleg": "'Heb je gevoel voor techniek, vind je het leuk om met machines te werken…' cümlesi centrale bakkerij bölümünde. Teknik ve makine = centrale bakkerij."
+    },
+    {
+     "nr": 5,
+     "tekst": 1,
+     "opties": 3,
+     "juist": "C",
+     "soort": "detail",
+     "uitleg": "'Uitdagende werkomgeving': fırın geçmişi ya da gıda ile çalışma deneyimi olan kişiler aranıyor. BBL eğitimi bir seçenek (staj), şart değil; 'zelfstandig en stressbestendig' sadece şoförler için yararlı."
+    },
+    {
+     "nr": 6,
+     "tekst": 1,
+     "opties": 3,
+     "juist": "B",
+     "soort": "doel",
+     "uitleg": "Persuasief metin (işe alım sayfası): 'dan is dit de plek voor jou', 'stuur dan je cv' → okuru başvurmaya ikna etmek. Süreçleri anlatması sadece araç."
+    },
+    {
+     "nr": 7,
+     "tekst": 2,
+     "opties": 4,
+     "juist": "A",
+     "soort": "detail",
+     "uitleg": "'De meeste mogelijkheden biedt een eilandstand' → düzenlemede en çok çeşitlilik eilandstand'da. Tussenstand en az imkân veriyor."
+    },
+    {
+     "nr": 8,
+     "tekst": 2,
+     "opties": 3,
+     "juist": "C",
+     "soort": "toepassing",
+     "uitleg": "'Verlichting': takılar (sieraden) sıcak ışık ister; küpe = takı. Renkleri gösteren ışık giysi içindir. Girişte fazla ışık sevilmiyor (B ters)."
+    },
+    {
+     "nr": 9,
+     "tekst": 2,
+     "opties": 4,
+     "juist": "D",
+     "soort": "vindplaats",
+     "uitleg": "'Routing': insanlar hangi yönde yürüyor, önce ne görüyor, bütün bölümlerin önünden mantıklı bir sırayla geçiyorlar → ürünlerin yeri. Diğer başlıklar giriş, oturma yeri ve ışık hakkında."
+    },
+    {
+     "nr": 10,
+     "tekst": 2,
+     "opties": 3,
+     "juist": "A",
+     "soort": "detail",
+     "uitleg": "Son paragraf: 'laat je zakelijke kennissen weten dat je er zult zijn' = ilişkilerini bilgilendir. 'Flinke investering' bir uyarı, tavsiye değil; looprichting ise ziyaretçi geldikten sonra."
+    },
+    {
+     "nr": 11,
+     "tekst": 2,
+     "opties": 4,
+     "juist": "A",
+     "soort": "doel",
+     "uitleg": "Instructief metin (ders kitabından): stand nasıl seçilir, düzenlenir, hazırlanır → fuar katılımını hazırlama konusunda tavsiye. Kira şartları ve standbouwer sadece ayrıntı."
+    },
+    {
+     "nr": 12,
+     "tekst": 3,
+     "opties": 3,
+     "juist": "B",
+     "soort": "toepassing",
+     "uitleg": "'Frequent kortdurend verzuim': iş stresi gibi sebeplerde 'de oorzaken op te sporen en maatregelen te nemen'. Bedrijfsarts uzun süreli hastalıkta; iki bekleme günü cao kuralı, öneri değil."
+    },
+    {
+     "nr": 13,
+     "tekst": 3,
+     "opties": 3,
+     "juist": "B",
+     "soort": "wanneer",
+     "uitleg": "Altı hafta veya daha uzun = langdurend verzuim → Wet verbetering poortwachter: işe dönüş planı (re-integratietraject). Bedrijfsarts'a bildirim ilk günlerde olur; sigorta işverenin seçimi."
+    },
+    {
+     "nr": 14,
+     "tekst": 3,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "Sigorta maaşı karşılıyor 'en biedt vaak dienstverlening bij het voorkomen en verminderen van verzuim'. WIA ve yerine birini bulma metinde maliyet olarak geçiyor, sigortanın hizmeti olarak değil."
+    },
+    {
+     "nr": 15,
+     "tekst": 3,
+     "opties": 3,
+     "juist": "A",
+     "soort": "toepassing",
+     "uitleg": "'Verzuim in kleuren': wit = gerçekten hasta, çalışamıyor. Kırık kolla çalışamayan Carmen gerçekten çalışamıyor; spor kazası da normal hastalık bildirimi sayılıyor."
+    },
+    {
+     "nr": 16,
+     "tekst": 3,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "'Sporten is gezond en vermindert over het algemeen het arbeidsverzuim' → çoğunlukla daha az devamsızlık. Sakatlanma mümkün ama genel etkisi azaltmak."
+    },
+    {
+     "nr": 17,
+     "tekst": 3,
+     "opties": 3,
+     "juist": "A",
+     "soort": "doel",
+     "uitleg": "Giriş: türleri, önleme yolları ve finansal riskleri sigortalama → işverene tavsiye. Sigorta sadece bir bölüm (B), uzun süreli devamsızlık da sadece bir tür (C)."
+    },
+    {
+     "nr": 18,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "'De auto's worden beschikbaar gesteld door het ministerie van Defensie' = arabaları veriyor. Öğretmen 'Defensie için eleman yetiştirmiyoruz' diyor (A ve C tuzak)."
+    },
+    {
+     "nr": 19,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "Seçim: iyi notlar tek başına yetmez; azim, disiplin, motivasyon ve ekip çalışması da önemli → B üçünü birleştiriyor. Mentor görüşmesi öğretmenlerle mentor arasında, öğrenciyle değil (C tuzak)."
+    },
+    {
+     "nr": 20,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "A",
+     "soort": "mening",
+     "uitleg": "Bitar: traject'i geliştirmek en büyük zorluk değil; en büyük zorluk onu sürdürmek, 'in dit geval ook financieel'. Sponsorlara bağımlılar. B tam tersini söylüyor."
+    },
+    {
+     "nr": 21,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "C",
+     "soort": "detail",
+     "uitleg": "'allebei' tuzağı: ikisi için de geçerli olan tek şey hevesli olmaları. Race branşında devam etmek sadece Abel'in sözü, niveau 3'ten 4'e geçmek sadece Hussam'ın hikâyesi."
+    },
+    {
+     "nr": 22,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "Ramos raceklas'ı tek sezonla sınırlamayıp örneğin üç sezona yaymak istiyor. Leerbedrijven bu isteği dile getirenlerden biri (A tuzak); ayrı bir traject olması Newton'un isteği."
+    },
+    {
+     "nr": 23,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "C",
+     "soort": "mening",
+     "uitleg": "Marelis: 'Maar het meest leren de studenten in de praktijk, tijdens de races.' 'Maar' kelimesinden sonra geliyor: geziler ve misafir dersler önce sayılıyor ama en öğretici olan pratik."
+    },
+    {
+     "nr": 24,
+     "tekst": 4,
+     "opties": 3,
+     "juist": "A",
+     "soort": "conclusie",
+     "uitleg": "Metnin ana mesajı başlıkta ve ilk paragrafta: sadece en iyi öğrencilerin girebildiği, zorlu ve heyecanlı ek bir program. Genişletme ve uluslararası kariyer sadece bölümler."
+    },
+    {
+     "nr": 25,
+     "tekst": 5,
+     "opties": 3,
+     "juist": "C",
+     "soort": "detail",
+     "uitleg": "'De resultaten zijn soms verrassend': 'we denken vaak dat jongeren eerder risico's willen nemen dan ouderen. Maar het tegenovergestelde is waar.' Gençler risk almak istemiyor. A ve B fazla genel/aşırı."
+    },
+    {
+     "nr": 26,
+     "tekst": 5,
+     "opties": 3,
+     "juist": "B",
+     "soort": "detail",
+     "uitleg": "Yaşlıların 1 numarası 'creatief denken'; gençlerin yüzde 26'sı da yaratıcı düşünmeyi önemli buluyor. Diğer iki madde gençler için metinde geçmiyor."
+    },
+    {
+     "nr": 27,
+     "tekst": 5,
+     "opties": 3,
+     "juist": "A",
+     "soort": "mening",
+     "uitleg": "Tames: 'Veel 45-plussers hebben een financiële basis' → güvenceleri zaten var, yaratıcı olmak istediklerini söylemek bu yüzden kolay. Bahçe ve boya örneği bir yıl işsiz kaldıktan sonrası için, sebep değil."
+    },
+    {
+     "nr": 28,
+     "tekst": 5,
+     "opties": 4,
+     "juist": "D",
+     "soort": "mening",
+     "uitleg": "Van Veen: 'Onder werklozen is het voor 50-plussers vaak heel lastig om werk te vinden. Toch willen juist zij zich ontwikkelen.' 'zij' = işsiz yaşlılar. Grubu tam oku: sadece 'ouderen' ya da sadece 'werklozen' eksik."
+    },
+    {
+     "nr": 29,
+     "tekst": 5,
+     "opties": 4,
+     "juist": "A",
+     "soort": "mening",
+     "uitleg": "Bregman: 'Werkgevers kunnen steeds gemakkelijker van hun werknemers af' → işten çıkarılmaktan korkuyorlar. Ev ve çocuk güvenceyi önemli kılıyor ama korktukları şey değil (C tuzak)."
+    },
+    {
+     "nr": 30,
+     "tekst": 5,
+     "opties": 3,
+     "juist": "A",
+     "soort": "detail",
+     "uitleg": "Son bölüm: 'Van Veen adviseert werkgevers die zoeken naar jong personeel…' Sonuçları kullanabilecek olanlar genç personel arayan işverenler."
+    },
+    {
+     "nr": 31,
+     "tekst": 6,
+     "opties": 3,
+     "juist": "A",
+     "soort": "toepassing",
+     "uitleg": "Arama metni 4.1 (ve 5.1): aylık ödenen abonelik ilk yıldan sonra 'loopt door voor onbepaalde tijd'. Otomatik biten abonelik tek seferde ödenen (C tuzak)."
+    },
+    {
+     "nr": 32,
+     "tekst": 6,
+     "opties": 3,
+     "juist": "B",
+     "soort": "toepassing",
+     "uitleg": "1.1: 'Hoewel jouw gegevens … geregistreerd staan, wordt de toegang geweigerd als je het abonnement niet kan tonen.' A'daki 'geregistreerd' kelimesi metinden alınmış tuzak."
+    },
+    {
+     "nr": 33,
+     "tekst": 6,
+     "opties": 3,
+     "juist": "C",
+     "soort": "toepassing",
+     "uitleg": "3.4: park aboneliği 'geen voorrang of garantie op een parkeerplaats'; yer yoksa para geri istenemez. Özel park yeri metinde yok."
+    },
+    {
+     "nr": 34,
+     "tekst": 6,
+     "opties": 3,
+     "juist": "A",
+     "soort": "toepassing",
+     "uitleg": "4.5: kayıp, hırsızlık VEYA hasar durumunda kopya istenebilir; idari ücret 'per abonnement' 7 euro. Hasar da sayıldığı için herkes öder; 'alleen bij verlies' tuzak."
+    },
+    {
+     "nr": 35,
+     "tekst": 6,
+     "opties": 3,
+     "juist": "C",
+     "soort": "toepassing",
+     "uitleg": "6: fiyat değişikliği ilk 12 aydan sonra mümkün; aylık iptal edilebilen abonelikte 'word je minimaal één maand van tevoren geïnformeerd'. Meryem iki yıldır abone → ancak bir ay önceden haber verilirse. 'op ieder moment' fazla kesin."
+    }
+   ]
+  },
+  {
    "id": "2025",
    "titel": "Openbaar examen Lezen I 2025",
    "geslaagd": 24,
