@@ -14,7 +14,8 @@ function candidates(word, E, F) {
   const w = word.toLowerCase().replace(/^[^a-zà-ÿ]+|[^a-zà-ÿ]+$/g, "");
   const out = [w, F[w]];
   const stems = [w];                                                       // the word itself may be a stem (betaal, geef)
-  if (/^ge.{3,}[dt]$/.test(w)) stems.push(w.slice(2, -1));               // gewerkt -> werk
+  if (/^ge.{3,}[dt]$/.test(w)) stems.push(w.slice(2, -1), w.slice(2));   // gewerkt -> werk, gemeld -> meld(en)
+  if (/heden$/.test(w)) out.push(w.slice(0, -5) + "heid");                // mogelijkheden -> mogelijkheid
   if (/^ge.{3,}en$/.test(w)) out.push(w.slice(2));                        // gelopen -> lopen (if regular)
   // Separable verbs: opgezegd -> opzeggen, opgenomen -> opnemen (prefix + "ge" + participle)
   for (let i = 2; i <= 5; i++) if (w.slice(i, i + 2) === "ge" && w.length > i + 4) {
@@ -23,14 +24,14 @@ function candidates(word, E, F) {
     if (/[dt]$/.test(rest)) stems.push(pre + rest.slice(0, -1));
     if (/en$/.test(rest)) out.push(pre + rest);
   }
-  for (const suf of ["eren", "ste", "ten", "den", "ere", "er", "te", "de", "en", "es", "e", "s", "'s", "t", "st"])
+  for (const suf of ["eren", "ste", "ten", "den", "ere", "er", "te", "de", "en", "es", "e", "s", "'s", "t", "st", "d", "n", "tjes", "jes", "tje", "pje", "je"])   // ...je: dagje -> dag
     if (w.endsWith(suf) && w.length - suf.length >= 2) stems.push(w.slice(0, -suf.length));
   for (const s of stems) {
     const v = new Set([s]);
     if (/z$/.test(s)) v.add(s.slice(0, -1) + "s");                        // huizen -> huis
     if (/v$/.test(s)) v.add(s.slice(0, -1) + "f");                        // brieven -> brief
     if (s.length > 2 && s.at(-1) === s.at(-2) && !VOWELS.includes(s.at(-1))) v.add(s.slice(0, -1)); // lessen -> les
-    const open = s.match(/^(.*[^aeiou])([aeou])([^aeiou])$/);
+    const open = s.match(/^(.*[^aeiou]|)([aeou])([^aeiou])$/);
     if (open) v.add(open[1] + open[2] + open[2] + open[3]);              // buren -> buur, afspraken -> afspraak
     for (const x of v) {
       out.push(x, x + "en", x + "n");
@@ -44,6 +45,24 @@ function candidates(word, E, F) {
     }
   }
   return [...new Set(out.filter(k => k && E[k]))];
+}
+
+// Compound words (groepsles = groep + les) are often not in a dictionary: look up the parts.
+// Returns [leftKey, rightKeys] for the split with the longest last part, or null.
+function splitCompound(word, E, F) {
+  const w = word.toLowerCase().replace(/^[^a-zà-ÿ]+|[^a-zà-ÿ]+$/g, "");
+  for (let i = 3; i <= w.length - 3; i++) {
+    const right = candidates(w.slice(i), E, F);
+    if (!right.length) continue;
+    const l = w.slice(0, i), left = [l, l.replace(/s$/, ""), l.replace(/en$/, ""), l.replace(/e$/, "")].find(x => x.length >= 3 && E[x]);
+    if (left) return [left, right];
+  }
+  // No known first part: still give the last part (it carries the main meaning), if it is long enough
+  for (let i = 3; i <= w.length - 4; i++) {
+    const right = candidates(w.slice(i), E, F);
+    if (right.length) return [w.slice(0, i), right];
+  }
+  return null;
 }
 
 export function mountWoordenboek(url) {
@@ -72,15 +91,24 @@ export function mountWoordenboek(url) {
   document.body.append(panel, btn);
   const input = panel.querySelector("input"), out = panel.querySelector(".wb-out");
 
+  const entry = i => `<div class="wb-e"><span class="wb-h">${esc(i.nl)}</span> <span class="wb-s">${esc(i.soort)}${i.lw ? ` · ${esc(i.lw)}` : ""}</span>
+      ${i.def ? `<div>${esc(i.def)}</div>` : ""}${i.vb ? `<div class="wb-vb">${esc(i.vb)}</div>` : ""}</div>`;
   async function lookup(word) {
     await load();
     word = word.trim();
     if (!word) return;
     const keys = candidates(word, E, F);
-    if (!keys.length) { out.innerHTML = `<p style="margin:0"><b>${esc(word)}</b> — niet gevonden.</p><p class="muted" style="margin:6px 0 0;font-size:14px">Bu kelime sözlüğümüzde yok. Cümlenin geri kalanından anlamı tahmin etmeye çalış.</p>`; return; }
+    if (!keys.length) {
+      const sp = splitCompound(word, E, F);
+      if (sp) {
+        const parts = [E[sp[0]]?.[0], E[sp[1][0]][0]].filter(Boolean);
+        out.innerHTML = `<p style="margin:0 0 6px"><b>${esc(word)}</b> <span class="wb-s">samengesteld woord: ${esc(sp[0])} + ${esc(sp[1][0])}</span></p>` + parts.map(entry).join("")
+          + `<p class="muted" style="margin:6px 0 0;font-size:13px">Bileşik kelime: parçalarına ayırıp anlamı birleştir. Asıl anlam son parçada.</p>`;
+        return;
+      }
+      out.innerHTML = `<p style="margin:0"><b>${esc(word)}</b> — niet gevonden.</p><p class="muted" style="margin:6px 0 0;font-size:14px">Bu kelime sözlüğümüzde yok. Cümlenin geri kalanından anlamı tahmin etmeye çalış.</p>`; return; }
     const seen = new Set(), items = keys.flatMap(k => E[k]).filter(i => !seen.has(i.nl) && seen.add(i.nl)).slice(0, 8);
-    out.innerHTML = items.map(i => `<div class="wb-e"><span class="wb-h">${esc(i.nl)}</span> <span class="wb-s">${esc(i.soort)}${i.lw ? ` · ${esc(i.lw)}` : ""}</span>
-      ${i.def ? `<div>${esc(i.def)}</div>` : ""}${i.vb ? `<div class="wb-vb">${esc(i.vb)}</div>` : ""}</div>`).join("");
+    out.innerHTML = items.map(entry).join("");
   }
   const open = (word = "") => { panel.hidden = false; load(); if (word) { input.value = word; lookup(word); } input.focus(); };
 
