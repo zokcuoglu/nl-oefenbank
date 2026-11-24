@@ -5,6 +5,9 @@
    "id": "schaal",
    "datum": "2026-11-24",
    "woord": "schaal",
+   "woorden": [
+    "k001"
+   ],
    "lidwoord": "de",
    "meervoud": "schalen",
    "niveau": "A2",
@@ -265,6 +268,9 @@
    "id": "gerei",
    "datum": "2026-12-08",
    "woord": "gerei",
+   "woorden": [
+    "k002"
+   ],
    "lidwoord": "het",
    "meervoud": "",
    "niveau": "B1",
@@ -455,6 +461,9 @@
    "id": "goedkoop",
    "datum": "2026-12-15",
    "woord": "goedkoop",
+   "woorden": [
+    "b221"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A1",
@@ -676,6 +685,9 @@
    "id": "winkel",
    "datum": "2026-12-22",
    "woord": "winkel",
+   "woorden": [
+    "b215"
+   ],
    "lidwoord": "de",
    "meervoud": "winkels",
    "niveau": "A1",
@@ -898,6 +910,9 @@
    "id": "vrij",
    "datum": "2026-12-29",
    "woord": "vrij",
+   "woorden": [
+    "k003"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A1",
@@ -1121,6 +1136,10 @@
    "id": "tellen",
    "datum": "2027-01-05",
    "woord": "tellen / vertellen",
+   "woorden": [
+    "k004",
+    "k005"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A1",
@@ -1341,6 +1360,9 @@
    "id": "zaak",
    "datum": "2027-01-12",
    "woord": "zaak",
+   "woorden": [
+    "k006"
+   ],
    "lidwoord": "de",
    "meervoud": "zaken",
    "niveau": "A2",
@@ -1569,6 +1591,9 @@
    "soort": "kalip",
    "datum": "2026-11-24",
    "woord": "het gaat om …",
+   "woorden": [
+    "u010"
+   ],
    "lidwoord": "",
    "niveau": "A2–B1",
    "thema": "gesprek",
@@ -1814,6 +1839,9 @@
    "soort": "deyim",
    "datum": "2026-11-24",
    "woord": "een wolf in schaapskleren",
+   "woorden": [
+    "n-wolf-u8"
+   ],
    "lidwoord": "",
    "niveau": "B1",
    "thema": "karakter",
@@ -1993,6 +2021,10 @@
    "id": "hangt-ervan-af",
    "datum": "2027-02-09",
    "woord": "dat hangt ervan af / het ligt eraan",
+   "woorden": [
+    "u011",
+    "u012"
+   ],
    "niveau": "A2–B1",
    "thema": "gesprek",
    "tr": "duruma bağlı; …e bağlı",
@@ -2205,6 +2237,10 @@
    "id": "valt-mee-tegen",
    "datum": "2026-12-08",
    "woord": "het valt mee / het valt tegen",
+   "woorden": [
+    "u013",
+    "u014"
+   ],
    "niveau": "A2–B1",
    "thema": "gesprek",
    "tr": "umduğumdan iyi / umduğumdan kötü",
@@ -2418,6 +2454,9 @@
    "id": "sprake-van",
    "datum": "2026-12-15",
    "woord": "er is sprake van …",
+   "woorden": [
+    "u015"
+   ],
    "niveau": "B1",
    "thema": "formeel",
    "tr": "… söz konusu; … var (resmî)",
@@ -2577,6 +2616,9 @@
    "id": "komt-erop-neer",
    "datum": "2026-12-22",
    "woord": "het komt erop neer (dat) …",
+   "woorden": [
+    "u016"
+   ],
    "niveau": "B1",
    "thema": "gesprek",
    "tr": "kısacası …; özetle …; sonuçta … demek",
@@ -2757,6 +2799,9 @@
    "id": "zit-niets-anders-op",
    "datum": "2026-12-29",
    "woord": "er zit niets anders op (dan …)",
+   "woorden": [
+    "u017"
+   ],
    "niveau": "B1",
    "thema": "gesprek",
    "tr": "başka çare yok; … mecburuz",
@@ -2908,6 +2953,9 @@
    "id": "kwartje-valt",
    "datum": "2027-02-09",
    "woord": "het kwartje valt",
+   "woorden": [
+    "n-gluten-u5"
+   ],
    "niveau": "B2",
    "thema": "begrijpen",
    "tr": "jeton düştü, sonunda anladı",
@@ -3056,6 +3104,9 @@
    "id": "koffiedik-kijken",
    "datum": "2026-12-08",
    "woord": "het is koffiedik kijken",
+   "woorden": [
+    "n-albertheijn-u5"
+   ],
    "niveau": "B1",
    "thema": "toekomst",
    "tr": "kimse bilemez; falcılık gibi",
@@ -3194,6 +3245,9 @@
    "id": "eindjes-aan-elkaar",
    "datum": "2026-12-15",
    "woord": "de eindjes aan elkaar knopen",
+   "woorden": [
+    "n-pieterburen-u6"
+   ],
    "niveau": "B2",
    "thema": "geld",
    "tr": "iki yakasını bir araya getirmek, ay sonunu zor getirmek",
@@ -3334,6 +3388,9 @@
    "id": "aan-de-bel-trekken",
    "datum": "2026-12-22",
    "woord": "aan de bel trekken",
+   "woorden": [
+    "n-pieterburen-u5"
+   ],
    "niveau": "B2",
    "thema": "nieuws",
    "tr": "alarm vermek, dikkat çekmek",
@@ -3471,6 +3528,9 @@
    "id": "in-de-soep-lopen",
    "datum": "2026-12-29",
    "woord": "in de soep lopen",
+   "woorden": [
+    "n-albertheijn-u7"
+   ],
    "niveau": "B2",
    "thema": "nieuws",
    "tr": "suya düşmek, ters gitmek",
@@ -3609,6 +3669,9 @@
    "id": "zetten",
    "datum": "2027-01-19",
    "woord": "zetten",
+   "woorden": [
+    "k007"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A2–B1",
@@ -3875,6 +3938,10 @@
    "id": "vreemd",
    "datum": "2027-01-26",
    "woord": "vreemd / buitenlander",
+   "woorden": [
+    "n-ober-w11",
+    "k008"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A2",
@@ -4105,6 +4172,9 @@
    "id": "zin-in",
    "datum": "2027-01-05",
    "woord": "ik heb er (geen) zin in",
+   "woorden": [
+    "u018"
+   ],
    "niveau": "A2",
    "thema": "gesprek",
    "tr": "canım istiyor / istemiyor; heveslendim",
@@ -4300,6 +4370,9 @@
    "id": "het-lukt",
    "datum": "2027-01-12",
    "woord": "het lukt (me) (niet)",
+   "woorden": [
+    "u019"
+   ],
    "niveau": "A2",
    "thema": "gesprek",
    "tr": "başarıyorum / beceremiyorum; oldu / olmadı",
@@ -4483,6 +4556,9 @@
    "id": "maakt-niet-uit",
    "datum": "2027-01-19",
    "woord": "dat maakt niet uit",
+   "woorden": [
+    "u020"
+   ],
    "niveau": "A2",
    "thema": "gesprek",
    "tr": "fark etmez, önemli değil",
@@ -4650,6 +4726,10 @@
    "id": "hoe-zit-het",
    "datum": "2027-01-26",
    "woord": "hoe zit het met …? / het zit zo",
+   "woorden": [
+    "u021",
+    "u022"
+   ],
    "niveau": "B1",
    "thema": "gesprek",
    "tr": "… ne durumda? / durum şu",
@@ -4830,6 +4910,9 @@
    "id": "kom-er-niet-uit",
    "datum": "2027-02-02",
    "woord": "ik kom er niet uit",
+   "woorden": [
+    "u023"
+   ],
    "niveau": "B1",
    "thema": "gesprek",
    "tr": "işin içinden çıkamıyorum, çözemiyorum",
@@ -5013,6 +5096,9 @@
    "id": "hoofd-boven-water",
    "datum": "2027-01-05",
    "woord": "het hoofd boven water houden",
+   "woorden": [
+    "n-pieterburen-u7"
+   ],
    "niveau": "B2",
    "thema": "geld",
    "tr": "ayakta kalmak, batmamak",
@@ -5153,6 +5239,9 @@
    "id": "zijden-draad",
    "datum": "2027-01-12",
    "woord": "aan een zijden draad hangen",
+   "woorden": [
+    "n-pieterburen-u8"
+   ],
    "niveau": "B2",
    "thema": "nieuws",
    "tr": "pamuk ipliğine bağlı olmak",
@@ -5303,6 +5392,9 @@
    "id": "met-een-sisser",
    "datum": "2027-01-19",
    "woord": "met een sisser aflopen",
+   "woorden": [
+    "n-albertheijn-u10"
+   ],
    "niveau": "B2",
    "thema": "nieuws",
    "tr": "ucuz atlatmak, korkulan olmamak",
@@ -5439,6 +5531,9 @@
    "id": "voet-bij-stuk",
    "datum": "2027-01-26",
    "woord": "voet bij stuk houden",
+   "woorden": [
+    "n-wolf-u7"
+   ],
    "niveau": "B2",
    "thema": "karakter",
    "tr": "ayak diremek, geri adım atmamak",
@@ -5578,6 +5673,9 @@
    "id": "pijpenstelen",
    "datum": "2027-02-02",
    "woord": "het regent pijpenstelen",
+   "woorden": [
+    "n-wolken-u3"
+   ],
    "niveau": "B1",
    "thema": "weer",
    "tr": "bardaktan boşanırcasına yağıyor",
@@ -5735,6 +5833,10 @@
    "id": "gezin",
    "datum": "2027-02-02",
    "woord": "gezin / familie",
+   "woorden": [
+    "k009",
+    "k010"
+   ],
    "lidwoord": "het",
    "meervoud": "gezinnen",
    "niveau": "A2",
@@ -5957,6 +6059,10 @@
    "id": "serveren-dienen",
    "datum": "2027-02-09",
    "woord": "serveren / dienen",
+   "woorden": [
+    "k011",
+    "k012"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A2–B1",
@@ -6188,6 +6294,9 @@
    "id": "terecht",
    "datum": "2026-12-01",
    "woord": "terecht",
+   "woorden": [
+    "w397"
+   ],
    "lidwoord": "",
    "meervoud": "",
    "niveau": "A2–B1",
@@ -6539,6 +6648,9 @@
    "soort": "kalip",
    "datum": "2026-12-01",
    "woord": "mocht het nodig zijn, …",
+   "woorden": [
+    "u024"
+   ],
    "lidwoord": "",
    "niveau": "B1",
    "thema": "formeel",
@@ -6730,6 +6842,9 @@
    "soort": "deyim",
    "datum": "2026-12-01",
    "woord": "iets achter de hand hebben / houden",
+   "woorden": [
+    "n-pensioen-u7"
+   ],
    "lidwoord": "",
    "niveau": "B1",
    "thema": "geld",
@@ -6926,6 +7041,12 @@
    "id": "even-eens-maar",
    "datum": "2027-02-16",
    "woord": "even / eens / maar / vooral",
+   "woorden": [
+    "w062",
+    "k013",
+    "b282",
+    "k014"
+   ],
    "niveau": "A2–B1",
    "thema": "gesprek",
    "tr": "ricayı yumuşatan küçük kelimeler",
@@ -7193,6 +7314,11 @@
    "id": "hoor-he-toch",
    "datum": "2027-02-23",
    "woord": "…, hoor / …, hè? / …, toch?",
+   "woorden": [
+    "w069",
+    "k016",
+    "w068"
+   ],
    "niveau": "A2–B1",
    "thema": "gesprek",
    "tr": "cümle sonundaki küçük kelimeler: merak etme / değil mi?",
@@ -7442,6 +7568,9 @@
    "id": "wel",
    "datum": "2027-03-02",
    "woord": "wel",
+   "woorden": [
+    "k015"
+   ],
    "niveau": "A2–B1",
    "thema": "gesprek",
    "tr": "ama …; ben hallederim; herhalde; ara sıra",
@@ -7660,6 +7789,10 @@
    "id": "lijkt-het-je-leuk",
    "datum": "2027-03-09",
    "woord": "Lijkt het je leuk om …? / Lijkt me leuk!",
+   "woorden": [
+    "u025",
+    "u026"
+   ],
    "niveau": "A2",
    "thema": "gesprek",
    "tr": "… ister misin? / Çok isterim!",
@@ -7883,6 +8016,9 @@
    "soort": "deyim",
    "datum": "2027-02-16",
    "woord": "de wind van voren krijgen",
+   "woorden": [
+    "b321"
+   ],
    "lidwoord": "",
    "niveau": "B1",
    "thema": "werk",
@@ -8049,6 +8185,9 @@
    "soort": "deyim",
    "datum": "2027-02-23",
    "woord": "er genoeg van hebben",
+   "woorden": [
+    "u027"
+   ],
    "lidwoord": "",
    "niveau": "B1",
    "thema": "werk",
@@ -8289,6 +8428,9 @@
    "soort": "deyim",
    "datum": "2027-03-02",
    "woord": "door de bomen het bos niet meer zien",
+   "woorden": [
+    "u028"
+   ],
    "lidwoord": "",
    "niveau": "B1",
    "thema": "gesprek",

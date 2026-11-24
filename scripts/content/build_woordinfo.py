@@ -39,6 +39,10 @@ for x in load("slimspel/kruiswoord/woorden.json")["words"]:
 for th in load("slimspel/woordzoeker/woorden.json")["themes"]:
     for x in th["words"]:
         if re.fullmatch(r"[a-z]{4,6}", x.lower()): words.setdefault(x.lower(), {"tr": ""})
+# Every entry of the word pool (single words AND expressions) gets a word page, so any word shown on the
+# site or in a mail can link to it (scripts/content/check_baglantilar.py checks this after the build)
+for w in POOL:
+    words.setdefault(key(w["nl"]), {"tr": w["tr"]})
 KW = load("oyunlar/kruiswoord-nt2.json")["words"]
 for w in KW:
     words.setdefault(key(w["w"]), {"tr": w["c"]})
@@ -55,8 +59,18 @@ TAUGHT = {}                                                            # word ->
 for pl in PLACES:
     if pl["kind"] in ("knm-woord", "woordstudie"): TAUGHT.setdefault(key(pl["woord"]), []).append(pl)
 POOL_BY_KEY = {}
-for w in POOL:
-    if w.get("tur") != "uitdr": POOL_BY_KEY.setdefault(key(w["nl"]), w)
+for w in sorted(POOL, key=lambda w: w.get("tur") == "uitdr"):   # a single word wins over an idiom with the same spelling
+    POOL_BY_KEY.setdefault(key(w["nl"]), w)
+# Word study pages that explain an entry (data/woordstudie.json "woorden" = pool ids). The word page shows the
+# link from the study's date on (checked in the browser, so a future study stays hidden until its Tuesday).
+ID_KEY = {w["id"]: key(w["nl"]) for w in POOL}
+ID_KEY.update({a: ID_KEY[i] for a, i in load("data/woorden.json").get("alias", {}).items() if i in ID_KEY})
+STUDIE = {}
+for x in load("data/woordstudie.json")["woorden"]:
+    soort = x.get("soort", "woord")
+    href = f"woordstudie/?{'bolum=gunluk&' if soort == 'kalip' else ''}w={x['id']}"
+    for wid in x.get("woorden", []):
+        STUDIE.setdefault(ID_KEY[wid], []).append({"t": "Kelime incelemesi", "href": href, "z": x.get("kort", ""), "datum": x["datum"]})
 NEWS = {it["id"]: it["titel"] for it in load("data/nieuws.json")["items"]}
 COMMON = 12    # a word in more places than this is too common for "used in" tags
 
@@ -70,6 +84,18 @@ NO_SEARCH = {"wegen", "haar", "rijst", "weer", "werk"}   # haar = her, rijst = r
 def real_hit(rx, z):
     """A match that is not a name: 'mevrouw Bos', 'Familie Bos' (capital in the middle of a sentence) does not count."""
     return any(m.start() == 0 or not m.group(0)[0].isupper() for m in rx.finditer(z))
+
+from woordbron import found_in, entry_words   # strict rule shared with the Lezen review list
+
+class PhraseRx:
+    """Matcher for an expression ('iets achter de hand houden'): all its words in this order in one sentence
+    (woordbron.found_in). Same interface as a compiled regex (.search / .finditer)."""
+    def __init__(self, nl):
+        self.nl, self.first = nl, (entry_words(nl) or [""])[0]
+    def search(self, z):
+        return z if self.first and self.first in z.lower() and found_in(self.nl, z) else None
+    def finditer(self, z):
+        return [re.match(r".", z)] if self.search(z) else []
 
 def pattern(k, info):
     """Whole-word match on the word and, for irregular verbs, on their past forms too (liep, gelopen ...)."""
@@ -122,7 +148,8 @@ for k, src in sorted(words.items()):
     tags = [{"t": pl["t"], "href": pl["href"], "z": ""} for pl in TAUGHT.get(k, [])]
     for nid in p.get("in_nieuws") or []:
         if nid in NEWS: tags.append({"t": f"Nieuws · {NEWS[nid]}", "href": f"nieuws/?id={nid}", "z": ""})
-    rx = pattern(k, src) if k not in NO_SEARCH else re.compile(r"(?!x)x")   # never matches
+    phrase = " " in k.strip() or "…" in k
+    rx = (PhraseRx(k) if phrase else pattern(k, src)) if k not in NO_SEARCH else re.compile(r"(?!x)x")   # never matches
     real = []                                                           # real sentences from the site, with their link
     for pl in PLACES:
         if pl["kind"] in ("knm-woord", "woordstudie"): continue
@@ -141,6 +168,7 @@ for k, src in sorted(words.items()):
         if t["z"] and zin_tr(t["z"]): t["zt"] = zin_tr(t["z"])
     info[k] = {"tr": p.get("tr") or src["tr"], "niveau": p.get("niveau") or (kw or {}).get("n", ""),
                "uitleg": uitleg, "voorbeelden": ex + real, "tags": out[:6]}
+    if k in STUDIE: info[k]["studie"] = STUDIE[k]
 
 # Hand-written meanings win: short meaning, level, forms, numbered meanings; the general examples keep only
 # sentences that are not already under a meaning

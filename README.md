@@ -33,7 +33,7 @@ The page files are public (public repo), so this is a menu rule, not secrecy.
 | `kids/g5/eer-oor-eur.html` | Groep 5 spelling test |
 | `kids/rekenen.html` + `kids/rekenen-vragen.js`, `kids/rekenen-school.js`, `kids/vragen-basis.js` | Rekenen & meetkunde (card in Groep 5-8, module `g5-rekenen`). Topics have a `band` ("5-6" or "7-8") and `school` (true = ordinary school material, chosen from the SLO tussendoelen and the domains of the doorstroomtoets; false = enrichment); the menu is grouped by these, the student's own years first. School topics groep 5-6 (open): handig rekenen, delen, klok en tijd, geld, meten, breuken, afronden, grote getallen. School topics groep 7-8 (hidden): breuken-kommagetallen-procenten, procenten, kommagetallen, verhoudingen, gemiddelde, snelheid, rekenen met letters, plus inhoud, priem, schaal, negatief. **Herhalen**: kinds of question answered wrong come back the next day and then after 2, 5 and 12 days (worked out from the saved rounds, same rule as `js/tekrar.js`); saved as `test` = `herhaal`. Shared helpers live in `vragen-basis.js`; new generators must be added at the END of a level's list, because the position is part of the saved question id. After adding or renaming a topic run `node scripts/build_konular.mjs` (writes `data/rekenen-konular.json` for the weekly mail). Per topic: per topic a short explanation in Dutch and Turkish with figures and a word list, practice rounds of 5 at one level (1 straight sum, 2 the other way round, 3 word problem) and a test of 5 or 10 questions that starts easy, goes one level up after two right answers in a row and one down after a wrong one; the next test starts one level below where the last ended. Also a mixed test over all open topics. Every topic ends its explanation with one or two everyday examples (`eg: true` blocks: football field, iron ship, Madurodam ...). In practice a wrong typed answer gets one second try with the cheat sheet opened (the first try decides the score); the result page can repeat the kinds of question that went wrong with new numbers; the Dutch question can be read aloud. The card is shown in Groep 5 and Groep 6 (`group` may be a list in the catalog). Questions are made by generators with random numbers (pi = 3, so answers are whole numbers); `?konu=<id>` opens one topic. Area is first explained as counting 1 × 1 squares (grid figure, also in the easy area questions). Four topics are open by default (omtrek en oppervlakte, optellen van 1 tot n, machten en wortels, de rij van Fibonacci), nine more are hidden; the admin page tab *İçerik* switches topics on and off (Firestore `settings/rekenen`), admins see hidden topics on the page marked "gizli". Rounds are saved with `test` = topic id (or `gemengd`), `kind` = `toets` / `oefen` and `qid` = `topic:level:kind` |
 | `kids/rekenen.html?vak=natuur` + `kids/natuur-vragen.js`, `kids/natuur-78.js` | Natuur & techniek (module `g5-natuur`), the same page with another question file: licht, massa-gewicht-dichtheid, drijven en zinken, atomen en moleculen (groep 5-6, enrichment) and elektriciteit, magnetisme, krachten en hefbomen, geluid, vast-vloeibaar-gas, zonnestelsel (groep 7-8). Mostly hand-written multiple-choice questions (understanding), with random numbers only where there is a calculation. All four topics start hidden; the catalog card has `open_any` and appears on a student's home page once the admin opens at least one topic (tab *İçerik*) |
-| `kids/woordkaarten.html?lijst=weer` | School word lists (bron "school" in `scripts/content/school_woorden.csv`): flashcards, matching game and a link to the word test (`woorden/?lijst=weer`). Back side: Dutch definition or Turkish. One catalog card per list (id `school-<thema>`) |
+| `kids/woordkaarten.html?lijst=weer` | School word lists (rows with bron "school" in `scripts/content/woorden.csv`): flashcards, matching game and a link to the word test (`woorden/?lijst=weer`). Back side: Dutch definition or Turkish. One catalog card per list (id `school-<thema>`) |
 | Slimspel (`slimspel/`) | Kids' games and puzzles, see `slimspel/README.md`. Was the separate repo [slimspel](https://github.com/zokcuoglu/slimspel) until Nov 2026 (that repo now only redirects to here); same accounts; its modules (`slimspel-*`) are listed in `data/catalog.json` and appear in the statistics and the weekly mail (tafels: most-missed sums) |
 | `knm/` + `data/knm.json` | KNM question bank (moved from the KNM artifact) |
 | `nieuws/` + `data/nieuws.json` | Nieuws in niveaus (v1): numbered video items, text at A1-C1, idioms, words, quiz; a mixed test after every 3 items |
@@ -67,9 +67,9 @@ Secrets: `FIREBASE_SERVICE_ACCOUNT`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`. If one 
 Manual run (Actions > Mailer > Run workflow): `test` sends preview mails to one address only (default the sending Gmail) and writes nothing; `hourly`, or `news` / `weekly` to send to everyone now regardless of the schedule (dry run by default).
 
 ### News items
-Edit `scripts/content/nNN_*.py`, then run `python3 scripts/content/build_nieuws.py`. Each item: `id`, `nr`, `titel`, `bron`,
+Edit `scripts/content/nNN_*.py`, then run `python3 scripts/build_all.py`. Each item: `id`, `nr`, `titel`, `bron`,
 `video_url`, `afbeelding_url`, `niveau_video` + `niveau_uitleg`, `a0`…`c1` (`<strong>` allowed) + `gloss_{level}` (the words the text uses, in dictionary form; the page also shows these words at a lower level),
-`uitdrukkingen` `{nl, niveau, tr, uitleg, voorbeeld, voorbeeld_tr}`, `woordenschat` (lines `woord | soort | betekenis | voorbeeld | turks | niveau | groep`),
+`uitdrukkingen` and `woordenschat`: lists of word ids from the word source (see *Word pool*); an entry may be `{"id": …, "voorbeeld": …, "voorbeeld_tr": …, "definitie": …}` to give this item's own sentence or meaning note. The builder turns them back into the shapes the page reads and keeps the ids as `woord_ids` / `uitdr_ids`,
 `grammatica`, `toets` (questions `{id, type mc|tf|gap, niveau, cat, vraag, opties, juist, uitleg}`; the page shuffles the options).
 Items are mailed in `nr` order. The old items are kept in `data/nieuws-v1.json` and are not used.
 Item quizzes always have 18 questions (5 begrip, 4 woorden, 5 uitdrukkingen, 4 grammatica); the builder checks this.
@@ -85,20 +85,25 @@ Optional `video_start`/`video_end`
 2. In its module script: `const { user } = await gate({ area: "kids" })` and save rounds with `saveAttempt(user.uid, "<module-id>", attempt)`.
 3. Add an entry to `data/catalog.json` with `area: "kids"` and the right `group` (one groep, or a list such as `["groep5", "groep6"]`).
 
-## Word pool (woorden)
+## Word pool (woorden) – one source
 
-Three sources: `scripts/content/basis_woorden.csv` (basic everyday words, A0–A1), `scripts/content/werk_woorden.csv` (work notes) and the news items.
-Every entry has a CEFR level (`niveau`, A0–C2, for adults) and a school year (`groep`: `1-2`, `3` … `8`, or `vo` = after primary school).
+Every Dutch word and expression has exactly ONE row, in one of two files (read and checked by `scripts/content/woordbron.py`):
+- `scripts/content/woorden.csv` – single words (`tur`: zn, ww, sch_ww, bn, bw, klein, telw, tw, afk)
+- `scripts/content/uitdrukkingen.csv` – expressions (`tur`: uitdr = deyim, vaste_comb, zin = hazır cümle / kalıp, structuur = yapı)
+
+Columns: `id, nl, tur, tr, niveau (A0–C2), groep (1-2 … 8, vo), thema, subthema, register, voorbeeld, voorbeeld_tr, uitleg, meer, definitie, woordsoort, bron, lijst, voorbeeld_door, alias`.
+Everything else points at a row by id and never copies its meaning: news items (`woordenschat` / `uitdrukkingen`), the Thursday mail (`data/weekbrief.json`, `woord` / `deyim` = `{"id": …}`), the word study (`data/woordstudie.json`, `woorden`: ids) and the waiting list (`Id` column).
+Ids never change (word status is saved per id): new words get the next `k###`, new expressions the next `u###`. When two rows turn out to be the same word, merge them into one and put the old id in `alias` (answers saved under it still count).
+`bron` = where a row came from (basis, werk, school, nieuws, mail, woordstudie, bekleme; `;` for several).
 Child accounts choose groep instead of level and never see `vo` words; the home page has a word-test card per groep (`woorden/?groep=5`).
-News words carry the groep as 7th column of `woordenschat` and as `groep` in each idiom; the builders stop when a word has no groep.
+`python3 scripts/content/build_woorden.py --kandidaat B1` lists work/school words at a level that no news text uses yet.
 
-`scripts/content/werk_woorden.csv` holds the words and phrases from the work notes (one row each: `nl, soort, tr, niveau A0–C2, groep, thema, voorbeeld, voorbeeld_tr, uitleg, voorbeeld_door`).
-`python3 scripts/content/build_nieuws.py` rebuilds `data/nieuws.json` and then `data/woorden.json` (work words + every news item's words and idioms).
-New work words: add rows to the CSV with the next free id (`w416`, ...), then run the builder.
+Every pool row gets a word page (`kelime/?w=<word without de/het/een>`): meanings, examples, where it is used on the site, and the word study that explains it (from its date on). Words link to it from the news page, the word test explanations, the Thursday mail and, after "Bitir", the Lezen review (`data/tekst-woorden.json`).
+Finding a word in a text uses one strict rule (`woordbron.found_in`): single words with ordinary endings, expressions with all their words in order in one sentence, entries made only of small function words never.
 
-Work words in news: a news item may list `werk_woorden: ["w012", ...]`; the builder checks that each word occurs in the item's texts
-and the news page shows them under "İş notlarından kelimeler". `python3 scripts/content/build_woorden.py --kandidaat B1` lists work
-words at a level that no news text uses yet. News items may also have an optional `c2` text (+ `gloss_c2`).
+## Build
+
+`python3 scripts/build_all.py` rebuilds every generated file in order and ends with `scripts/content/check_baglantilar.py`, which stops when a pool word has no word page or an id / link in the data, the mail, the word study or the waiting list points at nothing. The *Build* workflow (`.github/workflows/build.yml`) runs it on every push to main and commits the result, so counts and links stay current.
 
 ## Exam level (B1 / A2)
 
@@ -118,8 +123,8 @@ the pages show "about 18 of 25" only as a rough guideline. The writing criteria 
 
 ## Word links in the games
 
-`oyunlar/common.js` `wordInfoOf` adds two kinds of tags at run time: "Kelime incelemesi" for words with a published word study page (`data/woordstudie.json`, date reached) and "Gramer · almak" for the verbs of the lesson `dersler/?les=almak`. The word page (`kelime/`) shows them as "Ayrıntılı anlatım".
+`oyunlar/common.js` `wordInfoOf` adds two kinds of tags at run time: "Kelime incelemesi" (from `studie` in `oyunlar/woordinfo.json`, built from the word study's `woorden` ids; shown from the study's date on) and "Gramer · almak" for the verbs of the lesson `dersler/?les=almak`. The word page (`kelime/`) shows them as "Ayrıntılı anlatım".
 
 ## Waiting list (`docs/bekleme_listesi.md`)
 
-Words, idioms and rules Zana hears or reads during the day first go into `docs/bekleme_listesi.md` (status `bekliyor`). They are placed on the site bit by bit, in the existing place for their type (word / idiom → `woordstudie`, pattern → daily-speech page, grammar → `dersler`); idioms and words can get a future Tuesday `datum` and are then mailed that week. `python3 scripts/content/bekleme_say.py` fills the columns `Kaç yerde` / `Nerede`: in how many places on the site (via `site_places.py`, plus the NT2 crossword) the `Aranan` regex occurs, so it is clear where an item still needs to be used.
+Words, idioms and rules Zana hears or reads during the day first go into `docs/bekleme_listesi.md` (status `bekliyor`), each with a row in the word source and its id in the `Id` column. They are placed on the site bit by bit, in the existing place for their type (word / idiom → `woordstudie`, pattern → daily-speech page, grammar → `dersler`); idioms and words can get a future Tuesday `datum` and are then mailed that week. `python3 scripts/content/bekleme_say.py` (part of the build) checks the ids, writes them as word-page links and fills the columns `Kaç yerde` / `Nerede`: in how many places on the site (via `site_places.py`, plus the NT2 crossword) the `Aranan` regex occurs, so it is clear where an item still needs to be used.

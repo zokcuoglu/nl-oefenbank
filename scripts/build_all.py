@@ -19,9 +19,11 @@ STEPS = [
     "scripts/content/lezen/build_teksten.py",        # Lezen B1 texts      -> data/lezen-teksten.json
     "scripts/content/lezen_a2/build_a2.py",          # Lezen A2 texts      -> data/lezen-a2.json
     "scripts/content/build_nieuws.py",               # news + word pool    -> data/nieuws.json, data/woorden.json
+    "scripts/content/build_tekst_woorden.py",        # words per Lezen text-> data/tekst-woorden.json
     "scripts/content/build_voorzetsels.py",          # preposition games   -> oyunlar/voorzetsels.json
     "scripts/content/build_woordinfo.py",            # word pages          -> oyunlar/woordinfo.json
     "scripts/content/bekleme_say.py",                # waiting list counts -> docs/bekleme_listesi.md
+    "scripts/content/check_baglantilar.py",          # every id and link resolves (stops the build if not)
 ]
 
 def main():

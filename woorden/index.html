@@ -399,7 +399,10 @@ function hint(x) {
 }
 // Full explanation after answering (learning mode) or in the end review
 function explain(w) {
-  return `<div class="expl"><span><b lang="nl">${esc(w.nl)}</b> = ${esc(w.tr)}
+  // The word links to its word page (all meanings, examples, where it is used on the site); shown only after
+  // answering, so it never gives an answer away
+  const href = "../kelime/?w=" + encodeURIComponent(w.nl.toLowerCase().replace(/^(de|het|een)\s+/, "").trim());
+  return `<div class="expl"><span><a href="${esc(href)}" lang="nl" style="color:inherit;font-weight:700;text-decoration:underline dotted">${esc(w.nl)}</a> = ${esc(w.tr)}
       <button class="btn ghost" style="padding:1px 8px;font-size:12px" data-act="say" data-t="${esc(w.voorbeeld || w.nl)}">Sesli</button></span>
     ${w.definitie ? `<span lang="nl" class="muted">${esc(w.definitie)}</span>` : ""}
     ${w.voorbeeld ? `<span><i lang="nl">${esc(w.voorbeeld)}</i>${w.voorbeeld_tr ? `<br><span class="muted">${esc(w.voorbeeld_tr)}</span>` : ""}</span>` : ""}
