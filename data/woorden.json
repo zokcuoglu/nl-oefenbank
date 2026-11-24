@@ -114,7 +114,8 @@
 "voorbeeld_tr": "Merhaba, ben Sam.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "groet als je iemand ziet of aan de telefoon"
 },
 {
 "id": "b002",
@@ -135,7 +136,8 @@
 "voorbeeld_tr": "Selam, nasılsın?",
 "uitleg": "Samimi.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "informele groet, vooral tegen vrienden"
 },
 {
 "id": "b003",
@@ -156,7 +158,8 @@
 "voorbeeld_tr": "Hoşça kal öğretmenim!",
 "uitleg": "Hem selam hem veda.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "groet als je iemand ziet of weggaat"
 },
 {
 "id": "b004",
@@ -345,7 +348,8 @@
 "voorbeeld_tr": "İyiyim.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zoals het moet zijn; niet slecht"
 },
 {
 "id": "b016",
@@ -534,7 +538,8 @@
 "voorbeeld_tr": "İki elim var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 2"
 },
 {
 "id": "b025",
@@ -555,7 +560,8 @@
 "voorbeeld_tr": "Üç çocuk oynuyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 3"
 },
 {
 "id": "b026",
@@ -576,7 +582,8 @@
 "voorbeeld_tr": "Masanın dört ayağı var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 4"
 },
 {
 "id": "b027",
@@ -597,7 +604,8 @@
 "voorbeeld_tr": "Beş yaşındayım.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 5"
 },
 {
 "id": "b028",
@@ -618,7 +626,8 @@
 "voorbeeld_tr": "Bir kutuda altı yumurta.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 6"
 },
 {
 "id": "b029",
@@ -660,7 +669,8 @@
 "voorbeeld_tr": "Saat sekizde okula gidiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 8"
 },
 {
 "id": "b031",
@@ -702,7 +712,8 @@
 "voorbeeld_tr": "Ona kadar sayıyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 10"
 },
 {
 "id": "b033",
@@ -744,7 +755,8 @@
 "voorbeeld_tr": "Gökyüzü mavi.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met de kleur van de lucht op een mooie dag"
 },
 {
 "id": "b035",
@@ -786,7 +798,8 @@
 "voorbeeld_tr": "Çimen yeşil.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met de kleur van gras en bladeren"
 },
 {
 "id": "b037",
@@ -807,7 +820,8 @@
 "voorbeeld_tr": "Süt beyaz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met de kleur van melk of sneeuw"
 },
 {
 "id": "b038",
@@ -849,7 +863,8 @@
 "voorbeeld_tr": "Portakal turuncu.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met de kleur van een sinaasappel"
 },
 {
 "id": "b040",
@@ -1017,7 +1032,8 @@
 "voorbeeld_tr": "Çocuk oynuyor.",
 "uitleg": "Çoğul: kinderen.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "jong mens, jongen of meisje"
 },
 {
 "id": "b048",
@@ -1675,7 +1691,8 @@
 "voorbeeld_tr": "Bu lezzetli!",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met een goede smaak; ook: prettig, fijn"
 },
 {
 "id": "b079",
@@ -1759,7 +1776,8 @@
 "voorbeeld_tr": "Kapıyı kapat.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "deel van een muur dat je open en dicht kunt doen om naar binnen of buiten te gaan"
 },
 {
 "id": "b083",
@@ -1801,7 +1819,8 @@
 "voorbeeld_tr": "Kitap masanın üstünde.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "meubel met een plat blad waaraan je eet of werkt"
 },
 {
 "id": "b085",
@@ -1864,7 +1883,8 @@
 "voorbeeld_tr": "Annem mutfakta.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "ruimte in huis waar je eten klaarmaakt"
 },
 {
 "id": "b088",
@@ -1885,7 +1905,8 @@
 "voorbeeld_tr": "Odam küçük.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "ruimte in een huis of gebouw"
 },
 {
 "id": "b089",
@@ -1906,7 +1927,8 @@
 "voorbeeld_tr": "Tuvalet nerede?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "toilet"
 },
 {
 "id": "b090",
@@ -1948,7 +1970,8 @@
 "voorbeeld_tr": "Okula gidiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "gebouw of instelling waar kinderen of volwassenen les krijgen"
 },
 {
 "id": "b092",
@@ -2011,7 +2034,8 @@
 "voorbeeld_tr": "Bir kitap okuyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "gedrukte bladzijden met een tekst, tussen twee kaften"
 },
 {
 "id": "b095",
@@ -2116,7 +2140,8 @@
 "voorbeeld_tr": "Köpek havlıyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "dier dat blaft en vaak als huisdier wordt gehouden"
 },
 {
 "id": "b100",
@@ -2291,7 +2316,8 @@
 "voorbeeld_tr": "Eve gidiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zich naar een andere plaats bewegen"
 },
 {
 "id": "b108",
@@ -2312,7 +2338,8 @@
 "voorbeeld_tr": "Sen de geliyor musun?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "naar de plaats gaan waar de spreker is; aankomen"
 },
 {
 "id": "b109",
@@ -2333,7 +2360,8 @@
 "voorbeeld_tr": "Makarna yiyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "voedsel in je mond nemen en doorslikken"
 },
 {
 "id": "b110",
@@ -2354,7 +2382,8 @@
 "voorbeeld_tr": "Süt içiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "vloeistof doorslikken, bijvoorbeeld water of koffie"
 },
 {
 "id": "b111",
@@ -2396,7 +2425,8 @@
 "voorbeeld_tr": "Dışarıda oynuyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "voor je plezier iets doen, bijvoorbeeld een spel"
 },
 {
 "id": "b113",
@@ -2438,7 +2468,8 @@
 "voorbeeld_tr": "Bir bak!",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "je ogen ergens op richten"
 },
 {
 "id": "b115",
@@ -2459,7 +2490,8 @@
 "voorbeeld_tr": "Bir kuş görüyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met je ogen waarnemen"
 },
 {
 "id": "b116",
@@ -2480,7 +2512,8 @@
 "voorbeeld_tr": "Okula yürüyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "te voet gaan"
 },
 {
 "id": "b117",
@@ -2501,7 +2534,8 @@
 "voorbeeld_tr": "Köpek hızlı koşuyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "heel snel lopen"
 },
 {
 "id": "b118",
@@ -2522,7 +2556,8 @@
 "voorbeeld_tr": "Kanepede oturuyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met je billen op een stoel of op de grond rusten"
 },
 {
 "id": "b119",
@@ -2543,7 +2578,8 @@
 "voorbeeld_tr": "Bir dur.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "rechtop op je voeten zijn"
 },
 {
 "id": "b120",
@@ -2564,7 +2600,8 @@
 "voorbeeld_tr": "Dondurma istiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "graag iets hebben of doen"
 },
 {
 "id": "b121",
@@ -2585,7 +2622,8 @@
 "voorbeeld_tr": "Bana yardım edebilir misin?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iemand ondersteunen bij iets"
 },
 {
 "id": "b122",
@@ -2606,7 +2644,8 @@
 "voorbeeld_tr": "Birlikte konuşuyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met woorden iets zeggen tegen anderen; spreken"
 },
 {
 "id": "b123",
@@ -2648,7 +2687,8 @@
 "voorbeeld_tr": "Bir resim yapıyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iets laten ontstaan; doen"
 },
 {
 "id": "b125",
@@ -2718,7 +2758,8 @@
 "voorbeeld_tr": "Bugün hava sıcak.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met een hoge temperatuur"
 },
 {
 "id": "b128",
@@ -2781,7 +2822,8 @@
 "voorbeeld_tr": "Babam kızgın.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "kwaad, niet blij omdat iets niet goed gaat"
 },
 {
 "id": "b131",
@@ -2823,7 +2865,8 @@
 "voorbeeld_tr": "Yorgunum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zonder energie, je wilt rusten"
 },
 {
 "id": "b133",
@@ -2865,7 +2908,8 @@
 "voorbeeld_tr": "Yeni ayakkabılarım var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "pas gemaakt of gekocht; niet oud"
 },
 {
 "id": "b135",
@@ -2915,7 +2959,8 @@
 "voorbeeld_tr": "Çok kitabım var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "een grote hoeveelheid"
 },
 {
 "id": "b137",
@@ -3062,7 +3107,8 @@
 "voorbeeld_tr": "Dışarıda oynuyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "niet in een gebouw; in de open lucht"
 },
 {
 "id": "b144",
@@ -3083,7 +3129,8 @@
 "voorbeeld_tr": "İçeri gel!",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "in een gebouw of ruimte"
 },
 {
 "id": "b145",
@@ -3167,7 +3214,8 @@
 "voorbeeld_tr": "Ne zaman geliyorsun?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "op welk moment?"
 },
 {
 "id": "b149",
@@ -3188,7 +3236,8 @@
 "voorbeeld_tr": "Neden ağlıyorsun?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "om welke reden?"
 },
 {
 "id": "b150",
@@ -3230,7 +3279,8 @@
 "voorbeeld_tr": "Bu ne kadar?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "welk aantal? welke hoeveelheid?"
 },
 {
 "id": "b152",
@@ -3251,7 +3301,8 @@
 "voorbeeld_tr": "Hangi kitabı istiyorsun?",
 "uitleg": "de-kelimeyle: welke.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "wie of wat van een groep?"
 },
 {
 "id": "b153",
@@ -3293,7 +3344,8 @@
 "voorbeeld_tr": "Bir yılda on iki ay var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 12"
 },
 {
 "id": "b155",
@@ -3314,7 +3366,8 @@
 "voorbeeld_tr": "Sınıfta yirmi çocuk var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 20"
 },
 {
 "id": "b156",
@@ -3335,7 +3388,8 @@
 "voorbeeld_tr": "Otuz dakika bekliyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het getal 30"
 },
 {
 "id": "b157",
@@ -3398,7 +3452,8 @@
 "voorbeeld_tr": "İyi günler!",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "periode van 24 uur; ook: de tijd dat het licht is"
 },
 {
 "id": "b160",
@@ -3419,7 +3474,8 @@
 "voorbeeld_tr": "Gelecek hafta tatil.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "periode van zeven dagen"
 },
 {
 "id": "b161",
@@ -3468,7 +3524,8 @@
 "voorbeeld_tr": "Yedi yaşındayım.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "periode van twaalf maanden"
 },
 {
 "id": "b163",
@@ -3510,7 +3567,8 @@
 "voorbeeld_tr": "Yarın yüzmeye gidiyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "de dag na vandaag"
 },
 {
 "id": "b165",
@@ -3552,7 +3610,8 @@
 "voorbeeld_tr": "Şimdi gel!",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "op dit moment"
 },
 {
 "id": "b167",
@@ -3636,7 +3695,8 @@
 "voorbeeld_tr": "Akşamları televizyon izlerim.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "deel van de dag tussen ongeveer 18.00 en 24.00 uur"
 },
 {
 "id": "b171",
@@ -3678,7 +3738,8 @@
 "voorbeeld_tr": "Ders bir saat sürüyor.",
 "uitleg": "om acht uur = saat sekizde.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "periode van 60 minuten"
 },
 {
 "id": "b173",
@@ -3720,7 +3781,8 @@
 "voorbeeld_tr": "Saat iki buçuk.",
 "uitleg": "half drie = 2:30 (üçün yarısı).",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "voor de helft; bij de tijd: dertig minuten voor het hele uur (half negen = 8.30)"
 },
 {
 "id": "b175",
@@ -3762,7 +3824,8 @@
 "voorbeeld_tr": "Pazartesi beden dersim var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "eerste dag van de week"
 },
 {
 "id": "b177",
@@ -3783,7 +3846,8 @@
 "voorbeeld_tr": "Salı yüzmeye gidiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "tweede dag van de week"
 },
 {
 "id": "b178",
@@ -3804,7 +3868,8 @@
 "voorbeeld_tr": "Çarşamba okul on ikide bitiyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "derde dag van de week"
 },
 {
 "id": "b179",
@@ -3825,7 +3890,8 @@
 "voorbeeld_tr": "Perşembe büyükannem geliyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "vierde dag van de week"
 },
 {
 "id": "b180",
@@ -3846,7 +3912,8 @@
 "voorbeeld_tr": "Cuma pizza yiyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "vijfde dag van de week"
 },
 {
 "id": "b181",
@@ -3867,7 +3934,8 @@
 "voorbeeld_tr": "Cumartesi futbolum var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zesde dag van de week"
 },
 {
 "id": "b182",
@@ -3888,7 +3956,8 @@
 "voorbeeld_tr": "Pazar günleri dükkânlar bazen kapalı.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zevende dag van de week"
 },
 {
 "id": "b183",
@@ -3930,7 +3999,8 @@
 "voorbeeld_tr": "Temmuzda yaz tatili var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zevende maand van het jaar"
 },
 {
 "id": "b185",
@@ -3951,7 +4021,8 @@
 "voorbeeld_tr": "Aralıkta Sinterklaas var.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "twaalfde maand van het jaar"
 },
 {
 "id": "b186",
@@ -3993,7 +4064,8 @@
 "voorbeeld_tr": "Yazın hava sıcaktır.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het warmste seizoen van het jaar"
 },
 {
 "id": "b188",
@@ -4035,7 +4107,8 @@
 "voorbeeld_tr": "Kışın bazen kar yağar.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het koudste seizoen van het jaar"
 },
 {
 "id": "b190",
@@ -4350,7 +4423,8 @@
 "voorbeeld_tr": "Bisikletle gidiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "vervoermiddel met twee wielen en trappers"
 },
 {
 "id": "b206",
@@ -4371,7 +4445,8 @@
 "voorbeeld_tr": "Araba kırmızı.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "vervoermiddel met vier wielen en een motor"
 },
 {
 "id": "b207",
@@ -4392,7 +4467,8 @@
 "voorbeeld_tr": "Otobüse biniyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "groot voertuig dat mensen vervoert langs een vaste route"
 },
 {
 "id": "b208",
@@ -4434,7 +4510,8 @@
 "voorbeeld_tr": "Sokağın karşısına geç.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "weg in een stad of dorp met huizen aan de kanten"
 },
 {
 "id": "b210",
@@ -4518,7 +4595,8 @@
 "voorbeeld_tr": "Uzak mı?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "op grote afstand"
 },
 {
 "id": "b214",
@@ -4560,7 +4638,8 @@
 "voorbeeld_tr": "Dükkân açık.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zaak waar je dingen kunt kopen"
 },
 {
 "id": "b216",
@@ -4581,7 +4660,8 @@
 "voorbeeld_tr": "Bir ekmek alıyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iets krijgen doordat je ervoor betaalt"
 },
 {
 "id": "b217",
@@ -4680,7 +4760,8 @@
 "voorbeeld_tr": "O bisiklet pahalı.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met een hoge prijs"
 },
 {
 "id": "b221",
@@ -4722,7 +4803,8 @@
 "voorbeeld_tr": "Bu ne kadar?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "een bepaalde prijs hebben"
 },
 {
 "id": "b223",
@@ -4743,7 +4825,8 @@
 "voorbeeld_tr": "Market alışverişi yapıyorum.",
 "uitleg": "Her zaman çoğul.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "de dingen die je in de winkel koopt voor elke dag, zoals eten"
 },
 {
 "id": "b224",
@@ -4785,7 +4868,8 @@
 "voorbeeld_tr": "Kulağım ağrıyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "naar gevoel in je lichaam als je ziek of gewond bent"
 },
 {
 "id": "b226",
@@ -4834,7 +4918,8 @@
 "voorbeeld_tr": "İyileştin mi?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "goed in hogere mate; ook: weer gezond"
 },
 {
 "id": "b228",
@@ -4897,7 +4982,8 @@
 "voorbeeld_tr": "Komşunun bir köpeği var.",
 "uitleg": "Kadın: buurvrouw.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "man die naast je woont"
 },
 {
 "id": "b231",
@@ -4918,7 +5004,8 @@
 "voorbeeld_tr": "Babam işe gidiyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "wat je doet om geld te verdienen; ook: taken die je moet doen"
 },
 {
 "id": "b232",
@@ -4939,7 +5026,8 @@
 "voorbeeld_tr": "Annem hastanede çalışıyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "bezig zijn met je werk"
 },
 {
 "id": "b233",
@@ -4960,7 +5048,8 @@
 "voorbeeld_tr": "Polisi ara!",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "organisatie die zorgt voor orde en veiligheid"
 },
 {
 "id": "b234",
@@ -4981,7 +5070,8 @@
 "voorbeeld_tr": "Yüzebiliyorum.",
 "uitleg": "ik kan, jij kunt, hij kan.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "in staat zijn om iets te doen; ook: mogelijk zijn"
 },
 {
 "id": "b235",
@@ -5002,7 +5092,8 @@
 "voorbeeld_tr": "Eve gitmem lazım.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "verplicht zijn om iets te doen"
 },
 {
 "id": "b236",
@@ -5023,7 +5114,8 @@
 "voorbeeld_tr": "Dışarıda oynayabilir miyim?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "toestemming hebben om iets te doen"
 },
 {
 "id": "b237",
@@ -5044,7 +5136,8 @@
 "voorbeeld_tr": "Bilmiyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "kennis hebben van iets"
 },
 {
 "id": "b238",
@@ -5065,7 +5158,8 @@
 "voorbeeld_tr": "Bence yağmur yağıyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "je verstand gebruiken; ook: een mening hebben"
 },
 {
 "id": "b239",
@@ -5086,7 +5180,8 @@
 "voorbeeld_tr": "Ne diyorsun?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met woorden iets laten weten"
 },
 {
 "id": "b240",
@@ -5107,7 +5202,8 @@
 "voorbeeld_tr": "Bir şey sorabilir miyim?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "een vraag stellen; ook: iets willen krijgen"
 },
 {
 "id": "b241",
@@ -5128,7 +5224,8 @@
 "voorbeeld_tr": "Topu bana ver.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iets aan iemand overhandigen zodat hij het krijgt"
 },
 {
 "id": "b242",
@@ -5149,7 +5246,8 @@
 "voorbeeld_tr": "Bir kurabiye al.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iets pakken of aannemen"
 },
 {
 "id": "b243",
@@ -5170,7 +5268,8 @@
 "voorbeeld_tr": "Anahtarımı arıyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "proberen iets te vinden"
 },
 {
 "id": "b244",
@@ -5191,7 +5290,8 @@
 "voorbeeld_tr": "Hoşuma gidiyor.",
 "uitleg": "Hem 'bulmak' hem 'düşünmek'.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iets ontdekken wat je zocht; ook: een mening hebben"
 },
 {
 "id": "b245",
@@ -5212,7 +5312,8 @@
 "voorbeeld_tr": "Leiden'de oturuyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "je huis hebben op een plaats"
 },
 {
 "id": "b246",
@@ -5233,7 +5334,8 @@
 "voorbeeld_tr": "Hollandaca öğreniyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "kennis of vaardigheid krijgen; ook: les geven"
 },
 {
 "id": "b247",
@@ -5254,7 +5356,8 @@
 "voorbeeld_tr": "Adımı yazıyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "letters en woorden op papier of op een scherm zetten"
 },
 {
 "id": "b248",
@@ -5317,7 +5420,8 @@
 "voorbeeld_tr": "Biraz bekle.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "blijven tot iets gebeurt of iemand komt"
 },
 {
 "id": "b251",
@@ -5338,7 +5442,8 @@
 "voorbeeld_tr": "Seni yarın ararım.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iemand opbellen met de telefoon"
 },
 {
 "id": "b252",
@@ -5401,7 +5506,8 @@
 "voorbeeld_tr": "Yüzebiliyor musun?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "je in het water voortbewegen"
 },
 {
 "id": "b255",
@@ -5422,7 +5528,8 @@
 "voorbeeld_tr": "Ders dokuzda başlıyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "het eerste deel van iets gaan doen; starten"
 },
 {
 "id": "b256",
@@ -5443,7 +5550,8 @@
 "voorbeeld_tr": "Otobüs burada duruyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "ophouden met iets"
 },
 {
 "id": "b257",
@@ -5506,7 +5614,8 @@
 "voorbeeld_tr": "Parti eğlenceliydi.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "prettig, gezellig om te doen of te zien"
 },
 {
 "id": "b260",
@@ -5548,7 +5657,8 @@
 "voorbeeld_tr": "Araba hızlı gidiyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "in korte tijd; vlug"
 },
 {
 "id": "b262",
@@ -5590,7 +5700,8 @@
 "voorbeeld_tr": "İşlem kolay.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "niet moeilijk"
 },
 {
 "id": "b264",
@@ -5611,7 +5722,8 @@
 "voorbeeld_tr": "Bu kelime zor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "niet makkelijk; met veel moeite"
 },
 {
 "id": "b265",
@@ -5632,7 +5744,8 @@
 "voorbeeld_tr": "O uzun boylu.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met een grote lengte of duur"
 },
 {
 "id": "b266",
@@ -5674,7 +5787,8 @@
 "voorbeeld_tr": "Kutu ağır.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met veel gewicht; ook: moeilijk om te doen"
 },
 {
 "id": "b268",
@@ -5737,7 +5851,8 @@
 "voorbeeld_tr": "Oda temiz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "zonder vuil"
 },
 {
 "id": "b271",
@@ -5758,7 +5873,8 @@
 "voorbeeld_tr": "Dükkân açık.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "niet dicht; ook: bezig voor klanten"
 },
 {
 "id": "b272",
@@ -5807,7 +5923,8 @@
 "voorbeeld_tr": "Otobüs dolu.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met geen ruimte meer over"
 },
 {
 "id": "b274",
@@ -5857,7 +5974,8 @@
 "voorbeeld_tr": "Önce yemek, sonra oyun.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "voordat iets anders gebeurt"
 },
 {
 "id": "b276",
@@ -5899,7 +6017,8 @@
 "voorbeeld_tr": "Ondan sonra kitap okuyoruz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "na dat moment"
 },
 {
 "id": "b278",
@@ -6067,7 +6186,8 @@
 "voorbeeld_tr": "Hasta olduğum için evde kalıyorum.",
 "uitleg": "Yan cümle: fiil sona gider.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "voegwoord dat een reden geeft (het werkwoord staat achteraan)"
 },
 {
 "id": "b286",
@@ -6130,7 +6250,8 @@
 "voorbeeld_tr": "Benim yanımda oturuyor.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "aan de zijkant van, dicht bij"
 },
 {
 "id": "b289",
@@ -6193,7 +6314,8 @@
 "voorbeeld_tr": "Tom ile Lisa'nın arasında oturuyorum.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "in de ruimte of tijd tussen twee dingen"
 },
 {
 "id": "b305",
@@ -6403,7 +6525,8 @@
 "voorbeeld_tr": "Bu montu geri getirmek istiyorum.",
 "uitleg": "Ayrılabilen fiil: ik breng ... terug.",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "iets weer naar de plaats brengen waar het vandaan kwam"
 },
 {
 "id": "s001",
@@ -7586,6 +7709,7 @@
 "in_nieuws": [
 "pieterburen"
 ],
+"definitie": "iemand die bij een bedrijf of organisatie werkt",
 "voorbeeld_door": "claude",
 "item": "pieterburen",
 "nr": 6
@@ -8036,6 +8160,7 @@
 "draaiorgel",
 "bankbiljet"
 ],
+"definitie": "zonder iets bijzonders; op de normale manier",
 "voorbeeld_door": "claude",
 "item": "albertheijn",
 "nr": 4
@@ -8067,6 +8192,7 @@
 "pensioen",
 "ober"
 ],
+"definitie": "een korte tijd; maakt een verzoek vriendelijker (kom even)",
 "voorbeeld_door": "claude",
 "item": "wolken",
 "nr": 2
@@ -8099,6 +8225,7 @@
 "doosjes",
 "bankbiljet"
 ],
+"definitie": "in werkelijkheid; als je erover nadenkt",
 "voorbeeld_door": "claude",
 "item": "kroket",
 "nr": 1
@@ -8156,6 +8283,7 @@
 "station",
 "ober"
 ],
+"definitie": "ondanks dat; ook: om bevestiging te vragen (je komt toch?)",
 "voorbeeld_door": "claude",
 "item": "kroket",
 "nr": 1
@@ -8182,6 +8310,7 @@
 "in_nieuws": [
 "draaiorgel"
 ],
+"definitie": "maakt een uitspraak vriendelijk of geruststellend (het is goed, hoor)",
 "voorbeeld_door": "notities",
 "item": "draaiorgel",
 "nr": 7
@@ -8228,6 +8357,7 @@
 "uitleg": "Ayrılabilir: werk ... thuis.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "thuis werken in plaats van op kantoor",
 "voorbeeld_door": "claude"
 },
 {
@@ -8250,6 +8380,7 @@
 "uitleg": "",
 "meer": [],
 "in_nieuws": [],
+"definitie": "periode waarin je niet werkt of naar school gaat",
 "voorbeeld_door": "claude"
 },
 {
@@ -8294,6 +8425,7 @@
 "uitleg": "Fiil: afspreken = sözleşmek, buluşmak ayarlamak.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "iets wat je samen hebt besloten; ook: een gepland bezoek of gesprek",
 "voorbeeld_door": "claude"
 },
 {
@@ -8360,6 +8492,7 @@
 "uitleg": "Zıttı: uitschrijven.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "je naam laten opnemen in een lijst om mee te doen",
 "voorbeeld_door": "claude"
 },
 {
@@ -8409,6 +8542,7 @@
 "uitleg": "Zıttı: werknemer.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "persoon of bedrijf bij wie je in dienst bent",
 "voorbeeld_door": "claude"
 },
 {
@@ -8777,6 +8911,7 @@
 "fossiel",
 "pensioen"
 ],
+"definitie": "zo een, een dergelijke",
 "voorbeeld_door": "notities",
 "item": "kroket",
 "nr": 1
@@ -8829,6 +8964,7 @@
 "in_nieuws": [
 "station"
 ],
+"definitie": "meer dan genoeg",
 "voorbeeld_door": "notities",
 "item": "station",
 "nr": 11
@@ -9206,6 +9342,7 @@
 "uitleg": "behalve natuurlijk = tabii ... hariç.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "met uitzondering van",
 "voorbeeld_door": "claude"
 },
 {
@@ -9237,6 +9374,7 @@
 "station",
 "pensioen"
 ],
+"definitie": "op een andere manier; ook: als dat niet gebeurt",
 "voorbeeld_door": "claude",
 "item": "wolken",
 "nr": 2
@@ -9550,6 +9688,7 @@
 "gluten",
 "albertheijn"
 ],
+"definitie": "ervoor zorgen dat iets niet gebeurt",
 "voorbeeld_door": "notities",
 "item": "gluten",
 "nr": 3
@@ -9810,6 +9949,7 @@
 "uitleg": "ik - mezelf.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "ik zelf, en niet een ander",
 "voorbeeld_door": "notities"
 },
 {
@@ -9834,6 +9974,7 @@
 "in_nieuws": [
 "wolf"
 ],
+"definitie": "jij zelf, en niet een ander",
 "voorbeeld_door": "claude",
 "item": "wolf",
 "nr": 5
@@ -9861,6 +10002,7 @@
 "wolf",
 "ober"
 ],
+"definitie": "hij, zij of het zelf",
 "voorbeeld_door": "notities",
 "item": "wolf",
 "nr": 5
@@ -9964,6 +10106,7 @@
 "pieterburen",
 "pensioen"
 ],
+"definitie": "behalve dat, ook nog",
 "voorbeeld_door": "notities",
 "item": "kroket",
 "nr": 1
@@ -10258,6 +10401,7 @@
 "station",
 "ober"
 ],
+"definitie": "in dezelfde tijd als; ook: maar aan de andere kant",
 "voorbeeld_door": "claude",
 "item": "wolken",
 "nr": 2
@@ -12365,6 +12509,7 @@
 "wolf",
 "pieterburen"
 ],
+"definitie": "met een goede reden; juist",
 "voorbeeld_door": "notities",
 "item": "wolf",
 "nr": 5
@@ -12614,6 +12759,7 @@
 "draaiorgel",
 "station"
 ],
+"definitie": "op het moment dat",
 "voorbeeld_door": "notities",
 "item": "wolken",
 "nr": 2
@@ -12728,6 +12874,7 @@
 }
 ],
 "in_nieuws": [],
+"definitie": "iets als waar beschouwen; ook: een baan of iemand accepteren; de telefoon opnemen",
 "voorbeeld_door": "claude"
 },
 {
@@ -12763,6 +12910,7 @@
 }
 ],
 "in_nieuws": [],
+"definitie": "iets zo veranderen dat het beter past",
 "voorbeeld_door": "claude"
 },
 {
@@ -12895,6 +13043,7 @@
 }
 ],
 "in_nieuws": [],
+"definitie": "officieel vragen om iets te krijgen",
 "voorbeeld_door": "claude"
 },
 {
@@ -12996,6 +13145,7 @@
 }
 ],
 "in_nieuws": [],
+"definitie": "groter, beter of rijper worden of maken",
 "voorbeeld_door": "claude"
 },
 {
@@ -20244,7 +20394,8 @@
 "voorbeeld_tr": "Yarın izinliyim.",
 "uitleg": "vrij zijn = izinli olmak, boş olmak",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "niet bezet; niet aan het werk; zonder kosten (gratis)"
 },
 {
 "id": "k004",
@@ -20286,7 +20437,8 @@
 "voorbeeld_tr": "Anlat bakalım, tatilin nasıldı?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "met woorden aan iemand laten weten wat er gebeurd is"
 },
 {
 "id": "k006",
@@ -20370,7 +20522,8 @@
 "voorbeeld_tr": "Dört kişilik bir aileyiz.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "vader, moeder en hun kinderen samen"
 },
 {
 "id": "k010",
@@ -20455,7 +20608,8 @@
 "voorbeeld_tr": "Bir dene.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "één keer; in een verzoek om het vriendelijker te maken (kijk eens)"
 },
 {
 "id": "k014",
@@ -20476,7 +20630,8 @@
 "voorbeeld_tr": "Mutlaka haber ver.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "in de eerste plaats, meer dan andere dingen"
 },
 {
 "id": "k015",
@@ -20644,7 +20799,8 @@
 "voorbeeld_tr": "Yeniden geçtim, bu sefer yeni sürüm için.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "nog een keer, weer"
 },
 {
 "id": "k023",
@@ -20665,7 +20821,8 @@
 "voorbeeld_tr": "Herkes zor sandı, ama tam tersine kolaydı.",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "precies, zoals het hoort; ook: om het tegendeel te benadrukken"
 },
 {
 "id": "k024",
@@ -20776,6 +20933,4120 @@
 "meer": [],
 "in_nieuws": [],
 "woordsoort": "bw"
+},
+{
+"id": "k029",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "zelf",
+"soort": "woord",
+"tr": "kendi, kendisi",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "die persoon en geen ander (ik doe het zelf)"
+},
+{
+"id": "k030",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de tijd",
+"soort": "woord",
+"tr": "zaman, vakit",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het verloop van uren en dagen; ook: een moment of periode"
+},
+{
+"id": "k031",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "via",
+"soort": "woord",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "langs de weg van; door middel van (via de website)"
+},
+{
+"id": "k032",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "elk",
+"soort": "woord",
+"tr": "her (biri)",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "ieder, zonder uitzondering"
+},
+{
+"id": "k033",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "ons",
+"soort": "woord",
+"tr": "bizim; bizi",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "van ons, wij; ook: aan of voor ons"
+},
+{
+"id": "k034",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "alleen",
+"soort": "woord",
+"tr": "yalnız; sadece",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "zonder anderen; ook: niets meer dan"
+},
+{
+"id": "k035",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "gratis",
+"soort": "woord",
+"tr": "bedava, ücretsiz",
+"niveau": "A1",
+"groep": "3",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "zonder dat je hoeft te betalen"
+},
+{
+"id": "k036",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de les",
+"soort": "woord",
+"tr": "ders",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "tijd waarin een leraar iets uitlegt aan leerlingen"
+},
+{
+"id": "k037",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de mens",
+"soort": "woord",
+"tr": "insan",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "persoon, man of vrouw"
+},
+{
+"id": "k038",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de website",
+"soort": "woord",
+"tr": "web sitesi",
+"niveau": "A1",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "pagina's op internet van een persoon of organisatie"
+},
+{
+"id": "k039",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "thuis",
+"soort": "woord",
+"tr": "evde",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "in je eigen huis"
+},
+{
+"id": "k040",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de buur",
+"soort": "woord",
+"tr": "komşu",
+"niveau": "A1",
+"groep": "3",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die naast of dicht bij je woont"
+},
+{
+"id": "k041",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "vaak",
+"soort": "woord",
+"tr": "sık sık",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "veel keren"
+},
+{
+"id": "k042",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de leidinggevende",
+"soort": "woord",
+"tr": "amir, yönetici",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die de baas is van een groep medewerkers"
+},
+{
+"id": "k043",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de vergunning",
+"soort": "woord",
+"tr": "izin, ruhsat",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "officiële toestemming om iets te doen"
+},
+{
+"id": "k044",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de huur",
+"soort": "woord",
+"tr": "kira",
+"niveau": "A2",
+"groep": "6",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "geld dat je elke maand betaalt om in een woning te wonen"
+},
+{
+"id": "k045",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "samen",
+"soort": "woord",
+"tr": "birlikte",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "met elkaar"
+},
+{
+"id": "k046",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "krijgen",
+"soort": "woord",
+"tr": "almak (verileni), edinmek",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets ontvangen wat iemand je geeft of stuurt"
+},
+{
+"id": "k047",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het formulier",
+"soort": "woord",
+"tr": "form",
+"niveau": "A2",
+"groep": "6",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "papier of webpagina met vragen die je moet invullen"
+},
+{
+"id": "k048",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de keer",
+"soort": "woord",
+"tr": "kez, sefer",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "moment dat iets gebeurt (twee keer = 2x)"
+},
+{
+"id": "k049",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "iedereen",
+"soort": "woord",
+"tr": "herkes",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "alle mensen"
+},
+{
+"id": "k050",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "minder",
+"soort": "woord",
+"tr": "daha az",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een kleinere hoeveelheid"
+},
+{
+"id": "k051",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de cursus",
+"soort": "woord",
+"tr": "kurs",
+"niveau": "A2",
+"groep": "6",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "reeks lessen over één onderwerp"
+},
+{
+"id": "k052",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "bijvoorbeeld",
+"soort": "woord",
+"tr": "örneğin",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "om iets duidelijk te maken met een geval (afgekort: bijv.)"
+},
+{
+"id": "k053",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "minimaal",
+"soort": "woord",
+"tr": "en az",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "formeel",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "ten minste, niet minder dan"
+},
+{
+"id": "k054",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "deze",
+"soort": "woord",
+"tr": "bu (de-kelimeleri, çoğul)",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wijst iets aan dat dichtbij is (deze stoel, deze boeken)"
+},
+{
+"id": "k055",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de app",
+"soort": "woord",
+"tr": "uygulama (telefon)",
+"niveau": "A1",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "programma op je telefoon of tablet"
+},
+{
+"id": "k056",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "vóór",
+"soort": "woord",
+"tr": "önce; önünde",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "eerder dan; aan de voorkant van"
+},
+{
+"id": "k057",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het contact",
+"soort": "woord",
+"tr": "iletişim, temas",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het met elkaar praten, schrijven of elkaar zien"
+},
+{
+"id": "k058",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "melden",
+"soort": "woord",
+"tr": "bildirmek",
+"niveau": "B1",
+"groep": "7",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "officieel laten weten (een ziekte, een probleem)"
+},
+{
+"id": "k059",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "uiterlijk",
+"soort": "woord",
+"tr": "en geç",
+"niveau": "B1",
+"groep": "vo",
+"thema": "tijd",
+"subthema": "",
+"register": "formeel",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet later dan (uiterlijk vrijdag)"
+},
+{
+"id": "k060",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de bedrijfsarts",
+"soort": "woord",
+"tr": "işyeri hekimi",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "arts die werknemers adviseert over ziekte en werk"
+},
+{
+"id": "k061",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "altijd",
+"soort": "woord",
+"tr": "her zaman",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "op elk moment, steeds"
+},
+{
+"id": "k062",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "iets",
+"soort": "woord",
+"tr": "bir şey",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een ding of zaak die niet precies genoemd wordt"
+},
+{
+"id": "k063",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "doen",
+"soort": "woord",
+"tr": "yapmak, etmek",
+"niveau": "A0",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "met een handeling bezig zijn"
+},
+{
+"id": "k064",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de opleiding",
+"soort": "woord",
+"tr": "eğitim, öğrenim (meslek)",
+"niveau": "A2",
+"groep": "8",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "studie om kennis te krijgen voor een beroep"
+},
+{
+"id": "k065",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "tijdens",
+"soort": "woord",
+"tr": "sırasında, esnasında",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "in de tijd dat iets gebeurt"
+},
+{
+"id": "k066",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de reparatie",
+"soort": "woord",
+"tr": "tamir",
+"niveau": "A2",
+"groep": "6",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het maken van iets wat kapot is"
+},
+{
+"id": "k067",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de bak",
+"soort": "woord",
+"tr": "kap, kutu, kova",
+"niveau": "A2",
+"groep": "4",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "open of dichte bak om iets in te doen, bijvoorbeeld afval"
+},
+{
+"id": "k068",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de ouders",
+"soort": "woord",
+"tr": "anne baba",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "familie",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "vader en moeder"
+},
+{
+"id": "k069",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "maximaal",
+"soort": "woord",
+"tr": "en fazla",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "formeel",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet meer dan"
+},
+{
+"id": "k070",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "mogelijk",
+"soort": "woord",
+"tr": "mümkün",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat kan gebeuren of kan worden gedaan"
+},
+{
+"id": "k071",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het probleem",
+"soort": "woord",
+"tr": "sorun",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets wat moeilijk is of niet goed gaat"
+},
+{
+"id": "k072",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het gesprek",
+"soort": "woord",
+"tr": "konuşma, görüşme",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het praten van twee of meer mensen met elkaar"
+},
+{
+"id": "k073",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de buurtbemiddeling",
+"soort": "woord",
+"tr": "komşu arabuluculuğu",
+"niveau": "B1",
+"groep": "vo",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "hulp van vrijwilligers bij ruzie tussen buren"
+},
+{
+"id": "k074",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "soms",
+"soort": "woord",
+"tr": "bazen",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet altijd, maar af en toe"
+},
+{
+"id": "k075",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "halen",
+"soort": "woord",
+"tr": "gidip almak, getirmek",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "ergens heen gaan en iets of iemand meenemen"
+},
+{
+"id": "k076",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het cursusgeld",
+"soort": "woord",
+"tr": "kurs ücreti",
+"niveau": "B1",
+"groep": "vo",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "geld dat je betaalt om een cursus te volgen"
+},
+{
+"id": "k077",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de vakantiedag",
+"soort": "woord",
+"tr": "izin günü",
+"niveau": "A2",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "vrije dag van je werk waarvoor je toch betaald krijgt"
+},
+{
+"id": "k078",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "zoals",
+"soort": "woord",
+"tr": "gibi",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "op dezelfde manier als; bijvoorbeeld"
+},
+{
+"id": "k079",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "kiezen",
+"soort": "woord",
+"tr": "seçmek",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "één van meerdere mogelijkheden nemen"
+},
+{
+"id": "k080",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het examen",
+"soort": "woord",
+"tr": "sınav",
+"niveau": "A1",
+"groep": "8",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "toets om te laten zien wat je kunt"
+},
+{
+"id": "k081",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het bezoek",
+"soort": "woord",
+"tr": "ziyaret; misafir",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het naar iemand toe gaan; ook: de mensen die op bezoek komen"
+},
+{
+"id": "k082",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de groep",
+"soort": "woord",
+"tr": "grup; (okulda) sınıf",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een aantal mensen bij elkaar; op de basisschool: de klas"
+},
+{
+"id": "k083",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het diploma",
+"soort": "woord",
+"tr": "diploma",
+"niveau": "A2",
+"groep": "8",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "papier dat laat zien dat je geslaagd bent"
+},
+{
+"id": "k084",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de werkdag",
+"soort": "woord",
+"tr": "iş günü",
+"niveau": "A2",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dag waarop je werkt (meestal maandag tot vrijdag)"
+},
+{
+"id": "k085",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de cursist",
+"soort": "woord",
+"tr": "kursiyer",
+"niveau": "B1",
+"groep": "vo",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die een cursus volgt"
+},
+{
+"id": "k086",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het advies",
+"soort": "woord",
+"tr": "tavsiye",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat iemand je aanraadt om te doen"
+},
+{
+"id": "k087",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "volgend",
+"soort": "woord",
+"tr": "sonraki, gelecek",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dat hierna komt (volgende week)"
+},
+{
+"id": "k088",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "sturen",
+"soort": "woord",
+"tr": "göndermek",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets naar iemand laten gaan, bijvoorbeeld een brief of een e-mail"
+},
+{
+"id": "k089",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "sporten",
+"soort": "woord",
+"tr": "spor yapmak",
+"niveau": "A1",
+"groep": "3",
+"thema": "gezondheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "aan sport doen"
+},
+{
+"id": "k090",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het abonnement",
+"soort": "woord",
+"tr": "abonelik",
+"niveau": "A2",
+"groep": "vo",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "afspraak dat je elke maand of jaar betaalt voor iets"
+},
+{
+"id": "k091",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de receptie",
+"soort": "woord",
+"tr": "resepsiyon, danışma",
+"niveau": "A2",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "plaats bij de ingang waar je je meldt of iets vraagt"
+},
+{
+"id": "k092",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de docent",
+"soort": "woord",
+"tr": "öğretmen (yetişkin eğitimi)",
+"niveau": "A2",
+"groep": "8",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die les geeft, vooral aan oudere leerlingen of volwassenen"
+},
+{
+"id": "k093",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de coördinator",
+"soort": "woord",
+"tr": "koordinatör",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die het werk van anderen regelt en organiseert"
+},
+{
+"id": "k094",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "hiervoor",
+"soort": "woord",
+"tr": "bunun için; bundan önce",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "voor dit; ook: eerder dan dit"
+},
+{
+"id": "k095",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de verandering",
+"soort": "woord",
+"tr": "değişiklik",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het anders worden of anders maken"
+},
+{
+"id": "k096",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "daarvoor",
+"soort": "woord",
+"tr": "onun için; ondan önce",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "voor dat; ook: eerder dan dat"
+},
+{
+"id": "k097",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de training",
+"soort": "woord",
+"tr": "eğitim, antrenman",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "oefening om iets beter te kunnen"
+},
+{
+"id": "k098",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "gesloten",
+"soort": "woord",
+"tr": "kapalı",
+"niveau": "A1",
+"groep": "3",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet open"
+},
+{
+"id": "k099",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "steeds",
+"soort": "woord",
+"tr": "hep, gittikçe",
+"niveau": "A2",
+"groep": "6",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "telkens, altijd weer; ook: met 'meer': steeds meer"
+},
+{
+"id": "k100",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "volgen",
+"soort": "woord",
+"tr": "takip etmek; (kurs) almak",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "achter iemand aan gaan; ook: een cursus of opleiding doen"
+},
+{
+"id": "k101",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "vanaf",
+"soort": "woord",
+"tr": "-den itibaren",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "met als begin (vanaf maandag)"
+},
+{
+"id": "k102",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "blijven",
+"soort": "woord",
+"tr": "kalmak; (…-meye) devam etmek",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet weggaan; ook: niet veranderen"
+},
+{
+"id": "k103",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "mevrouw",
+"soort": "woord",
+"tr": "hanım, bayan",
+"niveau": "A1",
+"groep": "3",
+"thema": "kennismaken",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "beleefd woord voor een vrouw"
+},
+{
+"id": "k104",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "sommige",
+"soort": "woord",
+"tr": "bazı",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een paar, niet alle"
+},
+{
+"id": "k105",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het begin",
+"soort": "woord",
+"tr": "başlangıç",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het eerste deel van iets"
+},
+{
+"id": "k106",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "voordat",
+"soort": "woord",
+"tr": "-meden önce",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "eerder dan het moment dat (het werkwoord staat achteraan)"
+},
+{
+"id": "k107",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het adres",
+"soort": "woord",
+"tr": "adres",
+"niveau": "A1",
+"groep": "4",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "straat, huisnummer en plaats waar iemand woont"
+},
+{
+"id": "k108",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de verklaring",
+"soort": "woord",
+"tr": "açıklama; belge, beyan",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "uitleg; ook: officieel papier waarin iets wordt bevestigd"
+},
+{
+"id": "k109",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de prijs",
+"soort": "woord",
+"tr": "fiyat; ödül",
+"niveau": "A1",
+"groep": "4",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat iets kost; ook: wat je wint"
+},
+{
+"id": "k110",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de balie",
+"soort": "woord",
+"tr": "gişe, kontuar",
+"niveau": "A2",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "tafel of loket waar je geholpen wordt"
+},
+{
+"id": "k111",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "opzeggen",
+"soort": "woord",
+"tr": "iptal etmek (abonelik, sözleşme)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "laten weten dat je een abonnement of contract wilt stoppen"
+},
+{
+"id": "k112",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "toegestaan",
+"soort": "woord",
+"tr": "izin verilen",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat mag; niet verboden"
+},
+{
+"id": "k113",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het gebruik",
+"soort": "woord",
+"tr": "kullanım",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het gebruiken van iets"
+},
+{
+"id": "k114",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "welkom",
+"soort": "woord",
+"tr": "hoş geldin",
+"niveau": "A0",
+"groep": "1-2",
+"thema": "kennismaken",
+"subthema": "",
+"register": "neutraal",
+"tur": "tw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "groet aan iemand die aankomt"
+},
+{
+"id": "k115",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de pagina",
+"soort": "woord",
+"tr": "sayfa",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "bladzijde in een boek of op internet"
+},
+{
+"id": "k116",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "gebruiken",
+"soort": "woord",
+"tr": "kullanmak",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets doen met iets voor een doel"
+},
+{
+"id": "k117",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de laadpaal",
+"soort": "woord",
+"tr": "şarj istasyonu (elektrikli araç)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "onderweg",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "paal waar je een elektrische auto oplaadt"
+},
+{
+"id": "k118",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het verlof",
+"soort": "woord",
+"tr": "izin (işten)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "tijd dat je met toestemming niet hoeft te werken"
+},
+{
+"id": "k119",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de brief",
+"soort": "woord",
+"tr": "mektup",
+"niveau": "A1",
+"groep": "4",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "geschreven bericht dat je per post stuurt"
+},
+{
+"id": "k120",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de spoed",
+"soort": "woord",
+"tr": "acele, acil durum",
+"niveau": "B1",
+"groep": "7",
+"thema": "gezondheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "grote haast; met spoed = zo snel mogelijk"
+},
+{
+"id": "k121",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de overlast",
+"soort": "woord",
+"tr": "rahatsızlık (gürültü vb.)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "hinder die anderen je bezorgen, bijvoorbeeld door lawaai"
+},
+{
+"id": "k122",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "misschien",
+"soort": "woord",
+"tr": "belki",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het kan zo zijn, maar het is niet zeker"
+},
+{
+"id": "k123",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de locatie",
+"soort": "woord",
+"tr": "yer, şube",
+"niveau": "B1",
+"groep": "vo",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "plaats waar iets is of gebeurt"
+},
+{
+"id": "k124",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de zorg",
+"soort": "woord",
+"tr": "bakım; endişe",
+"niveau": "B1",
+"groep": "7",
+"thema": "gezondheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het helpen en verzorgen van mensen; ook: ongerustheid"
+},
+{
+"id": "k125",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de oplossing",
+"soort": "woord",
+"tr": "çözüm",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "manier om een probleem op te lossen"
+},
+{
+"id": "k126",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "nooit",
+"soort": "woord",
+"tr": "asla, hiç",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "op geen enkel moment"
+},
+{
+"id": "k127",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "iemand",
+"soort": "woord",
+"tr": "biri",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een persoon, zonder te zeggen wie"
+},
+{
+"id": "k128",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de administratie",
+"soort": "woord",
+"tr": "idari işler; yönetim birimi",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "afdeling die de papieren en gegevens bijhoudt"
+},
+{
+"id": "k129",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "tevreden",
+"soort": "woord",
+"tr": "memnun",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "blij omdat iets goed is"
+},
+{
+"id": "k130",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "hoeven",
+"soort": "woord",
+"tr": "(niet hoeven) gerek olmamak",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "nodig zijn; bijna altijd met 'niet': je hoeft niet = het is niet nodig"
+},
+{
+"id": "k131",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "bereikbaar",
+"soort": "woord",
+"tr": "ulaşılabilir",
+"niveau": "B1",
+"groep": "vo",
+"thema": "algemeen",
+"subthema": "",
+"register": "formeel",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "waar of wanneer je iemand kunt bereiken (telefonisch bereikbaar)"
+},
+{
+"id": "k132",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "dezelfde",
+"soort": "woord",
+"tr": "aynı (de-kelimeleri)",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet een andere; gelijk"
+},
+{
+"id": "k133",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de arts",
+"soort": "woord",
+"tr": "doktor",
+"niveau": "A2",
+"groep": "6",
+"thema": "gezondheid",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dokter"
+},
+{
+"id": "k134",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het rooster",
+"soort": "woord",
+"tr": "çizelge, ders/iş programı",
+"niveau": "A2",
+"groep": "6",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "lijst met tijden van lessen of werk"
+},
+{
+"id": "k135",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "geldig",
+"soort": "woord",
+"tr": "geçerli",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat officieel nog gebruikt mag worden"
+},
+{
+"id": "k136",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de volwassene",
+"soort": "woord",
+"tr": "yetişkin",
+"niveau": "A2",
+"groep": "6",
+"thema": "familie",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die niet meer een kind is"
+},
+{
+"id": "k137",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "extra",
+"soort": "woord",
+"tr": "ek, fazladan",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "meer dan normaal"
+},
+{
+"id": "k138",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het einde",
+"soort": "woord",
+"tr": "son",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het laatste deel van iets"
+},
+{
+"id": "k139",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het antwoord",
+"soort": "woord",
+"tr": "cevap",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat je zegt of schrijft op een vraag"
+},
+{
+"id": "k140",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het team",
+"soort": "woord",
+"tr": "takım, ekip",
+"niveau": "A2",
+"groep": "5",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "groep mensen die samen werkt"
+},
+{
+"id": "k141",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "parkeren",
+"soort": "woord",
+"tr": "park etmek",
+"niveau": "A2",
+"groep": "6",
+"thema": "onderweg",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een auto of fiets ergens neerzetten"
+},
+{
+"id": "k142",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de verhuizing",
+"soort": "woord",
+"tr": "taşınma",
+"niveau": "B1",
+"groep": "vo",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het gaan wonen in een ander huis"
+},
+{
+"id": "k143",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de partner",
+"soort": "woord",
+"tr": "eş, partner",
+"niveau": "A2",
+"groep": "vo",
+"thema": "familie",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "man of vrouw met wie je samenleeft of getrouwd bent"
+},
+{
+"id": "k144",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het recht",
+"soort": "woord",
+"tr": "hak",
+"niveau": "B1",
+"groep": "8",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat je volgens de regels mag of krijgt (recht op vakantie)"
+},
+{
+"id": "k145",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de tandarts",
+"soort": "woord",
+"tr": "diş hekimi",
+"niveau": "A1",
+"groep": "3",
+"thema": "gezondheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "arts voor je tanden"
+},
+{
+"id": "k146",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de groet",
+"soort": "woord",
+"tr": "selam",
+"niveau": "A2",
+"groep": "5",
+"thema": "kennismaken",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "woorden waarmee je iemand groet, ook aan het eind van een brief"
+},
+{
+"id": "k147",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de woning",
+"soort": "woord",
+"tr": "konut, ev",
+"niveau": "A2",
+"groep": "vo",
+"thema": "wonen",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "huis of appartement om in te wonen"
+},
+{
+"id": "k148",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het huisdier",
+"soort": "woord",
+"tr": "evcil hayvan",
+"niveau": "A1",
+"groep": "3",
+"thema": "natuur",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dier dat je in huis houdt, zoals een kat of hond"
+},
+{
+"id": "k149",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "kapot",
+"soort": "woord",
+"tr": "bozuk, kırık",
+"niveau": "A1",
+"groep": "3",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat niet meer werkt of gebroken is"
+},
+{
+"id": "k150",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het nummer",
+"soort": "woord",
+"tr": "numara",
+"niveau": "A1",
+"groep": "1-2",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "getal waarmee je iets aanduidt, bijvoorbeeld een telefoonnummer"
+},
+{
+"id": "k151",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de leerkracht",
+"soort": "woord",
+"tr": "öğretmen (ilkokul)",
+"niveau": "A2",
+"groep": "4",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die les geeft op een basisschool"
+},
+{
+"id": "k152",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de kinderopvang",
+"soort": "woord",
+"tr": "kreş, çocuk bakımevi",
+"niveau": "A2",
+"groep": "vo",
+"thema": "familie",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "plaats waar kinderen verzorgd worden terwijl hun ouders werken"
+},
+{
+"id": "k153",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "allebei",
+"soort": "woord",
+"tr": "her ikisi de",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "de ene en de andere van twee"
+},
+{
+"id": "k154",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "hetzelfde",
+"soort": "woord",
+"tr": "aynı (şey)",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "klein",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet anders; gelijk"
+},
+{
+"id": "k155",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "geleden",
+"soort": "woord",
+"tr": "önce (zaman)",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "in het verleden, gerekend vanaf nu (twee jaar geleden)"
+},
+{
+"id": "k156",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het plezier",
+"soort": "woord",
+"tr": "keyif, eğlence",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "blij gevoel als je iets leuk vindt"
+},
+{
+"id": "k157",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de korting",
+"soort": "woord",
+"tr": "indirim",
+"niveau": "A2",
+"groep": "6",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "bedrag dat van de prijs af gaat"
+},
+{
+"id": "k158",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het niveau",
+"soort": "woord",
+"tr": "seviye",
+"niveau": "A2",
+"groep": "7",
+"thema": "school",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "hoogte of moeilijkheid van iets (niveau B1)"
+},
+{
+"id": "k159",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de twijfel",
+"soort": "woord",
+"tr": "şüphe, tereddüt",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het niet zeker weten"
+},
+{
+"id": "k160",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de plek",
+"soort": "woord",
+"tr": "yer",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "plaats"
+},
+{
+"id": "k161",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "bijna",
+"soort": "woord",
+"tr": "neredeyse",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet helemaal, maar wel heel dichtbij"
+},
+{
+"id": "k162",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de helft",
+"soort": "woord",
+"tr": "yarı, yarısı",
+"niveau": "A1",
+"groep": "4",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een van twee gelijke delen"
+},
+{
+"id": "k163",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "weleens",
+"soort": "woord",
+"tr": "arada bir; hiç (soruda)",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "informeel",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "soms; in een vraag: ooit (heb je weleens…?)"
+},
+{
+"id": "k164",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het buurthuis",
+"soort": "woord",
+"tr": "mahalle evi (toplum merkezi)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "gebouw in de wijk voor activiteiten van buurtbewoners"
+},
+{
+"id": "k165",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de bemiddelaar",
+"soort": "woord",
+"tr": "arabulucu",
+"niveau": "B1",
+"groep": "vo",
+"thema": "maatschappij",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die helpt als twee partijen ruzie hebben"
+},
+{
+"id": "k166",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de bedreiging",
+"soort": "woord",
+"tr": "tehdit",
+"niveau": "B1",
+"groep": "vo",
+"thema": "maatschappij",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het zeggen dat je iemand iets ergs zult aandoen"
+},
+{
+"id": "k167",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "direct",
+"soort": "woord",
+"tr": "hemen; doğrudan",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "meteen, zonder te wachten"
+},
+{
+"id": "k168",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "meedoen",
+"soort": "woord",
+"tr": "katılmak",
+"niveau": "A2",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "samen met anderen aan iets deelnemen"
+},
+{
+"id": "k169",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "invullen",
+"soort": "woord",
+"tr": "(form) doldurmak",
+"niveau": "A2",
+"groep": "6",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "de gevraagde gegevens op een formulier schrijven"
+},
+{
+"id": "k170",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "overdag",
+"soort": "woord",
+"tr": "gündüz",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "tijdens de dag, als het licht is"
+},
+{
+"id": "k171",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "brengen",
+"soort": "woord",
+"tr": "getirmek, götürmek",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets of iemand naar een plaats meenemen"
+},
+{
+"id": "k172",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de leeftijd",
+"soort": "woord",
+"tr": "yaş",
+"niveau": "A2",
+"groep": "5",
+"thema": "familie",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "hoe oud iemand is"
+},
+{
+"id": "k173",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de omscholing",
+"soort": "woord",
+"tr": "meslek değiştirme eğitimi",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "opleiding om een ander beroep te kunnen doen"
+},
+{
+"id": "k174",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het inkomen",
+"soort": "woord",
+"tr": "gelir",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "geld dat je krijgt voor je werk of van een uitkering"
+},
+{
+"id": "k175",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de werknemer",
+"soort": "woord",
+"tr": "çalışan, işçi",
+"niveau": "A2",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iemand die in dienst is bij een werkgever"
+},
+{
+"id": "k176",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "positief",
+"soort": "woord",
+"tr": "olumlu",
+"niveau": "A2",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "goed, gunstig; met een goed gevoel"
+},
+{
+"id": "k177",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "vroeger",
+"soort": "woord",
+"tr": "eskiden",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "in een tijd die voorbij is"
+},
+{
+"id": "k178",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "belangrijk",
+"soort": "woord",
+"tr": "önemli",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat veel betekent of grote gevolgen heeft"
+},
+{
+"id": "k179",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "praktisch",
+"soort": "woord",
+"tr": "pratik, kullanışlı",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "handig om te gebruiken; ook: over het doen, niet de theorie"
+},
+{
+"id": "k180",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het plan",
+"soort": "woord",
+"tr": "plan",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "idee over wat je wilt gaan doen"
+},
+{
+"id": "k181",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "eerder",
+"soort": "woord",
+"tr": "daha önce, daha erken",
+"niveau": "A2",
+"groep": "5",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "vroeger dan een ander moment"
+},
+{
+"id": "k182",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "daarom",
+"soort": "woord",
+"tr": "bu yüzden",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "om die reden"
+},
+{
+"id": "k183",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het telefoonnummer",
+"soort": "woord",
+"tr": "telefon numarası",
+"niveau": "A1",
+"groep": "4",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "nummer dat je belt om iemand te spreken"
+},
+{
+"id": "k184",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "ergens",
+"soort": "woord",
+"tr": "bir yerde",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "op een plaats die je niet precies noemt"
+},
+{
+"id": "k185",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "bespreken",
+"soort": "woord",
+"tr": "görüşmek, konuşmak (bir konuyu)",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "met elkaar praten over een onderwerp"
+},
+{
+"id": "k186",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de manier",
+"soort": "woord",
+"tr": "yol, şekil",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "hoe je iets doet"
+},
+{
+"id": "k187",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de personeelszaken",
+"soort": "woord",
+"tr": "personel işleri (İK)",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "afdeling die alles regelt voor de medewerkers (HR)"
+},
+{
+"id": "k188",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "schriftelijk",
+"soort": "woord",
+"tr": "yazılı",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "op papier of per e-mail, niet mondeling"
+},
+{
+"id": "k189",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de opzegtermijn",
+"soort": "woord",
+"tr": "fesih bildirim süresi",
+"niveau": "B1",
+"groep": "vo",
+"thema": "winkel",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "tijd tussen het opzeggen en het echte einde van een contract"
+},
+{
+"id": "k190",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het identiteitsbewijs",
+"soort": "woord",
+"tr": "kimlik belgesi",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "paspoort of identiteitskaart"
+},
+{
+"id": "k191",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de informatie",
+"soort": "woord",
+"tr": "bilgi",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "wat je te weten komt over iets"
+},
+{
+"id": "k192",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de pauze",
+"soort": "woord",
+"tr": "mola, ara",
+"niveau": "A1",
+"groep": "3",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "korte tijd van rust tijdens werk of les"
+},
+{
+"id": "k193",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de minuut",
+"soort": "woord",
+"tr": "dakika",
+"niveau": "A1",
+"groep": "3",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "periode van zestig seconden"
+},
+{
+"id": "k194",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de reden",
+"soort": "woord",
+"tr": "sebep",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "waarom iets gebeurt"
+},
+{
+"id": "k195",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de factuur",
+"soort": "woord",
+"tr": "fatura",
+"niveau": "B1",
+"groep": "vo",
+"thema": "winkel",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "papier waarop staat hoeveel je moet betalen"
+},
+{
+"id": "k196",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de betaling",
+"soort": "woord",
+"tr": "ödeme",
+"niveau": "B1",
+"groep": "vo",
+"thema": "winkel",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het betalen van geld"
+},
+{
+"id": "k197",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "ontvangen",
+"soort": "woord",
+"tr": "almak, teslim almak",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "formeel",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "krijgen (een brief, een bericht, geld)"
+},
+{
+"id": "k198",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de klacht",
+"soort": "woord",
+"tr": "şikâyet",
+"niveau": "B1",
+"groep": "7",
+"thema": "winkel",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "het laten weten dat je ergens niet tevreden over bent"
+},
+{
+"id": "k199",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het voordeel",
+"soort": "woord",
+"tr": "avantaj, fayda",
+"niveau": "A2",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets goeds, iets wat je helpt"
+},
+{
+"id": "k200",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het nadeel",
+"soort": "woord",
+"tr": "dezavantaj",
+"niveau": "A2",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets wat niet goed of niet handig is"
+},
+{
+"id": "k201",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de werkplek",
+"soort": "woord",
+"tr": "çalışma yeri, masa",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "plaats waar je je werk doet"
+},
+{
+"id": "k202",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "klaar",
+"soort": "woord",
+"tr": "hazır; bitmiş",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "af, helemaal gedaan; ook: gereed om te beginnen"
+},
+{
+"id": "k203",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "rijden",
+"soort": "woord",
+"tr": "(araç) sürmek; (araçla) gitmek",
+"niveau": "A1",
+"groep": "3",
+"thema": "onderweg",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "zich verplaatsen met een auto, fiets of trein"
+},
+{
+"id": "k204",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de boete",
+"soort": "woord",
+"tr": "para cezası",
+"niveau": "A2",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "geld dat je moet betalen als straf"
+},
+{
+"id": "k205",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de afdeling",
+"soort": "woord",
+"tr": "bölüm, departman",
+"niveau": "B1",
+"groep": "vo",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "deel van een bedrijf of organisatie"
+},
+{
+"id": "k206",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "proberen",
+"soort": "woord",
+"tr": "denemek",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "kijken of iets lukt"
+},
+{
+"id": "k207",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de huisarts",
+"soort": "woord",
+"tr": "aile hekimi",
+"niveau": "A1",
+"groep": "5",
+"thema": "gezondheid",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dokter bij wie je eerst komt als je ziek bent"
+},
+{
+"id": "k208",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "opnemen",
+"soort": "woord",
+"tr": "(izin) kullanmak; (telefonu) açmak; kaydetmek",
+"niveau": "B1",
+"groep": "7",
+"thema": "werk",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "vrije dagen gebruiken; ook: de telefoon aannemen"
+},
+{
+"id": "k209",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het bezwaar",
+"soort": "woord",
+"tr": "itiraz",
+"niveau": "B1",
+"groep": "vo",
+"thema": "overheid",
+"subthema": "",
+"register": "formeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "officiële mededeling dat je het niet eens bent met een besluit"
+},
+{
+"id": "k210",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "veroorzaken",
+"soort": "woord",
+"tr": "sebep olmak",
+"niveau": "B1",
+"groep": "7",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "ervoor zorgen dat iets (vervelends) gebeurt"
+},
+{
+"id": "k211",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "ophalen",
+"soort": "woord",
+"tr": "gidip almak",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "sch_ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets of iemand ergens gaan halen"
+},
+{
+"id": "k212",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "het afval",
+"soort": "woord",
+"tr": "çöp, atık",
+"niveau": "A2",
+"groep": "5",
+"thema": "wonen",
+"subthema": "",
+"register": "neutraal",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dingen die je weggooit"
+},
+{
+"id": "k213",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "de spullen",
+"soort": "woord",
+"tr": "eşyalar",
+"niveau": "A2",
+"groep": "4",
+"thema": "wonen",
+"subthema": "",
+"register": "informeel",
+"tur": "zn",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "dingen die je hebt of meeneemt"
+},
+{
+"id": "k214",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "minstens",
+"soort": "woord",
+"tr": "en az",
+"niveau": "A2",
+"groep": "6",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "bw",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "niet minder dan"
+},
+{
+"id": "k215",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "lenen",
+"soort": "woord",
+"tr": "ödünç almak; ödünç vermek",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "ww",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "iets voor een tijdje gebruiken en het daarna teruggeven"
 },
 {
 "id": "b008",
@@ -21174,7 +25445,8 @@
 "voorbeeld_tr": "Nakit de ödeyebilir miyim?",
 "uitleg": "",
 "meer": [],
-"in_nieuws": []
+"in_nieuws": [],
+"definitie": "betalen met munten en briefjes, niet met een pas"
 },
 {
 "id": "b312",
@@ -21492,6 +25764,7 @@
 "in_nieuws": [
 "station"
 ],
+"definitie": "met iets rekening houden of het later behandelen",
 "voorbeeld_door": "notities",
 "item": "station",
 "nr": 11
@@ -22003,6 +26276,7 @@
 "uitleg": "",
 "meer": [],
 "in_nieuws": [],
+"definitie": "in het gebouw waar je werkt",
 "voorbeeld_door": "claude"
 },
 {
@@ -23613,6 +27887,7 @@
 "pieterburen",
 "ober"
 ],
+"definitie": "om een onderwerp af te sluiten: hoe dan ook",
 "voorbeeld_door": "notities",
 "item": "pieterburen",
 "nr": 6
@@ -23928,6 +28203,7 @@
 "uitleg": "roep gerust, benader gerust; oturmuş kalıp.",
 "meer": [],
 "in_nieuws": [],
+"definitie": "maakt een gebiedende zin vriendelijk: je mag het zonder bezwaar doen (bel gerust)",
 "voorbeeld_door": "notities"
 },
 {
@@ -27627,6 +31903,7 @@
 "in_nieuws": [
 "fossiel"
 ],
+"definitie": "de eerste keer dat iets gebeurt",
 "item": "fossiel",
 "nr": 10
 },
@@ -28857,6 +33134,72 @@
 "uitleg": "",
 "meer": [],
 "in_nieuws": []
+},
+{
+"id": "u032",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "van tevoren",
+"soort": "uitdrukking",
+"tr": "önceden",
+"niveau": "B1",
+"groep": "6",
+"thema": "tijd",
+"subthema": "",
+"register": "neutraal",
+"tur": "vaste_comb",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "voordat iets gebeurt"
+},
+{
+"id": "u033",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "een paar",
+"soort": "uitdrukking",
+"tr": "birkaç",
+"niveau": "A1",
+"groep": "3",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "vaste_comb",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "een klein aantal"
+},
+{
+"id": "u034",
+"bron": "lezen",
+"bronnen": [
+"lezen"
+],
+"nl": "letten op",
+"soort": "uitdrukking",
+"tr": "dikkat etmek",
+"niveau": "A2",
+"groep": "5",
+"thema": "algemeen",
+"subthema": "",
+"register": "neutraal",
+"tur": "vaste_comb",
+"voorbeeld": "",
+"voorbeeld_tr": "",
+"uitleg": "",
+"meer": [],
+"in_nieuws": [],
+"definitie": "goed kijken naar, aandacht geven aan"
 }
 ]
 }

@@ -15,6 +15,12 @@
 "niveau": "B1"
 },
 {
+"id": "k123",
+"nl": "de locatie",
+"tr": "yer, şube",
+"niveau": "B1"
+},
+{
 "id": "n-doosjes-w11",
 "nl": "het vel",
 "tr": "tabaka",
@@ -27,15 +33,45 @@
 "niveau": "B1"
 },
 {
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
 "id": "w425",
 "nl": "ontwikkelen",
 "tr": "geliştirmek",
 "niveau": "B1"
 },
 {
+"id": "k153",
+"nl": "allebei",
+"tr": "her ikisi de",
+"niveau": "A2"
+},
+{
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
 "id": "n-fossiel-w9",
 "nl": "bijzonder",
 "tr": "özel, ilginç",
+"niveau": "A2"
+},
+{
+"id": "k152",
+"nl": "de kinderopvang",
+"tr": "kreş, çocuk bakımevi",
 "niveau": "A2"
 },
 {
@@ -51,15 +87,75 @@
 "niveau": "A2"
 },
 {
+"id": "k057",
+"nl": "het contact",
+"tr": "iletişim, temas",
+"niveau": "A2"
+},
+{
+"id": "k083",
+"nl": "het diploma",
+"tr": "diploma",
+"niveau": "A2"
+},
+{
+"id": "k047",
+"nl": "het formulier",
+"tr": "form",
+"niveau": "A2"
+},
+{
+"id": "k154",
+"nl": "hetzelfde",
+"tr": "aynı (şey)",
+"niveau": "A2"
+},
+{
 "id": "k023",
 "nl": "juist",
 "tr": "doğru, tam; (vurgu) aksine, tam tersine",
 "niveau": "A2"
 },
 {
+"id": "k070",
+"nl": "mogelijk",
+"tr": "mümkün",
+"niveau": "A2"
+},
+{
+"id": "k099",
+"nl": "steeds",
+"tr": "hep, gittikçe",
+"niveau": "A2"
+},
+{
+"id": "k101",
+"nl": "vanaf",
+"tr": "-den itibaren",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
+"niveau": "A2"
+},
+{
 "id": "n-fossiel-u2",
 "nl": "voor het eerst",
 "tr": "ilk kez",
+"niveau": "A2"
+},
+{
+"id": "k106",
+"nl": "voordat",
+"tr": "-meden önce",
 "niveau": "A2"
 }
 ],
@@ -71,10 +167,70 @@
 "niveau": "B2"
 },
 {
+"id": "k165",
+"nl": "de bemiddelaar",
+"tr": "arabulucu",
+"niveau": "B1"
+},
+{
+"id": "k073",
+"nl": "de buurtbemiddeling",
+"tr": "komşu arabuluculuğu",
+"niveau": "B1"
+},
+{
 "id": "n-pieterburen-w15",
 "nl": "de gemeente",
 "tr": "belediye",
 "niveau": "B1"
+},
+{
+"id": "k164",
+"nl": "het buurthuis",
+"tr": "mahalle evi (toplum merkezi)",
+"niveau": "B1"
+},
+{
+"id": "k153",
+"nl": "allebei",
+"tr": "her ikisi de",
+"niveau": "A2"
+},
+{
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
+"id": "k125",
+"nl": "de oplossing",
+"tr": "çözüm",
+"niveau": "A2"
+},
+{
+"id": "k160",
+"nl": "de plek",
+"tr": "yer",
+"niveau": "A2"
+},
+{
+"id": "k167",
+"nl": "direct",
+"tr": "hemen; doğrudan",
+"niveau": "A2"
+},
+{
+"id": "k047",
+"nl": "het formulier",
+"tr": "form",
+"niveau": "A2"
+},
+{
+"id": "k072",
+"nl": "het gesprek",
+"tr": "konuşma, görüşme",
+"niveau": "A2"
 },
 {
 "id": "k023",
@@ -83,9 +239,45 @@
 "niveau": "A2"
 },
 {
+"id": "k168",
+"nl": "meedoen",
+"tr": "katılmak",
+"niveau": "A2"
+},
+{
+"id": "k170",
+"nl": "overdag",
+"tr": "gündüz",
+"niveau": "A2"
+},
+{
+"id": "k099",
+"nl": "steeds",
+"tr": "hep, gittikçe",
+"niveau": "A2"
+},
+{
 "id": "w068",
 "nl": "toch",
 "tr": "yine de; değil mi?; zaten",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
+"niveau": "A2"
+},
+{
+"id": "k163",
+"nl": "weleens",
+"tr": "arada bir; hiç (soruda)",
 "niveau": "A2"
 }
 ],
@@ -97,6 +289,30 @@
 "niveau": "B2"
 },
 {
+"id": "k128",
+"nl": "de administratie",
+"tr": "idari işler; yönetim birimi",
+"niveau": "B1"
+},
+{
+"id": "k173",
+"nl": "de omscholing",
+"tr": "meslek değiştirme eğitimi",
+"niveau": "B1"
+},
+{
+"id": "k124",
+"nl": "de zorg",
+"tr": "bakım; endişe",
+"niveau": "B1"
+},
+{
+"id": "k076",
+"nl": "het cursusgeld",
+"tr": "kurs ücreti",
+"niveau": "B1"
+},
+{
 "id": "n-pensioen-w9",
 "nl": "het onderwijs",
 "tr": "eğitim",
@@ -106,6 +322,12 @@
 "id": "w204",
 "nl": "maar goed",
 "tr": "neyse, her neyse",
+"niveau": "B1"
+},
+{
+"id": "k179",
+"nl": "praktisch",
+"tr": "pratik, kullanışlı",
 "niveau": "B1"
 },
 {
@@ -127,9 +349,21 @@
 "niveau": "B1"
 },
 {
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
 "id": "w036",
 "nl": "de medewerker",
 "tr": "çalışan, personel, görevli",
+"niveau": "A2"
+},
+{
+"id": "k064",
+"nl": "de opleiding",
+"tr": "eğitim, öğrenim (meslek)",
 "niveau": "A2"
 },
 {
@@ -139,9 +373,63 @@
 "niveau": "A2"
 },
 {
+"id": "k175",
+"nl": "de werknemer",
+"tr": "çalışan, işçi",
+"niveau": "A2"
+},
+{
+"id": "k181",
+"nl": "eerder",
+"tr": "daha önce, daha erken",
+"niveau": "A2"
+},
+{
+"id": "k086",
+"nl": "het advies",
+"tr": "tavsiye",
+"niveau": "A2"
+},
+{
+"id": "k057",
+"nl": "het contact",
+"tr": "iletişim, temas",
+"niveau": "A2"
+},
+{
 "id": "k023",
 "nl": "juist",
 "tr": "doğru, tam; (vurgu) aksine, tam tersine",
+"niveau": "A2"
+},
+{
+"id": "k070",
+"nl": "mogelijk",
+"tr": "mümkün",
+"niveau": "A2"
+},
+{
+"id": "k170",
+"nl": "overdag",
+"tr": "gündüz",
+"niveau": "A2"
+},
+{
+"id": "k176",
+"nl": "positief",
+"tr": "olumlu",
+"niveau": "A2"
+},
+{
+"id": "k104",
+"nl": "sommige",
+"tr": "bazı",
+"niveau": "A2"
+},
+{
+"id": "k099",
+"nl": "steeds",
+"tr": "hep, gittikçe",
 "niveau": "A2"
 },
 {
@@ -151,21 +439,27 @@
 "niveau": "A2"
 },
 {
+"id": "k129",
+"nl": "tevreden",
+"tr": "memnun",
+"niveau": "A2"
+},
+{
 "id": "w068",
 "nl": "toch",
 "tr": "yine de; değil mi?; zaten",
 "niveau": "A2"
 },
 {
-"id": "k014",
-"nl": "vooral",
-"tr": "özellikle; (ricada) mutlaka",
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
 "niveau": "A2"
 },
 {
-"id": "w109",
-"nl": "zo'n",
-"tr": "öyle bir, o türden bir",
+"id": "k014",
+"nl": "vooral",
+"tr": "özellikle; (ricada) mutlaka",
 "niveau": "A2"
 }
 ],
@@ -177,9 +471,45 @@
 "niveau": "B1"
 },
 {
+"id": "k131",
+"nl": "bereikbaar",
+"tr": "ulaşılabilir",
+"niveau": "B1"
+},
+{
+"id": "k185",
+"nl": "bespreken",
+"tr": "görüşmek, konuşmak (bir konuyu)",
+"niveau": "B1"
+},
+{
+"id": "k060",
+"nl": "de bedrijfsarts",
+"tr": "işyeri hekimi",
+"niveau": "B1"
+},
+{
+"id": "k042",
+"nl": "de leidinggevende",
+"tr": "amir, yönetici",
+"niveau": "B1"
+},
+{
+"id": "k187",
+"nl": "de personeelszaken",
+"tr": "personel işleri (İK)",
+"niveau": "B1"
+},
+{
 "id": "n-pensioen-w13",
 "nl": "gelden",
 "tr": "geçerli olmak",
+"niveau": "B1"
+},
+{
+"id": "k058",
+"nl": "melden",
+"tr": "bildirmek",
 "niveau": "B1"
 },
 {
@@ -189,15 +519,45 @@
 "niveau": "B1"
 },
 {
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
+"niveau": "B1"
+},
+{
 "id": "w148",
 "nl": "anders",
 "tr": "farklı, başka; yoksa",
 "niveau": "A2"
 },
 {
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
+"id": "k182",
+"nl": "daarom",
+"tr": "bu yüzden",
+"niveau": "A2"
+},
+{
 "id": "n-pensioen-w7",
 "nl": "de regel",
 "tr": "kural",
+"niveau": "A2"
+},
+{
+"id": "k077",
+"nl": "de vakantiedag",
+"tr": "izin günü",
+"niveau": "A2"
+},
+{
+"id": "k132",
+"nl": "dezelfde",
+"tr": "aynı (de-kelimeleri)",
 "niveau": "A2"
 },
 {
@@ -213,9 +573,57 @@
 "niveau": "A2"
 },
 {
+"id": "k086",
+"nl": "het advies",
+"tr": "tavsiye",
+"niveau": "A2"
+},
+{
+"id": "k057",
+"nl": "het contact",
+"tr": "iletişim, temas",
+"niveau": "A2"
+},
+{
+"id": "k134",
+"nl": "het rooster",
+"tr": "çizelge, ders/iş programı",
+"niveau": "A2"
+},
+{
 "id": "w208",
 "nl": "laten weten",
 "tr": "haber vermek",
+"niveau": "A2"
+},
+{
+"id": "k070",
+"nl": "mogelijk",
+"tr": "mümkün",
+"niveau": "A2"
+},
+{
+"id": "k065",
+"nl": "tijdens",
+"tr": "sırasında, esnasında",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
+"niveau": "A2"
+},
+{
+"id": "k106",
+"nl": "voordat",
+"tr": "-meden önce",
+"niveau": "A2"
+},
+{
+"id": "k163",
+"nl": "weleens",
+"tr": "arada bir; hiç (soruda)",
 "niveau": "A2"
 }
 ],
@@ -233,6 +641,12 @@
 "niveau": "B1"
 },
 {
+"id": "k135",
+"nl": "geldig",
+"tr": "geçerli",
+"niveau": "B1"
+},
+{
 "id": "w008",
 "nl": "iets meenemen (een punt)",
 "tr": "bir konuyu üstlenmek, aklında tutmak",
@@ -245,15 +659,99 @@
 "niveau": "B1"
 },
 {
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k058",
+"nl": "melden",
+"tr": "bildirmek",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
+"id": "k111",
+"nl": "opzeggen",
+"tr": "iptal etmek (abonelik, sözleşme)",
+"niveau": "B1"
+},
+{
+"id": "k188",
+"nl": "schriftelijk",
+"tr": "yazılı",
+"niveau": "B1"
+},
+{
+"id": "k112",
+"nl": "toegestaan",
+"tr": "izin verilen",
+"niveau": "B1"
+},
+{
+"id": "u032",
+"nl": "van tevoren",
+"tr": "önceden",
+"niveau": "B1"
+},
+{
+"id": "k110",
+"nl": "de balie",
+"tr": "gişe, kontuar",
+"niveau": "A2"
+},
+{
 "id": "n-pensioen-w7",
 "nl": "de regel",
 "tr": "kural",
 "niveau": "A2"
 },
 {
+"id": "k136",
+"nl": "de volwassene",
+"tr": "yetişkin",
+"niveau": "A2"
+},
+{
+"id": "k137",
+"nl": "extra",
+"tr": "ek, fazladan",
+"niveau": "A2"
+},
+{
+"id": "k090",
+"nl": "het abonnement",
+"tr": "abonelik",
+"niveau": "A2"
+},
+{
+"id": "k168",
+"nl": "meedoen",
+"tr": "katılmak",
+"niveau": "A2"
+},
+{
 "id": "k022",
 "nl": "opnieuw",
 "tr": "yeniden",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k078",
+"nl": "zoals",
+"tr": "gibi",
 "niveau": "A2"
 }
 ],
@@ -271,10 +769,118 @@
 "niveau": "B1"
 },
 {
+"id": "k128",
+"nl": "de administratie",
+"tr": "idari işler; yönetim birimi",
+"niveau": "B1"
+},
+{
+"id": "k196",
+"nl": "de betaling",
+"tr": "ödeme",
+"niveau": "B1"
+},
+{
+"id": "k093",
+"nl": "de coördinator",
+"tr": "koordinatör",
+"niveau": "B1"
+},
+{
+"id": "k085",
+"nl": "de cursist",
+"tr": "kursiyer",
+"niveau": "B1"
+},
+{
+"id": "k195",
+"nl": "de factuur",
+"tr": "fatura",
+"niveau": "B1"
+},
+{
+"id": "k198",
+"nl": "de klacht",
+"tr": "şikâyet",
+"niveau": "B1"
+},
+{
 "id": "n-draaiorgel-w14",
 "nl": "de toets",
 "tr": "tuş",
 "niveau": "B1"
+},
+{
+"id": "k076",
+"nl": "het cursusgeld",
+"tr": "kurs ücreti",
+"niveau": "B1"
+},
+{
+"id": "k094",
+"nl": "hiervoor",
+"tr": "bunun için; bundan önce",
+"niveau": "B1"
+},
+{
+"id": "k058",
+"nl": "melden",
+"tr": "bildirmek",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
+"id": "k197",
+"nl": "ontvangen",
+"tr": "almak, teslim almak",
+"niveau": "B1"
+},
+{
+"id": "k179",
+"nl": "praktisch",
+"tr": "pratik, kullanışlı",
+"niveau": "B1"
+},
+{
+"id": "k188",
+"nl": "schriftelijk",
+"tr": "yazılı",
+"niveau": "B1"
+},
+{
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
+"niveau": "B1"
+},
+{
+"id": "k051",
+"nl": "de cursus",
+"tr": "kurs",
+"niveau": "A2"
+},
+{
+"id": "k092",
+"nl": "de docent",
+"tr": "öğretmen (yetişkin eğitimi)",
+"niveau": "A2"
+},
+{
+"id": "k157",
+"nl": "de korting",
+"tr": "indirim",
+"niveau": "A2"
+},
+{
+"id": "k091",
+"nl": "de receptie",
+"tr": "resepsiyon, danışma",
+"niveau": "A2"
 },
 {
 "id": "n-pensioen-w7",
@@ -289,9 +895,39 @@
 "niveau": "A2"
 },
 {
+"id": "k137",
+"nl": "extra",
+"tr": "ek, fazladan",
+"niveau": "A2"
+},
+{
+"id": "k047",
+"nl": "het formulier",
+"tr": "form",
+"niveau": "A2"
+},
+{
 "id": "w220",
 "nl": "jezelf",
 "tr": "kendin",
+"niveau": "A2"
+},
+{
+"id": "k129",
+"nl": "tevreden",
+"tr": "memnun",
+"niveau": "A2"
+},
+{
+"id": "k065",
+"nl": "tijdens",
+"tr": "sırasında, esnasında",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
 "niveau": "A2"
 }
 ],
@@ -321,6 +957,12 @@
 "niveau": "B1"
 },
 {
+"id": "k201",
+"nl": "de werkplek",
+"tr": "çalışma yeri, masa",
+"niveau": "B1"
+},
+{
 "id": "w204",
 "nl": "maar goed",
 "tr": "neyse, her neyse",
@@ -333,6 +975,24 @@
 "niveau": "B1"
 },
 {
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
+"id": "k125",
+"nl": "de oplossing",
+"tr": "çözüm",
+"niveau": "A2"
+},
+{
+"id": "k175",
+"nl": "de werknemer",
+"tr": "çalışan, işçi",
+"niveau": "A2"
+},
+{
 "id": "w063",
 "nl": "eigenlijk",
 "tr": "aslında",
@@ -342,6 +1002,12 @@
 "id": "w062",
 "nl": "even",
 "tr": "bir (kısaca, yumuşatma); biraz; eşit",
+"niveau": "A2"
+},
+{
+"id": "k086",
+"nl": "het advies",
+"tr": "tavsiye",
 "niveau": "A2"
 },
 {
@@ -363,6 +1029,24 @@
 "niveau": "A2"
 },
 {
+"id": "k176",
+"nl": "positief",
+"tr": "olumlu",
+"niveau": "A2"
+},
+{
+"id": "k104",
+"nl": "sommige",
+"tr": "bazı",
+"niveau": "A2"
+},
+{
+"id": "k099",
+"nl": "steeds",
+"tr": "hep, gittikçe",
+"niveau": "A2"
+},
+{
 "id": "w071",
 "nl": "thuiswerken",
 "tr": "evden çalışmak",
@@ -375,9 +1059,21 @@
 "niveau": "A2"
 },
 {
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
+"niveau": "A2"
+},
+{
 "id": "k014",
 "nl": "vooral",
 "tr": "özellikle; (ricada) mutlaka",
+"niveau": "A2"
+},
+{
+"id": "k177",
+"nl": "vroeger",
+"tr": "eskiden",
 "niveau": "A2"
 }
 ],
@@ -395,9 +1091,39 @@
 "niveau": "B1"
 },
 {
+"id": "k117",
+"nl": "de laadpaal",
+"tr": "şarj istasyonu (elektrikli araç)",
+"niveau": "B1"
+},
+{
+"id": "k043",
+"nl": "de vergunning",
+"tr": "izin, ruhsat",
+"niveau": "B1"
+},
+{
+"id": "k142",
+"nl": "de verhuizing",
+"tr": "taşınma",
+"niveau": "B1"
+},
+{
 "id": "w132",
 "nl": "doorgeven",
 "tr": "bildirmek, iletmek; devretmek",
+"niveau": "B1"
+},
+{
+"id": "k135",
+"nl": "geldig",
+"tr": "geçerli",
+"niveau": "B1"
+},
+{
+"id": "k094",
+"nl": "hiervoor",
+"tr": "bunun için; bundan önce",
 "niveau": "B1"
 },
 {
@@ -407,15 +1133,69 @@
 "niveau": "B1"
 },
 {
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
+"niveau": "B1"
+},
+{
+"id": "k110",
+"nl": "de balie",
+"tr": "gişe, kontuar",
+"niveau": "A2"
+},
+{
+"id": "k081",
+"nl": "het bezoek",
+"tr": "ziyaret; misafir",
+"niveau": "A2"
+},
+{
+"id": "k113",
+"nl": "het gebruik",
+"tr": "kullanım",
+"niveau": "A2"
+},
+{
 "id": "k023",
 "nl": "juist",
 "tr": "doğru, tam; (vurgu) aksine, tam tersine",
 "niveau": "A2"
 },
 {
+"id": "k141",
+"nl": "parkeren",
+"tr": "park etmek",
+"niveau": "A2"
+},
+{
+"id": "k104",
+"nl": "sommige",
+"tr": "bazı",
+"niveau": "A2"
+},
+{
 "id": "n-pieterburen-w6",
 "nl": "verhuizen",
 "tr": "taşınmak",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
 "niveau": "A2"
 },
 {
@@ -439,10 +1219,28 @@
 "niveau": "B1"
 },
 {
+"id": "k058",
+"nl": "melden",
+"tr": "bildirmek",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
 "id": "w241",
 "nl": "terwijl",
 "tr": "-ken; oysa",
 "niveau": "B1"
+},
+{
+"id": "k064",
+"nl": "de opleiding",
+"tr": "eğitim, öğrenim (meslek)",
+"niveau": "A2"
 },
 {
 "id": "w061",
@@ -451,9 +1249,33 @@
 "niveau": "A2"
 },
 {
+"id": "k170",
+"nl": "overdag",
+"tr": "gündüz",
+"niveau": "A2"
+},
+{
+"id": "k065",
+"nl": "tijdens",
+"tr": "sırasında, esnasında",
+"niveau": "A2"
+},
+{
 "id": "w068",
 "nl": "toch",
 "tr": "yine de; değil mi?; zaten",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
 "niveau": "A2"
 },
 {
@@ -471,15 +1293,81 @@
 "niveau": "B1"
 },
 {
+"id": "k096",
+"nl": "daarvoor",
+"tr": "onun için; ondan önce",
+"niveau": "B1"
+},
+{
+"id": "k205",
+"nl": "de afdeling",
+"tr": "bölüm, departman",
+"niveau": "B1"
+},
+{
+"id": "k060",
+"nl": "de bedrijfsarts",
+"tr": "işyeri hekimi",
+"niveau": "B1"
+},
+{
+"id": "k118",
+"nl": "het verlof",
+"tr": "izin (işten)",
+"niveau": "B1"
+},
+{
+"id": "k094",
+"nl": "hiervoor",
+"tr": "bunun için; bundan önce",
+"niveau": "B1"
+},
+{
 "id": "w008",
 "nl": "iets meenemen (een punt)",
 "tr": "bir konuyu üstlenmek, aklında tutmak",
 "niveau": "B1"
 },
 {
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
+"id": "k208",
+"nl": "opnemen",
+"tr": "(izin) kullanmak; (telefonu) açmak; kaydetmek",
+"niveau": "B1"
+},
+{
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
+"niveau": "B1"
+},
+{
+"id": "u032",
+"nl": "van tevoren",
+"tr": "önceden",
+"niveau": "B1"
+},
+{
 "id": "w147",
 "nl": "behalve",
 "tr": "hariç, dışında; -den başka",
+"niveau": "A2"
+},
+{
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
 "niveau": "A2"
 },
 {
@@ -495,9 +1383,27 @@
 "niveau": "A2"
 },
 {
+"id": "k143",
+"nl": "de partner",
+"tr": "eş, partner",
+"niveau": "A2"
+},
+{
 "id": "s016",
 "nl": "de periode",
 "tr": "dönem, süre",
+"niveau": "A2"
+},
+{
+"id": "k077",
+"nl": "de vakantiedag",
+"tr": "izin günü",
+"niveau": "A2"
+},
+{
+"id": "k132",
+"nl": "dezelfde",
+"tr": "aynı (de-kelimeleri)",
 "niveau": "A2"
 },
 {
@@ -507,9 +1413,33 @@
 "niveau": "A2"
 },
 {
+"id": "k113",
+"nl": "het gebruik",
+"tr": "kullanım",
+"niveau": "A2"
+},
+{
+"id": "k070",
+"nl": "mogelijk",
+"tr": "mümkün",
+"niveau": "A2"
+},
+{
 "id": "n-pieterburen-w6",
 "nl": "verhuizen",
 "tr": "taşınmak",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
 "niveau": "A2"
 }
 ],
@@ -527,9 +1457,45 @@
 "niveau": "B2"
 },
 {
+"id": "k131",
+"nl": "bereikbaar",
+"tr": "ulaşılabilir",
+"niveau": "B1"
+},
+{
+"id": "k096",
+"nl": "daarvoor",
+"tr": "onun için; ondan önce",
+"niveau": "B1"
+},
+{
+"id": "k085",
+"nl": "de cursist",
+"tr": "kursiyer",
+"niveau": "B1"
+},
+{
 "id": "w069",
 "nl": "hoor",
 "tr": "(cümle sonunda) yumuşatıcı/rahatlatıcı söz",
+"niveau": "B1"
+},
+{
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k053",
+"nl": "minimaal",
+"tr": "en az",
+"niveau": "B1"
+},
+{
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
 "niveau": "B1"
 },
 {
@@ -545,9 +1511,51 @@
 "niveau": "B1"
 },
 {
+"id": "k051",
+"nl": "de cursus",
+"tr": "kurs",
+"niveau": "A2"
+},
+{
+"id": "k092",
+"nl": "de docent",
+"tr": "öğretmen (yetişkin eğitimi)",
+"niveau": "A2"
+},
+{
+"id": "k091",
+"nl": "de receptie",
+"tr": "resepsiyon, danışma",
+"niveau": "A2"
+},
+{
+"id": "k097",
+"nl": "de training",
+"tr": "eğitim, antrenman",
+"niveau": "A2"
+},
+{
+"id": "k047",
+"nl": "het formulier",
+"tr": "form",
+"niveau": "A2"
+},
+{
 "id": "w220",
 "nl": "jezelf",
 "tr": "kendin",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k100",
+"nl": "volgen",
+"tr": "takip etmek; (kurs) almak",
 "niveau": "A2"
 }
 ],
@@ -565,9 +1573,75 @@
 "niveau": "B1"
 },
 {
+"id": "k131",
+"nl": "bereikbaar",
+"tr": "ulaşılabilir",
+"niveau": "B1"
+},
+{
+"id": "k096",
+"nl": "daarvoor",
+"tr": "onun için; ondan önce",
+"niveau": "B1"
+},
+{
+"id": "k189",
+"nl": "de opzegtermijn",
+"tr": "fesih bildirim süresi",
+"niveau": "B1"
+},
+{
+"id": "k094",
+"nl": "hiervoor",
+"tr": "bunun için; bundan önce",
+"niveau": "B1"
+},
+{
 "id": "w069",
 "nl": "hoor",
 "tr": "(cümle sonunda) yumuşatıcı/rahatlatıcı söz",
+"niveau": "B1"
+},
+{
+"id": "k069",
+"nl": "maximaal",
+"tr": "en fazla",
+"niveau": "B1"
+},
+{
+"id": "k111",
+"nl": "opzeggen",
+"tr": "iptal etmek (abonelik, sözleşme)",
+"niveau": "B1"
+},
+{
+"id": "k188",
+"nl": "schriftelijk",
+"tr": "yazılı",
+"niveau": "B1"
+},
+{
+"id": "k112",
+"nl": "toegestaan",
+"tr": "izin verilen",
+"niveau": "B1"
+},
+{
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
+"niveau": "B1"
+},
+{
+"id": "u032",
+"nl": "van tevoren",
+"tr": "önceden",
+"niveau": "B1"
+},
+{
+"id": "k210",
+"nl": "veroorzaken",
+"tr": "sebep olmak",
 "niveau": "B1"
 },
 {
@@ -577,9 +1651,27 @@
 "niveau": "A2"
 },
 {
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
+"id": "k044",
+"nl": "de huur",
+"tr": "kira",
+"niveau": "A2"
+},
+{
 "id": "n-kroket-w7",
 "nl": "de ketel",
 "tr": "kazan",
+"niveau": "A2"
+},
+{
+"id": "k186",
+"nl": "de manier",
+"tr": "yol, şekil",
 "niveau": "A2"
 },
 {
@@ -595,9 +1687,45 @@
 "niveau": "A2"
 },
 {
+"id": "k066",
+"nl": "de reparatie",
+"tr": "tamir",
+"niveau": "A2"
+},
+{
+"id": "k095",
+"nl": "de verandering",
+"tr": "değişiklik",
+"niveau": "A2"
+},
+{
+"id": "k147",
+"nl": "de woning",
+"tr": "konut, ev",
+"niveau": "A2"
+},
+{
+"id": "k167",
+"nl": "direct",
+"tr": "hemen; doğrudan",
+"niveau": "A2"
+},
+{
 "id": "k013",
 "nl": "eens",
 "tr": "bir kere; (ricada) bir",
+"niveau": "A2"
+},
+{
+"id": "k181",
+"nl": "eerder",
+"tr": "daha önce, daha erken",
+"niveau": "A2"
+},
+{
+"id": "k137",
+"nl": "extra",
+"tr": "ek, fazladan",
 "niveau": "A2"
 },
 {
@@ -607,9 +1735,9 @@
 "niveau": "A2"
 },
 {
-"id": "n-pieterburen-w6",
-"nl": "verhuizen",
-"tr": "taşınmak",
+"id": "k070",
+"nl": "mogelijk",
+"tr": "mümkün",
 "niveau": "A2"
 }
 ],
@@ -621,15 +1749,45 @@
 "niveau": "B1"
 },
 {
+"id": "k059",
+"nl": "uiterlijk",
+"tr": "en geç",
+"niveau": "B1"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
 "id": "b217",
 "nl": "betalen",
 "tr": "ödemek",
 "niveau": "A1"
 },
 {
+"id": "k055",
+"nl": "de app",
+"tr": "uygulama (telefon)",
+"niveau": "A1"
+},
+{
 "id": "b207",
 "nl": "de bus",
 "tr": "otobüs; kutu",
+"niveau": "A1"
+},
+{
+"id": "k082",
+"nl": "de groep",
+"tr": "grup; (okulda) sınıf",
+"niveau": "A1"
+},
+{
+"id": "k068",
+"nl": "de ouders",
+"tr": "anne baba",
 "niveau": "A1"
 },
 {
@@ -642,6 +1800,12 @@
 "id": "b241",
 "nl": "geven",
 "tr": "vermek",
+"niveau": "A1"
+},
+{
+"id": "k046",
+"nl": "krijgen",
+"tr": "almak (verileni), edinmek",
 "niveau": "A1"
 },
 {
@@ -675,6 +1839,12 @@
 "niveau": "A1"
 },
 {
+"id": "k029",
+"nl": "zelf",
+"tr": "kendi, kendisi",
+"niveau": "A1"
+},
+{
 "id": "b243",
 "nl": "zoeken",
 "tr": "aramak",
@@ -704,6 +1874,18 @@
 "id": "b179",
 "nl": "donderdag",
 "tr": "perşembe",
+"niveau": "A1"
+},
+{
+"id": "k098",
+"nl": "gesloten",
+"tr": "kapalı",
+"niveau": "A1"
+},
+{
+"id": "k035",
+"nl": "gratis",
+"tr": "bedava, ücretsiz",
 "niveau": "A1"
 },
 {
@@ -757,6 +1939,36 @@
 ],
 "a2-huisarts": [
 {
+"id": "k084",
+"nl": "de werkdag",
+"tr": "iş günü",
+"niveau": "A2"
+},
+{
+"id": "k211",
+"nl": "ophalen",
+"tr": "gidip almak",
+"niveau": "A2"
+},
+{
+"id": "k031",
+"nl": "via",
+"tr": "üzerinden, aracılığıyla",
+"niveau": "A2"
+},
+{
+"id": "k106",
+"nl": "voordat",
+"tr": "-meden önce",
+"niveau": "A2"
+},
+{
+"id": "k034",
+"nl": "alleen",
+"tr": "yalnız; sadece",
+"niveau": "A1"
+},
+{
 "id": "b251",
 "nl": "bellen",
 "tr": "(telefonla) aramak; zil çalmak",
@@ -778,6 +1990,18 @@
 "id": "b224",
 "nl": "de dokter",
 "tr": "doktor",
+"niveau": "A1"
+},
+{
+"id": "k207",
+"nl": "de huisarts",
+"tr": "aile hekimi",
+"niveau": "A1"
+},
+{
+"id": "k038",
+"nl": "de website",
+"tr": "web sitesi",
 "niveau": "A1"
 },
 {
@@ -825,6 +2049,12 @@
 ],
 "a2-fiets-te-koop": [
 {
+"id": "k211",
+"nl": "ophalen",
+"tr": "gidip almak",
+"niveau": "A2"
+},
+{
 "id": "b251",
 "nl": "bellen",
 "tr": "(telefonla) aramak; zil çalmak",
@@ -849,9 +2079,27 @@
 "niveau": "A1"
 },
 {
+"id": "k149",
+"nl": "kapot",
+"tr": "bozuk, kırık",
+"niveau": "A1"
+},
+{
 "id": "b216",
 "nl": "kopen",
 "tr": "satın almak",
+"niveau": "A1"
+},
+{
+"id": "k045",
+"nl": "samen",
+"tr": "birlikte",
+"niveau": "A1"
+},
+{
+"id": "k029",
+"nl": "zelf",
+"tr": "kendi, kendisi",
 "niveau": "A1"
 }
 ],
@@ -863,10 +2111,40 @@
 "niveau": "B1"
 },
 {
+"id": "k067",
+"nl": "de bak",
+"tr": "kap, kutu, kova",
+"niveau": "A2"
+},
+{
+"id": "k212",
+"nl": "het afval",
+"tr": "çöp, atık",
+"niveau": "A2"
+},
+{
+"id": "k101",
+"nl": "vanaf",
+"tr": "-den itibaren",
+"niveau": "A2"
+},
+{
 "id": "k007",
 "nl": "zetten",
 "tr": "koymak (dik koymak, yerleştirmek)",
 "niveau": "A2"
+},
+{
+"id": "k171",
+"nl": "brengen",
+"tr": "getirmek, götürmek",
+"niveau": "A1"
+},
+{
+"id": "k119",
+"nl": "de brief",
+"tr": "mektup",
+"niveau": "A1"
 },
 {
 "id": "b161",
@@ -911,6 +2189,30 @@
 "niveau": "A1"
 },
 {
+"id": "k035",
+"nl": "gratis",
+"tr": "bedava, ücretsiz",
+"niveau": "A1"
+},
+{
+"id": "k075",
+"nl": "halen",
+"tr": "gidip almak, getirmek",
+"niveau": "A1"
+},
+{
+"id": "k080",
+"nl": "het examen",
+"tr": "sınav",
+"niveau": "A1"
+},
+{
+"id": "k046",
+"nl": "krijgen",
+"tr": "almak (verileni), edinmek",
+"niveau": "A1"
+},
+{
 "id": "b274",
 "nl": "leeg",
 "tr": "boş",
@@ -929,9 +2231,21 @@
 "niveau": "A1"
 },
 {
+"id": "k056",
+"nl": "vóór",
+"tr": "önce; önünde",
+"niveau": "A1"
+},
+{
 "id": "b148",
 "nl": "wanneer",
 "tr": "ne zaman; -dığı zaman",
+"niveau": "A1"
+},
+{
+"id": "k029",
+"nl": "zelf",
+"tr": "kendi, kendisi",
 "niveau": "A1"
 }
 ],
@@ -940,6 +2254,18 @@
 "id": "w231",
 "nl": "bewaren",
 "tr": "saklamak, korumak",
+"niveau": "A2"
+},
+{
+"id": "k047",
+"nl": "het formulier",
+"tr": "form",
+"niveau": "A2"
+},
+{
+"id": "k101",
+"nl": "vanaf",
+"tr": "-den itibaren",
 "niveau": "A2"
 },
 {
@@ -964,6 +2290,12 @@
 "id": "b241",
 "nl": "geven",
 "tr": "vermek",
+"niveau": "A1"
+},
+{
+"id": "k035",
+"nl": "gratis",
+"tr": "bedava, ücretsiz",
 "niveau": "A1"
 },
 {
@@ -1015,6 +2347,12 @@
 "niveau": "A1"
 },
 {
+"id": "k029",
+"nl": "zelf",
+"tr": "kendi, kendisi",
+"niveau": "A1"
+},
+{
 "id": "b254",
 "nl": "zwemmen",
 "tr": "yüzmek",
@@ -1023,10 +2361,40 @@
 ],
 "a2-zwembad": [
 {
+"id": "k112",
+"nl": "toegestaan",
+"tr": "izin verilen",
+"niveau": "B1"
+},
+{
 "id": "n-pensioen-w7",
 "nl": "de regel",
 "tr": "kural",
 "niveau": "A2"
+},
+{
+"id": "k106",
+"nl": "voordat",
+"tr": "-meden önce",
+"niveau": "A2"
+},
+{
+"id": "k034",
+"nl": "alleen",
+"tr": "yalnız; sadece",
+"niveau": "A1"
+},
+{
+"id": "k061",
+"nl": "altijd",
+"tr": "her zaman",
+"niveau": "A1"
+},
+{
+"id": "k116",
+"nl": "gebruiken",
+"tr": "kullanmak",
+"niveau": "A1"
 },
 {
 "id": "b162",
@@ -1044,6 +2412,12 @@
 "id": "b236",
 "nl": "mogen",
 "tr": "izinli olmak, -ebilmek (izin)",
+"niveau": "A1"
+},
+{
+"id": "k126",
+"nl": "nooit",
+"tr": "asla, hiç",
 "niveau": "A1"
 },
 {
@@ -1067,9 +2441,33 @@
 "niveau": "A1"
 },
 {
+"id": "k075",
+"nl": "halen",
+"tr": "gidip almak, getirmek",
+"niveau": "A1"
+},
+{
+"id": "k150",
+"nl": "het nummer",
+"tr": "numara",
+"niveau": "A1"
+},
+{
+"id": "k103",
+"nl": "mevrouw",
+"tr": "hanım, bayan",
+"niveau": "A1"
+},
+{
 "id": "b164",
 "nl": "morgen",
 "tr": "yarın; (de morgen) sabah",
+"niveau": "A1"
+},
+{
+"id": "k039",
+"nl": "thuis",
+"tr": "evde",
 "niveau": "A1"
 },
 {
@@ -1093,15 +2491,39 @@
 "niveau": "B1"
 },
 {
+"id": "u032",
+"nl": "van tevoren",
+"tr": "önceden",
+"niveau": "B1"
+},
+{
 "id": "w148",
 "nl": "anders",
 "tr": "farklı, başka; yoksa",
 "niveau": "A2"
 },
 {
+"id": "k182",
+"nl": "daarom",
+"tr": "bu yüzden",
+"niveau": "A2"
+},
+{
 "id": "w036",
 "nl": "de medewerker",
 "tr": "çalışan, personel, görevli",
+"niveau": "A2"
+},
+{
+"id": "k134",
+"nl": "het rooster",
+"tr": "çizelge, ders/iş programı",
+"niveau": "A2"
+},
+{
+"id": "k214",
+"nl": "minstens",
+"tr": "en az",
 "niveau": "A2"
 },
 {
@@ -1114,6 +2536,12 @@
 "id": "b251",
 "nl": "bellen",
 "tr": "(telefonla) aramak; zil çalmak",
+"niveau": "A1"
+},
+{
+"id": "k055",
+"nl": "de app",
+"tr": "uygulama (telefon)",
 "niveau": "A1"
 },
 {
@@ -1147,6 +2575,24 @@
 "niveau": "A1"
 },
 {
+"id": "k045",
+"nl": "samen",
+"tr": "birlikte",
+"niveau": "A1"
+},
+{
+"id": "k088",
+"nl": "sturen",
+"tr": "göndermek",
+"niveau": "A1"
+},
+{
+"id": "k056",
+"nl": "vóór",
+"tr": "önce; önünde",
+"niveau": "A1"
+},
+{
 "id": "b149",
 "nl": "waarom",
 "tr": "neden, niçin",
@@ -1156,6 +2602,12 @@
 "id": "b232",
 "nl": "werken",
 "tr": "çalışmak; işlemek, çalışmak (cihaz)",
+"niveau": "A1"
+},
+{
+"id": "k029",
+"nl": "zelf",
+"tr": "kendi, kendisi",
 "niveau": "A1"
 },
 {
@@ -1191,6 +2643,12 @@
 "niveau": "A2"
 },
 {
+"id": "k034",
+"nl": "alleen",
+"tr": "yalnız; sadece",
+"niveau": "A1"
+},
+{
 "id": "b217",
 "nl": "betalen",
 "tr": "ödemek",
@@ -1200,6 +2658,18 @@
 "id": "b207",
 "nl": "de bus",
 "tr": "otobüs; kutu",
+"niveau": "A1"
+},
+{
+"id": "k030",
+"nl": "de tijd",
+"tr": "zaman, vakit",
+"niveau": "A1"
+},
+{
+"id": "k038",
+"nl": "de website",
+"tr": "web sitesi",
 "niveau": "A1"
 },
 {
@@ -1247,6 +2717,36 @@
 ],
 "a2-tandarts": [
 {
+"id": "u032",
+"nl": "van tevoren",
+"tr": "önceden",
+"niveau": "B1"
+},
+{
+"id": "k132",
+"nl": "dezelfde",
+"tr": "aynı (de-kelimeleri)",
+"niveau": "A2"
+},
+{
+"id": "k214",
+"nl": "minstens",
+"tr": "en az",
+"niveau": "A2"
+},
+{
+"id": "k101",
+"nl": "vanaf",
+"tr": "-den itibaren",
+"niveau": "A2"
+},
+{
+"id": "k034",
+"nl": "alleen",
+"tr": "yalnız; sadece",
+"niveau": "A1"
+},
+{
 "id": "b217",
 "nl": "betalen",
 "tr": "ödemek",
@@ -1259,9 +2759,21 @@
 "niveau": "A1"
 },
 {
+"id": "k145",
+"nl": "de tandarts",
+"tr": "diş hekimi",
+"niveau": "A1"
+},
+{
 "id": "b275",
 "nl": "eerst",
 "tr": "önce, ilk önce",
+"niveau": "A1"
+},
+{
+"id": "k035",
+"nl": "gratis",
+"tr": "bedava, ücretsiz",
 "niveau": "A1"
 },
 {
@@ -1291,10 +2803,28 @@
 ],
 "a2-buurtfeest": [
 {
+"id": "k164",
+"nl": "het buurthuis",
+"tr": "mahalle evi (toplum merkezi)",
+"niveau": "B1"
+},
+{
 "id": "w008",
 "nl": "iets meenemen (een punt)",
 "tr": "bir konuyu üstlenmek, aklında tutmak",
 "niveau": "B1"
+},
+{
+"id": "k052",
+"nl": "bijvoorbeeld",
+"tr": "örneğin",
+"niveau": "A2"
+},
+{
+"id": "k136",
+"nl": "de volwassene",
+"tr": "yetişkin",
+"niveau": "A2"
 },
 {
 "id": "b217",
@@ -1306,6 +2836,12 @@
 "id": "k010",
 "nl": "de familie",
 "tr": "geniş aile, akrabalar",
+"niveau": "A1"
+},
+{
+"id": "k035",
+"nl": "gratis",
+"tr": "bedava, ücretsiz",
 "niveau": "A1"
 },
 {
@@ -1327,9 +2863,27 @@
 "niveau": "A1"
 },
 {
+"id": "k049",
+"nl": "iedereen",
+"tr": "herkes",
+"niveau": "A1"
+},
+{
 "id": "b222",
 "nl": "kosten",
 "tr": "(fiyatı) tutmak; (de kosten) masraflar",
+"niveau": "A1"
+},
+{
+"id": "k045",
+"nl": "samen",
+"tr": "birlikte",
+"niveau": "A1"
+},
+{
+"id": "k056",
+"nl": "vóór",
+"tr": "önce; önünde",
 "niveau": "A1"
 },
 {
@@ -1347,9 +2901,33 @@
 "niveau": "C1"
 },
 {
+"id": "k044",
+"nl": "de huur",
+"tr": "kira",
+"niveau": "A2"
+},
+{
+"id": "k137",
+"nl": "extra",
+"tr": "ek, fazladan",
+"niveau": "A2"
+},
+{
+"id": "k154",
+"nl": "hetzelfde",
+"tr": "aynı (şey)",
+"niveau": "A2"
+},
+{
 "id": "b217",
 "nl": "betalen",
 "tr": "ödemek",
+"niveau": "A1"
+},
+{
+"id": "k119",
+"nl": "de brief",
+"tr": "mektup",
 "niveau": "A1"
 },
 {
@@ -1365,15 +2943,51 @@
 "niveau": "A1"
 },
 {
+"id": "k079",
+"nl": "kiezen",
+"tr": "seçmek",
+"niveau": "A1"
+},
+{
+"id": "k046",
+"nl": "krijgen",
+"tr": "almak (verileni), edinmek",
+"niveau": "A1"
+},
+{
 "id": "b176",
 "nl": "maandag",
 "tr": "pazartesi",
 "niveau": "A1"
 },
 {
+"id": "k103",
+"nl": "mevrouw",
+"tr": "hanım, bayan",
+"niveau": "A1"
+},
+{
+"id": "k050",
+"nl": "minder",
+"tr": "daha az",
+"niveau": "A1"
+},
+{
 "id": "b235",
 "nl": "moeten",
 "tr": "zorunda olmak, -meli",
+"niveau": "A1"
+},
+{
+"id": "k088",
+"nl": "sturen",
+"tr": "göndermek",
+"niveau": "A1"
+},
+{
+"id": "k039",
+"nl": "thuis",
+"tr": "evde",
 "niveau": "A1"
 },
 {
@@ -1395,6 +3009,12 @@
 "niveau": "A1"
 },
 {
+"id": "k056",
+"nl": "vóór",
+"tr": "önce; önünde",
+"niveau": "A1"
+},
+{
 "id": "b232",
 "nl": "werken",
 "tr": "çalışmak; işlemek, çalışmak (cihaz)",
@@ -1404,6 +3024,12 @@
 "id": "b239",
 "nl": "zeggen",
 "tr": "söylemek, demek",
+"niveau": "A1"
+},
+{
+"id": "k029",
+"nl": "zelf",
+"tr": "kendi, kendisi",
 "niveau": "A1"
 }
 ],
@@ -1415,9 +3041,21 @@
 "niveau": "A2"
 },
 {
+"id": "k171",
+"nl": "brengen",
+"tr": "getirmek, götürmek",
+"niveau": "A1"
+},
+{
 "id": "b277",
 "nl": "daarna",
 "tr": "ondan sonra, sonra",
+"niveau": "A1"
+},
+{
+"id": "k055",
+"nl": "de app",
+"tr": "uygulama (telefon)",
 "niveau": "A1"
 },
 {
@@ -1433,9 +3071,39 @@
 "niveau": "A1"
 },
 {
+"id": "k030",
+"nl": "de tijd",
+"tr": "zaman, vakit",
+"niveau": "A1"
+},
+{
+"id": "k038",
+"nl": "de website",
+"tr": "web sitesi",
+"niveau": "A1"
+},
+{
+"id": "k035",
+"nl": "gratis",
+"tr": "bedava, ücretsiz",
+"niveau": "A1"
+},
+{
 "id": "b151",
 "nl": "hoeveel",
 "tr": "kaç, ne kadar",
+"niveau": "A1"
+},
+{
+"id": "k079",
+"nl": "kiezen",
+"tr": "seçmek",
+"niveau": "A1"
+},
+{
+"id": "k050",
+"nl": "minder",
+"tr": "daha az",
 "niveau": "A1"
 },
 {
@@ -1443,13 +3111,31 @@
 "nl": "nemen",
 "tr": "almak",
 "niveau": "A1"
+},
+{
+"id": "k039",
+"nl": "thuis",
+"tr": "evde",
+"niveau": "A1"
 }
 ],
 "a2-bieb-regels": [
 {
+"id": "k215",
+"nl": "lenen",
+"tr": "ödünç almak; ödünç vermek",
+"niveau": "A2"
+},
+{
 "id": "b217",
 "nl": "betalen",
 "tr": "ödemek",
+"niveau": "A1"
+},
+{
+"id": "k055",
+"nl": "de app",
+"tr": "uygulama (telefon)",
 "niveau": "A1"
 },
 {
@@ -1473,15 +3159,57 @@
 "niveau": "B1"
 },
 {
+"id": "k151",
+"nl": "de leerkracht",
+"tr": "öğretmen (ilkokul)",
+"niveau": "A2"
+},
+{
+"id": "k072",
+"nl": "het gesprek",
+"tr": "konuşma, görüşme",
+"niveau": "A2"
+},
+{
 "id": "b251",
 "nl": "bellen",
 "tr": "(telefonla) aramak; zil çalmak",
 "niveau": "A1"
 },
 {
+"id": "k055",
+"nl": "de app",
+"tr": "uygulama (telefon)",
+"niveau": "A1"
+},
+{
+"id": "k030",
+"nl": "de tijd",
+"tr": "zaman, vakit",
+"niveau": "A1"
+},
+{
+"id": "k079",
+"nl": "kiezen",
+"tr": "seçmek",
+"niveau": "A1"
+},
+{
+"id": "k087",
+"nl": "volgend",
+"tr": "sonraki, gelecek",
+"niveau": "A1"
+},
+{
 "id": "b180",
 "nl": "vrijdag",
 "tr": "cuma",
+"niveau": "A1"
+},
+{
+"id": "k056",
+"nl": "vóór",
+"tr": "önce; önünde",
 "niveau": "A1"
 }
 ]

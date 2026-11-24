@@ -21,7 +21,7 @@ Columns (same in both files):
   meer          more examples: "nl = tr | nl = tr" (optional)
   definitie     Dutch definition (school lists, news words; optional)
   woordsoort    how the news page writes the type ("zn (mv)", "vw" ...); empty = from tur
-  bron          where the row came from: basis, werk, school, nieuws, mail, woordstudie, bekleme (";" = several)
+  bron          where the row came from: basis, werk, school, nieuws, mail, woordstudie, bekleme, lezen (";" = several)
   lijst         school list name (bron school)
   voorbeeld_door  who wrote the example (work notes)
   alias         old ids of copies merged into this row (";"); answers saved under them still count
@@ -34,7 +34,7 @@ FILES = {"woorden": HERE / "woorden.csv", "uitdrukkingen": HERE / "uitdrukkingen
 LEVELS = ["A0", "A1", "A2", "B1", "B2", "C1", "C2"]
 GROEPEN = ["1-2", "3", "4", "5", "6", "7", "8", "vo"]
 PHRASE_TUR = {"uitdr", "vaste_comb", "zin", "structuur"}
-BRONNEN = {"basis", "werk", "school", "nieuws", "mail", "woordstudie", "bekleme"}
+BRONNEN = {"basis", "werk", "school", "nieuws", "mail", "woordstudie", "bekleme", "lezen"}
 TUREN = {
     "zn": "Zelfstandig naamwoord · isim", "ww": "Werkwoord · fiil", "sch_ww": "Scheidbaar werkwoord · ayrılabilen fiil",
     "bn": "Bijvoeglijk naamwoord · sıfat", "bw": "Bijwoord · zarf", "klein": "Kleine woorden · zamir, edat, bağlaç",
