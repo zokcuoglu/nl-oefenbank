@@ -71,53 +71,41 @@ Dat de onderzoekers zo enthousiast zijn, heeft een reden. Over de reuzen uit die
     "gloss_c1": "imposant = heybetli • in het niet vallen bij = yanında sönük kalmak • gewicht in de schaal leggen = ağırlık taşımak, önemli olmak • amper = ancak, zar zor • tentoonstellen = sergilemek • stammen uit = … döneminden kalma olmak • het tijdperk = çağ • wier = ki onların • tot de verbeelding spreken = hayal gücünü harekete geçirmek • uitwijzen = ortaya koymak • zich ophouden = bulunmak, takılmak • dergelijk = böyle • gefossiliseerd = fosilleşmiş • het unicum = eşsiz örnek • blootleggen = gün yüzüne çıkarmak • de groeve = ocak, büyük çukur • golven = dalgalanmak • oeroud = çok eski • nietig = önemsiz, minicik • voorkomen = bulunmak • ontgaan = gözden kaçmak • omvangrijk = kapsamlı • het kleine grut = ufaklıklar • vrijwel = neredeyse • het inzicht = kavrayış • de verhouding = ilişki • het ecosysteem = ekosistem • parasiteren = asalak yaşamak • de gastheer = konakçı • herbergen = barındırmak",
 
     "uitdrukkingen": [
-        {"nl": "er is … te zien", "niveau": "A2", "groep": "4", "tr": "… görülebilir, … sergileniyor",
-         "uitleg": "'Er + zijn + … + te + mastar': bir şeyin yapılabildiğini anlatır. Videoda: 'Vanaf vandaag is er een bijzonder fossiel te zien.' Aynı kalıp: 'Er zijn nog meer fossielen te vinden.'",
-         "voorbeeld": "In het museum is een dinosaurus te zien.", "voorbeeld_tr": "Müzede bir dinozor görülebilir."},
-        {"nl": "voor het eerst", "niveau": "A2", "groep": "3", "tr": "ilk kez",
-         "uitleg": "Bir şey daha önce hiç olmadıysa. Videoda: 'Het is voor het eerst dat zo'n diertje is gevonden.'",
-         "voorbeeld": "Mijn zoon ging vandaag voor het eerst naar school.", "voorbeeld_tr": "Oğlum bugün ilk kez okula gitti."},
-        {"nl": "op elkaar leven", "niveau": "B1", "groep": "6", "tr": "birbirinin üzerinde yaşamak",
-         "uitleg": "Videoda araştırmacı: 'hoe ze op elkaar geleefd hebben'. 'Elkaar' = birbiri; 'met elkaar', 'naast elkaar' da çok kullanılır.",
-         "voorbeeld": "Sommige dieren leven op elkaar: de luis op de vis.", "voorbeeld_tr": "Bazı hayvanlar birbirinin üzerinde yaşar: bit balığın üzerinde."},
-        {"nl": "een echte primeur", "niveau": "B2", "groep": "vo", "tr": "gerçek bir ilk",
-         "uitleg": "Daha önce hiç görülmemiş ya da yapılmamış bir şey. Haberlerde 'ilk kez' haberi için kullanılır.",
-         "voorbeeld": "De vondst van deze luis is een echte primeur.", "voorbeeld_tr": "Bu bitin bulunması gerçek bir ilk."},
-        {"nl": "in het duister tasten", "niveau": "B2", "groep": "8", "tr": "karanlıkta el yordamıyla aramak, bir şeyi bilmemek",
-         "uitleg": "Bir konuda hâlâ çok az bilgi olması. Videoda daha basit: 'Van kleine dieren weten we nog bijna niks.'",
-         "voorbeeld": "Over de oorzaak tasten de onderzoekers nog in het duister.", "voorbeeld_tr": "Sebebi konusunda araştırmacılar hâlâ karanlıkta."},
-        {"nl": "in het niet vallen bij", "niveau": "C1", "groep": "vo", "tr": "… yanında sönük kalmak",
-         "uitleg": "Başka bir şeyle karşılaştırınca çok küçük ya da önemsiz görünmek.",
-         "voorbeeld": "Onze problemen vallen in het niet bij die van hen.", "voorbeeld_tr": "Bizim sorunlarımız onlarınkinin yanında hiç kalır."},
-        {"nl": "tot de verbeelding spreken", "niveau": "C1", "groep": "vo", "tr": "hayal gücünü harekete geçirmek, çok ilgi çekmek",
-         "uitleg": "İnsanları heyecanlandıran, merak uyandıran bir şey için.",
-         "voorbeeld": "Dinosaurussen spreken kinderen erg tot de verbeelding.", "voorbeeld_tr": "Dinozorlar çocukların hayal gücünü çok harekete geçirir."},
+        "n-fossiel-u1",
+        "n-fossiel-u2",
+        "n-fossiel-u3",
+        "n-fossiel-u4",
+        {"id": "n-albertheijn-u8", "voorbeeld": "Over de oorzaak tasten de onderzoekers nog in het duister.", "voorbeeld_tr": "Sebebi konusunda araştırmacılar hâlâ karanlıkta."},
+        "n-fossiel-u6",
+        "n-fossiel-u7"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """het museum | zn | gebouw waar je oude of mooie dingen kunt bekijken | Op zondag gaan we naar het museum. | müze | A1 | 3
-klein | bn | niet groot | De luis is heel klein. | küçük | A1 | 1-2
-het bloed | zn | rode vloeistof in je lichaam | Een luis drinkt bloed. | kan | A1 | 3
-de vis | zn | dier dat in het water leeft | De luis leefde op een grote vis. | balık | A1 | 1-2
-het fossiel | zn | resten van een dier of plant van heel lang geleden, in steen | In de steen zit een fossiel. | fosil | A2 | 6
-de dinosaurus | zn | groot dier dat miljoenen jaren geleden leefde | Mijn zoon houdt van dinosaurussen. | dinozor | A2 | 3
-de luis | zn | heel klein diertje dat op mensen of dieren leeft | Er zitten luizen in het haar van de kinderen. | bit | A2 | 4
-het vergrootglas | zn | glas waardoor kleine dingen groter lijken | Met een vergrootglas zie je het beter. | büyüteç | A2 | 5
-bijzonder | bn | niet gewoon, speciaal | Dit is een bijzonder fossiel. | özel, ilginç | A2 | 5
-de kuil | zn | gat in de grond | De kinderen graven een kuil in het zand. | çukur | A2 | 4
-zuigen | ww | met je mond iets naar binnen trekken | De luis zuigt bloed. | emmek | B1 | 5
-onderzoeken | ww | goed bekijken om iets te weten te komen | De dokter onderzoekt de patiënt. | araştırmak, incelemek | B1 | 6
-de onderzoeker | zn | iemand die onderzoek doet | De onderzoekers zijn heel blij. | araştırmacı | B1 | 7
-het skelet | zn | alle botten van een mens of dier | In het museum staat het skelet van een dinosaurus. | iskelet | B1 | 6
-de vondst | zn | iets wat je gevonden hebt | De vondst is 66 miljoen jaar oud. | buluntu | B1 | 7
-het bewijs | zn | iets wat laat zien dat iets waar is | Heb je bewijs voor wat je zegt? | kanıt | B1 | 7
-opvallend | bn | wat je snel ziet, wat anders is | Ze droeg een opvallende jas. | dikkat çekici | B1 | 7
-onderling | bw | met of tussen elkaar | De kinderen lossen het onderling op. | kendi aralarında | B2 | vo
-de parasiet | zn | dier of plant dat leeft van een ander dier of andere plant | Een luis is een parasiet. | parazit | B2 | 8
-het overblijfsel | zn | wat over is van iets | Er zijn overblijfselen van een oude stad gevonden. | kalıntı | B2 | vo
-vermoedelijk | bw | waarschijnlijk | Vermoedelijk leefde de luis op een vis. | muhtemelen | B2 | vo
-tentoonstellen | sch ww | laten zien in een museum of op een tentoonstelling | Het fossiel wordt vanaf vandaag tentoongesteld. | sergilemek | C1 | 8
-de gastheer | zn | (hier) dier waarop een parasiet leeft | De vis was de gastheer van de luis. | konakçı | C1 | vo""",
+    "woordenschat": [
+        "n-fossiel-w1",
+        {"id": "b126", "voorbeeld": "De luis is heel klein."},
+        "n-fossiel-w3",
+        {"id": "b102", "voorbeeld": "De luis leefde op een grote vis."},
+        "n-fossiel-w5",
+        "n-fossiel-w6",
+        "n-fossiel-w7",
+        "n-fossiel-w8",
+        "n-fossiel-w9",
+        "n-fossiel-w10",
+        "n-fossiel-w11",
+        "n-fossiel-w12",
+        "n-fossiel-w13",
+        "n-fossiel-w14",
+        "n-fossiel-w15",
+        "n-fossiel-w16",
+        "n-fossiel-w17",
+        "n-fossiel-w18",
+        "n-fossiel-w19",
+        "n-fossiel-w20",
+        {"id": "n-albertheijn-w20", "voorbeeld": "Vermoedelijk leefde de luis op een vis."},
+        "n-fossiel-w22",
+        "n-fossiel-w23"
+    ],
 
     "grammatica": """1) Er is … te + infinitief: wat kan er?
 • Vanaf vandaag is er een bijzonder fossiel te zien. (= je kunt het zien)

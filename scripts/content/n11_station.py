@@ -71,51 +71,39 @@ Maar de plek staat ook voor moed. De toenmalige stationschef bood mensen een sch
     "gloss_c1": "het erfgoed = kültürel miras • letterlijk = kelimenin tam anlamıyla • van zijn plek halen = yerinden almak • de sloop = yıkım • uitgesloten = söz konusu değil • bescherming genieten = koruma altında olmak • precair = hassas, riskli • het pand = bina • aanleggen = döşemek • in beslag nemen = (zaman) almak • de nieuwsgierige = meraklı kişi • in Duitse handen zijn = Almanların elinde olmak • deporteren = sürgün etmek • staan voor = simgelemek • de moed = cesaret • de schuilplaats = sığınak, saklanma yeri • ontkomen = kaçıp kurtulmak • bijwonen = hazır bulunmak • nagaan = kontrol etmek • wegloodsen = gizlice çıkarmak • tastbaar = somut, elle tutulur",
 
     "uitdrukkingen": [
-        {"nl": "stukje voor stukje", "niveau": "A2", "groep": "4", "tr": "azar azar, parça parça",
-         "uitleg": "Bir şeyin küçük adımlarla, yavaş yavaş olması. Videoda: 'En stukje voor stukje is het station opgeschoven.'",
-         "voorbeeld": "Stukje voor stukje leer ik Nederlands.", "voorbeeld_tr": "Azar azar Hollandaca öğreniyorum."},
-        {"nl": "een lastig karwei", "niveau": "B1", "groep": "7", "tr": "zor bir iş",
-         "uitleg": "'Het karwei' = yapılması gereken (genelde fiziksel) iş. Videoda: 'En dat was een heel lastig karwei.'",
-         "voorbeeld": "De kast in elkaar zetten was een lastig karwei.", "voorbeeld_tr": "Dolabı kurmak zor bir işti."},
-        {"nl": "af en aan lopen", "niveau": "B2", "groep": "8", "tr": "sürekli gidip gelmek",
-         "uitleg": "İnsanların bir yere durmadan gelip gitmesi. Videoda torun: 'De Duitse soldaten liepen af en aan.'",
-         "voorbeeld": "Bij de bakker liepen de klanten de hele ochtend af en aan.", "voorbeeld_tr": "Fırında müşteriler bütün sabah gidip geldi."},
-        {"nl": "met gevaar voor eigen leven", "niveau": "B2", "groep": "8", "tr": "kendi hayatını tehlikeye atarak",
-         "uitleg": "Başkasını kurtarmak için kendi hayatını riske atmak. Videoda torun dedesi için söylüyor.",
-         "voorbeeld": "De brandweerman redde het kind met gevaar voor eigen leven.", "voorbeeld_tr": "İtfaiyeci kendi hayatını tehlikeye atarak çocuğu kurtardı."},
-        {"nl": "van zijn plaats komen", "niveau": "B2", "groep": "vo", "tr": "yerinden oynamak",
-         "uitleg": "Bir şeyin bulunduğu yerden hareket etmesi. Genelde olumsuz: 'Hij komt niet van zijn plaats' = yerinden kalkmıyor.",
-         "voorbeeld": "Die zware kast komt niet van zijn plaats.", "voorbeeld_tr": "O ağır dolap yerinden oynamıyor."},
-        {"nl": "in handen zijn van", "niveau": "C1", "groep": "vo", "tr": "… elinde olmak, … kontrolünde olmak",
-         "uitleg": "Bir şeyin birinin kontrolünde ya da mülkiyetinde olması.",
-         "voorbeeld": "Het bedrijf is al drie generaties in handen van dezelfde familie.", "voorbeeld_tr": "Şirket üç kuşaktır aynı ailenin elinde."},
-        {"nl": "zij het", "niveau": "C1", "groep": "vo", "tr": "gerçi, ancak, -sa da",
-         "uitleg": "Resmi yazı dilinde küçük bir kısıtlama eklemek için: 'Het blijft bewaard, zij het 13 meter verderop.'",
-         "voorbeeld": "Hij kwam toch, zij het een uur te laat.", "voorbeeld_tr": "Bir saat geç de olsa yine de geldi."},
+        "n-station-u1",
+        "n-station-u2",
+        "n-station-u3",
+        "n-station-u4",
+        "n-station-u5",
+        "n-station-u6",
+        "n-station-u7"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """het station | zn | plek waar de trein stopt | Ik wacht op het station. | istasyon | A1 | 1-2
-oud | bn | niet nieuw; al lang | Het station is heel oud. | eski | A1 | 1-2
-de kelder | zn | ruimte onder een huis, onder de grond | De fietsen staan in de kelder. | bodrum | A2 | 3
-het spoor | zn | de rails waar een trein over rijdt | Er komt een nieuw spoor. | demiryolu | A2 | 5
-de oorlog | zn | tijd waarin landen of groepen met wapens vechten | Mijn opa vertelt over de oorlog. | savaş | A2 | 5
-redden | ww | iemand uit gevaar halen | De brandweer redt de kat. | kurtarmak | A2 | 5
-verstoppen | ww | iets of iemand op een plek zetten waar niemand het ziet | De kinderen verstoppen zich achter de boom. | saklamak | A2 | 3
-de geschiedenis | zn | wat er vroeger gebeurd is | Ik lees graag over geschiedenis. | tarih | A2 | 5
-beschermen | ww | zorgen dat iets of iemand niets overkomt | Het monument moet beschermd worden. | korumak | B1 | 6
-het monument | zn | (hier) oud gebouw dat beschermd wordt | De molen is een monument. | koruma altındaki tarihi yapı | B1 | 7
-slopen | ww | een gebouw helemaal afbreken | Het oude huis wordt gesloopt. | yıkmak | B1 | 7
-verplaatsen | ww | iets naar een andere plek brengen | Kun je de tafel even verplaatsen? | yerini değiştirmek | B1 | 6
-opschuiven | sch ww | iets of jezelf een stukje opzij bewegen | Schuif eens wat op, dan kan ik ook zitten. | kaydırmak, kaymak | B1 | 5
-voorzichtig | bn | met aandacht, zodat er niets misgaat | Doe voorzichtig met dat glas! | dikkatli | B1 | 4
-ontsnappen | ww | weglopen uit een plek waar je vast zit | De hond is uit de tuin ontsnapt. | kaçmak | B1 | 6
-de gevangene | zn | iemand die vastzit (in een gevangenis of kamp) | De gevangenen mochten niet naar buiten. | mahkum, tutuklu | B1 | 7
-behouden | ww | bewaren, niet laten verdwijnen | Het gebouw blijft behouden. | korumak, muhafaza etmek | B2 | vo
-het karwei | zn | (zwaar) werk dat gedaan moet worden | Verhuizen is een flink karwei. | iş, angarya | B2 | 8
-ongezien | bn | zonder dat iemand het ziet | Hij liep ongezien naar buiten. | görünmeden | B2 | 8
-het erfgoed | zn | wat we van vroeger hebben gekregen en willen bewaren | Oude gebouwen zijn ons erfgoed. | kültürel miras | C1 | vo
-deporteren | ww | mensen met dwang naar een andere plek brengen | In de oorlog werden duizenden mensen gedeporteerd. | sürgün etmek | C1 | vo""",
+    "woordenschat": [
+        "n-station-w1",
+        {"id": "b135", "voorbeeld": "Het station is heel oud."},
+        "n-station-w3",
+        "n-station-w4",
+        "n-station-w5",
+        "n-station-w6",
+        "n-station-w7",
+        "n-station-w8",
+        "n-station-w9",
+        "n-station-w10",
+        "n-station-w11",
+        "n-station-w12",
+        "n-station-w13",
+        "n-station-w14",
+        "n-station-w15",
+        "n-station-w16",
+        {"id": "w293", "voorbeeld": "Het gebouw blijft behouden."},
+        "n-station-w18",
+        "n-station-w19",
+        {"id": "n-kroket-w23", "voorbeeld": "Oude gebouwen zijn ons erfgoed.", "definitie": "wat we van vroeger hebben gekregen en willen bewaren"},
+        "n-station-w21"
+    ],
 
     "grammatica": """1) Passief met modaal werkwoord: moet worden + voltooid deelwoord
 • Het is een gebouw dat moet worden beschermd. (= dat beschermd moet worden)

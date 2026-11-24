@@ -100,7 +100,7 @@ setTimeout(function () {
 // Easier rules at low levels: no Dutch-definition questions, wrong options from the same or a lower level, short gap sentences.
 import { gate, userBox, esc, saveAttempt, loadAllAttempts } from "../js/core.js";
 // Shared with kids/woordkaarten.html: word status (yeni / zayıf / öğreniliyor / biliyor), flashcards, matching game
-import { mountCards, mountMatch, wordStatus, statusOf, STATUS, STATUS_ORDER, fmtTime } from "../js/oefen.js";
+import { mountCards, mountMatch, wordStatus, statusOf, STATUS, STATUS_ORDER, fmtTime, setAlias, hasBron } from "../js/oefen.js";
 
 const app = document.getElementById("app");
 const LEVELS = ["A0", "A1", "A2", "B1", "B2", "C1", "C2"];
@@ -145,7 +145,7 @@ const isChild = profile.type === "child";
 document.getElementById("ub").innerHTML = userBox(user, profile);
 try {
   const data = await (await fetch("../data/woorden.json", { cache: "no-cache" })).json();
-  S.pool = data.woorden; S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
+  setAlias(data.alias); S.pool = data.woorden; S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
   S.L = { turen: data.turen, themas: data.themas, subthemas: data.subthemas, registers: data.registers };
 } catch (e) { app.innerHTML = `<div class="notice">Kelimeler yüklenemedi: ${esc(e.message)}</div>`; throw e; }
 // All rounds of all word pages (test, cards, matching, school lists) count for the word status
@@ -163,7 +163,7 @@ if (!S.cfg.groepen.length) S.cfg.groepen = ["3"];
 if (isChild) { S.pool = S.pool.filter(w => w.groep !== "vo"); S.byId = Object.fromEntries(S.pool.map(w => [w.id, w])); if (S.cfg.bron === "werk") S.cfg.bron = "alle"; }
 if (LIJST) {
   // School list mode: pool = that list only, all its levels and groepen selected
-  S.pool = S.pool.filter(w => w.bron === "school" && w.thema === LIJST); S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
+  S.pool = S.pool.filter(w => hasBron(w, "school") && w.thema === LIJST); S.byId = Object.fromEntries(S.pool.map(w => [w.id, w]));
   Object.assign(S.cfg, { bron: "school", levels: [...new Set(S.pool.map(w => w.niveau))], groepen: [...new Set(S.pool.map(w => w.groep))],
     themas: [], subthema: "", turen: [], register: "alle", status: [] });
 }
@@ -175,7 +175,7 @@ const stOf = w => statusOf(S.st, w.id);
 // Every filter; `skip` leaves one filter out (used for the counts next to that filter's own buttons)
 const inLevel = (w, cfg = S.cfg) => isChild ? cfg.groepen.includes(w.groep) : cfg.levels.includes(w.niveau);
 function matchCfg(w, cfg = S.cfg, skip = "") {
-  return (cfg.bron === "alle" || w.bron === cfg.bron)
+  return (cfg.bron === "alle" || hasBron(w, cfg.bron))
     && (skip === "thema" || !cfg.themas.length || cfg.themas.includes(w.thema))
     && (skip === "thema" || skip === "sub" || !cfg.subthema || !cfg.themas.includes("werk") || w.thema !== "werk" || w.subthema === cfg.subthema)
     && (skip === "tur" || !cfg.turen.length || cfg.turen.includes(w.tur))
@@ -200,7 +200,7 @@ function typesFor(w) {
   // Gap: only with a short example sentence for easy words
   if (gapForm(w) && (!easy(w) || w.voorbeeld.split(/\s+/).length <= 8)) t.push("gap");
   // A Dutch definition is harder to read than the word itself: only from B1 (adults) / groep 6 (children)
-  if (w.definitie && (w.bron === "school" || (isChild ? GRANK[w.groep] >= 6 : RANK[w.niveau] >= RANK.B1))) t.push("def");
+  if (w.definitie && (hasBron(w, "school") || (isChild ? GRANK[w.groep] >= 6 : RANK[w.niveau] >= RANK.B1))) t.push("def");
   return t;
 }
 // The word form in the example sentence that can be blanked (one-word entries only)

@@ -67,57 +67,39 @@ Vliegtuigpassagiers ervaren dit verschil <strong>aan den lijve</strong>: na een 
     "gloss_c1": "vanzelfsprekend = olağan, sorgulanmayan • ergens bij stilstaan = bir şey üzerinde düşünmek • een tipje van de sluier oplichten = sırrın ucunu göstermek • verzadigd = doymuş • aanschouwelijk maken = gözle görülür kılmak • de verstrooiing = saçılma • waarnemen = algılamak • loodgrijs = kurşuni • aan den lijve ervaren = bizzat yaşamak • geen wolkje aan de lucht = her şey yolunda, hiçbir sorun yok",
 
     "uitdrukkingen": [
-        {"nl": "de koukleum", "niveau": "A2", "groep": "4", "tr": "çabuk üşüyen, soğuğa dayanamayan kişi",
-         "uitleg": "Hep üşüyen birine söylenir, genelde şakayla: 'Wat ben jij een koukleum!'",
-         "voorbeeld": "Jij hebt alweer een dikke trui aan, koukleum!", "voorbeeld_tr": "Yine kalın kazak giymişsin, ne üşüyen birisin!"},
-        {"nl": "in de wolken zijn", "niveau": "A2", "groep": "5", "tr": "havalara uçmak, çok mutlu olmak",
-         "uitleg": "Bir şeye çok sevinmek. 'Ze is in de wolken met…' kalıbıyla kullanılır.",
-         "voorbeeld": "Ze is in de wolken met haar nieuwe baan.", "voorbeeld_tr": "Yeni işi yüzünden havalara uçuyor."},
-        {"nl": "het regent pijpenstelen", "niveau": "B1", "groep": "5", "tr": "bardaktan boşanırcasına yağıyor",
-         "uitleg": "Çok şiddetli yağmur. Kelimesi kelimesine: 'pipo sapları yağıyor'.",
-         "voorbeeld": "Neem een paraplu mee, het regent pijpenstelen!", "voorbeeld_tr": "Şemsiye al, bardaktan boşanırcasına yağıyor!"},
-        {"nl": "met het blote oog", "niveau": "B1", "groep": "6", "tr": "çıplak gözle",
-         "uitleg": "Gözlük, dürbün ya da mikroskop olmadan.",
-         "voorbeeld": "Bacteriën kun je niet met het blote oog zien.", "voorbeeld_tr": "Bakterileri çıplak gözle göremezsin."},
-        {"nl": "zonneklaar", "niveau": "B2", "groep": "7", "tr": "apaçık, gün gibi ortada",
-         "uitleg": "'Güneş gibi açık'. Bir şeyin hiç şüphe bırakmayacak kadar net olması.",
-         "voorbeeld": "Het is zonneklaar dat hij gelijk heeft.", "voorbeeld_tr": "Haklı olduğu gün gibi ortada."},
-        {"nl": "iets biedt uitkomst", "niveau": "B2", "groep": "vo", "tr": "bir şey çözüm getirir, imdada yetişir",
-         "uitleg": "Bir soruna çare olmak. Biraz resmî; haberlerde ve yazı dilinde sık geçer.",
-         "voorbeeld": "Bij lange wachttijden biedt een online afspraak uitkomst.", "voorbeeld_tr": "Uzun bekleme sürelerinde online randevu çözüm oluyor."},
-        {"nl": "er is geen wolkje aan de lucht", "niveau": "B2", "groep": "7", "tr": "her şey yolunda, hiçbir sorun yok",
-         "uitleg": "Kelimesi kelimesine 'gökte tek bulut yok'; mecazi anlamda sorun, kavga ya da endişe olmaması.",
-         "voorbeeld": "Na de ruzie was er weer geen wolkje aan de lucht.", "voorbeeld_tr": "Kavgadan sonra yine her şey yolundaydı."},
-        {"nl": "een tipje van de sluier oplichten", "niveau": "C1", "groep": "vo", "tr": "bir sırrın ucunu göstermek, küçük bir ipucu vermek",
-         "uitleg": "Örtünün (sluier) küçük bir köşesini kaldırmak: henüz her şeyi değil, bir kısmını anlatmak.",
-         "voorbeeld": "De trainer lichtte een tipje van de sluier op over de nieuwe spelers.", "voorbeeld_tr": "Antrenör yeni oyuncular hakkında küçük bir ipucu verdi."},
-        {"nl": "iets aan den lijve ervaren", "niveau": "C1", "groep": "vo", "tr": "bir şeyi bizzat yaşamak, kendi tecrübesiyle görmek",
-         "uitleg": "Eski bir dil kalıbı ('den'): bir şeyi kendi bedeninde, kendi hayatında deneyimlemek.",
-         "voorbeeld": "Pas toen ik zelf verhuisde, ervoer ik aan den lijve hoe zwaar dat is.", "voorbeeld_tr": "Ancak kendim taşınınca bunun ne kadar zor olduğunu bizzat yaşadım."},
-        {"nl": "ergens bij stilstaan", "niveau": "C1", "groep": "8", "tr": "bir şey üzerinde durup düşünmek",
-         "uitleg": "Normalde fark etmediğin bir şeyi bir an düşünmek.",
-         "voorbeeld": "We staan er zelden bij stil hoe goed we het hebben.", "voorbeeld_tr": "Ne kadar iyi durumda olduğumuzu nadiren düşünürüz."},
+        "n-wolken-u1",
+        "n-wolken-u2",
+        "n-wolken-u3",
+        "n-wolken-u4",
+        "n-wolken-u5",
+        "n-wolken-u6",
+        "n-wolken-u7",
+        "n-wolken-u8",
+        "n-wolken-u9",
+        "n-wolken-u10"
     ],
 
-    "woordenschat": """de wolk | zn | witte of grijze vorm in de lucht, van waterdruppels | Er is geen wolk te zien. | bulut | A1 | 1-2
-de druppel | zn | heel klein beetje water in een rond vormpje | Er valt een druppel op mijn hand. | damla | A1 | 3
-het weer | zn | hoe het buiten is: zon, regen, wind, temperatuur | Hoe is het weer morgen? | hava durumu | A1 | 1-2
-onzichtbaar | bn | je kunt het niet zien | Lucht is onzichtbaar. | görünmez | A2 | 4
-de meteoroloog | zn | iemand die het weer bestudeert en voorspelt | De meteoroloog verwacht morgen regen. | meteorolog | A2 | 7
-de waterdamp | zn | water als gas in de lucht | In de badkamer zit veel waterdamp. | su buharı | A2 | 6
-afkoelen | sch ww | kouder worden | Laat de thee even afkoelen. | soğumak | A2 | 4
-het proefje | zn | klein experiment | We doen een proefje met ijs. | küçük deney | A2 | 5
-ontstaan | ww | beginnen te bestaan | Zo ontstaat een wolk. | oluşmak | B1 | 6
-de condensatie | zn | damp die weer vloeibaar water wordt | Door condensatie wordt het raam nat. | yoğuşma | B1 | 8
-doorzichtig | bn | je kunt erdoorheen kijken | Glas is doorzichtig. | şeffaf | B1 | 5
-weerkaatsen | ww | licht of geluid terugsturen | Sneeuw weerkaatst het zonlicht. | yansıtmak | B1 | 7
-het aardoppervlak | zn | de buitenkant van de aarde | Warme lucht stijgt op van het aardoppervlak. | yeryüzü | B1 | 7
-in aanraking komen met | uitdr | iets aanraken, ermee in contact komen | De damp komt in aanraking met koude lucht. | temas etmek | B2 | 7
-ogen | ww | eruitzien | De onderkant van de wolk oogt grijs. | görünmek | B2 | vo
-grauw | bn | somber grijs | Het is een grauwe novemberdag. | kasvetli gri | B2 | 7
-verzadigd | bn | zo vol dat er niets meer bij kan | De lucht is verzadigd met waterdamp. | doymuş | C1 | 8
-waarnemen | sch ww | zien, horen of voelen | We nemen de wolk als wit waar. | algılamak | C1 | 8
-vanzelfsprekend | bn | zo normaal dat je er niet over nadenkt | Schoon water is niet overal vanzelfsprekend. | olağan, doğal | C1 | 8""",
+    "woordenschat": [
+        "n-wolken-w1",
+        "n-wolken-w2",
+        "n-wolken-w3",
+        "n-wolken-w4",
+        "n-wolken-w5",
+        "n-wolken-w6",
+        "n-wolken-w7",
+        "n-wolken-w8",
+        "n-wolken-w9",
+        "n-wolken-w10",
+        "n-wolken-w11",
+        "n-wolken-w12",
+        "n-wolken-w13",
+        "n-wolken-w14",
+        "n-wolken-w15",
+        "n-wolken-w16",
+        "n-wolken-w17",
+        "n-wolken-w18",
+        "n-wolken-w19"
+    ],
 
     "grammatica": """1) Als …, … : wanneer iets gebeurt (of: onder welke voorwaarde)
 Met 'als' maak je een bijzin: het werkwoord staat aan het einde. Begint de zin met de bijzin, dan komt in de hoofdzin het werkwoord meteen daarna.

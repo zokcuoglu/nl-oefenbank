@@ -75,55 +75,41 @@ De laatste fase speelt zich af in een hal vol vouwmachines, waar elk type doosje
     "gloss_c1": "of het nu om … gaat = ister … olsun • doorgaans = genellikle • vervaardigen = imal etmek • gevouwen en wel = katlanmış haliyle, hazır şekilde • het voorwerp = nesne • nauwkeurig = titiz, hassas • schuilgaan achter = arkasında gizlenmek • de drukpers = baskı makinesi • uitdokteren = kafa yorup bulmak • voorzien van = … ile donatılmış • sluitbaar = kapatılabilir • de afwijking = sapma • als gegoten passen = kalıp gibi oturmak • vandaar = bu yüzden • goedkeuren = onaylamak • verwerken = işlemek • verzonken = gömülü • de contour = dış hat • de rillijn = katlama (bigi) çizgisi • persen = preslemek • zich afspelen = geçmek, olmak • vereisen = gerektirmek • keren = çevirmek • zo plat als een dubbeltje = kâğıt gibi yassı • bewust = bilerek",
 
     "uitdrukkingen": [
-        {"nl": "van alles en nog wat", "niveau": "A2", "groep": "5", "tr": "her türlü şey, aklına ne gelirse",
-         "uitleg": "Çok farklı şeyler için. Videoda: 'verpakkingsdoosjes voor van alles en nog wat'.",
-         "voorbeeld": "In die winkel kun je van alles en nog wat kopen.", "voorbeeld_tr": "O dükkânda her türlü şeyi alabilirsin."},
-        {"nl": "in principe", "niveau": "B1", "groep": "7", "tr": "prensipte, esasen",
-         "uitleg": "'Normalde öyle ama küçük bir 'ama'sı var.' Videoda: 'Zo is het doosje in principe klaar … maar hij is nog wel plat.'",
-         "voorbeeld": "In principe ben ik om vijf uur thuis.", "voorbeeld_tr": "Prensipte saat beşte evdeyim."},
-        {"nl": "aan de lopende band", "niveau": "B1", "groep": "7", "tr": "durmadan, seri halde",
-         "uitleg": "Gerçek anlamı: fabrikadaki yürüyen bant. Mecazi: bir şeyin sürekli, art arda olması.",
-         "voorbeeld": "Hij maakt aan de lopende band fouten.", "voorbeeld_tr": "Durmadan hata yapıyor."},
-        {"nl": "tot op de millimeter", "niveau": "B1", "groep": "6", "tr": "milimetrik, çok hassas",
-         "uitleg": "Ölçünün tam doğru olması. Videoda: 'Alle maten moeten precies kloppen.'",
-         "voorbeeld": "De kast past tot op de millimeter in de hoek.", "voorbeeld_tr": "Dolap köşeye milimetrik oturuyor."},
-        {"nl": "kloppen als een bus", "niveau": "B2", "groep": "8", "tr": "tıkır tıkır doğru olmak",
-         "uitleg": "Bir hesabın, planın ya da hikâyenin tamamen doğru ve tutarlı olması. 'Kloppen' = doğru olmak.",
-         "voorbeeld": "Ik heb alles nagerekend: het klopt als een bus.", "voorbeeld_tr": "Her şeyi yeniden hesapladım: tıkır tıkır doğru."},
-        {"nl": "als gegoten zitten / passen", "niveau": "B2", "groep": "8", "tr": "kalıp gibi oturmak",
-         "uitleg": "Bir giysinin ya da parçanın tam uyması.",
-         "voorbeeld": "Die jas zit je als gegoten.", "voorbeeld_tr": "O ceket üstüne kalıp gibi oturmuş."},
-        {"nl": "… en wel", "niveau": "C1", "groep": "vo", "tr": "… haliyle, tamamen …",
-         "uitleg": "Geçmiş zaman ortacı + 'en wel': bir şeyin o işlemden tamamen geçmiş halde olduğunu vurgular. Videoda: 'gevouwen en wel'. Sık örnek: 'getrouwd en wel'.",
-         "voorbeeld": "De pakketjes liggen klaar, ingepakt en wel.", "voorbeeld_tr": "Paketler hazır, paketlenmiş halde."},
-        {"nl": "zo plat als een dubbeltje", "niveau": "C1", "groep": "vo", "tr": "kâğıt gibi yassı",
-         "uitleg": "Çok düz/yassı. 'Dubbeltje' = eski 10 sentlik madeni para.",
-         "voorbeeld": "Na de vrachtwagen was het blikje zo plat als een dubbeltje.", "voorbeeld_tr": "Kamyondan sonra kutu kâğıt gibi yassılaşmıştı."},
+        "n-doosjes-u1",
+        {"id": "w020", "voorbeeld": "In principe ben ik om vijf uur thuis.", "voorbeeld_tr": "Prensipte saat beşte evdeyim."},
+        "n-doosjes-u3",
+        "n-doosjes-u4",
+        "n-doosjes-u5",
+        "n-doosjes-u6",
+        "n-doosjes-u7",
+        "n-doosjes-u8"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """de doos | zn | ding van karton of hout waar je iets in doet | De schoenen zitten in een doos. | kutu | A1 | 1-2
-het karton | zn | dik, stevig papier | De doos is van karton. | karton | A1 | 3
-plat | bn | zonder hoogte, niet dik | Het doosje is nog plat. | yassı, düz | A1 | 3
-leeg | bn | er zit niets in | De fles is leeg. | boş | A1 | 1-2
-vouwen | ww | papier of karton dubbel buigen | Vouw het papier in twee. | katlamak | A2 | 3
-de lijm | zn | iets waarmee je dingen aan elkaar plakt | Doe wat lijm op de rand. | yapıştırıcı | A2 | 3
-de verpakking | zn | doos of zak waarin een product zit | Gooi de verpakking bij het oud papier. | ambalaj | A2 | 6
-de maat | zn | hoe groot of lang iets is | Welke maat heeft je jas? | ölçü, beden | A2 | 4
-de drukkerij | zn | bedrijf dat boeken, folders en dozen drukt | Mijn oom werkt in een drukkerij. | matbaa | B1 | 7
-drukken | ww | (hier) tekst of plaatjes op papier zetten | De folders worden morgen gedrukt. | basmak | B1 | 6
-het vel | zn | groot, plat stuk papier of karton | Pak een vel papier. | tabaka | B1 | 5
-bedenken | ww | een idee of plan maken | Wie heeft dit spel bedacht? | düşünüp bulmak | B1 | 5
-ingewikkeld | bn | moeilijk, met veel delen | Het formulier is erg ingewikkeld. | karmaşık | B1 | 6
-kloppen | ww | (hier) juist zijn | Klopt het adres? | doğru olmak | B1 | 5
-het ontwerp | zn | tekening of plan van iets dat gemaakt gaat worden | Het ontwerp van het huis is klaar. | tasarım | B1 | 7
-de lopende band | zn | band in een fabriek die steeds doorloopt | De dozen gaan over de lopende band. | yürüyen bant | B1 | 7
-het precisiewerk | zn | werk dat heel nauwkeurig moet | Een horloge maken is precisiewerk. | hassas iş | B2 | vo
-overtollig | bn | wat over is, niet nodig | Snijd het overtollige papier weg. | fazla | B2 | vo
-produceren | ww | (in een fabriek) maken | De fabriek produceert duizend dozen per dag. | üretmek | B2 | 8
-nauwkeurig | bn | heel precies | Meet het nauwkeurig op. | titiz, hassas | B2 | 8
-vervaardigen | ww | maken (formeel) | Het meubel is met de hand vervaardigd. | imal etmek | C1 | vo
-de afwijking | zn | verschil met wat normaal of gepland is | Er is een kleine afwijking in de maat. | sapma | C1 | vo""",
+    "woordenschat": [
+        "n-doosjes-w1",
+        "n-doosjes-w2",
+        "n-doosjes-w3",
+        {"id": "b274", "voorbeeld": "De fles is leeg."},
+        "n-doosjes-w5",
+        "n-doosjes-w6",
+        "n-doosjes-w7",
+        "n-doosjes-w8",
+        "n-doosjes-w9",
+        "n-doosjes-w10",
+        "n-doosjes-w11",
+        "n-doosjes-w12",
+        "n-doosjes-w13",
+        "n-doosjes-w14",
+        "n-doosjes-w15",
+        "n-doosjes-w16",
+        "n-doosjes-w17",
+        "n-doosjes-w18",
+        "n-doosjes-w19",
+        "n-doosjes-w20",
+        "n-doosjes-w21",
+        {"id": "w043", "voorbeeld": "Er is een kleine afwijking in de maat."}
+    ],
 
     "grammatica": """1) Het passief: worden + voltooid deelwoord
 Belangrijk is wát er gebeurt, niet wíé het doet. Door wie: met 'door'.

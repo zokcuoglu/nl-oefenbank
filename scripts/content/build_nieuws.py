@@ -3,7 +3,6 @@
 The item files are the place to edit content; this script only assembles and checks them:
 unique ids, valid answers, a ___ in every gap question, all five levels present.
 """
-import csv
 import importlib.util
 import json
 import re
@@ -14,7 +13,6 @@ OUT = HERE.parent.parent / "data" / "nieuws.json"
 LEVELS = ["a0", "a1", "a2", "b1", "b2", "c1"]  # required in every item
 OPTIONAL_LEVELS = ["c2"]  # may be added to newer items
 GROEPEN = ["1-2", "3", "4", "5", "6", "7", "8", "vo"]
-WERK = HERE / "werk_woorden.csv"
 # Every item quiz has 18 questions with this spread, so item scores are comparable
 ITEM_QUIZ = {"begrip": 5, "woorden": 4, "uitdrukkingen": 5, "grammatica": 4}
 # Every mixed test has 20 questions with the same spread (6/5/5/4), so test scores are comparable.
@@ -50,31 +48,42 @@ def check_questions(qs, where, seen):
 
 def main():
     from build_woorden import appears_in  # same matching rule as the word pool
-    werk = {r["id"]: r for r in csv.DictReader(WERK.open(encoding="utf-8"))}
-    # School word lists can be linked the same way (ids s001...), so a news text can say which school words it uses
-    werk.update({r["id"]: r for r in csv.DictReader((HERE / "school_woorden.csv").open(encoding="utf-8"))})
+    import woordbron
+    rows, aliases = woordbron.load()   # the one word source (woorden.csv + uitdrukkingen.csv)
     items, seen_q = [], set()
     for f in sorted(HERE.glob("n[0-9][0-9]_*.py")):
         it = dict(load(f).ITEM)
         for l in LEVELS:
             assert it.get(l), f"{f.name}: missing {l}"
         it["gloss"] = {l: it.pop(f"gloss_{l}") for l in LEVELS + OPTIONAL_LEVELS if f"gloss_{l}" in it}
-        # Work-note words this item uses on purpose (direction: work notes -> news). Shown on the news page.
+        text = " ".join(it.get(l, "") for l in LEVELS + OPTIONAL_LEVELS)
+        # Work-note / school words this item uses on purpose (direction: work notes -> news). Shown on the news page.
         if it.get("werk_woorden"):
-            text = " ".join(it.get(l, "") for l in LEVELS + OPTIONAL_LEVELS)
             it["werk"] = []
             for wid in it["werk_woorden"]:
-                assert wid in werk, f"{f.name}: werk_woorden id {wid} not in werk_woorden.csv"
-                w = werk[wid]
+                w, _ = woordbron.resolve(rows, aliases, wid, f"{f.name} werk_woorden")
                 assert appears_in(w["nl"], text), f"{f.name}: werk word {wid} '{w['nl']}' not found in the texts"
                 it["werk"].append({k: w[k] for k in ("id", "nl", "tr", "niveau", "voorbeeld", "voorbeeld_tr")})
-        # 7th column = groep (school year in which a Dutch child knows the word: 1-2, 3 ... 8, or vo = after primary school)
-        for line in it["woordenschat"].splitlines():
-            cols = [c.strip() for c in line.split("|")]
-            assert len(cols) == 7, f"{f.name}: woordenschat line needs 7 columns (… | niveau | groep): {line}"
-            assert cols[6] in GROEPEN, f"{f.name}: groep '{cols[6]}' in: {line}"
-        for u in it["uitdrukkingen"]:
-            assert u.get("groep") in GROEPEN, f"{f.name}: idiom '{u['nl']}' needs groep (one of {GROEPEN})"
+        # The item only lists ids; meaning, level and groep come from the word source, so they are the same
+        # everywhere. A reference may bring this item's own example sentence ({"id": ..., "voorbeeld": ...}).
+        # The page still gets the old shapes: woordenschat = lines "woord | soort | betekenis | voorbeeld | Turks |
+        # niveau | groep", uitdrukkingen = objects. woord_ids / uitdr_ids keep the ids for links and counts.
+        lines, it["woord_ids"] = [], []
+        for ref in it["woordenschat"]:
+            w, x = woordbron.resolve(rows, aliases, ref, f"{f.name} woordenschat")
+            cols = [w["nl"], w["woordsoort"] or woordbron.TUR_KORT[w["tur"]], x.get("definitie", w["definitie"]), x.get("voorbeeld", w["voorbeeld"]),
+                    w["tr"], w["niveau"], w["groep"]]
+            lines.append(" | ".join(c.replace("|", "/") for c in cols))
+            it["woord_ids"].append(w["id"])
+        it["woordenschat"] = "\n".join(lines)
+        idioms, it["uitdr_ids"] = [], []
+        for ref in it["uitdrukkingen"]:
+            w, x = woordbron.resolve(rows, aliases, ref, f"{f.name} uitdrukkingen")
+            idioms.append({"id": w["id"], "nl": w["nl"], "niveau": w["niveau"], "tr": w["tr"], "uitleg": x.get("uitleg", w["uitleg"]),
+                           "voorbeeld": x.get("voorbeeld", w["voorbeeld"]), "voorbeeld_tr": x.get("voorbeeld_tr", w["voorbeeld_tr"]),
+                           "groep": w["groep"], "tur": w["tur"]})
+            it["uitdr_ids"].append(w["id"])
+        it["uitdrukkingen"] = idioms
         check_questions(it["toets"], f.name, seen_q)
         cats = {c: sum(q["cat"] == c for q in it["toets"]) for c in ITEM_QUIZ}
         assert cats == ITEM_QUIZ, f"{f.name}: quiz spread {cats}, expected {ITEM_QUIZ}"

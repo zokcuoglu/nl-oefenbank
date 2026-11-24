@@ -71,49 +71,37 @@ Wanneer de gasten zich afvragen of ze zijn droom aan diggelen hebben geslagen, b
     "gloss_c1": "trakteren op = ikram etmek • geregeld = sık sık • onwrikbaar = sarsılmaz • het eigen kunnen = kendi yeteneği • het gezelschap = grup • prompt = derhal • de woordspeling = kelime oyunu • de aap komt uit de mouw = baklayı ağzından çıkarmak, gerçek ortaya çıkmak • nieuw leven inblazen = yeniden canlandırmak • stranden = başarısız olup bitmek • de logica tarten = mantığa meydan okumak • als water van een eend afglijden = vız gelmek, hiç etkilememek • tenslotte = ne de olsa • doorprikken = (illüzyonu) patlatmak • onverstoorbaar = istifini bozmayan • ongericht = hedefsiz • ronduit = düpedüz • beheersen = ustalıkla yapmak • hard toeslaan = sert vurmak • allesbehalve = hiç de değil • er een draai aan geven = işi başka yöne çekmek • binnenhaken = (para) kapmak • aan diggelen slaan = paramparça etmek • kostelijk = nefis, çok komik • het steenkolenengels = bozuk İngilizce • een strohalm aangrijpen = bir umuda tutunmak • evenaren = denk olmak • bemoedigend = cesaret verici • op zijn plaats vallen = yerine oturmak",
 
     "uitdrukkingen": [
-        {"nl": "in je eentje", "niveau": "A2", "groep": "4", "tr": "tek başına",
-         "uitleg": "Kimse olmadan, yalnız. Kişiye göre değişir: in mijn eentje, in zijn eentje. Skeçte freestyle anlatılırken: 'in je eentje zonder veel regels de bal hoog houden'.",
-         "voorbeeld": "Ze woont in haar eentje in een groot huis.", "voorbeeld_tr": "Büyük bir evde tek başına yaşıyor."},
-        {"nl": "iets hoog houden", "niveau": "B1", "groep": "6", "tr": "bir şeyi yüksek/canlı tutmak",
-         "uitleg": "Gerçek anlam: topu havada tutmak. Garson espri yapıyor: 'Ik hou de gezelligheid hoog' (keyfi yüksek tutuyorum). 'De naam hoog houden' = adına layık olmak.",
-         "voorbeeld": "De spelers houden de bal zo lang mogelijk hoog.", "voorbeeld_tr": "Oyuncular topu olabildiğince uzun havada tutuyor."},
-        {"nl": "je droom leven / koesteren", "niveau": "B1", "groep": "7", "tr": "hayalini yaşamak / hayalini beslemek",
-         "uitleg": "Skeçte: 'Koester je droom, knul' ve 'Als jij je droom maar leeft, Abel.' 'Koesteren' = sevgiyle korumak.",
-         "voorbeeld": "Hij werd kok in Italië: hij leeft zijn droom.", "voorbeeld_tr": "İtalya'da aşçı oldu: hayalini yaşıyor."},
-        {"nl": "desnoods", "niveau": "B2", "groep": "8", "tr": "gerekirse, olmadı",
-         "uitleg": "En iyi seçenek olmazsa kabul edilecek seçenek için. Garson: 'Ajax denk ik. Anders Feyenoord, Waalwijk desnoods.'",
-         "voorbeeld": "We gaan met de auto, of desnoods met de bus.", "voorbeeld_tr": "Arabayla gideriz, olmadı otobüsle."},
-        {"nl": "in een deuk liggen", "niveau": "B2", "groep": "8", "tr": "gülmekten kırılmak",
-         "uitleg": "Çok gülmek. Skeçte daha basit hali var: 'Zelfs Waalwijk moest hard lachen.'",
-         "voorbeeld": "Het publiek lag in een deuk om zijn grappen.", "voorbeeld_tr": "Seyirciler espriler yüzünden gülmekten kırıldı."},
-        {"nl": "het ver schoppen", "niveau": "B2", "groep": "vo", "tr": "çok başarılı olmak, çok yükselmek",
-         "uitleg": "Hayatta ya da kariyerde çok başarılı olmak. Skeçteki espri: 'schoppen' aynı zamanda topa vurmak demek.",
-         "voorbeeld": "Die jongen is slim; hij gaat het ver schoppen.", "voorbeeld_tr": "O çocuk zeki; çok başarılı olacak."},
-        {"nl": "als water van een eend afglijden", "niveau": "C1", "groep": "vo", "tr": "hiç etkilememek, vız gelmek",
-         "uitleg": "Eleştiri ya da kötü söz birini hiç etkilemiyorsa. Garson 'waardeloos' denmesine rağmen hayalinden vazgeçmedi.",
-         "voorbeeld": "Alle kritiek glijdt als water van een eend van hem af.", "voorbeeld_tr": "Bütün eleştiriler ona vız geliyor."},
+        "n-ober-u1",
+        "n-ober-u2",
+        "n-ober-u3",
+        "n-ober-u4",
+        "n-ober-u5",
+        "n-ober-u6",
+        "n-ober-u7"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """de ober | zn | iemand die in een restaurant eten en drinken brengt | De ober brengt de koffie. | garson | A1 | 3
-de bal | zn | rond ding waarmee je speelt | Gooi de bal naar mij! | top | A1 | 1-2
-de droom | zn | (hier) iets wat je heel graag wilt | Zijn droom is profvoetballer worden. | hayal | A2 | 4
-de slagroom | zn | geklopte room, zoet en wit | Wil je slagroom op je taart? | krem şanti | A2 | 3
-de club | zn | (hier) vereniging, team | Bij welke club speel je? | kulüp | A2 | 4
-oud | bn | (hier) veel jaren geleefd | U bent te oud voor profvoetbal. | yaşlı | A1 | 1-2
-waardeloos | bn | heel slecht | Je voetbalt waardeloos. | berbat | B1 | 6
-de vereniging | zn | club van mensen met dezelfde hobby | Hij zit bij een voetbalvereniging. | dernek, kulüp | B1 | 6
-de blessure | zn | pijn of wond door sport | Hij kan niet spelen door een blessure. | sakatlık | B1 | 7
-de carrière | zn | hoe je werk zich in de loop van je leven ontwikkelt | Ze heeft een mooie carrière als arts. | kariyer | B1 | 8
-vreemd | bn | anders dan normaal, raar | Dat is niet heel vreemd. | tuhaf | B1 | 5
-stimuleren | ww | aanmoedigen, iemand helpen om iets te doen | Mijn ouders stimuleerden me om te lezen. | teşvik etmek | B1 | 8
-oppakken | sch ww | (hier) weer beginnen met iets | Na de vakantie pak ik mijn studie weer op. | yeniden ele almak | B1 | 8
-tegenhouden | sch ww | zorgen dat iemand iets niet kan doen | De politie houdt de auto tegen. | engel olmak, durdurmak | B1 | 6
-rondbellen | sch ww | veel mensen of bedrijven één voor één bellen | Ik heb rondgebeld, maar niemand heeft tijd. | tek tek aramak | B2 | 8
-sportief | bn | (hier) die graag en goed sport | Mijn zus is heel sportief. | sporcu ruhlu | B2 | 7
-het lijf | zn | lichaam | Je lijf is niet in vorm. | vücut | B2 | 8
-koesteren | ww | met liefde bewaren of beschermen | Ze koestert de foto van haar oma. | sevgiyle korumak | C1 | vo
-kieskeurig | bn | die niet alles goed vindt, die veel eisen heeft | Hij is kieskeurig met eten. | seçici, titiz | C1 | vo""",
+    "woordenschat": [
+        "n-ober-w1",
+        "n-ober-w2",
+        "n-ober-w3",
+        "n-ober-w4",
+        "n-ober-w5",
+        {"id": "b135", "voorbeeld": "U bent te oud voor profvoetbal.", "definitie": "(hier) veel jaren geleefd"},
+        "n-ober-w7",
+        "n-ober-w8",
+        "n-ober-w9",
+        "n-ober-w10",
+        "n-ober-w11",
+        "n-ober-w12",
+        {"id": "w125", "voorbeeld": "Na de vakantie pak ik mijn studie weer op."},
+        "n-ober-w14",
+        "n-ober-w15",
+        "n-ober-w16",
+        "n-ober-w17",
+        "n-ober-w18",
+        "n-ober-w19"
+    ],
 
     "grammatica": """1) Zou + infinitief: een plan in het verleden (dat niet gelukt is)
 • Ik zou profvoetballer worden. (= dat was het plan, maar het gebeurde niet)

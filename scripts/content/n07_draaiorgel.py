@@ -68,53 +68,41 @@ Wie denkt dat orgeldraaien een kwestie van gewoon <strong>doordraaien</strong> i
     "gloss_c1": "reusachtig = devasa • zich wanen = kendini … sanmak • niet weg te denken zijn = olmazsa olmaz olmak • de klank = ses, tını • de kolos = dev • voortbrengen = üretmek • de kenner = uzman • slechts = yalnızca • bezaaid met = … ile dolu, serpili • gecodeerd = şifrelenmiş • vernuftig = ustaca, zekice • aandrijven = çalıştırmak, tahrik etmek • stuwen = itmek • afsluiten = kapatmak • doorvoeren = içinden geçirmek • passeren = geçmek • betreffend = ilgili • bijbehorend = ait olan • pneumatisch = hava basınçlı • toeslaan = vurmak • het stramien = kalıp, düzen • doordraaien = durmadan çevirmek • zich vergissen = yanılmak • inzakken = düşmek, gevşemek • vergen = gerektirmek • het ambacht = zanaat",
 
     "uitdrukkingen": [
-        {"nl": "volgens mij", "niveau": "A2", "groep": "3", "tr": "bence, bana kalırsa",
-         "uitleg": "Kendi fikrini ya da tahminini söylerken. Videoda: 'Maar volgens mij hoor ik nog helemaal niks.'",
-         "voorbeeld": "Volgens mij is het museum vandaag open.", "voorbeeld_tr": "Bence müze bugün açık."},
-        {"nl": "op en neer gaan", "niveau": "A2", "groep": "4", "tr": "inip çıkmak",
-         "uitleg": "Bir şeyin sürekli yukarı ve aşağı hareket etmesi. Videoda blaasbalg için: 'Die gaat zo op en neer.' Mecazi: iki yer arasında gidip gelmek.",
-         "voorbeeld": "Ik ga elke dag op en neer naar Utrecht.", "voorbeeld_tr": "Her gün Utrecht'e gidip geliyorum."},
-        {"nl": "er valt iets te vieren", "niveau": "B1", "groep": "6", "tr": "kutlanacak bir şey var",
-         "uitleg": "'Er valt … te + fiil' kalıbı: yapılabilecek/yapılacak bir şey var. Videoda: 'Zodra er wat te vieren viel, dansten mensen op straat.'",
-         "voorbeeld": "Er valt vandaag iets te vieren: ik ben geslaagd!", "voorbeeld_tr": "Bugün kutlanacak bir şey var: sınavı geçtim!"},
-        {"nl": "iets op zijn duimpje kennen", "niveau": "B2", "groep": "8", "tr": "bir şeyi avucunun içi gibi bilmek",
-         "uitleg": "Bir konuyu ya da yeri çok iyi bilmek. 'Zijn' kişiye göre değişir: ik ken het op mijn duimpje.",
-         "voorbeeld": "Anton kent alle draaiorgels op zijn duimpje.", "voorbeeld_tr": "Anton bütün laternaları avucunun içi gibi biliyor."},
-        {"nl": "een vak apart", "niveau": "B2", "groep": "vo", "tr": "başlı başına bir uzmanlık",
-         "uitleg": "Kolay görünen ama aslında çok beceri isteyen iş. Videoda daha basit hali var: 'Het is echt een vak.'",
-         "voorbeeld": "Een goede foto maken is een vak apart.", "voorbeeld_tr": "İyi bir fotoğraf çekmek başlı başına bir uzmanlık."},
-        {"nl": "in de maat blijven", "niveau": "B2", "groep": "8", "tr": "ritmi tutturmak, temposunu korumak",
-         "uitleg": "Müzikte ritme uymak. Mecazi olarak: kurallara/gruba uyum sağlamak ('in de pas lopen' de benzer).",
-         "voorbeeld": "Het is moeilijk om de hele dag in de maat te blijven.", "voorbeeld_tr": "Bütün gün ritmi tutturmak zor."},
-        {"nl": "niet weg te denken zijn", "niveau": "C1", "groep": "vo", "tr": "olmazsa olmaz olmak",
-         "uitleg": "Bir şey öyle yerleşmiş ki onsuz bir durumu düşünemiyorsun.",
-         "voorbeeld": "De fiets is niet weg te denken uit Nederland.", "voorbeeld_tr": "Bisiklet Hollanda'nın olmazsa olmazı."},
+        "n-draaiorgel-u1",
+        "n-draaiorgel-u2",
+        "n-draaiorgel-u3",
+        "n-draaiorgel-u4",
+        "n-draaiorgel-u5",
+        "n-draaiorgel-u6",
+        "n-draaiorgel-u7"
     ],
 
     # woord | soort | betekenis (NL) | voorbeeld | Turks | niveau | groep
-    "woordenschat": """de muziek | zn | geluid van zingen of van instrumenten | Ik luister graag naar muziek. | müzik | A1 | 1-2
-draaien | ww | rond laten gaan | Je draait aan het wiel. | çevirmek | A1 | 1-2
-dansen | ww | op muziek bewegen | Op het feest dansen we. | dans etmek | A1 | 1-2
-het gaatje | zn | klein gat | In het papier zit een gaatje. | küçük delik | A1 | 3
-het feest | zn | moment waarop je samen iets viert | Morgen is er een feest. | kutlama, parti | A1 | 1-2
-het liedje | zn | kort lied | Dit liedje ken ik. | şarkı | A1 | 1-2
-populair | bn | door veel mensen leuk gevonden | Voetbal is populair in Nederland. | popüler | A2 | 5
-vieren | ww | feest maken voor iets | We vieren mijn verjaardag. | kutlamak | A2 | 3
-de lucht | zn | (hier) wat je inademt; gas om ons heen | De ballon zit vol lucht. | hava | A2 | 3
-de buis | zn | lange, holle pijp | Het water loopt door een buis. | boru | A2 | 6
-het ritme | zn | vaste maat in muziek | Klap mee op het ritme. | ritim | A2 | 5
-het vak | zn | (hier) beroep waarvoor je veel moet kunnen | Bakker is een mooi vak. | meslek, zanaat | A2 | 6
-de blaasbalg | zn | zak die lucht opzuigt en weer uitblaast | De blaasbalg pompt lucht in het orgel. | körük | B1 | 8
-de toets | zn | knop van een instrument of toetsenbord | Druk op de toets. | tuş | B1 | 5
-indrukken | sch ww | naar beneden duwen | Je moet de knop twee seconden indrukken. | bastırmak | B1 | 5
-leeglopen | sch ww | leeg raken (lucht, water) | Mijn fietsband loopt leeg. | boşalmak, sönmek | B1 | 5
-aanhouden | sch ww | (hier) blijven doen, niet stoppen | Het is moeilijk om dat tempo aan te houden. | sürdürmek | B1 | 8
-de trommel | zn | instrument waar je met een stok op slaat | De jongen slaat op de trommel. | davul | B1 | 4
-het mechaniek | zn | de delen die samen iets laten bewegen | Het mechaniek van de klok is oud. | mekanizma | B2 | vo
-ingenieus | bn | slim en knap bedacht | Wat een ingenieus apparaat! | dâhiyane | B2 | vo
-vernuftig | bn | slim bedacht | Het systeem is heel vernuftig. | ustaca, zekice | C1 | vo
-het ambacht | zn | vak waarbij je met je handen werkt | Orgeldraaien is een oud ambacht. | zanaat | C1 | 8
-vergen | ww | nodig hebben, vragen (van iemand) | Dit werk vergt veel geduld. | gerektirmek | C1 | vo""",
+    "woordenschat": [
+        "n-draaiorgel-w1",
+        "n-draaiorgel-w2",
+        "n-draaiorgel-w3",
+        "n-draaiorgel-w4",
+        "n-draaiorgel-w5",
+        "n-draaiorgel-w6",
+        "n-draaiorgel-w7",
+        "n-draaiorgel-w8",
+        "n-draaiorgel-w9",
+        "n-draaiorgel-w10",
+        "n-draaiorgel-w11",
+        "n-draaiorgel-w12",
+        "n-draaiorgel-w13",
+        "n-draaiorgel-w14",
+        "n-draaiorgel-w15",
+        "n-draaiorgel-w16",
+        "n-draaiorgel-w17",
+        "n-draaiorgel-w18",
+        "n-draaiorgel-w19",
+        "n-draaiorgel-w20",
+        "n-draaiorgel-w21",
+        "n-draaiorgel-w22",
+        "n-draaiorgel-w23"
+    ],
 
     "grammatica": """1) Elke keer als … / zodra … : tijd en voorwaarde
 In de bijzin staat het werkwoord achteraan. Begint de zin met de bijzin, dan komt daarna eerst het werkwoord van de hoofdzin.
