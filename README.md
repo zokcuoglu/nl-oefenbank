@@ -120,3 +120,7 @@ the pages show "about 18 of 25" only as a rough guideline. The writing criteria 
 
 `oyunlar/common.js` `wordInfoOf` adds two kinds of tags at run time: "Kelime incelemesi" for words with a published word study page (`data/woordstudie.json`, date reached) and "Gramer · almak" for the verbs of the lesson `dersler/?les=almak`. The word page (`kelime/`) shows them as "Ayrıntılı anlatım".
 
+## Heard during the day ("Duyduklarından")
+
+Words, idioms and rules Zana hears during the day are added to `data/woordstudie.json` with `"gunluk": true` (any `soort`, `datum` = the day added). They are listed on the daily-speech page (`woordstudie/?bolum=gunluk`, newest first), open at once for every member, are not on the word study lists and are never mailed (`pick_woord` skips them). Each one comes with its relatives and everyday alternatives (`familie`), a short dialogue and 5 questions.
+

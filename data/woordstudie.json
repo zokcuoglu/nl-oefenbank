@@ -8283,6 +8283,208 @@
     "Onze Taal: Wat betekent balen als een stekker en waar komt deze uitdrukking vandaan? – onzetaal.nl",
     "F.A. Stoett, Nederlandsche spreekwoorden, spreekwijzen, uitdrukkingen en gezegden – dbnl.org (de keel uit / den buik vol hebben)"
    ]
+  },
+  {
+   "id": "bomen-bos",
+   "soort": "deyim",
+   "gunluk": true,
+   "datum": "2026-11-24",
+   "woord": "door de bomen het bos niet meer zien",
+   "lidwoord": "",
+   "niveau": "B1",
+   "thema": "gesprek",
+   "tr": "ağaçlardan ormanı görememek; ayrıntılarda boğulmak",
+   "definitie": "Door alle details het belangrijkste niet meer zien; het overzicht kwijt zijn.",
+   "kort": "Türkçedeki “ağaçlardan ormanı görememek” ile aynı resim. Çok fazla ayrıntı, seçenek ya da bilgi yüzünden işin ana hattını kaybetmek. Konuşmada çoğu zaman kendin için söylenir: Ik zie door de bomen het bos niet meer.",
+   "opbouw": [
+    {
+     "deel": "door",
+     "uitleg": "yüzünden, …den dolayı (burada “içinden” değil)"
+    },
+    {
+     "deel": "de bomen",
+     "uitleg": "ağaçlar (ayrıntılar)"
+    },
+    {
+     "deel": "het bos",
+     "uitleg": "orman (bütün, ana resim)"
+    },
+    {
+     "deel": "niet meer zien",
+     "uitleg": "artık görmemek"
+    }
+   ],
+   "geschiedenis": [
+    "Stoett'in deyim sözlüğünde eski yazımla “Door de boomen het bosch niet zien” olarak geçiyor: ayrıntılara bakarken asıl konuyu gözden kaçırmak.",
+    "Bugün çoğu zaman “meer” ile söylenir: niet meer zien = artık göremiyorum. Yani önce görüyordun, ayrıntılar arttıkça kaybettin."
+   ],
+   "verwant": [
+    {
+     "taal": "Türkçe",
+     "woord": "ağaçlardan ormanı görememek",
+     "uitleg": "aynı resim"
+    },
+    {
+     "taal": "İngilizce",
+     "woord": "can't see the wood for the trees",
+     "uitleg": "aynı resim"
+    },
+    {
+     "taal": "Almanca",
+     "woord": "den Wald vor lauter Bäumen nicht sehen",
+     "uitleg": "aynı resim"
+    }
+   ],
+   "familie": [
+    {
+     "nl": "de draad kwijt zijn",
+     "tr": "konunun ipini kaçırmak, ne diyeceğini unutmak"
+    },
+    {
+     "nl": "de kluts kwijt zijn",
+     "tr": "ne yaptığını şaşırmak, kafası karışmak"
+    },
+    {
+     "nl": "het overzicht kwijt zijn",
+     "tr": "genel görünümü kaybetmek"
+    },
+    {
+     "nl": "van streek zijn",
+     "tr": "altüst olmak, keyfi kaçmak"
+    },
+    {
+     "nl": "het overzicht houden",
+     "tr": "işin genel resmini kaybetmemek (tersi)"
+    },
+    {
+     "nl": "even een stapje terug doen",
+     "tr": "bir adım geri çekilip bakmak (çözüm)"
+    },
+    {
+     "nl": "de grote lijnen",
+     "tr": "ana hatlar: Wat zijn de grote lijnen?"
+    }
+   ],
+   "voorbeelden": [
+    {
+     "nl": "Met al die formulieren zie ik door de bomen het bos niet meer.",
+     "tr": "Bu kadar form arasında ağaçlardan ormanı göremiyorum."
+    },
+    {
+     "nl": "Er zijn zoveel soorten pasta, ik zie door de bomen het bos niet meer!",
+     "tr": "O kadar çok makarna çeşidi var ki seçemiyorum, kafam karıştı!"
+    },
+    {
+     "nl": "Sorry, ik ben de draad even kwijt. Waar hadden we het over?",
+     "tr": "Pardon, konunun ipini kaçırdım. Neden bahsediyorduk?"
+    },
+    {
+     "nl": "Laten we even de grote lijnen op een rij zetten.",
+     "tr": "Hadi ana hatları bir sıraya koyalım."
+    }
+   ],
+   "dialoog": [
+    {
+     "nl": "A: Hoe gaat het met de verhuizing?",
+     "tr": "A: Taşınma nasıl gidiyor?"
+    },
+    {
+     "nl": "B: Pff, dozen, papieren, de gemeente … Ik zie door de bomen het bos niet meer.",
+     "tr": "B: Off, kutular, evraklar, belediye … Neyin ne olduğunu karıştırdım."
+    },
+    {
+     "nl": "A: Zullen we even een lijstje maken? Dan houd je het overzicht.",
+     "tr": "A: Bir liste yapalım mı? Böylece işin genel resmini kaybetmezsin."
+    },
+    {
+     "nl": "B: Goed idee. Eerst de grote lijnen, dan de details.",
+     "tr": "B: İyi fikir. Önce ana hatlar, sonra ayrıntılar."
+    }
+   ],
+   "gramer": {
+    "titel": "Sözlükte mastar, cümlede çekimli",
+    "tekst": "Sözlükte mastar haliyle yazılır: door de bomen het bos niet meer zien. Cümlede zien çekilir ve ikinci sıraya gelir; geri kalan aynı kalır. Geçmiş: Ik zag door de bomen het bos niet meer.",
+    "voorbeelden": [
+     {
+      "nl": "Ik zie door de bomen het bos niet meer.",
+      "tr": "Ağaçlardan ormanı göremiyorum."
+     },
+     {
+      "nl": "Hij ziet door de bomen het bos niet meer.",
+      "tr": "O, ayrıntılarda boğuluyor."
+     },
+     {
+      "nl": "Ik zag door de bomen het bos niet meer.",
+      "tr": "Ayrıntılarda boğulmuştum."
+     }
+    ]
+   },
+   "weetje": "İş yerinde biri bunu söylerse çoğu zaman yardım istiyordur: ona “Zullen we de grote lijnen op een rij zetten?” (Ana hatları bir sıralayalım mı?) demek iyi bir cevap.",
+   "vragen": [
+    {
+     "id": "gd-bos1",
+     "type": "mc",
+     "vraag": "“Ik zie door de bomen het bos niet meer.” ne demek?",
+     "opties": [
+      "Ormanda kayboldum.",
+      "Ayrıntılarda boğuldum, ana resmi kaybettim.",
+      "Ağaçlar çok güzel."
+     ],
+     "juist": 1,
+     "uitleg": "ayrıntı çok → bütünü göremiyorum."
+    },
+    {
+     "id": "gd-bos2",
+     "type": "mc",
+     "vraag": "Burada “door” ne demek?",
+     "opties": [
+      "içinden",
+      "yüzünden",
+      "tarafından"
+     ],
+     "juist": 1,
+     "uitleg": "door de bomen = ağaçlar yüzünden."
+    },
+    {
+     "id": "gd-bos3",
+     "type": "mc",
+     "vraag": "Konuşurken ne diyeceğini unuttun. Hangisi?",
+     "opties": [
+      "Ik ben de draad kwijt.",
+      "Ik ben van streek."
+     ],
+     "juist": 0,
+     "uitleg": "de draad kwijt zijn = konunun ipini kaçırmak."
+    },
+    {
+     "id": "gd-bos4",
+     "type": "mc",
+     "vraag": "Arkadaşın bu deyimi söyledi. İyi bir cevap?",
+     "opties": [
+      "Zullen we de grote lijnen op een rij zetten?",
+      "Ga dan naar het bos."
+     ],
+     "juist": 0,
+     "uitleg": "ana hatlar = çözüm."
+    },
+    {
+     "id": "gd-bos5",
+     "type": "type",
+     "tr": "Ağaçlardan ormanı göremiyorum.",
+     "antwoorden": [
+      "Ik zie door de bomen het bos niet meer",
+      "Ik zie door de bomen het bos niet"
+     ],
+     "uitleg": "zien ikinci sırada."
+    }
+   ],
+   "bronnen": [
+    "Stoett (DBNL): Door de boomen het bosch niet zien",
+    "Wiktionary / Kaikki: door de bomen het bos niet meer zien",
+    "phrases.org.uk: can't see the wood for the trees",
+    "Stoett (DBNL): den draad kwijt zijn; van streek zijn",
+    "Onze Taal: de kluts kwijtraken"
+   ]
   }
  ]
 }
