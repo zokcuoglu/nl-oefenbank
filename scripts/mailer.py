@@ -816,7 +816,7 @@ def run_brief(db, sender, now, dry_run=False, force=False):
     for email in sorted(subs):
         plain, inner = brief_mail(week, nieuw, f"Merhaba {first_name(subs[email])},", tanitim)
         body = plain + f"\n\n--\nNL Oefenbank · {SITE}\n{NOTE_BRIEF}\nAbonelikten çık: {SITE}profile.html"
-        sender.send(email, f"🇳🇱 Haftanın Hollandacası: {week['deyim']['nl']}", body, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
+        sender.send(email, f"🇳🇱 Haftanın Hollandacası: {word_entry(week['deyim'])['nl']}", body, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
     print(f"brief: {week['id']} -> {len(subs)} recipients, {len(nieuw)} new-on-site lines")
     if not dry_run:
         log_col.document(f"brief-{today}").set({"job": "brief", "date": today, "week_id": week["id"], "sent_at": iso(now), "mails": len(subs),
@@ -979,7 +979,7 @@ def run_test(db, sender, now, to):
         or min((w for w in data["weken"] if w["id"] not in sent_ids), key=lambda w: w["datum"], default=None)
     if week:
         plain, inner = brief_mail(week, data.get("nieuw", [])[-3:][::-1], f"Merhaba {first_name(u)},")
-        sender.send(to, f"[TEST] 🇳🇱 Haftanın Hollandacası: {week['deyim']['nl']}", plain, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
+        sender.send(to, f"[TEST] 🇳🇱 Haftanın Hollandacası: {word_entry(week['deyim'])['nl']}", plain, html_body=html_wrap("Haftanın Hollandacası", inner, NOTE_BRIEF))
     # "Kelime incelemesi": the word that would go out next (even if its date is still ahead)
     wl = [x for x in (d.to_dict() for d in db.collection("mail_log").stream()) if x.get("job") == "woord"]
     wlogs = {x.get("woord_id") for x in wl} | {i for x in wl for i in x.get("extra_ids", [])}
